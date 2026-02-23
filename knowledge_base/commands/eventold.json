@@ -1,0 +1,28 @@
+{
+  "name": "eventold",
+  "syntax": "/eventold entity <target: target> <eventName: string>",
+  "description": "旧版实体事件触发命令",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标实体"
+    },
+    {
+      "name": "eventName",
+      "type": "string",
+      "required": true,
+      "description": "行为包中定义的事件名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/eventold entity @e[type=zombie] minecraft:start_transforming",
+      "description": "触发僵尸的变身事件"
+    }
+  ],
+  "bedrock_specific_notes": "eventold是event命令的旧版保留。建议使用event命令。",
+  "version_added": "1.16.0"
+}

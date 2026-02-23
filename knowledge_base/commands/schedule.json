@@ -1,0 +1,56 @@
+{
+  "name": "schedule",
+  "syntax": "/schedule on_area_loaded add <from: x y z> <to: x y z> <function: FilePath> | /schedule on_area_loaded add circle <center: x y z> <radius: int> <function: FilePath> | /schedule on_area_loaded add tickingarea <name: string> <function: FilePath>",
+  "description": "计划在指定区域加载后执行函数",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": false,
+      "description": "区域起始坐标（矩形模式）"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": false,
+      "description": "区域结束坐标（矩形模式）"
+    },
+    {
+      "name": "center",
+      "type": "x y z",
+      "required": false,
+      "description": "圆心坐标（圆形模式）"
+    },
+    {
+      "name": "radius",
+      "type": "int",
+      "required": false,
+      "description": "半径（圆形模式）"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "常加载区域名称（tickingarea模式）"
+    },
+    {
+      "name": "function",
+      "type": "FilePath",
+      "required": true,
+      "description": "区域加载后要执行的函数文件路径"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/schedule on_area_loaded add 0 0 0 100 256 100 init_area",
+      "description": "当指定矩形区域加载完成后执行init_area函数"
+    },
+    {
+      "input": "/schedule on_area_loaded add circle 0 64 0 50 setup",
+      "description": "当以(0,64,0)为圆心半径50的区域加载后执行setup函数"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版的schedule命令与Java版完全不同。基岩版仅支持on_area_loaded事件，即在指定区域的区块加载完成后执行函数。不支持Java版的基于时间延迟的schedule。",
+  "version_added": "1.16.210"
+}

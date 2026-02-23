@@ -1,0 +1,84 @@
+{
+  "name": "structure",
+  "syntax": "/structure save <name: string> <from: x y z> <to: x y z> [saveMode: disk|memory] [includesEntities: Boolean] [includesBlocks: Boolean] | /structure load <name: string> <to: x y z> [rotation: 0_degrees|90_degrees|180_degrees|270_degrees] [mirror: none|x|z|xz] [animationMode: block_by_block|layer_by_layer] [animationSeconds: float] [includesEntities: Boolean] [includesBlocks: Boolean] [waterlogged: Boolean] [integrity: float] [seed: string] | /structure delete <name: string>",
+  "description": "保存、加载或删除结构",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "结构名称，可包含命名空间如 mystructure:house"
+    },
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "保存区域的起始坐标（save模式）"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "保存区域的结束坐标（save模式）或加载位置（load模式）"
+    },
+    {
+      "name": "saveMode",
+      "type": "disk|memory",
+      "required": false,
+      "description": "保存方式。disk=保存到文件，memory=保存到内存（临时）",
+      "default": "memory"
+    },
+    {
+      "name": "rotation",
+      "type": "0_degrees|90_degrees|180_degrees|270_degrees",
+      "required": false,
+      "description": "加载时的旋转角度",
+      "default": "0_degrees"
+    },
+    {
+      "name": "mirror",
+      "type": "none|x|z|xz",
+      "required": false,
+      "description": "加载时的镜像方式",
+      "default": "none"
+    },
+    {
+      "name": "includesEntities",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否包含实体",
+      "default": "true"
+    },
+    {
+      "name": "includesBlocks",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否包含方块",
+      "default": "true"
+    },
+    {
+      "name": "integrity",
+      "type": "float",
+      "required": false,
+      "description": "结构完整度（0.0-100.0），低于100会随机移除方块",
+      "default": "100.0"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/structure save myhouse 0 64 0 10 74 10 disk",
+      "description": "将坐标区域内的结构保存为myhouse到磁盘"
+    },
+    {
+      "input": "/structure load myhouse 20 64 0 90_degrees",
+      "description": "在指定位置加载myhouse结构并旋转90度"
+    },
+    {
+      "input": "/structure delete myhouse",
+      "description": "删除名为myhouse的结构"
+    }
+  ],
+  "bedrock_specific_notes": "structure命令是基岩版特有的，Java版使用结构方块实现类似功能。保存到disk的结构文件为.mcstructure格式，存放在世界文件夹的structures目录中。支持动画加载模式(block_by_block和layer_by_layer)。",
+  "version_added": "1.13.0"
+}

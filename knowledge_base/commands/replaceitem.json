@@ -1,0 +1,75 @@
+{
+  "name": "replaceitem",
+  "syntax": "/replaceitem block <position: x y z> slot.container <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json] | /replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+  "description": "替换方块或实体指定槽位中的物品",
+  "category": "item_management",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "目标容器方块的坐标（block模式）"
+    },
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标实体（entity模式）"
+    },
+    {
+      "name": "slotType",
+      "type": "EntityEquipmentSlot",
+      "required": true,
+      "description": "装备槽位类型：slot.weapon.mainhand、slot.weapon.offhand、slot.armor.head、slot.armor.chest、slot.armor.legs、slot.armor.feet、slot.hotbar、slot.inventory、slot.enderchest、slot.saddle、slot.armor、slot.chest"
+    },
+    {
+      "name": "slotId",
+      "type": "int",
+      "required": true,
+      "description": "槽位编号，从0开始"
+    },
+    {
+      "name": "itemName",
+      "type": "Item",
+      "required": true,
+      "description": "要放入的物品ID"
+    },
+    {
+      "name": "amount",
+      "type": "int",
+      "required": false,
+      "description": "物品数量",
+      "default": "1",
+      "range": "1-64"
+    },
+    {
+      "name": "data",
+      "type": "int",
+      "required": false,
+      "description": "物品数据值",
+      "default": "0"
+    },
+    {
+      "name": "components",
+      "type": "json",
+      "required": false,
+      "description": "物品组件JSON数据"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/replaceitem entity @s slot.weapon.mainhand 0 diamond_sword",
+      "description": "将自己主手替换为钻石剑"
+    },
+    {
+      "input": "/replaceitem entity @a slot.armor.head 0 diamond_helmet",
+      "description": "给所有玩家头部装上钻石头盔"
+    },
+    {
+      "input": "/replaceitem block 0 64 0 slot.container 0 diamond 64",
+      "description": "在坐标(0,64,0)的容器第一个槽位放入64个钻石"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版使用replaceitem而非Java版的item replace命令。槽位类型名称与Java版不同，基岩版使用slot.weapon.mainhand等格式。",
+  "version_added": "1.0.0"
+}

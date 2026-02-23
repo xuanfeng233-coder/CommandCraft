@@ -1,0 +1,19 @@
+{
+  "name": "debug",
+  "syntax": "/debug start | /debug stop | /debug crash",
+  "description": "管理调试模式和性能分析",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/debug start",
+      "description": "开始性能分析记录"
+    },
+    {
+      "input": "/debug stop",
+      "description": "停止性能分析并输出结果"
+    }
+  ],
+  "bedrock_specific_notes": "debug命令在基岩版中用于性能分析。start/stop用于记录性能数据。crash子命令仅在开发版本中可用。在专用服务器上使用可以帮助诊断性能问题。",
+  "version_added": "1.0.0"
+}

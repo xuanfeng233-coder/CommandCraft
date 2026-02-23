@@ -1,0 +1,46 @@
+{
+  "name": "hud",
+  "syntax": "/hud <target: target> <visible: hide|reset> [hud_element: HudElement]",
+  "description": "控制玩家HUD界面元素的显示和隐藏",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "visible",
+      "type": "hide|reset",
+      "required": true,
+      "description": "hide=隐藏HUD元素，reset=恢复显示"
+    },
+    {
+      "name": "hud_element",
+      "type": "HudElement",
+      "required": false,
+      "description": "HUD元素类型：paperdoll（纸娃娃）、armor（护甲栏）、tooltips（工具提示）、touch_controls（触控按钮）、crosshair（准心）、hotbar（快捷栏）、health（生命值）、progress_bar（经验条）、hunger（饥饿值）、air_bubbles（氧气泡）、horse_health（马的生命值）、status_effects（状态效果图标）、item_text（物品文字）。省略则影响所有HUD元素"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/hud @a hide",
+      "description": "隐藏所有玩家的全部HUD元素"
+    },
+    {
+      "input": "/hud @a hide hotbar",
+      "description": "隐藏所有玩家的快捷栏"
+    },
+    {
+      "input": "/hud @a reset",
+      "description": "恢复所有玩家的全部HUD元素"
+    },
+    {
+      "input": "/hud @a hide health",
+      "description": "隐藏所有玩家的生命值显示"
+    }
+  ],
+  "bedrock_specific_notes": "hud命令是基岩版1.20.0+新增的命令，用于在地图制作中控制界面显示。配合camera和inputpermission命令可以制作沉浸式体验。Java版没有等价命令。",
+  "version_added": "1.20.0"
+}

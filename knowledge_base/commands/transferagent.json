@@ -1,0 +1,22 @@
+{
+  "name": "transferagent",
+  "syntax": "/transferagent <targetPlayer: target>",
+  "description": "将Agent转移给另一个玩家（教育版特性）",
+  "category": "agent",
+  "parameters": [
+    {
+      "name": "targetPlayer",
+      "type": "target",
+      "required": true,
+      "description": "接收Agent的目标玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/transferagent @p",
+      "description": "将自己的Agent转移给最近的玩家"
+    }
+  ],
+  "bedrock_specific_notes": "transferagent是基岩版教育版特有命令。将当前玩家的Agent所有权转移给另一个玩家。需要启用教育版功能。",
+  "version_added": "1.0.0"
+}

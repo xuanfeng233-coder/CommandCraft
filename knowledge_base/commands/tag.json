@@ -1,0 +1,56 @@
+{
+  "name": "tag",
+  "syntax": "/tag <entity: target> <add|remove|list> [name: string]",
+  "description": "管理实体的标签，用于标记和分组实体",
+  "category": "entity_management",
+  "parameters": [
+    {
+      "name": "entity",
+      "type": "target",
+      "required": true,
+      "description": "要操作标签的目标实体"
+    },
+    {
+      "name": "add <name: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "为目标添加指定标签"
+    },
+    {
+      "name": "remove <name: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "移除目标的指定标签"
+    },
+    {
+      "name": "list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出目标拥有的所有标签"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tag @s add admin",
+      "description": "给自己添加admin标签"
+    },
+    {
+      "input": "/tag @e[type=zombie] add boss",
+      "description": "给所有僵尸添加boss标签"
+    },
+    {
+      "input": "/tag @s remove admin",
+      "description": "移除自己的admin标签"
+    },
+    {
+      "input": "/tag @s list",
+      "description": "列出自己拥有的所有标签"
+    },
+    {
+      "input": "/kill @e[tag=temp]",
+      "description": "（配合使用）杀死所有带有temp标签的实体"
+    }
+  ],
+  "bedrock_specific_notes": "标签在基岩版中广泛用于选择器过滤（tag=xxx 或 tag=!xxx）。每个实体可以拥有多个标签。标签名区分大小写。标签常用于代替Java版的team系统进行实体分组管理。",
+  "version_added": "1.7.0"
+}

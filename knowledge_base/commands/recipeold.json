@@ -1,0 +1,28 @@
+{
+  "name": "recipeold",
+  "syntax": "/recipeold give <player: target> <recipe: string> | /recipeold take <player: target> <recipe: string>",
+  "description": "旧版合成配方管理命令",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "recipe",
+      "type": "string",
+      "required": true,
+      "description": "配方名称，使用*表示所有配方"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/recipeold give @a *",
+      "description": "旧版语法给予所有玩家全部配方"
+    }
+  ],
+  "bedrock_specific_notes": "recipeold是recipe命令的旧版保留。建议使用recipe命令。",
+  "version_added": "1.19.0"
+}

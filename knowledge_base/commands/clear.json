@@ -1,0 +1,51 @@
+{
+  "name": "clear",
+  "syntax": "/clear [player: target] [itemName: Item] [data: int] [maxCount: int]",
+  "description": "清除玩家物品栏中的指定物品",
+  "category": "item_management",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "要清除物品的玩家，默认为命令执行者",
+      "default": "@s"
+    },
+    {
+      "name": "itemName",
+      "type": "Item",
+      "required": false,
+      "description": "要清除的物品ID。省略则清除所有物品"
+    },
+    {
+      "name": "data",
+      "type": "int",
+      "required": false,
+      "description": "物品的数据值，用于筛选特定变种",
+      "default": "-1"
+    },
+    {
+      "name": "maxCount",
+      "type": "int",
+      "required": false,
+      "description": "最多清除的数量。设为0时仅检测而不实际清除",
+      "default": "全部"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clear @s",
+      "description": "清除自己物品栏中的所有物品"
+    },
+    {
+      "input": "/clear @a diamond",
+      "description": "清除所有玩家身上的钻石"
+    },
+    {
+      "input": "/clear @p diamond_sword -1 0",
+      "description": "检测最近玩家是否持有钻石剑（不实际清除）"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版的clear命令支持data参数来指定数据值。maxCount设为0可以用于检测玩家是否持有某物品而不实际清除。",
+  "version_added": "1.0.0"
+}

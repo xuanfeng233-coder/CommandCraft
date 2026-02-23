@@ -1,0 +1,68 @@
+{
+  "name": "title",
+  "syntax": "/title <player: target> clear | /title <player: target> reset | /title <player: target> <titleLocation: actionbar|title|subtitle> <titleText: message> | /title <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>",
+  "description": "在玩家屏幕上显示纯文本标题",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "titleLocation",
+      "type": "actionbar|title|subtitle",
+      "required": false,
+      "description": "文本显示位置：title（主标题）、subtitle（副标题）、actionbar（快捷栏上方）"
+    },
+    {
+      "name": "titleText",
+      "type": "message",
+      "required": false,
+      "description": "要显示的文本内容（纯文本，非JSON）"
+    },
+    {
+      "name": "fadeIn",
+      "type": "int",
+      "required": false,
+      "description": "淡入时间（游戏刻）"
+    },
+    {
+      "name": "stay",
+      "type": "int",
+      "required": false,
+      "description": "停留时间（游戏刻）"
+    },
+    {
+      "name": "fadeOut",
+      "type": "int",
+      "required": false,
+      "description": "淡出时间（游戏刻）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/title @a title 欢迎来到服务器！",
+      "description": "向所有玩家显示标题文本"
+    },
+    {
+      "input": "/title @a subtitle 祝你游戏愉快",
+      "description": "向所有玩家显示副标题"
+    },
+    {
+      "input": "/title @a actionbar 当前等级：5",
+      "description": "在所有玩家的快捷栏上方显示文本"
+    },
+    {
+      "input": "/title @a times 20 60 20",
+      "description": "设置标题时间：1秒淡入、3秒停留、1秒淡出"
+    },
+    {
+      "input": "/title @a clear",
+      "description": "清除所有玩家当前显示的标题"
+    }
+  ],
+  "bedrock_specific_notes": "title命令显示纯文本。如需JSON格式富文本（包含颜色、分数等），请使用titleraw命令。基岩版title命令与Java版语法基本相同。",
+  "version_added": "1.0.5"
+}

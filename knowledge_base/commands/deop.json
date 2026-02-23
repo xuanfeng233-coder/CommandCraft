@@ -1,0 +1,22 @@
+{
+  "name": "deop",
+  "syntax": "/deop <player: target>",
+  "description": "移除玩家的操作员权限",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "要移除操作员权限的玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/deop Steve",
+      "description": "移除Steve的操作员权限"
+    }
+  ],
+  "bedrock_specific_notes": "deop命令只能由操作员或服务器控制台执行。被deop的玩家将立即失去使用管理命令的能力。",
+  "version_added": "1.0.0"
+}

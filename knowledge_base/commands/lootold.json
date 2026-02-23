@@ -1,0 +1,40 @@
+{
+  "name": "lootold",
+  "syntax": "/lootold spawn <position: x y z> loot <lootTable: string> [tool: string] | /lootold give <player: target> loot <lootTable: string> [tool: string]",
+  "description": "旧版战利品表命令",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": false,
+      "description": "掉落物生成位置"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "接收物品的目标玩家"
+    },
+    {
+      "name": "lootTable",
+      "type": "string",
+      "required": true,
+      "description": "战利品表路径"
+    },
+    {
+      "name": "tool",
+      "type": "string",
+      "required": false,
+      "description": "模拟使用的工具"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/lootold spawn ~ ~ ~ loot \"loot_tables/chests/simple_dungeon.json\"",
+      "description": "在当前位置生成地牢宝箱战利品"
+    }
+  ],
+  "bedrock_specific_notes": "lootold是loot命令的旧版本保留。建议使用新版loot命令。",
+  "version_added": "1.16.0"
+}

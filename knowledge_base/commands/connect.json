@@ -1,0 +1,22 @@
+{
+  "name": "connect",
+  "syntax": "/connect <serverUri: string>",
+  "description": "连接到WebSocket服务器",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "serverUri",
+      "type": "string",
+      "required": true,
+      "description": "WebSocket服务器URI地址"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/connect ws://localhost:8080",
+      "description": "连接到本地8080端口的WebSocket服务器"
+    }
+  ],
+  "bedrock_specific_notes": "connect命令也可以使用别名/wsserver。用于将游戏客户端连接到外部WebSocket服务器，实现与外部程序的双向通信。Java版没有此功能。出于安全考虑，部分平台可能限制此命令的使用。",
+  "version_added": "1.2.0"
+}

@@ -1,0 +1,295 @@
+[
+  {
+    "input": "做一个每5秒清理地面掉落物的系统",
+    "output": {
+      "type": "project",
+      "project_name": "定时掉落物清理系统",
+      "overview": "使用循环命令方块配合延迟，每5秒清理所有掉落物实体",
+      "phases": [
+        {
+          "phase_name": "核心清理机制",
+          "description": "设置定时清理命令方块链",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "每5秒清理所有掉落物并通知玩家",
+              "commands": ["kill", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/kill @e[type=item]",
+                  "comment": "循环清理所有掉落物实体"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§a掉落物已清理\"}]}",
+                  "comment": "通知所有玩家"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["kill", "titleraw"]
+  },
+  {
+    "input": "做一个击杀计分板系统，追踪每个玩家的击杀数并显示在侧边栏",
+    "output": {
+      "type": "project",
+      "project_name": "击杀计分板追踪系统",
+      "overview": "创建计分板目标追踪击杀数，显示在侧边栏，使用命令方块持续检测和更新",
+      "phases": [
+        {
+          "phase_name": "初始化阶段",
+          "description": "创建计分板目标并设置显示",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建kills计分板并设置侧边栏显示",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add kills dummy \"击杀数\"",
+                  "comment": "创建击杀计分板目标（一次性执行）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives setdisplay sidebar kills",
+                  "comment": "设置侧边栏显示"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "运行阶段",
+          "description": "持续追踪玩家击杀并初始化新玩家分数",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "为新玩家初始化分数",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a kills 0",
+                  "comment": "循环为所有玩家初始化分数（已有分数的不受影响）"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard"]
+  },
+  {
+    "input": "做一个传送门系统，玩家站在铁块上就传送到另一个位置",
+    "output": {
+      "type": "project",
+      "project_name": "方块传送门系统",
+      "overview": "检测玩家脚下的铁块，触发传送到目标位置，传送后添加冷却标签防止重复触发",
+      "phases": [
+        {
+          "phase_name": "传送检测与执行",
+          "description": "持续检测站在铁块上的玩家并传送",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测脚下铁块并传送玩家（带冷却）",
+              "commands": ["execute", "tp", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!tp_cooldown] at @s if block ~ ~-1 ~ iron_block run tp @s 100 64 100",
+                  "comment": "检测脚下铁块并传送（排除冷却中的玩家）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=!tp_cooldown] add tp_cooldown",
+                  "comment": "传送成功后添加冷却标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=tp_cooldown] unless block ~ ~-1 ~ iron_block run tag @s remove tp_cooldown",
+                  "comment": "离开铁块后移除冷却标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "tp", "tag"]
+  },
+  {
+    "input": "做一个简单的商店系统，玩家用金锭购买钻石",
+    "output": {
+      "type": "project",
+      "project_name": "金锭兑换钻石商店",
+      "overview": "检测玩家手持金锭，扣除金锭并给予钻石，使用计分板追踪交易状态",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建商店所需的计分板和标签",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建交易计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add shop_buy dummy",
+                  "comment": "创建购买状态计分板（一次性执行）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "交易检测与执行",
+          "description": "持续运行的交易逻辑",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "检测并执行金锭→钻石交易",
+              "commands": ["execute", "clear", "give", "scoreboard", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] at @s run clear @s gold_ingot 0 5",
+                  "comment": "扣除有购买标签玩家的5个金锭"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] run give @s diamond 1",
+                  "comment": "给予1个钻石"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] run titleraw @s actionbar {\"rawtext\":[{\"text\":\"§a交易成功！获得1颗钻石\"}]}",
+                  "comment": "显示交易成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_diamond] remove buy_diamond",
+                  "comment": "移除购买标签"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "clear", "give", "scoreboard", "titleraw", "tag"]
+  },
+  {
+    "input": "做一个PVP竞技场倒计时系统",
+    "output": {
+      "type": "project",
+      "project_name": "PVP竞技场倒计时系统",
+      "overview": "使用计分板实现倒计时，显示在动作栏，倒计时结束后开始PVP",
+      "phases": [
+        {
+          "phase_name": "初始化阶段",
+          "description": "创建计时器计分板并设置初始值",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建倒计时计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add timer dummy \"倒计时\"",
+                  "comment": "创建倒计时计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set countdown timer 200",
+                  "comment": "设置倒计时为200tick（10秒）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "倒计时运行",
+          "description": "持续减少计时器并在动作栏显示",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "每tick减少计时器并显示",
+              "commands": ["scoreboard", "titleraw", "execute"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 1.. run scoreboard players remove countdown timer 1",
+                  "comment": "每tick减少倒计时（仅当>0时）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 1.. run titleraw @a actionbar {\"rawtext\":[{\"text\":\"§e倒计时: \"},{\"score\":{\"name\":\"countdown\",\"objective\":\"timer\"}}]}",
+                  "comment": "在动作栏显示剩余时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 0 run titleraw @a title {\"rawtext\":[{\"text\":\"§c§lGO!\"}]}",
+                  "comment": "倒计时归零时显示开始标题"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "titleraw", "execute"]
+  }
+]

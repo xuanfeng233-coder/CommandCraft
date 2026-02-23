@@ -1,0 +1,22 @@
+{
+  "name": "gettopsolidblock",
+  "syntax": "/gettopsolidblock <position: x z>",
+  "description": "获取指定水平坐标上最高的固体方块的Y坐标",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x z",
+      "required": true,
+      "description": "水平坐标（X和Z）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gettopsolidblock 0 0",
+      "description": "获取坐标(0,0)处最高固体方块的高度"
+    }
+  ],
+  "bedrock_specific_notes": "gettopsolidblock是基岩版特有命令，用于查询指定XZ坐标上最高固体方块的Y坐标。WebSocket连接时常用于地形分析。",
+  "version_added": "1.2.0"
+}

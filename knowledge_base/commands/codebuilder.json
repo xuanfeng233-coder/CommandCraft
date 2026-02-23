@@ -1,0 +1,22 @@
+{
+  "name": "codebuilder",
+  "syntax": "/codebuilder [url: string]",
+  "description": "打开代码建造器编程界面（教育版特性）",
+  "category": "education",
+  "parameters": [
+    {
+      "name": "url",
+      "type": "string",
+      "required": false,
+      "description": "代码建造器的URL地址"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/codebuilder",
+      "description": "打开默认的代码建造器界面"
+    }
+  ],
+  "bedrock_specific_notes": "codebuilder是基岩版教育版特有命令。用于打开MakeCode等可视化编程工具来控制Agent和世界。需要启用教育版功能。",
+  "version_added": "1.0.0"
+}

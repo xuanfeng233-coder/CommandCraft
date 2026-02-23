@@ -1,0 +1,60 @@
+{
+  "name": "whitelist",
+  "syntax": "/whitelist <add|remove|list|on|off|reload> [name: string]",
+  "description": "管理服务器白名单",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "add <name: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "将玩家添加到白名单"
+    },
+    {
+      "name": "remove <name: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "将玩家从白名单移除"
+    },
+    {
+      "name": "list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出白名单中的所有玩家"
+    },
+    {
+      "name": "on",
+      "type": "子命令",
+      "required": false,
+      "description": "开启白名单功能"
+    },
+    {
+      "name": "off",
+      "type": "子命令",
+      "required": false,
+      "description": "关闭白名单功能"
+    },
+    {
+      "name": "reload",
+      "type": "子命令",
+      "required": false,
+      "description": "从文件重新加载白名单"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/whitelist add Steve",
+      "description": "将Steve添加到白名单"
+    },
+    {
+      "input": "/whitelist on",
+      "description": "开启白名单功能，只有白名单中的玩家可以加入"
+    },
+    {
+      "input": "/whitelist list",
+      "description": "显示白名单中的所有玩家"
+    }
+  ],
+  "bedrock_specific_notes": "whitelist命令仅在基岩版专用服务器(BDS)中可用。白名单数据存储在whitelist.json文件中。开启白名单后，不在列表中的玩家无法加入服务器。",
+  "version_added": "1.0.0"
+}

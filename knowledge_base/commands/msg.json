@@ -1,0 +1,32 @@
+{
+  "name": "msg",
+  "syntax": "/msg <target: target> <message: message>",
+  "description": "向指定玩家发送私聊消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "接收消息的玩家"
+    },
+    {
+      "name": "message",
+      "type": "message",
+      "required": true,
+      "description": "要发送的私聊消息内容"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/msg @p 你好！",
+      "description": "向最近的玩家发送私聊消息'你好！'"
+    },
+    {
+      "input": "/msg @a 游戏即将结束",
+      "description": "向所有玩家发送私聊消息"
+    }
+  ],
+  "bedrock_specific_notes": "msg命令也可以使用别名/tell或/w。私聊消息只有发送者和接收者能看到。消息格式为'<发送者名字> 悄悄地对你说: 消息内容'。",
+  "version_added": "1.0.0"
+}

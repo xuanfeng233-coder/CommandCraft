@@ -1,0 +1,15 @@
+{
+  "name": "stop",
+  "syntax": "/stop",
+  "description": "关闭专用服务器",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/stop",
+      "description": "安全关闭Bedrock专用服务器"
+    }
+  ],
+  "bedrock_specific_notes": "stop命令仅在Bedrock Dedicated Server（BDS）中可用。执行后服务器会保存所有数据然后关闭。",
+  "version_added": "1.0.0"
+}

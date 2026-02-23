@@ -1,0 +1,26 @@
+{
+  "name": "immutableworld",
+  "syntax": "/immutableworld [value: Boolean]",
+  "description": "设置世界为不可修改状态",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "Boolean",
+      "required": false,
+      "description": "true开启不可修改（玩家无法破坏或放置方块），false关闭。不指定则切换状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/immutableworld true",
+      "description": "开启世界不可修改模式"
+    },
+    {
+      "input": "/immutableworld false",
+      "description": "关闭世界不可修改模式"
+    }
+  ],
+  "bedrock_specific_notes": "immutableworld是基岩版教育版/特有命令。启用后玩家无法破坏或放置方块，类似冒险模式但不影响游戏模式。Java版没有等价命令。",
+  "version_added": "1.0.0"
+}

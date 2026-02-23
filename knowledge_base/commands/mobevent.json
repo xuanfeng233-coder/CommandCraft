@@ -1,0 +1,36 @@
+{
+  "name": "mobevent",
+  "syntax": "/mobevent <event: MobEvent> [value: Boolean]",
+  "description": "控制生物事件的启用和禁用",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "event",
+      "type": "MobEvent",
+      "required": true,
+      "description": "生物事件类型：minecraft:pillager_patrols_event（掠夺者巡逻）、minecraft:wandering_trader_event（流浪商人生成）、minecraft:ender_dragon_event（末影龙事件）、events_enabled（所有事件总开关）"
+    },
+    {
+      "name": "value",
+      "type": "Boolean",
+      "required": false,
+      "description": "true=启用，false=禁用。省略则查询当前状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/mobevent minecraft:pillager_patrols_event false",
+      "description": "禁用掠夺者巡逻事件"
+    },
+    {
+      "input": "/mobevent minecraft:wandering_trader_event false",
+      "description": "禁止流浪商人生成"
+    },
+    {
+      "input": "/mobevent events_enabled false",
+      "description": "禁用所有生物事件"
+    }
+  ],
+  "bedrock_specific_notes": "mobevent命令是基岩版特有的，用于精细控制特定生物事件。Java版没有等价命令，需要通过游戏规则或数据包实现类似效果。events_enabled为总开关，设为false将禁用所有生物事件。",
+  "version_added": "1.11.0"
+}

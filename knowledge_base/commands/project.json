@@ -1,0 +1,22 @@
+{
+  "name": "project",
+  "syntax": "/project <action: string>",
+  "description": "管理编辑器项目（基岩版编辑器模式）",
+  "category": "editor",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": true,
+      "description": "项目操作动作"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/project export",
+      "description": "导出当前编辑器项目"
+    }
+  ],
+  "bedrock_specific_notes": "project命令仅在基岩版编辑器模式中可用。编辑器模式是基岩版的世界建造工具，类似于Java版的WorldEdit概念。",
+  "version_added": "1.20.0"
+}

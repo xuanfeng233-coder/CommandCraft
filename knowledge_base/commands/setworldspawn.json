@@ -1,0 +1,26 @@
+{
+  "name": "setworldspawn",
+  "syntax": "/setworldspawn [spawnPoint: x y z]",
+  "description": "设置世界的默认出生点",
+  "category": "spawn",
+  "parameters": [
+    {
+      "name": "spawnPoint",
+      "type": "x y z",
+      "required": false,
+      "description": "世界出生点坐标，默认为当前位置"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setworldspawn",
+      "description": "将世界出生点设为当前位置"
+    },
+    {
+      "input": "/setworldspawn 0 64 0",
+      "description": "将世界出生点设为坐标(0,64,0)"
+    }
+  ],
+  "bedrock_specific_notes": "此命令设置的是世界默认出生点，新玩家加入或没有个人重生点的玩家死亡后会在此位置重生。与spawnpoint设置个人重生点不同。",
+  "version_added": "1.0.0"
+}

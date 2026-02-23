@@ -1,0 +1,113 @@
+[
+  {
+    "input": "向所有玩家显示红色的欢迎信息包含玩家名",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"rawtext\":[{\"text\":\"§c欢迎 \"},{\"selector\":\"@s\"},{\"text\":\" 来到服务器！\"}]}",
+        "explanation": "组件1: §c 红色 + 欢迎文字\n组件2: @s 显示命令执行者名称\n组件3: 后续文字",
+        "preview": "§c欢迎 Steve 来到服务器！",
+        "variants": [],
+        "warnings": ["§c 红色效果会持续到 §r 重置"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "在屏幕中间显示一个大标题写着游戏开始",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§6§l游戏开始！\"}]}",
+        "explanation": "titleraw title = 显示大标题\n§6 = 金色\n§l = 加粗\n游戏开始！ = 显示文本",
+        "preview": "§6§l游戏开始！",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["titleraw"]
+  },
+  {
+    "input": "在动作栏显示玩家的击杀数",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§e击杀数: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"kills\"}}]}",
+        "explanation": "titleraw actionbar = 显示在动作栏\n组件1: §e 黄色文字\n组件2: score 组件显示 @s 在 kills 计分板的分数",
+        "preview": "§e击杀数: 5",
+        "variants": [],
+        "warnings": ["需要先创建 kills 计分板目标"]
+      }
+    },
+    "commands_used": ["titleraw", "scoreboard"]
+  },
+  {
+    "input": "向所有玩家显示带副标题的标题，标题是关卡1，副标题是消灭所有僵尸",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§b§l关卡 1\"}]}\n/titleraw @a subtitle {\"rawtext\":[{\"text\":\"§7消灭所有僵尸\"}]}",
+        "explanation": "第一条: 显示蓝色加粗大标题 \"关卡 1\"\n第二条: 显示灰色副标题 \"消灭所有僵尸\"\n注意: subtitle 需要在 title 之后或同时执行",
+        "preview": "§b§l关卡 1\n§7消灭所有僵尸",
+        "variants": [],
+        "warnings": ["subtitle 必须在 title 之前或同 tick 执行才能显示"]
+      }
+    },
+    "commands_used": ["titleraw"]
+  },
+  {
+    "input": "向所有玩家发消息显示最近的玩家名和他的坐标",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"rawtext\":[{\"text\":\"最近的玩家: \"},{\"selector\":\"@p\"},{\"text\":\" 正在这里\"}]}",
+        "explanation": "组件1: 纯文本前缀\n组件2: selector @p 显示最近玩家名称\n组件3: 后续文字",
+        "preview": "最近的玩家: Steve 正在这里",
+        "variants": [],
+        "warnings": ["rawtext 不支持直接显示玩家坐标，需要用计分板间接实现"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "显示一条混合颜色的聊天消息：红色警告加绿色安全提示",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"rawtext\":[{\"text\":\"§c§l[警告] §r\"},{\"text\":\"§a区域已安全，可以继续前进\"}]}",
+        "explanation": "组件1: §c 红色 + §l 加粗的警告标签，§r 重置样式\n组件2: §a 绿色的安全提示文字",
+        "preview": "§c§l[警告] §r§a区域已安全，可以继续前进",
+        "variants": [],
+        "warnings": ["§r 用于重置所有样式，防止红色蔓延到后续文字"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "给玩家发一条消息显示两个队伍的分数对比",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"rawtext\":[{\"text\":\"§6比分: §c红队 \"},{\"score\":{\"name\":\"red_team\",\"objective\":\"score\"}},{\"text\":\" §f- §b蓝队 \"},{\"score\":{\"name\":\"blue_team\",\"objective\":\"score\"}}]}",
+        "explanation": "组件1: 金色标题 + 红色队名\n组件2: score 显示 red_team 在 score 计分板的分数\n组件3: 白色分隔符 + 蓝色队名\n组件4: score 显示 blue_team 在 score 计分板的分数",
+        "preview": "§6比分: §c红队 10 §f- §b蓝队 8",
+        "variants": [],
+        "warnings": ["需要先创建 score 计分板并设置 red_team 和 blue_team 的分数"]
+      }
+    },
+    "commands_used": ["tellraw", "scoreboard"]
+  },
+  {
+    "input": "清除所有玩家的标题显示",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/titleraw @a clear",
+        "explanation": "titleraw clear = 清除当前显示的标题和副标题",
+        "variants": ["/titleraw @a reset"],
+        "warnings": ["clear 清除当前显示，reset 还会重置淡入/停留/淡出时间"]
+      }
+    },
+    "commands_used": ["titleraw"]
+  }
+]

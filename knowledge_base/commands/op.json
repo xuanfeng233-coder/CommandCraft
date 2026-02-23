@@ -1,0 +1,22 @@
+{
+  "name": "op",
+  "syntax": "/op <player: target>",
+  "description": "授予玩家操作员权限",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "要授予操作员权限的玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/op Steve",
+      "description": "将Steve设为操作员"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版中op命令授予玩家最高权限等级。在专用服务器中，操作员信息存储在permissions.json中。在本地多人游戏中由房主控制。",
+  "version_added": "1.0.0"
+}

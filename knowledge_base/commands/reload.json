@@ -1,0 +1,15 @@
+{
+  "name": "reload",
+  "syntax": "/reload",
+  "description": "重新加载所有行为包中的函数文件",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/reload",
+      "description": "重新加载所有函数文件"
+    }
+  ],
+  "bedrock_specific_notes": "reload在基岩版中仅重新加载函数(.mcfunction)文件，不会重新加载整个行为包。修改函数文件后使用此命令即可生效，无需退出世界。",
+  "version_added": "1.8.0"
+}

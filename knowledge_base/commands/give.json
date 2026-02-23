@@ -1,0 +1,64 @@
+{
+  "name": "give",
+  "syntax": "/give <player: target> <itemName: Item> [amount: int] [data: int] [components: json]",
+  "description": "给予玩家指定物品",
+  "category": "item_management",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "接收物品的玩家，必须为玩家类型的目标选择器或玩家名"
+    },
+    {
+      "name": "itemName",
+      "type": "Item",
+      "required": true,
+      "description": "物品ID，如 diamond_sword、iron_pickaxe 等（参见 ids/items.json）"
+    },
+    {
+      "name": "amount",
+      "type": "int",
+      "required": false,
+      "description": "给予的物品数量",
+      "default": "1",
+      "range": "1-64"
+    },
+    {
+      "name": "data",
+      "type": "int",
+      "required": false,
+      "description": "物品的数据值（附加值），用于指定物品变种",
+      "default": "0"
+    },
+    {
+      "name": "components",
+      "type": "json",
+      "required": false,
+      "description": "物品组件JSON（1.20.80+），仅支持以下4种组件：can_place_on（可放置方块列表）、can_destroy（可破坏方块列表）、item_lock（物品锁定模式）、keep_on_death（死亡保留）。注意：基岩版/give命令不支持通过组件或NBT添加附魔！要给物品附魔必须使用/enchant命令。"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/give @p diamond_sword 1",
+      "description": "给最近的玩家一把钻石剑"
+    },
+    {
+      "input": "/give @a apple 64",
+      "description": "给所有玩家64个苹果"
+    },
+    {
+      "input": "/give @s iron_pickaxe 1 0 {\"minecraft:can_destroy\":{\"blocks\":[\"stone\"]}}",
+      "description": "给自己一把只能破坏石头的铁镐（冒险模式用，can_destroy是基岩版支持的组件）"
+    }
+  ],
+  "common_mistakes": [
+    {
+      "wrong": "/give @s diamond_sword 1 0 {\"Enchantments\":[{\"id\":\"sharpness\",\"lvl\":5}]}",
+      "reason": "基岩版/give不支持附魔NBT！这是Java版语法。基岩版要附魔必须分两步：先/give获得物品，再/enchant附魔",
+      "correct": "第一步: /give @s diamond_sword\n第二步: /enchant @s sharpness 5"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版使用不带命名空间的物品ID（如 diamond_sword 而非 minecraft:diamond_sword）。数据值(data)参数在Java版已废弃但基岩版仍在使用。components参数为基岩版1.20.80+新增，但仅支持 can_place_on、can_destroy、item_lock、keep_on_death 四种组件。【重要】基岩版/give命令无法添加附魔、无法附加NBT标签！要给物品附魔，必须先/give获得物品，再用/enchant命令附魔（两步操作）。Java版的{Enchantments:[...]}语法在基岩版完全无效。",
+  "version_added": "1.0.0"
+}

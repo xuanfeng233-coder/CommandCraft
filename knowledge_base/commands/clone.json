@@ -1,0 +1,72 @@
+{
+  "name": "clone",
+  "syntax": "/clone <begin: x y z> <end: x y z> <destination: x y z> [maskMode: MaskMode] [cloneMode: CloneMode] [tileName: Block] [blockStates: BlockStates]",
+  "description": "将一个区域的方块复制到另一个位置",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "begin",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的起始角坐标"
+    },
+    {
+      "name": "end",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的对角坐标"
+    },
+    {
+      "name": "destination",
+      "type": "x y z",
+      "required": true,
+      "description": "目标区域的最小角（西北下角）坐标"
+    },
+    {
+      "name": "maskMode",
+      "type": "MaskMode",
+      "required": false,
+      "description": "过滤模式：replace(复制所有方块)、masked(仅复制非空气方块)、filtered(仅复制指定方块)",
+      "default": "replace"
+    },
+    {
+      "name": "cloneMode",
+      "type": "CloneMode",
+      "required": false,
+      "description": "克隆模式：normal(正常克隆)、force(允许源区域和目标区域重叠)、move(克隆后清除源区域)",
+      "default": "normal"
+    },
+    {
+      "name": "tileName",
+      "type": "Block",
+      "required": false,
+      "description": "仅在 maskMode 为 filtered 时使用，指定要复制的方块"
+    },
+    {
+      "name": "blockStates",
+      "type": "BlockStates",
+      "required": false,
+      "description": "配合 tileName 使用的方块状态过滤"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clone 0 64 0 10 70 10 100 64 100",
+      "description": "将(0,64,0)到(10,70,10)的区域克隆到(100,64,100)位置"
+    },
+    {
+      "input": "/clone ~-5 ~ ~-5 ~5 ~10 ~5 ~10 ~ ~ masked",
+      "description": "将自己附近区域克隆到东边10格处，仅复制非空气方块"
+    },
+    {
+      "input": "/clone 0 64 0 10 70 10 100 64 100 replace move",
+      "description": "将区域移动到新位置（源区域方块被清除）"
+    },
+    {
+      "input": "/clone ~-5 ~ ~-5 ~5 ~5 ~5 ~ ~ ~ replace force",
+      "description": "强制克隆（源和目标区域可重叠）"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版clone命令单次最多克隆32768个方块。源区域和目标区域不能重叠（除非使用force模式）。基岩版克隆命令不会复制方块实体的NBT数据（如箱子中的物品）。",
+  "version_added": "1.0.0"
+}

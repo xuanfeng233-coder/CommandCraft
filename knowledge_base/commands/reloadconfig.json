@@ -1,0 +1,15 @@
+{
+  "name": "reloadconfig",
+  "syntax": "/reloadconfig",
+  "description": "重新加载专用服务器配置文件",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/reloadconfig",
+      "description": "重新加载server.properties等配置文件"
+    }
+  ],
+  "bedrock_specific_notes": "reloadconfig仅在Bedrock Dedicated Server中可用。用于在不重启服务器的情况下重新加载配置。不是所有配置变更都能热加载。",
+  "version_added": "1.18.0"
+}

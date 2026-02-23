@@ -1,0 +1,108 @@
+{
+  "name": "scoreboard",
+  "syntax": "/scoreboard objectives <add|list|remove|setdisplay> ... | /scoreboard players <add|list|operation|random|remove|reset|set|test> ...",
+  "description": "管理计分板目标和玩家分数，用于追踪和操作游戏数据",
+  "category": "scoreboard",
+  "parameters": [
+    {
+      "name": "objectives add <objective: string> dummy [displayName: string]",
+      "type": "子命令",
+      "required": false,
+      "description": "创建新的计分板目标。基岩版只支持dummy类型准则"
+    },
+    {
+      "name": "objectives list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有已创建的计分板目标"
+    },
+    {
+      "name": "objectives remove <objective: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "删除指定的计分板目标及其所有分数数据"
+    },
+    {
+      "name": "objectives setdisplay <slot: belowname|list|sidebar> [objective: string] [ascending|descending]",
+      "type": "子命令",
+      "required": false,
+      "description": "设置计分板的显示位置。slot可选：belowname(名字下方)、list(列表)、sidebar(侧边栏)"
+    },
+    {
+      "name": "players add <player: target> <objective: string> <count: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "增加目标在指定计分板上的分数"
+    },
+    {
+      "name": "players remove <player: target> <objective: string> <count: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "减少目标在指定计分板上的分数"
+    },
+    {
+      "name": "players set <player: target> <objective: string> <count: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置目标在指定计分板上的分数为指定值"
+    },
+    {
+      "name": "players reset <player: target> [objective: string]",
+      "type": "子命令",
+      "required": false,
+      "description": "重置目标的分数。如省略objective则重置该目标所有计分板分数"
+    },
+    {
+      "name": "players list [player: target]",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有被追踪的玩家，或指定玩家的所有分数"
+    },
+    {
+      "name": "players test <player: target> <objective: string> <min: wildcard int> [max: wildcard int]",
+      "type": "子命令",
+      "required": false,
+      "description": "测试目标的分数是否在指定范围内。min和max可用*表示无限"
+    },
+    {
+      "name": "players random <player: target> <objective: string> <min: int> <max: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "将目标的分数设为指定范围内的随机值"
+    },
+    {
+      "name": "players operation <targetName: target> <targetObjective: string> <operation: operator> <selector: target> <objective: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "对两个计分板分数执行运算。运算符：+=、-=、*=、/=、%=、<（取较小）、>（取较大）、=（赋值）、><（交换）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/scoreboard objectives add kills dummy 击杀数",
+      "description": "创建名为kills的计分板目标，显示名为'击杀数'"
+    },
+    {
+      "input": "/scoreboard objectives setdisplay sidebar kills",
+      "description": "将kills计分板显示在屏幕右侧侧边栏"
+    },
+    {
+      "input": "/scoreboard players add @p kills 1",
+      "description": "给最近的玩家增加1点kills分数"
+    },
+    {
+      "input": "/scoreboard players set @a timer 60",
+      "description": "将所有玩家的timer分数设为60"
+    },
+    {
+      "input": "/scoreboard players operation @s total += @s kills",
+      "description": "将自己的kills分数加到total分数上"
+    },
+    {
+      "input": "/scoreboard players random @a random_score 1 100",
+      "description": "给所有玩家的random_score设为1-100之间的随机数"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版计分板只支持dummy准则类型，不支持Java版的各种自定义准则（如minecraft.killed等）。击杀检测等需要通过其他方式实现（如execute检测）。基岩版支持players random子命令和players test子命令，这两个是基岩版特有的。",
+  "version_added": "1.7.0"
+}

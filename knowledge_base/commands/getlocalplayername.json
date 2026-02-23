@@ -1,0 +1,15 @@
+{
+  "name": "getlocalplayername",
+  "syntax": "/getlocalplayername",
+  "description": "获取本地玩家的名称",
+  "category": "info",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/getlocalplayername",
+      "description": "显示当前本地玩家的玩家名"
+    }
+  ],
+  "bedrock_specific_notes": "getlocalplayername是基岩版特有命令，用于查询当前客户端的本地玩家名。在WebSocket连接场景中常用。",
+  "version_added": "1.2.0"
+}

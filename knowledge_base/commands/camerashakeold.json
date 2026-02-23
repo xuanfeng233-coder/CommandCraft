@@ -1,0 +1,40 @@
+{
+  "name": "camerashakeold",
+  "syntax": "/camerashakeold add <player: target> [intensity: float] [seconds: float] [shakeType: positional|rotational] | /camerashakeold stop [player: target]",
+  "description": "旧版摄像机震动命令",
+  "category": "camera",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "intensity",
+      "type": "float",
+      "required": false,
+      "description": "震动强度"
+    },
+    {
+      "name": "seconds",
+      "type": "float",
+      "required": false,
+      "description": "震动持续时间"
+    },
+    {
+      "name": "shakeType",
+      "type": "positional|rotational",
+      "required": false,
+      "description": "震动类型"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/camerashakeold add @a 1 5 rotational",
+      "description": "旧版语法添加摄像机震动"
+    }
+  ],
+  "bedrock_specific_notes": "camerashakeold是camerashake命令的旧版保留。建议使用camerashake命令。",
+  "version_added": "1.16.0"
+}

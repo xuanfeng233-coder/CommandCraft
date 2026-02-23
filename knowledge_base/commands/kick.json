@@ -1,0 +1,32 @@
+{
+  "name": "kick",
+  "syntax": "/kick <name: target> [reason: message]",
+  "description": "将指定玩家踢出游戏",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "target",
+      "required": true,
+      "description": "要踢出的玩家名称或目标选择器"
+    },
+    {
+      "name": "reason",
+      "type": "message",
+      "required": false,
+      "description": "踢出原因，会显示给被踢玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/kick Steve",
+      "description": "将名为Steve的玩家踢出游戏"
+    },
+    {
+      "input": "/kick Steve 违反服务器规则",
+      "description": "将Steve踢出并显示原因"
+    }
+  ],
+  "bedrock_specific_notes": "kick命令需要操作员权限。在基岩版中，被踢玩家会看到'被服务器踢出'的提示，如果指定了reason则显示原因。",
+  "version_added": "1.0.0"
+}

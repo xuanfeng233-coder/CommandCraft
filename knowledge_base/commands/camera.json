@@ -1,0 +1,72 @@
+{
+  "name": "camera",
+  "syntax": "/camera <players: target> set <preset: CameraPreset> [ease: float] [easeType: EaseType] [pos: x y z] [rot: xRot yRot] [facing: x y z] | /camera <players: target> clear | /camera <players: target> fade [time: fadeIn holdTime fadeOut] [color: r g b]",
+  "description": "控制玩家的摄像机视角",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "players",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "preset",
+      "type": "CameraPreset",
+      "required": false,
+      "description": "摄像机预设：minecraft:free、minecraft:third_person、minecraft:third_person_front、minecraft:first_person 等"
+    },
+    {
+      "name": "ease",
+      "type": "float",
+      "required": false,
+      "description": "缓动时间（秒）"
+    },
+    {
+      "name": "easeType",
+      "type": "EaseType",
+      "required": false,
+      "description": "缓动类型：linear、spring、in_quad、out_quad、in_out_quad 等"
+    },
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "摄像机位置坐标"
+    },
+    {
+      "name": "rot",
+      "type": "xRot yRot",
+      "required": false,
+      "description": "摄像机旋转角度"
+    },
+    {
+      "name": "time",
+      "type": "fadeIn holdTime fadeOut",
+      "required": false,
+      "description": "淡入淡出时间（秒）：淡入时间 保持时间 淡出时间"
+    },
+    {
+      "name": "color",
+      "type": "r g b",
+      "required": false,
+      "description": "淡入淡出的颜色（0-255的RGB值）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/camera @a set minecraft:free ease 2 linear pos 0 80 0 rot 90 0",
+      "description": "将所有玩家的视角平滑过渡到自由摄像机，2秒线性移动到指定位置"
+    },
+    {
+      "input": "/camera @a clear",
+      "description": "清除所有玩家的摄像机设置，恢复默认视角"
+    },
+    {
+      "input": "/camera @a fade time 1 3 1 color 0 0 0",
+      "description": "让所有玩家的画面黑屏淡入（1秒淡入、3秒保持、1秒淡出）"
+    }
+  ],
+  "bedrock_specific_notes": "camera命令是基岩版1.20.0+新增的命令，用于创建电影级摄像机效果。支持多种缓动类型和摄像机预设。Java版没有等价命令。摄像机预设可以在行为包中自定义。",
+  "version_added": "1.20.0"
+}

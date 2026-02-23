@@ -1,0 +1,201 @@
+[
+  {
+    "input": "如果玩家站在钻石块上就给他发消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a at @s if block ~ ~-1 ~ diamond_block run say 你站在钻石块上！",
+        "explanation": "以每个玩家身份 → 在其位置 → 检测脚下是否为钻石块 → 发送消息",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置执行"},
+          {"subcommand": "if block", "value": "~ ~-1 ~ diamond_block", "purpose": "检测脚下方块是否为钻石块"},
+          {"subcommand": "run", "value": "say 你站在钻石块上！", "purpose": "发送聊天消息"}
+        ],
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["execute", "say"]
+  },
+  {
+    "input": "在所有僵尸的位置播放爆炸粒子",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @e[type=zombie] at @s run particle minecraft:explosion_particle ~ ~1 ~",
+        "explanation": "以每个僵尸身份 → 在僵尸位置 → 播放爆炸粒子",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@e[type=zombie]", "purpose": "以每个僵尸身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该僵尸位置"},
+          {"subcommand": "run", "value": "particle minecraft:explosion_particle ~ ~1 ~", "purpose": "在僵尸位置上方播放爆炸粒子"}
+        ],
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["execute", "particle"]
+  },
+  {
+    "input": "如果玩家分数kills大于10就给他加一个称号标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[scores={kills=10..}] run tag @s add killer",
+        "explanation": "选择kills分数≥10的玩家 → 给他们添加killer标签",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[scores={kills=10..}]", "purpose": "以kills≥10的玩家身份执行"},
+          {"subcommand": "run", "value": "tag @s add killer", "purpose": "给该玩家添加killer标签"}
+        ],
+        "variants": [],
+        "warnings": ["确保kills计分板目标已创建"]
+      }
+    },
+    "commands_used": ["execute", "tag", "scoreboard"]
+  },
+  {
+    "input": "如果玩家脚下是金块就传送到0 100 0",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a at @s if block ~ ~-1 ~ gold_block run tp @s 0 100 0",
+        "explanation": "以每个玩家身份 → 在其位置 → 检测脚下金块 → 传送到指定坐标",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置检测"},
+          {"subcommand": "if block", "value": "~ ~-1 ~ gold_block", "purpose": "检测脚下是否为金块"},
+          {"subcommand": "run", "value": "tp @s 0 100 0", "purpose": "传送玩家到坐标0 100 0"}
+        ],
+        "variants": [],
+        "warnings": ["传送目标位置需确保安全"]
+      }
+    },
+    "commands_used": ["execute", "tp"]
+  },
+  {
+    "input": "检测如果坐标0 60 0是空气就放一个石头",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute if block 0 60 0 air run setblock 0 60 0 stone",
+        "explanation": "检测坐标(0,60,0)是否为空气 → 如果是就放置石头",
+        "chain_breakdown": [
+          {"subcommand": "if block", "value": "0 60 0 air", "purpose": "检测指定坐标是否为空气"},
+          {"subcommand": "run", "value": "setblock 0 60 0 stone", "purpose": "在该位置放置石头"}
+        ],
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["execute", "setblock"]
+  },
+  {
+    "input": "让所有玩家面朝坐标0 64 0说一句话",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a at @s facing 0 64 0 run say 我在看向那里！",
+        "explanation": "以所有玩家身份 → 在各自位置 → 面朝目标坐标 → 发送消息",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置"},
+          {"subcommand": "facing", "value": "0 64 0", "purpose": "面朝坐标(0,64,0)"},
+          {"subcommand": "run", "value": "say 我在看向那里！", "purpose": "发送聊天消息"}
+        ],
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["execute", "say"]
+  },
+  {
+    "input": "如果附近没有僵尸就生成一只",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute unless entity @e[type=zombie,r=20] run summon zombie ~ ~ ~",
+        "explanation": "如果20格内没有僵尸 → 在执行位置生成一只僵尸",
+        "chain_breakdown": [
+          {"subcommand": "unless entity", "value": "@e[type=zombie,r=20]", "purpose": "检测20格内是否没有僵尸"},
+          {"subcommand": "run", "value": "summon zombie ~ ~ ~", "purpose": "在当前位置生成僵尸"}
+        ],
+        "variants": [],
+        "warnings": ["r=20 限制了检测范围为20格"]
+      }
+    },
+    "commands_used": ["execute", "summon"]
+  },
+  {
+    "input": "以所有有vip标签的玩家身份在他们头顶5格处生成烟花",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[tag=vip] at @s positioned ~ ~5 ~ run summon fireworks_rocket ~ ~ ~",
+        "explanation": "选择VIP玩家 → 在其位置 → 偏移到头顶5格 → 生成烟花火箭",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[tag=vip]", "purpose": "以有vip标签的玩家身份"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置"},
+          {"subcommand": "positioned", "value": "~ ~5 ~", "purpose": "偏移到头顶5格高度"},
+          {"subcommand": "run", "value": "summon fireworks_rocket ~ ~ ~", "purpose": "生成烟花火箭"}
+        ],
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["execute", "summon"]
+  },
+  {
+    "input": "如果玩家A的kills分数大于玩家B的kills分数就显示消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute if score PlayerA kills > PlayerB kills run say PlayerA 领先！",
+        "explanation": "比较两个玩家的kills分数 → 如果A大于B → 发送消息",
+        "chain_breakdown": [
+          {"subcommand": "if score", "value": "PlayerA kills > PlayerB kills", "purpose": "比较两个玩家的kills计分板分数"},
+          {"subcommand": "run", "value": "say PlayerA 领先！", "purpose": "发送消息"}
+        ],
+        "variants": [],
+        "warnings": ["需要将 PlayerA 和 PlayerB 替换为实际玩家名"]
+      }
+    },
+    "commands_used": ["execute", "say", "scoreboard"]
+  },
+  {
+    "input": "如果玩家背包里有TNT就给他加上WARN标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[hasitem={item=tnt}] run tag @s add WARN",
+        "explanation": "使用 hasitem 选择器参数检测玩家背包 → 给持有TNT的玩家添加WARN标签",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[hasitem={item=tnt}]", "purpose": "以背包中有TNT的玩家身份执行（hasitem是基岩版独有选择器参数，不是item=）"},
+          {"subcommand": "run", "value": "tag @s add WARN", "purpose": "给该玩家添加WARN标签"}
+        ],
+        "variants": ["/tag @a[hasitem={item=tnt}] add WARN"],
+        "warnings": ["hasitem 是基岩版独有选择器参数，Java版没有。参数名是 hasitem 不是 item"]
+      }
+    },
+    "commands_used": ["execute", "tag"],
+    "selector_features": ["@a", "hasitem"]
+  },
+  {
+    "input": "在地狱维度的所有玩家位置生成火焰粒子",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute in nether as @a at @s run particle minecraft:basic_flame_particle ~ ~1 ~",
+        "explanation": "切换到地狱维度 → 以所有玩家身份 → 在各自位置 → 生成火焰粒子",
+        "chain_breakdown": [
+          {"subcommand": "in", "value": "nether", "purpose": "在地狱维度执行"},
+          {"subcommand": "as", "value": "@a", "purpose": "以所有玩家身份"},
+          {"subcommand": "at", "value": "@s", "purpose": "在各自位置"},
+          {"subcommand": "run", "value": "particle minecraft:basic_flame_particle ~ ~1 ~", "purpose": "生成火焰粒子"}
+        ],
+        "variants": [],
+        "warnings": ["in nether 会将执行上下文切换到地狱维度"]
+      }
+    },
+    "commands_used": ["execute", "particle"]
+  }
+]

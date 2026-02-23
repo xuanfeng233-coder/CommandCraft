@@ -1,0 +1,45 @@
+{
+  "name": "testforblocks",
+  "syntax": "/testforblocks <begin: x y z> <end: x y z> <destination: x y z> [mode: all|masked]",
+  "description": "比较两个区域的方块是否匹配",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "begin",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的起始坐标"
+    },
+    {
+      "name": "end",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的结束坐标"
+    },
+    {
+      "name": "destination",
+      "type": "x y z",
+      "required": true,
+      "description": "目标比较区域的起始坐标"
+    },
+    {
+      "name": "mode",
+      "type": "all|masked",
+      "required": false,
+      "description": "比较模式。all=所有方块必须匹配，masked=忽略空气方块",
+      "default": "all"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/testforblocks 0 64 0 10 74 10 20 64 0",
+      "description": "比较两个11x11x11区域的方块是否完全一致"
+    },
+    {
+      "input": "/testforblocks 0 64 0 5 69 5 10 64 0 masked",
+      "description": "比较两个区域，忽略空气方块的差异"
+    }
+  ],
+  "bedrock_specific_notes": "testforblocks是基岩版保留的旧版命令。在较新版本中推荐使用/execute if blocks代替。masked模式下空气方块不参与比较。",
+  "version_added": "1.0.0"
+}

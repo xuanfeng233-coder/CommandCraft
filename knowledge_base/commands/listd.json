@@ -1,0 +1,15 @@
+{
+  "name": "listd",
+  "syntax": "/listd",
+  "description": "列出所有在线玩家的详细信息（专用服务器）",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/listd",
+      "description": "显示所有在线玩家的详细信息，包括UUID等"
+    }
+  ],
+  "bedrock_specific_notes": "listd是list命令的详细版本，仅在Bedrock Dedicated Server中可用。输出比list更多的玩家信息。",
+  "version_added": "1.0.0"
+}

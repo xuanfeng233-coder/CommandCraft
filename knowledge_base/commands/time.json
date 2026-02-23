@@ -1,0 +1,50 @@
+{
+  "name": "time",
+  "syntax": "/time <add|query|set> <amount: int> | /time set <time: TimeSpec>",
+  "description": "设置或查询世界的游戏时间",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "set <amount: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "将时间设置为指定的游戏刻值。也可使用预设值：day(1000)、noon(6000)、sunset(12000)、night(13000)、midnight(18000)、sunrise(23000)"
+    },
+    {
+      "name": "add <amount: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "增加指定数量的游戏刻到当前时间"
+    },
+    {
+      "name": "query <daytime|gametime|day>",
+      "type": "子命令",
+      "required": false,
+      "description": "查询时间。daytime(当天时间)、gametime(游戏总时间)、day(已过天数)"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/time set day",
+      "description": "将时间设为白天（1000刻）"
+    },
+    {
+      "input": "/time set night",
+      "description": "将时间设为夜晚（13000刻）"
+    },
+    {
+      "input": "/time set 6000",
+      "description": "将时间设为正午（6000刻）"
+    },
+    {
+      "input": "/time add 1000",
+      "description": "将时间快进1000游戏刻"
+    },
+    {
+      "input": "/time query daytime",
+      "description": "查询当前一天中的时间"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版一个完整的昼夜循环为24000游戏刻。预设值 day=1000, noon=6000, sunset=12000, night=13000, midnight=18000, sunrise=23000。基岩版支持 /time query day 来查询已经过的天数。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "music",
+  "syntax": "/music play <trackName: string> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once] | /music queue <trackName: string> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once] | /music stop [fadeSeconds: float] | /music volume <volume: float>",
+  "description": "控制背景音乐的播放、队列和音量",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "trackName",
+      "type": "Sound",
+      "required": true,
+      "description": "音乐曲目名称"
+    },
+    {
+      "name": "volume",
+      "type": "float",
+      "required": false,
+      "description": "音量（0.0-1.0）",
+      "default": "1.0",
+      "range": "0.0-1.0"
+    },
+    {
+      "name": "fadeSeconds",
+      "type": "float",
+      "required": false,
+      "description": "淡入/淡出时间（秒）",
+      "default": "0"
+    },
+    {
+      "name": "repeatMode",
+      "type": "loop|play_once",
+      "required": false,
+      "description": "重复模式：loop（循环）或play_once（播放一次）",
+      "default": "play_once"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/music play record.13 0.5 2 loop",
+      "description": "以50%音量循环播放13号唱片音乐，2秒淡入"
+    },
+    {
+      "input": "/music stop 3",
+      "description": "停止当前音乐，3秒淡出"
+    },
+    {
+      "input": "/music volume 0.3",
+      "description": "将背景音乐音量设为30%"
+    }
+  ],
+  "bedrock_specific_notes": "music命令是基岩版特有命令，用于控制背景音乐播放。Java版没有等价命令。queue子命令可以将音乐加入播放队列，在当前曲目结束后自动播放。",
+  "version_added": "1.16.100"
+}

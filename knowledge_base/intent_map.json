@@ -1,0 +1,564 @@
+{
+  "version": "1.0",
+  "description": "用户意图→命令映射表，按操作场景组织而非命令名",
+  "intent_categories": [
+    {
+      "category": "清理/移除/消灭",
+      "description": "用户想要清除、移除、消灭某些东西",
+      "scenarios": [
+        {
+          "keywords": ["清理掉落物", "清除掉落物", "移除掉落物", "删除掉落物", "消除地上物品"],
+          "correct_command": "kill",
+          "usage_example": "/kill @e[type=item]",
+          "explanation": "掉落物（地上的物品实体）是实体类型 item，用 /kill 消灭",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只清除玩家背包物品，不影响地上掉落物" }
+        },
+        {
+          "keywords": ["清理怪物", "清除怪物", "移除怪物", "消灭所有怪物", "清理敌对生物"],
+          "correct_command": "kill",
+          "usage_example": "/kill @e[family=monster]",
+          "explanation": "怪物/敌对生物是实体，用 /kill 消灭",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只作用于玩家物品栏" }
+        },
+        {
+          "keywords": ["清除经验球", "清理经验球", "移除经验球"],
+          "correct_command": "kill",
+          "usage_example": "/kill @e[type=xp_orb]",
+          "explanation": "经验球是实体类型 xp_orb，用 /kill 消灭",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只作用于玩家物品栏" }
+        },
+        {
+          "keywords": ["清除箭矢", "清理箭矢", "移除箭", "清除射出的箭"],
+          "correct_command": "kill",
+          "usage_example": "/kill @e[type=arrow]",
+          "explanation": "飞行中/插在方块上的箭矢是实体，用 /kill 消灭",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只作用于玩家物品栏" }
+        },
+        {
+          "keywords": ["杀死所有实体", "消灭所有生物", "清除所有实体", "移除所有生物"],
+          "correct_command": "kill",
+          "usage_example": "/kill @e[type=!player]",
+          "explanation": "用 /kill 消灭实体，排除玩家",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["清除背包", "清空背包", "清除物品栏", "清除身上物品", "移除手上物品"],
+          "correct_command": "clear",
+          "usage_example": "/clear @s",
+          "explanation": "/clear 专门用于清除玩家物品栏中的物品",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["清除钻石", "移除身上的钻石", "清空某个物品"],
+          "correct_command": "clear",
+          "usage_example": "/clear @s diamond",
+          "explanation": "/clear 用于清除玩家物品栏中的指定物品",
+          "common_mistake": { "wrong": "kill", "reason": "/kill 杀死实体，不能清除背包物品" }
+        },
+        {
+          "keywords": ["清空区域", "清除方块", "清除一片区域", "把这里变成空气", "拆除建筑"],
+          "correct_command": "fill",
+          "usage_example": "/fill <x1> <y1> <z1> <x2> <y2> <z2> air",
+          "explanation": "清除一片区域的方块用 /fill ... air 替换为空气",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只作用于玩家物品栏，不能删除世界方块" }
+        },
+        {
+          "keywords": ["清除效果", "移除所有效果", "清除药水效果", "去掉身上效果", "取消buff"],
+          "correct_command": "effect",
+          "usage_example": "/effect @s clear",
+          "explanation": "清除状态效果用 /effect <target> clear",
+          "common_mistake": { "wrong": "clear", "reason": "/clear 只作用于物品栏，状态效果用 /effect clear" }
+        },
+        {
+          "keywords": ["移除标签", "删除标签", "清除标签"],
+          "correct_command": "tag",
+          "usage_example": "/tag @s remove <tagName>",
+          "explanation": "移除实体标签用 /tag remove",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["删除计分板", "移除计分板", "清除计分板"],
+          "correct_command": "scoreboard",
+          "usage_example": "/scoreboard objectives remove <name>",
+          "explanation": "删除计分板目标用 /scoreboard objectives remove",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "生成/给予/创建",
+      "description": "用户想要生成、给予或创建某些东西",
+      "scenarios": [
+        {
+          "keywords": ["给物品", "给我", "获得物品", "拿到"],
+          "correct_command": "give",
+          "usage_example": "/give @s diamond_sword",
+          "explanation": "给予玩家物品用 /give",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["附魔物品", "附魔钻石剑", "附魔武器", "附魔工具", "附魔弓", "锋利的剑"],
+          "correct_command": "give + enchant",
+          "usage_example": "第一步: /give @s diamond_sword\n第二步: /enchant @s sharpness 5",
+          "explanation": "基岩版/give不支持NBT附魔！要给附魔物品必须分两步：先/give获得，再/enchant附魔。绝对不要生成Java版的{Enchantments:[...]}语法",
+          "common_mistake": { "wrong": "/give @s diamond_sword 1 0 {\"Enchantments\":[...]}", "reason": "基岩版/give不支持NBT标签，这是Java版语法" }
+        },
+        {
+          "keywords": ["生成实体", "召唤怪物", "生成动物", "刷怪", "刷生物"],
+          "correct_command": "summon",
+          "usage_example": "/summon zombie ~ ~ ~",
+          "explanation": "生成实体（怪物/动物/NPC）用 /summon",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["放置方块", "放一个方块", "设置方块"],
+          "correct_command": "setblock",
+          "usage_example": "/setblock ~ ~ ~ diamond_block",
+          "explanation": "放置单个方块用 /setblock",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["填充区域", "建造一面墙", "铺地板", "建造平台"],
+          "correct_command": "fill",
+          "usage_example": "/fill <x1> <y1> <z1> <x2> <y2> <z2> stone",
+          "explanation": "填充区域方块用 /fill",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["生成粒子", "播放粒子效果", "粒子特效"],
+          "correct_command": "particle",
+          "usage_example": "/particle minecraft:campfire_smoke_particle ~ ~1 ~",
+          "explanation": "生成粒子效果用 /particle",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "传送/移动",
+      "description": "用户想要传送或移动实体",
+      "scenarios": [
+        {
+          "keywords": ["传送", "tp", "移动到", "去到", "瞬移"],
+          "correct_command": "tp",
+          "usage_example": "/tp @s <x> <y> <z>",
+          "explanation": "传送实体用 /tp",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["分散玩家", "随机传送", "散开"],
+          "correct_command": "spreadplayers",
+          "usage_example": "/spreadplayers <x> <z> <spreadDistance> <maxRange> @a",
+          "explanation": "随机分散传送用 /spreadplayers",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["设置重生点", "设置出生点", "设置复活点"],
+          "correct_command": "spawnpoint",
+          "usage_example": "/spawnpoint @s ~ ~ ~",
+          "explanation": "设置个人重生点用 /spawnpoint",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "显示/文本/UI",
+      "description": "用户想要在屏幕上显示文字或信息",
+      "scenarios": [
+        {
+          "keywords": ["显示标题", "屏幕显示文字", "大字显示", "显示副标题"],
+          "correct_command": "titleraw",
+          "usage_example": "/titleraw @a title {\"rawtext\":[{\"text\":\"Hello\"}]}",
+          "explanation": "显示屏幕标题用 /titleraw（支持JSON格式）或 /title（纯文本）",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["发送消息", "聊天消息", "告诉玩家", "通知玩家", "发送公告"],
+          "correct_command": "tellraw",
+          "usage_example": "/tellraw @a {\"rawtext\":[{\"text\":\"公告内容\"}]}",
+          "explanation": "发送聊天消息用 /tellraw（JSON格式）或 /say（纯文本广播）",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["动作栏", "action bar", "底部显示"],
+          "correct_command": "titleraw",
+          "usage_example": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"信息\"}]}",
+          "explanation": "动作栏文字用 /titleraw actionbar",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["显示分数", "显示计分板分数", "显示玩家分数"],
+          "correct_command": "tellraw",
+          "usage_example": "/tellraw @a {\"rawtext\":[{\"text\":\"分数: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"obj\"}}]}",
+          "explanation": "显示计分板分数用 rawtext 的 score 组件",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "检测/条件判断",
+      "description": "用户想要检测某些条件或判断状态",
+      "scenarios": [
+        {
+          "keywords": ["检测实体", "判断实体是否存在", "检测玩家"],
+          "correct_command": "testfor",
+          "usage_example": "/testfor @a[tag=winner]",
+          "explanation": "检测实体存在用 /testfor 或 /execute if entity",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["检测方块", "判断方块类型", "检测某位置方块"],
+          "correct_command": "testforblock",
+          "usage_example": "/testforblock <x> <y> <z> stone",
+          "explanation": "检测方块类型用 /testforblock 或 /execute if block",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["检测物品", "判断是否携带", "检测背包里有没有"],
+          "correct_command": "clear",
+          "usage_example": "/clear @s diamond 0 0",
+          "explanation": "检测物品存在用 /clear maxCount=0（不消耗物品），或用选择器 hasitem",
+          "common_mistake": { "wrong": "testfor", "reason": "/testfor 检测实体，检测物品用 /clear maxCount=0 或 hasitem 选择器" }
+        },
+        {
+          "keywords": ["条件执行", "如果...就...", "满足条件时"],
+          "correct_command": "execute",
+          "usage_example": "/execute if entity @a[tag=x] run say found",
+          "explanation": "条件执行用 /execute if/unless",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "计分/追踪/统计",
+      "description": "用户想要记录分数、追踪数据或做计分系统",
+      "scenarios": [
+        {
+          "keywords": ["创建计分板", "计分板系统", "记分板", "追踪分数", "统计"],
+          "correct_command": "scoreboard",
+          "usage_example": "/scoreboard objectives add kills dummy \"击杀数\"",
+          "explanation": "计分板管理用 /scoreboard，注意基岩版只有 dummy 类型",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["给标签", "添加标签", "打标签", "标记玩家"],
+          "correct_command": "tag",
+          "usage_example": "/tag @s add myTag",
+          "explanation": "给实体添加标签用 /tag add",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "世界/游戏设置",
+      "description": "用户想要修改世界或游戏设置",
+      "scenarios": [
+        {
+          "keywords": ["设置时间", "改时间", "白天", "晚上", "中午"],
+          "correct_command": "time",
+          "usage_example": "/time set day",
+          "explanation": "设置游戏时间用 /time set",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["设置天气", "改天气", "下雨", "晴天", "雷暴", "关掉下雨"],
+          "correct_command": "weather",
+          "usage_example": "/weather clear",
+          "explanation": "设置天气用 /weather",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["改难度", "调难度", "和平模式", "困难模式"],
+          "correct_command": "difficulty",
+          "usage_example": "/difficulty hard",
+          "explanation": "设置难度用 /difficulty",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["改游戏模式", "切换模式", "创造模式", "生存模式"],
+          "correct_command": "gamemode",
+          "usage_example": "/gamemode creative @s",
+          "explanation": "切换游戏模式用 /gamemode",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["游戏规则", "保留物品栏", "关闭火焰蔓延", "关闭爆炸破坏"],
+          "correct_command": "gamerule",
+          "usage_example": "/gamerule keepInventory true",
+          "explanation": "修改游戏规则用 /gamerule",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "方块操作",
+      "description": "用户想要操作世界中的方块",
+      "scenarios": [
+        {
+          "keywords": ["复制建筑", "克隆区域", "复制方块"],
+          "correct_command": "clone",
+          "usage_example": "/clone <x1> <y1> <z1> <x2> <y2> <z2> <destX> <destY> <destZ>",
+          "explanation": "复制区域方块用 /clone",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["保存建筑", "加载建筑", "导出结构"],
+          "correct_command": "structure",
+          "usage_example": "/structure save <name> <from> <to>",
+          "explanation": "保存/加载建筑结构用 /structure",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["替换方块", "把石头换成钻石", "替换区域方块"],
+          "correct_command": "fill",
+          "usage_example": "/fill <x1> <y1> <z1> <x2> <y2> <z2> diamond_block replace stone",
+          "explanation": "替换区域内特定方块用 /fill ... replace <旧方块>",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "实体控制",
+      "description": "用户想要控制实体行为或状态",
+      "scenarios": [
+        {
+          "keywords": ["造成伤害", "扣血", "攻击"],
+          "correct_command": "damage",
+          "usage_example": "/damage @e[type=zombie] 5 entity_attack entity @s",
+          "explanation": "对实体造成伤害用 /damage",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["触发事件", "实体事件", "行为包事件"],
+          "correct_command": "event",
+          "usage_example": "/event entity @e[type=zombie] minecraft:become_angry",
+          "explanation": "触发实体行为包事件用 /event",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["骑乘", "让玩家骑", "坐骑"],
+          "correct_command": "ride",
+          "usage_example": "/ride @s start_riding @e[type=horse,c=1]",
+          "explanation": "控制骑乘关系用 /ride",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "摄像机/视觉效果",
+      "description": "用户想要控制摄像机或视觉效果",
+      "scenarios": [
+        {
+          "keywords": ["摄像机效果", "改变视角", "切换镜头"],
+          "correct_command": "camera",
+          "usage_example": "/camera @s set minecraft:free",
+          "explanation": "控制摄像机视角用 /camera",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["屏幕震动", "镜头晃动", "震屏"],
+          "correct_command": "camerashake",
+          "usage_example": "/camerashake add @a 0.5 1 positional",
+          "explanation": "摄像机震动用 /camerashake",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["迷雾效果", "改变雾气"],
+          "correct_command": "fog",
+          "usage_example": "/fog @a push <fogId> <userProvidedId>",
+          "explanation": "管理迷雾效果用 /fog",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["隐藏HUD", "显示HUD", "关闭血条"],
+          "correct_command": "hud",
+          "usage_example": "/hud @a hide health",
+          "explanation": "控制HUD元素用 /hud",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "音效/音乐",
+      "description": "用户想要播放音效或音乐",
+      "scenarios": [
+        {
+          "keywords": ["播放音效", "播放声音", "发出声音"],
+          "correct_command": "playsound",
+          "usage_example": "/playsound mob.zombie.say @a",
+          "explanation": "播放音效用 /playsound",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["播放音乐", "背景音乐", "BGM"],
+          "correct_command": "music",
+          "usage_example": "/music play record.cat 0.5 0.0 loop",
+          "explanation": "播放背景音乐用 /music",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["停止音效", "关闭声音"],
+          "correct_command": "stopsound",
+          "usage_example": "/stopsound @a",
+          "explanation": "停止音效用 /stopsound",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "服务器管理",
+      "description": "用户想要进行服务器管理操作",
+      "scenarios": [
+        {
+          "keywords": ["踢人", "踢出玩家"],
+          "correct_command": "kick",
+          "usage_example": "/kick PlayerName 原因",
+          "explanation": "踢出玩家用 /kick",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["封禁", "ban玩家"],
+          "correct_command": "ban",
+          "usage_example": "/ban PlayerName",
+          "explanation": "封禁玩家用 /ban",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["给op", "管理员权限", "设为op"],
+          "correct_command": "op",
+          "usage_example": "/op PlayerName",
+          "explanation": "给予管理员权限用 /op",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "经验/附魔",
+      "description": "用户想要操作经验值或附魔",
+      "scenarios": [
+        {
+          "keywords": ["给经验", "加经验", "升级"],
+          "correct_command": "xp",
+          "usage_example": "/xp 100L @s",
+          "explanation": "给予经验用 /xp，加 L 后缀表示等级",
+          "common_mistake": null
+        },
+        {
+          "keywords": ["附魔", "给附魔", "加附魔"],
+          "correct_command": "enchant",
+          "usage_example": "/enchant @s sharpness 5",
+          "explanation": "给手持物品附魔用 /enchant",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "项目规划",
+      "description": "用户想要实现复杂的多步骤机制",
+      "scenarios": [
+        {
+          "keywords": ["做一个系统", "做一个机制", "计分板系统", "商店系统", "传送门系统", "游戏机制"],
+          "correct_command": "_project_plan",
+          "usage_example": "需要使用项目规划模式",
+          "explanation": "复杂的多命令方块项目需要项目规划模式（spawn_project_planner）",
+          "common_mistake": null
+        }
+      ]
+    },
+    {
+      "category": "定位/查找",
+      "description": "用户想要找到结构或位置",
+      "scenarios": [
+        {
+          "keywords": ["找村庄", "定位结构", "寻找堡垒", "找到遗迹"],
+          "correct_command": "locate",
+          "usage_example": "/locate structure village",
+          "explanation": "定位结构用 /locate",
+          "common_mistake": null
+        }
+      ]
+    }
+  ],
+  "disambiguation_rules": [
+    {
+      "ambiguous_word": "清理",
+      "possible_meanings": [
+        { "target": "地上的掉落物/箭矢/经验球", "command": "kill", "selector": "@e[type=item] / @e[type=arrow] / @e[type=xp_orb]" },
+        { "target": "背包/物品栏里的物品", "command": "clear", "selector": "@s <itemName>" },
+        { "target": "一片区域的方块", "command": "fill", "args": "<from> <to> air" },
+        { "target": "身上的状态效果", "command": "effect", "args": "<target> clear" },
+        { "target": "实体的标签", "command": "tag", "args": "<target> remove <tag>" }
+      ],
+      "decision_rule": "根据操作对象判断：实体→kill，背包物品→clear，方块→fill，效果→effect，标签→tag"
+    },
+    {
+      "ambiguous_word": "清除",
+      "possible_meanings": [
+        { "target": "实体（怪物/掉落物/经验球等）", "command": "kill" },
+        { "target": "玩家背包中的物品", "command": "clear" },
+        { "target": "状态效果", "command": "effect ... clear" },
+        { "target": "方块区域", "command": "fill ... air" }
+      ],
+      "decision_rule": "同'清理'"
+    },
+    {
+      "ambiguous_word": "移除",
+      "possible_meanings": [
+        { "target": "实体", "command": "kill" },
+        { "target": "物品", "command": "clear" },
+        { "target": "标签", "command": "tag ... remove" },
+        { "target": "计分板", "command": "scoreboard objectives remove" },
+        { "target": "效果", "command": "effect ... clear" }
+      ],
+      "decision_rule": "根据操作对象判断具体命令"
+    },
+    {
+      "ambiguous_word": "设置",
+      "possible_meanings": [
+        { "target": "方块", "command": "setblock" },
+        { "target": "时间", "command": "time set" },
+        { "target": "天气", "command": "weather" },
+        { "target": "难度", "command": "difficulty" },
+        { "target": "游戏模式", "command": "gamemode" },
+        { "target": "游戏规则", "command": "gamerule" },
+        { "target": "重生点", "command": "spawnpoint" }
+      ],
+      "decision_rule": "根据设置的目标判断"
+    },
+    {
+      "ambiguous_word": "删除",
+      "possible_meanings": [
+        { "target": "实体", "command": "kill" },
+        { "target": "物品", "command": "clear" },
+        { "target": "方块区域", "command": "fill ... air" },
+        { "target": "计分板", "command": "scoreboard objectives remove" }
+      ],
+      "decision_rule": "根据操作对象判断"
+    },
+    {
+      "ambiguous_word": "生成",
+      "possible_meanings": [
+        { "target": "实体/生物", "command": "summon" },
+        { "target": "物品给玩家", "command": "give" },
+        { "target": "方块", "command": "setblock / fill" },
+        { "target": "粒子效果", "command": "particle" }
+      ],
+      "decision_rule": "生物/实体→summon，给玩家物品→give，方块→setblock/fill，粒子→particle"
+    },
+    {
+      "ambiguous_word": "附魔",
+      "possible_meanings": [
+        { "target": "给手持物品附魔", "command": "enchant", "note": "需要手持目标物品" },
+        { "target": "获得一把附魔物品", "command": "give + enchant", "note": "基岩版必须分两步：先give再enchant，/give不支持NBT附魔" }
+      ],
+      "decision_rule": "基岩版/give不能附加附魔！如果用户想要'附魔物品'，必须分步：/give获得物品 + /enchant附魔。绝对不能生成Java版的NBT附魔语法。"
+    },
+    {
+      "ambiguous_word": "装备",
+      "possible_meanings": [
+        { "target": "给自己穿装备", "command": "replaceitem", "note": "替换装备槽位" },
+        { "target": "生成穿装备的实体", "command": "summon + replaceitem", "note": "基岩版/summon不支持NBT装备，必须分两步" }
+      ],
+      "decision_rule": "基岩版/summon不能通过NBT给实体穿装备。要生成穿装备的实体，必须先/summon再用/replaceitem逐件穿装备。"
+    }
+  ]
+}

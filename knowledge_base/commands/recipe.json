@@ -1,0 +1,38 @@
+{
+  "name": "recipe",
+  "syntax": "/recipe <player: target> <action: give|take> <recipe: string>",
+  "description": "给予或移除玩家的合成配方",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "action",
+      "type": "give|take",
+      "required": true,
+      "description": "give=解锁配方，take=锁定配方"
+    },
+    {
+      "name": "recipe",
+      "type": "string",
+      "required": true,
+      "description": "配方标识符，使用*表示所有配方"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/recipe @a give *",
+      "description": "解锁所有玩家的全部合成配方"
+    },
+    {
+      "input": "/recipe @a take *",
+      "description": "锁定所有玩家的全部合成配方"
+    }
+  ],
+  "bedrock_specific_notes": "recipe命令在基岩版中主要用于配合配方解锁系统。在启用了配方解锁的世界中，可以通过此命令管理玩家可用的合成配方。目前最常用的是*通配符来解锁或锁定所有配方。",
+  "version_added": "1.16.100"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "fog",
+  "syntax": "/fog <victim: target> <mode: push|pop|remove> <fogId: string> [userProvidedId: string]",
+  "description": "管理玩家的活跃迷雾设置",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "victim",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "mode",
+      "type": "push|pop|remove",
+      "required": true,
+      "description": "操作模式：push=添加迷雾层，pop=移除最上层迷雾，remove=按ID移除指定迷雾"
+    },
+    {
+      "name": "fogId",
+      "type": "Fog",
+      "required": true,
+      "description": "迷雾配置ID，定义在资源包的fogs文件夹中"
+    },
+    {
+      "name": "userProvidedId",
+      "type": "string",
+      "required": false,
+      "description": "用户自定义的标识ID，用于后续remove操作"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/fog @a push minecraft:fog_hell my_nether_fog",
+      "description": "给所有玩家添加下界迷雾效果"
+    },
+    {
+      "input": "/fog @a remove minecraft:fog_hell my_nether_fog",
+      "description": "移除之前添加的下界迷雾"
+    },
+    {
+      "input": "/fog @s pop minecraft:fog_default \"\"",
+      "description": "弹出自己最上层的默认迷雾"
+    }
+  ],
+  "bedrock_specific_notes": "fog命令是基岩版特有的，用于控制玩家看到的迷雾渲染效果。迷雾配置定义在资源包的fogs文件夹中。可以叠加多层迷雾效果（push/pop栈操作）。Java版没有等价命令。",
+  "version_added": "1.16.100"
+}

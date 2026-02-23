@@ -1,0 +1,60 @@
+{
+  "name": "ride",
+  "syntax": "/ride <riders: target> start_riding <ride: target> [teleportRules: teleport_ride|teleport_rider] [howToFill: if_group_fits|until_full] | /ride <riders: target> stop_riding | /ride <ride: target> evict_riders | /ride <ride: target> summon_rider <entityType: EntityType> [spawnEvent: string] [nameTag: string] | /ride <riders: target> summon_ride <entityType: EntityType> [rideRules: skip_riders|no_ride_change|reassign_rides] [spawnEvent: string] [nameTag: string]",
+  "description": "管理实体的骑乘关系",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "riders",
+      "type": "target",
+      "required": true,
+      "description": "骑乘者实体"
+    },
+    {
+      "name": "ride",
+      "type": "target",
+      "required": true,
+      "description": "被骑乘的实体（坐骑）"
+    },
+    {
+      "name": "teleportRules",
+      "type": "teleport_ride|teleport_rider",
+      "required": false,
+      "description": "传送规则：teleport_rider=骑乘者传送到坐骑，teleport_ride=坐骑传送到骑乘者",
+      "default": "teleport_rider"
+    },
+    {
+      "name": "howToFill",
+      "type": "if_group_fits|until_full",
+      "required": false,
+      "description": "填充规则：if_group_fits=仅当所有骑乘者都能坐下才骑，until_full=能坐多少坐多少",
+      "default": "until_full"
+    },
+    {
+      "name": "entityType",
+      "type": "EntityType",
+      "required": false,
+      "description": "要召唤的实体类型（summon_rider/summon_ride模式）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ride @s start_riding @e[type=horse,c=1]",
+      "description": "让自己骑上最近的马"
+    },
+    {
+      "input": "/ride @a stop_riding",
+      "description": "让所有玩家下马（停止骑乘）"
+    },
+    {
+      "input": "/ride @e[type=horse] evict_riders",
+      "description": "将所有马上的骑乘者弹下"
+    },
+    {
+      "input": "/ride @s summon_ride horse",
+      "description": "为自己召唤一匹马并骑上"
+    }
+  ],
+  "bedrock_specific_notes": "ride命令是基岩版特有的，提供了丰富的骑乘管理功能。支持让实体骑乘其他实体、停止骑乘、驱逐骑乘者、召唤并自动骑乘等。Java版没有等价命令。",
+  "version_added": "1.16.100"
+}

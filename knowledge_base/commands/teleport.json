@@ -1,0 +1,47 @@
+{
+  "name": "teleport",
+  "syntax": "/teleport <destination: target> | /teleport <destination: x y z> [yRot: value] [xRot: value] | /teleport <victim: target> <destination: target> | /teleport <victim: target> <destination: x y z> [yRot: value] [xRot: value] [checkForBlocks: Boolean]",
+  "description": "传送实体到指定位置（tp的全称别名）",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "victim",
+      "type": "target",
+      "required": false,
+      "description": "被传送的实体。不指定时传送命令执行者"
+    },
+    {
+      "name": "destination",
+      "type": "target 或 x y z",
+      "required": true,
+      "description": "传送目标位置或目标实体"
+    },
+    {
+      "name": "yRot",
+      "type": "value",
+      "required": false,
+      "description": "传送后的水平旋转角度（-180到180）"
+    },
+    {
+      "name": "xRot",
+      "type": "value",
+      "required": false,
+      "description": "传送后的垂直旋转角度（-90到90）"
+    },
+    {
+      "name": "checkForBlocks",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否检查目标位置是否有方块阻挡",
+      "default": "false"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/teleport @a 0 64 0",
+      "description": "将所有玩家传送到坐标(0,64,0)"
+    }
+  ],
+  "bedrock_specific_notes": "teleport是tp命令的完整别名，两者功能完全相同。基岩版支持checkForBlocks参数防止卡进方块。",
+  "version_added": "1.0.0"
+}

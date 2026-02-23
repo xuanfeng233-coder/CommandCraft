@@ -1,0 +1,74 @@
+{
+  "name": "titleraw",
+  "syntax": "/titleraw <player: target> <title|subtitle|actionbar|clear|reset|times> ...",
+  "description": "使用JSON rawtext在玩家屏幕上显示标题文本",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "要显示标题的目标玩家"
+    },
+    {
+      "name": "title <rawJsonMessage: json>",
+      "type": "子命令",
+      "required": false,
+      "description": "在屏幕中央显示大标题，使用rawtext JSON格式"
+    },
+    {
+      "name": "subtitle <rawJsonMessage: json>",
+      "type": "子命令",
+      "required": false,
+      "description": "在大标题下方显示副标题（必须先发送title才能显示subtitle）"
+    },
+    {
+      "name": "actionbar <rawJsonMessage: json>",
+      "type": "子命令",
+      "required": false,
+      "description": "在快捷栏上方显示动作栏文本"
+    },
+    {
+      "name": "clear",
+      "type": "子命令",
+      "required": false,
+      "description": "清除当前显示的标题"
+    },
+    {
+      "name": "reset",
+      "type": "子命令",
+      "required": false,
+      "description": "重置标题显示时间为默认值"
+    },
+    {
+      "name": "times <fadeIn: int> <stay: int> <fadeOut: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置标题的淡入、停留、淡出时间（单位：游戏刻，20刻=1秒）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/titleraw @a title {\"rawtext\":[{\"text\":\"§6欢迎来到服务器！\"}]}",
+      "description": "向所有玩家显示金色的欢迎标题"
+    },
+    {
+      "input": "/titleraw @a subtitle {\"rawtext\":[{\"text\":\"祝你游戏愉快\"}]}",
+      "description": "显示副标题（需先发送title）"
+    },
+    {
+      "input": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§c生命值: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"health\"}}]}",
+      "description": "在动作栏显示红色的'生命值:'后跟计分板分数"
+    },
+    {
+      "input": "/titleraw @a times 20 60 20",
+      "description": "设置标题淡入1秒、停留3秒、淡出1秒"
+    },
+    {
+      "input": "/titleraw @a title {\"rawtext\":[{\"translate\":\"commands.kill.successful\",\"with\":[\"Steve\"]}]}",
+      "description": "使用翻译键显示本地化文本"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版使用 /titleraw 配合 rawtext JSON 来显示富文本标题，这是基岩版特有的命令。对应 Java 版的 /title 命令。rawtext JSON 支持 text、selector、score、translate 四种组件类型。使用 § 颜色代码来设置文本颜色和样式。",
+  "version_added": "1.12.0"
+}

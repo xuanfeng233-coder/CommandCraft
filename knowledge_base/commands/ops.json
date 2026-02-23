@@ -1,0 +1,19 @@
+{
+  "name": "ops",
+  "syntax": "/ops list | /ops reload",
+  "description": "管理操作员列表（专用服务器）",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/ops list",
+      "description": "列出所有操作员"
+    },
+    {
+      "input": "/ops reload",
+      "description": "重新加载操作员配置文件"
+    }
+  ],
+  "bedrock_specific_notes": "ops命令仅在Bedrock Dedicated Server（BDS）中可用。操作员在ops.json文件中配置。",
+  "version_added": "1.18.0"
+}

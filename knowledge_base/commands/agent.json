@@ -1,0 +1,50 @@
+{
+  "name": "agent",
+  "syntax": "/agent move <direction: forward|back|left|right|up|down> | /agent turn <direction: left|right> | /agent attack <direction: forward|back|left|right|up|down> | /agent destroy <direction: forward|back|left|right|up|down> | /agent place <slotNum: int> <direction: forward|back|left|right|up|down> | /agent interact <direction: forward|back|left|right|up|down> | /agent till <direction: forward|back|left|right|up|down> | /agent inspect <direction: forward|back|left|right|up|down> | /agent inspectdata <direction: forward|back|left|right|up|down> | /agent detect <direction: forward|back|left|right|up|down> | /agent detectredstone <direction: forward|back|left|right|up|down> | /agent transfer <slotNum: int> <quantity: int> <dstSlotNum: int> | /agent collect <item: string> | /agent drop <slotNum: int> <quantity: int> <direction: forward|back|left|right|up|down> | /agent dropall <direction: forward|back|left|right|up|down> | /agent getitemcount <slotNum: int> | /agent getitemspace <slotNum: int> | /agent getitemdetail <slotNum: int> | /agent tp <x y z>",
+  "description": "控制Agent NPC执行各种操作（教育版特性）",
+  "category": "agent",
+  "parameters": [
+    {
+      "name": "direction",
+      "type": "forward|back|left|right|up|down",
+      "required": true,
+      "description": "操作方向"
+    },
+    {
+      "name": "slotNum",
+      "type": "int",
+      "required": false,
+      "description": "Agent物品栏槽位号（0-26）"
+    },
+    {
+      "name": "quantity",
+      "type": "int",
+      "required": false,
+      "description": "操作的物品数量"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/agent move forward",
+      "description": "让Agent向前移动一格"
+    },
+    {
+      "input": "/agent turn left",
+      "description": "让Agent向左转90度"
+    },
+    {
+      "input": "/agent destroy forward",
+      "description": "让Agent破坏前方的方块"
+    },
+    {
+      "input": "/agent place 0 forward",
+      "description": "让Agent放置槽位0的物品到前方"
+    },
+    {
+      "input": "/agent inspect forward",
+      "description": "检测Agent前方的方块类型"
+    }
+  ],
+  "bedrock_specific_notes": "agent命令是基岩版教育版特有命令。Agent是一个可编程机器人，支持移动、破坏、放置、检测等操作。需要先用/createagent创建Agent。常用于教学编程概念。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "wsevent",
+  "syntax": "/wsevent <eventName: string>",
+  "description": "向WebSocket连接发送自定义事件",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "eventName",
+      "type": "string",
+      "required": true,
+      "description": "事件名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/wsevent myCustomEvent",
+      "description": "通过WebSocket发送自定义事件myCustomEvent"
+    }
+  ],
+  "bedrock_specific_notes": "wsevent是基岩版特有命令，用于通过WebSocket连接向外部程序发送事件通知。需要先建立WebSocket连接。",
+  "version_added": "1.2.0"
+}

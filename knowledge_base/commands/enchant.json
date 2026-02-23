@@ -1,0 +1,44 @@
+{
+  "name": "enchant",
+  "syntax": "/enchant <player: target> <enchantmentId: Enchant> [level: int]",
+  "description": "为目标玩家手持物品附加附魔效果",
+  "category": "effects",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家（必须为玩家类型，且手持可附魔的物品）"
+    },
+    {
+      "name": "enchantmentId",
+      "type": "Enchant",
+      "required": true,
+      "description": "附魔ID或数字ID（参见 ids/enchantments.json）"
+    },
+    {
+      "name": "level",
+      "type": "int",
+      "required": false,
+      "description": "附魔等级，不能超过该附魔的最大等级",
+      "default": "1",
+      "range": "1-最大等级"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/enchant @s sharpness 5",
+      "description": "给自己手持的物品附魔锋利V"
+    },
+    {
+      "input": "/enchant @a unbreaking 3",
+      "description": "给所有玩家手持的物品附魔耐久III"
+    },
+    {
+      "input": "/enchant @p efficiency 5",
+      "description": "给最近的玩家手持的物品附魔效率V"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版/enchant命令不能超过附魔的正常最大等级，且受附魔兼容性限制（例如不能同时附魔锋利和亡灵杀手）。【重要】基岩版无法通过/give添加附魔（不支持NBT和附魔组件），/enchant是基岩版唯一的命令附魔方式，且必须手持目标物品时执行。要给玩家一把附魔物品，需要两步：先/give获得物品，再/enchant附魔。基岩版同时支持字符串ID（如sharpness）和数字ID（如9）。",
+  "version_added": "1.0.0"
+}

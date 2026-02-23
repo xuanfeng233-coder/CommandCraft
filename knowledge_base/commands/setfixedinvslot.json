@@ -1,0 +1,48 @@
+{
+  "name": "setfixedinvslot",
+  "syntax": "/setfixedinvslot <target: target> <slotId: int> <itemName: Item> [amount: int] [data: int]",
+  "description": "设置NPC的固定物品栏槽位内容（教育版特性）",
+  "category": "education",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标NPC实体"
+    },
+    {
+      "name": "slotId",
+      "type": "int",
+      "required": true,
+      "description": "物品栏槽位ID"
+    },
+    {
+      "name": "itemName",
+      "type": "Item",
+      "required": true,
+      "description": "物品ID"
+    },
+    {
+      "name": "amount",
+      "type": "int",
+      "required": false,
+      "description": "物品数量",
+      "default": "1"
+    },
+    {
+      "name": "data",
+      "type": "int",
+      "required": false,
+      "description": "物品数据值",
+      "default": "0"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setfixedinvslot @e[type=npc] 0 diamond_sword 1",
+      "description": "设置NPC的第一个固定物品栏槽位为钻石剑"
+    }
+  ],
+  "bedrock_specific_notes": "setfixedinvslot是基岩版教育版特有命令。用于设置NPC实体的固定物品栏，这些物品玩家可以通过与NPC交互获取。",
+  "version_added": "1.0.0"
+}

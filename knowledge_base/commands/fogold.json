@@ -1,0 +1,34 @@
+{
+  "name": "fogold",
+  "syntax": "/fogold <victim: target> push <fogId: string> <userProvidedId: string> | /fogold <victim: target> pop <userProvidedId: string> | /fogold <victim: target> remove <userProvidedId: string>",
+  "description": "旧版迷雾管理命令",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "victim",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "fogId",
+      "type": "Fog",
+      "required": false,
+      "description": "迷雾ID"
+    },
+    {
+      "name": "userProvidedId",
+      "type": "string",
+      "required": true,
+      "description": "用户定义的迷雾标识"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/fogold @a push minecraft:fog_hell my_fog",
+      "description": "旧版语法推送下界迷雾"
+    }
+  ],
+  "bedrock_specific_notes": "fogold是fog命令的旧版保留。建议使用fog命令。",
+  "version_added": "1.16.100"
+}

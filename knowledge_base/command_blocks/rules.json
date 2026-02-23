@@ -1,0 +1,31 @@
+{
+  "block_types": {
+    "command_block": {
+      "name": "脉冲命令方块",
+      "color": "orange",
+      "behavior": "triggered once by redstone or button"
+    },
+    "chain_command_block": {
+      "name": "连锁命令方块",
+      "color": "green",
+      "behavior": "executes when preceding block in chain completes"
+    },
+    "repeating_command_block": {
+      "name": "循环命令方块",
+      "color": "purple",
+      "behavior": "executes every tick while active"
+    }
+  },
+  "properties": {
+    "conditional": "Only executes if preceding command block succeeded",
+    "always_active": "Executes without redstone signal (needs_redstone=false)",
+    "delay": "Ticks to delay before execution"
+  },
+  "chain_rules": [
+    "Chain command blocks must face each other in sequence",
+    "A chain starts with either an impulse or repeating block",
+    "Chain blocks execute in the direction they face",
+    "Maximum chain length is 65536 blocks"
+  ],
+  "execution_order": "Repeating → Chain (in facing direction) → execute per tick"
+}

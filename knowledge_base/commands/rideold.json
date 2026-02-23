@@ -1,0 +1,34 @@
+{
+  "name": "rideold",
+  "syntax": "/rideold <riders: target> start_riding <ride: target> [teleportRules: teleport_ride|teleport_rider] [howToFill: if_group_fits|until_full] | /rideold <riders: target> stop_riding | /rideold <rides: target> evict_riders | /rideold <rides: target> summon_rider <entityType: EntityType> [spawnEvent: string] [nameTag: string] | /rideold <riders: target> summon_ride <entityType: EntityType> [rideRules: no_ride_change|reassign_rides|skip_riders] [spawnEvent: string] [nameTag: string]",
+  "description": "旧版骑乘关系管理命令",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "riders",
+      "type": "target",
+      "required": true,
+      "description": "骑乘者实体"
+    },
+    {
+      "name": "ride",
+      "type": "target",
+      "required": false,
+      "description": "被骑乘的实体"
+    },
+    {
+      "name": "entityType",
+      "type": "EntityType",
+      "required": false,
+      "description": "要生成的实体类型"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/rideold @s start_riding @e[type=horse,c=1]",
+      "description": "让自己骑上最近的马"
+    }
+  ],
+  "bedrock_specific_notes": "rideold是ride命令的旧版保留。建议使用ride命令。",
+  "version_added": "1.16.0"
+}

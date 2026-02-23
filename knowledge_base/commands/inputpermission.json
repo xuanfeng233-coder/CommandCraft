@@ -1,0 +1,46 @@
+{
+  "name": "inputpermission",
+  "syntax": "/inputpermission set <target: target> <permission: InputPermission> <state: enabled|disabled> | /inputpermission query <target: target> <permission: InputPermission> [state: enabled|disabled]",
+  "description": "管理玩家的输入操作权限",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "permission",
+      "type": "InputPermission",
+      "required": true,
+      "description": "权限类型：camera（摄像机/视角控制）、movement（移动控制）、lateral_movement（横向移动）"
+    },
+    {
+      "name": "state",
+      "type": "enabled|disabled",
+      "required": true,
+      "description": "启用或禁用该权限"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/inputpermission set @a movement disabled",
+      "description": "禁止所有玩家移动"
+    },
+    {
+      "input": "/inputpermission set @a camera disabled",
+      "description": "禁止所有玩家转动视角"
+    },
+    {
+      "input": "/inputpermission set @a movement enabled",
+      "description": "恢复所有玩家的移动权限"
+    },
+    {
+      "input": "/inputpermission query @s movement",
+      "description": "查询自己的移动权限状态"
+    }
+  ],
+  "bedrock_specific_notes": "inputpermission是基岩版特有的命令，用于在过场动画、剧情场景等场合限制玩家操作。配合camera命令使用可以制作电影般的过场效果。Java版没有等价命令。",
+  "version_added": "1.19.80"
+}

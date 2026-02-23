@@ -1,0 +1,72 @@
+{
+  "name": "playsound",
+  "syntax": "/playsound <sound: string> [player: target] [position: x y z] [volume: float] [pitch: float] [minimumVolume: float]",
+  "description": "向玩家播放指定音效",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "sound",
+      "type": "Sound",
+      "required": true,
+      "description": "音效ID，如 mob.zombie.say、random.levelup、note.harp 等"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "要播放音效的目标玩家",
+      "default": "命令执行者"
+    },
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": false,
+      "description": "音效播放的位置坐标",
+      "default": "目标玩家位置"
+    },
+    {
+      "name": "volume",
+      "type": "float",
+      "required": false,
+      "description": "音量大小。大于1.0时增加音效传播范围而非实际音量",
+      "default": "1.0",
+      "range": "0.0+"
+    },
+    {
+      "name": "pitch",
+      "type": "float",
+      "required": false,
+      "description": "音调高低，1.0为正常",
+      "default": "1.0",
+      "range": "0.0-256.0"
+    },
+    {
+      "name": "minimumVolume",
+      "type": "float",
+      "required": false,
+      "description": "超出正常传播范围时的最小音量",
+      "default": "0.0",
+      "range": "0.0-1.0"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/playsound random.levelup @s",
+      "description": "给自己播放升级音效"
+    },
+    {
+      "input": "/playsound mob.zombie.say @a ~ ~ ~ 1.0 1.0",
+      "description": "在执行位置向所有玩家播放僵尸声音"
+    },
+    {
+      "input": "/playsound note.harp @a ~ ~ ~ 1.0 0.5",
+      "description": "以低音调向所有玩家播放竖琴音效"
+    },
+    {
+      "input": "/playsound random.explode @a ~ ~ ~ 5.0",
+      "description": "以较大范围播放爆炸音效"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版音效ID使用点分格式（如 mob.zombie.say），与Java版的冒号分隔命名空间格式不同。基岩版没有音效分类（source/category）参数。具体可用音效ID请参考基岩版音效列表。",
+  "version_added": "1.0.0"
+}

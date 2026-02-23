@@ -1,0 +1,15 @@
+{
+  "name": "closechat",
+  "syntax": "/closechat",
+  "description": "关闭WebSocket聊天连接",
+  "category": "advanced",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/closechat",
+      "description": "断开当前的WebSocket聊天连接"
+    }
+  ],
+  "bedrock_specific_notes": "closechat是基岩版特有命令，用于关闭通过/connect建立的WebSocket连接。与connect命令配对使用。",
+  "version_added": "1.2.0"
+}

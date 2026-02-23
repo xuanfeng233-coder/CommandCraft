@@ -1,0 +1,42 @@
+{
+  "name": "dialogue",
+  "syntax": "/dialogue open <npc: target> <player: target> [sceneName: string] | /dialogue change <npc: target> <sceneName: string> [player: target]",
+  "description": "控制NPC对话框的显示和场景切换",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "npc",
+      "type": "target",
+      "required": true,
+      "description": "NPC实体目标"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "sceneName",
+      "type": "string",
+      "required": false,
+      "description": "对话场景名称，定义在行为包的dialogue文件夹中"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/dialogue open @e[type=npc,name=Guide] @p",
+      "description": "为最近的玩家打开名为Guide的NPC对话框"
+    },
+    {
+      "input": "/dialogue open @e[type=npc,c=1] @p quest_start",
+      "description": "打开NPC的quest_start对话场景"
+    },
+    {
+      "input": "/dialogue change @e[type=npc,name=Guide] quest_complete @a",
+      "description": "将Guide NPC的对话切换到quest_complete场景"
+    }
+  ],
+  "bedrock_specific_notes": "dialogue命令是基岩版特有的，用于控制NPC实体的对话框。对话场景可以在行为包的dialogue文件夹中用JSON定义，包含按钮和交互选项。Java版没有NPC实体和此命令。",
+  "version_added": "1.17.10"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "daylock",
+  "syntax": "/daylock [lock: Boolean]",
+  "description": "锁定或解锁昼夜循环",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "lock",
+      "type": "Boolean",
+      "required": false,
+      "description": "true=锁定为白天，false=恢复昼夜循环。省略则切换当前状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/daylock true",
+      "description": "锁定为白天，停止昼夜循环"
+    },
+    {
+      "input": "/daylock false",
+      "description": "解除锁定，恢复昼夜循环"
+    }
+  ],
+  "bedrock_specific_notes": "daylock命令也可以使用别名/alwaysday。功能等同于/gamerule doDaylightCycle false加上将时间设为白天。是基岩版提供的便捷命令。",
+  "version_added": "1.0.0"
+}

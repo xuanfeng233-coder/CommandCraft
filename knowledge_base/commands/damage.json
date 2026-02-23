@@ -1,0 +1,48 @@
+{
+  "name": "damage",
+  "syntax": "/damage <target: target> <amount: int> [cause: DamageCause] [entity: target]",
+  "description": "对实体造成指定类型和数量的伤害",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "受到伤害的实体"
+    },
+    {
+      "name": "amount",
+      "type": "int",
+      "required": true,
+      "description": "伤害数值（半颗心为单位）"
+    },
+    {
+      "name": "cause",
+      "type": "DamageCause",
+      "required": false,
+      "description": "伤害类型：anvil、attack、block_explosion、contact、drowning、entity_explosion、fall、fire、fire_tick、fly_into_wall、lava、magic、none、override、piston、projectile、starve、suffocation、thorns、void、wither"
+    },
+    {
+      "name": "entity",
+      "type": "target",
+      "required": false,
+      "description": "伤害来源实体（用于击退方向等计算）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/damage @e[type=zombie] 10 fire",
+      "description": "对所有僵尸造成10点火焰伤害"
+    },
+    {
+      "input": "/damage @p 5 attack @e[type=zombie,c=1]",
+      "description": "以最近僵尸为来源对最近玩家造成5点攻击伤害"
+    },
+    {
+      "input": "/damage @s 1000 override",
+      "description": "对自己造成1000点覆盖伤害（无视护甲和抗性，必定杀死）"
+    }
+  ],
+  "bedrock_specific_notes": "damage命令是基岩版特有的。override伤害类型可以无视所有护甲和效果保护。不同伤害类型会触发不同的游戏机制（如fire会点燃实体）。Java版没有等价命令。",
+  "version_added": "1.18.10"
+}

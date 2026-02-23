@@ -1,0 +1,32 @@
+{
+  "name": "npc",
+  "syntax": "/npc create [name: string] | /npc remove <target: target>",
+  "description": "创建或移除NPC实体",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "NPC的名称"
+    },
+    {
+      "name": "target",
+      "type": "target",
+      "required": false,
+      "description": "要移除的NPC目标"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/npc create 商人",
+      "description": "创建一个名为\"商人\"的NPC"
+    },
+    {
+      "input": "/npc remove @e[type=npc,name=商人]",
+      "description": "移除名为\"商人\"的NPC"
+    }
+  ],
+  "bedrock_specific_notes": "NPC是基岩版特有的实体，常用于地图制作中创建交互式角色。NPC可以配置对话、按钮和命令。与dialogue命令配合使用可以创建复杂的对话系统。",
+  "version_added": "1.0.0"
+}

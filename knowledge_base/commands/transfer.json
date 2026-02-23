@@ -1,0 +1,38 @@
+{
+  "name": "transfer",
+  "syntax": "/transfer <serverAddress: string> <port: int> [players: target]",
+  "description": "将玩家转移到另一个服务器",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "serverAddress",
+      "type": "string",
+      "required": true,
+      "description": "目标服务器地址"
+    },
+    {
+      "name": "port",
+      "type": "int",
+      "required": true,
+      "description": "目标服务器端口"
+    },
+    {
+      "name": "players",
+      "type": "target",
+      "required": false,
+      "description": "要转移的玩家。不指定则转移命令执行者"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/transfer play.example.com 19132",
+      "description": "将自己转移到指定服务器"
+    },
+    {
+      "input": "/transfer 192.168.1.100 19132 @a",
+      "description": "将所有玩家转移到指定服务器"
+    }
+  ],
+  "bedrock_specific_notes": "transfer命令是基岩版特有命令，Java版使用BungeeCord等代理实现类似功能。需要在server.properties中启用allow-transfer。",
+  "version_added": "1.20.10"
+}

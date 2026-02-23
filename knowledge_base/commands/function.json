@@ -1,0 +1,26 @@
+{
+  "name": "function",
+  "syntax": "/function <name: FilePath>",
+  "description": "执行指定的函数文件（.mcfunction）",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "FilePath",
+      "required": true,
+      "description": "函数文件路径，相对于行为包的functions文件夹，不需要.mcfunction扩展名"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/function setup",
+      "description": "执行functions/setup.mcfunction文件中的所有命令"
+    },
+    {
+      "input": "/function game/start",
+      "description": "执行functions/game/start.mcfunction文件"
+    }
+  ],
+  "bedrock_specific_notes": "function命令执行行为包中functions文件夹下的.mcfunction文件。文件中每行一条命令（不需要斜杠前缀）。函数文件需要在行为包中正确配置才能被调用。所有命令在同一tick内执行。",
+  "version_added": "1.8.0"
+}

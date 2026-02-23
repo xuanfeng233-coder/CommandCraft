@@ -1,0 +1,28 @@
+{
+  "name": "w",
+  "syntax": "/w <target: target> <message: message>",
+  "description": "向指定玩家发送私聊消息（msg的别名）",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "接收消息的目标玩家"
+    },
+    {
+      "name": "message",
+      "type": "message",
+      "required": true,
+      "description": "要发送的消息内容"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/w Steve 你在哪里？",
+      "description": "向名为Steve的玩家发送私聊消息"
+    }
+  ],
+  "bedrock_specific_notes": "w、msg和tell是同一命令的三个别名，功能完全相同。w是whisper的缩写。",
+  "version_added": "1.0.0"
+}

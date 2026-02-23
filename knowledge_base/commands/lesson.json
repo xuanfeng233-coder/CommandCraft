@@ -1,0 +1,19 @@
+{
+  "name": "lesson",
+  "syntax": "/lesson pause | /lesson unpause",
+  "description": "暂停或恢复课程（教育版特性）",
+  "category": "education",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/lesson pause",
+      "description": "暂停当前课程"
+    },
+    {
+      "input": "/lesson unpause",
+      "description": "恢复当前课程"
+    }
+  ],
+  "bedrock_specific_notes": "lesson命令是基岩版教育版特有命令，仅教师可以使用。用于控制课堂教学节奏。",
+  "version_added": "1.0.0"
+}

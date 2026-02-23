@@ -1,0 +1,22 @@
+{
+  "name": "ban",
+  "syntax": "/ban <name: string>",
+  "description": "封禁指定玩家，阻止其加入世界",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true,
+      "description": "要封禁的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ban Steve",
+      "description": "封禁名为Steve的玩家"
+    }
+  ],
+  "bedrock_specific_notes": "ban命令仅在基岩版专用服务器(BDS)中可用，在普通多人游戏或Realms中不可用。封禁后玩家无法重新加入服务器。",
+  "version_added": "1.0.0"
+}

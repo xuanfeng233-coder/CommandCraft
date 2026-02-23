@@ -1,0 +1,27 @@
+{
+  "name": "clearspawnpoint",
+  "syntax": "/clearspawnpoint [player: target]",
+  "description": "清除玩家的个人重生点",
+  "category": "spawn",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "要清除重生点的玩家，默认为命令执行者",
+      "default": "@s"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clearspawnpoint @s",
+      "description": "清除自己的个人重生点"
+    },
+    {
+      "input": "/clearspawnpoint @a",
+      "description": "清除所有玩家的个人重生点"
+    }
+  ],
+  "bedrock_specific_notes": "清除个人重生点后，玩家死亡将在世界出生点(setworldspawn设置的位置)重生。此命令是基岩版特有的，Java版没有独立的清除重生点命令。",
+  "version_added": "1.16.0"
+}

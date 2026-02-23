@@ -1,0 +1,56 @@
+{
+  "name": "playanimation",
+  "syntax": "/playanimation <entity: target> <animation: string> [nextState: string] [blendOutTime: float] [stopExpression: string] [controller: string]",
+  "description": "播放实体的动画",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "entity",
+      "type": "target",
+      "required": true,
+      "description": "目标实体"
+    },
+    {
+      "name": "animation",
+      "type": "Animation",
+      "required": true,
+      "description": "要播放的动画ID（如 animation.player.first_person.swing_attack）"
+    },
+    {
+      "name": "nextState",
+      "type": "string",
+      "required": false,
+      "description": "动画结束后切换到的状态"
+    },
+    {
+      "name": "blendOutTime",
+      "type": "float",
+      "required": false,
+      "description": "动画混合过渡时间（秒）"
+    },
+    {
+      "name": "stopExpression",
+      "type": "string",
+      "required": false,
+      "description": "停止动画的Molang表达式"
+    },
+    {
+      "name": "controller",
+      "type": "string",
+      "required": false,
+      "description": "动画控制器名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/playanimation @e[type=armor_stand] animation.armor_stand.brandish_pose",
+      "description": "让所有盔甲架播放挥舞姿势动画"
+    },
+    {
+      "input": "/playanimation @s animation.player.first_person.swing_attack default 0.5",
+      "description": "播放挥击动画，0.5秒混合过渡"
+    }
+  ],
+  "bedrock_specific_notes": "playanimation是基岩版特有命令，用于播放实体资源包中定义的动画。Java版没有等价命令。可用于盔甲架姿势切换等效果。",
+  "version_added": "1.16.100"
+}

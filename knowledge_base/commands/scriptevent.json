@@ -1,0 +1,32 @@
+{
+  "name": "scriptevent",
+  "syntax": "/scriptevent <messageId: string> [message: string]",
+  "description": "触发脚本API的自定义事件",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "messageId",
+      "type": "string",
+      "required": true,
+      "description": "事件ID，格式为 namespace:event_name，命名空间不能为minecraft"
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "required": false,
+      "description": "附带的消息字符串，可在脚本中读取"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/scriptevent mypack:start_game",
+      "description": "触发自定义脚本事件mypack:start_game"
+    },
+    {
+      "input": "/scriptevent mypack:set_team red",
+      "description": "触发事件并传递'red'作为消息参数"
+    }
+  ],
+  "bedrock_specific_notes": "scriptevent命令是基岩版特有的，用于与GameTest/Script API脚本通信。脚本端通过system.afterEvents.scriptEventReceive监听事件。命名空间不能使用minecraft。Java版没有等价命令。",
+  "version_added": "1.19.50"
+}

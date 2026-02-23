@@ -1,0 +1,26 @@
+{
+  "name": "getspawnpoint",
+  "syntax": "/getspawnpoint <player: target>",
+  "description": "获取玩家的当前重生点位置",
+  "category": "spawn",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/getspawnpoint @s",
+      "description": "获取自己的重生点位置"
+    },
+    {
+      "input": "/getspawnpoint @a",
+      "description": "获取所有玩家的重生点位置"
+    }
+  ],
+  "bedrock_specific_notes": "getspawnpoint是基岩版特有命令，用于查询玩家的个人重生点。Java版没有直接等价命令。",
+  "version_added": "1.0.0"
+}

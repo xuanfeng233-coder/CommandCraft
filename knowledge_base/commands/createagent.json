@@ -1,0 +1,15 @@
+{
+  "name": "createagent",
+  "syntax": "/createagent",
+  "description": "创建一个Agent NPC（教育版特性）",
+  "category": "agent",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/createagent",
+      "description": "在玩家位置创建一个Agent"
+    }
+  ],
+  "bedrock_specific_notes": "createagent是基岩版教育版特有命令。Agent是一个可编程的NPC，支持通过代码控制其移动和行为。需要启用教育版功能。",
+  "version_added": "1.0.0"
+}

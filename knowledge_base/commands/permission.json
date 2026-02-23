@@ -1,0 +1,19 @@
+{
+  "name": "permission",
+  "syntax": "/permission list | /permission reload",
+  "description": "管理玩家权限（专用服务器）",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/permission list",
+      "description": "列出当前权限设置"
+    },
+    {
+      "input": "/permission reload",
+      "description": "重新加载权限配置文件"
+    }
+  ],
+  "bedrock_specific_notes": "permission命令仅在Bedrock Dedicated Server（BDS）中可用。权限在permissions.json文件中配置。Java版使用不同的权限系统。",
+  "version_added": "1.18.0"
+}

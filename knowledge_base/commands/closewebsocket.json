@@ -1,0 +1,15 @@
+{
+  "name": "closewebsocket",
+  "syntax": "/closewebsocket",
+  "description": "关闭WebSocket连接",
+  "category": "advanced",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/closewebsocket",
+      "description": "关闭当前的WebSocket连接"
+    }
+  ],
+  "bedrock_specific_notes": "closewebsocket是基岩版特有命令，用于断开通过/connect建立的WebSocket连接。在某些版本中可能与closechat功能重叠。",
+  "version_added": "1.2.0"
+}

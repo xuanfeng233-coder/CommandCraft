@@ -1,0 +1,23 @@
+{
+  "name": "setmaxplayers",
+  "syntax": "/setmaxplayers <maxPlayers: int>",
+  "description": "设置服务器允许的最大玩家数量",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "maxPlayers",
+      "type": "int",
+      "required": true,
+      "description": "最大玩家数量",
+      "range": "1-30"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setmaxplayers 10",
+      "description": "将服务器最大玩家数设为10人"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版特有命令，用于动态更改服务器的最大玩家数。Java版通过server.properties配置文件设置。",
+  "version_added": "1.0.0"
+}

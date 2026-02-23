@@ -1,0 +1,36 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - CORS_ORIGINS=https://commandcraft.cn
+      - HF_ENDPOINT=https://hf-mirror.com
+    volumes:
+      - ./knowledge_base:/app/knowledge_base:ro
+      - backend-data:/app/data
+      - subscription-data:/app/backend/data
+      - model-cache:/root/.cache
+    expose:
+      - "8000"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    depends_on:
+      - backend
+
+volumes:
+  backend-data:
+  subscription-data:
+  model-cache:

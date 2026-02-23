@@ -1,0 +1,148 @@
+{
+  "name": "execute",
+  "syntax": "/execute <subcommand: SubCommand> ...",
+  "description": "以指定实体身份、位置或条件执行命令，支持链式组合多个子命令",
+  "category": "execution",
+  "parameters": [
+    {
+      "name": "as <origin: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行者身份为指定目标，不改变执行位置"
+    },
+    {
+      "name": "at <origin: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置为指定目标的位置和朝向，不改变执行者身份"
+    },
+    {
+      "name": "positioned <position: x y z>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置为指定坐标"
+    },
+    {
+      "name": "positioned as <origin: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置为指定目标的位置"
+    },
+    {
+      "name": "facing <position: x y z>",
+      "type": "子命令",
+      "required": false,
+      "description": "使执行朝向面向指定坐标"
+    },
+    {
+      "name": "facing entity <origin: target> <anchor: eyes|feet>",
+      "type": "子命令",
+      "required": false,
+      "description": "使执行朝向面向指定实体的眼睛或脚部"
+    },
+    {
+      "name": "rotated <yRot: value> <xRot: value>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行朝向为指定角度"
+    },
+    {
+      "name": "rotated as <origin: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行朝向与指定目标一致"
+    },
+    {
+      "name": "align <axes: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "将执行位置对齐到方块网格，axes可为x、y、z的组合如xyz"
+    },
+    {
+      "name": "anchored <anchor: eyes|feet>",
+      "type": "子命令",
+      "required": false,
+      "description": "将执行锚点设为眼睛或脚部位置"
+    },
+    {
+      "name": "in <dimension: Dimension>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行维度为指定维度（overworld/nether/the_end）"
+    },
+    {
+      "name": "if block <position: x y z> <block: Block> [blockStates: BlockStates]",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：指定位置是否为指定方块"
+    },
+    {
+      "name": "if blocks <begin: x y z> <end: x y z> <destination: x y z> <scan mode: all|masked>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：两个区域的方块是否匹配"
+    },
+    {
+      "name": "if entity <target: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：是否存在匹配的实体"
+    },
+    {
+      "name": "if score <target: target> <objective: string> matches <range: IntRange>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：目标的计分板分数是否在指定范围内"
+    },
+    {
+      "name": "if score <target: target> <targetObjective: string> <operation: < | <= | = | >= | >> <source: target> <sourceObjective: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：比较两个目标的计分板分数"
+    },
+    {
+      "name": "unless ...",
+      "type": "子命令",
+      "required": false,
+      "description": "与if相反的条件判断，当条件不满足时继续执行（支持所有if的子命令变体）"
+    },
+    {
+      "name": "run <command: Command>",
+      "type": "子命令",
+      "required": true,
+      "description": "执行指定的命令。必须作为execute链的最后一个子命令"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/execute as @a at @s run tp @s ~ ~1 ~",
+      "description": "以所有玩家的身份在各自位置向上传送1格"
+    },
+    {
+      "input": "/execute at @e[type=armor_stand,name=spawn] run summon zombie ~ ~ ~",
+      "description": "在所有名为spawn的盔甲架位置生成僵尸"
+    },
+    {
+      "input": "/execute as @a if score @s kills >= @s threshold run say 达标了！",
+      "description": "当玩家kills分数大于等于threshold分数时发送消息"
+    },
+    {
+      "input": "/execute as @a at @s if block ~ ~-1 ~ diamond_block run effect @s speed 5 2",
+      "description": "给站在钻石块上的所有玩家5秒的速度II效果"
+    },
+    {
+      "input": "/execute if entity @e[type=zombie,r=10] run say 附近有僵尸！",
+      "description": "如果10格内有僵尸则发送消息"
+    },
+    {
+      "input": "/execute as @a[hasitem={item=tnt}] run tag @s add WARN",
+      "description": "检测背包中持有TNT的玩家，给他们添加WARN标签（hasitem是基岩版独有选择器参数）"
+    },
+    {
+      "input": "/execute as @a[hasitem={item=diamond_sword,location=slot.weapon.mainhand}] at @s run particle minecraft:villager_happy ~ ~1 ~",
+      "description": "在主手持有钻石剑的玩家头顶生成粒子效果（hasitem支持location指定槽位）"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版execute语法在1.19.50+更新为新语法（与Java版类似但仍有差异）。注意：基岩版不支持store子命令。if score的matches用法和比较用法都支持。基岩版execute支持链式调用多个子命令。基岩版中 unless 在某些旧版本可能不完全支持。目标选择器中可使用基岩版独有参数hasitem检测物品（用法: @a[hasitem={item=物品ID}]，不是item=）。",
+  "version_added": "1.0.0"
+}

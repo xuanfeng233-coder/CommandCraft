@@ -1,0 +1,33 @@
+{
+  "name": "spawnpoint",
+  "syntax": "/spawnpoint [player: target] [spawnPos: x y z]",
+  "description": "设置玩家的个人重生点",
+  "category": "spawn",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "要设置重生点的玩家，默认为命令执行者",
+      "default": "@s"
+    },
+    {
+      "name": "spawnPos",
+      "type": "x y z",
+      "required": false,
+      "description": "重生点坐标，默认为当前位置"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spawnpoint @s",
+      "description": "将自己的重生点设为当前位置"
+    },
+    {
+      "input": "/spawnpoint @a 0 64 0",
+      "description": "将所有玩家的重生点设为坐标(0,64,0)"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版中spawnpoint只影响单个玩家的重生点，与setworldspawn不同。玩家死亡后会在此位置重生。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,48 @@
+{
+  "name": "volumearea",
+  "syntax": "/volumearea add <identifier: string> <from: x y z> <to: x y z> [name: string] | /volumearea remove <name: string> | /volumearea remove_all | /volumearea list [all-dimensions]",
+  "description": "管理体积区域（Volume Area），用于定义特殊行为区域",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "identifier",
+      "type": "string",
+      "required": true,
+      "description": "体积区域标识符，指定行为包中定义的体积区域类型"
+    },
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "区域的起始坐标"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "区域的结束坐标"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "体积区域的名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/volumearea add minecraft:fog_desert 0 0 0 100 256 100 desert_fog",
+      "description": "添加一个沙漠迷雾体积区域"
+    },
+    {
+      "input": "/volumearea remove desert_fog",
+      "description": "移除名为desert_fog的体积区域"
+    },
+    {
+      "input": "/volumearea list all-dimensions",
+      "description": "列出所有维度中的体积区域"
+    }
+  ],
+  "bedrock_specific_notes": "volumearea是基岩版特有命令，用于在世界中定义具有特殊行为的区域。体积区域类型在行为包中定义，可影响迷雾、天气等效果。Java版没有等价命令。",
+  "version_added": "1.18.0"
+}

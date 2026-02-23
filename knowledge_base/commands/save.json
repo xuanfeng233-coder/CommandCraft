@@ -1,0 +1,30 @@
+{
+  "name": "save",
+  "syntax": "/save hold | /save query | /save resume",
+  "description": "管理专用服务器的世界存档保存",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "子命令",
+      "type": "hold|query|resume",
+      "required": true,
+      "description": "hold=暂停自动保存并准备备份，query=查询备份文件信息，resume=恢复自动保存"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/save hold",
+      "description": "暂停自动保存，准备进行世界备份"
+    },
+    {
+      "input": "/save query",
+      "description": "查询已准备好的备份文件列表"
+    },
+    {
+      "input": "/save resume",
+      "description": "恢复自动保存功能"
+    }
+  ],
+  "bedrock_specific_notes": "save命令仅在Bedrock Dedicated Server（BDS）中可用。用于热备份流程：先hold暂停写入，再query获取文件列表，完成复制后resume恢复。",
+  "version_added": "1.0.0"
+}

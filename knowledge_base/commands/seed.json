@@ -1,0 +1,15 @@
+{
+  "name": "seed",
+  "syntax": "/seed",
+  "description": "显示当前世界的种子值",
+  "category": "info",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/seed",
+      "description": "显示当前世界的种子号码"
+    }
+  ],
+  "bedrock_specific_notes": "seed命令在基岩版中会在聊天框显示当前世界的种子值。种子值可以用来重新生成相同的世界地形。",
+  "version_added": "1.0.0"
+}

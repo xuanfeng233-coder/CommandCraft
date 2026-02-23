@@ -1,0 +1,42 @@
+{
+  "name": "ability",
+  "syntax": "/ability <player: target> <ability: Ability> <value: Boolean>",
+  "description": "设置玩家的能力权限（教育版特性）",
+  "category": "player_management",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "ability",
+      "type": "Ability",
+      "required": true,
+      "description": "能力类型：worldbuilder（世界构建者权限）、mayfly（飞行能力）、mute（静音）"
+    },
+    {
+      "name": "value",
+      "type": "Boolean",
+      "required": true,
+      "description": "true=授予能力，false=移除能力"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ability @a mayfly true",
+      "description": "允许所有玩家飞行"
+    },
+    {
+      "input": "/ability @a worldbuilder false",
+      "description": "移除所有玩家的世界构建者权限"
+    },
+    {
+      "input": "/ability @a[tag=muted] mute true",
+      "description": "静音所有带muted标签的玩家"
+    }
+  ],
+  "bedrock_specific_notes": "ability命令需要在世界设置中启用教育版功能才能使用。mayfly能力允许冒险模式玩家飞行。worldbuilder权限允许在不可更改的世界中放置/破坏方块。Java版没有此命令。",
+  "version_added": "1.2.0"
+}

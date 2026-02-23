@@ -1,0 +1,36 @@
+{
+  "name": "event",
+  "syntax": "/event entity <target: target> <eventName: string>",
+  "description": "触发实体的行为包事件",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标实体"
+    },
+    {
+      "name": "eventName",
+      "type": "string",
+      "required": true,
+      "description": "要触发的事件名称，定义在实体行为JSON中"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/event entity @e[type=villager_v2] minecraft:become_witch",
+      "description": "让所有村民变成女巫"
+    },
+    {
+      "input": "/event entity @e[type=zombie] minecraft:start_transforming",
+      "description": "触发僵尸的转化事件（如转化为溺尸）"
+    },
+    {
+      "input": "/event entity @e[type=creeper] minecraft:start_exploding_forced",
+      "description": "强制触发苦力怕的爆炸事件"
+    }
+  ],
+  "bedrock_specific_notes": "event命令是基岩版特有的，用于触发实体行为包中定义的事件。原版实体有预设事件可用（如minecraft:become_witch），自定义实体可以定义自己的事件。Java版没有等价命令。",
+  "version_added": "1.16.100"
+}

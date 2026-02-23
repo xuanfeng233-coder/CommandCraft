@@ -1,0 +1,26 @@
+{
+  "name": "alwaysday",
+  "syntax": "/alwaysday [lock: Boolean]",
+  "description": "锁定或解锁昼夜循环（daylock的别名）",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "lock",
+      "type": "Boolean",
+      "required": false,
+      "description": "true锁定（停止昼夜循环），false解锁（恢复昼夜循环）。不指定则切换状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/alwaysday true",
+      "description": "锁定昼夜循环，保持当前时间"
+    },
+    {
+      "input": "/alwaysday false",
+      "description": "解锁昼夜循环，恢复正常昼夜交替"
+    }
+  ],
+  "bedrock_specific_notes": "alwaysday和daylock是同一命令的两个别名。这是基岩版特有命令，Java版使用gamerule doDaylightCycle实现类似功能。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "gamerule",
+  "syntax": "/gamerule <rule: GameRule> [value: Boolean|int]",
+  "description": "查询或设置游戏规则",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "rule",
+      "type": "GameRule",
+      "required": true,
+      "description": "游戏规则名称"
+    },
+    {
+      "name": "value",
+      "type": "Boolean|int",
+      "required": false,
+      "description": "要设置的值。布尔型规则使用true/false，整数型规则使用数字。省略则查询当前值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gamerule keepInventory true",
+      "description": "开启死亡不掉落"
+    },
+    {
+      "input": "/gamerule mobGriefing false",
+      "description": "禁止生物破坏方块（如苦力怕爆炸）"
+    },
+    {
+      "input": "/gamerule commandBlockOutput false",
+      "description": "关闭命令方块输出，减少聊天栏刷屏"
+    },
+    {
+      "input": "/gamerule randomTickSpeed 100",
+      "description": "将随机刻速度设为100（加速作物生长等）"
+    },
+    {
+      "input": "/gamerule doDaylightCycle false",
+      "description": "停止昼夜循环"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版支持的常用游戏规则：commandBlockOutput(命令方块输出)、doDaylightCycle(昼夜循环)、doFireTick(火焰蔓延)、doMobLoot(生物掉落)、doMobSpawning(生物生成)、doTileDrops(方块掉落)、doWeatherCycle(天气循环)、drowningDamage(溺水伤害)、fallDamage(摔落伤害)、fireDamage(火焰伤害)、keepInventory(死亡不掉落)、maxCommandChainLength(最大命令链长度)、mobGriefing(生物破坏)、naturalRegeneration(自然回血)、pvp(玩家间伤害)、randomTickSpeed(随机刻速度)、sendCommandFeedback(命令反馈)、showCoordinates(显示坐标)、tntExplodes(TNT爆炸)、showDeathMessages(显示死亡消息)。部分规则与Java版名称不同或基岩版独有。",
+  "version_added": "1.0.0"
+}

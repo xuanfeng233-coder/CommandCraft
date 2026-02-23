@@ -1,0 +1,15 @@
+{
+  "name": "enchantmentlist",
+  "syntax": "/enchantmentlist",
+  "description": "列出所有可用的附魔类型",
+  "category": "info",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/enchantmentlist",
+      "description": "显示所有附魔的ID和名称"
+    }
+  ],
+  "bedrock_specific_notes": "enchantmentlist是基岩版特有的快捷命令，用于快速查看所有附魔类型。在命令方块中不常用，主要用于玩家查询。",
+  "version_added": "1.0.0"
+}

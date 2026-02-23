@@ -1,0 +1,28 @@
+{
+  "name": "scripteventold",
+  "syntax": "/scripteventold <messageId: string> [message: string]",
+  "description": "旧版脚本事件触发命令",
+  "category": "scripting",
+  "parameters": [
+    {
+      "name": "messageId",
+      "type": "string",
+      "required": true,
+      "description": "事件消息ID（格式为 namespace:eventName）"
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "required": false,
+      "description": "附加消息内容"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/scripteventold mypack:start hello",
+      "description": "旧版语法触发脚本事件"
+    }
+  ],
+  "bedrock_specific_notes": "scripteventold是scriptevent命令的旧版保留。建议使用scriptevent命令。",
+  "version_added": "1.19.0"
+}

@@ -1,0 +1,44 @@
+{
+  "name": "particle",
+  "syntax": "/particle <effect: string> <position: x y z>",
+  "description": "在指定位置生成粒子效果",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "effect",
+      "type": "Particle",
+      "required": true,
+      "description": "粒子效果ID，使用命名空间格式如 minecraft:flame_particle、minecraft:heart_particle 等"
+    },
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "粒子生成的位置坐标，支持相对坐标~和局部坐标^"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/particle minecraft:flame_particle ~ ~1 ~",
+      "description": "在自己头顶生成火焰粒子"
+    },
+    {
+      "input": "/particle minecraft:heart_particle ~ ~2 ~",
+      "description": "在自己上方生成爱心粒子"
+    },
+    {
+      "input": "/particle minecraft:huge_explosion_emitter ~ ~ ~",
+      "description": "在自己位置生成大型爆炸粒子效果"
+    },
+    {
+      "input": "/particle minecraft:totem_particle ~ ~1 ~",
+      "description": "在自己上方生成不死图腾粒子"
+    },
+    {
+      "input": "/particle minecraft:water_splash_particle 100 64 200",
+      "description": "在指定坐标生成水花粒子"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版粒子命令使用命名空间格式（minecraft:xxx_particle），与Java版不同。基岩版particle命令不支持Java版的 count、speed 等额外参数。粒子效果对所有附近玩家可见，无需指定观察者。自定义粒子需要通过资源包定义。",
+  "version_added": "1.8.0"
+}

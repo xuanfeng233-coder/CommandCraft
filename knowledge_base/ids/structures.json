@@ -1,0 +1,20 @@
+[
+  { "id": "ancientcity", "name": "远古城市", "description": "生成于深暗之域生物群系的大型地下结构，包含战利品和幽匿感测体" },
+  { "id": "bastionremnant", "name": "堡垒遗迹", "description": "下界中由黑石构成的大型结构，内有猪灵和丰富战利品" },
+  { "id": "buriedtreasure", "name": "埋藏的宝藏", "description": "隐藏在海滩沙子下的宝箱，可通过藏宝图找到" },
+  { "id": "endcity", "name": "末地城", "description": "末地外岛上的高塔结构，可能附带末地船和鞘翅" },
+  { "id": "fortress", "name": "下界要塞", "description": "下界中的大型桥梁和走廊结构，有烈焰人刷怪笼和凋灵骷髅" },
+  { "id": "mansion", "name": "林地府邸", "description": "黑森林中罕见的大型建筑，内有卫道士和唤魔者" },
+  { "id": "mineshaft", "name": "废弃矿井", "description": "地下矿道网络，含有矿车箱子、蜘蛛刷怪笼和铁轨" },
+  { "id": "monument", "name": "海底神殿", "description": "深海中的大型海晶石建筑，有远古守卫者守护" },
+  { "id": "oceanruin", "name": "海底废墟", "description": "海底的小型石砖或砂岩遗迹，含有宝箱" },
+  { "id": "pillageroutpost", "name": "掠夺者前哨站", "description": "生成于平原等开阔生物群系的高塔，有掠夺者驻守" },
+  { "id": "ruinedportal", "name": "废弃传送门", "description": "残缺的下界传送门框架，附近有金块和宝箱" },
+  { "id": "shipwreck", "name": "沉船", "description": "海底或海滩上的破损木船，包含三种战利品箱" },
+  { "id": "stronghold", "name": "要塞", "description": "深埋地下的石砖结构，包含末地传送门和图书馆" },
+  { "id": "temple", "name": "神殿", "description": "包括沙漠神殿、丛林神殿和女巫小屋在内的各类神殿结构" },
+  { "id": "trailruins", "name": "古迹废墟", "description": "半埋在地下的建筑遗址，可以通过刷子考古发掘陶片等物品" },
+  { "id": "trialchambers", "name": "试炼密室", "description": "地下铜质结构，包含试炼刷怪笼和宝库，是获取旋风人和重锤的场所" },
+  { "id": "village", "name": "村庄", "description": "由多种建筑组成的村民聚落，可包含铁匠铺、图书馆等" },
+  { "id": "witch", "name": "女巫小屋", "description": "沼泽中的小型高脚木屋，有女巫居住" }
+]

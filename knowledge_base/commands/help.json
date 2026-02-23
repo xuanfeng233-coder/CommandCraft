@@ -1,0 +1,36 @@
+{
+  "name": "help",
+  "syntax": "/help [command: CommandName] | /help [page: int]",
+  "description": "显示命令帮助信息",
+  "category": "info",
+  "parameters": [
+    {
+      "name": "command",
+      "type": "CommandName",
+      "required": false,
+      "description": "要查看帮助的命令名称"
+    },
+    {
+      "name": "page",
+      "type": "int",
+      "required": false,
+      "description": "帮助信息的页码"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/help",
+      "description": "显示第一页的命令帮助列表"
+    },
+    {
+      "input": "/help give",
+      "description": "显示give命令的详细帮助信息"
+    },
+    {
+      "input": "/help 3",
+      "description": "显示第3页的命令帮助列表"
+    }
+  ],
+  "bedrock_specific_notes": "help命令在基岩版中会列出所有可用命令及其简要说明。?是help的别名。",
+  "version_added": "1.0.0"
+}

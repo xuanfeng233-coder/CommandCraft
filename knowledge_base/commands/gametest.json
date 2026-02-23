@@ -1,0 +1,49 @@
+{
+  "name": "gametest",
+  "syntax": "/gametest runthis | /gametest run <testName: string> [rotationSteps: int] | /gametest runall [tag: string] [rotationSteps: int] | /gametest pos | /gametest create <testName: string> [width: int] [height: int] [depth: int] | /gametest clearall [radius: int] | /gametest runset [tag: string] [rotationSteps: int]",
+  "description": "管理和运行GameTest框架的自动化测试",
+  "category": "scripting",
+  "parameters": [
+    {
+      "name": "testName",
+      "type": "string",
+      "required": false,
+      "description": "测试名称"
+    },
+    {
+      "name": "rotationSteps",
+      "type": "int",
+      "required": false,
+      "description": "旋转步数（0-3，每步90度）",
+      "default": "0"
+    },
+    {
+      "name": "tag",
+      "type": "string",
+      "required": false,
+      "description": "测试标签，用于筛选运行的测试"
+    },
+    {
+      "name": "width/height/depth",
+      "type": "int",
+      "required": false,
+      "description": "创建测试区域的尺寸"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gametest runthis",
+      "description": "运行最近的GameTest测试"
+    },
+    {
+      "input": "/gametest run mytest:test1",
+      "description": "运行指定名称的测试"
+    },
+    {
+      "input": "/gametest clearall 50",
+      "description": "清除50格范围内的所有测试结构"
+    }
+  ],
+  "bedrock_specific_notes": "gametest命令用于基岩版GameTest框架，这是一个自动化测试系统。需要启用GameTest实验性功能。主要用于开发者测试行为包和脚本API。",
+  "version_added": "1.16.210"
+}

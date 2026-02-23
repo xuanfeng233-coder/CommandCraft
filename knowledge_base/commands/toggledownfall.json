@@ -1,0 +1,15 @@
+{
+  "name": "toggledownfall",
+  "syntax": "/toggledownfall",
+  "description": "切换天气降水状态（晴天/雨雪）",
+  "category": "world_management",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/toggledownfall",
+      "description": "如果正在下雨则停止，如果是晴天则开始下雨"
+    }
+  ],
+  "bedrock_specific_notes": "toggledownfall是基岩版保留的旧版命令，用于快速切换降水。推荐使用/weather命令进行更精确的天气控制。此命令不接受任何参数。",
+  "version_added": "1.0.0"
+}

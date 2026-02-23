@@ -1,0 +1,38 @@
+{
+  "name": "kill",
+  "syntax": "/kill [target: target]",
+  "description": "杀死指定的实体",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": false,
+      "description": "要杀死的目标实体选择器。如果省略，默认杀死命令执行者自身"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/kill @e[type=zombie]",
+      "description": "杀死所有僵尸"
+    },
+    {
+      "input": "/kill @e[type=item]",
+      "description": "清除地面上所有掉落物品"
+    },
+    {
+      "input": "/kill @e[type=!player]",
+      "description": "杀死除玩家以外的所有实体"
+    },
+    {
+      "input": "/kill @e[r=50,type=!player]",
+      "description": "杀死50格范围内除玩家外的所有实体"
+    },
+    {
+      "input": "/kill @s",
+      "description": "杀死自己"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版中 /kill 也可以杀死创造模式的玩家。用于清除掉落物时使用 type=item。注意基岩版中掉落经验球的类型为 xp_orb。",
+  "version_added": "1.0.0"
+}

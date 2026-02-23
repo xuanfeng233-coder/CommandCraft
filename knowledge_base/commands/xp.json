@@ -1,0 +1,37 @@
+{
+  "name": "xp",
+  "syntax": "/xp <amount: int> [player: target] | /xp <amount: int>L [player: target]",
+  "description": "给予玩家经验值或经验等级",
+  "category": "player_management",
+  "parameters": [
+    {
+      "name": "amount",
+      "type": "int",
+      "required": true,
+      "description": "经验值数量。后面加L表示经验等级。可以为负数（仅等级模式）"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "目标玩家，默认为命令执行者",
+      "default": "@s"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/xp 100 @s",
+      "description": "给自己100点经验值"
+    },
+    {
+      "input": "/xp 30L @a",
+      "description": "给所有玩家30级经验等级"
+    },
+    {
+      "input": "/xp -10L @p",
+      "description": "减少最近玩家10个经验等级"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版xp命令中，直接写数字给予经验值（点数），数字后加L给予经验等级。负数只在等级模式(L)下有效。经验值不能为负。",
+  "version_added": "1.0.0"
+}

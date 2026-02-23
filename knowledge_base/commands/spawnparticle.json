@@ -1,0 +1,28 @@
+{
+  "name": "spawnparticle",
+  "syntax": "/spawnparticle <effectName: string> <position: x y z>",
+  "description": "在指定位置生成单个粒子效果（particle的别名形式）",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "effectName",
+      "type": "Particle",
+      "required": true,
+      "description": "粒子效果名称（如 minecraft:basic_flame_particle）"
+    },
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "粒子生成的位置坐标"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spawnparticle minecraft:heart_particle ~ ~2 ~",
+      "description": "在执行者头顶生成爱心粒子"
+    }
+  ],
+  "bedrock_specific_notes": "spawnparticle在某些基岩版版本中作为particle命令的变体存在。建议优先使用particle命令。",
+  "version_added": "1.0.0"
+}

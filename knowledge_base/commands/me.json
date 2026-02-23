@@ -1,0 +1,26 @@
+{
+  "name": "me",
+  "syntax": "/me <message: message>",
+  "description": "发送一条关于自己的动作消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "message",
+      "type": "message",
+      "required": true,
+      "description": "动作描述消息"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/me 正在挖矿",
+      "description": "显示为'* 玩家名 正在挖矿'"
+    },
+    {
+      "input": "/me 赢得了比赛！",
+      "description": "显示为'* 玩家名 赢得了比赛！'"
+    }
+  ],
+  "bedrock_specific_notes": "me命令发送的消息格式为'* 玩家名 消息内容'，通常用于角色扮演或动作描述。所有在线玩家都能看到。",
+  "version_added": "1.0.0"
+}

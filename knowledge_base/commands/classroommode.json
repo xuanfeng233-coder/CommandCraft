@@ -1,0 +1,15 @@
+{
+  "name": "classroommode",
+  "syntax": "/classroommode",
+  "description": "打开课堂模式管理面板（教育版特性）",
+  "category": "education",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/classroommode",
+      "description": "打开课堂模式设置界面"
+    }
+  ],
+  "bedrock_specific_notes": "classroommode是基岩版教育版特有命令。提供教师管理工具，包括传送学生、控制权限等功能。仅在教育版中可用。",
+  "version_added": "1.0.0"
+}

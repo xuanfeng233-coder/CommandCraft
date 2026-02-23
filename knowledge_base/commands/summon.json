@@ -1,0 +1,69 @@
+{
+  "name": "summon",
+  "syntax": "/summon <entityType: EntityType> [spawnPos: x y z] [yRot: value] [xRot: value] [spawnEvent: string] [nameTag: string]",
+  "description": "在指定位置生成实体",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "entityType",
+      "type": "EntityType",
+      "required": true,
+      "description": "要生成的实体类型ID，如 zombie、creeper、armor_stand 等（参见 ids/entities.json）"
+    },
+    {
+      "name": "spawnPos",
+      "type": "x y z",
+      "required": false,
+      "description": "生成位置坐标，支持相对坐标~和局部坐标^",
+      "default": "执行者位置"
+    },
+    {
+      "name": "yRot",
+      "type": "value",
+      "required": false,
+      "description": "实体生成时的水平旋转角度（偏航角）"
+    },
+    {
+      "name": "xRot",
+      "type": "value",
+      "required": false,
+      "description": "实体生成时的垂直旋转角度（俯仰角）"
+    },
+    {
+      "name": "spawnEvent",
+      "type": "string",
+      "required": false,
+      "description": "实体生成事件，用于触发特定行为组件事件（如 minecraft:become_charged）"
+    },
+    {
+      "name": "nameTag",
+      "type": "string",
+      "required": false,
+      "description": "为生成的实体设置自定义名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/summon zombie ~ ~ ~",
+      "description": "在自己的位置生成一只僵尸"
+    },
+    {
+      "input": "/summon armor_stand ~ ~1 ~ 0 0 minecraft:entity_born 标记点",
+      "description": "在自己上方1格生成一个名为'标记点'的盔甲架"
+    },
+    {
+      "input": "/summon creeper ~ ~ ~ 0 0 minecraft:become_charged",
+      "description": "生成一只闪电苦力怕（高压苦力怕）"
+    },
+    {
+      "input": "/summon tnt ~ ~ ~",
+      "description": "在自己位置生成已激活的TNT"
+    },
+    {
+      "input": "/summon villager_v2 100 64 200",
+      "description": "在坐标(100,64,200)处生成一个村民"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版使用 spawnEvent 参数触发实体事件，这是基岩版特有的功能。基岩版的村民ID为 villager_v2（非 villager）。若要指定 nameTag，必须同时提供 spawnEvent（可用空字符串）。部分实体类型名称与Java版不同。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "getchunks",
+  "syntax": "/getchunks <dimension: Dimension>",
+  "description": "获取已加载区块的列表",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "dimension",
+      "type": "Dimension",
+      "required": true,
+      "description": "维度：overworld、nether、the_end"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/getchunks overworld",
+      "description": "获取主世界中所有已加载区块的列表"
+    }
+  ],
+  "bedrock_specific_notes": "getchunks是基岩版的调试命令，用于查看指定维度中已加载的区块列表。主要用于性能分析和调试。",
+  "version_added": "1.0.0"
+}

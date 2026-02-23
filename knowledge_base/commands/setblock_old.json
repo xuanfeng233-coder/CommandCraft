@@ -1,0 +1,42 @@
+{
+  "name": "setblock_old",
+  "syntax": "/setblock <position: x y z> <tileName: Block> [tileData: int] [oldBlockHandling: destroy|keep|replace]",
+  "description": "旧版放置方块命令（使用数据值而非方块状态）",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "放置位置坐标"
+    },
+    {
+      "name": "tileName",
+      "type": "Block",
+      "required": true,
+      "description": "方块ID"
+    },
+    {
+      "name": "tileData",
+      "type": "int",
+      "required": false,
+      "description": "方块数据值",
+      "default": "0"
+    },
+    {
+      "name": "oldBlockHandling",
+      "type": "destroy|keep|replace",
+      "required": false,
+      "description": "处理方式",
+      "default": "replace"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setblock ~ ~ ~ wool 14",
+      "description": "旧版语法放置红色羊毛（数据值14）"
+    }
+  ],
+  "bedrock_specific_notes": "在较新版本的基岩版中，方块状态（block states）语法已替代数据值。旧版语法使用数字数据值来指定方块变种。",
+  "version_added": "1.0.0"
+}

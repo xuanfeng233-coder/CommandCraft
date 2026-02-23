@@ -1,0 +1,43 @@
+{
+  "name": "locate",
+  "syntax": "/locate structure <structure: Structure> [useNewChunksOnly: Boolean] | /locate biome <biome: Biome>",
+  "description": "定位最近的指定结构或生物群系",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "structure",
+      "type": "Structure",
+      "required": false,
+      "description": "要定位的结构类型，如village、mineshaft、stronghold、temple、monument、fortress、endcity、mansion、pillageroutpost、ruinedportal、ancientcity、trailruins等"
+    },
+    {
+      "name": "useNewChunksOnly",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否仅搜索未生成的区块",
+      "default": "false"
+    },
+    {
+      "name": "biome",
+      "type": "Biome",
+      "required": false,
+      "description": "要定位的生物群系ID"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/locate structure village",
+      "description": "定位最近的村庄"
+    },
+    {
+      "input": "/locate structure stronghold",
+      "description": "定位最近的要塞"
+    },
+    {
+      "input": "/locate biome cherry_grove",
+      "description": "定位最近的樱花树林生物群系"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版locate命令在1.19.10+支持locate biome子命令。结构名称与Java版可能有所不同。定位结果会在聊天栏显示坐标，可以点击传送。",
+  "version_added": "1.0.0"
+}

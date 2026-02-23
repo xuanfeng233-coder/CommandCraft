@@ -1,0 +1,56 @@
+{
+  "name": "tp",
+  "syntax": "/tp <destination: target> | /tp <destination: x y z> [yRot: value] [xRot: value] | /tp <victim: target> <destination: target> | /tp <victim: target> <destination: x y z> [yRot: value] [xRot: value]",
+  "description": "传送实体到指定位置或另一个实体",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "victim",
+      "type": "target",
+      "required": false,
+      "description": "要被传送的目标实体。如果省略，默认传送命令执行者自身"
+    },
+    {
+      "name": "destination",
+      "type": "target 或 x y z",
+      "required": true,
+      "description": "传送目的地，可以是目标选择器（传送到该实体位置）或坐标（支持相对坐标~和局部坐标^）"
+    },
+    {
+      "name": "yRot",
+      "type": "value",
+      "required": false,
+      "description": "传送后的水平旋转角度（偏航角），-180到180，支持相对值~"
+    },
+    {
+      "name": "xRot",
+      "type": "value",
+      "required": false,
+      "description": "传送后的垂直旋转角度（俯仰角），-90到90，支持相对值~"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tp @s 100 64 200",
+      "description": "将自己传送到坐标 (100, 64, 200)"
+    },
+    {
+      "input": "/tp @a @s",
+      "description": "将所有玩家传送到自己的位置"
+    },
+    {
+      "input": "/tp @s ~ ~10 ~",
+      "description": "将自己向上传送10格"
+    },
+    {
+      "input": "/tp @e[type=zombie] @p",
+      "description": "将所有僵尸传送到最近的玩家"
+    },
+    {
+      "input": "/tp @s 100 64 200 90 0",
+      "description": "传送到指定坐标并面朝东方"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版的 /tp 和 /teleport 是同一个命令的别名，功能完全相同。支持使用 ~ 相对坐标和 ^ 局部坐标。传送跨维度目标时需要配合 /execute in 使用。",
+  "version_added": "1.0.0"
+}

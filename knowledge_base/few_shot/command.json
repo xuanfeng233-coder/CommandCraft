@@ -1,0 +1,270 @@
+[
+  {
+    "input": "给我一把钻石剑",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s diamond_sword",
+        "explanation": "@s = 命令执行者自身\ndiamond_sword = 钻石剑的物品ID",
+        "variants": ["/give @s diamond_sword 1 0"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "给我10个金苹果",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s golden_apple 10",
+        "explanation": "@s = 命令执行者自身\ngolden_apple = 金苹果的物品ID\n10 = 数量",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "传送所有玩家到坐标0 64 0",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @a 0 64 0",
+        "explanation": "@a = 所有玩家\n0 64 0 = 目标坐标(x=0, y=64, z=0)",
+        "variants": ["/teleport @a 0 64 0"],
+        "warnings": ["传送前确保目标位置安全"]
+      }
+    },
+    "commands_used": ["tp"]
+  },
+  {
+    "input": "在我的位置生成一只苦力怕",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/summon creeper ~ ~ ~",
+        "explanation": "creeper = 苦力怕实体ID\n~ ~ ~ = 命令执行者当前位置",
+        "variants": ["/summon creeper"],
+        "warnings": ["苦力怕可能会爆炸，注意安全"]
+      }
+    },
+    "commands_used": ["summon"]
+  },
+  {
+    "input": "给所有玩家速度II效果30秒",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/effect @a speed 30 1",
+        "explanation": "@a = 所有玩家\nspeed = 速度效果\n30 = 持续30秒\n1 = 等级II（从0开始计数）",
+        "variants": [],
+        "warnings": ["等级参数从0开始，0=等级I，1=等级II"]
+      }
+    },
+    "commands_used": ["effect"]
+  },
+  {
+    "input": "给我的钻石剑附魔锋利5",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/enchant @s sharpness 5",
+        "explanation": "@s = 命令执行者\nsharpness = 锋利附魔ID\n5 = 附魔等级",
+        "variants": [],
+        "warnings": ["需要手持钻石剑时执行此命令"]
+      }
+    },
+    "commands_used": ["enchant"]
+  },
+  {
+    "input": "在坐标10 64 10到20 70 20之间填充石头",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/fill 10 64 10 20 70 20 stone",
+        "explanation": "10 64 10 = 起始坐标\n20 70 20 = 结束坐标\nstone = 石头方块ID",
+        "variants": ["/fill 10 64 10 20 70 20 stone 0 replace"],
+        "warnings": ["fill 命令一次最多填充 32768 个方块"]
+      }
+    },
+    "commands_used": ["fill"]
+  },
+  {
+    "input": "把坐标5 60 5的方块复制到10 60 10",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/clone 5 60 5 5 60 5 10 60 10",
+        "explanation": "5 60 5 到 5 60 5 = 源区域（单个方块）\n10 60 10 = 目标位置",
+        "variants": ["/clone 5 60 5 5 60 5 10 60 10 replace normal"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["clone"]
+  },
+  {
+    "input": "在我脚下放一个红石块",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/setblock ~ ~-1 ~ redstone_block",
+        "explanation": "~ ~-1 ~ = 执行者脚下一格\nredstone_block = 红石块方块ID",
+        "variants": ["/setblock ~ ~-1 ~ redstone_block 0 replace"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["setblock"]
+  },
+  {
+    "input": "创建一个叫kills的计分板用来统计击杀",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/scoreboard objectives add kills dummy \"击杀数\"",
+        "explanation": "objectives add = 添加计分板目标\nkills = 目标名称\ndummy = 类型（手动更新）\n\"击杀数\" = 显示名称",
+        "variants": [],
+        "warnings": ["dummy 类型需要手动通过命令更新分数"]
+      }
+    },
+    "commands_used": ["scoreboard"]
+  },
+  {
+    "input": "给所有玩家添加一个vip标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a add vip",
+        "explanation": "@a = 所有玩家\nadd = 添加标签操作\nvip = 标签名称",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["tag"]
+  },
+  {
+    "input": "把我的游戏模式改成创造",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/gamemode creative @s",
+        "explanation": "creative = 创造模式\n@s = 命令执行者",
+        "variants": ["/gamemode c @s", "/gamemode 1 @s"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["gamemode"]
+  },
+  {
+    "input": "把天气设置为晴天",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/weather clear",
+        "explanation": "clear = 晴天",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["weather"]
+  },
+  {
+    "input": "设置时间为白天",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/time set day",
+        "explanation": "set day = 设置为白天（1000 ticks）",
+        "variants": ["/time set 1000"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["time"]
+  },
+  {
+    "input": "清除所有玩家身上的泥土",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/clear @a dirt",
+        "explanation": "@a = 所有玩家\ndirt = 泥土物品ID",
+        "variants": ["/clear @a dirt 0 64"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["clear"]
+  },
+  {
+    "input": "给我一把锋利5的钻石剑",
+    "output": {
+      "type": "conversation",
+      "questions": [
+        {
+          "param": "enchant_method",
+          "question": "基岩版的 /give 命令无法直接给予附魔物品（不支持NBT标签）。要获得锋利V的钻石剑，需要两步操作。需要我生成这两条命令吗？",
+          "options": [
+            {"value": "give_and_enchant", "label": "生成两条命令：/give + /enchant（推荐）"},
+            {"value": "enchant_only", "label": "只生成 /enchant（我已经有剑了）"}
+          ],
+          "default": "give_and_enchant"
+        }
+      ],
+      "current_progress": "已确定：物品=钻石剑，附魔=锋利(sharpness)，等级=5"
+    },
+    "commands_used": ["give", "enchant"],
+    "note": "基岩版/give不支持NBT！绝对不要生成{\"Enchantments\":[...]}这样的Java版语法"
+  },
+  {
+    "input": "给玩家一个附魔弓",
+    "output": {
+      "type": "conversation",
+      "questions": [
+        {
+          "param": "target",
+          "question": "给哪位玩家？",
+          "options": [
+            {"value": "@s", "label": "自己"},
+            {"value": "@a", "label": "所有玩家"},
+            {"value": "@p", "label": "最近的玩家"}
+          ],
+          "default": "@s"
+        },
+        {
+          "param": "enchantment",
+          "question": "基岩版需要先 /give 获得弓，再用 /enchant 附魔。需要什么附魔？弓可用的附魔有：",
+          "options": [
+            {"value": "power", "label": "力量 (Power) — 增加箭矢伤害"},
+            {"value": "punch", "label": "冲击 (Punch) — 增加击退"},
+            {"value": "flame", "label": "火矢 (Flame) — 点燃箭矢"},
+            {"value": "infinity", "label": "无限 (Infinity) — 无限箭矢"}
+          ],
+          "default": null
+        }
+      ],
+      "current_progress": "已确定：物品=弓(bow)。注意：基岩版/give不能附加附魔NBT，需分两步操作"
+    },
+    "commands_used": ["give", "enchant"],
+    "note": "基岩版/give不支持NBT！必须分步：/give + /enchant"
+  },
+  {
+    "input": "清除附近的东西",
+    "output": {
+      "type": "conversation",
+      "questions": [
+        {
+          "param": "clear_target",
+          "question": "你想清除的是什么？",
+          "options": [
+            {"value": "dropped_items", "label": "地上的掉落物（用 /kill @e[type=item]）"},
+            {"value": "inventory", "label": "自己背包里的物品（用 /clear）"},
+            {"value": "entities", "label": "附近的怪物/生物（用 /kill @e[type=...]）"},
+            {"value": "blocks", "label": "一片区域的方块（用 /fill ... air）"}
+          ],
+          "default": null
+        }
+      ],
+      "current_progress": "需要明确清除目标类型"
+    },
+    "commands_used": ["kill", "clear", "fill"]
+  }
+]

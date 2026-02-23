@@ -1,0 +1,67 @@
+{
+  "name": "effect",
+  "syntax": "/effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean] | /effect <player: target> clear",
+  "description": "给予、移除或清除实体的状态效果",
+  "category": "effects",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "要添加或清除效果的目标实体"
+    },
+    {
+      "name": "effect",
+      "type": "Effect",
+      "required": true,
+      "description": "状态效果ID，如 speed、strength、invisibility 等（参见 ids/effects.json），或使用 clear 清除所有效果"
+    },
+    {
+      "name": "seconds",
+      "type": "int",
+      "required": false,
+      "description": "效果持续时间（秒）。设为0可立即移除该效果",
+      "default": "30",
+      "range": "0-1000000"
+    },
+    {
+      "name": "amplifier",
+      "type": "int",
+      "required": false,
+      "description": "效果等级（放大器），0表示等级I，1表示等级II，以此类推",
+      "default": "0",
+      "range": "0-255"
+    },
+    {
+      "name": "hideParticles",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否隐藏效果粒子。true为隐藏，false为显示",
+      "default": "false"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/effect @s speed 60 1",
+      "description": "给自己60秒的速度II效果"
+    },
+    {
+      "input": "/effect @a night_vision 999999 0 true",
+      "description": "给所有玩家近乎永久的夜视效果，且隐藏粒子"
+    },
+    {
+      "input": "/effect @s clear",
+      "description": "清除自己身上的所有状态效果"
+    },
+    {
+      "input": "/effect @e[type=zombie] strength 30 2",
+      "description": "给所有僵尸30秒的力量III效果"
+    },
+    {
+      "input": "/effect @s speed 0",
+      "description": "立即移除自己身上的速度效果"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版效果ID使用不带命名空间的名称（如 speed 而非 minecraft:speed）。最大持续时间为1000000秒。基岩版中某些效果（如 bad_omen）的行为可能与Java版不同。",
+  "version_added": "1.0.0"
+}

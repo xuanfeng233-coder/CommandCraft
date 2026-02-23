@@ -1,0 +1,50 @@
+{
+  "name": "spreadplayers",
+  "syntax": "/spreadplayers <x: value> <z: value> <spreadDistance: float> <maxRange: float> <victim: target>",
+  "description": "将实体随机分散传送到指定区域内",
+  "category": "spawn",
+  "parameters": [
+    {
+      "name": "x",
+      "type": "value",
+      "required": true,
+      "description": "分散中心的X坐标"
+    },
+    {
+      "name": "z",
+      "type": "value",
+      "required": true,
+      "description": "分散中心的Z坐标"
+    },
+    {
+      "name": "spreadDistance",
+      "type": "float",
+      "required": true,
+      "description": "实体之间的最小间距"
+    },
+    {
+      "name": "maxRange",
+      "type": "float",
+      "required": true,
+      "description": "分散区域的最大半径"
+    },
+    {
+      "name": "victim",
+      "type": "target",
+      "required": true,
+      "description": "要分散的目标实体"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spreadplayers 0 0 5 20 @a",
+      "description": "将所有玩家随机分散在以(0,0)为中心、半径20格的区域内，彼此至少间隔5格"
+    },
+    {
+      "input": "/spreadplayers ~ ~ 10 50 @a[tag=team1]",
+      "description": "将标签为team1的所有玩家分散到50格范围内"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版spreadplayers不支持Java版的respectTeams参数和maxHeight参数。只使用X和Z坐标，Y坐标自动选择安全位置。",
+  "version_added": "1.0.0"
+}

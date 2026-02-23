@@ -1,0 +1,30 @@
+{
+  "name": "difficulty",
+  "syntax": "/difficulty <difficulty: Difficulty>",
+  "description": "设置世界的游戏难度",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "difficulty",
+      "type": "Difficulty",
+      "required": true,
+      "description": "难度等级，可使用名称或数字：peaceful(0)、easy(1)、normal(2)、hard(3)"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/difficulty peaceful",
+      "description": "将难度设为和平"
+    },
+    {
+      "input": "/difficulty hard",
+      "description": "将难度设为困难"
+    },
+    {
+      "input": "/difficulty 2",
+      "description": "使用数字ID将难度设为普通"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版支持使用难度名称（peaceful/easy/normal/hard）或数字ID（0/1/2/3），也支持简写（p/e/n/h）。难度更改对所有玩家立即生效。",
+  "version_added": "1.0.0"
+}

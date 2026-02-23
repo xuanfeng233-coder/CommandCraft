@@ -1,0 +1,26 @@
+{
+  "name": "say",
+  "syntax": "/say <message: message>",
+  "description": "向所有玩家广播消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "message",
+      "type": "message",
+      "required": true,
+      "description": "要广播的消息内容，支持目标选择器（会自动解析为实体名称）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/say 游戏即将开始！",
+      "description": "向所有玩家广播'游戏即将开始！'"
+    },
+    {
+      "input": "/say @p 获得了胜利！",
+      "description": "广播消息并自动将@p替换为最近玩家的名字"
+    }
+  ],
+  "bedrock_specific_notes": "say命令发送的消息格式为'[发送者名字] 消息内容'。在命令方块中使用时，发送者显示为'[@]'或命令方块的自定义名称。支持在消息中使用目标选择器。",
+  "version_added": "1.0.0"
+}

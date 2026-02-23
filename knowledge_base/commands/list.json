@@ -1,0 +1,15 @@
+{
+  "name": "list",
+  "syntax": "/list",
+  "description": "列出当前在线的所有玩家",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/list",
+      "description": "显示所有在线玩家的列表"
+    }
+  ],
+  "bedrock_specific_notes": "在基岩版中，list命令显示当前在线玩家数量和名称列表。在专用服务器和多人游戏中特别有用。",
+  "version_added": "1.0.0"
+}

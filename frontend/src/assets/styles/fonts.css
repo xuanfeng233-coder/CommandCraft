@@ -1,0 +1,25 @@
+/* Pixel fonts for Minecraft theme */
+
+@font-face {
+  font-family: 'Monocraft';
+  src: url('/fonts/Monocraft.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Zpix';
+  src: url('/fonts/Zpix.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GNU Unifont';
+  src: url('/fonts/unifont.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,38 @@
+{
+  "name": "weather",
+  "syntax": "/weather <clear|rain|thunder> [duration: int]",
+  "description": "设置当前世界的天气状态",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "type",
+      "type": "string",
+      "required": true,
+      "description": "天气类型：clear(晴天)、rain(雨天)、thunder(雷暴)"
+    },
+    {
+      "name": "duration",
+      "type": "int",
+      "required": false,
+      "description": "天气持续时间（秒）",
+      "default": "随机时间",
+      "range": "1-1000000"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/weather clear",
+      "description": "将天气设为晴天"
+    },
+    {
+      "input": "/weather rain 600",
+      "description": "下雨600秒（10分钟）"
+    },
+    {
+      "input": "/weather thunder 300",
+      "description": "雷暴300秒（5分钟）"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版天气命令的持续时间单位为秒（而非Java版的游戏刻）。天气变化影响全部维度中的主世界，下界和末地不受天气影响但命令仍可执行。",
+  "version_added": "1.0.0"
+}

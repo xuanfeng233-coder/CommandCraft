@@ -1,0 +1,44 @@
+{
+  "name": "loot",
+  "syntax": "/loot give <players: target> loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot spawn <position: x y z> loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot replace entity <entity: target> <slotType: EntityEquipmentSlot> <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot replace block <position: x y z> slot.container <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand|<item>]",
+  "description": "根据战利品表生成物品并分发",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "players",
+      "type": "target",
+      "required": false,
+      "description": "接收战利品的玩家（give模式）"
+    },
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": false,
+      "description": "掉落物品的位置（spawn模式）或容器位置（replace block模式）"
+    },
+    {
+      "name": "loot_table",
+      "type": "string",
+      "required": true,
+      "description": "战利品表路径，如 loot_tables/chests/simple_dungeon.json"
+    },
+    {
+      "name": "tool",
+      "type": "mainhand|offhand|item",
+      "required": false,
+      "description": "模拟使用的工具，影响战利品表中的工具条件"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/loot give @s loot \"loot_tables/chests/simple_dungeon\"",
+      "description": "将地牢箱子的战利品给予自己"
+    },
+    {
+      "input": "/loot spawn 0 64 0 loot \"loot_tables/entities/zombie\"",
+      "description": "在指定位置按照僵尸战利品表掉落物品"
+    }
+  ],
+  "bedrock_specific_notes": "loot命令是基岩版特有的，用于根据行为包中的战利品表生成物品。支持give（直接给予玩家）、spawn（在世界中掉落）、replace（替换到指定槽位）三种模式。Java版也有loot命令但语法不同。",
+  "version_added": "1.18.10"
+}

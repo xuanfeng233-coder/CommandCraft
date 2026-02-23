@@ -1,0 +1,44 @@
+{
+  "name": "gamemode",
+  "syntax": "/gamemode <gameMode: GameMode> [player: target]",
+  "description": "设置玩家的游戏模式",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "gameMode",
+      "type": "GameMode",
+      "required": true,
+      "description": "游戏模式，可使用名称或数字：survival(0)、creative(1)、adventure(2)、spectator(6)"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "要更改游戏模式的目标玩家，省略则为命令执行者自身"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gamemode creative",
+      "description": "将自己设为创造模式"
+    },
+    {
+      "input": "/gamemode survival @a",
+      "description": "将所有玩家设为生存模式"
+    },
+    {
+      "input": "/gamemode adventure @a[tag=player]",
+      "description": "将所有带player标签的玩家设为冒险模式"
+    },
+    {
+      "input": "/gamemode spectator",
+      "description": "将自己设为旁观者模式"
+    },
+    {
+      "input": "/gamemode 0",
+      "description": "使用数字ID将自己设为生存模式"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版支持使用模式名称（survival/creative/adventure/spectator）或数字ID（0/1/2/6）。旁观者模式在基岩版中为实验性功能，需在世界设置中启用。基岩版也支持简写：s(survival)、c(creative)、a(adventure)。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "testfor",
+  "syntax": "/testfor <victim: target>",
+  "description": "检测是否存在符合条件的实体",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "victim",
+      "type": "target",
+      "required": true,
+      "description": "要检测的目标选择器"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/testfor @a[r=10]",
+      "description": "检测10格半径内是否有玩家"
+    },
+    {
+      "input": "/testfor @e[type=zombie]",
+      "description": "检测世界中是否存在僵尸"
+    },
+    {
+      "input": "/testfor @a[scores={kills=10..}]",
+      "description": "检测是否有击杀数大于等于10的玩家"
+    }
+  ],
+  "bedrock_specific_notes": "testfor是基岩版保留的旧版命令，用于检测实体是否存在。在较新版本中推荐使用/execute if entity代替。testfor在命令方块中配合条件链命令方块使用非常方便。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "setfixedinvslots",
+  "syntax": "/setfixedinvslots <target: target> <slotCount: int>",
+  "description": "设置NPC的固定物品栏槽位数量（教育版特性）",
+  "category": "education",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标NPC实体"
+    },
+    {
+      "name": "slotCount",
+      "type": "int",
+      "required": true,
+      "description": "固定物品栏的槽位数量"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setfixedinvslots @e[type=npc] 5",
+      "description": "设置NPC有5个固定物品栏槽位"
+    }
+  ],
+  "bedrock_specific_notes": "setfixedinvslots是基岩版教育版特有命令。设置NPC固定物品栏的总槽位数量。需要先设置槽位数量，再使用setfixedinvslot放入物品。",
+  "version_added": "1.0.0"
+}

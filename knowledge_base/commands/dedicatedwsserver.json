@@ -1,0 +1,22 @@
+{
+  "name": "dedicatedwsserver",
+  "syntax": "/dedicatedwsserver <address: string>",
+  "description": "设置专用WebSocket服务器地址",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "address",
+      "type": "string",
+      "required": true,
+      "description": "WebSocket服务器的URI地址"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/dedicatedwsserver ws://localhost:8080",
+      "description": "连接到本地WebSocket服务器"
+    }
+  ],
+  "bedrock_specific_notes": "dedicatedwsserver是基岩版特有命令，仅在Bedrock Dedicated Server中使用。用于设置WebSocket连接以便外部程序与游戏通信。",
+  "version_added": "1.2.0"
+}

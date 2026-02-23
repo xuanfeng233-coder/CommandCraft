@@ -1,0 +1,22 @@
+{
+  "name": "ownertransfer",
+  "syntax": "/ownertransfer <playerName: string>",
+  "description": "转移世界主权给另一个玩家",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "playerName",
+      "type": "string",
+      "required": true,
+      "description": "接收世界所有权的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ownertransfer Steve",
+      "description": "将世界的所有权转移给Steve"
+    }
+  ],
+  "bedrock_specific_notes": "ownertransfer是基岩版Realm服务器特有命令，用于将Realm的所有权转移给其他玩家。仅Realm所有者可以使用。",
+  "version_added": "1.16.0"
+}

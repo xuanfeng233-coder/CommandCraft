@@ -1,0 +1,28 @@
+{
+  "name": "locateold",
+  "syntax": "/locateold structure <structure: string> | /locateold biome <biome: string>",
+  "description": "旧版定位命令",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "structure",
+      "type": "string",
+      "required": false,
+      "description": "结构名称"
+    },
+    {
+      "name": "biome",
+      "type": "string",
+      "required": false,
+      "description": "生物群系名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/locateold structure village",
+      "description": "旧版语法定位最近的村庄"
+    }
+  ],
+  "bedrock_specific_notes": "locateold是locate命令的旧版保留。建议使用locate命令。",
+  "version_added": "1.0.0"
+}

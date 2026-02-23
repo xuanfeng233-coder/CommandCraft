@@ -1,0 +1,28 @@
+{
+  "name": "clearfixedinventory",
+  "syntax": "/clearfixedinventory <target: target> <slotId: int>",
+  "description": "清除NPC的固定物品栏槽位（教育版特性）",
+  "category": "education",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标NPC实体"
+    },
+    {
+      "name": "slotId",
+      "type": "int",
+      "required": true,
+      "description": "要清除的物品栏槽位ID"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clearfixedinventory @e[type=npc] 0",
+      "description": "清除最近NPC的第一个固定物品栏槽位"
+    }
+  ],
+  "bedrock_specific_notes": "clearfixedinventory是基岩版教育版特有命令，用于管理NPC的固定物品栏。需要启用教育版功能。",
+  "version_added": "1.0.0"
+}

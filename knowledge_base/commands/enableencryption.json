@@ -1,0 +1,28 @@
+{
+  "name": "enableencryption",
+  "syntax": "/enableencryption <keyPair: string> <token: string>",
+  "description": "启用WebSocket连接加密",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "keyPair",
+      "type": "string",
+      "required": true,
+      "description": "加密密钥对"
+    },
+    {
+      "name": "token",
+      "type": "string",
+      "required": true,
+      "description": "加密令牌"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/enableencryption <base64key> <base64token>",
+      "description": "使用指定的密钥和令牌启用WebSocket加密"
+    }
+  ],
+  "bedrock_specific_notes": "enableencryption是基岩版特有命令，用于保护WebSocket通信安全。必须先通过/connect或/dedicatedwsserver建立WebSocket连接。",
+  "version_added": "1.2.0"
+}

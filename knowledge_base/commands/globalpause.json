@@ -1,0 +1,26 @@
+{
+  "name": "globalpause",
+  "syntax": "/globalpause [pause: Boolean]",
+  "description": "暂停或恢复整个世界的游戏刻运行",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "pause",
+      "type": "Boolean",
+      "required": false,
+      "description": "true暂停世界，false恢复运行。不指定则切换状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/globalpause true",
+      "description": "暂停世界运行（所有实体和红石停止）"
+    },
+    {
+      "input": "/globalpause false",
+      "description": "恢复世界运行"
+    }
+  ],
+  "bedrock_specific_notes": "globalpause是基岩版教育版/特有命令。暂停后所有游戏刻停止，包括实体AI、红石、方块更新等。玩家仍可移动和聊天。Java版没有等价命令。",
+  "version_added": "1.0.0"
+}

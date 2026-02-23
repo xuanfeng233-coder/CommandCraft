@@ -1,0 +1,32 @@
+{
+  "name": "changesetting",
+  "syntax": "/changesetting <setting: allow-cheats|difficulty> <value: Boolean|peaceful|easy|normal|hard>",
+  "description": "更改专用服务器的运行设置",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "setting",
+      "type": "allow-cheats|difficulty",
+      "required": true,
+      "description": "要更改的设置项"
+    },
+    {
+      "name": "value",
+      "type": "Boolean|DifficultyLevel",
+      "required": true,
+      "description": "设置值。allow-cheats使用true/false，difficulty使用peaceful/easy/normal/hard"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/changesetting allow-cheats true",
+      "description": "在服务器运行时启用作弊"
+    },
+    {
+      "input": "/changesetting difficulty hard",
+      "description": "将服务器难度更改为困难"
+    }
+  ],
+  "bedrock_specific_notes": "changesetting命令仅在基岩版专用服务器(BDS)中可用，用于在不重启服务器的情况下更改设置。在普通游戏中不可用。Java版没有等价命令。",
+  "version_added": "1.16.0"
+}

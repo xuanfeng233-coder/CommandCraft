@@ -1,0 +1,34 @@
+{
+  "name": "allowlist",
+  "syntax": "/allowlist add <name: string> | /allowlist remove <name: string> | /allowlist list | /allowlist reload | /allowlist on | /allowlist off",
+  "description": "管理服务器允许列表（白名单的新命令名）",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "要添加或移除的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/allowlist add Steve",
+      "description": "将Steve加入允许列表"
+    },
+    {
+      "input": "/allowlist remove Steve",
+      "description": "将Steve从允许列表移除"
+    },
+    {
+      "input": "/allowlist list",
+      "description": "列出允许列表中的所有玩家"
+    },
+    {
+      "input": "/allowlist on",
+      "description": "启用允许列表"
+    }
+  ],
+  "bedrock_specific_notes": "allowlist是whitelist命令的新名称，两者功能相同。在较新版本的基岩版专用服务器中推荐使用allowlist。",
+  "version_added": "1.18.10"
+}

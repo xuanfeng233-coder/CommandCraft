@@ -1,0 +1,57 @@
+{
+  "name": "setblock",
+  "syntax": "/setblock <position: x y z> <tileName: Block> [blockStates: BlockStates] [oldBlockHandling: SetBlockMode]",
+  "description": "在指定位置放置一个方块",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "要放置方块的坐标位置，支持相对坐标~和局部坐标^"
+    },
+    {
+      "name": "tileName",
+      "type": "Block",
+      "required": true,
+      "description": "方块ID（参见 ids/blocks.json）"
+    },
+    {
+      "name": "blockStates",
+      "type": "BlockStates",
+      "required": false,
+      "description": "方块状态，使用方括号语法如 [\"facing_direction\"=1]"
+    },
+    {
+      "name": "oldBlockHandling",
+      "type": "SetBlockMode",
+      "required": false,
+      "description": "处理模式：destroy(破坏原方块并掉落)、keep(仅当目标位置为空气时放置)、replace(直接替换，不掉落)",
+      "default": "replace"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setblock ~ ~ ~ stone",
+      "description": "在自己脚下放置一个石头"
+    },
+    {
+      "input": "/setblock ~ ~-1 ~ diamond_block",
+      "description": "在自己脚下一格放置钻石块"
+    },
+    {
+      "input": "/setblock 100 64 200 chest [\"facing_direction\"=2]",
+      "description": "在指定位置放置一个朝北的箱子"
+    },
+    {
+      "input": "/setblock ~ ~ ~ air destroy",
+      "description": "破坏自己位置的方块并使其掉落物品"
+    },
+    {
+      "input": "/setblock ~ ~ ~ redstone_block",
+      "description": "放置一个红石块（可用于激活相邻的命令方块）"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版方块状态使用方括号语法而非Java版的花括号。某些方块ID与Java版不同（如基岩版使用数据值区分变种，Java版使用不同ID）。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,75 @@
+{
+  "name": "fill",
+  "syntax": "/fill <from: x y z> <to: x y z> <tileName: Block> [blockStates: BlockStates] [oldBlockHandling: FillMode] [replaceTileName: Block] [replaceBlockStates: BlockStates]",
+  "description": "用指定方块填充指定区域",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的起始角坐标"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的对角坐标"
+    },
+    {
+      "name": "tileName",
+      "type": "Block",
+      "required": true,
+      "description": "要填充的方块ID（参见 ids/blocks.json）"
+    },
+    {
+      "name": "blockStates",
+      "type": "BlockStates",
+      "required": false,
+      "description": "方块状态，使用方括号语法如 [\"color\"=\"red\"]"
+    },
+    {
+      "name": "oldBlockHandling",
+      "type": "FillMode",
+      "required": false,
+      "description": "填充模式：destroy(破坏原有方块并掉落)、hollow(仅填充外壳，内部为空气)、keep(仅替换空气方块)、outline(仅填充外壳，不改变内部)、replace(替换指定方块)",
+      "default": "replace"
+    },
+    {
+      "name": "replaceTileName",
+      "type": "Block",
+      "required": false,
+      "description": "仅在 oldBlockHandling 为 replace 时使用，指定要被替换的方块"
+    },
+    {
+      "name": "replaceBlockStates",
+      "type": "BlockStates",
+      "required": false,
+      "description": "被替换方块的方块状态"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/fill ~-5 ~ ~-5 ~5 ~3 ~5 stone",
+      "description": "在自己周围填充一个11x4x11的石头立方体"
+    },
+    {
+      "input": "/fill ~-5 ~ ~-5 ~5 ~3 ~5 air",
+      "description": "清空自己周围11x4x11区域的所有方块"
+    },
+    {
+      "input": "/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 diamond_block hollow",
+      "description": "用钻石块铺一个中空的地板"
+    },
+    {
+      "input": "/fill 0 64 0 10 64 10 grass_block replace dirt",
+      "description": "将区域内的泥土替换为草方块"
+    },
+    {
+      "input": "/fill ~-3 ~ ~-3 ~3 ~5 ~3 glass outline",
+      "description": "用玻璃建造一个仅有外壳的结构"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版fill命令单次最多填充32768个方块（32x32x32区域以内）。方块状态使用方括号语法而非Java版的花括号。基岩版使用方块ID不带命名空间前缀。",
+  "version_added": "1.0.0"
+}

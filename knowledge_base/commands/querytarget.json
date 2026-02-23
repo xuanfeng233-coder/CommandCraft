@@ -1,0 +1,26 @@
+{
+  "name": "querytarget",
+  "syntax": "/querytarget <target: target>",
+  "description": "查询目标实体的详细位置和旋转信息（JSON格式输出）",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "要查询的目标实体"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/querytarget @s",
+      "description": "查询执行者自己的位置和旋转信息"
+    },
+    {
+      "input": "/querytarget @e[type=zombie]",
+      "description": "查询所有僵尸的详细位置信息"
+    }
+  ],
+  "bedrock_specific_notes": "querytarget是基岩版特有命令，输出JSON格式的实体位置（x/y/z）、旋转（yRot/xRot）、维度ID等信息。常用于WebSocket连接获取实体数据。Java版使用/data get entity实现类似功能。",
+  "version_added": "1.2.0"
+}

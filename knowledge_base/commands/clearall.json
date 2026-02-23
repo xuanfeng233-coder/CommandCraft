@@ -1,0 +1,15 @@
+{
+  "name": "clearall",
+  "syntax": "/clearall",
+  "description": "清除所有玩家的物品栏",
+  "category": "item_management",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/clearall",
+      "description": "清除所有在线玩家的物品栏中的所有物品"
+    }
+  ],
+  "bedrock_specific_notes": "clearall是基岩版特有的快捷命令，等效于/clear @a。Java版没有此命令。",
+  "version_added": "1.0.0"
+}

@@ -1,0 +1,518 @@
+[
+  {
+    "input": "杀死距离我10格内的所有僵尸",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[type=zombie,r=10]",
+        "explanation": "@e = 所有实体\ntype=zombie = 僵尸\nr=10 = 10格半径内",
+        "selector_breakdown": {
+          "base": "@e",
+          "conditions": [
+            {"key": "type", "value": "zombie", "explanation": "仅选择僵尸"},
+            {"key": "r", "value": "10", "explanation": "10格半径内"}
+          ]
+        },
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "type", "r"]
+  },
+  {
+    "input": "传送所有生存模式的玩家到我身边",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @a[m=survival] @s",
+        "explanation": "@a = 所有玩家\nm=survival = 生存模式\n@s = 传送到命令执行者位置",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "m", "value": "survival", "explanation": "仅选择生存模式玩家"}
+          ]
+        },
+        "variants": ["/tp @a[m=0] @s"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["tp"],
+    "selector_features": ["@a", "@s", "m"]
+  },
+  {
+    "input": "给所有没有vip标签的玩家添加新手标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[tag=!vip] add newbie",
+        "explanation": "@a = 所有玩家\ntag=!vip = 没有vip标签的\nadd newbie = 添加newbie标签",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "tag", "value": "!vip", "explanation": "排除拥有vip标签的玩家"}
+          ]
+        },
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "tag", "negation"]
+  },
+  {
+    "input": "给20级以上的玩家添加力量效果",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/effect @a[lm=20] strength 30 0",
+        "explanation": "@a = 所有玩家\nlm=20 = 最低等级20\nstrength = 力量效果\n30 = 30秒\n0 = 等级I",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "lm", "value": "20", "explanation": "经验等级≥20的玩家"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["l=最大等级, lm=最小等级"]
+      }
+    },
+    "commands_used": ["effect"],
+    "selector_features": ["@a", "lm"]
+  },
+  {
+    "input": "杀死100格范围内除了苦力怕以外的所有怪物",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[type=!creeper,family=monster,r=100]",
+        "explanation": "@e = 所有实体\ntype=!creeper = 排除苦力怕\nfamily=monster = 怪物家族\nr=100 = 100格范围",
+        "selector_breakdown": {
+          "base": "@e",
+          "conditions": [
+            {"key": "type", "value": "!creeper", "explanation": "排除苦力怕"},
+            {"key": "family", "value": "monster", "explanation": "仅选择怪物家族实体"},
+            {"key": "r", "value": "100", "explanation": "100格半径内"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["family=monster 包含僵尸、骷髅、蜘蛛等所有怪物"]
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "type", "negation", "family", "r"]
+  },
+  {
+    "input": "传送kills分数在50到100之间的玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @a[scores={kills=50..100}] 0 64 0",
+        "explanation": "@a = 所有玩家\nscores={kills=50..100} = kills分数在50-100之间\n0 64 0 = 目标坐标",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "scores", "value": "{kills=50..100}", "explanation": "kills计分板分数在50到100之间"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["需要先创建kills计分板目标"]
+      }
+    },
+    "commands_used": ["tp", "scoreboard"],
+    "selector_features": ["@a", "scores", "range"]
+  },
+  {
+    "input": "选择距离坐标0 64 0最近的3个玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @a[x=0,y=64,z=0,c=3] ~ ~5 ~",
+        "explanation": "x=0,y=64,z=0 = 以坐标(0,64,0)为搜索中心\nc=3 = 限制最近的3个",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "x,y,z", "value": "0,64,0", "explanation": "搜索中心坐标"},
+            {"key": "c", "value": "3", "explanation": "限制返回最近的3个玩家"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["c=正数 从近到远选择，c=负数 从远到近选择"]
+      }
+    },
+    "commands_used": ["tp"],
+    "selector_features": ["@a", "x", "y", "z", "c"]
+  },
+  {
+    "input": "给名字叫Steve的玩家发消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a[name=Steve] {\"rawtext\":[{\"text\":\"你好，Steve！\"}]}",
+        "explanation": "@a = 所有玩家\nname=Steve = 名称为Steve的玩家",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "name", "value": "Steve", "explanation": "名称为Steve的玩家"}
+          ]
+        },
+        "variants": ["/msg Steve 你好！"],
+        "warnings": ["name 参数区分大小写"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "selector_features": ["@a", "name"]
+  },
+  {
+    "input": "给最近的玩家一颗钻石",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @p diamond 1",
+        "explanation": "@p = 最近的存活玩家\ndiamond = 钻石物品ID\n1 = 数量",
+        "selector_breakdown": {
+          "base": "@p",
+          "conditions": []
+        },
+        "variants": ["/give @p diamond"],
+        "warnings": ["@p 只选择存活的玩家，死亡的玩家不会被选中"]
+      }
+    },
+    "commands_used": ["give"],
+    "selector_features": ["@p"]
+  },
+  {
+    "input": "随机选一个玩家给夜视效果",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/effect @r night_vision 60 0",
+        "explanation": "@r = 随机一个玩家\nnight_vision = 夜视效果\n60 = 60秒\n0 = 等级I",
+        "selector_breakdown": {
+          "base": "@r",
+          "conditions": []
+        },
+        "variants": [],
+        "warnings": ["@r 只选择存活的实体"]
+      }
+    },
+    "commands_used": ["effect"],
+    "selector_features": ["@r"]
+  },
+  {
+    "input": "随机选择一只羊传送到我这里",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @r[type=sheep] @s",
+        "explanation": "@r = 随机选择\ntype=sheep = 限定为羊\n@s = 传送到命令执行者位置",
+        "selector_breakdown": {
+          "base": "@r",
+          "conditions": [
+            {"key": "type", "value": "sheep", "explanation": "限定选择范围为羊"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["@r 配合 type 参数可以随机选择非玩家实体"]
+      }
+    },
+    "commands_used": ["tp"],
+    "selector_features": ["@r", "type"]
+  },
+  {
+    "input": "选择离我最远的那个玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @p[c=-1] 0 64 0",
+        "explanation": "@p = 最近玩家选择器\nc=-1 = 负数反转排序，选择最远的1个",
+        "selector_breakdown": {
+          "base": "@p",
+          "conditions": [
+            {"key": "c", "value": "-1", "explanation": "负数表示从远到近排序，-1 = 选最远的1个玩家"}
+          ]
+        },
+        "variants": ["@a[c=-1]"],
+        "warnings": ["c 为负数时反转距离排序：@p[c=-1] 选最远玩家"]
+      }
+    },
+    "commands_used": ["tp"],
+    "selector_features": ["@p", "c", "negative_c"]
+  },
+  {
+    "input": "杀死距离我5到20格之间的所有史莱姆",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[type=slime,rm=5,r=20]",
+        "explanation": "@e = 所有实体\ntype=slime = 史莱姆\nrm=5 = 最小距离5格\nr=20 = 最大距离20格",
+        "selector_breakdown": {
+          "base": "@e",
+          "conditions": [
+            {"key": "type", "value": "slime", "explanation": "仅选择史莱姆"},
+            {"key": "rm", "value": "5", "explanation": "最小距离5格（不含5格以内）"},
+            {"key": "r", "value": "20", "explanation": "最大距离20格"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["rm 和 r 配合使用可以形成环形选择区域"]
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "type", "rm", "r"]
+  },
+  {
+    "input": "杀死坐标0 60 0到10 70 10区域内的所有实体",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[x=0,y=60,z=0,dx=10,dy=10,dz=10]",
+        "explanation": "@e = 所有实体\nx=0,y=60,z=0 = 区域起始坐标\ndx=10,dy=10,dz=10 = 区域尺寸（长宽高各10格）",
+        "selector_breakdown": {
+          "base": "@e",
+          "conditions": [
+            {"key": "x,y,z", "value": "0,60,0", "explanation": "长方体区域起始角坐标"},
+            {"key": "dx", "value": "10", "explanation": "X轴方向延伸10格"},
+            {"key": "dy", "value": "10", "explanation": "Y轴方向延伸10格"},
+            {"key": "dz", "value": "10", "explanation": "Z轴方向延伸10格"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["dx/dy/dz 定义一个长方体选择区域，碰撞箱与此区域部分重叠的实体都会被选中"]
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "x", "y", "z", "dx", "dy", "dz"]
+  },
+  {
+    "input": "给正在低头看地面的玩家显示提示",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/titleraw @a[rxm=60,rx=90] actionbar {\"rawtext\":[{\"text\":\"你在看地面！\"}]}",
+        "explanation": "@a = 所有玩家\nrxm=60 = 最小垂直旋转角60°\nrx=90 = 最大垂直旋转角90°（正下方）",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "rxm", "value": "60", "explanation": "最小俯仰角60°（接近正下方）"},
+            {"key": "rx", "value": "90", "explanation": "最大俯仰角90°（完全正下方）"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["rx/rxm 范围: -90°(正上方) 到 +90°(正下方)。ry/rym 范围: -180° 到 180°(水平朝向，从正南顺时针)"]
+      }
+    },
+    "commands_used": ["titleraw"],
+    "selector_features": ["@a", "rxm", "rx"]
+  },
+  {
+    "input": "检测正朝北看的玩家并给标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[rym=135,ry=-135] add facing_north",
+        "explanation": "@a = 所有玩家\nrym=135,ry=-135 = 朝向北方（水平角度约135°到-135°的范围覆盖正北）",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "rym", "value": "135", "explanation": "最小水平旋转角135°"},
+            {"key": "ry", "value": "-135", "explanation": "最大水平旋转角-135°，范围跨越180°即正北方向"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["ry/rym 水平朝向: 0°=正南, 90°=正西, -90°/270°=正东, 180°/-180°=正北。当rym>ry时范围会跨越-180°/180°分界线"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "rym", "ry"]
+  },
+  {
+    "input": "给手上拿着钻石剑的玩家加攻击力提升",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/effect @a[hasitem={item=diamond_sword,location=slot.weapon.mainhand}] strength 10 0",
+        "explanation": "@a = 所有玩家\nhasitem = 物品检测（基岩版独有）\nitem=diamond_sword = 钻石剑\nlocation=slot.weapon.mainhand = 主手槽位\nstrength = 力量效果\n10 = 10秒\n0 = 等级I",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "hasitem", "value": "{item=diamond_sword,location=slot.weapon.mainhand}", "explanation": "检测主手槽位持有钻石剑（基岩版独有选择器参数）"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["hasitem 是基岩版独有选择器参数，Java版没有此功能"]
+      }
+    },
+    "commands_used": ["effect"],
+    "selector_features": ["@a", "hasitem", "location"]
+  },
+  {
+    "input": "检测身上没有任何弓的玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[hasitem={item=bow,quantity=0}] add no_bow",
+        "explanation": "@a = 所有玩家\nhasitem = 物品检测\nitem=bow = 弓\nquantity=0 = 数量为0，即没有此物品",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "hasitem", "value": "{item=bow,quantity=0}", "explanation": "检测物品栏中弓的数量为0（没有弓）"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["quantity=0 表示没有此物品；quantity=1.. 表示至少有1个"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "hasitem", "quantity_zero"]
+  },
+  {
+    "input": "检测同时有钻石剑和盾牌的玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[hasitem=[{item=diamond_sword,quantity=1..},{item=shield,quantity=1..}]] add warrior",
+        "explanation": "@a = 所有玩家\nhasitem = 多物品同时检测（数组语法）\n两个条件用方括号包裹，表示必须同时满足",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "hasitem[0]", "value": "{item=diamond_sword,quantity=1..}", "explanation": "至少有1把钻石剑"},
+            {"key": "hasitem[1]", "value": "{item=shield,quantity=1..}", "explanation": "至少有1个盾牌"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["hasitem 的多物品语法: hasitem=[{...},{...}]，所有条件必须同时满足"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "hasitem", "multi_item"]
+  },
+  {
+    "input": "检测头上戴着钻石头盔的玩家",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[hasitem={item=diamond_helmet,location=slot.armor.head}] add diamond_head",
+        "explanation": "@a = 所有玩家\nhasitem = 物品检测\nitem=diamond_helmet = 钻石头盔\nlocation=slot.armor.head = 头部装备槽位",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "hasitem", "value": "{item=diamond_helmet,location=slot.armor.head}", "explanation": "头部装备槽位有钻石头盔"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["装备槽位: slot.armor.head(头), slot.armor.chest(胸), slot.armor.legs(腿), slot.armor.feet(脚), slot.weapon.mainhand(主手), slot.weapon.offhand(副手)"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "hasitem", "armor_slot"]
+  },
+  {
+    "input": "给同时有team_red标签和alive标签但没有protected标签的玩家发消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a[tag=team_red,tag=alive,tag=!protected] {\"rawtext\":[{\"text\":\"你的队伍需要支援！\"}]}",
+        "explanation": "@a = 所有玩家\ntag=team_red = 有team_red标签\ntag=alive = 有alive标签\ntag=!protected = 没有protected标签",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "tag", "value": "team_red", "explanation": "拥有team_red标签"},
+            {"key": "tag", "value": "alive", "explanation": "同时拥有alive标签"},
+            {"key": "tag", "value": "!protected", "explanation": "同时不能有protected标签"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["tag 参数可以多次出现，所有条件必须同时满足（AND逻辑）"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "selector_features": ["@a", "tag", "multi_tag", "negation"]
+  },
+  {
+    "input": "杀死除了苦力怕和末影人以外的所有怪物",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[family=monster,type=!creeper,type=!enderman]",
+        "explanation": "@e = 所有实体\nfamily=monster = 怪物家族\ntype=!creeper = 排除苦力怕\ntype=!enderman = 排除末影人",
+        "selector_breakdown": {
+          "base": "@e",
+          "conditions": [
+            {"key": "family", "value": "monster", "explanation": "仅选择怪物家族"},
+            {"key": "type", "value": "!creeper", "explanation": "排除苦力怕"},
+            {"key": "type", "value": "!enderman", "explanation": "排除末影人"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["type 排除可以多次使用（type=!A,type=!B），但 type 肯定匹配只能用一次"]
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "family", "type", "multi_negation"]
+  },
+  {
+    "input": "给kills分数大于10且deaths分数小于5的玩家添加标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[scores={kills=10..,deaths=..5}] add skilled",
+        "explanation": "@a = 所有玩家\nscores = 多计分板过滤\nkills=10.. = kills分数≥10\ndeaths=..5 = deaths分数≤5",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "scores", "value": "{kills=10..,deaths=..5}", "explanation": "kills≥10 且 deaths≤5（多分数用逗号分隔）"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["scores 范围语法: 5(精确), 1..10(范围), 10..(≥10), ..5(≤5), !3(不等于3)"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "scores", "multi_score", "range"]
+  },
+  {
+    "input": "给10到30级之间非创造模式的玩家发消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a[lm=10,l=30,m=!creative] {\"rawtext\":[{\"text\":\"你的等级在10-30之间\"}]}",
+        "explanation": "@a = 所有玩家\nlm=10 = 最低等级10\nl=30 = 最高等级30\nm=!creative = 排除创造模式",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "lm", "value": "10", "explanation": "经验等级≥10"},
+            {"key": "l", "value": "30", "explanation": "经验等级≤30"},
+            {"key": "m", "value": "!creative", "explanation": "排除创造模式玩家"}
+          ]
+        },
+        "variants": ["/tellraw @a[lm=10,l=30,m=!c] {\"rawtext\":[{\"text\":\"你的等级在10-30之间\"}]}"],
+        "warnings": ["游戏模式值: survival/s/0, creative/c/1, adventure/a/2, spectator, default/d/5"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "selector_features": ["@a", "lm", "l", "m", "negation"]
+  },
+  {
+    "input": "给所有拥有admin标签且kills分数最高的前3个玩家加冠军标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a[tag=admin,scores={kills=1..},c=3] add champion",
+        "explanation": "@a = 所有玩家\ntag=admin = 有admin标签\nscores={kills=1..} = kills分数≥1\nc=3 = 限制最近的3个",
+        "selector_breakdown": {
+          "base": "@a",
+          "conditions": [
+            {"key": "tag", "value": "admin", "explanation": "拥有admin标签"},
+            {"key": "scores", "value": "{kills=1..}", "explanation": "kills分数至少为1"},
+            {"key": "c", "value": "3", "explanation": "限制返回3个结果（默认按距离排序）"}
+          ]
+        },
+        "variants": [],
+        "warnings": ["c 参数按距离排序选择，不是按分数排序。如需按分数排序需要其他方法"]
+      }
+    },
+    "commands_used": ["tag"],
+    "selector_features": ["@a", "tag", "scores", "c", "complex_combo"]
+  }
+]

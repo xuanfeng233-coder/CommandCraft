@@ -1,0 +1,42 @@
+{
+  "name": "testforblock",
+  "syntax": "/testforblock <position: x y z> <tileName: Block> [blockStates: BlockStates]",
+  "description": "检测指定位置是否为特定方块",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "要检测的方块坐标"
+    },
+    {
+      "name": "tileName",
+      "type": "Block",
+      "required": true,
+      "description": "期望的方块ID"
+    },
+    {
+      "name": "blockStates",
+      "type": "BlockStates",
+      "required": false,
+      "description": "方块状态，使用JSON格式或数据值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/testforblock 0 64 0 diamond_block",
+      "description": "检测坐标(0,64,0)是否为钻石块"
+    },
+    {
+      "input": "/testforblock ~ ~-1 ~ air",
+      "description": "检测脚下是否为空气方块（即悬空）"
+    },
+    {
+      "input": "/testforblock 10 60 10 wool [\"color\":\"red\"]",
+      "description": "检测指定位置是否为红色羊毛"
+    }
+  ],
+  "bedrock_specific_notes": "testforblock是基岩版保留的旧版命令。在较新版本中推荐使用/execute if block代替。在命令方块中配合条件链命令方块仍然非常实用。",
+  "version_added": "1.0.0"
+}

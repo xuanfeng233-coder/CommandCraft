@@ -1,0 +1,51 @@
+/* Minecraft Pixel Theme - Design Tokens */
+:root {
+  /* Backgrounds */
+  --mc-bg-deep: #2D1B0E;
+  --mc-bg-main: #3B2716;
+  --mc-bg-card: #4A3728;
+  --mc-bg-hover: #d79b67;
+
+  /* Text */
+  --mc-text-primary: #F5E6D0;
+  --mc-text-secondary: #ffdba4;
+  --mc-text-dim: #ec9e52;
+
+  /* Accents */
+  --mc-green: #3A971E;
+  --mc-green-hover: #4AAF2E;
+  --mc-red: #B02E26;
+  --mc-red-hover: #C83E36;
+  --mc-blue: #3C44AA;
+  --mc-gold: #e2c714;
+
+  /* Syntax highlighting */
+  --mc-syn-command: #55FF55;
+  --mc-syn-selector: #FF55FF;
+  --mc-syn-string: #FFAA00;
+  --mc-syn-number: #FF5555;
+  --mc-syn-required: #FFFF55;
+  --mc-syn-optional: #55FFFF;
+
+  /* Borders */
+  --mc-border: #d79b67;
+  --mc-border-light: #6B5540;
+
+  /* Spacing (even pixels only) */
+  --mc-sp-2: 2px;
+  --mc-sp-4: 4px;
+  --mc-sp-8: 8px;
+  --mc-sp-12: 12px;
+  --mc-sp-16: 16px;
+
+  /* Font stacks */
+  --mc-font-title: 'GNU Unifont', 'Monocraft', 'Zpix', monospace;
+  --mc-font-body: 'GNU Unifont', 'Zpix', 'Monocraft', monospace;
+  --mc-font-mono: 'GNU Unifont', 'Monocraft', 'Cascadia Code', 'Consolas', monospace;
+
+  /* Shadows (3D pixel effect) */
+  --mc-shadow-raised: inset -2px -4px 0 rgba(0,0,0,0.4), inset 2px 2px 0 rgba(255,255,255,0.15);
+  --mc-shadow-sunken: inset 2px 4px 0 rgba(0,0,0,0.4), inset -2px -2px 0 rgba(255,255,255,0.1);
+  --mc-shadow-raised-sm: inset -1px -2px 0 rgba(0,0,0,0.4), inset 1px 1px 0 rgba(255,255,255,0.15);
+  --mc-shadow-sunken-sm: inset 1px 2px 0 rgba(0,0,0,0.4), inset -1px -1px 0 rgba(255,255,255,0.1);
+}

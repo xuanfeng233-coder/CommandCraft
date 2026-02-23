@@ -1,0 +1,66 @@
+{
+  "name": "tickingarea",
+  "syntax": "/tickingarea add <from: x y z> <to: x y z> [name: string] [preload: Boolean] | /tickingarea add circle <center: x y z> <radius: int> [name: string] [preload: Boolean] | /tickingarea remove <name: string> | /tickingarea remove_all | /tickingarea list [all-dimensions]",
+  "description": "管理常加载区域，使指定区域持续运行游戏刻",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "矩形区域的起始坐标"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "矩形区域的结束坐标"
+    },
+    {
+      "name": "center",
+      "type": "x y z",
+      "required": true,
+      "description": "圆形区域的中心坐标"
+    },
+    {
+      "name": "radius",
+      "type": "int",
+      "required": true,
+      "description": "圆形区域的半径（以区块为单位，最大4）",
+      "range": "1-4"
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "required": false,
+      "description": "常加载区域的名称，用于后续管理"
+    },
+    {
+      "name": "preload",
+      "type": "Boolean",
+      "required": false,
+      "description": "是否在世界加载时预加载此区域",
+      "default": "false"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tickingarea add 0 0 0 100 256 100 spawn_area",
+      "description": "添加一个名为spawn_area的矩形常加载区域"
+    },
+    {
+      "input": "/tickingarea add circle 0 64 0 4 farm_area true",
+      "description": "添加一个半径4区块的圆形常加载区域，并设为预加载"
+    },
+    {
+      "input": "/tickingarea remove spawn_area",
+      "description": "移除名为spawn_area的常加载区域"
+    },
+    {
+      "input": "/tickingarea list all-dimensions",
+      "description": "列出所有维度中的常加载区域"
+    }
+  ],
+  "bedrock_specific_notes": "tickingarea是基岩版特有命令（Java版使用forceload命令）。常加载区域保证该区域内的命令方块、红石等机制持续运行。每个世界最多10个常加载区域。preload选项使区域在世界加载时优先加载。",
+  "version_added": "1.6.0"
+}

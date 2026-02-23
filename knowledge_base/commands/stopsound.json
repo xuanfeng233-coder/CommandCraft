@@ -1,0 +1,32 @@
+{
+  "name": "stopsound",
+  "syntax": "/stopsound <player: target> [sound: string]",
+  "description": "停止正在播放的音效",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "sound",
+      "type": "Sound",
+      "required": false,
+      "description": "要停止的音效ID。不指定则停止所有音效"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/stopsound @a",
+      "description": "停止所有玩家正在播放的所有音效"
+    },
+    {
+      "input": "/stopsound @a mob.wither.spawn",
+      "description": "停止所有玩家正在播放的凋灵生成音效"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版stopsound不支持指定音效类别（category），只能按音效ID停止。与Java版语法有所不同。",
+  "version_added": "1.0.5"
+}

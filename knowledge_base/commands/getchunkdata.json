@@ -1,0 +1,28 @@
+{
+  "name": "getchunkdata",
+  "syntax": "/getchunkdata <position: x y z> <dimension: Dimension>",
+  "description": "获取指定坐标所在区块的数据",
+  "category": "testing",
+  "parameters": [
+    {
+      "name": "position",
+      "type": "x y z",
+      "required": true,
+      "description": "要查询的坐标位置"
+    },
+    {
+      "name": "dimension",
+      "type": "Dimension",
+      "required": true,
+      "description": "维度：overworld、nether、the_end"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/getchunkdata 0 64 0 overworld",
+      "description": "获取主世界坐标(0,64,0)所在区块的数据"
+    }
+  ],
+  "bedrock_specific_notes": "getchunkdata是基岩版的调试命令，用于获取区块的详细数据信息。主要用于开发调试。",
+  "version_added": "1.0.0"
+}

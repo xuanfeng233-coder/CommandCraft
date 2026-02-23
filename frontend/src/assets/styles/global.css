@@ -1,0 +1,128 @@
+@import './variables.css';
+@import './fonts.css';
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--mc-font-body);
+  background-color: var(--mc-bg-deep);
+  color: var(--mc-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: unset;
+  image-rendering: pixelated;
+}
+
+#app {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Texture utility classes */
+.mc-tex-dirt {
+  background-image: url('/textures/dirt.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-oak {
+  background-image: url('/textures/oak_planks.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-dark-oak {
+  background-image: url('/textures/dark_oak_planks.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-stone {
+  background-image: url('/textures/stone_bricks.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-smooth-stone {
+  background-image: url('/textures/smooth_stone.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-bedrock {
+  background-image: url('/textures/bedrock.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+.mc-tex-grass {
+  background-image: url('/textures/grass_block_top.png');
+  background-size: 64px 64px;
+  background-repeat: repeat;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--mc-bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mc-bg-hover);
+  border: 2px solid var(--mc-bg-deep);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mc-border-light);
+}
+
+/* Animation keyframes */
+@keyframes mc-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mc-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes mc-gold-flash {
+  0% { background-color: transparent; }
+  30% { background-color: rgba(221, 165, 32, 0.3); }
+  100% { background-color: transparent; }
+}
+
+@keyframes mc-pixel-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(58, 151, 30, 0.4);
+  color: var(--mc-text-primary);
+}

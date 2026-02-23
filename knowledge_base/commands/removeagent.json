@@ -1,0 +1,15 @@
+{
+  "name": "removeagent",
+  "syntax": "/removeagent",
+  "description": "移除玩家的Agent NPC（教育版特性）",
+  "category": "agent",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/removeagent",
+      "description": "移除当前玩家的Agent"
+    }
+  ],
+  "bedrock_specific_notes": "removeagent是基岩版教育版特有命令。移除当前玩家所拥有的Agent实体。需要启用教育版功能。",
+  "version_added": "1.0.0"
+}

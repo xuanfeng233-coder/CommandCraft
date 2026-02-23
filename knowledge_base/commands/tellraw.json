@@ -1,0 +1,40 @@
+{
+  "name": "tellraw",
+  "syntax": "/tellraw <target: target> <rawJsonMessage: json>",
+  "description": "向玩家发送JSON格式的富文本聊天消息",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "接收消息的目标玩家"
+    },
+    {
+      "name": "rawJsonMessage",
+      "type": "json",
+      "required": true,
+      "description": "rawtext JSON 格式的消息内容。格式为 {\"rawtext\":[...]}，支持 text、selector、score、translate 组件"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tellraw @a {\"rawtext\":[{\"text\":\"§e[公告] §f服务器将在5分钟后重启\"}]}",
+      "description": "向所有玩家发送黄色标签的公告消息"
+    },
+    {
+      "input": "/tellraw @a {\"rawtext\":[{\"text\":\"玩家 \"},{\"selector\":\"@s\"},{\"text\":\" 获得了胜利！\"}]}",
+      "description": "显示包含玩家名称的消息"
+    },
+    {
+      "input": "/tellraw @a {\"rawtext\":[{\"text\":\"当前分数: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"points\"}}]}",
+      "description": "显示包含计分板分数的消息"
+    },
+    {
+      "input": "/tellraw @a {\"rawtext\":[{\"translate\":\"chat.type.text\",\"with\":[\"Steve\",\"Hello\"]}]}",
+      "description": "使用翻译键和参数显示格式化消息"
+    }
+  ],
+  "bedrock_specific_notes": "基岩版 /tellraw 使用 rawtext JSON 格式，与Java版的JSON文本格式不同。基岩版rawtext不支持clickEvent和hoverEvent。rawtext数组中每个对象可以是：{\"text\":\"...\"}(纯文本)、{\"selector\":\"@a\"}(目标名称)、{\"score\":{\"name\":\"@s\",\"objective\":\"obj\"}}(计分板分数)、{\"translate\":\"key\",\"with\":[...]}(翻译键)。颜色使用§格式代码。",
+  "version_added": "1.0.5"
+}

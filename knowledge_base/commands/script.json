@@ -1,0 +1,44 @@
+{
+  "name": "script",
+  "syntax": "/script debugger listen <port: int> | /script debugger connect <host: string> <port: int> | /script debugger close | /script profiler start | /script profiler stop | /script watchdog exportstats",
+  "description": "管理脚本API的调试器和性能分析工具",
+  "category": "scripting",
+  "parameters": [
+    {
+      "name": "port",
+      "type": "int",
+      "required": false,
+      "description": "调试器监听或连接的端口号"
+    },
+    {
+      "name": "host",
+      "type": "string",
+      "required": false,
+      "description": "调试器连接的主机地址"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/script debugger listen 19144",
+      "description": "在端口19144上启动脚本调试器监听"
+    },
+    {
+      "input": "/script debugger connect localhost 19144",
+      "description": "连接到本地端口19144的调试器"
+    },
+    {
+      "input": "/script profiler start",
+      "description": "开始记录脚本性能数据"
+    },
+    {
+      "input": "/script profiler stop",
+      "description": "停止记录脚本性能数据并输出报告"
+    },
+    {
+      "input": "/script watchdog exportstats",
+      "description": "导出脚本看门狗统计信息"
+    }
+  ],
+  "bedrock_specific_notes": "script命令用于管理基岩版脚本API（@minecraft/server等模块）的调试工具。需要在世界设置中启用实验性功能。Java版没有等价命令。调试器支持与Visual Studio Code配合使用。",
+  "version_added": "1.19.0"
+}

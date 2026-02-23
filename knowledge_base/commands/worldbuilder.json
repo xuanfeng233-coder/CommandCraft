@@ -1,0 +1,15 @@
+{
+  "name": "worldbuilder",
+  "syntax": "/worldbuilder",
+  "description": "切换世界建造者权限状态",
+  "category": "player_management",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/worldbuilder",
+      "description": "切换当前玩家的世界建造者权限"
+    }
+  ],
+  "bedrock_specific_notes": "worldbuilder是基岩版教育版特性命令。拥有世界建造者权限的玩家可以在不可修改的世界中建造。wb是worldbuilder的别名。",
+  "version_added": "1.0.0"
+}

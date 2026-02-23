@@ -1,0 +1,48 @@
+{
+  "name": "camerashake",
+  "syntax": "/camerashake add <player: target> [intensity: float] [seconds: float] [shakeType: positional|rotational] | /camerashake stop [player: target]",
+  "description": "为玩家添加或停止摄像机震动效果",
+  "category": "camera",
+  "parameters": [
+    {
+      "name": "player",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "intensity",
+      "type": "float",
+      "required": false,
+      "description": "震动强度（0-4），默认为1",
+      "default": "1",
+      "range": "0-4"
+    },
+    {
+      "name": "seconds",
+      "type": "float",
+      "required": false,
+      "description": "震动持续时间（秒），默认为1",
+      "default": "1"
+    },
+    {
+      "name": "shakeType",
+      "type": "positional|rotational",
+      "required": false,
+      "description": "震动类型：positional（位置抖动）或rotational（旋转抖动）",
+      "default": "positional"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/camerashake add @a 0.5 3 rotational",
+      "description": "为所有玩家添加3秒的旋转震动效果，强度0.5"
+    },
+    {
+      "input": "/camerashake stop @a",
+      "description": "停止所有玩家的摄像机震动"
+    }
+  ],
+  "bedrock_specific_notes": "camerashake是基岩版特有命令，Java版没有等价命令。常用于模拟地震、爆炸等效果。positional会移动摄像机位置，rotational会旋转摄像机角度。",
+  "version_added": "1.16.0"
+}
