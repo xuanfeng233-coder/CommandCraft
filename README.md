@@ -159,4 +159,4 @@ Main Agent (summarize) ── 汇总多任务结果
 
 ## 许可证
 
-[MIT License](LICENSE)
+[AGPL License](LICENSE)
