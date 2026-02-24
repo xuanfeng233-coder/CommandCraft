@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onBeforeUnmount } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { McNav, McButton, McInput, McModal } from '@/components/mc-ui'
 import ChatPanel from '@/components/ChatPanel.vue'
 import HistoryPanel from '@/components/HistoryPanel.vue'
@@ -25,6 +25,40 @@ const inputText = ref('')
 const showHistory = ref(false)
 const showExport = ref(false)
 const mobileTab = ref<'chat' | 'editor'>('chat')
+
+// --- Mobile navbar auto-hide ---
+const navHidden = ref(true)
+let navHideTimer: ReturnType<typeof setTimeout> | null = null
+let touchStartY = 0
+let touchStartX = 0
+
+function onTouchStart(e: TouchEvent) {
+  touchStartY = e.touches[0].clientY
+  touchStartX = e.touches[0].clientX
+}
+
+function onTouchEnd(e: TouchEvent) {
+  const dy = e.changedTouches[0].clientY - touchStartY
+  const dx = Math.abs(e.changedTouches[0].clientX - touchStartX)
+  if (dx > Math.abs(dy)) return
+
+  if (dy > 30 && touchStartY < 40) {
+    navHidden.value = false
+    resetNavHideTimer()
+  } else if (dy < -30 && !navHidden.value) {
+    navHidden.value = true
+    clearNavHideTimer()
+  }
+}
+
+function resetNavHideTimer() {
+  clearNavHideTimer()
+  navHideTimer = setTimeout(() => { navHidden.value = true }, 3000)
+}
+
+function clearNavHideTimer() {
+  if (navHideTimer) { clearTimeout(navHideTimer); navHideTimer = null }
+}
 
 // --- Draggable divider ---
 const EDITOR_WIDTH_KEY = 'mcbe-ai-editor-width'
@@ -55,9 +89,17 @@ function onDividerMouseUp() {
   localStorage.setItem(EDITOR_WIDTH_KEY, String(editorWidth.value))
 }
 
+onMounted(() => {
+  document.addEventListener('touchstart', onTouchStart, { passive: true })
+  document.addEventListener('touchend', onTouchEnd, { passive: true })
+})
+
 onBeforeUnmount(() => {
   document.removeEventListener('mousemove', onDividerMouseMove)
   document.removeEventListener('mouseup', onDividerMouseUp)
+  document.removeEventListener('touchstart', onTouchStart)
+  document.removeEventListener('touchend', onTouchEnd)
+  clearNavHideTimer()
 })
 
 async function handleSend() {
@@ -118,11 +160,11 @@ const latestProjectMessage = computed(() => {
 <template>
   <div
     class="app-layout"
-    :class="{ [`mobile-${mobileTab}`]: true, 'is-dragging': isDragging }"
+    :class="{ [`mobile-${mobileTab}`]: true, 'is-dragging': isDragging, 'nav-hidden': navHidden }"
     :style="{ gridTemplateColumns: gridColumns }"
   >
     <!-- Row 1: Navbar -->
-    <McNav class="nav-bar">
+    <McNav class="nav-bar" @click="resetNavHideTimer">
       <div class="nav-left">
         <img src="/images/logo.png" alt="CommandCraft" class="nav-logo" />
       </div>
@@ -319,67 +361,76 @@ const latestProjectMessage = computed(() => {
 
 /* ===== Mobile Responsive ===== */
 @media (max-width: 768px) {
+  /* 3-row grid: content | input | bottom tabs */
   .app-layout {
     grid-template-columns: 1fr !important;
-    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-rows: 1fr auto auto;
+    height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 
-  .panel-divider {
-    display: none;
+  /* Navbar: fixed top, slide in/out via nav-hidden */
+  .nav-bar {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    transform: translateY(0);
+    transition: transform 300ms ease;
+    padding-top: env(safe-area-inset-top, 0px);
   }
+  .app-layout.nav-hidden .nav-bar {
+    transform: translateY(-100%);
+  }
+  .nav-logo { height: 28px; }
+  .nav-right { gap: 4px; }
 
+  /* Hide divider */
+  .panel-divider { display: none; }
+
+  /* Content areas: row 1 */
+  .chat-area  { grid-row: 1; grid-column: 1; }
+  .editor-area { grid-row: 1; grid-column: 1; }
+
+  /* Tab-based show/hide */
+  .app-layout.mobile-chat .chat-area    { display: block; }
+  .app-layout.mobile-chat .editor-area  { display: none; }
+  .app-layout.mobile-editor .chat-area  { display: none; }
+  .app-layout.mobile-editor .editor-area { display: block; }
+
+  /* Input bar: row 2, hidden in editor mode */
+  .input-bar {
+    grid-row: 2; grid-column: 1;
+    padding: 8px 12px;
+  }
+  .app-layout.mobile-editor .input-bar { display: none; }
+
+  /* Bottom tab bar: row 3 */
   .mobile-tabs {
     display: flex;
+    grid-row: 3; grid-column: 1;
     gap: 0;
-    border-bottom: 2px solid var(--mc-border);
+    border-top: 2px solid var(--mc-border);
+    border-bottom: none;
+    background: var(--mc-bg-card);
   }
-
   .mobile-tab {
     flex: 1;
     background: var(--mc-bg-card);
     border: none;
-    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
     color: var(--mc-text-dim);
     font-family: var(--mc-font-title);
-    font-size: 14px;
-    padding: 8px;
+    font-size: 12px;
+    padding: 6px 0;
     cursor: pointer;
   }
-
   .mobile-tab.active {
     color: var(--mc-gold);
-    border-bottom-color: var(--mc-gold);
+    border-top-color: var(--mc-gold);
     background: var(--mc-bg-main);
   }
-
   .mobile-tab:hover {
     color: var(--mc-text-primary);
-  }
-
-  /* Show/hide based on active tab */
-  .app-layout.mobile-chat .chat-area {
-    display: block;
-  }
-  .app-layout.mobile-chat .editor-area {
-    display: none;
-  }
-  .app-layout.mobile-editor .chat-area {
-    display: none;
-  }
-  .app-layout.mobile-editor .editor-area {
-    display: block;
-  }
-
-  .nav-logo {
-    height: 28px;
-  }
-
-  .nav-right {
-    gap: 4px;
-  }
-
-  .input-bar {
-    padding: 8px 12px;
   }
 }
 

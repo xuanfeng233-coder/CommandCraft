@@ -368,17 +368,20 @@ const providerLinks: Record<string, string> = {
 
 <style scoped>
 .setup-page {
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 16px;
+  padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
   overflow-y: auto;
 }
 
 .setup-container {
   max-width: 480px;
   width: 100%;
+  margin: auto 0;
 }
 
 .setup-logo {
@@ -707,6 +710,58 @@ const providerLinks: Record<string, string> = {
 @media (max-width: 768px) {
   .provider-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Landscape compact: short viewport */
+@media (max-height: 500px) {
+  .setup-logo {
+    max-width: 160px;
+    margin-bottom: 0;
+  }
+  .setup-subtitle {
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
+  .steps-indicator {
+    margin-bottom: 6px;
+  }
+  .step-content {
+    padding: 10px 14px;
+  }
+  .step-heading {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  .provider-grid {
+    gap: 4px;
+  }
+  .provider-card {
+    padding: 6px 4px;
+  }
+  .provider-name {
+    font-size: 12px;
+  }
+  .divider-or {
+    margin: 6px 0;
+  }
+  .subscription-card {
+    padding: 6px 10px;
+  }
+  .subscription-card-desc {
+    font-size: 10px;
+  }
+  .skip-link-row {
+    margin-top: 6px;
+  }
+  .step-actions {
+    margin-top: 8px;
+  }
+  .sub-section {
+    margin-bottom: 10px;
+  }
+  .verify-status {
+    padding: 10px;
   }
 }
 </style>
