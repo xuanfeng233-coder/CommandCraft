@@ -1,40 +1,44 @@
 {
   "name": "ride",
-  "syntax": "/ride <riders: target> start_riding <ride: target> [teleportRules: teleport_ride|teleport_rider] [howToFill: if_group_fits|until_full] | /ride <riders: target> stop_riding | /ride <ride: target> evict_riders | /ride <ride: target> summon_rider <entityType: EntityType> [spawnEvent: string] [nameTag: string] | /ride <riders: target> summon_ride <entityType: EntityType> [rideRules: skip_riders|no_ride_change|reassign_rides] [spawnEvent: string] [nameTag: string]",
+  "syntax": "/ride <target: target> <start_riding|stop_riding|evict_riders|summon_rider|summon_ride> ...",
   "description": "管理实体的骑乘关系",
   "category": "advanced",
   "parameters": [
     {
-      "name": "riders",
+      "name": "target",
       "type": "target",
       "required": true,
-      "description": "骑乘者实体"
+      "description": "目标实体（骑乘者或坐骑，取决于子命令）"
     },
     {
-      "name": "ride",
-      "type": "target",
-      "required": true,
-      "description": "被骑乘的实体（坐骑）"
-    },
-    {
-      "name": "teleportRules",
-      "type": "teleport_ride|teleport_rider",
+      "name": "start_riding <ride: target> [teleportRules: teleport_ride|teleport_rider] [howToFill: if_group_fits|until_full]",
+      "type": "子命令",
       "required": false,
-      "description": "传送规则：teleport_rider=骑乘者传送到坐骑，teleport_ride=坐骑传送到骑乘者",
-      "default": "teleport_rider"
+      "description": "让目标实体（骑乘者）骑上指定坐骑。teleportRules: 传送规则，howToFill: 填充规则"
     },
     {
-      "name": "howToFill",
-      "type": "if_group_fits|until_full",
+      "name": "stop_riding",
+      "type": "子命令",
       "required": false,
-      "description": "填充规则：if_group_fits=仅当所有骑乘者都能坐下才骑，until_full=能坐多少坐多少",
-      "default": "until_full"
+      "description": "让目标实体（骑乘者）停止骑乘"
     },
     {
-      "name": "entityType",
-      "type": "EntityType",
+      "name": "evict_riders",
+      "type": "子命令",
       "required": false,
-      "description": "要召唤的实体类型（summon_rider/summon_ride模式）"
+      "description": "驱逐目标实体（坐骑）上的所有骑乘者"
+    },
+    {
+      "name": "summon_rider <entityType: EntityType> [spawnEvent: string] [nameTag: string]",
+      "type": "子命令",
+      "required": false,
+      "description": "在目标实体（坐骑）上召唤一个骑乘者"
+    },
+    {
+      "name": "summon_ride <entityType: EntityType> [rideRules: skip_riders|no_ride_change|reassign_rides] [spawnEvent: string] [nameTag: string]",
+      "type": "子命令",
+      "required": false,
+      "description": "为目标实体（骑乘者）召唤一个坐骑并自动骑上"
     }
   ],
   "examples": [

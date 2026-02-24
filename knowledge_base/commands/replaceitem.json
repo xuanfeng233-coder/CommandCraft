@@ -1,59 +1,32 @@
 {
   "name": "replaceitem",
-  "syntax": "/replaceitem block <position: x y z> slot.container <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json] | /replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+  "syntax": "/replaceitem block <position: x y z> slot.container <slotId: int> [oldItemHandling: ReplaceMode] <itemName: Item> [amount: int] [data: int] [components: json] | /replaceitem entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> [oldItemHandling: ReplaceMode] <itemName: Item> [amount: int] [data: int] [components: json]",
   "description": "替换方块或实体指定槽位中的物品",
   "category": "item_management",
   "parameters": [
     {
-      "name": "position",
-      "type": "x y z",
-      "required": true,
-      "description": "目标容器方块的坐标（block模式）"
-    },
-    {
-      "name": "target",
-      "type": "target",
-      "required": true,
-      "description": "目标实体（entity模式）"
-    },
-    {
-      "name": "slotType",
-      "type": "EntityEquipmentSlot",
-      "required": true,
-      "description": "装备槽位类型：slot.weapon.mainhand、slot.weapon.offhand、slot.armor.head、slot.armor.chest、slot.armor.legs、slot.armor.feet、slot.hotbar、slot.inventory、slot.enderchest、slot.saddle、slot.armor、slot.chest"
-    },
-    {
-      "name": "slotId",
-      "type": "int",
-      "required": true,
-      "description": "槽位编号，从0开始"
-    },
-    {
-      "name": "itemName",
-      "type": "Item",
-      "required": true,
-      "description": "要放入的物品ID"
-    },
-    {
-      "name": "amount",
-      "type": "int",
+      "name": "block <position: x y z> slot.container <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+      "type": "子命令",
       "required": false,
-      "description": "物品数量",
-      "default": "1",
-      "range": "1-64"
+      "description": "替换容器方块指定槽位中的物品。slotId从0开始"
     },
     {
-      "name": "data",
-      "type": "int",
+      "name": "block <position: x y z> slot.container <slotId: int> <oldItemHandling: destroy|keep> <itemName: Item> [amount: int] [data: int] [components: json]",
+      "type": "子命令",
       "required": false,
-      "description": "物品数据值",
-      "default": "0"
+      "description": "替换容器方块指定槽位中的物品，指定旧物品处理方式。destroy=销毁旧物品，keep=保留旧物品（槽位非空时不替换）"
     },
     {
-      "name": "components",
-      "type": "json",
+      "name": "entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <itemName: Item> [amount: int] [data: int] [components: json]",
+      "type": "子命令",
       "required": false,
-      "description": "物品组件JSON数据"
+      "description": "替换实体指定槽位中的物品。slotType: slot.weapon.mainhand、slot.weapon.offhand、slot.armor.head/chest/legs/feet、slot.hotbar、slot.inventory、slot.enderchest等"
+    },
+    {
+      "name": "entity <target: target> <slotType: EntityEquipmentSlot> <slotId: int> <oldItemHandling: destroy|keep> <itemName: Item> [amount: int] [data: int] [components: json]",
+      "type": "子命令",
+      "required": false,
+      "description": "替换实体指定槽位中的物品，指定旧物品处理方式"
     }
   ],
   "examples": [
@@ -68,8 +41,12 @@
     {
       "input": "/replaceitem block 0 64 0 slot.container 0 diamond 64",
       "description": "在坐标(0,64,0)的容器第一个槽位放入64个钻石"
+    },
+    {
+      "input": "/replaceitem entity @s slot.weapon.mainhand 0 keep diamond_sword",
+      "description": "仅当主手为空时才放入钻石剑"
     }
   ],
-  "bedrock_specific_notes": "基岩版使用replaceitem而非Java版的item replace命令。槽位类型名称与Java版不同，基岩版使用slot.weapon.mainhand等格式。",
+  "bedrock_specific_notes": "基岩版使用replaceitem而非Java版的item replace命令。槽位类型名称与Java版不同，基岩版使用slot.weapon.mainhand等格式。oldItemHandling参数可选destroy（默认）或keep。",
   "version_added": "1.0.0"
 }

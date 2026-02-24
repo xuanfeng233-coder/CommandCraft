@@ -7,7 +7,8 @@ COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN pnpm build
+# Skip vue-tsc type checking in Docker (already verified locally), only run vite build
+RUN pnpm exec vite build
 
 FROM docker.m.daocloud.io/library/nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html

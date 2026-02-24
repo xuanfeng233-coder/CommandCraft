@@ -11,7 +11,7 @@ import { parseSelectorContext } from './selector-parser'
  * Tokenize a command line into an array of string tokens.
  * Handles: quoted strings, selectors with brackets, JSON braces, relative coords.
  */
-function tokenizeLine(line: string): string[] {
+export function tokenizeLine(line: string): string[] {
   const tokens: string[] = []
   let i = 0
 

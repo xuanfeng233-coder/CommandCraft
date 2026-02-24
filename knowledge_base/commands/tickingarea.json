@@ -1,46 +1,56 @@
 {
   "name": "tickingarea",
-  "syntax": "/tickingarea add <from: x y z> <to: x y z> [name: string] [preload: Boolean] | /tickingarea add circle <center: x y z> <radius: int> [name: string] [preload: Boolean] | /tickingarea remove <name: string> | /tickingarea remove_all | /tickingarea list [all-dimensions]",
+  "syntax": "/tickingarea <add|remove|remove_all|list|preload> ...",
   "description": "管理常加载区域，使指定区域持续运行游戏刻",
   "category": "world_management",
   "parameters": [
     {
-      "name": "from",
-      "type": "x y z",
-      "required": true,
-      "description": "矩形区域的起始坐标"
-    },
-    {
-      "name": "to",
-      "type": "x y z",
-      "required": true,
-      "description": "矩形区域的结束坐标"
-    },
-    {
-      "name": "center",
-      "type": "x y z",
-      "required": true,
-      "description": "圆形区域的中心坐标"
-    },
-    {
-      "name": "radius",
-      "type": "int",
-      "required": true,
-      "description": "圆形区域的半径（以区块为单位，最大4）",
-      "range": "1-4"
-    },
-    {
-      "name": "name",
-      "type": "string",
+      "name": "add <from: x y z> <to: x y z> [name: string] [preload: Boolean]",
+      "type": "子命令",
       "required": false,
-      "description": "常加载区域的名称，用于后续管理"
+      "description": "添加矩形常加载区域"
     },
     {
-      "name": "preload",
-      "type": "Boolean",
+      "name": "add circle <center: x y z> <radius: int> [name: string] [preload: Boolean]",
+      "type": "子命令",
       "required": false,
-      "description": "是否在世界加载时预加载此区域",
-      "default": "false"
+      "description": "添加圆形常加载区域，半径以区块为单位（最大4）"
+    },
+    {
+      "name": "remove <name: string>",
+      "type": "子命令",
+      "required": false,
+      "description": "按名称移除指定常加载区域"
+    },
+    {
+      "name": "remove <position: x y z>",
+      "type": "子命令",
+      "required": false,
+      "description": "按坐标移除包含该位置的常加载区域"
+    },
+    {
+      "name": "remove_all",
+      "type": "子命令",
+      "required": false,
+      "description": "移除所有常加载区域"
+    },
+    {
+      "name": "list [all-dimensions: AllDimensions]",
+      "type": "子命令",
+      "required": false,
+      "description": "列出常加载区域，可选 all-dimensions 显示所有维度"
+    },
+    {
+      "name": "preload <name: string> [preload: Boolean]",
+      "type": "子命令",
+      "required": false,
+      "description": "按名称设置指定常加载区域的预加载状态"
+    },
+    {
+      "name": "preload <position: x y z> [preload: Boolean]",
+      "type": "子命令",
+      "required": false,
+      "description": "按坐标设置包含该位置的常加载区域的预加载状态"
     }
   ],
   "examples": [

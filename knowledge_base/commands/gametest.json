@@ -1,33 +1,74 @@
 {
   "name": "gametest",
-  "syntax": "/gametest runthis | /gametest run <testName: string> [rotationSteps: int] | /gametest runall [tag: string] [rotationSteps: int] | /gametest pos | /gametest create <testName: string> [width: int] [height: int] [depth: int] | /gametest clearall [radius: int] | /gametest runset [tag: string] [rotationSteps: int]",
+  "syntax": "/gametest <runthis|run|runthese|runall|runset|runsetuntilfail|pos|create|clearall|stopall> ...",
   "description": "管理和运行GameTest框架的自动化测试",
   "category": "scripting",
   "parameters": [
     {
-      "name": "testName",
-      "type": "string",
+      "name": "runthis",
+      "type": "子命令",
       "required": false,
-      "description": "测试名称"
+      "description": "运行最近的GameTest测试"
     },
     {
-      "name": "rotationSteps",
-      "type": "int",
+      "name": "run <testName: string> [rotationSteps: int]",
+      "type": "子命令",
       "required": false,
-      "description": "旋转步数（0-3，每步90度）",
-      "default": "0"
+      "description": "运行指定名称的测试，可选旋转步数（1-3，每步90度）"
     },
     {
-      "name": "tag",
-      "type": "string",
+      "name": "run <testName: string> <stopOnFailure: Boolean> <repeatCount: int> [rotationSteps: int]",
+      "type": "子命令",
       "required": false,
-      "description": "测试标签，用于筛选运行的测试"
+      "description": "重复运行指定测试，可选在失败时停止"
     },
     {
-      "name": "width/height/depth",
-      "type": "int",
+      "name": "runthese",
+      "type": "子命令",
       "required": false,
-      "description": "创建测试区域的尺寸"
+      "description": "运行当前位置附近的所有测试"
+    },
+    {
+      "name": "runall [tag: string] [rotationSteps: int]",
+      "type": "子命令",
+      "required": false,
+      "description": "运行所有测试，可按标签筛选"
+    },
+    {
+      "name": "runset [tag: string] [rotationSteps: int]",
+      "type": "子命令",
+      "required": false,
+      "description": "运行一组测试，可按标签筛选"
+    },
+    {
+      "name": "runsetuntilfail [tag: string] [rotationSteps: int]",
+      "type": "子命令",
+      "required": false,
+      "description": "运行一组测试直到出现失败为止"
+    },
+    {
+      "name": "pos",
+      "type": "子命令",
+      "required": false,
+      "description": "显示当前相对于最近测试的位置坐标"
+    },
+    {
+      "name": "create <testName: string> [width: int] [height: int] [depth: int]",
+      "type": "子命令",
+      "required": false,
+      "description": "创建测试区域结构，尺寸最大各48"
+    },
+    {
+      "name": "clearall [radius: int]",
+      "type": "子命令",
+      "required": false,
+      "description": "清除指定半径范围内的所有测试结构"
+    },
+    {
+      "name": "stopall",
+      "type": "子命令",
+      "required": false,
+      "description": "停止所有正在运行的测试"
     }
   ],
   "examples": [

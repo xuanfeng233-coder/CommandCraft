@@ -1,36 +1,20 @@
 {
   "name": "camerashake",
-  "syntax": "/camerashake add <player: target> [intensity: float] [seconds: float] [shakeType: positional|rotational] | /camerashake stop [player: target]",
+  "syntax": "/camerashake add <player: target> [intensity: float] [seconds: float] [shakeType: CameraShakeType] | /camerashake stop <player: target>",
   "description": "为玩家添加或停止摄像机震动效果",
   "category": "camera",
   "parameters": [
     {
-      "name": "player",
-      "type": "target",
-      "required": true,
-      "description": "目标玩家"
+      "name": "add <player: target> [intensity: float] [seconds: float] [shakeType: positional|rotational]",
+      "type": "子命令",
+      "required": false,
+      "description": "为目标玩家添加摄像机震动效果。intensity范围0-4（默认0.5），seconds为持续时间（默认1秒），shakeType: positional(位置抖动)或rotational(旋转抖动)"
     },
     {
-      "name": "intensity",
-      "type": "float",
+      "name": "stop <player: target>",
+      "type": "子命令",
       "required": false,
-      "description": "震动强度（0-4），默认为1",
-      "default": "1",
-      "range": "0-4"
-    },
-    {
-      "name": "seconds",
-      "type": "float",
-      "required": false,
-      "description": "震动持续时间（秒），默认为1",
-      "default": "1"
-    },
-    {
-      "name": "shakeType",
-      "type": "positional|rotational",
-      "required": false,
-      "description": "震动类型：positional（位置抖动）或rotational（旋转抖动）",
-      "default": "positional"
+      "description": "停止目标玩家的摄像机震动效果"
     }
   ],
   "examples": [

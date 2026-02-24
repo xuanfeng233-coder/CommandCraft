@@ -1,20 +1,20 @@
 {
   "name": "npc",
-  "syntax": "/npc create [name: string] | /npc remove <target: target>",
+  "syntax": "/npc <create|remove> ...",
   "description": "创建或移除NPC实体",
   "category": "entity",
   "parameters": [
     {
-      "name": "name",
-      "type": "string",
+      "name": "create [name: string]",
+      "type": "子命令",
       "required": false,
-      "description": "NPC的名称"
+      "description": "在当前位置创建一个NPC实体，可选指定名称"
     },
     {
-      "name": "target",
-      "type": "target",
+      "name": "remove <target: target>",
+      "type": "子命令",
       "required": false,
-      "description": "要移除的NPC目标"
+      "description": "移除指定的NPC实体"
     }
   ],
   "examples": [

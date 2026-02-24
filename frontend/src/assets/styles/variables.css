@@ -27,6 +27,16 @@
   --mc-syn-required: #FFFF55;
   --mc-syn-optional: #55FFFF;
 
+  /* Semantic highlighting (ID categories) */
+  --mc-sem-item: #55FF55;
+  --mc-sem-block: #55FFFF;
+  --mc-sem-entity: #FF5555;
+  --mc-sem-effect: #FF55FF;
+  --mc-sem-enchant: #FFAA00;
+  --mc-sem-particle: #AAAAFF;
+  --mc-sem-sound: #AAFFAA;
+  --mc-sem-enum: #FFFF55;
+
   /* Borders */
   --mc-border: #d79b67;
   --mc-border-light: #6B5540;

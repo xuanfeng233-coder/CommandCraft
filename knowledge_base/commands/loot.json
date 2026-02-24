@@ -1,32 +1,62 @@
 {
   "name": "loot",
-  "syntax": "/loot give <players: target> loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot spawn <position: x y z> loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot replace entity <entity: target> <slotType: EntityEquipmentSlot> <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand|<item>] | /loot replace block <position: x y z> slot.container <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand|<item>]",
-  "description": "根据战利品表生成物品并分发",
+  "syntax": "/loot <give|insert|spawn|replace> ... <loot|kill|mine> ...",
+  "description": "根据战利品表或击杀/采掘结果生成物品并分发",
   "category": "advanced",
   "parameters": [
     {
-      "name": "players",
-      "type": "target",
+      "name": "give <players: target> loot <loot_table: string> [tool: mainhand|offhand]",
+      "type": "子命令",
       "required": false,
-      "description": "接收战利品的玩家（give模式）"
+      "description": "根据战利品表生成物品并直接给予目标玩家"
     },
     {
-      "name": "position",
-      "type": "x y z",
+      "name": "give <players: target> kill <entity: target> [tool: mainhand|offhand]",
+      "type": "子命令",
       "required": false,
-      "description": "掉落物品的位置（spawn模式）或容器位置（replace block模式）"
+      "description": "模拟击杀实体并将掉落物给予目标玩家"
     },
     {
-      "name": "loot_table",
-      "type": "string",
-      "required": true,
-      "description": "战利品表路径，如 loot_tables/chests/simple_dungeon.json"
+      "name": "give <players: target> mine <position: x y z> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "模拟采掘方块并将掉落物给予目标玩家"
     },
     {
-      "name": "tool",
-      "type": "mainhand|offhand|item",
+      "name": "insert <position: x y z> loot <loot_table: string> [tool: mainhand|offhand]",
+      "type": "子命令",
       "required": false,
-      "description": "模拟使用的工具，影响战利品表中的工具条件"
+      "description": "根据战利品表生成物品并放入指定位置的容器"
+    },
+    {
+      "name": "spawn <position: x y z> loot <loot_table: string> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "根据战利品表在指定位置生成掉落物实体"
+    },
+    {
+      "name": "spawn <position: x y z> kill <entity: target> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "模拟击杀实体并在指定位置生成掉落物"
+    },
+    {
+      "name": "spawn <position: x y z> mine <minePosition: x y z> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "模拟采掘方块并在指定位置生成掉落物"
+    },
+    {
+      "name": "replace entity <entity: target> <slotType: EntityEquipmentSlot> <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "根据战利品表替换实体指定槽位中的物品"
+    },
+    {
+      "name": "replace block <position: x y z> slot.container <slotId: int> [count: int] loot <loot_table: string> [tool: mainhand|offhand]",
+      "type": "子命令",
+      "required": false,
+      "description": "根据战利品表替换容器方块指定槽位中的物品"
     }
   ],
   "examples": [
@@ -37,8 +67,12 @@
     {
       "input": "/loot spawn 0 64 0 loot \"loot_tables/entities/zombie\"",
       "description": "在指定位置按照僵尸战利品表掉落物品"
+    },
+    {
+      "input": "/loot give @s kill @e[type=zombie,c=1]",
+      "description": "模拟击杀最近的僵尸并把掉落物给自己"
     }
   ],
-  "bedrock_specific_notes": "loot命令是基岩版特有的，用于根据行为包中的战利品表生成物品。支持give（直接给予玩家）、spawn（在世界中掉落）、replace（替换到指定槽位）三种模式。Java版也有loot命令但语法不同。",
+  "bedrock_specific_notes": "loot命令的完整格式是 /loot <TARGET> <SOURCE>。TARGET可以是give/insert/spawn/replace，SOURCE可以是loot/kill/mine。tool参数可以是mainhand、offhand或物品名称，影响战利品表的工具条件判断。",
   "version_added": "1.18.10"
 }

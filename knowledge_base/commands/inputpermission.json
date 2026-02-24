@@ -1,26 +1,20 @@
 {
   "name": "inputpermission",
-  "syntax": "/inputpermission set <target: target> <permission: InputPermission> <state: enabled|disabled> | /inputpermission query <target: target> <permission: InputPermission> [state: enabled|disabled]",
+  "syntax": "/inputpermission set <targets: target> <permission: Permission> <state: enabled|disabled> | /inputpermission query <targets: target> <permission: Permission> [state: enabled|disabled]",
   "description": "管理玩家的输入操作权限",
   "category": "advanced",
   "parameters": [
     {
-      "name": "target",
-      "type": "target",
-      "required": true,
-      "description": "目标玩家"
+      "name": "set <targets: target> <permission: camera|dismount|jump|lateral_movement|mount|move_backward|move_forward|move_left|move_right|movement|sneak> <state: enabled|disabled>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置玩家的输入权限状态。permission: camera(视角)、dismount(下坐骑)、jump(跳跃)、lateral_movement(横向移动)、mount(上坐骑)、move_backward/forward/left/right(方向移动)、movement(总移动)、sneak(潜行)"
     },
     {
-      "name": "permission",
-      "type": "InputPermission",
-      "required": true,
-      "description": "权限类型：camera（摄像机/视角控制）、movement（移动控制）、lateral_movement（横向移动）"
-    },
-    {
-      "name": "state",
-      "type": "enabled|disabled",
-      "required": true,
-      "description": "启用或禁用该权限"
+      "name": "query <targets: target> <permission: camera|dismount|jump|lateral_movement|mount|move_backward|move_forward|move_left|move_right|movement|sneak> [state: enabled|disabled]",
+      "type": "子命令",
+      "required": false,
+      "description": "查询玩家的输入权限状态"
     }
   ],
   "examples": [
@@ -41,6 +35,6 @@
       "description": "查询自己的移动权限状态"
     }
   ],
-  "bedrock_specific_notes": "inputpermission是基岩版特有的命令，用于在过场动画、剧情场景等场合限制玩家操作。配合camera命令使用可以制作电影般的过场效果。Java版没有等价命令。",
+  "bedrock_specific_notes": "inputpermission是基岩版特有的命令，用于在过场动画、剧情场景等场合限制玩家操作。配合camera命令使用可以制作电影般的过场效果。Java版没有等价命令。支持11种权限类型。",
   "version_added": "1.19.80"
 }

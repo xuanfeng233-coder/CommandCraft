@@ -1,45 +1,32 @@
 {
   "name": "place",
-  "syntax": "/place feature <featureName: string> <position: x y z> | /place structure <structureName: string> <position: x y z> | /place jigsaw <pool: string> <startJigsawName: string> <maxDepth: int> <position: x y z>",
-  "description": "在指定位置放置地物或结构",
+  "syntax": "/place <feature|featurerule|structure|jigsaw> ...",
+  "description": "在指定位置放置地物、地物规则或结构",
   "category": "world_editing",
   "parameters": [
     {
-      "name": "featureName",
-      "type": "string",
-      "required": true,
-      "description": "地物名称"
+      "name": "feature <featureName: string> [position: x y z]",
+      "type": "子命令",
+      "required": false,
+      "description": "在指定位置放置地物（如树木等世界生成特征）。position默认为执行位置"
     },
     {
-      "name": "structureName",
-      "type": "string",
-      "required": true,
-      "description": "结构名称"
+      "name": "featurerule <featureRule: string> [position: x y z]",
+      "type": "子命令",
+      "required": false,
+      "description": "在指定位置放置地物规则"
     },
     {
-      "name": "pool",
-      "type": "string",
-      "required": true,
-      "description": "拼图结构池名称"
+      "name": "structure <structureName: string> [pos: x y z] [ignoreStartHeight: Boolean] [keepJigsaws: Boolean] [includeEntities: Boolean] [liquidSettings: ignore_waterlogging|apply_waterlogging]",
+      "type": "子命令",
+      "required": false,
+      "description": "在指定位置放置结构。仅限Trail Ruins、Trial Chambers和自定义拼图结构"
     },
     {
-      "name": "startJigsawName",
-      "type": "string",
-      "required": true,
-      "description": "起始拼图方块名称"
-    },
-    {
-      "name": "maxDepth",
-      "type": "int",
-      "required": true,
-      "description": "拼图最大递归深度",
-      "range": "1-7"
-    },
-    {
-      "name": "position",
-      "type": "x y z",
-      "required": true,
-      "description": "放置位置坐标"
+      "name": "jigsaw <pool: string> <jigsawTarget: string> <maxDepth: int> [pos: x y z] [keepJigsaws: Boolean] [includeEntities: Boolean] [liquidSettings: ignore_waterlogging|apply_waterlogging]",
+      "type": "子命令",
+      "required": false,
+      "description": "在指定位置放置拼图结构，maxDepth: 最大递归深度（1-7）"
     }
   ],
   "examples": [
@@ -48,10 +35,10 @@
       "description": "在指定位置放置一棵橡树"
     },
     {
-      "input": "/place structure minecraft:village 0 64 0",
-      "description": "在指定位置放置村庄结构"
+      "input": "/place structure minecraft:trail_ruins 0 -20 0",
+      "description": "在指定位置放置古迹废墟结构"
     }
   ],
-  "bedrock_specific_notes": "place命令是基岩版1.21.40+新增的命令，用于放置世界生成的地物和结构。支持feature（地物）、structure（结构）和jigsaw（拼图结构）三种放置模式。",
-  "version_added": "1.21.40"
+  "bedrock_specific_notes": "place命令是基岩版1.21.50+新增的命令，用于放置世界生成的地物和结构。structure子命令仅支持有限的结构类型。",
+  "version_added": "1.21.50"
 }

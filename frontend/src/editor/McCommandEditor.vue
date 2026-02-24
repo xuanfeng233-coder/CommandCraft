@@ -5,8 +5,15 @@ import { McButton } from '@/components/mc-ui'
 import { useEditorStore } from '@/stores/editor'
 import { useKnowledgeCache } from '@/stores/knowledge-cache'
 import { useCodeMirror } from './setup'
-import { mcCompletion } from './extensions/mc-completion'
-import { mcValidation } from './extensions/mc-validation'
+import { mcCompletion, completionFrequencyTracker } from './extensions/mc-completion'
+import { mcDeepValidation } from './extensions/mc-deep-validation'
+import { mcHoverTooltip } from './extensions/mc-hover'
+import { mcSemanticHighlight } from './extensions/mc-semantic-highlight'
+import { mcInlineDecorations } from './extensions/mc-decorations'
+import { mcInlayHints } from './extensions/mc-inlay-hints'
+import { mcSignatureHelp } from './extensions/mc-signature-help'
+import { mcQuickFix } from './extensions/mc-quick-fix'
+import { astCacheField } from './ast/mc-ast-cache'
 import { parseCursorContext } from './state-machine/command-parser'
 import type { CursorContext } from './state-machine/types'
 import ItemPanel from './panels/ItemPanel.vue'
@@ -68,9 +75,17 @@ const viewRef = useCodeMirror({
     editorStore.setView(view)
   },
   extensions: [
+    astCacheField,
     cursorTracker,
     mcCompletion(),
-    mcValidation(),
+    mcDeepValidation(),
+    mcHoverTooltip(),
+    mcSemanticHighlight,
+    mcInlineDecorations,
+    mcInlayHints,
+    mcSignatureHelp,
+    mcQuickFix,
+    completionFrequencyTracker,
   ],
 })
 

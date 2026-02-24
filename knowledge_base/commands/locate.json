@@ -1,27 +1,20 @@
 {
   "name": "locate",
-  "syntax": "/locate structure <structure: Structure> [useNewChunksOnly: Boolean] | /locate biome <biome: Biome>",
+  "syntax": "/locate <structure|biome> ...",
   "description": "定位最近的指定结构或生物群系",
   "category": "world_management",
   "parameters": [
     {
-      "name": "structure",
-      "type": "Structure",
+      "name": "structure <structure: Structure> [useNewChunksOnly: Boolean]",
+      "type": "子命令",
       "required": false,
-      "description": "要定位的结构类型，如village、mineshaft、stronghold、temple、monument、fortress、endcity、mansion、pillageroutpost、ruinedportal、ancientcity、trailruins等"
+      "description": "定位最近的指定结构，如village、mineshaft、stronghold、temple、monument、fortress、endcity、mansion等。useNewChunksOnly: 是否仅搜索未生成的区块"
     },
     {
-      "name": "useNewChunksOnly",
-      "type": "Boolean",
+      "name": "biome <biome: Biome>",
+      "type": "子命令",
       "required": false,
-      "description": "是否仅搜索未生成的区块",
-      "default": "false"
-    },
-    {
-      "name": "biome",
-      "type": "Biome",
-      "required": false,
-      "description": "要定位的生物群系ID"
+      "description": "定位最近的指定生物群系"
     }
   ],
   "examples": [

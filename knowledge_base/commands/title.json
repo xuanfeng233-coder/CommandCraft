@@ -1,6 +1,6 @@
 {
   "name": "title",
-  "syntax": "/title <player: target> clear | /title <player: target> reset | /title <player: target> <titleLocation: actionbar|title|subtitle> <titleText: message> | /title <player: target> times <fadeIn: int> <stay: int> <fadeOut: int>",
+  "syntax": "/title <player: target> <title|subtitle|actionbar|clear|reset|times> ...",
   "description": "在玩家屏幕上显示纯文本标题",
   "category": "display",
   "parameters": [
@@ -11,34 +11,40 @@
       "description": "目标玩家"
     },
     {
-      "name": "titleLocation",
-      "type": "actionbar|title|subtitle",
+      "name": "title <titleText: message>",
+      "type": "子命令",
       "required": false,
-      "description": "文本显示位置：title（主标题）、subtitle（副标题）、actionbar（快捷栏上方）"
+      "description": "在屏幕中央显示大标题"
     },
     {
-      "name": "titleText",
-      "type": "message",
+      "name": "subtitle <titleText: message>",
+      "type": "子命令",
       "required": false,
-      "description": "要显示的文本内容（纯文本，非JSON）"
+      "description": "在大标题下方显示副标题（必须先发送title才能显示）"
     },
     {
-      "name": "fadeIn",
-      "type": "int",
+      "name": "actionbar <titleText: message>",
+      "type": "子命令",
       "required": false,
-      "description": "淡入时间（游戏刻）"
+      "description": "在快捷栏上方显示动作栏文本"
     },
     {
-      "name": "stay",
-      "type": "int",
+      "name": "clear",
+      "type": "子命令",
       "required": false,
-      "description": "停留时间（游戏刻）"
+      "description": "清除当前显示的标题"
     },
     {
-      "name": "fadeOut",
-      "type": "int",
+      "name": "reset",
+      "type": "子命令",
       "required": false,
-      "description": "淡出时间（游戏刻）"
+      "description": "重置标题显示时间为默认值"
+    },
+    {
+      "name": "times <fadeIn: int> <stay: int> <fadeOut: int>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置标题的淡入、停留、淡出时间（单位：游戏刻，20刻=1秒）"
     }
   ],
   "examples": [

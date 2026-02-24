@@ -1,26 +1,20 @@
 {
   "name": "dialogue",
-  "syntax": "/dialogue open <npc: target> <player: target> [sceneName: string] | /dialogue change <npc: target> <sceneName: string> [player: target]",
+  "syntax": "/dialogue <open|change> ...",
   "description": "控制NPC对话框的显示和场景切换",
   "category": "advanced",
   "parameters": [
     {
-      "name": "npc",
-      "type": "target",
-      "required": true,
-      "description": "NPC实体目标"
-    },
-    {
-      "name": "player",
-      "type": "target",
-      "required": true,
-      "description": "目标玩家"
-    },
-    {
-      "name": "sceneName",
-      "type": "string",
+      "name": "open <npc: target> <player: target> [sceneName: string]",
+      "type": "子命令",
       "required": false,
-      "description": "对话场景名称，定义在行为包的dialogue文件夹中"
+      "description": "为目标玩家打开NPC对话框，可选指定对话场景"
+    },
+    {
+      "name": "change <npc: target> <sceneName: string> [player: target]",
+      "type": "子命令",
+      "required": false,
+      "description": "切换NPC的对话场景，可选指定目标玩家"
     }
   ],
   "examples": [

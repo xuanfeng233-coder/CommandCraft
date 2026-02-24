@@ -1,68 +1,26 @@
 {
   "name": "structure",
-  "syntax": "/structure save <name: string> <from: x y z> <to: x y z> [saveMode: disk|memory] [includesEntities: Boolean] [includesBlocks: Boolean] | /structure load <name: string> <to: x y z> [rotation: 0_degrees|90_degrees|180_degrees|270_degrees] [mirror: none|x|z|xz] [animationMode: block_by_block|layer_by_layer] [animationSeconds: float] [includesEntities: Boolean] [includesBlocks: Boolean] [waterlogged: Boolean] [integrity: float] [seed: string] | /structure delete <name: string>",
+  "syntax": "/structure <save|load|delete> ...",
   "description": "保存、加载或删除结构",
   "category": "advanced",
   "parameters": [
     {
-      "name": "name",
-      "type": "string",
-      "required": true,
-      "description": "结构名称，可包含命名空间如 mystructure:house"
-    },
-    {
-      "name": "from",
-      "type": "x y z",
-      "required": true,
-      "description": "保存区域的起始坐标（save模式）"
-    },
-    {
-      "name": "to",
-      "type": "x y z",
-      "required": true,
-      "description": "保存区域的结束坐标（save模式）或加载位置（load模式）"
-    },
-    {
-      "name": "saveMode",
-      "type": "disk|memory",
+      "name": "save <name: string> <from: x y z> <to: x y z> [saveMode: disk|memory] [includesEntities: Boolean] [includesBlocks: Boolean]",
+      "type": "子命令",
       "required": false,
-      "description": "保存方式。disk=保存到文件，memory=保存到内存（临时）",
-      "default": "memory"
+      "description": "将指定坐标区域保存为结构。saveMode: disk=保存到文件，memory=保存到内存（临时）"
     },
     {
-      "name": "rotation",
-      "type": "0_degrees|90_degrees|180_degrees|270_degrees",
+      "name": "load <name: string> <to: x y z> [rotation: 0_degrees|90_degrees|180_degrees|270_degrees] [mirror: none|x|z|xz] [animationMode: block_by_block|layer_by_layer] [animationSeconds: float] [includesEntities: Boolean] [includesBlocks: Boolean] [waterlogged: Boolean] [integrity: float] [seed: string]",
+      "type": "子命令",
       "required": false,
-      "description": "加载时的旋转角度",
-      "default": "0_degrees"
+      "description": "在指定位置加载结构。支持旋转、镜像、动画加载模式和完整度控制"
     },
     {
-      "name": "mirror",
-      "type": "none|x|z|xz",
+      "name": "delete <name: string>",
+      "type": "子命令",
       "required": false,
-      "description": "加载时的镜像方式",
-      "default": "none"
-    },
-    {
-      "name": "includesEntities",
-      "type": "Boolean",
-      "required": false,
-      "description": "是否包含实体",
-      "default": "true"
-    },
-    {
-      "name": "includesBlocks",
-      "type": "Boolean",
-      "required": false,
-      "description": "是否包含方块",
-      "default": "true"
-    },
-    {
-      "name": "integrity",
-      "type": "float",
-      "required": false,
-      "description": "结构完整度（0.0-100.0），低于100会随机移除方块",
-      "default": "100.0"
+      "description": "删除指定名称的结构"
     }
   ],
   "examples": [

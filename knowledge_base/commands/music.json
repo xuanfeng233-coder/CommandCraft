@@ -1,36 +1,32 @@
 {
   "name": "music",
-  "syntax": "/music play <trackName: string> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once] | /music queue <trackName: string> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once] | /music stop [fadeSeconds: float] | /music volume <volume: float>",
+  "syntax": "/music <play|queue|stop|volume> ...",
   "description": "控制背景音乐的播放、队列和音量",
   "category": "multimedia",
   "parameters": [
     {
-      "name": "trackName",
-      "type": "Sound",
-      "required": true,
-      "description": "音乐曲目名称"
+      "name": "play <trackName: Sound> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once]",
+      "type": "子命令",
+      "required": false,
+      "description": "播放背景音乐。volume: 0.0-1.0，fadeSeconds: 淡入时间，repeatMode: loop(循环)或play_once(播放一次)"
     },
     {
-      "name": "volume",
-      "type": "float",
+      "name": "queue <trackName: Sound> [volume: float] [fadeSeconds: float] [repeatMode: loop|play_once]",
+      "type": "子命令",
       "required": false,
-      "description": "音量（0.0-1.0）",
-      "default": "1.0",
-      "range": "0.0-1.0"
+      "description": "将音乐加入播放队列，在当前曲目结束后自动播放"
     },
     {
-      "name": "fadeSeconds",
-      "type": "float",
+      "name": "stop [fadeSeconds: float]",
+      "type": "子命令",
       "required": false,
-      "description": "淡入/淡出时间（秒）",
-      "default": "0"
+      "description": "停止当前播放的音乐，可选淡出时间"
     },
     {
-      "name": "repeatMode",
-      "type": "loop|play_once",
+      "name": "volume <volume: float>",
+      "type": "子命令",
       "required": false,
-      "description": "重复模式：loop（循环）或play_once（播放一次）",
-      "default": "play_once"
+      "description": "设置背景音乐音量（0.0-1.0）"
     }
   ],
   "examples": [

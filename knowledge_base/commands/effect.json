@@ -1,6 +1,6 @@
 {
   "name": "effect",
-  "syntax": "/effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean] | /effect <player: target> clear",
+  "syntax": "/effect <player: target> <effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean] | /effect <player: target> clear [effect: Effect]",
   "description": "给予、移除或清除实体的状态效果",
   "category": "effects",
   "parameters": [
@@ -11,33 +11,22 @@
       "description": "要添加或清除效果的目标实体"
     },
     {
-      "name": "effect",
-      "type": "Effect",
-      "required": true,
-      "description": "状态效果ID，如 speed、strength、invisibility 等（参见 ids/effects.json），或使用 clear 清除所有效果"
+      "name": "<effect: Effect> [seconds: int] [amplifier: int] [hideParticles: Boolean]",
+      "type": "子命令",
+      "required": false,
+      "description": "给予目标指定状态效果。effect: 效果ID（如speed、strength、invisibility等），seconds: 持续时间（默认30秒，0可移除，最大1000000），amplifier: 等级（0=I级，最大255），hideParticles: 是否隐藏粒子"
     },
     {
-      "name": "seconds",
-      "type": "int",
+      "name": "<effect: Effect> infinite [amplifier: int] [hideParticles: Boolean]",
+      "type": "子命令",
       "required": false,
-      "description": "效果持续时间（秒）。设为0可立即移除该效果",
-      "default": "30",
-      "range": "0-1000000"
+      "description": "给予目标无限持续时间的状态效果。使用infinite关键字代替秒数"
     },
     {
-      "name": "amplifier",
-      "type": "int",
+      "name": "clear [effect: Effect]",
+      "type": "子命令",
       "required": false,
-      "description": "效果等级（放大器），0表示等级I，1表示等级II，以此类推",
-      "default": "0",
-      "range": "0-255"
-    },
-    {
-      "name": "hideParticles",
-      "type": "Boolean",
-      "required": false,
-      "description": "是否隐藏效果粒子。true为隐藏，false为显示",
-      "default": "false"
+      "description": "清除目标身上的状态效果。省略effect则清除所有效果，指定effect则只清除该效果"
     }
   ],
   "examples": [
@@ -62,6 +51,6 @@
       "description": "立即移除自己身上的速度效果"
     }
   ],
-  "bedrock_specific_notes": "基岩版效果ID使用不带命名空间的名称（如 speed 而非 minecraft:speed）。最大持续时间为1000000秒。基岩版中某些效果（如 bad_omen）的行为可能与Java版不同。",
+  "bedrock_specific_notes": "基岩版效果ID使用不带命名空间的名称（如 speed 而非 minecraft:speed）。最大持续时间为1000000秒。支持infinite关键字给予无限持续效果。基岩版中某些效果（如 bad_omen）的行为可能与Java版不同。",
   "version_added": "1.0.0"
 }
