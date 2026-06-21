@@ -32,9 +32,15 @@ def _resolve_host(host: str, port: int | None) -> list[str]:
     return [info[4][0] for info in infos]
 
 
-def _is_blocked_ip(ip_str: str) -> bool:
-    """判断 IP 是否落在禁止的内部/特殊网段。"""
+def _is_blocked_ip(ip_str: str, *, allow_loopback: bool = False) -> bool:
+    """判断 IP 是否落在禁止的内部/特殊网段。
+
+    allow_loopback=True 时，环回地址（127.x.x.x / ::1）被放行；
+    私有/链路本地/保留/组播/未指定段在任何情况下都拒绝。
+    """
     ip = ipaddress.ip_address(ip_str)
+    if allow_loopback and ip.is_loopback:
+        return False
     return (
         ip.is_private
         or ip.is_loopback
@@ -45,10 +51,12 @@ def _is_blocked_ip(ip_str: str) -> bool:
     )
 
 
-def assert_safe_outbound_url(url: str, *, resolver=None) -> None:
+def assert_safe_outbound_url(url: str, *, resolver=None, allow_loopback: bool = False) -> None:
     """校验出站 URL，不安全则抛 UnsafeURLError。
 
     resolver 可注入（测试用），签名 (host, port) -> list[str ip]。
+    allow_loopback=True 允许环回地址（127.x / ::1），用于运营方配置的本地 SearXNG；
+    其余受限段（私有/链路本地/保留/组播/未指定）仍拒绝，默认 False（既有行为不变）。
     """
     parsed = urlparse(url)
 
@@ -69,5 +77,5 @@ def assert_safe_outbound_url(url: str, *, resolver=None) -> None:
         raise UnsafeURLError(f"主机 {host} 未解析到任何 IP")
 
     for ip in ips:
-        if _is_blocked_ip(ip):
+        if _is_blocked_ip(ip, allow_loopback=allow_loopback):
             raise UnsafeURLError(f"URL 指向受限地址 {ip}（host={host}）")

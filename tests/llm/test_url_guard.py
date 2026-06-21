@@ -75,3 +75,27 @@ def test_default_resolver_blocks_ip_literal():
     # 用真实默认 resolver（IP 字面量无需网络）：环回字面量被拒
     with pytest.raises(UnsafeURLError):
         assert_safe_outbound_url("http://127.0.0.1:8003/v1/models")
+
+
+def test_allow_loopback_permits_127():
+    # allow_loopback=True：环回放行（用于运营方配置的本地 SearXNG）
+    assert_safe_outbound_url(
+        "http://127.0.0.1:8888/search", resolver=_resolver("127.0.0.1"), allow_loopback=True
+    )
+
+
+def test_allow_loopback_still_blocks_private():
+    # 即便 allow_loopback，私有/链路本地仍拒绝
+    with pytest.raises(UnsafeURLError):
+        assert_safe_outbound_url(
+            "http://x/search", resolver=_resolver("10.0.0.1"), allow_loopback=True
+        )
+    with pytest.raises(UnsafeURLError):
+        assert_safe_outbound_url(
+            "http://x/search", resolver=_resolver("169.254.169.254"), allow_loopback=True
+        )
+
+
+def test_default_still_blocks_loopback():
+    with pytest.raises(UnsafeURLError):
+        assert_safe_outbound_url("http://x/m", resolver=_resolver("127.0.0.1"))

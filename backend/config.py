@@ -98,3 +98,8 @@ WIKI_DIR = KNOWLEDGE_BASE_BEDROCK_DIR / "wiki"
 WIKI_DB_PATH = WIKI_DIR / "wiki.db"
 WIKI_ARTICLES_DIR = WIKI_DIR / "articles"
 WIKI_SEARCH_MAX_RESULTS = int(os.environ.get("WIKI_SEARCH_MAX_RESULTS", "3"))
+
+# SearXNG（联网搜索，软依赖）
+SEARXNG_URL = os.environ.get("SEARXNG_URL", "")  # 空 ⇒ 联网搜索禁用
+SEARXNG_TIMEOUT = float(os.environ.get("SEARXNG_TIMEOUT", "4.0"))
+WEB_SEARCH_MAX_RESULTS = int(os.environ.get("WEB_SEARCH_MAX_RESULTS", "5"))
