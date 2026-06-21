@@ -94,7 +94,7 @@ async def sso_callback(ticket: str, request: Request, redirect: str | None = Non
     """Receive SSO ticket from BraynLabs redirect, exchange for user info, create local session."""
     # Exchange ticket with BraynLabs server-to-server
     try:
-        async with httpx.AsyncClient(timeout=10) as client:
+        async with httpx.AsyncClient(timeout=10, trust_env=False) as client:
             resp = await client.post(
                 f"{BRAYNLABS_URL}/api/auth/sso/exchange",
                 json={
