@@ -92,7 +92,11 @@ async def test_cache_expires_after_ttl():
 
 
 @respx.mock
-async def test_httpx_fetcher_parses_openai_shape():
+async def test_httpx_fetcher_parses_openai_shape(monkeypatch):
+    # SSRF 守卫用真实 DNS 解析 api.test.local 会失败，这里让它解析到公网 IP
+    monkeypatch.setattr(
+        "backend.llm.url_guard._resolve_host", lambda host, port: ["1.2.3.4"]
+    )
     route = respx.get("https://api.test.local/v1/models").mock(
         return_value=httpx.Response(200, json={"data": [{"id": "x-1"}, {"id": "x-2"}]})
     )
@@ -102,3 +106,12 @@ async def test_httpx_fetcher_parses_openai_shape():
     assert route.called
     # 带上 Authorization 头
     assert route.calls.last.request.headers["authorization"] == "Bearer secret"
+
+
+async def test_httpx_fetcher_blocks_internal_url():
+    # SSRF 防护：指向 loopback 的 base_url 在发起请求前被拒绝
+    from backend.llm.url_guard import UnsafeURLError
+
+    cat = ModelCatalog()
+    with pytest.raises(UnsafeURLError):
+        await cat._httpx_fetch_models("http://127.0.0.1:8003/v1", "k")

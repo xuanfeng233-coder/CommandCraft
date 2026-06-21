@@ -16,6 +16,7 @@ import httpx
 
 from backend.config import MODEL_CATALOG_TTL
 from backend.llm.curated_models import curated_models_for
+from backend.llm.url_guard import assert_safe_outbound_url
 
 logger = logging.getLogger(__name__)
 
@@ -93,9 +94,12 @@ class ModelCatalog:
     async def _httpx_fetch_models(self, base_url: str, api_key: str) -> list[str]:
         """GET {base_url}/models，解析 OpenAI 兼容的 data[].id。"""
         url = base_url.rstrip("/") + "/models"
+        # SSRF 防护：发起前校验目标地址（挡掉内网/环回/云元数据）
+        assert_safe_outbound_url(url)
         headers = {"Authorization": f"Bearer {api_key}"}
+        # follow_redirects=False：避免 3xx 跳转绕过上面的校验
         async with httpx.AsyncClient(trust_env=False, timeout=15.0) as client:
-            resp = await client.get(url, headers=headers)
+            resp = await client.get(url, headers=headers, follow_redirects=False)
             resp.raise_for_status()
             payload = resp.json()
         data = payload.get("data", []) if isinstance(payload, dict) else []
