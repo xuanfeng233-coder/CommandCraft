@@ -1069,175 +1069,40 @@ class TaskAgent:
         return msg.get("content", ""), msg.get("thinking", "")
 
     def _build_prompt(self, output_type: str, command_directory: str, edition: str = "bedrock") -> str:
-        """Assemble the full system prompt from base + type section + directory."""
-        if edition == "java":
-            type_section = _TYPE_SECTIONS_JAVA.get(output_type, _SIMPLE_COMMAND_SECTION_JAVA)
-            return _BASE_TEMPLATE_JAVA.format(
-                type_specific_section=type_section,
-                command_directory=command_directory,
-            )
-        type_section = _TYPE_SECTIONS.get(output_type, _SIMPLE_COMMAND_SECTION)
-        return _BASE_TEMPLATE.format(
-            type_specific_section=type_section,
-            command_directory=command_directory,
+        """Thin delegating wrapper — logic lives in backend.agentloop.single_task."""
+        from backend.agentloop import single_task
+        # build_single_task_messages assembles the full message list; we only need the
+        # system prompt here.  Re-use it by extracting the first message content.
+        msgs = single_task.build_single_task_messages(
+            "",  # user_request not used for system prompt extraction
+            output_type,
+            command_directory,
+            edition=edition,
         )
+        return msgs[0]["content"]
 
     def _parse_output(self, raw: str, output_type: str) -> dict[str, Any]:
-        """Parse raw LLM output into structured data."""
-        data = BaseSkill.extract_json(raw)
-
-        if isinstance(data, dict) and "type" in data:
-            return self._normalize_output(data)
-
-        # JSON extraction failed — detect if this is a conversational response
-        if raw and self._looks_like_conversation(raw):
-            logger.info("_parse_output: JSON failed but detected conversational text, wrapping as conversation type")
-            return {
-                "type": "conversation",
-                "questions": [
-                    {
-                        "param": "user_clarification",
-                        "question": raw.strip(),
-                        "options": [],
-                        "default": None,
-                    }
-                ],
-                "current_progress": "",
-            }
-
-        if output_type == "project":
-            return {
-                "type": "project",
-                "project_name": "解析失败",
-                "overview": raw[:500] if raw else "",
-                "phases": [],
-            }
-        else:
-            return {
-                "type": "single_command",
-                "command": {
-                    "command": "",
-                    "explanation": raw[:500] if raw else "",
-                    "variants": [],
-                    "warnings": ["JSON 解析失败，请查看原始输出"],
-                },
-            }
+        """Thin delegating wrapper — logic lives in backend.agentloop.single_task."""
+        from backend.agentloop import single_task
+        return single_task.parse_output(raw, output_type)
 
     @staticmethod
     def _looks_like_conversation(text: str) -> bool:
-        """Heuristic: detect if raw text is a parameter refinement question."""
-        has_question = "？" in text or "?" in text
-        strong_keywords = ("请提供", "请指定", "请选择", "请确认", "请告诉",
-                           "需要您", "需要你", "以下信息")
-        has_strong_keyword = any(kw in text for kw in strong_keywords)
-        weak_keywords = ("哪种", "哪个", "什么类型", "什么物品", "什么方块", "什么实体")
-        has_weak_keyword = any(kw in text for kw in weak_keywords)
-        has_numbered_list = any(f"{i}." in text or f"{i}、" in text or f"{i}. " in text
-                                for i in range(1, 6))
-        text_stripped = text.strip()
-        starts_with_command = text_stripped.startswith("/")
-
-        if starts_with_command:
-            return False
-        if has_strong_keyword:
-            return True
-        if has_weak_keyword and has_question:
-            return True
-        if has_question and has_numbered_list:
-            return True
-        return False
+        """Thin delegating wrapper — logic lives in backend.agentloop.single_task."""
+        from backend.agentloop import single_task
+        return single_task._looks_like_conversation(text)
 
     @staticmethod
     def _normalize_output(data: dict[str, Any]) -> dict[str, Any]:
-        """Normalize execute_chain/selector/rawtext types to single_command."""
-        result_type = data.get("type", "")
-
-        if result_type in ("execute_chain", "selector", "rawtext"):
-            cmd_obj = data.get("command")
-            commands_arr = data.get("commands")
-
-            if cmd_obj is None and isinstance(commands_arr, list):
-                cmd_strs = []
-                for item in commands_arr:
-                    if isinstance(item, str):
-                        cmd_strs.append(item)
-                    elif isinstance(item, dict) and "command" in item:
-                        cmd_strs.append(item["command"])
-                merged_cmd = "\n".join(cmd_strs) if cmd_strs else ""
-                cmd_obj = {
-                    "command": merged_cmd,
-                    "explanation": data.get("explanation", ""),
-                    "variants": data.get("variants", []),
-                    "warnings": data.get("warnings", []),
-                }
-            elif isinstance(cmd_obj, str):
-                cmd_obj = {
-                    "command": cmd_obj,
-                    "explanation": data.get("explanation", ""),
-                    "variants": data.get("variants", []),
-                    "warnings": data.get("warnings", []),
-                }
-
-            if isinstance(cmd_obj, dict):
-                for key in ("chain_breakdown", "selector_breakdown", "preview"):
-                    if key in data and key not in cmd_obj:
-                        cmd_obj[key] = data[key]
-
-            data["type"] = "single_command"
-            data["command"] = cmd_obj or {
-                "command": "",
-                "explanation": "",
-                "variants": [],
-                "warnings": [],
-            }
-            data.pop("commands", None)
-
-        return data
+        """Thin delegating wrapper — logic lives in backend.agentloop.single_task."""
+        from backend.agentloop import single_task
+        return single_task._normalize_output(data)
 
     @staticmethod
     def _run_validation(content_data: dict[str, Any]) -> None:
-        """Run CommandValidator and merge results into content_data in-place."""
-        command_obj = content_data.get("command")
-        if not command_obj or not isinstance(command_obj, dict):
-            return
-        cmd_str = command_obj.get("command", "")
-        if not cmd_str:
-            return
-
-        cmd_lines = [line.strip() for line in cmd_str.split("\n") if line.strip()]
-
-        try:
-            results = command_validator.validate(cmd_lines)
-            if not results:
-                return
-
-            all_errors = []
-            all_warnings = []
-            all_valid = True
-
-            for validation in results:
-                errors = validation.get("errors", [])
-                warnings_list = [w["message"] for w in validation.get("warnings", [])]
-                if errors:
-                    all_valid = False
-                    for err in errors:
-                        all_errors.append(
-                            f"[{err['type']}] {err['message']} — {err.get('suggestion', '')}"
-                        )
-                all_warnings.extend(warnings_list)
-
-            existing = command_obj.get("warnings") or []
-            existing.extend(all_errors)
-            existing.extend(all_warnings)
-            if existing:
-                command_obj["warnings"] = existing
-
-            command_obj["validation"] = {
-                "valid": all_valid,
-                "error_count": len(all_errors),
-            }
-        except Exception as e:
-            logger.warning("CommandValidator failed: %s", e)
+        """Thin delegating wrapper — logic lives in backend.agentloop.single_task."""
+        from backend.agentloop import single_task
+        return single_task.run_validation(content_data)
 
 
 def _task_event(
