@@ -7,7 +7,8 @@ import time
 from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
-from backend.utils.providers import list_providers
+from backend.llm.catalog import model_catalog
+from backend.utils.providers import get_provider, list_providers
 from backend.utils.settings_manager import settings_manager
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
@@ -37,6 +38,12 @@ class VerifyResponse(BaseModel):
     latency_ms: int = 0
     error: str = ""
     model: str = ""
+
+
+class ModelsRequest(BaseModel):
+    provider_id: str = Field(..., description="Provider ID")
+    api_key: str = Field("", description="API key（动态发现用；空则直接 curated）")
+    base_url: str = Field("", description="Override base URL（空则用 provider 默认）")
 
 
 # -- Endpoints ---------------------------------------------------------------
@@ -82,3 +89,24 @@ async def verify_config(req: LLMSettingsRequest):
     except Exception as e:
         elapsed_ms = int((time.monotonic() - start) * 1000)
         return VerifyResponse(ok=False, latency_ms=elapsed_ms, error=str(e))
+
+
+@router.post("/models")
+async def get_models(req: ModelsRequest):
+    """返回某 provider 的可选模型列表（优先动态发现，失败回落 curated）。"""
+    base_url = req.base_url
+    if not base_url:
+        provider = get_provider(req.provider_id)
+        base_url = provider.base_url if provider else ""
+
+    models = await model_catalog.list_models(
+        req.provider_id, api_key=req.api_key, base_url=base_url
+    )
+    overall = "dynamic" if models and all(m.source == "dynamic" for m in models) else "curated"
+    return {
+        "models": [
+            {"id": m.id, "provider_id": m.provider_id, "source": m.source}
+            for m in models
+        ],
+        "source": overall,
+    }

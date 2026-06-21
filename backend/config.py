@@ -28,6 +28,12 @@ DECOMPOSE_MAX_TOKENS = int(os.environ.get("DECOMPOSE_MAX_TOKENS", "4096"))
 MAX_PARALLEL_TASKS = int(os.environ.get("MAX_PARALLEL_TASKS", "8"))
 SESSION_STATE_TTL = int(os.environ.get("SESSION_STATE_TTL", "600"))  # seconds
 
+# LLM 韧性
+LLM_REQUEST_TIMEOUT = float(os.environ.get("LLM_REQUEST_TIMEOUT", "60"))
+LLM_MAX_RETRIES = int(os.environ.get("LLM_MAX_RETRIES", "3"))  # 总尝试次数（含首次），3=最多重试2次
+LLM_RETRY_BASE_DELAY = float(os.environ.get("LLM_RETRY_BASE_DELAY", "0.5"))
+MODEL_CATALOG_TTL = int(os.environ.get("MODEL_CATALOG_TTL", "21600"))  # 6h
+
 # Server
 API_HOST = "0.0.0.0"
 API_PORT = int(os.environ.get("API_PORT", "8000"))

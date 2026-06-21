@@ -14,7 +14,8 @@ from typing import Any, AsyncGenerator
 import httpx
 from openai import AsyncOpenAI
 
-from backend.config import MODEL_TEMPERATURE
+from backend.config import MODEL_TEMPERATURE, LLM_REQUEST_TIMEOUT, LLM_MAX_RETRIES, LLM_RETRY_BASE_DELAY
+from backend.llm.retry import with_retry
 
 logger = logging.getLogger(__name__)
 
@@ -115,6 +116,8 @@ class LLMClient:
             api_key=api_key,
             base_url=base_url.rstrip("/"),
             http_client=http_client,
+            max_retries=0,            # 关闭 SDK 内置重试，统一由 _create 接管
+            timeout=LLM_REQUEST_TIMEOUT,
         )
         self._model = model
         self._provider_id = provider_id
@@ -135,6 +138,22 @@ class LLMClient:
     @property
     def provider_id(self) -> str:
         return self._provider_id
+
+    # -- Internal: resilient create ------------------------------------------
+
+    async def _create(self, **kwargs: Any):
+        """经指数退避重试调用底层 completions.create。
+
+        瞬时错误（连接/超时/429/5xx）自动重试；永久错误抛 PermanentLLMError。
+        """
+        async def _call():
+            return await self._client.chat.completions.create(**kwargs)
+
+        return await with_retry(
+            _call,
+            max_attempts=LLM_MAX_RETRIES,
+            base_delay=LLM_RETRY_BASE_DELAY,
+        )
 
     # -- Chat (non-streaming) ------------------------------------------------
 
@@ -163,7 +182,7 @@ class LLMClient:
             kwargs["max_tokens"] = max_tokens
 
         logger.debug("LLM chat: model=%s messages=%d", self._model, len(prepped))
-        resp = await self._client.chat.completions.create(**kwargs)
+        resp = await self._create(**kwargs)
 
         choice = resp.choices[0]
         content = choice.message.content or ""
@@ -217,7 +236,7 @@ class LLMClient:
         in_think_tag = False
         content_buffer = ""
 
-        stream = await self._client.chat.completions.create(**kwargs)
+        stream = await self._create(**kwargs)
         async for chunk in stream:
             delta = chunk.choices[0].delta if chunk.choices else None
             if delta is None:
@@ -304,7 +323,7 @@ class LLMClient:
             "LLM chat_with_tools: model=%s tools=%d messages=%d",
             self._model, len(tools), len(prepped),
         )
-        resp = await self._client.chat.completions.create(**kwargs)
+        resp = await self._create(**kwargs)
 
         choice = resp.choices[0]
         content = choice.message.content or ""
