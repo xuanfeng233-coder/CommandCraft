@@ -84,6 +84,7 @@ BUILD_AGENT_MAX_TOKENS = int(os.environ.get("BUILD_AGENT_MAX_TOKENS", "16384"))
 BUILD_SEARCH_MAX_RESULTS = int(os.environ.get("BUILD_SEARCH_MAX_RESULTS", "5"))
 BUILD_SESSION_TTL = int(os.environ.get("BUILD_SESSION_TTL", "3600"))
 BUILD_MAX_REVIEW_RETRIES = int(os.environ.get("BUILD_MAX_REVIEW_RETRIES", "2"))
+BUILD_LOOP_REVIEW = os.environ.get("BUILD_LOOP_REVIEW", "false").lower() in ("1", "true", "yes")
 
 # Auth
 AUTH_COOKIE_SECURE = os.environ.get("AUTH_COOKIE_SECURE", "true").lower() == "true"

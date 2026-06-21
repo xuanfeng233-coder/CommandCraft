@@ -16,6 +16,10 @@ from typing import Any, AsyncGenerator
 from backend.agents.main_agent import MainAgent
 from backend.agents.planner import Planner, PlannerParseError
 from backend.agents.planner_schemas import Decomposition, to_legacy_decomposition
+from backend.agentloop.loop import AgentLoop
+from backend.agentloop.schemas import FinishReason, LoopBudget
+from backend.agentloop.step import build_step
+from backend.agentloop.tools.finish import build_default_registry
 from backend.build.agents.clarify_agent import ClarifyResult, clarify_agent
 from backend.build.agents.reader_agent import reader_agent
 from backend.build.agents.review_agent import review_agent
@@ -24,6 +28,7 @@ from backend.build.agents.write_agent import write_agent
 from backend.build.plan_adapter import decomposition_to_project_md
 from backend.build.project_manager import project_manager
 from backend.config import (
+    BUILD_LOOP_REVIEW,
     BUILD_MAX_REVIEW_RETRIES,
     BUILD_SESSION_TTL,
     BUILD_USE_AGENT_LOOP,
@@ -579,16 +584,82 @@ class BuildOrchestrator:
 
         # 6. Collect results and update accumulated context
         completed_results = mgr.get_completed_results()
-        state.all_commands.extend(self._extract_all_commands(completed_results))
+        all_completed_results: list[dict[str, Any]] = list(completed_results)
+
+        # 6a. Optional completeness review (BUILD_LOOP_REVIEW sub-flag, default off)
+        if BUILD_LOOP_REVIEW:
+            retry_count = 0
+            while retry_count <= BUILD_MAX_REVIEW_RETRIES:
+                yield _sse("build_step_update", {
+                    "step_index": step_index,
+                    "status": "reviewing",
+                })
+
+                ok, missing = await self._loop_validate_step(
+                    step, all_completed_results, state.edition
+                )
+
+                if ok:
+                    break
+
+                retry_count += 1
+                if retry_count > BUILD_MAX_REVIEW_RETRIES:
+                    break
+
+                # Re-plan with missing items appended to step_request
+                missing_text = (
+                    missing if isinstance(missing, str)
+                    else "\n".join(f"- {m}" for m in missing)
+                )
+                step_request = (
+                    f"{step_request}\n\n"
+                    f"## 完整性审查（缺失项）\n{missing_text}\n"
+                    f"请补充以上缺失的命令。"
+                )
+                yield _sse("thinking", {
+                    "text": f"步骤 {step_index} 完整性检查发现缺失项，正在补充...\n",
+                })
+
+                # Re-decompose and re-execute one pass
+                try:
+                    decomp2, _ = await self.planner.plan(
+                        step_request,
+                        session_context=execution_context,
+                        client=get_build_chat_client(),
+                        edition=state.edition,
+                    )
+                except (PlannerParseError, Exception) as e:
+                    logger.warning(
+                        "Planner failed during loop-review retry for project %s step %d: %s",
+                        project_id, step_index, e,
+                    )
+                    break
+
+                legacy2 = to_legacy_decomposition(decomp2, original_input=step_request)
+                if not legacy2.get("tasks"):
+                    break
+
+                yield _sse("build_step_update", {
+                    "step_index": step_index,
+                    "status": "executing",
+                })
+                mgr2 = TaskManager(legacy2, edition=state.edition)
+                mgr2.use_loop = True
+                async for ev in mgr2.execute_all():
+                    yield ev
+
+                all_completed_results.extend(mgr2.get_completed_results())
+
+        state.all_commands.extend(self._extract_all_commands(all_completed_results))
         state.accumulated_context = self._extract_step_artifacts(
-            state.accumulated_context, step_index, step, completed_results,
+            state.accumulated_context, step_index, step, all_completed_results,
         )
 
         # 7. Mark step done in PROJECT.md via deterministic regex (no LLM)
         yield _sse("build_step_update", {"step_index": step_index, "status": "updating"})
 
-        result_summary = self._build_result_summary(completed_results)
-        command_layout = self._build_command_layout_text(completed_results)
+        result_summary = self._build_result_summary(all_completed_results)
+        command_layout = self._build_command_layout_text(all_completed_results)
 
         fresh_md = await project_manager.read_project_md(project_id)
         updated_md = _regex_mark_step_done(fresh_md, step_index, result_summary, command_layout)
@@ -599,6 +670,69 @@ class BuildOrchestrator:
             "status": "complete",
             "result_summary": result_summary,
         })
+
+    # ------------------------------------------------------------------
+    # Completeness validation (BUILD_LOOP_REVIEW path)
+    # ------------------------------------------------------------------
+
+    async def _loop_validate_step(
+        self,
+        step: Any,
+        results: list[dict[str, Any]],
+        edition: str,
+    ) -> tuple[bool, list[str] | str]:
+        """Run a focused completeness check via AgentLoop.
+
+        Returns (ok, missing) where:
+        - ok=True  → step is complete (finish reason == done)
+        - ok=False → step is incomplete; missing contains description text
+        """
+        # Build a compact summary of collected commands from results
+        commands = self._extract_all_commands(results)
+        cmd_text = "\n".join(f"- {c}" for c in commands) if commands else "（无）"
+
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "你是一个 Minecraft 命令完整性检查器。"
+                    "根据步骤需求和已生成的命令，判断是否完整覆盖了需求。"
+                    "完整→ finish(reason=done)；有遗漏→ finish(reason=give_up, "
+                    "final_answer=缺失的具体项目描述)。"
+                ),
+            },
+            {
+                "role": "user",
+                "content": (
+                    f"## 步骤需求\n{step.requirement or step.title}\n\n"
+                    f"## 已生成命令\n{cmd_text}\n\n"
+                    "请判断以上命令是否完整覆盖了步骤需求。"
+                ),
+            },
+        ]
+
+        loop = AgentLoop(
+            registry=build_default_registry(),
+            step=build_step(client=get_build_chat_client()),
+            budget=LoopBudget(max_rounds=3, warn_at_round=2),
+            edition=edition,
+        )
+
+        outcome = None
+        async for ev in loop.run(messages):
+            if ev.get("event") == "_agent_outcome":
+                outcome = ev["data"]["outcome"]
+
+        if outcome is None:
+            # Shouldn't happen; treat as complete to avoid infinite retries
+            return True, []
+
+        if outcome.reason == FinishReason.DONE:
+            return True, []
+
+        # give_up / ask_user / implicit → treat as incomplete
+        missing_text = outcome.content or "步骤命令不完整"
+        return False, missing_text
 
     # ------------------------------------------------------------------
     # Context chain helpers
