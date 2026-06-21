@@ -1,12 +1,23 @@
 <script setup lang="ts">
-import { ref, watch, nextTick, onMounted } from 'vue'
+import { ref, computed, watch, nextTick, onMounted } from 'vue'
 import { McScrollbar } from '@/components/mc-ui'
 import MessageBubble from './MessageBubble.vue'
 import { useChatStore } from '@/stores/chat'
+import { useKnowledgeCache } from '@/stores/knowledge-cache'
 import { storeToRefs } from 'pinia'
 
 const chatStore = useChatStore()
 const { messages } = storeToRefs(chatStore)
+
+const knowledgeCache = useKnowledgeCache()
+
+const editionLabel = computed(() => {
+  return knowledgeCache.currentEdition === 'java' ? 'Java 版' : '基岩版'
+})
+
+const emit = defineEmits<{
+  example: [text: string]
+}>()
 
 const scrollbarRef = ref<InstanceType<typeof McScrollbar> | null>(null)
 
@@ -37,6 +48,18 @@ watch(
 )
 
 onMounted(() => { scrollToBottom() })
+
+const examples = [
+  '给最近的玩家一把钻石剑',
+  '在自己位置生成一只苦力怕',
+  '设置白天，关闭下雨',
+  '给所有玩家10秒速度II效果',
+  '传送所有玩家到坐标 0 100 0',
+]
+
+function handleExample(text: string) {
+  emit('example', text)
+}
 </script>
 
 <template>
@@ -44,14 +67,19 @@ onMounted(() => { scrollToBottom() })
     <McScrollbar ref="scrollbarRef" class="chat-scrollbar">
       <div class="messages-container">
         <div v-if="messages.length === 0" class="empty-state">
-          <div class="empty-title">MC 命令 AI 助手</div>
+          <div class="empty-title">CommandCraft</div>
           <div class="empty-subtitle">
-            输入你的需求，AI 将帮你生成 Minecraft 基岩版命令
+            输入你的需求，AI 将帮你生成 Minecraft {{ editionLabel }}命令
           </div>
           <div class="empty-examples">
-            <div class="example-item">给我一把附魔钻石剑</div>
-            <div class="example-item">清除所有掉落物</div>
-            <div class="example-item">做一个击杀计分板系统</div>
+            <div
+              v-for="ex in examples"
+              :key="ex"
+              class="example-item"
+              @click="handleExample(ex)"
+            >
+              {{ ex }}
+            </div>
           </div>
         </div>
 
@@ -119,7 +147,7 @@ onMounted(() => { scrollToBottom() })
   border: 2px solid var(--mc-border);
   font-size: 13px;
   color: var(--mc-text-secondary);
-  cursor: default;
+  cursor: pointer;
   background: var(--mc-bg-card);
   transition: border-color 200ms, color 200ms;
 }
@@ -127,5 +155,10 @@ onMounted(() => { scrollToBottom() })
 .example-item:hover {
   border-color: var(--mc-green);
   color: var(--mc-green);
+}
+
+.example-item:active {
+  transform: translateY(1px);
+  box-shadow: var(--mc-shadow-sunken-sm);
 }
 </style>

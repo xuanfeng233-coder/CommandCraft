@@ -2,12 +2,178 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Minecraft BE AI 命令生成器</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#3aa55c" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-title" content="CommandCraft" />
+    <meta name="application-name" content="CommandCraft" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- SEO: 基础 -->
+    <title>Minecraft 命令生成器｜中文描述自动生成 - CommandCraft（基岩版/Java 版）</title>
+    <meta name="description" content="不会写 Minecraft 命令？直接用中文说想要的效果，AI 自动生成可用命令，支持基岩版 / Java 版，一键导出 .mcfunction，再也不用背命令表。" />
+    <meta name="keywords" content="Minecraft 命令,我的世界命令,minecraft 命令生成器,基岩版命令,Java 版命令,命令方块,mcfunction,我的世界 AI,CommandCraft" />
+    <meta name="author" content="CommandCraft / Braynlabs" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="bingbot" content="index,follow" />
+    <link rel="canonical" href="https://commandcraft.cn/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://commandcraft.cn/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://commandcraft.braynt.com/" />
+    <link rel="alternate" hreflang="x-default" href="https://commandcraft.cn/" />
+
+    <!-- Open Graph (微信/QQ/社交分享) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CommandCraft" />
+    <meta property="og:title" content="不会写 Minecraft 命令？用中文说就行 - CommandCraft" />
+    <meta property="og:description" content="直接说想要的效果，AI 自动生成可用命令，基岩版 / Java 版都支持，一键导出 .mcfunction。" />
+    <meta property="og:url" content="https://commandcraft.cn/" />
+    <meta property="og:image" content="https://commandcraft.cn/images/og-cover.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CommandCraft — 我的世界 AI 命令生成器" />
+    <meta property="og:locale" content="zh_CN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="不会写 Minecraft 命令？用中文说就行 - CommandCraft" />
+    <meta name="twitter:description" content="直接说想要的效果，AI 自动生成可用命令，基岩版 / Java 版都支持。" />
+    <meta name="twitter:image" content="https://commandcraft.cn/images/og-cover.png" />
+
+    <!-- JSON-LD 结构化数据：SoftwareApplication + WebSite + FAQ + Breadcrumb + Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://commandcraft.cn/#org",
+          "name": "CommandCraft",
+          "description": "帮 Minecraft 玩家用中文生成命令的 AI 工具。",
+          "url": "https://commandcraft.cn/",
+          "logo": "https://commandcraft.cn/logo.png",
+          "sameAs": ["https://commandcraft.braynt.com/"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://commandcraft.cn/#website",
+          "url": "https://commandcraft.cn/",
+          "name": "CommandCraft",
+          "description": "AI 驱动的 Minecraft 命令生成工具，支持基岩版与 Java 版。",
+          "inLanguage": "zh-CN",
+          "publisher": { "@id": "https://commandcraft.cn/#org" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://commandcraft.cn/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://commandcraft.cn/#app",
+          "name": "CommandCraft",
+          "alternateName": ["我的世界 AI 命令生成器", "Minecraft AI Command Generator"],
+          "url": "https://commandcraft.cn/",
+          "image": "https://commandcraft.cn/images/og-cover.png",
+          "applicationCategory": "GameApplication",
+          "applicationSubCategory": "Minecraft 命令工具",
+          "operatingSystem": "Web (Chrome / Edge / Safari / Firefox)",
+          "inLanguage": "zh-CN",
+          "description": "帮 Minecraft 玩家用中文生成命令的 AI 工具。直接描述想要的效果，自动给出基岩版或 Java 版的可用命令，一键导出 .mcfunction 文件放进存档。",
+          "featureList": [
+            "用中文描述效果，AI 给出可用命令，不用背命令语法",
+            "基岩版（MCBE）与 Java 版（MCJE）语法都能正确生成",
+            "命令编辑器自动补全、报错位置高亮、一键修复",
+            "命令方块布局自动安排，复杂联动也能跑通",
+            "一键导出 .mcfunction / .mcstructure，直接放进存档使用"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CNY"
+          },
+          "creator": { "@id": "https://commandcraft.cn/#org" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "首页", "item": "https://commandcraft.cn/" },
+            { "@type": "ListItem", "position": 2, "name": "设置 / 模型配置", "item": "https://commandcraft.cn/setup" }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Minecraft 命令怎么写？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "新手记不住语法很正常。CommandCraft 让你直接用中文说想做什么——比如「让所有玩家跳起来」、「打怪掉绿宝石」——AI 会按基岩版或 Java 版的正确语法生成命令，复制到游戏里就能用。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "execute / tellraw / scoreboard 这些命令怎么用？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "execute 用来让某个目标执行另一条命令，tellraw 在聊天框显示富文本，scoreboard 管理记分板。手写需要严格的语法，而 CommandCraft 直接根据你的需求生成可用版本，并在编辑器里给出补全和报错提示。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "基岩版和 Java 版命令有什么区别？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "两个版本命令语法差别不小，比如目标选择器、tellraw 的 JSON 格式都不一样。CommandCraft 在生成时会按你选定的版本输出，不会混用，避免「网上抄一条命令进游戏不识别」的情况。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "生成的命令能直接做成 .mcfunction 放进存档吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "可以。CommandCraft 支持把多条命令打包导出成 .mcfunction 文件，也支持 .mcstructure / NBT 结构导出，可以直接放进存档或行为包里使用。"
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "CommandCraft 是免费的吗？",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "新用户有免费试用次数，可以先用一段时间看看效果。用完后想继续使用更稳定的模型，可以按用量充值或订阅套餐。"
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="app"></div>
+
+    <!-- SEO fallback for crawlers that don't render JavaScript -->
+    <noscript>
+      <div style="max-width:760px;margin:48px auto;padding:24px;font-family:system-ui,'PingFang SC','Noto Sans SC',sans-serif;color:#222;line-height:1.8;">
+        <h1>不会写 Minecraft 命令？用中文说就行</h1>
+        <p>想做一个「玩家进入区域就被传送」的效果，但 <code>execute</code> 怎么写、<code>tellraw</code> 的 JSON 怎么拼，每次都得查表？<strong>CommandCraft</strong> 让你直接用中文描述想要的效果，AI 自动给出可用命令——基岩版（MCBE）和 Java 版（MCJE）都支持。</p>
+        <h2>它能帮你做什么</h2>
+        <ul>
+          <li><strong>用中文说，不用背命令</strong>：把想要的效果说清楚，AI 给出可直接复制的命令</li>
+          <li><strong>两个版本都不混</strong>：选好基岩版还是 Java 版，命令按正确语法输出</li>
+          <li><strong>编辑器有人帮你看</strong>：写错的位置直接高亮，给出补全和修复建议</li>
+          <li><strong>复杂联动也能跑</strong>：命令方块布局自动安排，多条命令打包成 <code>.mcfunction</code> 直接进存档</li>
+        </ul>
+        <h2>常见用法</h2>
+        <p>「让所有玩家跳起来」、「头顶显示血条」、「打怪一定概率掉绿宝石」、「玩家进入指定区域自动传送」——这类需求都可以直接用中文描述。</p>
+        <p>请使用现代浏览器（Chrome / Edge / Safari / Firefox）访问 <a href="https://commandcraft.cn/">CommandCraft</a> 开始使用。</p>
+      </div>
+    </noscript>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

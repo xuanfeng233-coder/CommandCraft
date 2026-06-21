@@ -2,16 +2,14 @@ FROM docker.m.daocloud.io/library/python:3.11-slim
 
 WORKDIR /app
 
-# Install CPU-only PyTorch first (much smaller than default CUDA version)
-RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
-
 COPY backend/requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --prefer-binary -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com -r requirements.txt
 
 COPY backend/ ./backend/
 COPY knowledge_base/ ./knowledge_base/
 COPY scripts/ ./scripts/
+COPY frontend/public/fonts/ ./frontend/public/fonts/
 
-EXPOSE 8000
+EXPOSE 8000 8001
 
 CMD ["uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -5,15 +5,7 @@ import { McButton } from '@/components/mc-ui'
 import { useEditorStore } from '@/stores/editor'
 import { useKnowledgeCache } from '@/stores/knowledge-cache'
 import { useCodeMirror } from './setup'
-import { mcCompletion, completionFrequencyTracker } from './extensions/mc-completion'
-import { mcDeepValidation } from './extensions/mc-deep-validation'
-import { mcHoverTooltip } from './extensions/mc-hover'
-import { mcSemanticHighlight } from './extensions/mc-semantic-highlight'
-import { mcInlineDecorations } from './extensions/mc-decorations'
-import { mcInlayHints } from './extensions/mc-inlay-hints'
-import { mcSignatureHelp } from './extensions/mc-signature-help'
-import { mcQuickFix } from './extensions/mc-quick-fix'
-import { astCacheField } from './ast/mc-ast-cache'
+import { mcCompletion } from './extensions/mc-completion'
 import { parseCursorContext } from './state-machine/command-parser'
 import type { CursorContext } from './state-machine/types'
 import ItemPanel from './panels/ItemPanel.vue'
@@ -23,6 +15,7 @@ import EffectPanel from './panels/EffectPanel.vue'
 import CoordinatePanel from './panels/CoordinatePanel.vue'
 import ParameterHintPanel from './panels/ParameterHintPanel.vue'
 import McToolbox from './panels/McToolbox.vue'
+import CommandWizard from './CommandWizard.vue'
 import { undo, redo } from '@codemirror/commands'
 
 const TOOLBOX_KEY = 'mcbe-ai-toolbox-open'
@@ -75,28 +68,18 @@ const viewRef = useCodeMirror({
     editorStore.setView(view)
   },
   extensions: [
-    astCacheField,
     cursorTracker,
     mcCompletion(),
-    mcDeepValidation(),
-    mcHoverTooltip(),
-    mcSemanticHighlight,
-    mcInlineDecorations,
-    mcInlayHints,
-    mcSignatureHelp,
-    mcQuickFix,
-    completionFrequencyTracker,
   ],
 })
 
-// Load knowledge cache on mount
+// Load knowledge cache on mount with the saved edition
 onMounted(() => {
-  knowledgeCache.load()
+  const savedEdition = localStorage.getItem('mc-edition') || 'bedrock'
+  knowledgeCache.load(savedEdition)
 })
 
-const modeLabel = computed(() =>
-  editorStore.mode === 'single' ? '单行' : '多行'
-)
+const isMulti = computed(() => editorStore.mode === 'multi')
 
 /** Which panel to show based on cursor context */
 const activePanel = computed<string | null>(() => {
@@ -140,6 +123,20 @@ function insertFromPanel(value: string) {
   v.focus()
 }
 
+/** Wizard completed a command — insert into multi-line editor */
+function handleWizardCommand(cmd: string) {
+  const v = viewRef.value
+  if (!v) return
+  const doc = v.state.doc
+  const currentText = doc.toString()
+  const needsNewline = currentText.length > 0 && !currentText.endsWith('\n')
+  const insertText = (needsNewline ? '\n' : '') + cmd + '\n'
+  v.dispatch({
+    changes: { from: doc.length, insert: insertText },
+    selection: { anchor: doc.length + insertText.length },
+  })
+}
+
 function handleUndo() {
   if (viewRef.value) undo(viewRef.value)
 }
@@ -163,69 +160,81 @@ function handleToggleMode() {
     <div class="editor-toolbar">
       <div class="toolbar-left">
         <span class="toolbar-title">命令编辑器</span>
-        <McButton size="small" @click="handleToggleMode">
-          {{ modeLabel }}
+        <McButton
+          size="small"
+          :class="{ 'toolbox-active': !isMulti }"
+          @click="handleToggleMode"
+        >
+          {{ isMulti ? '多行模式' : '向导模式' }}
         </McButton>
       </div>
       <div class="toolbar-right">
-        <McButton
-          size="small"
-          :class="{ 'toolbox-active': showToolbox }"
-          @click="handleToggleToolbox"
-        >
-          工具箱
-        </McButton>
-        <McButton size="small" @click="handleUndo">撤销</McButton>
-        <McButton size="small" @click="handleRedo">重做</McButton>
-        <McButton size="small" @click="handleClear">清空</McButton>
+        <template v-if="isMulti">
+          <McButton
+            size="small"
+            :class="{ 'toolbox-active': showToolbox }"
+            @click="handleToggleToolbox"
+          >
+            工具箱
+          </McButton>
+          <McButton size="small" @click="handleUndo">撤销</McButton>
+          <McButton size="small" @click="handleRedo">重做</McButton>
+          <McButton size="small" @click="handleClear">清空</McButton>
+        </template>
       </div>
     </div>
 
-    <!-- CM6 editor container -->
-    <div ref="containerRef" class="editor-container" />
+    <!-- ═══ Single-line wizard mode ═══ -->
+    <CommandWizard v-show="!isMulti" class="wizard-container" @command="handleWizardCommand" />
 
-    <!-- Parameter hint panel -->
-    <div v-if="cursorContext && cursorContext.commandDef" class="hint-panel-wrapper">
-      <ParameterHintPanel
-        :context="cursorContext"
-        @select="insertFromPanel"
-      />
-    </div>
+    <!-- ═══ Multi-line CodeMirror mode ═══ -->
+    <div v-show="isMulti" class="multi-wrapper">
+      <!-- CM6 editor container -->
+      <div ref="containerRef" class="editor-container" />
 
-    <!-- Context-aware parameter panel -->
-    <div v-if="activePanel" class="param-panel">
-      <ItemPanel
-        v-if="activePanel === 'item'"
-        :category="itemCategory"
-        @select="insertFromPanel"
-      />
-      <EnchantmentPanel
-        v-if="activePanel === 'enchantment'"
-        @select="insertFromPanel"
-      />
-      <EntityPanel
-        v-if="activePanel === 'entity'"
-        @select="insertFromPanel"
-      />
-      <EffectPanel
-        v-if="activePanel === 'effect'"
-        @select="insertFromPanel"
-      />
-      <CoordinatePanel
-        v-if="activePanel === 'coordinate'"
-        @select="insertFromPanel"
-      />
-    </div>
+      <!-- Parameter hint panel -->
+      <div v-if="cursorContext && cursorContext.commandDef" class="hint-panel-wrapper">
+        <ParameterHintPanel
+          :context="cursorContext"
+          @select="insertFromPanel"
+        />
+      </div>
 
-    <!-- Toolbox panel -->
-    <div v-if="showToolbox" class="toolbox-panel">
-      <McToolbox @select="insertFromPanel" />
-    </div>
+      <!-- Context-aware parameter panel -->
+      <div v-if="activePanel" class="param-panel">
+        <ItemPanel
+          v-if="activePanel === 'item'"
+          :category="itemCategory"
+          @select="insertFromPanel"
+        />
+        <EnchantmentPanel
+          v-if="activePanel === 'enchantment'"
+          @select="insertFromPanel"
+        />
+        <EntityPanel
+          v-if="activePanel === 'entity'"
+          @select="insertFromPanel"
+        />
+        <EffectPanel
+          v-if="activePanel === 'effect'"
+          @select="insertFromPanel"
+        />
+        <CoordinatePanel
+          v-if="activePanel === 'coordinate'"
+          @select="insertFromPanel"
+        />
+      </div>
 
-    <!-- Status bar -->
-    <div class="editor-status">
-      <span class="status-pos">行 {{ cursorLine }}, 列 {{ cursorCol }}</span>
-      <span class="status-mode">{{ modeLabel }}模式</span>
+      <!-- Toolbox panel -->
+      <div v-if="showToolbox" class="toolbox-panel">
+        <McToolbox @select="insertFromPanel" />
+      </div>
+
+      <!-- Status bar -->
+      <div class="editor-status">
+        <span class="status-pos">行 {{ cursorLine }}, 列 {{ cursorCol }}</span>
+        <span class="status-mode">多行模式</span>
+      </div>
     </div>
   </div>
 </template>
@@ -266,6 +275,18 @@ function handleToggleMode() {
   display: flex;
   align-items: center;
   gap: 4px;
+}
+
+.wizard-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.multi-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
 }
 
 .editor-container {

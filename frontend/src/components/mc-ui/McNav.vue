@@ -12,11 +12,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   padding: 8px 16px;
   border-bottom: 2px solid var(--mc-border);
   position: relative;
   color: var(--mc-text-primary);
   min-height: 48px;
+}
+
+@media (max-width: 768px) {
+  .mc-nav {
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    padding: 6px 8px;
+    min-height: unset;
+  }
 }
 
 /* Grass strip on bottom */
@@ -30,6 +40,8 @@
   background-image: url('/textures/grass_block_top.png');
   background-size: 64px 64px;
   background-repeat: repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
   z-index: 1;
 }
 </style>

@@ -59,3 +59,9 @@ docker-compose.override.yml
 
 # Sentence-transformers model cache
 .cache/
+
+# build cache / OS junk
+.vite/
+frontend/.vite/
+._*
+*.tsbuildinfo

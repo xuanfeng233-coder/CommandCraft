@@ -23,17 +23,8 @@ async def health_check():
         else:
             status = "api_unreachable"
 
-    # Check RAG index status
-    rag_status = {}
-    try:
-        from backend.rag.vector_store import vector_store
-        rag_status = vector_store.collections_exist()
-    except Exception:
-        pass
-
     return HealthResponse(
         status=status,
         provider_name=llm_client.provider_id if llm_client.is_configured else "",
         model_name=llm_client.model if llm_client.is_configured else "",
-        rag_index_status=rag_status or None,
     )

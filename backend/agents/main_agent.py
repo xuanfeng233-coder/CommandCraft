@@ -85,16 +85,26 @@ recipe, scriptevent, locate, clearspawnpoint, connect, wsserver, toggledownfall
 
 ### depends_on（任务依赖）
 - 大多数多任务场景中，任务之间是**相互独立**的，可以并行执行 → `depends_on: []`
-- **仅当后一个任务的命令生成必须依赖前一个任务的结果（如标签名、计分板名）时**，才设置依赖
-- 常见依赖场景：
-  - 任务 B 需要使用任务 A 创建/定义的标签名称或计分板名称
-  - 任务 B 的目标选择器必须引用任务 A 定义的标签
-  - 用户明确要求先做 A 再做 B 的顺序关系
+- **需要设置依赖的场景**（后一个任务 depends_on 前一个任务）：
+  1. 任务 B 需要使用任务 A 创建/定义的标签名称或计分板名称
+  2. 任务 B 的目标选择器必须引用任务 A 定义的标签
+  3. 用户明确要求先做 A 再做 B 的顺序关系
+  4. **（关键！）多个任务共享同一个用户未指定的模糊参数** — 例如：
+     - 制作 boss：多个任务都需要知道 boss 用什么生物 → 第一个任务问用户，后续任务依赖第一个
+     - 建筑系统：多个任务都需要知道用什么材料 → 同理
+     - 任何场景中，如果有 N 个任务会问用户**同一个问题**，必须让第 1 个任务先执行并获得答案，其余 N-1 个任务 depends_on 第 1 个任务
 - 不需要依赖的场景（保持并行）：
   - 两个任务使用不同的命令且互不引用
-  - 命令生成本身不需要等待另一个任务的具体参数值
+  - 各任务的参数都已明确，不需要追问用户
 - depends_on 填写的是**前置任务的 task_id 列表**
 - **禁止循环依赖**：依赖方向必须单向（低 ID → 高 ID）
+
+### 共享参数处理示例
+用户说"制作一个boss"但没说用什么生物：
+- 任务 1: "召唤boss实体"（需要追问生物类型）→ depends_on: []
+- 任务 2: "给boss添加装备"（也需要知道生物类型）→ depends_on: ["1"]
+- 任务 3: "boss攻击机制"（也需要知道生物类型）→ depends_on: ["1"]
+这样用户只需在任务 1 中回答一次，任务 2 和 3 会自动获得答案。
 
 ## 输出格式
 
@@ -192,6 +202,191 @@ _SUMMARIZE_PROMPT = """\
 """
 
 
+# ---------------------------------------------------------------------------
+# Java Edition decompose prompt
+# ---------------------------------------------------------------------------
+
+_DECOMPOSE_PROMPT_JAVA = """\
+你是一个 Minecraft Java 版（Java Edition）命令助手的任务分解专家。
+
+**重要：你必须始终使用中文回复，不允许使用任何其他语言。**
+**⚠️ 你的回复必须只包含一个 JSON 对象，绝对不允许输出自由文本。在 think 标签中进行分析推理，回复内容只能是 JSON。**
+
+## 你的职责
+
+分析用户的自然语言需求，将其分解为一个或多个独立的 Task。每个 Task 将由独立的 TaskAgent 并行执行。
+
+## Java 版支持的命令（部分列表）
+
+以下命令在 Java 版中**全部可用**：
+kill, give, tp/teleport, summon, effect, clear, execute, fill, setblock, clone,
+scoreboard, tag, tellraw, title, particle, playsound, spreadplayers, weather, time,
+gamemode, difficulty, xp, enchant, spawnpoint, setworldspawn, ride, damage, loot,
+schedule, gamerule, msg/tell/w, say, me, list, kick, op, deop, whitelist, stopsound,
+recipe, locate, locatebiome, function, fillbiome, place, random, tick, return,
+data, team, bossbar, worldborder, attribute, item, advancement, datapack, forceload,
+spectate, trigger, publish, seed, reload, save-all, save-on, save-off, debug, jfr, perf
+
+## Java 版独有特性（与基岩版的区别）
+
+- **NBT 标签**：/give 和 /summon 均支持附加 NBT 标签 `{key:value}`
+  - /give 可直接附魔：`/give @s diamond_sword{Enchantments:[{id:"sharpness",lvl:5}]} 1`
+  - /give 1.20.5+ 使用 Data Components：`/give @s diamond_sword[enchantments={levels:{"sharpness":5}}]`
+  - /summon 可设置属性：`/summon zombie ~ ~ ~ {IsBaby:1b,CustomName:'"Boss"'}`
+- **/data 命令**：读取/修改/合并/移除实体/方块/存储 NBT 数据
+- **/execute store**：将命令结果存入计分板、方块、实体、存储
+- **/team**：队伍管理（创建、加入、颜色、碰撞规则等）
+- **/bossbar**：Boss 血条管理
+- **/worldborder**：世界边界管理
+- **/attribute**：实体属性管理
+- **/item**：物品管理（替代基岩版 /replaceitem）
+- **/advancement**：成就管理
+- **/datapack**：数据包管理
+- **ID 格式**：Java 版使用 `minecraft:` 命名空间前缀（如 `minecraft:diamond_sword`）
+- **方块状态**：`block[state=value]` 格式（如 `oak_stairs[facing=north,half=top]`）
+- **选择器参数**：`nbt=`, `predicate=`, `advancements=`, `distance=`, `sort=`, `limit=`
+- **JSON 文本组件**：支持 clickEvent, hoverEvent, color 名称, keybind 等
+
+## 仅基岩版独有（Java 版不支持）
+
+- /replaceitem（用 /item 替代）
+- /testfor, /testforblock（用 /execute if 替代）
+- /camera, /camerashake, /dialogue, /hud, /inputpermission
+- /npc, /agent, /ability
+- /structure（用 /place 替代）
+- /titleraw（用 /title 替代）
+- /tellraw 的 rawtext 格式（Java 版用 JSON 文本组件）
+- hasitem/haspermission/has_property 选择器参数
+
+## 分解规则
+
+### 单 Task 场景（is_single_task=true）
+- 简单命令请求（"给我一把钻石剑"、"传送到坐标"）
+- 单个 execute 链
+- 单个 tellraw
+- 涉及 1 条或有紧密关联的 2 条命令
+- Java 版中"给带附魔的物品"可以是单个 /give（含 NBT），不需要拆分
+
+### 多 Task 场景（is_single_task=false）
+- 用户请求包含 **2个或以上相互独立的机制**
+- 各机制使用不同命令或完全不同触发条件
+
+### Task 的 user_request 字段（关键！）
+必须是**自包含的**自然语言描述，包含足够上下文让 TaskAgent 能独立生成命令。
+
+**禁止替用户决定模糊参数！**
+- 如果用户说"违禁品"但没说具体是什么物品 → user_request 中写"违禁品（用户未指定具体物品，需要追问）"
+- 绝对不要自作主张选择占位值
+
+### output_type 判断
+| output_type | 适用条件 |
+|-------------|---------|
+| simple_command | 标准命令（/give, /tp, /effect, /summon, /kill, /data 等） |
+| execute_chain | 涉及 /execute 条件执行 |
+| rawtext | 涉及 /tellraw（JSON 文本组件） |
+| selector | 需要复杂目标选择器 |
+| project | 复杂项目规划（多命令方块组合机制） |
+
+### execution_mode
+- **continuous**: 需持续循环运行（repeating 命令方块）
+- **once**: 一次性执行（impulse 命令方块）
+
+### depends_on（任务依赖）
+- 大多数多任务场景中，任务之间是**相互独立**的，可以并行执行 → `depends_on: []`
+- **需要设置依赖的场景**（后一个任务 depends_on 前一个任务）：
+  1. 任务 B 需要使用任务 A 创建/定义的标签名称或计分板名称
+  2. 任务 B 的目标选择器必须引用任务 A 定义的标签
+  3. 用户明确要求先做 A 再做 B 的顺序关系
+  4. **（关键！）多个任务共享同一个用户未指定的模糊参数**
+- **禁止循环依赖**
+
+## 输出格式
+
+```json
+{{
+  "project_name": "项目名称（简短描述）",
+  "overview": "整体方案概述",
+  "tasks": [
+    {{
+      "task_id": "1",
+      "description": "简短描述（20字内）",
+      "user_request": "给 TaskAgent 的自包含自然语言描述",
+      "recommended_commands": ["execute", "tag"],
+      "output_type": "execute_chain",
+      "execution_mode": "continuous",
+      "depends_on": []
+    }}
+  ],
+  "is_single_task": false
+}}
+```
+
+"""
+
+# ---------------------------------------------------------------------------
+# Java Edition summarize prompt
+# ---------------------------------------------------------------------------
+
+_SUMMARIZE_PROMPT_JAVA = """\
+你是一个 Minecraft Java 版命令助手的结果汇总专家。
+
+**重要：你必须始终使用中文回复，不允许使用任何其他语言。**
+**⚠️ 你的回复必须只包含一个 JSON 对象，绝对不允许输出自由文本。**
+
+## 你的职责
+
+汇总多个 TaskAgent 的执行结果，生成：
+1. 整体方案解释
+2. 每条命令的命令方块元数据（type, conditional, auto, needs_redstone）
+3. 按阶段分组
+
+## 命令方块类型规则
+
+| 类型 | block_type | 使用场景 |
+|------|-----------|---------|
+| 脉冲 | impulse | 一次性初始化命令 |
+| 循环 | repeating | 持续检测/持续执行的第一条命令 |
+| 连锁 | chain | 链条中的后续命令（跟在 impulse 或 repeating 后面） |
+
+- 每个独立机制的第一条命令：continuous 用 repeating，once 用 impulse
+- 同一机制的后续命令用 chain
+- chain 方块 auto=true, needs_redstone=false
+- repeating 方块 auto=true, needs_redstone=false
+- impulse 方块 auto=false, needs_redstone=true
+
+## 输出格式
+
+```json
+{{
+  "explanation": "整体方案解释（用户可读的中文描述）",
+  "phases": [
+    {{
+      "phase_name": "阶段名称",
+      "description": "阶段说明",
+      "tasks": [
+        {{
+          "task_id": "1",
+          "description": "任务描述",
+          "commands": ["命令名"],
+          "command_blocks": [
+            {{
+              "type": "repeating",
+              "conditional": false,
+              "needs_redstone": false,
+              "command": "/具体命令",
+              "comment": "作用说明"
+            }}
+          ],
+          "dependencies": []
+        }}
+      ]
+    }}
+  ]
+}}
+```
+"""
+
+
 class MainAgent:
     """Coordinator that decomposes user requests and summarizes results."""
 
@@ -199,13 +394,24 @@ class MainAgent:
         self,
         user_input: str,
         session_context: str = "",
+        *,
+        client: Any | None = None,
+        edition: str = "bedrock",
     ) -> dict[str, Any]:
         """Decompose user input into TaskDefinitions.
+
+        Args:
+            user_input: The user's natural language request.
+            session_context: Optional conversation history context.
+            client: Optional LLMClient override. When None, uses get_llm_client().
+                    Build mode passes get_build_chat_client() here.
+            edition: Game edition ('bedrock' or 'java').
 
         Returns a DecompositionResult-like dict:
             {"project_name": "...", "overview": "...", "tasks": [...], "is_single_task": bool}
         """
-        system_prompt = _DECOMPOSE_PROMPT
+        _client = client or get_llm_client()
+        system_prompt = _DECOMPOSE_PROMPT_JAVA if edition == "java" else _DECOMPOSE_PROMPT
 
         messages: list[dict[str, Any]] = [
             {"role": "system", "content": system_prompt},
@@ -218,7 +424,7 @@ class MainAgent:
         messages.append({"role": "user", "content": user_input})
 
         try:
-            response = await get_llm_client().chat(
+            response = await _client.chat(
                 messages,
                 max_tokens=DECOMPOSE_MAX_TOKENS,
                 think=True,
@@ -250,6 +456,7 @@ class MainAgent:
         self,
         user_input: str,
         task_results: list[dict[str, Any]],
+        edition: str = "bedrock",
     ) -> dict[str, Any]:
         """Summarize multiple TaskAgent results into a unified project.
 
@@ -289,8 +496,9 @@ class MainAgent:
 
         context = "\n".join(results_text)
 
+        summarize_prompt = _SUMMARIZE_PROMPT_JAVA if edition == "java" else _SUMMARIZE_PROMPT
         messages = [
-            {"role": "system", "content": _SUMMARIZE_PROMPT},
+            {"role": "system", "content": summarize_prompt},
             {
                 "role": "user",
                 "content": f"## 用户原始需求\n{user_input}\n\n## TaskAgent 执行结果\n{context}",

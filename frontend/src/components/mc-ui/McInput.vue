@@ -5,7 +5,7 @@ const props = defineProps<{
   modelValue?: string
   placeholder?: string
   disabled?: boolean
-  type?: 'text' | 'textarea'
+  type?: 'text' | 'textarea' | 'password'
   autosize?: { minRows?: number; maxRows?: number }
 }>()
 
@@ -58,7 +58,7 @@ watch(() => props.modelValue, () => {
   <input
     v-else
     class="mc-input"
-    type="text"
+    :type="type === 'password' ? 'password' : 'text'"
     :value="modelValue"
     :placeholder="placeholder"
     :disabled="disabled"

@@ -13,6 +13,7 @@ class ChatRequest(BaseModel):
     message: str = Field(..., min_length=1, description="用户输入的自然语言消息")
     session_id: str | None = Field(None, description="会话 ID，为空则创建新会话")
     task_id: str | None = Field(None, description="指定回答哪个 paused task")
+    edition: str = Field("bedrock", description="游戏版本: bedrock | java")
 
 
 class CommandOutput(BaseModel):
@@ -151,10 +152,35 @@ class GenerationResult(BaseModel):
     thinking: str | None = None
 
 
+# --- Build Mode ---
+
+class BuildStartRequest(BaseModel):
+    message: str = Field(..., min_length=1, description="用户的构建需求描述")
+    session_id: str | None = Field(None, description="可选会话 ID")
+
+
+class BuildClarifyRequest(BaseModel):
+    answers: dict[str, str] = Field(..., description="question → answer 映射")
+
+
+class BuildConfirmRequest(BaseModel):
+    plan_content: str | None = Field(None, description="用户编辑后的方案内容（为空则使用原方案）")
+
+
+class BuildProjectResponse(BaseModel):
+    project_id: str
+    title: str = ""
+    status: str = "planning"
+    step_index: int = 0
+    total_steps: int = 0
+    plan_content: str = ""
+    created_at: str = ""
+    updated_at: str = ""
+
+
 # --- Health ---
 
 class HealthResponse(BaseModel):
     status: str  # ok | not_configured | api_unreachable | model_unavailable
     provider_name: str = ""
     model_name: str = ""
-    rag_index_status: dict[str, bool] | None = None

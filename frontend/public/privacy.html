@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隐私政策 - CommandCraft</title>
+<style>
+  @font-face { font-family: 'Zpix'; src: url('/fonts/Zpix.woff2') format('woff2'); }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'Zpix', 'Microsoft YaHei', sans-serif; font-size: 14px; line-height: 1.8; padding: 40px 20px; }
+  .container { max-width: 720px; margin: 0 auto; background: #16213e; border: 2px solid #555; padding: 32px 36px; box-shadow: 4px 4px 0 #0a0a1a; }
+  h1 { color: #ffaa00; font-size: 20px; margin-bottom: 8px; }
+  .meta { color: #888; font-size: 12px; margin-bottom: 24px; border-bottom: 1px solid #333; padding-bottom: 12px; }
+  h2 { color: #ffaa00; font-size: 15px; margin: 24px 0 10px; }
+  p, li { color: #ccc; margin-bottom: 8px; }
+  ul, ol { padding-left: 20px; margin-bottom: 12px; }
+  strong { color: #e0e0e0; }
+  .highlight { background: rgba(255,170,0,0.08); border-left: 3px solid #ffaa00; padding: 10px 14px; margin: 12px 0; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #444; padding: 8px 12px; text-align: left; }
+  th { background: #1a1a2e; color: #ffaa00; font-weight: normal; }
+  a { color: #ffaa00; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back { display: inline-block; margin-top: 28px; padding: 6px 16px; border: 2px solid #555; color: #ffaa00; font-family: inherit; font-size: 13px; background: #1a1a2e; cursor: pointer; text-decoration: none; }
+  .back:hover { background: #222; text-decoration: none; }
+  @media (max-width: 600px) { body { padding: 16px 8px; } .container { padding: 20px 16px; } table { font-size: 12px; } th, td { padding: 6px 8px; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>隐私政策</h1>
+  <div class="meta">
+    BraynLabs &mdash; CommandCraft (commandcraft.cn) / BraynLabs (braynlabs.cn)<br>
+    最后更新：2026年3月30日
+  </div>
+
+  <p>BraynLabs（以下简称"我们"）重视您的隐私。本政策说明我们在您使用 BraynLabs 旗下产品时如何收集、使用和保护您的信息。本政策适用于 CommandCraft 和 BraynLabs 官网。</p>
+
+  <h2>一、我们收集的信息</h2>
+  <table>
+    <thead>
+      <tr><th>信息类型</th><th>具体内容</th><th>收集时机</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>账户信息</td><td>用户名、密码（bcrypt 哈希存储）、邮箱</td><td>注册时</td></tr>
+      <tr><td>邮箱验证</td><td>验证码发送记录（邮箱、发送次数）</td><td>注册或绑定邮箱时</td></tr>
+      <tr><td>设备指纹</td><td>基于 Canvas/WebGL/浏览器信息的 SHA-256 哈希</td><td>每次访问 CommandCraft 时</td></tr>
+      <tr><td>网络信息</td><td>IP 地址、User-Agent</td><td>每次请求时</td></tr>
+      <tr><td>聊天记录</td><td>您发送的消息和 AI 回复（仅 CommandCraft）</td><td>使用聊天功能时</td></tr>
+      <tr><td>订阅信息</td><td>兑换码、套餐类型、使用量统计</td><td>兑换订阅时</td></tr>
+      <tr><td>Cookie</td><td>auth_token（登录凭证）</td><td>登录时</td></tr>
+    </tbody>
+  </table>
+
+  <h2>二、信息用途</h2>
+  <ul>
+    <li><strong>账户信息</strong>：身份验证和登录。密码以 bcrypt 单向哈希存储，我们无法获知明文密码。</li>
+    <li><strong>邮箱</strong>：用于注册验证、账户安全通知。我们不会向您发送营销邮件。</li>
+    <li><strong>设备指纹</strong>：未登录时识别设备、关联聊天记录。登录后数据迁移至账户。指纹为不可逆哈希，不含可识别个人身份的信息。</li>
+    <li><strong>IP 地址</strong>：注册和验证码发送频率限制、安全审计。</li>
+    <li><strong>聊天记录</strong>：提供对话上下文。我们不会将聊天内容用于模型训练。</li>
+    <li><strong>使用量统计</strong>：执行订阅套餐的使用限额。</li>
+  </ul>
+
+  <h2>三、统一登录（SSO）</h2>
+  <div class="highlight">
+    BraynLabs 旗下产品使用统一账户系统。在一个站点登录后，通过安全的一次性票据机制同步到其他站点。
+  </div>
+  <ul>
+    <li>SSO 票据有效期仅 <strong>30 秒</strong>，一次性使用后立即失效。</li>
+    <li>SSO 复用已有登录会话，<strong>不会创建额外设备记录</strong>。</li>
+    <li>跨站点同步通过 HTTPS 加密传输，不暴露密码或敏感数据。</li>
+  </ul>
+
+  <h2>四、Cookie 说明</h2>
+  <div class="highlight">
+    我们仅使用一个功能性 Cookie：<strong>auth_token</strong>，用于维持登录状态。
+  </div>
+  <ul>
+    <li><strong>类型</strong>：HttpOnly Cookie（JavaScript 无法读取）</li>
+    <li><strong>有效期</strong>：30 天</li>
+    <li><strong>作用范围</strong>：仅在 /api 路径下发送</li>
+    <li><strong>安全属性</strong>：Secure (仅 HTTPS)、SameSite=Lax</li>
+  </ul>
+  <p>我们不使用任何跟踪 Cookie、广告 Cookie 或第三方分析工具。</p>
+
+  <h2>五、第三方服务</h2>
+  <ul>
+    <li><strong>Resend</strong>：用于发送邮箱验证码邮件。仅传递收件邮箱和验证码内容。请参阅 <a href="https://resend.com/legal/privacy-policy" target="_blank">Resend 隐私政策</a>。</li>
+    <li><strong>DeepSeek</strong>（CommandCraft 订阅用户）：聊天消息通过 DeepSeek API 处理。请参阅 <a href="https://www.deepseek.com/privacy" target="_blank">DeepSeek 隐私政策</a>。</li>
+    <li><strong>用户自选模型</strong>：如果您配置了自己的 API Key，消息将发送至您选择的服务商。</li>
+  </ul>
+  <p>我们不会将您的数据出售或提供给上述服务用途以外的第三方。</p>
+
+  <h2>六、数据存储与安全</h2>
+  <ul>
+    <li>数据存储在我们的服务器上（SQLite 数据库，WAL 模式）。</li>
+    <li>密码使用 bcrypt 算法加密存储。</li>
+    <li>验证码使用密码学安全随机数生成，限制验证尝试次数（5次），防止暴力破解。</li>
+    <li>通过 HTTPS (TLS) 加密全部传输。</li>
+    <li>Cookie 设置 HttpOnly、Secure、SameSite 属性。</li>
+    <li>验证码发送频率受 IP 和邮箱双重限制。</li>
+  </ul>
+
+  <h2>七、数据保留与删除</h2>
+  <ul>
+    <li>账户连续 <strong>60 天</strong>无活动将被自动删除，包括所有关联数据。</li>
+    <li>过期的验证码和已使用的 SSO 票据会被定期清理。</li>
+    <li>您可以在 CommandCraft 中删除单个会话及其消息。</li>
+    <li>如需删除账户及全部数据，请联系我们。</li>
+  </ul>
+
+  <h2>八、您的权利</h2>
+  <ul>
+    <li>查看账户信息和订阅状态。</li>
+    <li>删除聊天记录。</li>
+    <li>随时退出登录并停止使用。</li>
+    <li>管理登录设备（查看并踢出其他设备）。</li>
+  </ul>
+
+  <h2>九、未成年人保护</h2>
+  <p>本服务面向所有年龄段。我们不会有意收集 14 周岁以下未成年人的个人信息。如果您是未成年人，请在监护人指导下使用。</p>
+
+  <h2>十、政策变更</h2>
+  <p>本政策可能不时更新，更新后在本页面发布，继续使用即视为接受。</p>
+
+  <h2>十一、联系我们</h2>
+  <p>如有疑问，请通过爱发电私信或 GitHub 联系 BraynLabs。</p>
+
+  <a class="back" href="/" onclick="window.close(); return false;">关闭</a>
+</div>
+</body>
+</html>

@@ -2,18 +2,19 @@
 
 from __future__ import annotations
 
-from backend.knowledge.loader import knowledge_loader
+from backend.knowledge.loader import KnowledgeLoader, bedrock_loader, java_loader
 
 
 class IDRegistry:
     """Loads ID files and provides lookup/validation."""
 
-    def __init__(self):
+    def __init__(self, loader: KnowledgeLoader):
+        self._loader = loader
         self._cache: dict[str, set[str]] = {}
 
     def _load_category(self, category: str) -> set[str]:
         if category not in self._cache:
-            entries = knowledge_loader.get_id_file(category)
+            entries = self._loader.get_id_file(category)
             self._cache[category] = {e.get("id", "") for e in entries if e.get("id")}
         return self._cache[category]
 
@@ -46,10 +47,20 @@ class IDRegistry:
         return self._load_category(category)
 
     def get_available_categories(self) -> list[str]:
-        return knowledge_loader.get_id_categories()
+        return self._loader.get_id_categories()
 
     def reload(self) -> None:
         self._cache.clear()
 
 
-id_registry = IDRegistry()
+# Edition-specific singletons
+bedrock_id_registry = IDRegistry(loader=bedrock_loader)
+java_id_registry = IDRegistry(loader=java_loader)
+
+# Default (backward compatible)
+id_registry = bedrock_id_registry
+
+
+def get_id_registry(edition: str = "bedrock") -> IDRegistry:
+    """Get the IDRegistry for the given edition."""
+    return java_id_registry if edition == "java" else bedrock_id_registry

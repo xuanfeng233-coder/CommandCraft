@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+@font-face {
+  font-family: 'GNU Unifont';
+  src: url('/fonts/unifont.woff2') format('woff2');
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 1200px;
+  height: 630px;
+  overflow: hidden;
+  font-family: 'GNU Unifont', monospace;
+  -webkit-font-smoothing: none;
+  image-rendering: pixelated;
+  background: #2D1B0E;
+  position: relative;
+}
+
+/* 底层纹理网格 */
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(215,155,103,0.06) 31px, rgba(215,155,103,0.06) 32px),
+    repeating-linear-gradient(90deg, transparent, transparent 31px, rgba(215,155,103,0.06) 31px, rgba(215,155,103,0.06) 32px);
+}
+
+/* 顶部装饰条 — 草方块风 */
+.grass-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #3A971E;
+  box-shadow: 0 2px 0 #2d7a16;
+}
+
+/* 底部装饰条 */
+.bottom-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #3A971E;
+  box-shadow: 0 -2px 0 #2d7a16;
+}
+
+/* 主内容区 */
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 80px;
+}
+
+/* 命令方块装饰（左上+右下） */
+.deco-block {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  border: 3px solid #d79b67;
+  background: rgba(74,55,40,0.6);
+  box-shadow:
+    inset -2px -4px 0 rgba(0,0,0,0.4),
+    inset 2px 2px 0 rgba(255,255,255,0.15);
+}
+.deco-block.tl { top: 32px; left: 32px; }
+.deco-block.tr { top: 32px; right: 32px; }
+.deco-block.bl { bottom: 32px; left: 32px; }
+.deco-block.br { bottom: 32px; right: 32px; }
+.deco-block::after {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 2px solid rgba(215,155,103,0.3);
+}
+
+/* 标题 */
+.title {
+  font-size: 56px;
+  color: #e2c714;
+  letter-spacing: 6px;
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,0.6),
+    -1px -1px 0 rgba(255,255,255,0.1);
+  margin-bottom: 16px;
+}
+
+/* 副标题 */
+.subtitle {
+  font-size: 28px;
+  color: #F5E6D0;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+/* 特性标签行 */
+.tags {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+.tag {
+  padding: 8px 20px;
+  font-size: 18px;
+  border: 2px solid;
+  box-shadow:
+    inset -2px -3px 0 rgba(0,0,0,0.35),
+    inset 1px 1px 0 rgba(255,255,255,0.12);
+}
+.tag-green {
+  background: rgba(58,151,30,0.25);
+  border-color: #3A971E;
+  color: #7ddf5e;
+}
+.tag-blue {
+  background: rgba(60,68,170,0.25);
+  border-color: #3C44AA;
+  color: #8b8fff;
+}
+.tag-gold {
+  background: rgba(226,199,20,0.25);
+  border-color: #e2c714;
+  color: #e2c714;
+}
+.tag-red {
+  background: rgba(176,46,38,0.2);
+  border-color: #B02E26;
+  color: #ff8a84;
+}
+
+/* 命令预览条 */
+.cmd-bar {
+  background: rgba(0,0,0,0.4);
+  border: 2px solid #6B5540;
+  padding: 12px 24px;
+  font-size: 20px;
+  color: #ec9e52;
+  box-shadow: inset 2px 4px 0 rgba(0,0,0,0.3);
+  max-width: 900px;
+  text-align: center;
+  margin-bottom: 28px;
+}
+.cmd-bar .cmd { color: #55FF55; }
+.cmd-bar .sel { color: #FF55FF; }
+.cmd-bar .str { color: #FFAA00; }
+.cmd-bar .num { color: #FF5555; }
+
+/* 底部域名 */
+.domain {
+  font-size: 22px;
+  color: #d79b67;
+  letter-spacing: 3px;
+}
+
+/* 左右两侧命令行装饰 */
+.side-cmds {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: rgba(85,255,85,0.12);
+  line-height: 2.2;
+  white-space: nowrap;
+}
+.side-cmds.left { left: 20px; text-align: left; }
+.side-cmds.right { right: 20px; text-align: right; }
+</style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="grass-strip"></div>
+  <div class="bottom-strip"></div>
+
+  <div class="deco-block tl"></div>
+  <div class="deco-block tr"></div>
+  <div class="deco-block bl"></div>
+  <div class="deco-block br"></div>
+
+  <!-- 侧边装饰命令 -->
+  <div class="side-cmds left">
+    /give @s diamond_sword<br>
+    /effect @a speed 30 2<br>
+    /execute as @e[type=zombie]<br>
+    /scoreboard objectives add<br>
+    /tellraw @a {"rawtext":[<br>
+    /structure save myBuild<br>
+    /summon lightning_bolt
+  </div>
+  <div class="side-cmds right">
+    /tp @s ~ ~10 ~<br>
+    /fill ~-5 ~-1 ~-5 ~5 ~3 ~5<br>
+    /setblock ~ ~ ~ command_block<br>
+    /gamemode creative @s<br>
+    /replaceitem entity @s<br>
+    /playsound mob.wither<br>
+    /title @a title welcome
+  </div>
+
+  <div class="content">
+    <div class="title">CommandCraft</div>
+    <div class="subtitle">我的世界基岩版 AI 命令生成器</div>
+
+    <div class="cmd-bar">
+      <span class="cmd">/execute</span> <span class="sel">@a</span>[scores={level=<span class="num">10</span>..}] ~ ~ ~ <span class="cmd">/give</span> <span class="sel">@s</span> <span class="str">diamond_sword</span> <span class="num">1</span>
+    </div>
+
+    <div class="tags">
+      <span class="tag tag-green">自然语言生成</span>
+      <span class="tag tag-blue">全命令语法支持</span>
+      <span class="tag tag-gold">智能命令编辑器</span>
+      <span class="tag tag-red">一键导出</span>
+    </div>
+
+    <div class="domain">commandcraft.cn</div>
+  </div>
+</body>
+</html>

@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from backend.config import KNOWLEDGE_BASE_DIR
+from backend.config import KNOWLEDGE_BASE_BEDROCK_DIR, KNOWLEDGE_BASE_JAVA_DIR
 
 
 def _read_json(path: Path) -> Any:
@@ -17,13 +17,15 @@ def _read_json(path: Path) -> Any:
 class KnowledgeLoader:
     """Lazy-loads and caches knowledge base files."""
 
-    def __init__(self, base_dir: Path = KNOWLEDGE_BASE_DIR):
+    def __init__(self, base_dir: Path = KNOWLEDGE_BASE_BEDROCK_DIR):
         self.base_dir = base_dir
         self._command_index: list[dict] | None = None
         self._categories: dict[str, list[str]] | None = None
         self._command_cache: dict[str, dict] = {}
         self._command_block_rules: dict | None = None
         self._intent_map: dict | None = None
+        self._formatting_codes: dict | None = None
+        self._formatting_prompt: str | None = None
 
     # --- Command index ---
 
@@ -86,6 +88,81 @@ class KnowledgeLoader:
             path = self.base_dir / "command_blocks" / "rules.json"
             self._command_block_rules = _read_json(path) if path.exists() else {}
         return self._command_block_rules
+
+    # --- Formatting codes ---
+
+    def get_formatting_codes(self) -> dict:
+        """Load the formatting codes reference (colors, modifiers, symbols)."""
+        if self._formatting_codes is None:
+            path = self.base_dir / "formatting_codes.json"
+            self._formatting_codes = _read_json(path) if path.exists() else {}
+        return self._formatting_codes
+
+    def format_formatting_codes_for_prompt(self) -> str:
+        """Format formatting codes as a compact prompt section.
+
+        Returns a ready-to-inject string with color codes, modifiers,
+        best practices, and special symbols.
+        """
+        if self._formatting_prompt is not None:
+            return self._formatting_prompt
+
+        data = self.get_formatting_codes()
+        if not data:
+            self._formatting_prompt = ""
+            return ""
+
+        lines: list[str] = ["## 颜色代码与格式参考\n"]
+
+        # Standard 16 colors
+        std = data.get("colors", {}).get("standard_16", [])
+        if std:
+            lines.append("### 标准 16 色")
+            for c in std:
+                lines.append(f"- `{c['code']}` {c['name']} ({c['hex']}) — {c['usage']}")
+
+        # Bedrock exclusive material colors
+        mat = data.get("colors", {}).get("bedrock_exclusive_material", [])
+        if mat:
+            lines.append("\n### 基岩版独有材质色")
+            for c in mat:
+                lines.append(f"- `{c['code']}` {c['name']} ({c['hex']}) — {c['usage']}")
+
+        # Java vs Bedrock warning
+        warning = data.get("java_vs_bedrock_warning", {}).get("description", "")
+        if warning:
+            lines.append(f"\n**注意**: {warning}")
+
+        # Modifiers
+        mods = data.get("modifiers", [])
+        if mods:
+            lines.append("\n### 格式修饰符")
+            for m in mods:
+                lines.append(f"- `{m['code']}` {m['name']}: {m['description']}")
+
+        # Best practices
+        practices = data.get("best_practices", [])
+        if practices:
+            lines.append("\n### 使用规范")
+            for p in practices:
+                lines.append(f"- {p}")
+
+        # Common patterns
+        patterns = data.get("common_patterns", [])
+        if patterns:
+            lines.append("\n### 常用配色模式")
+            for p in patterns:
+                lines.append(f"- **{p['name']}**: `{p['example']}` — {p['description']}")
+
+        # Special symbols
+        symbols = data.get("special_symbols", [])
+        if symbols:
+            lines.append("\n### 特殊符号（可直接用于命令文本）")
+            sym_parts = [f"{s['symbol']}({s['name']})" for s in symbols]
+            lines.append("  ".join(sym_parts))
+
+        self._formatting_prompt = "\n".join(lines)
+        return self._formatting_prompt
 
     # --- Intent map ---
 
@@ -226,10 +303,63 @@ class KnowledgeLoader:
 
         return "\n\n".join(sections)
 
-    # --- Enumeration methods for RAG indexer ---
+    # --- NBT schemas (Java Edition) ---
+
+    def get_nbt_schema(self, nbt_type: str, name: str) -> dict | None:
+        """Load an NBT schema file.
+
+        Args:
+            nbt_type: 'entities', 'items', or 'blocks'
+            name: entity/item/block name, e.g. 'zombie', '_common'
+        """
+        path = self.base_dir / "nbt" / nbt_type / f"{name}.json"
+        if not path.exists():
+            return None
+        return _read_json(path)
+
+    def get_nbt_schema_resolved(self, nbt_type: str, name: str) -> dict | None:
+        """Load an NBT schema with _common inheritance resolved."""
+        schema = self.get_nbt_schema(nbt_type, name)
+        if schema is None:
+            return None
+        inherits = schema.get("inherits")
+        if inherits:
+            common = self.get_nbt_schema(nbt_type, inherits)
+            if common:
+                merged_tags = list(common.get("tags", []))
+                merged_tags.extend(schema.get("tags", []))
+                schema = {**schema, "tags": merged_tags}
+        return schema
+
+    def list_nbt_schemas(self, nbt_type: str) -> list[str]:
+        """List available NBT schema names for a type."""
+        nbt_dir = self.base_dir / "nbt" / nbt_type
+        if not nbt_dir.exists():
+            return []
+        return [p.stem for p in nbt_dir.glob("*.json") if not p.stem.startswith("_")]
+
+    # --- Data Components (Java 1.20.5+) ---
+
+    def get_data_components(self) -> dict:
+        """Load data component definitions."""
+        path = self.base_dir / "data_components" / "index.json"
+        if not path.exists():
+            return {}
+        return _read_json(path)
+
+    # --- Text components (Java) ---
+
+    def get_text_component_schema(self) -> dict:
+        """Load JSON text component schema (Java Edition)."""
+        path = self.base_dir / "text_components.json"
+        if not path.exists():
+            return {}
+        return _read_json(path)
+
+    # --- Enumeration methods ---
 
     def enumerate_all_commands(self) -> list[dict]:
-        """Return all command docs (full JSON) for RAG indexing."""
+        """Return all command docs (full JSON)."""
         commands_dir = self.base_dir / "commands"
         if not commands_dir.exists():
             return []
@@ -246,7 +376,7 @@ class KnowledgeLoader:
         return docs
 
     def enumerate_all_ids(self) -> dict[str, list[dict]]:
-        """Return all ID files grouped by category for RAG indexing.
+        """Return all ID files grouped by category.
 
         Returns dict: category_name -> list of ID entries.
         """
@@ -271,7 +401,18 @@ class KnowledgeLoader:
         self._command_cache.clear()
         self._command_block_rules = None
         self._intent_map = None
+        self._formatting_codes = None
+        self._formatting_prompt = None
 
 
-# Singleton
-knowledge_loader = KnowledgeLoader()
+# Edition-specific singletons
+bedrock_loader = KnowledgeLoader(base_dir=KNOWLEDGE_BASE_BEDROCK_DIR)
+java_loader = KnowledgeLoader(base_dir=KNOWLEDGE_BASE_JAVA_DIR)
+
+# Default singleton (backward compatible)
+knowledge_loader = bedrock_loader
+
+
+def get_loader(edition: str = "bedrock") -> KnowledgeLoader:
+    """Get the KnowledgeLoader for the given edition."""
+    return java_loader if edition == "java" else bedrock_loader

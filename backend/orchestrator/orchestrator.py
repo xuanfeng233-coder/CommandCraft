@@ -41,12 +41,14 @@ class TaskManager:
     Within each tier, tasks run in parallel. Tiers run sequentially.
     """
 
-    def __init__(self, decomposition: dict[str, Any]) -> None:
+    def __init__(self, decomposition: dict[str, Any], edition: str = "bedrock") -> None:
         self.decomposition = decomposition
+        self.edition = edition
         self.tasks: list[dict[str, Any]] = decomposition.get("tasks", [])
         self.task_states: dict[str, dict[str, Any]] = {}
         self._event_queue: asyncio.Queue[dict[str, Any]] = asyncio.Queue()
         self._completed_results: dict[str, dict[str, Any]] = {}
+        self._user_answers: dict[str, str] = {}  # task_id → user answer text
         self.created_at = time.time()
 
     def is_expired(self) -> bool:
@@ -137,33 +139,50 @@ class TaskManager:
             if not tier_tasks:
                 continue
 
+            # Filter out tasks that are already blocked (from earlier tier blockers)
+            runnable = [
+                td for td in tier_tasks
+                if self.task_states.get(td.get("task_id", ""), {}).get("status", "pending")
+                not in ("blocked",)
+            ]
+
+            if not runnable:
+                logger.info("Tier %d: all tasks blocked, skipping", tier_idx)
+                continue
+
             logger.info(
                 "Executing tier %d with %d task(s): %s",
-                tier_idx, len(tier_tasks),
-                [t.get("task_id") for t in tier_tasks],
+                tier_idx, len(runnable),
+                [t.get("task_id") for t in runnable],
             )
 
             # Inject predecessor context for dependent tasks
-            for td in tier_tasks:
+            for td in runnable:
                 self._inject_predecessor_context(td)
 
             # Execute tier tasks in parallel
-            async for event in self._execute_tier(tier_tasks):
+            async for event in self._execute_tier(runnable):
                 yield event
 
             # Check if any tasks in this tier paused or failed
             tier_ids = {td.get("task_id", "") for td in tier_tasks}
-            has_blocker = False
-            for tid in tier_ids:
-                status = self.task_states.get(tid, {}).get("status", "pending")
-                if status in ("paused", "failed"):
-                    has_blocker = True
-                    break
+            has_new_blockers = any(
+                self.task_states.get(td.get("task_id", ""), {}).get("status", "pending")
+                in ("paused", "failed")
+                for td in runnable
+            )
 
-            if has_blocker:
-                # Mark downstream tasks as blocked
+            if has_new_blockers:
+                # Mark downstream tasks that depend on blockers as blocked
                 self._mark_downstream_blocked(tier_ids, tiers, tier_idx)
-                break  # Stop processing further tiers
+                # Only stop if ALL tasks in this tier are stuck
+                all_stuck = all(
+                    self.task_states.get(td.get("task_id", ""), {}).get("status", "pending")
+                    in ("paused", "failed", "blocked")
+                    for td in tier_tasks
+                )
+                if all_stuck:
+                    break  # No point continuing — entire tier is stuck
 
     async def _execute_tier(
         self, tier_tasks: list[dict[str, Any]],
@@ -176,7 +195,7 @@ class TaskManager:
             tid = task_def.get("task_id", "")
             async with semaphore:
                 try:
-                    async for event in agent.execute(task_def):
+                    async for event in agent.execute(task_def, edition=self.edition):
                         if event.get("event") == "task_update":
                             data = event.get("data", {})
                             self.task_states[tid] = data
@@ -213,7 +232,11 @@ class TaskManager:
     # ----- Dependency helpers -----
 
     def _inject_predecessor_context(self, task_def: dict[str, Any]) -> None:
-        """Inject completed predecessor results into the task's user_request."""
+        """Inject completed predecessor results into the task's user_request.
+
+        Injects both generated commands AND user answers from paused-then-resumed
+        predecessor tasks, so downstream tasks don't re-ask the same questions.
+        """
         deps = task_def.get("depends_on", [])
         if not deps:
             return
@@ -231,6 +254,13 @@ class TaskManager:
                 if td.get("task_id") == dep_id:
                     dep_desc = td.get("description", "")
                     break
+
+            # Inject user answer from resumed predecessor (if any)
+            user_answer = self._user_answers.get(dep_id, "")
+            if user_answer:
+                context_parts.append(
+                    f"用户在前置任务 {dep_id}（{dep_desc}）中的回答：{user_answer}"
+                )
 
             if result_type == "single_command":
                 cmd_obj = dep_result.get("command", {})
@@ -313,13 +343,16 @@ class TaskManager:
             }
             return
 
+        # Store user answer for downstream context injection
+        self._user_answers[task_id] = user_answer
+
         # Append user answer to the request
         task_def["user_request"] = (
             f"{task_def['user_request']}\n\n用户补充信息：{user_answer}"
         )
 
         agent = TaskAgent()
-        async for event in agent.execute(task_def):
+        async for event in agent.execute(task_def, edition=self.edition):
             if event.get("event") == "task_update":
                 data = event.get("data", {})
                 self.task_states[task_id] = data
@@ -415,6 +448,7 @@ class Orchestrator:
         session_context: str = "",
         session_id: str = "",
         task_id: str | None = None,
+        edition: str = "bedrock",
     ) -> AsyncGenerator[dict[str, Any], None]:
         """Process a user message and yield SSE events.
 
@@ -423,6 +457,7 @@ class Orchestrator:
             session_context: Conversation history for context.
             session_id: Session identifier for state management.
             task_id: If set, route the answer to a specific paused task.
+            edition: Game edition ('bedrock' or 'java').
         """
         # Clean up expired sessions
         self._cleanup_expired()
@@ -445,7 +480,7 @@ class Orchestrator:
         yield {"event": "thinking", "data": {"text": "正在分析您的需求...\n"}}
 
         decomposition = await self.main_agent.decompose(
-            user_input, session_context,
+            user_input, session_context, edition=edition,
         )
 
         thinking = decomposition.pop("_thinking", "")
@@ -454,6 +489,7 @@ class Orchestrator:
 
         tasks = decomposition.get("tasks", [])
         is_single = decomposition.get("is_single_task", len(tasks) <= 1)
+        decomposition["_original_input"] = user_input
 
         if not tasks:
             yield {
@@ -492,7 +528,7 @@ class Orchestrator:
         else:
             yield {"event": "thinking", "data": {"text": f"正在并行执行 {len(tasks)} 个任务...\n"}}
 
-        mgr = TaskManager(decomposition)
+        mgr = TaskManager(decomposition, edition=edition)
         if session_id:
             self._active_sessions[session_id] = mgr
 
@@ -528,7 +564,7 @@ class Orchestrator:
             # Multi-task — LLM summarize
             yield {"event": "thinking", "data": {"text": "正在汇总所有任务结果...\n"}}
 
-            summary = await self.main_agent.summarize(user_input, completed_results)
+            summary = await self.main_agent.summarize(user_input, completed_results, edition=edition)
             summary_thinking = summary.pop("_thinking", "")
             if summary_thinking:
                 yield {"event": "thinking", "data": {"text": summary_thinking}}
@@ -578,7 +614,8 @@ class Orchestrator:
         # Check if all tasks now completed (or no more work to do)
         if mgr.all_completed():
             decomposition = mgr.decomposition
-            is_single = decomposition.get("is_single_task", False)
+            tasks = decomposition.get("tasks", [])
+            is_single = decomposition.get("is_single_task", len(tasks) <= 1)
             completed_results = mgr.get_completed_results()
 
             if is_single and len(completed_results) == 1:

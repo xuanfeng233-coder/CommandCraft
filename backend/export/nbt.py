@@ -69,6 +69,16 @@ class NBTWriter:
         self._write_string(name)
 
     def _detect_tag_type(self, val: Any) -> int:
+        if isinstance(val, NBTByte):
+            return TAG_BYTE
+        if isinstance(val, NBTShort):
+            return TAG_SHORT
+        if isinstance(val, NBTLong):
+            return TAG_LONG
+        if isinstance(val, NBTFloat):
+            return TAG_FLOAT
+        if isinstance(val, NBTIntArray):
+            return TAG_INT_ARRAY
         if isinstance(val, bool):
             return TAG_BYTE
         if isinstance(val, int):
@@ -83,14 +93,6 @@ class NBTWriter:
             return TAG_LIST
         if isinstance(val, dict):
             return TAG_COMPOUND
-        if isinstance(val, NBTByte):
-            return TAG_BYTE
-        if isinstance(val, NBTShort):
-            return TAG_SHORT
-        if isinstance(val, NBTLong):
-            return TAG_LONG
-        if isinstance(val, NBTFloat):
-            return TAG_FLOAT
         raise ValueError(f"Cannot detect NBT type for {type(val)}: {val}")
 
     def _write_payload(self, val: Any) -> None:
@@ -102,6 +104,10 @@ class NBTWriter:
             self._write_long(val.value)
         elif isinstance(val, NBTFloat):
             self._write_float(val.value)
+        elif isinstance(val, NBTIntArray):
+            self._write_int(len(val.values))
+            for v in val.values:
+                self._write_int(v)
         elif isinstance(val, bool):
             self._write_byte(1 if val else 0)
         elif isinstance(val, int):
@@ -174,3 +180,11 @@ class NBTFloat:
 
     def __init__(self, value: float) -> None:
         self.value = value
+
+
+class NBTIntArray:
+    """TAG_Int_Array — length-prefixed array of 32-bit signed ints."""
+    __slots__ = ("values",)
+
+    def __init__(self, values: list[int]) -> None:
+        self.values = values

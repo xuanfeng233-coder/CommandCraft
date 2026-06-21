@@ -20,6 +20,7 @@ class ProviderInfo:
     models: list[str] = field(default_factory=list)
     supports_thinking: bool = False
     thinking_field: str = ""
+    supports_tools: bool = True
     free_tier: bool = False
     requires_endpoint_id: bool = False
 
@@ -31,6 +32,7 @@ class ProviderInfo:
             "default_model": self.default_model,
             "models": self.models,
             "supports_thinking": self.supports_thinking,
+            "supports_tools": self.supports_tools,
             "free_tier": self.free_tier,
             "requires_endpoint_id": self.requires_endpoint_id,
         }
@@ -59,6 +61,7 @@ PROVIDERS: dict[str, ProviderInfo] = {
         base_url="https://open.bigmodel.cn/api/paas/v4",
         default_model="glm-4-flash",
         models=["glm-4-flash", "glm-4", "glm-4-plus"],
+        supports_tools=False,
         free_tier=True,
     ),
     "kimi": ProviderInfo(

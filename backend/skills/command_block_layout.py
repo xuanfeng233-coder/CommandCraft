@@ -87,6 +87,69 @@ class CommandBlockLayout(BaseSkill):
             "dimensions": dimensions,
         }
 
+    def generate_vertical_layout(self, project_data: dict[str, Any]) -> dict[str, Any]:
+        """Generate a vertical column layout (Y-axis stacking).
+
+        Each command chain occupies one column along the X axis.
+        Within a column, blocks stack upward along Y.
+        Columns are spaced 2 blocks apart on X.
+
+        Layout:
+          Column 0 (x=0):  [起点] → [链] → [链]     (y=0, 1, 2)
+          Column 1 (x=2):  [起点] → [链] → [链] → [链]  (y=0, 1, 2, 3)
+        """
+        phases = project_data.get("phases", [])
+
+        layout: list[dict[str, Any]] = []
+        groups: list[dict[str, Any]] = []
+
+        x_offset = 0
+        max_y = 0
+
+        for phase in phases:
+            for task in phase.get("tasks", []):
+                task_id = task.get("task_id", "")
+                blocks = task.get("command_blocks", [])
+                if not blocks:
+                    continue
+
+                group_id = f"group_{task_id}"
+                groups.append({
+                    "group_id": group_id,
+                    "name": task.get("description", f"Task {task_id}")[:40],
+                    "description": task.get("description", ""),
+                    "trigger_method": self._infer_trigger(blocks),
+                })
+
+                for y_idx, block in enumerate(blocks):
+                    block_type_raw = block.get("type", "chain")
+                    layout.append({
+                        "position": {"x": x_offset, "y": y_idx, "z": 0},
+                        "direction": "up",
+                        "block_type": _BLOCK_TYPE_MAP.get(block_type_raw, "chain_command_block"),
+                        "conditional": block.get("conditional", False),
+                        "auto": not block.get("needs_redstone", False),
+                        "command": block.get("command", ""),
+                        "custom_name": block.get("comment", ""),
+                        "group_id": group_id,
+                    })
+                    if y_idx + 1 > max_y:
+                        max_y = y_idx + 1
+
+                x_offset += 2  # 1-block gap between columns
+
+        dimensions = {
+            "width": max(x_offset, 1),
+            "height": max(max_y, 1),
+            "depth": 1,
+        }
+
+        return {
+            "layout": layout,
+            "groups": groups,
+            "dimensions": dimensions,
+        }
+
     @staticmethod
     def _infer_trigger(blocks: list[dict]) -> str:
         """Infer the trigger method from the first block type."""

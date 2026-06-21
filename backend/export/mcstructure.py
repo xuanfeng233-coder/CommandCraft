@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from backend.export.nbt import NBTWriter, NBTByte, NBTFloat
+from backend.export.nbt import NBTWriter, NBTByte, NBTFloat, NBTIntArray
 
 # Facing direction values for Bedrock Edition
 DIRECTION_MAP: dict[str, int] = {
@@ -69,6 +69,8 @@ def _make_block_entity(
         "LPRedstoneMode": NBTByte(1 if auto else 0),
         "SuccessCount": 0,
         "LastOutput": "",
+        "TickDelay": 0,
+        "ExecuteOnFirstTick": NBTByte(1),
         "isMovable": NBTByte(1),
         "x": x,
         "y": y,
@@ -133,8 +135,8 @@ def generate_mcstructure(project: dict[str, Any]) -> bytes:
             palette_key_to_idx[pkey] = len(palette)
             palette.append(_make_block_state(block_type, facing, conditional))
 
-        # ZYX index = SZ*SY*X + SZ*Y + Z
-        idx = depth * height * x + depth * y + z
+        # XZY index: x * (height * depth) + z * height + y
+        idx = depth * height * x + height * z + y
         indices[idx] = palette_key_to_idx[pkey]
 
         # Block entity data
@@ -164,7 +166,7 @@ def generate_mcstructure(project: dict[str, Any]) -> bytes:
         "format_version": 1,
         "size": [width, height, depth],
         "structure": {
-            "block_indices": [indices, secondary],
+            "block_indices": [NBTIntArray(indices), NBTIntArray(secondary)],
             "entities": [],
             "palette": {
                 "default": {

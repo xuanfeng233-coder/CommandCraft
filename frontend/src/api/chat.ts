@@ -1,5 +1,8 @@
+/**
+ * Chat API — calls backend /api/chat via SSE streaming.
+ */
+
 import type { SessionSummary, SessionMessage, TaskItem } from '@/types'
-import { getDeviceFingerprint } from '@/utils/fingerprint'
 
 export interface SSECallbacks {
   onThinking: (text: string) => void
@@ -14,23 +17,16 @@ export interface SSECallbacks {
   onSubTaskUpdate?: (data: { task_id: string; status: string; result?: Record<string, unknown>; error?: string }) => void
 }
 
-/**
- * Parse SSE lines from a text chunk.
- * sse_starlette uses \r\n line endings:
- *   event: <event_name>\r\n
- *   data: <json_string>\r\n
- *   \r\n   (blank line = event boundary)
- */
+// ---------------------------------------------------------------------------
+// SSE parser
+// ---------------------------------------------------------------------------
+
 function parseSSELines(
   buffer: string,
-  callbacks: SSECallbacks
+  callbacks: SSECallbacks,
 ): string {
-  // Normalise \r\n → \n so we can split uniformly
   const normalised = buffer.replace(/\r\n/g, '\n')
-
-  // Split on double newlines (SSE event boundary)
   const parts = normalised.split('\n\n')
-  // Last part may be incomplete, keep it as remaining buffer
   const remaining = parts.pop() ?? ''
 
   for (const part of parts) {
@@ -75,22 +71,18 @@ function parseSSELines(
         break
       case 'task_list':
         callbacks.onTaskList?.(parsed as { project_name: string; overview: string; tasks: TaskItem[] })
-        // Backward compat
         callbacks.onSubTaskList?.((parsed.tasks as TaskItem[]) ?? [])
         break
       case 'task_update':
         callbacks.onTaskUpdate?.(parsed as { task_id: string; status: string; result?: Record<string, unknown>; error?: string })
-        // Backward compat
         callbacks.onSubTaskUpdate?.(parsed as { task_id: string; status: string; result?: Record<string, unknown>; error?: string })
         break
       case 'task_thinking':
         callbacks.onTaskThinking?.(parsed as { task_id: string; text: string })
         break
       case 'summary':
-        // Summary is emitted as content for rendering
         callbacks.onContent(parsed)
         break
-      // Legacy events (backward compat)
       case 'subtask_list':
         callbacks.onSubTaskList?.((parsed.tasks as TaskItem[]) ?? [])
         break
@@ -105,25 +97,28 @@ function parseSSELines(
   return remaining
 }
 
-/**
- * Send a chat message via POST and handle SSE stream response.
- * Uses fetch + ReadableStream to support POST-based SSE.
- */
+// ---------------------------------------------------------------------------
+// Public API
+// ---------------------------------------------------------------------------
+
 export async function sendMessage(
   message: string,
   sessionId: string | null,
   callbacks: SSECallbacks,
   signal?: AbortSignal,
   taskId?: string | null,
+  edition?: string,
 ): Promise<void> {
   const payload: Record<string, unknown> = {
     message,
     session_id: sessionId,
+    edition: edition || 'bedrock',
   }
   if (taskId) {
     payload.task_id = taskId
   }
 
+  const { getDeviceFingerprint } = await import('@/utils/fingerprint')
   const fp = await getDeviceFingerprint()
 
   const response = await fetch('/api/chat', {
@@ -133,6 +128,7 @@ export async function sendMessage(
       Accept: 'text/event-stream',
       'X-Device-Fp': fp,
     },
+    credentials: 'same-origin',
     body: JSON.stringify(payload),
     signal,
   })
@@ -162,7 +158,6 @@ export async function sendMessage(
       buffer = parseSSELines(buffer, callbacks)
     }
 
-    // Process any remaining data in the buffer
     if (buffer.trim()) {
       parseSSELines(buffer + '\r\n\r\n', callbacks)
     }
@@ -174,7 +169,12 @@ export async function sendMessage(
 // --- Session API ---
 
 export async function listSessions(limit = 50): Promise<SessionSummary[]> {
-  const res = await fetch(`/api/chat/history?limit=${limit}`)
+  const { getDeviceFingerprint } = await import('@/utils/fingerprint')
+  const fp = await getDeviceFingerprint()
+  const res = await fetch(`/api/chat/history?limit=${limit}`, {
+    headers: { 'X-Device-Fp': fp },
+    credentials: 'same-origin',
+  })
   if (!res.ok) throw new Error(`Failed to list sessions: ${res.status}`)
   const data = await res.json()
   return data.sessions
@@ -184,13 +184,24 @@ export async function getSession(sessionId: string): Promise<{
   session: SessionSummary
   messages: SessionMessage[]
 }> {
-  const res = await fetch(`/api/chat/${sessionId}`)
+  const { getDeviceFingerprint } = await import('@/utils/fingerprint')
+  const fp = await getDeviceFingerprint()
+  const res = await fetch(`/api/chat/${sessionId}`, {
+    headers: { 'X-Device-Fp': fp },
+    credentials: 'same-origin',
+  })
   if (!res.ok) throw new Error(`Failed to get session: ${res.status}`)
   return res.json()
 }
 
 export async function deleteSession(sessionId: string): Promise<void> {
-  const res = await fetch(`/api/chat/${sessionId}`, { method: 'DELETE' })
+  const { getDeviceFingerprint } = await import('@/utils/fingerprint')
+  const fp = await getDeviceFingerprint()
+  const res = await fetch(`/api/chat/${sessionId}`, {
+    method: 'DELETE',
+    headers: { 'X-Device-Fp': fp },
+    credentials: 'same-origin',
+  })
   if (!res.ok) throw new Error(`Failed to delete session: ${res.status}`)
 }
 

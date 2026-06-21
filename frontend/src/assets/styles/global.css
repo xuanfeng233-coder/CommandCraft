@@ -26,47 +26,48 @@ body {
   overflow: hidden;
 }
 
+/* Prevent iOS Safari auto-zoom on input focus (triggers when font-size < 16px) */
+@supports (-webkit-touch-callout: none) {
+  input, textarea, select, [contenteditable] {
+    font-size: 16px;
+  }
+}
+
 /* Texture utility classes */
+[class*="mc-tex-"] {
+  background-repeat: repeat;
+  background-size: 64px 64px;
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
 .mc-tex-dirt {
   background-image: url('/textures/dirt.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-oak {
   background-image: url('/textures/oak_planks.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-dark-oak {
   background-image: url('/textures/dark_oak_planks.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-stone {
   background-image: url('/textures/stone_bricks.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-smooth-stone {
   background-image: url('/textures/smooth_stone.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-bedrock {
   background-image: url('/textures/bedrock.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 .mc-tex-grass {
   background-image: url('/textures/grass_block_top.png');
-  background-size: 64px 64px;
-  background-repeat: repeat;
 }
 
 /* Scrollbar styling */

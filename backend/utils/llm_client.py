@@ -69,6 +69,8 @@ def _prep_messages(messages: list[dict[str, Any]]) -> list[dict[str, Any]]:
             # OpenAI requires content to be null (not empty string) when tool_calls present
             if not m.get("content"):
                 m["content"] = None
+            # Strip non-standard fields (e.g. thinking) before sending back
+            m.pop("thinking", None)
 
         elif role == "tool":
             # Assign tool_call_id from the pending queue
@@ -325,6 +327,7 @@ class LLMClient:
                     args = {}
                 tool_calls_out.append({
                     "id": tc.id,
+                    "type": "function",
                     "function": {
                         "name": tc.function.name,
                         "arguments": args,

@@ -2,13 +2,18 @@
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { McButton, McInput, McCard } from '@/components/mc-ui'
+import AuthModal from '@/components/AuthModal.vue'
+import PaymentDialog from '@/components/PaymentDialog.vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useSubscriptionStore } from '@/stores/subscription'
+import { useAuthStore } from '@/stores/auth'
+import { getPlans, type PlanInfo } from '@/api/subscription'
 import type { ProviderInfo, LLMSettings } from '@/types'
 
 const router = useRouter()
 const settingsStore = useSettingsStore()
 const subStore = useSubscriptionStore()
+const authStore = useAuthStore()
 
 const step = ref(1)
 const subscriptionMode = ref(false)
@@ -21,13 +26,17 @@ const verifying = ref(false)
 const verifyResult = ref<{ ok: boolean; latency_ms: number; error: string } | null>(null)
 
 // Subscription mode state
-const redeemCode = ref('')
-const redeemError = ref('')
-const redeemSuccess = ref('')
-const redeemLoading = ref(false)
+const plans = ref<PlanInfo[]>([])
+const paymentDialog = ref<{ show: boolean; planId: string; planName: string; amount: string }>({
+  show: false,
+  planId: '',
+  planName: '',
+  amount: '',
+})
 
 onMounted(async () => {
   await settingsStore.fetchProviders()
+  authStore.checkSession()
 })
 
 const providers = computed(() => settingsStore.providerList)
@@ -41,12 +50,28 @@ function selectProvider(p: ProviderInfo) {
   step.value = 2
 }
 
-function enterSubscriptionMode() {
+async function enterSubscriptionMode() {
+  if (!authStore.isLoggedIn) {
+    authStore.showAuthModal = true
+    return
+  }
   subscriptionMode.value = true
   step.value = 2
-  redeemCode.value = ''
-  redeemError.value = ''
-  redeemSuccess.value = ''
+  await subStore.fetchStatus()
+  if (plans.value.length === 0) {
+    try {
+      plans.value = await getPlans()
+    } catch { /* ignore */ }
+  }
+}
+
+function startSubscribe(plan: PlanInfo) {
+  paymentDialog.value = {
+    show: true,
+    planId: plan.id,
+    planName: plan.name,
+    amount: plan.price_cny,
+  }
 }
 
 function backToStep1() {
@@ -89,25 +114,6 @@ async function finish() {
   router.push('/')
 }
 
-async function handleRedeem() {
-  const code = redeemCode.value.trim()
-  if (!code) return
-
-  redeemError.value = ''
-  redeemSuccess.value = ''
-  redeemLoading.value = true
-
-  try {
-    const result = await subStore.redeem(code)
-    redeemSuccess.value = result.message
-    redeemCode.value = ''
-  } catch (e: unknown) {
-    redeemError.value = e instanceof Error ? e.message : '兑换失败'
-  } finally {
-    redeemLoading.value = false
-  }
-}
-
 async function finishSubscription() {
   // Save subscription mode flag to localStorage so router guard allows entry
   const subConfig: LLMSettings = {
@@ -127,10 +133,6 @@ function skipSetup() {
   router.push('/')
 }
 
-function openPurchasePage() {
-  window.open('https://afdian.com/a/brayn', '_blank')
-}
-
 const providerLinks: Record<string, string> = {
   deepseek: 'https://platform.deepseek.com/api_keys',
   qwen: 'https://dashscope.console.aliyun.com/apiKey',
@@ -145,8 +147,9 @@ const providerLinks: Record<string, string> = {
 <template>
   <div class="setup-page mc-tex-dirt">
     <div class="setup-container">
-      <img src="/images/logo.png" alt="Minecraft BE AI 命令生成器" class="setup-logo" />
-      <p class="setup-subtitle">首次使用，请配置 AI 模型</p>
+      <img src="/images/logo.png" alt="CommandCraft — AI 命令生成器" class="setup-logo" />
+      <h1 class="setup-title">CommandCraft</h1>
+      <p class="setup-subtitle">Minecraft 命令 AI 生成器 — 首次使用请配置模型</p>
 
       <div class="steps-indicator">
         <span
@@ -232,47 +235,37 @@ const providerLinks: Record<string, string> = {
         </div>
       </div>
 
-      <!-- Step 2 (Subscription mode): Redeem Code -->
+      <!-- Step 2 (Subscription mode): Pick a plan and pay -->
       <div v-if="step === 2 && subscriptionMode" class="step-content">
         <h2 class="step-heading">使用订阅</h2>
+        <p class="sub-desc">
+          微信扫码付款，付款备注填写订单号，订阅自动激活。
+        </p>
 
-        <div class="sub-section">
-          <p class="sub-desc">
-            在爱发电购买兑换码，即可使用开发者提供的 DeepSeek 模型，无需自行配置 API Key。
-          </p>
-          <McButton variant="primary" @click="openPurchasePage">
-            前往爱发电购买
-          </McButton>
-        </div>
-
-        <div class="sub-section">
-          <h3 class="sub-heading">兑换码</h3>
-          <div class="redeem-row">
-            <McInput
-              :model-value="redeemCode"
-              @update:model-value="redeemCode = $event"
-              placeholder="输入兑换码"
-              class="redeem-input"
-              @keydown.enter="handleRedeem"
-            />
-            <McButton
-              variant="primary"
-              :loading="redeemLoading"
-              :disabled="!redeemCode.trim()"
-              @click="handleRedeem"
-            >
-              兑换
+        <div class="plan-cards">
+          <div
+            v-for="plan in plans"
+            :key="plan.id"
+            class="plan-card"
+            :class="{ current: subStore.isActive && subStore.status?.plan?.plan === plan.id }"
+          >
+            <div class="plan-card-name">{{ plan.name }}</div>
+            <div class="plan-card-price">¥{{ plan.price_cny }}<span class="plan-card-unit">/{{ plan.duration_days }}天</span></div>
+            <ul class="plan-card-list">
+              <li>每日 {{ plan.daily_limit }} 次</li>
+              <li>每月 {{ plan.monthly_limit }} 次</li>
+              <li v-if="plan.build_monthly > 0">Build {{ plan.build_monthly }} 次/月</li>
+              <li v-else class="dim">不含 Build 模式</li>
+            </ul>
+            <McButton variant="primary" class="plan-card-btn" @click="startSubscribe(plan)">
+              立即订阅
             </McButton>
           </div>
-          <div v-if="redeemError" class="msg-error">{{ redeemError }}</div>
-          <div v-if="redeemSuccess" class="msg-success">{{ redeemSuccess }}</div>
         </div>
 
-        <div v-if="subStore.isActive" class="sub-section">
-          <div class="status-active">
-            <div class="plan-badge">{{ subStore.planName }}</div>
-            <span class="status-hint">订阅已激活，可以开始使用</span>
-          </div>
+        <div v-if="subStore.isActive" class="sub-section status-active">
+          <div class="plan-badge">{{ subStore.planName }}</div>
+          <span class="status-hint">订阅已激活，可以开始使用</span>
         </div>
 
         <div class="step-actions">
@@ -363,6 +356,13 @@ const providerLinks: Record<string, string> = {
         </div>
       </div>
     </div>
+    <AuthModal v-model:show="authStore.showAuthModal" />
+    <PaymentDialog
+      v-model:show="paymentDialog.show"
+      :plan-id="paymentDialog.planId"
+      :plan-name="paymentDialog.planName"
+      :amount="paymentDialog.amount"
+    />
   </div>
 </template>
 
@@ -386,11 +386,20 @@ const providerLinks: Record<string, string> = {
 
 .setup-logo {
   display: block;
-  margin: 0 auto 2px;
-  max-width: 280px;
-  width: 100%;
-  height: auto;
+  margin: 0 auto 8px;
+  width: 96px;
+  height: 96px;
   image-rendering: pixelated;
+  border-radius: 8px;
+}
+
+.setup-title {
+  text-align: center;
+  font-family: var(--mc-font-title);
+  font-size: 22px;
+  color: var(--mc-gold);
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+  margin: 0 0 4px;
 }
 
 .setup-subtitle {
@@ -551,26 +560,70 @@ const providerLinks: Record<string, string> = {
   line-height: 1.5;
 }
 
-.redeem-row {
-  display: flex;
+.plan-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
-  align-items: flex-start;
+  margin-bottom: 12px;
 }
 
-.redeem-input {
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 2px solid var(--mc-border);
+  background: var(--mc-bg-main);
+  transition: border-color 150ms;
+}
+
+.plan-card:hover {
+  border-color: var(--mc-gold);
+}
+
+.plan-card.current {
+  border-color: var(--mc-green);
+  background: rgba(85, 255, 85, 0.06);
+}
+
+.plan-card-name {
+  font-family: var(--mc-font-title);
+  font-size: 13px;
+  color: var(--mc-gold);
+}
+
+.plan-card-price {
+  font-family: var(--mc-font-mono);
+  font-size: 18px;
+  color: var(--mc-text-primary);
+  font-weight: bold;
+}
+
+.plan-card-unit {
+  font-size: 10px;
+  color: var(--mc-text-dim);
+  font-weight: normal;
+  margin-left: 3px;
+}
+
+.plan-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--mc-text-secondary);
   flex: 1;
 }
 
-.msg-error {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--mc-red);
+.plan-card-list .dim {
+  color: var(--mc-text-dim);
 }
 
-.msg-success {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--mc-green);
+.plan-card-btn {
+  width: 100%;
 }
 
 .status-active {
@@ -711,13 +764,17 @@ const providerLinks: Record<string, string> = {
   .provider-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .plan-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Landscape compact: short viewport */
 @media (max-height: 500px) {
   .setup-logo {
-    max-width: 160px;
-    margin-bottom: 0;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 4px;
   }
   .setup-subtitle {
     margin-bottom: 6px;

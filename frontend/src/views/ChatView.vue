@@ -1,63 +1,66 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
+import { ref, computed, onBeforeUnmount, onMounted } from 'vue'
 import { McNav, McButton, McInput, McModal } from '@/components/mc-ui'
 import ChatPanel from '@/components/ChatPanel.vue'
+import BuildPanel from '@/components/BuildPanel.vue'
 import HistoryPanel from '@/components/HistoryPanel.vue'
 import ExportDialog from '@/components/ExportDialog.vue'
 import ModelStatus from '@/components/ModelStatus.vue'
 import SettingsModal from '@/components/SettingsModal.vue'
+import AuthModal from '@/components/AuthModal.vue'
 import McCommandEditor from '@/editor/McCommandEditor.vue'
 import { useChatStore } from '@/stores/chat'
+import { useBuildStore } from '@/stores/build'
 import { useSettingsStore } from '@/stores/settings'
 import { useSubscriptionStore } from '@/stores/subscription'
+import { useAuthStore } from '@/stores/auth'
+import { useKnowledgeCache } from '@/stores/knowledge-cache'
 import { storeToRefs } from 'pinia'
 
 const chatStore = useChatStore()
+const buildStore = useBuildStore()
 const settingsStore = useSettingsStore()
 const subStore = useSubscriptionStore()
+const authStore = useAuthStore()
+const knowledgeCache = useKnowledgeCache()
 const { messages, isLoading } = storeToRefs(chatStore)
+const { canBuild } = storeToRefs(buildStore)
+
+// --- Edition toggle ---
+const edition = ref<'bedrock' | 'java'>(
+  (localStorage.getItem('mc-edition') as 'bedrock' | 'java') || 'bedrock'
+)
+
+function toggleEdition() {
+  edition.value = edition.value === 'bedrock' ? 'java' : 'bedrock'
+  localStorage.setItem('mc-edition', edition.value)
+  knowledgeCache.reload(edition.value)
+}
 
 const showSettings = ref(false)
 const settingsInitialTab = ref<'model' | 'subscription'>('model')
 const showConfigPrompt = ref(false)
 
+// Check auth session on mount
+onMounted(() => {
+  authStore.checkSession()
+})
+
 const inputText = ref('')
 const showHistory = ref(false)
 const showExport = ref(false)
+const showBuild = ref(false)
 const mobileTab = ref<'chat' | 'editor'>('chat')
 
-// --- Mobile navbar auto-hide ---
+// --- Mobile navbar toggle via menu button ---
 const navHidden = ref(true)
-let navHideTimer: ReturnType<typeof setTimeout> | null = null
-let touchStartY = 0
-let touchStartX = 0
 
-function onTouchStart(e: TouchEvent) {
-  touchStartY = e.touches[0].clientY
-  touchStartX = e.touches[0].clientX
+function toggleNav() {
+  navHidden.value = !navHidden.value
 }
 
-function onTouchEnd(e: TouchEvent) {
-  const dy = e.changedTouches[0].clientY - touchStartY
-  const dx = Math.abs(e.changedTouches[0].clientX - touchStartX)
-  if (dx > Math.abs(dy)) return
-
-  if (dy > 30 && touchStartY < 40) {
-    navHidden.value = false
-    resetNavHideTimer()
-  } else if (dy < -30 && !navHidden.value) {
-    navHidden.value = true
-    clearNavHideTimer()
-  }
-}
-
-function resetNavHideTimer() {
-  clearNavHideTimer()
-  navHideTimer = setTimeout(() => { navHidden.value = true }, 3000)
-}
-
-function clearNavHideTimer() {
-  if (navHideTimer) { clearTimeout(navHideTimer); navHideTimer = null }
+function hideNav() {
+  navHidden.value = true
 }
 
 // --- Draggable divider ---
@@ -89,17 +92,9 @@ function onDividerMouseUp() {
   localStorage.setItem(EDITOR_WIDTH_KEY, String(editorWidth.value))
 }
 
-onMounted(() => {
-  document.addEventListener('touchstart', onTouchStart, { passive: true })
-  document.addEventListener('touchend', onTouchEnd, { passive: true })
-})
-
 onBeforeUnmount(() => {
   document.removeEventListener('mousemove', onDividerMouseMove)
   document.removeEventListener('mouseup', onDividerMouseUp)
-  document.removeEventListener('touchstart', onTouchStart)
-  document.removeEventListener('touchend', onTouchEnd)
-  clearNavHideTimer()
 })
 
 async function handleSend() {
@@ -129,6 +124,11 @@ function handleKeydown(e: KeyboardEvent) {
     e.preventDefault()
     handleSend()
   }
+}
+
+function handleExample(text: string) {
+  inputText.value = text
+  handleSend()
 }
 
 function handleClearChat() {
@@ -163,10 +163,22 @@ const latestProjectMessage = computed(() => {
     :class="{ [`mobile-${mobileTab}`]: true, 'is-dragging': isDragging, 'nav-hidden': navHidden }"
     :style="{ gridTemplateColumns: gridColumns }"
   >
+    <!-- Mobile menu button (visible only on mobile when nav is hidden) -->
+    <button v-if="navHidden && mobileTab === 'chat'" class="mobile-menu-btn" @click.stop="toggleNav">☰</button>
+    <!-- Mobile backdrop (click to close nav) -->
+    <div v-if="!navHidden" class="mobile-nav-backdrop" @click="hideNav" />
+
     <!-- Row 1: Navbar -->
-    <McNav class="nav-bar" @click="resetNavHideTimer">
+    <McNav class="nav-bar">
       <div class="nav-left">
         <img src="/images/logo.png" alt="CommandCraft" class="nav-logo" />
+        <span class="nav-title">CommandCraft</span>
+      </div>
+      <div class="nav-center">
+        <button class="edition-toggle" @click="toggleEdition" :title="edition === 'bedrock' ? '切换到 Java 版' : '切换到基岩版'">
+          <span :class="['edition-chip', { active: edition === 'bedrock' }]">基岩版</span>
+          <span :class="['edition-chip', { active: edition === 'java' }]">Java版</span>
+        </button>
       </div>
       <div class="nav-right">
         <ModelStatus @open-settings="openSettings('model')" />
@@ -174,7 +186,15 @@ const latestProjectMessage = computed(() => {
           设置
         </McButton>
         <McButton size="small" @click="showHistory = true">
-          历史记录
+          历史
+        </McButton>
+        <McButton
+          v-if="canBuild"
+          size="small"
+          @click="showBuild = !showBuild"
+          :class="{ 'btn-active': showBuild }"
+        >
+          构建
         </McButton>
         <McButton
           v-if="latestCommandMessage || latestProjectMessage"
@@ -190,12 +210,28 @@ const latestProjectMessage = computed(() => {
         >
           新对话
         </McButton>
+        <McButton
+          v-if="authStore.isLoggedIn"
+          size="small"
+          class="user-btn"
+          @click="authStore.logout()"
+        >
+          {{ authStore.username }}
+        </McButton>
+        <McButton
+          v-else
+          size="small"
+          @click="authStore.showAuthModal = true"
+        >
+          登录
+        </McButton>
       </div>
     </McNav>
 
-    <!-- Row 2: Chat panel -->
+    <!-- Row 2: Chat or Build panel -->
     <div class="chat-area mc-tex-dirt">
-      <ChatPanel />
+      <BuildPanel v-if="showBuild" />
+      <ChatPanel v-else @example="handleExample" />
     </div>
 
     <!-- Row 2: Divider (drag to resize) -->
@@ -224,19 +260,21 @@ const latestProjectMessage = computed(() => {
       </button>
     </div>
 
-    <!-- Row 3: Input bar -->
-    <div class="input-bar mc-tex-dark-oak">
+    <!-- Row 3: Input bar (hidden in build mode) -->
+    <div v-if="!showBuild" class="input-bar mc-tex-dark-oak">
       <div class="input-container">
-        <McInput
-          :model-value="inputText"
-          type="textarea"
-          :autosize="{ minRows: 1, maxRows: 4 }"
-          placeholder="输入你的命令需求..."
-          :disabled="isLoading"
-          @update:model-value="inputText = $event"
-          @keydown="handleKeydown"
-          class="input-field"
-        />
+        <div class="input-wrapper">
+          <McInput
+            :model-value="inputText"
+            type="textarea"
+            :autosize="{ minRows: 1, maxRows: 4 }"
+            placeholder="输入你的命令需求..."
+            :disabled="isLoading"
+            @update:model-value="inputText = $event"
+            @keydown="handleKeydown"
+            class="input-field"
+          />
+        </div>
         <McButton
           variant="primary"
           :loading="isLoading"
@@ -256,6 +294,7 @@ const latestProjectMessage = computed(() => {
       :project="latestProjectMessage?.project"
     />
     <SettingsModal v-model:show="showSettings" :initial-tab="settingsInitialTab" />
+    <AuthModal v-model:show="authStore.showAuthModal" />
 
     <!-- Config prompt for unconfigured users -->
     <McModal :show="showConfigPrompt" @update:show="showConfigPrompt = $event">
@@ -267,7 +306,7 @@ const latestProjectMessage = computed(() => {
         <p class="config-prompt-hint">命令编辑器无需配置，可继续使用。</p>
         <div class="config-prompt-actions">
           <McButton @click="showConfigPrompt = false">取消</McButton>
-          <McButton @click="showConfigPrompt = false; openSettings('subscription')">
+          <McButton @click="showConfigPrompt = false; authStore.isLoggedIn ? openSettings('subscription') : (authStore.showAuthModal = true)">
             使用订阅
           </McButton>
           <McButton variant="primary" @click="showConfigPrompt = false; openSettings('model')">
@@ -301,18 +340,80 @@ const latestProjectMessage = computed(() => {
 .nav-left {
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .nav-logo {
-  height: 36px;
-  width: auto;
+  height: 32px;
+  width: 32px;
   image-rendering: pixelated;
+  border-radius: 4px;
+}
+
+.nav-title {
+  font-family: var(--mc-font-title);
+  font-size: 15px;
+  color: var(--mc-gold);
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-right {
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-shrink: 0;
+}
+
+.edition-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: 2px solid var(--mc-border);
+  cursor: pointer;
+  background: transparent;
+  overflow: hidden;
+}
+
+.edition-toggle:hover {
+  border-color: var(--mc-gold);
+}
+
+.edition-chip {
+  font-family: var(--mc-font-title);
+  font-size: 12px;
+  padding: 3px 10px;
+  color: var(--mc-text-dim);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.edition-chip.active {
+  color: #fff;
+  background: rgba(255, 170, 0, 0.25);
+  color: var(--mc-gold);
+}
+
+:deep(.btn-active.mc-btn) {
+  border-color: var(--mc-gold);
+  color: var(--mc-gold);
+}
+
+:deep(.user-btn.mc-btn) {
+  color: var(--mc-green);
+  border-color: var(--mc-green);
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 /* Row 2: Chat area */
@@ -334,9 +435,9 @@ const latestProjectMessage = computed(() => {
   overflow: hidden;
 }
 
-/* Row 3: Input bar spans all columns */
+/* Row 3: Input bar — only chat column on desktop */
 .input-bar {
-  grid-column: 1 / -1;
+  grid-column: 1 / 2;
   padding: 12px 20px;
   border-top: 2px solid var(--mc-border);
   flex-shrink: 0;
@@ -349,14 +450,26 @@ const latestProjectMessage = computed(() => {
   max-width: 100%;
 }
 
+.input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
 .input-field {
   flex: 1;
+  width: 100%;
 }
 
 /* Mobile tab bar — hidden on desktop */
 .mobile-tabs {
   display: none;
   grid-column: 1 / -1;
+}
+
+/* Mobile menu button & backdrop — hidden on desktop */
+.mobile-menu-btn,
+.mobile-nav-backdrop {
+  display: none;
 }
 
 /* ===== Mobile Responsive ===== */
@@ -367,6 +480,41 @@ const latestProjectMessage = computed(() => {
     grid-template-rows: 1fr auto auto;
     height: 100dvh;
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Persistent menu button */
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 6px;
+    left: 6px;
+    z-index: 99;
+    width: 32px;
+    height: 32px;
+    border: 2px solid var(--mc-border);
+    border-radius: 4px;
+    background: var(--mc-bg-card);
+    color: var(--mc-text-primary);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .mobile-menu-btn:active {
+    opacity: 1;
+  }
+
+  /* Backdrop to close nav */
+  .mobile-nav-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.3);
   }
 
   /* Navbar: fixed top, slide in/out via nav-hidden */
@@ -381,8 +529,50 @@ const latestProjectMessage = computed(() => {
   .app-layout.nav-hidden .nav-bar {
     transform: translateY(-100%);
   }
-  .nav-logo { height: 28px; }
-  .nav-right { gap: 4px; }
+
+  /* Hide title text on mobile, keep logo */
+  .nav-left {
+    gap: 4px;
+    order: 1;
+  }
+  .nav-title { display: none; }
+  .nav-logo {
+    height: 26px;
+    width: 26px;
+  }
+
+  /* Edition toggle: centered in first row */
+  .nav-center {
+    order: 2;
+  }
+  .edition-toggle {
+    border-width: 1px;
+  }
+  .edition-chip {
+    font-size: 11px;
+    padding: 2px 7px;
+  }
+
+  /* Nav right: second row, full width, scroll horizontally */
+  .nav-right {
+    order: 3;
+    width: 100%;
+    gap: 4px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    padding-bottom: 2px;
+  }
+  .nav-right::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-right :deep(.mc-btn) {
+    font-size: 11px;
+    padding: 2px 6px;
+    min-height: unset;
+    flex-shrink: 0;
+  }
 
   /* Hide divider */
   .panel-divider { display: none; }

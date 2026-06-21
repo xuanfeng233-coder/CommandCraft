@@ -17,6 +17,92 @@ import type {
   SubcommandTree,
 } from './types'
 
+/**
+ * Infer parameter type from name when no explicit type is given (common in Java Edition).
+ * E.g. `<pos>` → 'x y z', `<target>` → 'target', `<nbt>` → 'compound_tag'
+ */
+const PARAM_NAME_TYPE_MAP: Record<string, string> = {
+  // Coordinates
+  pos: 'x y z',
+  position: 'x y z',
+  begin: 'x y z',
+  end: 'x y z',
+  start: 'x y z',
+  from: 'x y z',
+  to: 'x y z',
+  destination: 'x y z',
+  origin: 'x y z',
+  center: 'x z',
+  delta: 'dx dy dz',
+  rotation: 'yaw pitch',
+  // Targets / entities
+  target: 'target',
+  targets: 'target',
+  player: 'target',
+  players: 'target',
+  entity: 'target',
+  source: 'target',
+  vehicle: 'target',
+  victim: 'target',
+  members: 'target',
+  viewers: 'target',
+  // IDs
+  block: 'block_id',
+  item: 'item_id',
+  effect: 'effect_id',
+  enchantment: 'enchantment_id',
+  biome: 'biome_id',
+  structure: 'Structure',
+  feature: 'Structure',
+  particle: 'particle_id',
+  sound: 'sound_id',
+  attribute: 'attribute_id',
+  recipe: 'resource_location',
+  advancement: 'resource_location',
+  id: 'resource_location',
+  nbt: 'compound_tag',
+  // Enums
+  gamemode: 'GameMode',
+  difficulty: 'Difficulty',
+  dimension: 'dimension',
+  anchor: 'anchor',
+  slot: 'item_slot',
+  operation: 'operator',
+  // Strings
+  name: 'string',
+  path: 'string',
+  objective: 'string',
+  criteria: 'string',
+  criterion: 'string',
+  message: 'message',
+  reason: 'message',
+  team: 'string',
+  tag: 'string',
+  // Numbers
+  distance: 'float',
+  amount: 'int',
+  count: 'int',
+  scale: 'float',
+  time: 'int',
+  value: 'int',
+  level: 'int',
+  max: 'int',
+  rate: 'float',
+  damage: 'float',
+  speed: 'float',
+  volume: 'float',
+  pitch: 'float',
+  // Booleans
+  visible: 'boolean',
+  // Special
+  command: 'Command',
+  filter: 'block_predicate',
+}
+
+function inferParamType(name: string): string {
+  return PARAM_NAME_TYPE_MAP[name.toLowerCase()] ?? 'string'
+}
+
 /** Token types from tokenizing a subcommand name field */
 type NameToken =
   | { kind: 'word'; value: string }
@@ -50,7 +136,7 @@ export function tokenizeSubcommandName(name: string): NameToken[] {
           required: true,
         })
       } else {
-        tokens.push({ kind: 'param', name: inner, type: 'string', required: true })
+        tokens.push({ kind: 'param', name: inner, type: inferParamType(inner), required: true })
       }
       i = end + 1
       continue
@@ -70,7 +156,7 @@ export function tokenizeSubcommandName(name: string): NameToken[] {
           required: false,
         })
       } else {
-        tokens.push({ kind: 'param', name: inner, type: 'string', required: false })
+        tokens.push({ kind: 'param', name: inner, type: inferParamType(inner), required: false })
       }
       i = end + 1
       continue
@@ -116,8 +202,13 @@ export function parseSubcommandName(
           keywords.push(token.value)
         }
       } else {
-        // Words after params are literal keywords (e.g. "dummy" in scoreboard)
-        params.push({ name: token.value, type: 'literal', required: true, options: [token.value] })
+        // Words after params — check for pipe-separated options
+        if (token.value.includes('|')) {
+          const options = token.value.split('|').map((o) => o.trim()).filter(Boolean)
+          params.push({ name: token.value, type: 'literal', required: true, options })
+        } else {
+          params.push({ name: token.value, type: 'literal', required: true, options: [token.value] })
+        }
       }
     } else {
       hitParam = true

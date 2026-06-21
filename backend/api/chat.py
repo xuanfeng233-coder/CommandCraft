@@ -9,6 +9,7 @@ from typing import Any, AsyncGenerator
 from fastapi import APIRouter, HTTPException, Request
 from sse_starlette.sse import EventSourceResponse
 
+from backend.auth.dependencies import OwnerContext, get_owner_context
 from backend.config import MAX_CONTEXT_MESSAGES, SUBSCRIPTION_ENABLED
 from backend.models.database import session_db
 from backend.models.schemas import ChatRequest
@@ -21,7 +22,7 @@ router = APIRouter(prefix="/api", tags=["chat"])
 
 async def _event_generator(
     request: ChatRequest,
-    device_fp: str = "",
+    owner: OwnerContext,
 ) -> AsyncGenerator[dict[str, Any], None]:
     """Wrap orchestrator output into SSE-formatted events."""
     # --- Decide which LLM client to use ---
@@ -30,7 +31,7 @@ async def _event_generator(
     use_subscription = False
     sub_exhausted_reason = ""
 
-    if device_fp and SUBSCRIPTION_ENABLED:
+    if (owner.user_id is not None or owner.device_fp) and SUBSCRIPTION_ENABLED:
         from backend.subscription.database import subscription_db
         from backend.subscription.llm_context import (
             is_subscription_client_ready,
@@ -38,13 +39,15 @@ async def _event_generator(
         )
 
         if is_subscription_client_ready():
-            limits = await subscription_db.check_limits(device_fp)
+            limits = await subscription_db.check_limits(
+                device_fp=owner.device_fp, user_id=owner.user_id,
+            )
             if limits.get("allowed"):
                 sub_token = set_subscription_context()
                 use_subscription = True
                 logger.info(
                     "Subscription active for %s: plan=%s usage=%s/%s",
-                    device_fp[:8],
+                    owner.log_id(),
                     limits.get("plan_name"),
                     limits.get("daily_used"),
                     limits.get("daily_limit"),
@@ -53,7 +56,7 @@ async def _event_generator(
                 sub_exhausted_reason = limits.get("reason", "")
                 logger.info(
                     "Subscription exhausted for %s: reason=%s",
-                    device_fp[:8], sub_exhausted_reason,
+                    owner.log_id(), sub_exhausted_reason,
                 )
 
     # Fallback: check if user's own API key is available
@@ -81,6 +84,9 @@ async def _event_generator(
     if not session_id:
         session_id = await session_db.create_session(
             title=request.message[:50],
+            device_fp=owner.device_fp,
+            user_id=owner.user_id,
+            edition=request.edition or "bedrock",
         )
 
     # Save user message
@@ -105,6 +111,7 @@ async def _event_generator(
             session_context=context,
             session_id=session_id,
             task_id=request.task_id,
+            edition=request.edition,
         ):
             event_type = event.get("event", "content")
             data = event.get("data", {})
@@ -126,6 +133,7 @@ async def _event_generator(
         msg_type = collected_result.get("type", "")
         command = collected_result.get("command")
         questions = collected_result.get("questions")
+        project = collected_result.get("project")
         content = collected_result.get("message", "")
         await session_db.add_message(
             session_id=session_id,
@@ -134,14 +142,17 @@ async def _event_generator(
             msg_type=msg_type or None,
             command=command,
             questions=questions,
+            project=project,
             thinking=collected_thinking or None,
         )
 
         # Increment subscription usage after successful stream
-        if use_subscription and device_fp:
+        if use_subscription and (owner.user_id is not None or owner.device_fp):
             try:
                 from backend.subscription.database import subscription_db
-                await subscription_db.increment_usage(device_fp)
+                await subscription_db.increment_usage(
+                    device_fp=owner.device_fp, user_id=owner.user_id,
+                )
             except Exception:
                 logger.warning("Failed to increment subscription usage", exc_info=True)
 
@@ -163,10 +174,10 @@ async def chat(request: ChatRequest, raw_request: Request):
     if not request.message.strip():
         raise HTTPException(status_code=400, detail="消息不能为空")
 
-    device_fp = raw_request.headers.get("X-Device-Fp", "")
+    owner = await get_owner_context(raw_request)
 
     return EventSourceResponse(
-        _event_generator(request, device_fp=device_fp),
+        _event_generator(request, owner=owner),
         media_type="text/event-stream",
     )
 
@@ -175,26 +186,38 @@ async def chat(request: ChatRequest, raw_request: Request):
 
 
 @router.get("/chat/history")
-async def list_sessions(limit: int = 50):
-    """List recent chat sessions."""
-    sessions = await session_db.list_sessions(limit)
+async def list_sessions(raw_request: Request, limit: int = 50):
+    """List recent chat sessions for the current user/device."""
+    owner = await get_owner_context(raw_request)
+    sessions = await session_db.list_sessions(
+        device_fp=owner.device_fp, limit=limit, user_id=owner.user_id,
+    )
     return {"sessions": sessions}
 
 
 @router.get("/chat/{session_id}")
-async def get_session(session_id: str):
+async def get_session(session_id: str, raw_request: Request):
     """Get a session and its messages."""
+    owner = await get_owner_context(raw_request)
     session = await session_db.get_session(session_id)
     if not session:
+        raise HTTPException(status_code=404, detail="会话不存在")
+    # Verify ownership
+    if not await session_db.check_session_ownership(
+        session_id, owner.user_id, owner.device_fp,
+    ):
         raise HTTPException(status_code=404, detail="会话不存在")
     messages = await session_db.get_messages(session_id)
     return {"session": session, "messages": messages}
 
 
 @router.delete("/chat/{session_id}")
-async def delete_session(session_id: str):
+async def delete_session(session_id: str, raw_request: Request):
     """Delete a session and its messages."""
-    deleted = await session_db.delete_session(session_id)
+    owner = await get_owner_context(raw_request)
+    deleted = await session_db.delete_session(
+        session_id, device_fp=owner.device_fp, user_id=owner.user_id,
+    )
     if not deleted:
         raise HTTPException(status_code=404, detail="会话不存在")
     return {"success": True}

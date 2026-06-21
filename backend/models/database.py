@@ -15,6 +15,7 @@ _CREATE_TABLES = """
 CREATE TABLE IF NOT EXISTS sessions (
     id TEXT PRIMARY KEY,
     title TEXT NOT NULL DEFAULT '',
+    device_fp TEXT NOT NULL DEFAULT '',
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL
 );
@@ -27,6 +28,7 @@ CREATE TABLE IF NOT EXISTS messages (
     msg_type TEXT DEFAULT NULL,
     command_json TEXT DEFAULT NULL,
     questions_json TEXT DEFAULT NULL,
+    project_json TEXT DEFAULT NULL,
     thinking TEXT DEFAULT NULL,
     created_at TEXT NOT NULL,
     FOREIGN KEY (session_id) REFERENCES sessions(id) ON DELETE CASCADE
@@ -53,6 +55,50 @@ class SessionDB:
         await self._db.execute("PRAGMA foreign_keys=ON")
         await self._db.executescript(_CREATE_TABLES)
         await self._db.commit()
+        # Migrate: add project_json column if missing (for existing databases)
+        try:
+            await self._db.execute(
+                "ALTER TABLE messages ADD COLUMN project_json TEXT DEFAULT NULL"
+            )
+            await self._db.commit()
+        except Exception:
+            pass  # Column already exists
+        # Migrate: add device_fp column if missing
+        try:
+            await self._db.execute(
+                "ALTER TABLE sessions ADD COLUMN device_fp TEXT NOT NULL DEFAULT ''"
+            )
+            await self._db.commit()
+        except Exception:
+            pass  # Column already exists
+        # Migrate: add user_id column for account system
+        try:
+            await self._db.execute(
+                "ALTER TABLE sessions ADD COLUMN user_id INTEGER DEFAULT NULL"
+            )
+            await self._db.commit()
+        except Exception:
+            pass
+        await self._db.execute(
+            "CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id)"
+        )
+        await self._db.commit()
+        # Migrate: add edition column (bedrock/java)
+        try:
+            await self._db.execute(
+                "ALTER TABLE sessions ADD COLUMN edition TEXT NOT NULL DEFAULT 'bedrock'"
+            )
+            await self._db.commit()
+        except Exception:
+            pass
+        # Migrate: add mode column (chat/build)
+        try:
+            await self._db.execute(
+                "ALTER TABLE sessions ADD COLUMN mode TEXT NOT NULL DEFAULT 'chat'"
+            )
+            await self._db.commit()
+        except Exception:
+            pass
 
     async def close(self) -> None:
         if self._db:
@@ -66,12 +112,19 @@ class SessionDB:
 
     # --- Sessions ---
 
-    async def create_session(self, title: str = "") -> str:
+    async def create_session(
+        self,
+        title: str = "",
+        device_fp: str = "",
+        user_id: int | None = None,
+        edition: str = "bedrock",
+        mode: str = "chat",
+    ) -> str:
         session_id = uuid.uuid4().hex[:12]
         now = _now_iso()
         await self.db.execute(
-            "INSERT INTO sessions (id, title, created_at, updated_at) VALUES (?, ?, ?, ?)",
-            (session_id, title, now, now),
+            "INSERT INTO sessions (id, title, device_fp, user_id, edition, mode, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            (session_id, title, device_fp, user_id, edition, mode, now, now),
         )
         await self.db.commit()
         return session_id
@@ -85,17 +138,46 @@ class SessionDB:
             return None
         return dict(row)
 
-    async def list_sessions(self, limit: int = 50) -> list[dict[str, Any]]:
-        cursor = await self.db.execute(
-            "SELECT * FROM sessions ORDER BY updated_at DESC LIMIT ?", (limit,)
-        )
+    async def list_sessions(
+        self,
+        device_fp: str = "",
+        limit: int = 50,
+        user_id: int | None = None,
+    ) -> list[dict[str, Any]]:
+        if user_id is not None:
+            cursor = await self.db.execute(
+                "SELECT * FROM sessions WHERE user_id = ? ORDER BY updated_at DESC LIMIT ?",
+                (user_id, limit),
+            )
+        elif device_fp:
+            cursor = await self.db.execute(
+                "SELECT * FROM sessions WHERE device_fp = ? AND user_id IS NULL ORDER BY updated_at DESC LIMIT ?",
+                (device_fp, limit),
+            )
+        else:
+            cursor = await self.db.execute(
+                "SELECT * FROM sessions ORDER BY updated_at DESC LIMIT ?", (limit,)
+            )
         rows = await cursor.fetchall()
         return [dict(r) for r in rows]
 
-    async def delete_session(self, session_id: str) -> bool:
-        cursor = await self.db.execute(
-            "DELETE FROM sessions WHERE id = ?", (session_id,)
-        )
+    async def delete_session(
+        self, session_id: str, device_fp: str = "", user_id: int | None = None,
+    ) -> bool:
+        if user_id is not None:
+            cursor = await self.db.execute(
+                "DELETE FROM sessions WHERE id = ? AND user_id = ?",
+                (session_id, user_id),
+            )
+        elif device_fp:
+            cursor = await self.db.execute(
+                "DELETE FROM sessions WHERE id = ? AND device_fp = ?",
+                (session_id, device_fp),
+            )
+        else:
+            cursor = await self.db.execute(
+                "DELETE FROM sessions WHERE id = ?", (session_id,)
+            )
         await self.db.commit()
         return cursor.rowcount > 0
 
@@ -113,6 +195,33 @@ class SessionDB:
         )
         await self.db.commit()
 
+    async def check_session_ownership(
+        self, session_id: str, user_id: int | None, device_fp: str,
+    ) -> bool:
+        """Check if the session belongs to the given owner."""
+        session = await self.get_session(session_id)
+        if not session:
+            return False
+        if user_id is not None:
+            return session.get("user_id") == user_id
+        # Anonymous: match by device_fp
+        return (
+            not session.get("device_fp")
+            or not device_fp
+            or session["device_fp"] == device_fp
+        )
+
+    async def cleanup_by_user_ids(self, user_ids: list[int]) -> int:
+        """Delete all sessions (and cascade messages) for given user_ids."""
+        if not user_ids:
+            return 0
+        placeholders = ",".join("?" for _ in user_ids)
+        cursor = await self.db.execute(
+            f"DELETE FROM sessions WHERE user_id IN ({placeholders})", user_ids
+        )
+        await self.db.commit()
+        return cursor.rowcount
+
     # --- Messages ---
 
     async def add_message(
@@ -123,13 +232,14 @@ class SessionDB:
         msg_type: str | None = None,
         command: dict | None = None,
         questions: list[dict] | None = None,
+        project: dict | None = None,
         thinking: str | None = None,
     ) -> int:
         now = _now_iso()
         cursor = await self.db.execute(
             """INSERT INTO messages
-               (session_id, role, content, msg_type, command_json, questions_json, thinking, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+               (session_id, role, content, msg_type, command_json, questions_json, project_json, thinking, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (
                 session_id,
                 role,
@@ -137,6 +247,7 @@ class SessionDB:
                 msg_type,
                 json.dumps(command, ensure_ascii=False) if command else None,
                 json.dumps(questions, ensure_ascii=False) if questions else None,
+                json.dumps(project, ensure_ascii=False) if project else None,
                 thinking,
                 now,
             ),
@@ -164,8 +275,13 @@ class SessionDB:
                 d["questions"] = json.loads(d["questions_json"])
             else:
                 d["questions"] = None
+            if d.get("project_json"):
+                d["project"] = json.loads(d["project_json"])
+            else:
+                d["project"] = None
             del d["command_json"]
             del d["questions_json"]
+            d.pop("project_json", None)
             result.append(d)
         return result
 

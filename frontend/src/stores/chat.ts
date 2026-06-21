@@ -8,12 +8,38 @@ function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2)
 }
 
+function getEdition(): string {
+  return localStorage.getItem('mc-edition') || 'bedrock'
+}
+
 const SESSION_KEY = 'mcbe-ai-session-id'
+const PROJECT_KEY = 'mcbe-ai-project-name'
+const SITE_TITLE = 'CommandCraft — AI命令生成器'
+
+// --- Tab notification: show 🔴 in title when generation completes while tab is hidden ---
+function notifyTabTitle() {
+  if (document.hidden) {
+    document.title = '🔴' + SITE_TITLE.slice(1)
+  }
+}
+
+function resetTabTitle() {
+  document.title = SITE_TITLE
+}
+
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) {
+    resetTabTitle()
+  }
+})
 
 export const useChatStore = defineStore('chat', () => {
   const messages = ref<ChatMessage[]>([])
   const sessionId = ref<string | null>(
     localStorage.getItem(SESSION_KEY)
+  )
+  const currentProject = ref<string | null>(
+    localStorage.getItem(PROJECT_KEY)
   )
   const isLoading = ref(false)
   const currentThinking = ref('')
@@ -43,7 +69,19 @@ export const useChatStore = defineStore('chat', () => {
     return msg
   }
 
+  // When resuming a paused task, we need to update the message that owns
+  // the subTasks list, not the latest assistant message.
+  let _resumeTargetId: string | null = null
+
   function updateLastAssistant(updater: (msg: ChatMessage) => void) {
+    // If resuming, target the specific message that has subTasks
+    if (_resumeTargetId) {
+      const target = messages.value.find((m) => m.id === _resumeTargetId)
+      if (target) {
+        updater(target)
+        return
+      }
+    }
     for (let i = messages.value.length - 1; i >= 0; i--) {
       if (messages.value[i].role === 'assistant') {
         updater(messages.value[i])
@@ -61,7 +99,21 @@ export const useChatStore = defineStore('chat', () => {
     currentStep.value = ''
 
     addUserMessage(text)
-    createAssistantPlaceholder()
+
+    // Resume mode: find the existing message with subTasks instead of creating
+    // a new placeholder. This keeps the task progress UI intact.
+    if (taskId) {
+      for (let i = messages.value.length - 1; i >= 0; i--) {
+        const m = messages.value[i]
+        if (m.role === 'assistant' && m.subTasks && m.subTasks.length > 0) {
+          _resumeTargetId = m.id
+          break
+        }
+      }
+    } else {
+      _resumeTargetId = null
+      createAssistantPlaceholder()
+    }
 
     abortController = new AbortController()
 
@@ -135,6 +187,7 @@ export const useChatStore = defineStore('chat', () => {
                     questions: result.questions as ParameterQuestion[],
                     current_progress: result.current_progress as string | undefined,
                   }
+                  notifyTabTitle()
                 } else if (resultType === 'project') {
                   // Don't auto-insert here — wait for final summary to insert all at once
                   task.result = { type: 'project' }
@@ -217,6 +270,7 @@ export const useChatStore = defineStore('chat', () => {
                 if (data.template) {
                   msg.template = data.template as CommandTemplate
                 }
+                notifyTabTitle()
               } else if (msgType === 'project') {
                 msg.type = 'project'
                 msg.project = data.project as ProjectResult
@@ -246,6 +300,7 @@ export const useChatStore = defineStore('chat', () => {
               sessionId.value = data.session_id as string
               localStorage.setItem(SESSION_KEY, sessionId.value)
             }
+            notifyTabTitle()
           },
 
           onError(err: string) {
@@ -257,6 +312,7 @@ export const useChatStore = defineStore('chat', () => {
         },
         abortController.signal,
         taskId,
+        getEdition(),
       )
     } catch (err: unknown) {
       // Handle abort or network errors
@@ -275,13 +331,16 @@ export const useChatStore = defineStore('chat', () => {
       currentThinking.value = ''
       currentStep.value = ''
       abortController = null
+      _resumeTargetId = null
     }
   }
 
   function clearChat() {
     messages.value = []
     sessionId.value = null
+    currentProject.value = null
     localStorage.removeItem(SESSION_KEY)
+    localStorage.removeItem(PROJECT_KEY)
     isLoading.value = false
     currentThinking.value = ''
     if (abortController) {
@@ -318,6 +377,7 @@ export const useChatStore = defineStore('chat', () => {
         type: (m.msg_type as ChatMessage['type']) || undefined,
         command: m.command || undefined,
         questions: m.questions || undefined,
+        project: m.project || undefined,
         thinking: m.thinking || undefined,
         timestamp: new Date(m.created_at).getTime(),
       }))
@@ -344,6 +404,7 @@ export const useChatStore = defineStore('chat', () => {
   return {
     messages,
     sessionId,
+    currentProject,
     isLoading,
     currentThinking,
     currentStep,

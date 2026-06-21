@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://commandcraft.cn/</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://commandcraft.cn/images/og-cover.png</image:loc>
+      <image:title>CommandCraft — 我的世界 AI 命令生成器</image:title>
+      <image:caption>Minecraft 基岩版 / Java 版命令一键生成</image:caption>
+    </image:image>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://commandcraft.cn/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://commandcraft.cn/" />
+  </url>
+  <url>
+    <loc>https://commandcraft.cn/setup</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://commandcraft.cn/privacy.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://commandcraft.cn/terms.html</loc>
+    <lastmod>2026-05-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

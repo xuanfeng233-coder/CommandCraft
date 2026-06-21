@@ -173,11 +173,20 @@ export interface LLMSettings {
   setup_skipped?: boolean
 }
 
+// --- Auth Types ---
+
+export interface UserInfo {
+  user_id: number
+  username: string
+}
+
 // --- Session Types ---
 
 export interface SessionSummary {
   id: string
   title: string
+  edition?: string   // bedrock | java
+  mode?: string      // chat | build
   created_at: string
   updated_at: string
 }
@@ -190,6 +199,7 @@ export interface SessionMessage {
   msg_type: string | null
   command: CommandOutput | null
   questions: ParameterQuestion[] | null
+  project: ProjectResult | null
   thinking: string | null
   created_at: string
 }

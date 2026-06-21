@@ -18,16 +18,18 @@ export const useKnowledgeCache = defineStore('knowledge-cache', () => {
 
   const loaded = ref(false)
   const loading = ref(false)
+  const currentEdition = ref<string>('bedrock')
 
-  /** Load all knowledge data from backend (called once on editor mount) */
-  async function load() {
-    if (loaded.value || loading.value) return
+  /** Load all knowledge data from backend */
+  async function load(edition = 'bedrock') {
+    if (loaded.value && currentEdition.value === edition) return
+    if (loading.value) return
     loading.value = true
     try {
       // Fetch commands and ID categories in parallel
       const [cmds, cats] = await Promise.all([
-        fetchAllCommandSyntax(),
-        fetchIdCategories(),
+        fetchAllCommandSyntax(edition),
+        fetchIdCategories(edition),
       ])
 
       commands.value = cmds
@@ -49,7 +51,7 @@ export const useKnowledgeCache = defineStore('knowledge-cache', () => {
       // Fetch all ID data in parallel
       const idResults = await Promise.all(
         cats.map(async (cat) => {
-          const entries = await fetchIdsFull(cat)
+          const entries = await fetchIdsFull(cat, edition)
           return { cat, entries }
         })
       )
@@ -59,12 +61,24 @@ export const useKnowledgeCache = defineStore('knowledge-cache', () => {
       }
       idData.value = idMap
 
+      currentEdition.value = edition
       loaded.value = true
     } catch (err) {
       console.error('Failed to load knowledge cache:', err)
     } finally {
       loading.value = false
     }
+  }
+
+  /** Reload with a different edition (clears cache first) */
+  async function reload(edition: string) {
+    loaded.value = false
+    commands.value = []
+    commandMap.value = new Map()
+    subcommandTrees.value = new Map()
+    idData.value = new Map()
+    idCategories.value = []
+    await load(edition)
   }
 
   /** Get a command definition by name */
@@ -87,19 +101,35 @@ export const useKnowledgeCache = defineStore('knowledge-cache', () => {
     return idData.value.get(category) ?? []
   }
 
-  /** Search IDs by prefix within a category */
-  function searchIds(category: string, prefix: string, limit = 30): IdEntry[] {
+  /**
+   * Search IDs within a category. Matches against id, name, and description (Chinese).
+   * Ranking: exact match > prefix match > contains match.
+   */
+  function searchIds(category: string, query: string, limit = 30): IdEntry[] {
     const entries = getIds(category)
-    if (!prefix) return entries.slice(0, limit)
-    const lower = prefix.toLowerCase()
-    const results: IdEntry[] = []
+    if (!query) return entries.slice(0, limit)
+    const q = query.toLowerCase()
+
+    const exact: IdEntry[] = []
+    const prefix: IdEntry[] = []
+    const contains: IdEntry[] = []
+
     for (const entry of entries) {
-      if (entry.id.toLowerCase().startsWith(lower)) {
-        results.push(entry)
-        if (results.length >= limit) break
+      const id = entry.id.toLowerCase()
+      const name = (entry.name || '').toLowerCase()
+      const desc = (entry.description || '').toLowerCase()
+
+      if (id === q || name === q || desc === q) {
+        exact.push(entry)
+      } else if (id.startsWith(q) || name.startsWith(q) || desc.startsWith(q)) {
+        prefix.push(entry)
+      } else if (id.includes(q) || name.includes(q) || desc.includes(q)) {
+        contains.push(entry)
       }
     }
-    return results
+
+    const results = [...exact, ...prefix, ...contains]
+    return limit > 0 ? results.slice(0, limit) : results
   }
 
   return {
@@ -110,7 +140,9 @@ export const useKnowledgeCache = defineStore('knowledge-cache', () => {
     idCategories,
     loaded,
     loading,
+    currentEdition,
     load,
+    reload,
     getCommand,
     getCommandNames,
     getSubcommandTree,

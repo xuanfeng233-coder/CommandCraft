@@ -1,72 +1,18 @@
 /**
  * CodeMirror CompletionSource for MC commands.
  * Uses the state machine + knowledge cache for zero-latency completions.
- *
- * Features:
- * - Completion Info panels (JetBrains-style documentation beside dropdown)
- * - Deep JSON/Rawtext structural completion
- * - Frequency-based completion ranking
  */
 import type { CompletionContext, CompletionResult, Completion } from '@codemirror/autocomplete'
-import { autocompletion, pickedCompletion } from '@codemirror/autocomplete'
-import { EditorView } from '@codemirror/view'
+import { autocompletion } from '@codemirror/autocomplete'
 import { parseCursorContext } from '../state-machine/command-parser'
 import { SELECTOR_PARAM_DEFS, SELECTOR_PARAM_MAP } from '../state-machine/selector-parser'
 import type { CursorContext } from '../state-machine/types'
-import { TYPE_TO_CATEGORY, FIXED_OPTIONS } from '../constants/type-mappings'
+import { TYPE_TO_CATEGORY, FIXED_OPTIONS, getTypeToCategoryMap, getFixedOptionsMap } from '../constants/type-mappings'
 import { useKnowledgeCache } from '@/stores/knowledge-cache'
-import {
-  createCommandInfoDOM,
-  createIdInfoDOM,
-  createFixedOptionInfoDOM,
-  createSelectorParamInfoDOM,
-} from '../utils/tooltip-dom'
-import { parseJsonCursorContext } from '../utils/json-cursor-parser'
-
-// ─── Completion Frequency Tracking (Feature 6) ──────────────────────
-
-const FREQ_KEY = 'mc-completion-freq'
-const MAX_FREQ_ENTRIES = 200
-
-function getFrequencies(): Record<string, number> {
-  try {
-    return JSON.parse(localStorage.getItem(FREQ_KEY) || '{}')
-  } catch { return {} }
-}
-
-function recordAcceptance(label: string): void {
-  const freq = getFrequencies()
-  freq[label] = (freq[label] || 0) + 1
-  const entries = Object.entries(freq)
-  if (entries.length > MAX_FREQ_ENTRIES) {
-    entries.sort((a, b) => b[1] - a[1])
-    const pruned: Record<string, number> = {}
-    for (const [k, v] of entries.slice(0, MAX_FREQ_ENTRIES)) {
-      pruned[k] = v
-    }
-    localStorage.setItem(FREQ_KEY, JSON.stringify(pruned))
-  } else {
-    localStorage.setItem(FREQ_KEY, JSON.stringify(freq))
-  }
-}
-
-function freqBoost(label: string): number {
-  const freq = getFrequencies()
-  return Math.min((freq[label] || 0) * 2, 50)
-}
-
-/** Update listener that tracks accepted completions */
-export const completionFrequencyTracker = EditorView.updateListener.of((update) => {
-  for (const tr of update.transactions) {
-    const picked = tr.annotation(pickedCompletion)
-    if (picked) {
-      recordAcceptance(picked.label)
-    }
-  }
-})
+import { completeNbt } from './nbt-completion'
 
 /** The main completion source */
-function mcCompletionSource(context: CompletionContext): CompletionResult | null {
+async function mcCompletionSource(context: CompletionContext): Promise<CompletionResult | null> {
   try {
     const cache = useKnowledgeCache()
     if (!cache.loaded) return null
@@ -107,6 +53,12 @@ function mcCompletionSource(context: CompletionContext): CompletionResult | null
       return completeCommandName(cursorCtx.partialInput, context.pos)
     }
 
+    // Case 5.5: NBT completion (Java Edition) — check if cursor is inside {..}
+    if (cache.currentEdition === 'java' && lineText.includes('{')) {
+      const nbtResult = await completeNbt(lineText, col, context.pos)
+      if (nbtResult) return nbtResult
+    }
+
     // Case 6: Completing a parameter value
     if (cursorCtx.expectedType) {
       return completeParameterValue(cursorCtx, context.pos)
@@ -137,8 +89,6 @@ function completeCommandName(
         label: name,
         detail: cmd?.description ?? '',
         type: 'keyword',
-        boost: freqBoost(name),
-        info: cmd ? () => createCommandInfoDOM(cmd) : undefined,
       })
     }
   }
@@ -192,7 +142,13 @@ function buildSyntaxPreview(v: { keywords: string[]; params: { name: string; typ
   const parts = [...v.keywords]
   for (const p of v.params) {
     if (p.type === 'literal' && p.options) {
-      parts.push(p.options.join('|'))
+      // Single option: show inline; multiple options: show placeholder
+      if (p.options.length === 1) {
+        parts.push(p.options[0])
+      } else {
+        // Use a readable placeholder instead of showing raw pipe-separated options
+        parts.push(`<...>`)
+      }
     } else if (p.required) {
       parts.push(`<${p.name}>`)
     } else {
@@ -216,8 +172,9 @@ function completeParameterValue(
     ? `${ctx.currentSubParam.name}: ${ctx.currentSubParam.type}`
     : ctx.currentParam?.description
 
-  // Check fixed options first
-  const fixed = FIXED_OPTIONS[type]
+  // Check fixed options first (edition-aware)
+  const fixedMap = getFixedOptionsMap(cache.currentEdition)
+  const fixed = fixedMap[type]
   if (fixed) {
     const lower = partial.toLowerCase()
     const options: Completion[] = fixed
@@ -225,24 +182,23 @@ function completeParameterValue(
       .map((opt) => ({
         label: opt.value,
         detail: opt.description,
+        info: paramDesc || undefined,
         type: 'enum',
-        boost: freqBoost(opt.value),
-        info: () => createFixedOptionInfoDOM(opt.value, opt.description, type),
       }))
     if (options.length === 0) return null
     return { from, options, validFor: /^[@a-zA-Z_]\w*$/ }
   }
 
-  // Check ID categories
-  const category = TYPE_TO_CATEGORY[type]
+  // Check ID categories (edition-aware)
+  const typeCategoryMap = getTypeToCategoryMap(cache.currentEdition)
+  const category = typeCategoryMap[type]
   if (category) {
     const entries = cache.searchIds(category, partial, 50)
     const options: Completion[] = entries.map((e) => ({
       label: e.id,
       detail: e.name ?? '',
+      info: e.description ?? undefined,
       type: 'variable',
-      boost: freqBoost(e.id),
-      info: () => createIdInfoDOM(e, category),
     }))
     if (options.length === 0) return null
     return { from, options, validFor: /^[a-zA-Z_][\w:.]*$/ }
@@ -259,8 +215,22 @@ function completeParameterValue(
   }
 
   // JSON type: show rawtext templates (for tellraw, titleraw, etc.)
-  if (type === 'json') {
+  if (type === 'json' || type === 'json_text') {
     return completeRawTextJson(partial, from)
+  }
+
+  // NBT compound tag hint
+  if (type === 'compound_tag') {
+    if (!partial) {
+      return {
+        from,
+        options: [
+          { label: '{}', detail: 'NBT复合标签', type: 'text' },
+          { label: '{Items:[]}', detail: '物品列表', type: 'text' },
+        ],
+      }
+    }
+    return null
   }
 
   // Int/float: show range hint or default hint
@@ -295,8 +265,76 @@ function completeParameterValue(
     return null
   }
 
+  // 2D coordinate type
+  if (type === 'x z') {
+    if (!partial) {
+      return {
+        from,
+        options: [
+          { label: '~ ~', detail: '当前XZ位置(相对坐标)', type: 'text' },
+          { label: '0 0', detail: '绝对坐标', type: 'text' },
+        ],
+      }
+    }
+    return null
+  }
+
+  // Rotation type
+  if (type === 'yaw pitch') {
+    if (!partial) {
+      return {
+        from,
+        options: [
+          { label: '~ ~', detail: '当前朝向(相对旋转)', type: 'text' },
+          { label: '0 0', detail: '朝南/平视(绝对旋转)', type: 'text' },
+          { label: '90 0', detail: '朝西', type: 'text' },
+          { label: '180 0', detail: '朝北', type: 'text' },
+          { label: '-90 0', detail: '朝东', type: 'text' },
+        ],
+      }
+    }
+    return null
+  }
+
+  // Delta coordinates (particle spread etc.)
+  if (type === 'dx dy dz') {
+    if (!partial) {
+      return {
+        from,
+        options: [
+          { label: '0 0 0', detail: '无扩散', type: 'text' },
+          { label: '1 1 1', detail: '扩散范围 1', type: 'text' },
+          { label: '0.5 0.5 0.5', detail: '扩散范围 0.5', type: 'text' },
+        ],
+      }
+    }
+    return null
+  }
+
+  // BlockStates hint
+  if (type === 'BlockStates' && !partial) {
+    return {
+      from,
+      options: [
+        { label: '[]', detail: '方块状态列表', type: 'text' },
+        { label: '["direction"=0]', detail: '朝向状态', type: 'text' },
+        { label: '["facing_direction"=1]', detail: '面朝方向', type: 'text' },
+      ],
+    }
+  }
+
+  // FilePath hint
+  if (type === 'FilePath' && !partial) {
+    return {
+      from,
+      options: [
+        { label: 'mypack/main', detail: '函数路径 (不含.mcfunction)', type: 'text', boost: -1 },
+      ],
+    }
+  }
+
   // String/message/value: show type hint (non-intrusive, only when empty)
-  if ((type === 'string' || type === 'message') && !partial) {
+  if ((type === 'string' || type === 'message' || type === 'value') && !partial) {
     const param = ctx.currentParam
     return {
       from,
@@ -313,172 +351,57 @@ function completeParameterValue(
   return null
 }
 
-// ─── Rawtext Deep JSON Completion (Feature 3) ───────────────────────
-
-/** Rawtext JSON keys by path context */
-const RAWTEXT_COMPONENT_KEYS = [
-  { key: 'text', desc: '纯文本内容', apply: '"text":"' },
-  { key: 'selector', desc: '目标选择器 (显示实体名)', apply: '"selector":"' },
-  { key: 'score', desc: '计分板分数', apply: '"score":{' },
-  { key: 'translate', desc: '翻译键名', apply: '"translate":"' },
-  { key: 'with', desc: '翻译参数 (rawtext数组)', apply: '"with":{"rawtext":[' },
-]
-
-const SCORE_KEYS = [
-  { key: 'name', desc: '目标选择器或玩家名', apply: '"name":"' },
-  { key: 'objective', desc: '计分板目标名', apply: '"objective":"' },
-]
-
-const SELECTOR_VALUES = ['@a', '@e', '@p', '@r', '@s', '@initiator']
-
-/** MC color/format codes for §X completion */
-const MC_FORMAT_COMPLETIONS = [
-  { code: '0', desc: '黑色' }, { code: '1', desc: '深蓝' },
-  { code: '2', desc: '深绿' }, { code: '3', desc: '深青' },
-  { code: '4', desc: '深红' }, { code: '5', desc: '深紫' },
-  { code: '6', desc: '金色' }, { code: '7', desc: '灰色' },
-  { code: '8', desc: '深灰' }, { code: '9', desc: '蓝色' },
-  { code: 'a', desc: '绿色' }, { code: 'b', desc: '青色' },
-  { code: 'c', desc: '红色' }, { code: 'd', desc: '粉色' },
-  { code: 'e', desc: '黄色' }, { code: 'f', desc: '白色' },
-  { code: 'g', desc: '硬币金' }, { code: 'k', desc: '混淆(乱码)' },
-  { code: 'l', desc: '粗体' }, { code: 'o', desc: '斜体' },
-  { code: 'r', desc: '重置格式' },
-]
-
-/** Rawtext JSON completion (templates + deep structural) */
+/** Rawtext JSON template completions for tellraw/titleraw */
 function completeRawTextJson(
   partial: string,
   from: number,
 ): CompletionResult | null {
-  // Empty or very short — show templates
-  if (!partial || partial.length <= 1) {
-    return showRawTextTemplates(partial, from)
-  }
-
-  // Try deep JSON completion
-  const ctx = parseJsonCursorContext(partial, partial.length)
-  const cursorPos = from + partial.length
-  const completionFrom = cursorPos - ctx.partialInput.length
-
-  // Inside a string literal
-  if (ctx.inString) {
-    // Color/format code completion after §
-    const lastSect = ctx.partialInput.lastIndexOf('\u00A7') // §
-    if (lastSect >= 0) {
-      const afterSect = ctx.partialInput.slice(lastSect + 1)
-      const codeFrom = cursorPos - afterSect.length
-      const lower = afterSect.toLowerCase()
-      const options: Completion[] = MC_FORMAT_COMPLETIONS
-        .filter(c => !lower || c.code.startsWith(lower))
-        .map(c => ({
-          label: c.code,
-          detail: c.desc,
-          type: 'enum',
-        }))
-      if (options.length > 0) return { from: codeFrom, options }
-    }
-
-    // Selector value completion
-    if (ctx.currentKey === 'selector') {
-      const lower = ctx.partialInput.toLowerCase()
-      const options: Completion[] = SELECTOR_VALUES
-        .filter(s => !lower || s.startsWith(lower))
-        .map(s => ({ label: s, detail: s === '@a' ? '所有玩家' : s === '@e' ? '所有实体' : s === '@p' ? '最近玩家' : s === '@r' ? '随机玩家' : s === '@s' ? '执行者' : 'NPC交互者', type: 'enum' }))
-      if (options.length > 0) return { from: completionFrom, options }
-    }
-
-    // Key name completion (typing inside quotes for an object key)
-    if (ctx.expectingKey) {
-      const keyDefs = getKeysForPath(ctx.path)
-      if (keyDefs) {
-        const lower = ctx.partialInput.toLowerCase()
-        const options: Completion[] = keyDefs
-          .filter(k => !lower || k.key.startsWith(lower))
-          .map(k => ({
-            label: k.key,
-            detail: k.desc,
-            apply: k.key + '":"',
-            type: 'property',
-          }))
-        if (options.length > 0) return { from: completionFrom, options }
-      }
-    }
-
-    return null
-  }
-
-  // Expecting object key (after { or ,) — not inside a string
-  if (ctx.expectingKey) {
-    const keyDefs = getKeysForPath(ctx.path)
-    if (keyDefs) {
-      const options: Completion[] = keyDefs.map(k => ({
-        label: k.key,
-        detail: k.desc,
-        apply: k.apply,
-        type: 'property',
-      }))
-      if (options.length > 0) return { from: completionFrom, options }
-    }
-  }
-
-  // Expecting value in rawtext array — suggest component objects
-  if (ctx.expectingValue && pathEndsWithRawtextArray(ctx.path)) {
-    return {
-      from: completionFrom,
-      options: [
-        { label: '{"text":""}', detail: '文本组件', type: 'text' },
-        { label: '{"selector":"@a"}', detail: '选择器组件', type: 'text' },
-        { label: '{"score":{"name":"@s","objective":""}}', detail: '分数组件', type: 'text' },
-        { label: '{"translate":""}', detail: '翻译组件', type: 'text' },
-      ],
-    }
-  }
-
-  // Fallback to templates
-  return showRawTextTemplates(partial, from)
-}
-
-/** Determine which keys are valid for the given path */
-function getKeysForPath(path: (string | number)[]): typeof RAWTEXT_COMPONENT_KEYS | null {
-  // Path like ["rawtext", <number>] → inside a rawtext array item
-  if (path.length >= 2 && path[path.length - 2] === 'rawtext' && typeof path[path.length - 1] === 'number') {
-    return RAWTEXT_COMPONENT_KEYS
-  }
-  // Path like ["rawtext", <number>, "score"] → inside score object
-  if (path.length >= 3 && path[path.length - 1] === 'score') {
-    return SCORE_KEYS
-  }
-  // At root level → suggest "rawtext"
-  if (path.length === 0) {
-    return [{ key: 'rawtext', desc: 'rawtext 数组', apply: '"rawtext":[' }]
-  }
-  return null
-}
-
-/** Check if path ends inside a rawtext array */
-function pathEndsWithRawtextArray(path: (string | number)[]): boolean {
-  return path.length >= 1 && path[path.length - 1] === 'rawtext'
-}
-
-/** Show rawtext templates (for empty or very short JSON input) */
-function showRawTextTemplates(
-  partial: string,
-  from: number,
-): CompletionResult | null {
   const templates = [
-    { label: 'rawtext: 纯文本', apply: '{"rawtext":[{"text":""}]}', detail: '基本文本组件' },
-    { label: 'rawtext: 带颜色文本', apply: '{"rawtext":[{"text":"§e在此输入§r"}]}', detail: '带颜色代码的文本' },
-    { label: 'rawtext: 选择器', apply: '{"rawtext":[{"selector":"@a"}]}', detail: '显示实体/玩家名称' },
-    { label: 'rawtext: 分数', apply: '{"rawtext":[{"score":{"name":"@s","objective":""}}]}', detail: '显示计分板分数' },
-    { label: 'rawtext: 翻译文本', apply: '{"rawtext":[{"translate":"","with":{"rawtext":[{"selector":"@s"}]}}]}', detail: '翻译键 + 参数替换' },
-    { label: 'rawtext: 组合', apply: '{"rawtext":[{"text":""},{"selector":"@s"},{"text":" 的分数: "},{"score":{"name":"@s","objective":""}}]}', detail: '多组件组合示例' },
+    {
+      label: 'rawtext: 纯文本',
+      apply: '{"rawtext":[{"text":""}]}',
+      detail: '基本文本组件',
+    },
+    {
+      label: 'rawtext: 带颜色文本',
+      apply: '{"rawtext":[{"text":"§e在此输入§r"}]}',
+      detail: '带颜色代码的文本',
+    },
+    {
+      label: 'rawtext: 选择器',
+      apply: '{"rawtext":[{"selector":"@a"}]}',
+      detail: '显示实体/玩家名称',
+    },
+    {
+      label: 'rawtext: 分数',
+      apply: '{"rawtext":[{"score":{"name":"@s","objective":""}}]}',
+      detail: '显示计分板分数',
+    },
+    {
+      label: 'rawtext: 翻译文本',
+      apply: '{"rawtext":[{"translate":"","with":{"rawtext":[{"selector":"@s"}]}}]}',
+      detail: '翻译键 + 参数替换',
+    },
+    {
+      label: 'rawtext: 组合',
+      apply: '{"rawtext":[{"text":""},{"selector":"@s"},{"text":" 的分数: "},{"score":{"name":"@s","objective":""}}]}',
+      detail: '多组件组合示例',
+    },
   ]
 
+  // Show all when empty, or filter by match
   const lower = partial.toLowerCase()
   const options: Completion[] = templates
-    .filter(t => !lower || t.apply.toLowerCase().startsWith(lower) || t.label.toLowerCase().includes(lower))
-    .map(t => ({ label: t.label, apply: t.apply, detail: t.detail, type: 'text' as const }))
+    .filter((t) => {
+      if (!lower) return true
+      return t.apply.toLowerCase().startsWith(lower) || t.label.toLowerCase().includes(lower)
+    })
+    .map((t) => ({
+      label: t.label,
+      apply: t.apply,
+      detail: t.detail,
+      type: 'text' as const,
+    }))
 
   if (options.length === 0) return null
   return { from, options }
@@ -554,7 +477,7 @@ function completeSelectorParam(
   const from = pos - partial.length
 
   if (!ctx.selectorValue) {
-    // Completing parameter name — with descriptions and info panels
+    // Completing parameter name — with descriptions
     const lower = partial.toLowerCase()
     const options: Completion[] = SELECTOR_PARAM_DEFS
       .filter((d) => !lower || d.name.startsWith(lower))
@@ -563,8 +486,6 @@ function completeSelectorParam(
         detail: d.description,
         type: 'property',
         apply: d.name + '=',
-        boost: freqBoost(d.name),
-        info: () => createSelectorParamInfoDOM(d.name, d.valueType, d.description),
       }))
     if (options.length === 0) return null
     return { from, options, validFor: /^[a-zA-Z_]\w*$/ }
@@ -654,7 +575,7 @@ function completeSelectorParam(
     return null
   }
 
-  // --- scores: compound template ---
+  // --- scores: compound template + sub-param completion ---
   if (paramName === 'scores') {
     if (!partial || partial === '{') {
       return {
@@ -669,7 +590,8 @@ function completeSelectorParam(
         ],
       }
     }
-    return null
+    // Inside scores compound — offer value syntax help
+    return completeScoresSubParam(partial, from)
   }
 
   // --- hasitem: compound template ---
@@ -982,6 +904,59 @@ function completeHaspermissionSubParam(
     .map((s) => ({ label: s.value, detail: s.desc, type: 'enum' }))
   if (options.length === 0) return null
   return { from: valueFrom, options, validFor: /^[a-zA-Z]\w*$/ }
+}
+
+/** Complete sub-parameters inside scores={...} */
+function completeScoresSubParam(
+  partial: string,
+  from: number,
+): CompletionResult | null {
+  // Find the last sub-parameter context inside the braces
+  // e.g. partial = "{obj1=1,obj2=" → completing "obj2" value
+  const lastComma = partial.lastIndexOf(',')
+  const lastBrace = partial.lastIndexOf('{')
+  const start = Math.max(lastComma, lastBrace)
+  const currentPart = partial.slice(start + 1)
+  const eqIdx = currentPart.indexOf('=')
+
+  if (eqIdx === -1) {
+    // Typing objective name — offer syntax hint
+    const subFrom = from + start + 1
+    if (!currentPart) {
+      return {
+        from: subFrom,
+        options: [
+          { label: 'objective=值', apply: 'objective=', detail: '输入计分项名称', type: 'property' },
+        ],
+      }
+    }
+    // User is typing the objective name — no autocomplete needed (free text)
+    // But offer "=" append
+    return {
+      from: subFrom,
+      options: [
+        { label: currentPart + '=', apply: currentPart + '=', detail: '计分项名称', type: 'property' },
+      ],
+      validFor: /^[a-zA-Z_]\w*$/,
+    }
+  }
+
+  // Typing score value — offer value syntax templates
+  const subValue = currentPart.slice(eqIdx + 1)
+  const valueFrom = from + start + 1 + eqIdx + 1
+  if (!subValue) {
+    return {
+      from: valueFrom,
+      options: [
+        { label: '0', detail: '精确匹配', type: 'text' },
+        { label: '1..', detail: '大于等于 1', type: 'text' },
+        { label: '0..10', detail: '范围 0 到 10', type: 'text' },
+        { label: '..5', detail: '小于等于 5', type: 'text' },
+        { label: '!0', detail: '不等于 0', type: 'text' },
+      ],
+    }
+  }
+  return null
 }
 
 /** Export the autocompletion extension configured for MC commands */

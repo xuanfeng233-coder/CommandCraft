@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref, watch, computed } from 'vue'
 import { McModal, McButton, McInput } from '@/components/mc-ui'
+import PaymentDialog from '@/components/PaymentDialog.vue'
 import { useSettingsStore } from '@/stores/settings'
 import { useSubscriptionStore } from '@/stores/subscription'
 import { getPlans, type PlanInfo } from '@/api/subscription'
+import { useAuthStore } from '@/stores/auth'
 import type { LLMSettings, ProviderInfo } from '@/types'
 
 const props = defineProps<{
@@ -14,6 +16,7 @@ const emit = defineEmits<{ 'update:show': [val: boolean] }>()
 
 const settingsStore = useSettingsStore()
 const subStore = useSubscriptionStore()
+const authStore = useAuthStore()
 
 const activeTab = ref<'model' | 'subscription'>('model')
 
@@ -30,10 +33,14 @@ const verifying = ref(false)
 const verifyResult = ref<{ ok: boolean; latency_ms: number; error: string } | null>(null)
 
 // --- Subscription state ---
-const redeemCode = ref('')
-const redeemError = ref('')
-const redeemSuccess = ref('')
 const plans = ref<PlanInfo[]>([])
+const paymentDialog = ref<{ show: boolean; planId: string; planName: string; amount: string }>({
+  show: false,
+  planId: '',
+  planName: '',
+  amount: '',
+})
+const subscribeError = ref('')
 
 watch(() => props.show, async (val) => {
   if (val) {
@@ -48,9 +55,7 @@ watch(() => props.show, async (val) => {
     }
 
     // Subscription init
-    redeemCode.value = ''
-    redeemError.value = ''
-    redeemSuccess.value = ''
+    subscribeError.value = ''
     await subStore.fetchStatus()
     if (plans.value.length === 0) {
       try {
@@ -93,23 +98,23 @@ async function save() {
 }
 
 // --- Subscription methods ---
-async function handleRedeem() {
-  const code = redeemCode.value.trim()
-  if (!code) return
+function startSubscribe(plan: PlanInfo) {
+  subscribeError.value = ''
+  if (!authStore.isLoggedIn) {
+    authStore.showAuthModal = true
+    return
+  }
+  paymentDialog.value = {
+    show: true,
+    planId: plan.id,
+    planName: plan.name,
+    amount: plan.price_cny,
+  }
+}
 
-  redeemError.value = ''
-  redeemSuccess.value = ''
-
-  try {
-    const result = await subStore.redeem(code)
-    redeemSuccess.value = result.message
-    redeemCode.value = ''
-    // Sync subscription mode to settings
-    if (subStore.isActive) {
-      settingsStore.markSubscriptionActive()
-    }
-  } catch (e: unknown) {
-    redeemError.value = e instanceof Error ? e.message : '兑换失败'
+function onPaymentSuccess() {
+  if (subStore.isActive) {
+    settingsStore.markSubscriptionActive()
   }
 }
 
@@ -118,10 +123,6 @@ const expiresFormatted = computed(() => {
   const d = new Date(subStore.status.plan.expires_at)
   return d.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })
 })
-
-function openPurchasePage() {
-  window.open('https://afdian.com/a/brayn', '_blank')
-}
 
 const dailyPercent = computed(() => {
   if (!subStore.dailyLimit) return 0
@@ -266,63 +267,47 @@ const monthlyPercent = computed(() => {
           </div>
         </div>
 
-        <!-- Purchase Section -->
+        <!-- Subscribe Section -->
         <div class="sub-section">
-          <h3>购买兑换码</h3>
-          <p class="sub-desc">在爱发电购买兑换码，即可使用开发者提供的 DeepSeek 模型，无需自行配置 API Key。</p>
-          <McButton variant="primary" @click="openPurchasePage">
-            前往爱发电购买
-          </McButton>
-        </div>
-
-        <!-- Redeem Section -->
-        <div class="sub-section">
-          <h3>兑换</h3>
-          <div class="redeem-row">
-            <McInput
-              :model-value="redeemCode"
-              @update:model-value="redeemCode = $event"
-              placeholder="输入兑换码"
-              class="redeem-input"
-              @keydown.enter="handleRedeem"
-            />
-            <McButton
-              variant="primary"
-              :loading="subStore.loading"
-              :disabled="!redeemCode.trim()"
-              @click="handleRedeem"
+          <h3>立即订阅</h3>
+          <p class="sub-desc">微信扫码付款，付款备注填写订单号，订阅自动激活，无需输入兑换码。</p>
+          <div v-if="subscribeError" class="msg-error">{{ subscribeError }}</div>
+          <div class="plan-cards">
+            <div
+              v-for="plan in plans"
+              :key="plan.id"
+              class="plan-card"
+              :class="{ current: subStore.isActive && subStore.status?.plan?.plan === plan.id }"
             >
-              兑换
-            </McButton>
+              <div class="plan-card-name">{{ plan.name }}</div>
+              <div class="plan-card-price">¥{{ plan.price_cny }}<span class="plan-card-unit">/{{ plan.duration_days }}天</span></div>
+              <ul class="plan-card-list">
+                <li>每日 {{ plan.daily_limit }} 次</li>
+                <li>每月 {{ plan.monthly_limit }} 次</li>
+                <li v-if="plan.build_monthly > 0">Build 模式 {{ plan.build_monthly }} 次/月</li>
+                <li v-else class="dim">不含 Build 模式</li>
+              </ul>
+              <McButton
+                variant="primary"
+                class="plan-card-btn"
+                @click="startSubscribe(plan)"
+              >
+                立即订阅
+              </McButton>
+            </div>
           </div>
-          <div v-if="redeemError" class="msg-error">{{ redeemError }}</div>
-          <div v-if="redeemSuccess" class="msg-success">{{ redeemSuccess }}</div>
-        </div>
-
-        <!-- Plan Comparison -->
-        <div class="sub-section">
-          <h3>套餐对比</h3>
-          <table class="plan-table">
-            <thead>
-              <tr>
-                <th>套餐</th>
-                <th>每日次数</th>
-                <th>每月次数</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="plan in plans" :key="plan.id"
-                  :class="{ 'current-plan': subStore.isActive && subStore.status?.plan?.plan === plan.id }">
-                <td class="plan-name">{{ plan.name }}</td>
-                <td>{{ plan.daily_limit }}</td>
-                <td>{{ plan.monthly_limit }}</td>
-              </tr>
-            </tbody>
-          </table>
         </div>
       </div>
     </div>
   </McModal>
+
+  <PaymentDialog
+    v-model:show="paymentDialog.show"
+    :plan-id="paymentDialog.planId"
+    :plan-name="paymentDialog.planName"
+    :amount="paymentDialog.amount"
+    @success="onPaymentSuccess"
+  />
 </template>
 
 <style scoped>
@@ -529,55 +514,83 @@ const monthlyPercent = computed(() => {
   border: 1px solid var(--mc-border);
 }
 
-.redeem-row {
-  display: flex;
-  gap: 8px;
-  align-items: flex-start;
-}
-
-.redeem-input {
-  flex: 1;
-}
-
 .msg-error {
   margin-top: 6px;
+  margin-bottom: 8px;
   font-size: 12px;
   color: var(--mc-red);
 }
 
-.msg-success {
-  margin-top: 6px;
-  font-size: 12px;
-  color: var(--mc-green);
+.plan-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 8px;
 }
 
-.plan-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-
-.plan-table th,
-.plan-table td {
-  padding: 6px 12px;
-  text-align: center;
-  border: 1px solid var(--mc-border);
-}
-
-.plan-table th {
+.plan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px;
+  border: 2px solid var(--mc-border);
   background: var(--mc-bg-main);
-  color: #ffffff;
-  font-family: var(--mc-font-title);
-  font-weight: normal;
+  transition: border-color 150ms;
 }
 
-.plan-table .plan-name {
+.plan-card:hover {
+  border-color: var(--mc-gold);
+}
+
+.plan-card.current {
+  border-color: var(--mc-green);
+  background: rgba(85, 255, 85, 0.06);
+}
+
+.plan-card-name {
   font-family: var(--mc-font-title);
+  font-size: 14px;
   color: var(--mc-gold);
 }
 
-.plan-table .current-plan {
-  background: rgba(255, 170, 0, 0.08);
+.plan-card-price {
+  font-family: var(--mc-font-mono);
+  font-size: 22px;
+  color: var(--mc-text-primary);
+  font-weight: bold;
+}
+
+.plan-card-unit {
+  font-size: 11px;
+  color: var(--mc-text-dim);
+  font-weight: normal;
+  margin-left: 4px;
+}
+
+.plan-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12px;
+  color: var(--mc-text-secondary);
+  flex: 1;
+}
+
+.plan-card-list .dim {
+  color: var(--mc-text-dim);
+}
+
+.plan-card-btn {
+  width: 100%;
+}
+
+@media (max-width: 580px) {
+  .plan-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 520px) {

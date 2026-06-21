@@ -124,7 +124,8 @@ function normalizeParamType(type: string): string {
 
 /** Count how many tokens a parameter type consumes */
 function paramTokenCount(type: string): number {
-  if (type === 'x y z') return 3
+  if (type === 'x y z' || type === 'dx dy dz') return 3
+  if (type === 'x z' || type === 'yaw pitch') return 2
   return 1
 }
 
@@ -437,37 +438,17 @@ function parseSubcommandContext(
   }
 
   // Handle nested command after subcommand with Command type param (e.g. execute...run)
+  // Delegates back to parseCursorContext logic for full completion support
   if (commandParamArgIdx !== null && cursorArgIdx >= pos && getCommand) {
     const rawNestedName = argTokens[commandParamArgIdx]
     if (rawNestedName) {
       const nestedName = rawNestedName.startsWith('/') ? rawNestedName.slice(1) : rawNestedName
       const nestedDef = getCommand(nestedName)
       if (nestedDef) {
-        const nestedParamIdx = cursorArgIdx - commandParamArgIdx - 1
+        const nestedTokenOffset = commandParamArgIdx + 1 // first param token of nested cmd
+        const nestedParamIdx = cursorArgIdx - nestedTokenOffset
 
-        // Check if cursor is inside a selector in nested command
-        if (partial.startsWith('@') && partial.includes('[') && !partial.endsWith(']')) {
-          const selectorCtx = parseSelectorContext(partial)
-          const param = nestedParamIdx < nestedDef.parameters.length
-            ? nestedDef.parameters[nestedParamIdx] : null
-          return {
-            commandName: nestedName,
-            commandDef: nestedDef,
-            paramIndex: nestedParamIdx,
-            expectedType: param ? normalizeParamType(param.type) : null,
-            partialInput: selectorCtx.partialInput,
-            inSelector: true,
-            selectorParam: selectorCtx.paramName,
-            selectorValue: selectorCtx.isValue,
-            currentParam: param,
-            subcommandVariant: null,
-            subParamIndex: -1,
-            currentSubParam: null,
-            availableSubcommands: null,
-          }
-        }
-
-        // Check subcommand tree for nested command (e.g. nested execute)
+        // Check subcommand tree for nested command (e.g. nested execute, scoreboard)
         const nestedSubTree = getSubcommandTree?.(nestedName) ?? null
         if (nestedSubTree) {
           const nestedTokens = argTokens.slice(commandParamArgIdx)
@@ -479,7 +460,7 @@ function parseSubcommandContext(
           )
         }
 
-        // Flat parameter parsing for nested command (multi-token aware)
+        // Flat parameter parsing — walk multi-token params to find correct param
         let nfPos = 0
         let nfParam = null
         let nfIdx = nestedParamIdx
@@ -493,6 +474,27 @@ function parseSubcommandContext(
           }
           nfPos += ntc
         }
+
+        // Check if cursor is inside a selector in nested command
+        if (partial.startsWith('@') && partial.includes('[') && !partial.endsWith(']')) {
+          const selectorCtx = parseSelectorContext(partial)
+          return {
+            commandName: nestedName,
+            commandDef: nestedDef,
+            paramIndex: nfIdx,
+            expectedType: nfParam ? normalizeParamType(nfParam.type) : null,
+            partialInput: selectorCtx.partialInput,
+            inSelector: true,
+            selectorParam: selectorCtx.paramName,
+            selectorValue: selectorCtx.isValue,
+            currentParam: nfParam,
+            subcommandVariant: null,
+            subParamIndex: -1,
+            currentSubParam: null,
+            availableSubcommands: null,
+          }
+        }
+
         return {
           commandName: nestedName,
           commandDef: nestedDef,

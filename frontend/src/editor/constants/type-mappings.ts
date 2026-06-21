@@ -18,6 +18,8 @@ export const TYPE_TO_CATEGORY: Record<string, string> = {
   Animation: 'animations',
   GameRule: 'gamerules',
   Structure: 'structures',
+  SpawnEvent: 'spawn_events',
+  CommandName: 'commands',
 }
 
 /** A fixed option with value and description */
@@ -71,6 +73,7 @@ export const FIXED_OPTIONS: Record<string, FixedOption[]> = {
   DamageCause: [
     { value: 'anvil', description: '铁砧砸落' },
     { value: 'block_explosion', description: '方块爆炸' },
+    { value: 'campfire', description: '营火' },
     { value: 'charging', description: '冲撞' },
     { value: 'contact', description: '接触伤害(仙人掌等)' },
     { value: 'drowning', description: '溺水' },
@@ -99,6 +102,7 @@ export const FIXED_OPTIONS: Record<string, FixedOption[]> = {
     { value: 'stalagmite', description: '石笋' },
     { value: 'starve', description: '饥饿' },
     { value: 'suffocation', description: '窒息' },
+    { value: 'suicide', description: '自杀(/kill 等)' },
     { value: 'temperature', description: '温度' },
     { value: 'thorns', description: '荆棘' },
     { value: 'void', description: '虚空' },
@@ -201,7 +205,7 @@ export const FIXED_OPTIONS: Record<string, FixedOption[]> = {
     { value: 'hotbar', description: '快捷栏' },
     { value: 'health', description: '生命值' },
     { value: 'progress_bar', description: '进度条' },
-    { value: 'food_bar', description: '饥饿值' },
+    { value: 'hunger', description: '饥饿值' },
     { value: 'air_bubbles', description: '氧气泡' },
     { value: 'horse_health', description: '马匹生命值' },
     { value: 'status_effects', description: '状态效果图标' },
@@ -224,6 +228,11 @@ export const FIXED_OPTIONS: Record<string, FixedOption[]> = {
     { value: 'slot.hotbar', description: '快捷栏' },
     { value: 'slot.inventory', description: '物品栏' },
     { value: 'slot.enderchest', description: '末影箱' },
+    { value: 'slot.armor', description: '盔甲(整体)' },
+    { value: 'slot.saddle', description: '鞍槽' },
+    { value: 'slot.chest', description: '箱子槽(驴/羊驼)' },
+    { value: 'slot.equippable', description: '可装备槽' },
+    { value: 'slot.container', description: '容器槽(/replaceitem block)' },
   ],
   CameraPreset: [
     { value: 'minecraft:first_person', description: '第一人称' },
@@ -253,14 +262,251 @@ export const FIXED_OPTIONS: Record<string, FixedOption[]> = {
     { value: '=', description: '直接赋值' },
     { value: '><', description: '交换值' },
   ],
+  Easing: [
+    { value: 'linear', description: '线性' },
+    { value: 'in_back', description: '回弹缓入' },
+    { value: 'in_bounce', description: '弹跳缓入' },
+    { value: 'in_circ', description: '圆形缓入' },
+    { value: 'in_cubic', description: '三次方缓入' },
+    { value: 'in_elastic', description: '弹性缓入' },
+    { value: 'in_expo', description: '指数缓入' },
+    { value: 'in_quad', description: '二次方缓入' },
+    { value: 'in_quart', description: '四次方缓入' },
+    { value: 'in_quint', description: '五次方缓入' },
+    { value: 'in_sine', description: '正弦缓入' },
+    { value: 'out_back', description: '回弹缓出' },
+    { value: 'out_bounce', description: '弹跳缓出' },
+    { value: 'out_circ', description: '圆形缓出' },
+    { value: 'out_cubic', description: '三次方缓出' },
+    { value: 'out_elastic', description: '弹性缓出' },
+    { value: 'out_expo', description: '指数缓出' },
+    { value: 'out_quad', description: '二次方缓出' },
+    { value: 'out_quart', description: '四次方缓出' },
+    { value: 'out_quint', description: '五次方缓出' },
+    { value: 'out_sine', description: '正弦缓出' },
+    { value: 'in_out_back', description: '回弹缓入缓出' },
+    { value: 'in_out_bounce', description: '弹跳缓入缓出' },
+    { value: 'in_out_circ', description: '圆形缓入缓出' },
+    { value: 'in_out_cubic', description: '三次方缓入缓出' },
+    { value: 'in_out_elastic', description: '弹性缓入缓出' },
+    { value: 'in_out_expo', description: '指数缓入缓出' },
+    { value: 'in_out_quad', description: '二次方缓入缓出' },
+    { value: 'in_out_quart', description: '四次方缓入缓出' },
+    { value: 'in_out_quint', description: '五次方缓入缓出' },
+    { value: 'in_out_sine', description: '正弦缓入缓出' },
+    { value: 'spring', description: '弹簧' },
+  ],
+  TimeSpec: [
+    { value: 'day', description: '白天 (1000)' },
+    { value: 'noon', description: '正午 (6000)' },
+    { value: 'sunset', description: '日落 (12000)' },
+    { value: 'night', description: '夜晚 (13000)' },
+    { value: 'midnight', description: '午夜 (18000)' },
+    { value: 'sunrise', description: '日出 (23000)' },
+  ],
+  Permission: [
+    { value: 'member', description: '成员' },
+    { value: 'operator', description: '管理员' },
+    { value: 'visitor', description: '访客' },
+  ],
+  'target 或 x y z': [
+    { value: '@p', description: '最近的玩家' },
+    { value: '@a', description: '所有玩家' },
+    { value: '@e', description: '所有实体' },
+    { value: '@r', description: '随机玩家' },
+    { value: '@s', description: '执行者自身' },
+    { value: '@initiator', description: 'NPC交互发起者' },
+  ],
+  'all|masked': [
+    { value: 'all', description: '检测所有方块' },
+    { value: 'masked', description: '忽略空气方块' },
+  ],
+  'Boolean|int': [
+    { value: 'true', description: '是' },
+    { value: 'false', description: '否' },
+  ],
+  anchor: [
+    { value: 'eyes', description: '眼部位置' },
+    { value: 'feet', description: '脚部位置' },
+  ],
+  IntRange: [
+    { value: '1..', description: '大于等于 1' },
+    { value: '..10', description: '小于等于 10' },
+    { value: '1..10', description: '范围 1 到 10' },
+  ],
+}
+
+// ---------------------------------------------------------------------------
+// Java Edition overrides
+// ---------------------------------------------------------------------------
+
+/** Additional type-to-category mappings for Java Edition */
+export const TYPE_TO_CATEGORY_JAVA: Record<string, string> = {
+  ...TYPE_TO_CATEGORY,
+  Attribute: 'attributes',
+  DataComponent: 'data_component_types',
+  item_id: 'items',
+  entity_id: 'entities',
+  block_id: 'blocks',
+  effect_id: 'effects',
+  enchantment_id: 'enchantments',
+  attribute_id: 'attributes',
+  biome_id: 'biomes',
+  particle_id: 'particles',
+  sound_id: 'sounds',
+  structure_id: 'structures',
+  item_predicate: 'items',
+  block_predicate: 'blocks',
+  biome_predicate: 'biomes',
+  data_component: 'data_component_types',
+  resource_location: 'structures',
+}
+
+/** Java Edition fixed options overrides */
+export const FIXED_OPTIONS_JAVA: Record<string, FixedOption[]> = {
+  target: [
+    { value: '@p', description: '最近的玩家' },
+    { value: '@a', description: '所有玩家' },
+    { value: '@e', description: '所有实体' },
+    { value: '@r', description: '随机玩家' },
+    { value: '@s', description: '执行者自身' },
+    { value: '@n', description: '最近的实体 (1.20.5+)' },
+  ],
+  'target 或 x y z': [
+    { value: '@p', description: '最近的玩家' },
+    { value: '@a', description: '所有玩家' },
+    { value: '@e', description: '所有实体' },
+    { value: '@r', description: '随机玩家' },
+    { value: '@s', description: '执行者自身' },
+    { value: '@n', description: '最近的实体 (1.20.5+)' },
+  ],
+  boolean: FIXED_OPTIONS.boolean,
+  Boolean: FIXED_OPTIONS.Boolean,
+  gamemode: FIXED_OPTIONS.gamemode,
+  GameMode: FIXED_OPTIONS.GameMode,
+  difficulty: FIXED_OPTIONS.difficulty,
+  Difficulty: FIXED_OPTIONS.Difficulty,
+  MaskMode: FIXED_OPTIONS.MaskMode,
+  CloneMode: FIXED_OPTIONS.CloneMode,
+  FillMode: FIXED_OPTIONS.FillMode,
+  SetBlockMode: FIXED_OPTIONS.SetBlockMode,
+  Dimension: [
+    { value: 'minecraft:overworld', description: '主世界' },
+    { value: 'minecraft:the_nether', description: '下界' },
+    { value: 'minecraft:the_end', description: '末地' },
+  ],
+  dimension: [
+    { value: 'minecraft:overworld', description: '主世界' },
+    { value: 'minecraft:the_nether', description: '下界' },
+    { value: 'minecraft:the_end', description: '末地' },
+  ],
+  operator: FIXED_OPTIONS.operator,
+  EntityEquipmentSlot: [
+    { value: 'mainhand', description: '主手' },
+    { value: 'offhand', description: '副手' },
+    { value: 'head', description: '头部' },
+    { value: 'chest', description: '胸部' },
+    { value: 'legs', description: '腿部' },
+    { value: 'feet', description: '脚部' },
+  ],
+  WeatherState: [
+    { value: 'clear', description: '晴天' },
+    { value: 'rain', description: '雨天' },
+    { value: 'thunder', description: '雷暴' },
+  ],
+  SoundSource: [
+    { value: 'master', description: '主音量' },
+    { value: 'music', description: '音乐' },
+    { value: 'record', description: '唱片' },
+    { value: 'weather', description: '天气' },
+    { value: 'block', description: '方块' },
+    { value: 'hostile', description: '敌对生物' },
+    { value: 'neutral', description: '友好生物' },
+    { value: 'player', description: '玩家' },
+    { value: 'ambient', description: '环境' },
+    { value: 'voice', description: '语音' },
+  ],
+  item_slot: [
+    { value: 'weapon.mainhand', description: '主手' },
+    { value: 'weapon.offhand', description: '副手' },
+    { value: 'armor.head', description: '头盔' },
+    { value: 'armor.chest', description: '胸甲' },
+    { value: 'armor.legs', description: '护腿' },
+    { value: 'armor.feet', description: '靴子' },
+    { value: 'hotbar.0', description: '快捷栏 1' },
+    { value: 'inventory.0', description: '物品栏 1' },
+    { value: 'enderchest.0', description: '末影箱 1' },
+    { value: 'container.0', description: '容器槽 (container.0-53)' },
+    { value: 'armor.body', description: '身体盔甲(狼/马)' },
+    { value: 'saddle', description: '鞍槽' },
+    { value: 'horse.saddle', description: '马鞍' },
+    { value: 'horse.chest', description: '马箱子' },
+    { value: 'horse.armor', description: '马铠' },
+    { value: 'villager.0', description: '村民交易槽 (villager.0-7)' },
+    { value: 'player.cursor', description: '光标槽' },
+    { value: 'player.crafting.0', description: '合成槽 (player.crafting.0-3)' },
+  ],
+  'force|normal': [
+    { value: 'force', description: '强制克隆(允许重叠)' },
+    { value: 'normal', description: '正常克隆' },
+  ],
+  flag: [
+    { value: 'true', description: '启用' },
+    { value: 'false', description: '禁用' },
+  ],
+  'bool or int': [
+    { value: 'true', description: '是' },
+    { value: 'false', description: '否' },
+  ],
+  'Boolean|int': [
+    { value: 'true', description: '是' },
+    { value: 'false', description: '否' },
+  ],
+  anchor: [
+    { value: 'eyes', description: '眼部位置' },
+    { value: 'feet', description: '脚部位置' },
+  ],
+  // Java text component colors
+  TextColor: [
+    { value: 'black', description: '黑色' },
+    { value: 'dark_blue', description: '深蓝' },
+    { value: 'dark_green', description: '深绿' },
+    { value: 'dark_aqua', description: '深青' },
+    { value: 'dark_red', description: '深红' },
+    { value: 'dark_purple', description: '深紫' },
+    { value: 'gold', description: '金色' },
+    { value: 'gray', description: '灰色' },
+    { value: 'dark_gray', description: '深灰' },
+    { value: 'blue', description: '蓝色' },
+    { value: 'green', description: '绿色' },
+    { value: 'aqua', description: '青色' },
+    { value: 'red', description: '红色' },
+    { value: 'light_purple', description: '粉色' },
+    { value: 'yellow', description: '黄色' },
+    { value: 'white', description: '白色' },
+  ],
+}
+
+// ---------------------------------------------------------------------------
+// Edition-aware helpers
+// ---------------------------------------------------------------------------
+
+/** Get the type-to-category mapping for the given edition */
+export function getTypeToCategoryMap(edition: string): Record<string, string> {
+  return edition === 'java' ? TYPE_TO_CATEGORY_JAVA : TYPE_TO_CATEGORY
+}
+
+/** Get the fixed options map for the given edition */
+export function getFixedOptionsMap(edition: string): Record<string, FixedOption[]> {
+  return edition === 'java' ? FIXED_OPTIONS_JAVA : FIXED_OPTIONS
 }
 
 /**
  * Get just the value strings for a fixed option type.
  * Used for validation where descriptions aren't needed.
  */
-export function getFixedOptionValues(type: string): string[] | undefined {
-  const opts = FIXED_OPTIONS[type]
+export function getFixedOptionValues(type: string, edition = 'bedrock'): string[] | undefined {
+  const opts = getFixedOptionsMap(edition)[type]
   if (!opts) return undefined
   return opts.map((o) => o.value)
 }

@@ -8,29 +8,37 @@ services:
       - .env
     environment:
       - CORS_ORIGINS=https://commandcraft.cn
-      - HF_ENDPOINT=https://hf-mirror.com
+      - SUBSCRIPTION_DB_PATH=/shared-auth/subscriptions.db
+      - SSO_PEER_ORIGINS=https://braynlabs.cn
     volumes:
       - ./knowledge_base:/app/knowledge_base:ro
       - backend-data:/app/data
       - subscription-data:/app/backend/data
-      - model-cache:/root/.cache
+      # 共享认证数据库：subscriptions.db 同时被 BraynLabs 读取
+      - /root/shared-auth:/shared-auth
     expose:
       - "8000"
+      - "8001"
 
   frontend:
+    container_name: cc-frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
     restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - /etc/letsencrypt:/etc/letsencrypt:ro
+    expose:
+      - "80"
     depends_on:
       - backend
+    networks:
+      - default
+      - gateway
+
+networks:
+  gateway:
+    name: gateway
+    external: true
 
 volumes:
   backend-data:
   subscription-data:
-  model-cache:

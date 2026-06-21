@@ -41,6 +41,7 @@ class RAGContext:
     command_docs: list[dict[str, Any]] = field(default_factory=list)
     id_entries: list[dict[str, Any]] = field(default_factory=list)
     few_shot_examples: list[dict[str, Any]] = field(default_factory=list)
+    formatting_reference: str = ""
 
     def to_prompt_text(self) -> str:
         """Format all retrieved context as a prompt-ready string (full format)."""
@@ -55,6 +56,9 @@ class RAGContext:
         if self.id_entries:
             id_lines = [f"- {entry.get('document', '')}" for entry in self.id_entries]
             sections.append("## 相关 ID\n" + "\n".join(id_lines))
+
+        if self.formatting_reference:
+            sections.append(self.formatting_reference)
 
         if self.few_shot_examples:
             fs_parts = ["## 参考示例\n"]
@@ -85,6 +89,9 @@ class RAGContext:
             id_lines = [f"- {entry.get('document', '')}" for entry in self.id_entries]
             sections.append("## 相关 ID\n" + "\n".join(id_lines))
 
+        if self.formatting_reference:
+            sections.append(self.formatting_reference)
+
         if self.few_shot_examples:
             fs_parts = ["## 参考示例\n"]
             for i, ex in enumerate(self.few_shot_examples, 1):
@@ -107,6 +114,8 @@ class RAGContext:
             parts.append(f"命令: {', '.join(names)}")
         if self.id_entries:
             parts.append(f"ID: {len(self.id_entries)} 条")
+        if self.formatting_reference:
+            parts.append("格式代码: 已注入")
         if self.few_shot_examples:
             parts.append(f"示例: {len(self.few_shot_examples)} 条")
         return "; ".join(parts) if parts else "无匹配"
@@ -175,12 +184,41 @@ class RAGRetriever:
 
         # 3. Intents: skipped — strong LLMs don't need them
 
-        # 4. Few-shot: only for project type
+        # 4. Formatting codes: auto-inject when display commands detected
+        if self._needs_formatting_codes(exact_command_names, output_type):
+            ctx.formatting_reference = knowledge_loader.format_formatting_codes_for_prompt()
+
+        # 5. Few-shot: only for project type
         if output_type == "project" and query_embedding is not None:
             ctx.few_shot_examples = await self._retrieve_few_shot(query_embedding)
 
         logger.info("RAG retrieved: %s", ctx.to_summary())
         return ctx
+
+    # Commands that display text and benefit from color/formatting codes
+    _DISPLAY_COMMANDS = frozenset({
+        "say", "me", "msg", "tell", "w",
+        "tellraw", "titleraw", "title",
+    })
+
+    @staticmethod
+    def _needs_formatting_codes(
+        exact_command_names: list[str] | None,
+        output_type: str,
+    ) -> bool:
+        """Determine if formatting codes reference should be injected.
+
+        Returns True when the task involves text display commands
+        (say, title, tellraw, etc.) or rawtext output type.
+        """
+        if output_type == "rawtext":
+            return True
+        if exact_command_names:
+            return any(
+                cmd in RAGRetriever._DISPLAY_COMMANDS
+                for cmd in exact_command_names
+            )
+        return False
 
     def _needs_semantic_search(
         self,
