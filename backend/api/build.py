@@ -10,6 +10,7 @@ from fastapi.responses import StreamingResponse
 from backend.auth.dependencies import OwnerContext, get_owner_context
 from backend.build.build_orchestrator import build_orchestrator
 from backend.build.project_manager import project_manager
+from backend.config import BUILD_USE_AGENT_LOOP
 from backend.models.database import session_db
 from backend.models.schemas import BuildClarifyRequest, BuildConfirmRequest, BuildStartRequest
 from backend.subscription.database import subscription_db
@@ -123,6 +124,7 @@ async def start_build(req: BuildStartRequest, request: Request):
                 user_input=req.message,
                 device_fp=owner.device_fp,
                 session_id=req.session_id or "",
+                edition=edition,
             ):
                 # Capture key events for history
                 event_name = event.get("event", "")
@@ -156,7 +158,18 @@ async def start_build(req: BuildStartRequest, request: Request):
 
 @router.post("/{project_id}/clarify")
 async def clarify_build(project_id: str, req: BuildClarifyRequest, request: Request):
-    """User answers clarification questions -> continue generating plan -> SSE stream."""
+    """User answers clarification questions -> continue generating plan -> SSE stream.
+
+    Flag-off: normal clarify-resume flow.
+    Flag-on: frontend won't call this; defensive guard returns benign done SSE.
+    """
+    # Defensive guard: flag-on shouldn't reach here, but return gracefully if it does.
+    if BUILD_USE_AGENT_LOOP:
+        async def _done_stream():
+            yield {"event": "done", "data": {"project_id": project_id}}
+
+        return _make_sse_stream(_done_stream())
+
     owner = await _check_build_access(request)
 
     # Verify ownership

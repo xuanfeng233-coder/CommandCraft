@@ -76,6 +76,7 @@ WXPAY_ORDER_TTL_SECONDS = int(os.environ.get("WXPAY_ORDER_TTL_SECONDS", "1800"))
 WXPAY_ENABLED = bool(WXPAY_API_KEY)
 
 # Build Mode
+BUILD_USE_AGENT_LOOP = os.environ.get("BUILD_USE_AGENT_LOOP", "false").lower() in ("1", "true", "yes")
 BUILD_PROJECTS_DIR = BASE_DIR / "backend" / "data" / "build_projects"
 BUILD_MODEL = os.environ.get("BUILD_MODEL", "deepseek-reasoner")
 BUILD_CHAT_MODEL = os.environ.get("BUILD_CHAT_MODEL", "deepseek-chat")
@@ -83,6 +84,7 @@ BUILD_AGENT_MAX_TOKENS = int(os.environ.get("BUILD_AGENT_MAX_TOKENS", "16384"))
 BUILD_SEARCH_MAX_RESULTS = int(os.environ.get("BUILD_SEARCH_MAX_RESULTS", "5"))
 BUILD_SESSION_TTL = int(os.environ.get("BUILD_SESSION_TTL", "3600"))
 BUILD_MAX_REVIEW_RETRIES = int(os.environ.get("BUILD_MAX_REVIEW_RETRIES", "2"))
+BUILD_LOOP_REVIEW = os.environ.get("BUILD_LOOP_REVIEW", "false").lower() in ("1", "true", "yes")
 
 # Auth
 AUTH_COOKIE_SECURE = os.environ.get("AUTH_COOKIE_SECURE", "true").lower() == "true"
