@@ -8,6 +8,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
+from backend.llm.curated_models import curated_models_for
+
 
 @dataclass
 class ProviderInfo:
@@ -44,7 +46,7 @@ PROVIDERS: dict[str, ProviderInfo] = {
         name="DeepSeek",
         base_url="https://api.deepseek.com",
         default_model="deepseek-chat",
-        models=["deepseek-chat", "deepseek-reasoner"],
+        models=curated_models_for("deepseek"),
         supports_thinking=True,
         thinking_field="reasoning_content",
     ),
@@ -53,14 +55,14 @@ PROVIDERS: dict[str, ProviderInfo] = {
         name="通义千问",
         base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
         default_model="qwen-plus",
-        models=["qwen-turbo", "qwen-plus", "qwen-max"],
+        models=curated_models_for("qwen"),
     ),
     "glm": ProviderInfo(
         id="glm",
         name="智谱 GLM",
         base_url="https://open.bigmodel.cn/api/paas/v4",
         default_model="glm-4-flash",
-        models=["glm-4-flash", "glm-4", "glm-4-plus"],
+        models=curated_models_for("glm"),
         supports_tools=False,
         free_tier=True,
     ),
@@ -69,14 +71,14 @@ PROVIDERS: dict[str, ProviderInfo] = {
         name="Kimi",
         base_url="https://api.moonshot.cn/v1",
         default_model="moonshot-v1-32k",
-        models=["moonshot-v1-8k", "moonshot-v1-32k", "moonshot-v1-128k"],
+        models=curated_models_for("kimi"),
     ),
     "doubao": ProviderInfo(
         id="doubao",
         name="豆包",
         base_url="https://ark.cn-beijing.volces.com/api/v3",
         default_model="",
-        models=[],
+        models=curated_models_for("doubao"),
         requires_endpoint_id=True,
     ),
     "openai": ProviderInfo(
@@ -84,21 +86,21 @@ PROVIDERS: dict[str, ProviderInfo] = {
         name="ChatGPT",
         base_url="https://api.openai.com/v1",
         default_model="gpt-4o-mini",
-        models=["gpt-4o", "gpt-4o-mini"],
+        models=curated_models_for("openai"),
     ),
     "gemini": ProviderInfo(
         id="gemini",
         name="Gemini",
         base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
-        default_model="gemini-2.0-flash",
-        models=["gemini-2.0-flash", "gemini-2.5-flash-preview-05-20"],
+        default_model="gemini-2.5-flash",
+        models=curated_models_for("gemini"),
     ),
     "custom": ProviderInfo(
         id="custom",
         name="自定义",
         base_url="",
         default_model="",
-        models=[],
+        models=curated_models_for("custom"),
     ),
 }
 
