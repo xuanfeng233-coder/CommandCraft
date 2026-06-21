@@ -12,10 +12,13 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from backend.skills.base import BaseSkill
 from backend.skills.command_validator import command_validator
+
+if TYPE_CHECKING:
+    from backend.agents.task_result import TaskResult
 
 logger = logging.getLogger(__name__)
 
@@ -31,6 +34,7 @@ def build_single_task_messages(
     *,
     edition: str = "bedrock",
     ambiguous: bool = False,
+    predecessors: "list[TaskResult] | None" = None,
 ) -> list[dict[str, Any]]:
     """Assemble the system + user message list for a single-task LLM call.
 
@@ -68,9 +72,19 @@ def build_single_task_messages(
             command_directory=full_directory,
         )
 
+    # Append predecessor context when provided (mirrors orchestrator lines ~296-299)
+    effective_user_request = user_request
+    if predecessors is not None:
+        from backend.agents.task_result import render_predecessor_block
+        predecessor_text = render_predecessor_block(predecessors)
+        if predecessor_text:
+            effective_user_request = (
+                f"{user_request}\n\n## 前置任务结果\n{predecessor_text}"
+            )
+
     return [
         {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_request},
+        {"role": "user", "content": effective_user_request},
     ]
 
 
