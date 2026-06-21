@@ -16,7 +16,11 @@ import time
 from typing import Any, AsyncGenerator
 
 from backend.agents.main_agent import MainAgent
+from backend.agents.planner import Planner, PlannerParseError
+from backend.agents.planner_schemas import to_legacy_decomposition
+from backend.llm.errors import LLMError
 from backend.agents.task_agent import TaskAgent
+from backend.agents.task_result import TaskResult, task_result_from_legacy
 from backend.agentloop import single_task
 from backend.agentloop.loop import AgentLoop
 from backend.agentloop.schemas import AgentOutcome, FinishReason, LoopBudget
@@ -50,9 +54,15 @@ class TaskManager:
     Within each tier, tasks run in parallel. Tiers run sequentially.
     """
 
-    def __init__(self, decomposition: dict[str, Any], edition: str = "bedrock") -> None:
+    def __init__(
+        self,
+        decomposition: dict[str, Any],
+        edition: str = "bedrock",
+        use_loop: bool = False,
+    ) -> None:
         self.decomposition = decomposition
         self.edition = edition
+        self.use_loop = use_loop
         self.tasks: list[dict[str, Any]] = decomposition.get("tasks", [])
         self.task_states: dict[str, dict[str, Any]] = {}
         self._event_queue: asyncio.Queue[dict[str, Any]] = asyncio.Queue()
@@ -166,8 +176,10 @@ class TaskManager:
             )
 
             # Inject predecessor context for dependent tasks
-            for td in runnable:
-                self._inject_predecessor_context(td)
+            # (loop mode bypasses this — _run_via_agentloop uses _typed_predecessors instead)
+            if not self.use_loop:
+                for td in runnable:
+                    self._inject_predecessor_context(td)
 
             # Execute tier tasks in parallel
             async for event in self._execute_tier(runnable):
@@ -198,13 +210,12 @@ class TaskManager:
     ) -> AsyncGenerator[dict[str, Any], None]:
         """Execute a single tier of tasks in parallel."""
         semaphore = asyncio.Semaphore(MAX_PARALLEL_TASKS)
-        agent = TaskAgent()
 
         async def run_task(task_def: dict[str, Any]) -> None:
             tid = task_def.get("task_id", "")
             async with semaphore:
                 try:
-                    async for event in agent.execute(task_def, edition=self.edition):
+                    async for event in self._run_one(task_def):
                         if event.get("event") == "task_update":
                             data = event.get("data", {})
                             self.task_states[tid] = data
@@ -237,6 +248,118 @@ class TaskManager:
 
         if gather_task.done() and gather_task.exception():
             logger.error("Tier gather exception: %s", gather_task.exception())
+
+    # ----- Loop-mode dispatch -----
+
+    async def _run_one(
+        self, task_def: dict[str, Any],
+    ) -> AsyncGenerator[dict[str, Any], None]:
+        """Dispatch a single task to AgentLoop (loop mode) or TaskAgent (legacy mode).
+
+        This is the seam: only this method checks self.use_loop.
+        All callers (_execute_tier, resume_task) go through here.
+        """
+        if self.use_loop:
+            async for event in self._run_via_agentloop(task_def):
+                yield event
+        else:
+            agent = TaskAgent()
+            async for event in agent.execute(task_def, edition=self.edition):
+                yield event
+
+    async def _run_via_agentloop(
+        self, task_def: dict[str, Any],
+    ) -> AsyncGenerator[dict[str, Any], None]:
+        """Execute one task via AgentLoop (multi-task variant of _run_single_task_loop).
+
+        Emits: task_update(generating) → [task_thinking*] → task_update(paused|validating)
+               → if paused: return (no done — orchestrator manages done)
+               → if normal: task_update(completed) (no content/done — orchestrator manages those)
+        """
+        task_id = task_def.get("task_id", "1")
+        user_request = task_def.get("user_request", "")
+        output_type = task_def.get("output_type", "simple_command")
+
+        # 1. task_update(generating)
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "generating"}}
+
+        # 2. Build messages — typed predecessor injection (bypasses legacy _inject_predecessor_context)
+        command_directory = build_command_directory_text(edition=self.edition)
+        predecessors = self._typed_predecessors(task_def)
+        messages = single_task.build_single_task_messages(
+            user_request, output_type, command_directory,
+            edition=self.edition, predecessors=predecessors,
+        )
+
+        # 3. Construct AgentLoop
+        loop = AgentLoop(
+            registry=build_default_registry(),
+            step=build_step(get_llm_client()),
+            budget=LoopBudget(
+                max_rounds=AGENT_LOOP_MAX_ROUNDS,
+                warn_at_round=AGENT_LOOP_MAX_ROUNDS - 1,
+            ),
+            edition=self.edition,
+        )
+
+        # 4. Run loop — forward thinking events; capture outcome
+        outcome: AgentOutcome | None = None
+        async for ev in loop.run(messages):
+            if ev.get("event") == "thinking":
+                yield {
+                    "event": "task_thinking",
+                    "data": {"task_id": task_id, "text": ev["data"]["text"]},
+                }
+            elif ev.get("event") == "_agent_outcome":
+                outcome = ev["data"]["outcome"]
+
+        if outcome is None:
+            outcome = AgentOutcome(
+                reason=FinishReason.GIVE_UP, content="", thinking="",
+                observations=[], rounds_used=0,
+            )
+
+        # 5. Convert outcome → result
+        result = Orchestrator._outcome_to_result(outcome, output_type)
+
+        # 6a. ASK_USER → emit paused; no done (orchestrator manages done for multi-task)
+        if outcome.reason == FinishReason.ASK_USER:
+            yield {"event": "task_update", "data": {"task_id": task_id, "status": "paused", "result": result}}
+            return
+
+        # 6b. Normal → validate + emit completed (no content/done — orchestrator manages those)
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "validating"}}
+        single_task.run_validation(result)
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "completed", "result": result}}
+
+    def _typed_predecessors(self, task_def: dict[str, Any]) -> list[TaskResult]:
+        """Build typed TaskResult list from completed predecessor tasks.
+
+        Used by _run_via_agentloop to inject predecessor context; bypasses
+        the legacy _inject_predecessor_context string-concat approach.
+        """
+        deps = task_def.get("depends_on", [])
+        if not deps:
+            return []
+
+        # Build a description map from task list
+        desc_map: dict[str, str] = {
+            td.get("task_id", ""): td.get("description", "")
+            for td in self.tasks
+        }
+
+        results: list[TaskResult] = []
+        for dep_id in deps:
+            completed = self._completed_results.get(dep_id)
+            if completed is None:
+                continue
+            user_answer = self._user_answers.get(dep_id, "")
+            tr = task_result_from_legacy(dep_id, completed, user_answer=user_answer)
+            # Fill in description from task list (task_result_from_legacy leaves it empty)
+            tr.description = desc_map.get(dep_id, "")
+            results.append(tr)
+
+        return results
 
     # ----- Dependency helpers -----
 
@@ -360,8 +483,7 @@ class TaskManager:
             f"{task_def['user_request']}\n\n用户补充信息：{user_answer}"
         )
 
-        agent = TaskAgent()
-        async for event in agent.execute(task_def, edition=self.edition):
+        async for event in self._run_one(task_def):
             if event.get("event") == "task_update":
                 data = event.get("data", {})
                 self.task_states[task_id] = data
@@ -410,8 +532,10 @@ class TaskManager:
             )
 
             # Inject predecessor context and execute
-            for td in newly_ready:
-                self._inject_predecessor_context(td)
+            # (loop mode bypasses this — _run_via_agentloop uses _typed_predecessors instead)
+            if not self.use_loop:
+                for td in newly_ready:
+                    self._inject_predecessor_context(td)
 
             async for event in self._execute_tier(newly_ready):
                 yield event
@@ -449,6 +573,7 @@ class Orchestrator:
 
     def __init__(self) -> None:
         self.main_agent = MainAgent()
+        self.planner = Planner()
         self._active_sessions: dict[str, TaskManager] = {}
 
     async def process_message_stream(
@@ -485,14 +610,24 @@ class Orchestrator:
 
         # --- Case C: New request → pipeline ---
 
-        # Phase 1: Main Agent decompose
+        # Phase 1: Decompose (Planner or MainAgent depending on flag)
         yield {"event": "thinking", "data": {"text": "正在分析您的需求...\n"}}
 
-        decomposition = await self.main_agent.decompose(
-            user_input, session_context, edition=edition,
-        )
-
-        thinking = decomposition.pop("_thinking", "")
+        if USE_AGENT_LOOP and hasattr(self, "planner"):
+            try:
+                decomp, thinking = await self.planner.plan(
+                    user_input, session_context, edition=edition,
+                )
+            except (PlannerParseError, LLMError) as e:
+                yield {"event": "error", "data": {"message": f"任务分解失败：{e}"}}
+                yield {"event": "done", "data": {}}
+                return
+            decomposition = to_legacy_decomposition(decomp, original_input=user_input)
+        else:
+            decomposition = await self.main_agent.decompose(
+                user_input, session_context, edition=edition,
+            )
+            thinking = decomposition.pop("_thinking", "")
         if thinking:
             yield {"event": "thinking", "data": {"text": thinking}}
 
@@ -544,6 +679,7 @@ class Orchestrator:
             yield {"event": "thinking", "data": {"text": f"正在并行执行 {len(tasks)} 个任务...\n"}}
 
         mgr = TaskManager(decomposition, edition=edition)
+        mgr.use_loop = USE_AGENT_LOOP
         if session_id:
             self._active_sessions[session_id] = mgr
 
@@ -773,7 +909,7 @@ class Orchestrator:
 
                 user_input = decomposition.get("_original_input", user_answer)
                 summary = await self.main_agent.summarize(
-                    user_input, completed_results,
+                    user_input, completed_results, edition=mgr.edition,
                 )
                 summary.pop("_thinking", "")
 
