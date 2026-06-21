@@ -1,5 +1,3 @@
-import pytest
-
 from backend.agentloop.schemas import LoopBudget, Observation
 from backend.agentloop.tools.lookup import register_lookup_tools
 from backend.agentloop.tools.registry import ToolContext, ToolRegistry

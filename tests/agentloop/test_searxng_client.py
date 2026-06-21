@@ -1,5 +1,4 @@
 import httpx
-import pytest
 import respx
 
 from backend.agentloop.searxng_client import SearXNGClient, WebHit

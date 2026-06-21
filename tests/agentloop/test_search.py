@@ -1,5 +1,3 @@
-import pytest
-
 import backend.agentloop.tools.search as search_mod
 from backend.agentloop.schemas import LoopBudget
 from backend.agentloop.searxng_client import WebHit

@@ -33,6 +33,8 @@ class SearXNGClient:
         max_results: int = WEB_SEARCH_MAX_RESULTS,
         http: httpx.AsyncClient | None = None,
     ) -> None:
+        # 信任边界：base_url 必须来自运营方配置（SEARXNG_URL 环境变量），绝不能来自 LLM/用户输入，
+        # 因为 search() 以 allow_loopback=True 调用 url_guard，会放行本地环回地址。
         self._base_url = base_url.rstrip("/")
         self._timeout = timeout
         self._max_results = max_results

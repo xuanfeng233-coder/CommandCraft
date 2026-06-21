@@ -42,7 +42,7 @@ async def handle_search_web(args: dict, ctx: ToolContext) -> Observation:
 
     query = str(args.get("query", "")).strip()
     if not query:
-        return Observation(tool_name="search_web", ok=False, summary="请提供搜索关键词。")
+        return Observation(tool_name="search_web", ok=False, summary="请提供搜索关键词。", data={"hits": []})
 
     ctx.counters["search_web"] = used + 1
     hits = await client.search(query)

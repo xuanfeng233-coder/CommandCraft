@@ -72,12 +72,16 @@ def make_validation_report(
 
     error_count = sum(1 for i in issues if i.severity == "error")
     warning_count = sum(1 for i in issues if i.severity == "warning")
+    if error_count == 0:
+        feedback_text = "✅ 校验通过，未发现问题。"
+    else:
+        feedback_text = struct_feedback or f"❌ {error_count} 个错误"
     return ValidationReport(
         valid=error_count == 0,
         error_count=error_count,
         warning_count=warning_count,
         issues=issues,
-        feedback_text=struct_feedback or ("✅ 校验通过" if error_count == 0 else f"❌ {error_count} 个错误"),
+        feedback_text=feedback_text,
     )
 
 
