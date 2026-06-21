@@ -12,12 +12,65 @@ RAW_CASES = [
 ]
 
 
-@pytest.mark.parametrize("raw,otype", RAW_CASES)
-def test_parse_output_parity_with_legacy(raw, otype):
-    # 老实现（委托前的等价路径）：用 TaskAgent 实例方法作为 oracle
-    from backend.agents.task_agent import TaskAgent
-    legacy = TaskAgent.__new__(TaskAgent)  # 不跑 __init__，仅借纯函数方法
-    expected = legacy._parse_output(raw, otype)
+# Frozen golden dicts — computed once from current implementation, hard-coded to detect drift.
+# If parse_output behavior changes, update these goldens intentionally (not silently).
+_GOLDEN_OUTPUTS = [
+    # Case 0: valid JSON single_command
+    {
+        'type': 'single_command',
+        'command': {'command': '/give @p diamond 1', 'explanation': '给钻石'},
+    },
+    # Case 1: code-fence wrapped JSON
+    {
+        'type': 'single_command',
+        'command': {'command': '/say hi', 'explanation': '说'},
+    },
+    # Case 2: conversation-like text → conversation result
+    {
+        'type': 'conversation',
+        'questions': [
+            {
+                'param': 'user_clarification',
+                'question': '你想要钻石剑还是铁剑呢？请告诉我具体需求。',
+                'options': [],
+                'default': None,
+            }
+        ],
+        'current_progress': '',
+    },
+    # Case 3: bare command string (no JSON) → parse-fail fallback
+    {
+        'type': 'single_command',
+        'command': {
+            'command': '',
+            'explanation': '/give @p diamond 1',
+            'variants': [],
+            'warnings': ['JSON 解析失败，请查看原始输出'],
+        },
+    },
+    # Case 4: gibberish → parse-fail fallback
+    {
+        'type': 'single_command',
+        'command': {
+            'command': '',
+            'explanation': '这是一段没有结构的废话',
+            'variants': [],
+            'warnings': ['JSON 解析失败，请查看原始输出'],
+        },
+    },
+]
+
+
+@pytest.mark.parametrize("raw,otype,expected", [
+    (raw, otype, _GOLDEN_OUTPUTS[i]) for i, (raw, otype) in enumerate(RAW_CASES)
+])
+def test_parse_output_frozen_golden(raw, otype, expected):
+    """Frozen golden test: asserts parse_output matches hard-coded expected dicts.
+
+    These goldens were captured from the implementation at the time of Task 7
+    Phase 2B review. Any drift in parse_output will cause this test to fail,
+    signalling that the goldens must be intentionally updated.
+    """
     got = single_task.parse_output(raw, otype)
     assert got == expected
 

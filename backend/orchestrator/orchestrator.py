@@ -661,7 +661,7 @@ class Orchestrator:
             )
 
         # 5. Convert outcome → result
-        result = self._outcome_to_result(outcome, output_type, task_id)
+        result = self._outcome_to_result(outcome, output_type)
 
         # 6a. ASK_USER → emit paused + done, return (no validation)
         if outcome.reason == FinishReason.ASK_USER:
@@ -682,6 +682,9 @@ class Orchestrator:
             if retried is not None:
                 result = retried
 
+        # 7b. Emit task_update(completed) — matches legacy TaskAgent path shape
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "completed", "result": result}}
+
         # 8. Emit content + done
         formatted = output_formatter.format_result(result)
         yield {"event": "content", "data": formatted}
@@ -691,7 +694,6 @@ class Orchestrator:
     def _outcome_to_result(
         outcome: AgentOutcome,
         output_type: str,
-        task_id: str,
     ) -> dict[str, Any]:
         """Convert an AgentOutcome to a structured result dict.
 

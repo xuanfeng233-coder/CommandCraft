@@ -128,7 +128,8 @@ class AgentLoop:
             # ── 预算耗尽：for 循环正常结束，未 break ──
             sr_final = await self._step.run(msgs, [])
             if sr_final.thinking:
-                thinking_parts.append("---")
+                if thinking_parts:
+                    thinking_parts.append("---")
                 thinking_parts.append(sr_final.thinking)
                 yield {"event": "thinking", "data": {"text": sr_final.thinking}}
             finish_reason = FinishReason.BUDGET_EXHAUSTED

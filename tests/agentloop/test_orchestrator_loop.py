@@ -264,6 +264,20 @@ async def test_flag_on_single_task_done_event_order(monkeypatch):
     assert validating_idx < content_idx, "task_update(validating) must come before content"
     assert content_idx < done_idx, "content must come before done"
 
+    # task_update(completed) appears BETWEEN validating and content (I1 fix)
+    completed_idx = next(
+        (i for i, ev in enumerate(events)
+         if ev["event"] == "task_update" and ev.get("data", {}).get("status") == "completed"),
+        None,
+    )
+    assert completed_idx is not None, "Missing task_update(completed) — frontend spinner relies on it"
+    assert validating_idx < completed_idx < content_idx, (
+        f"task_update(completed) must be between validating ({validating_idx}) "        f"and content ({content_idx}), got {completed_idx}"
+    )
+    # completed event must carry result
+    completed_ev = events[completed_idx]
+    assert "result" in completed_ev["data"], "task_update(completed) must carry result"
+
     # content.data.type == "single_command"
     content_ev = events[content_idx]
     assert content_ev["data"].get("type") == "single_command", (

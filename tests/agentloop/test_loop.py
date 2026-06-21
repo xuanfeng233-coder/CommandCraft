@@ -81,6 +81,7 @@ async def test_budget_exhaustion():
     _, outcome = await _collect(loop, [{"role": "user", "content": "x"}])
     assert outcome.reason == FinishReason.BUDGET_EXHAUSTED
     assert outcome.content == "收尾"
+    assert outcome.rounds_used == 8  # M2: must equal budget.max_rounds
 
 
 async def test_fresh_counters_per_run():

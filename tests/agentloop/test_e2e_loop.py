@@ -333,6 +333,11 @@ async def test_flag_on_happy_path_single_command(monkeypatch):
     orch.main_agent = type("MA", (), {"decompose": staticmethod(fake_decompose)})()
     orch._active_sessions = {}
 
+    # M4: mock structural validator so no real TaskAgent LLM call is made if rules change
+    async def _noop_coroutine(*args, **kwargs):
+        return None
+    orch._structural_validate_and_retry_simple = _noop_coroutine
+
     events = await _collect_stream(
         orch.process_message_stream("给我钻石", session_id="e2e-sess-on-1")
     )
@@ -395,6 +400,11 @@ async def test_flag_on_emits_generating_and_validating(monkeypatch):
     orch = Orchestrator.__new__(Orchestrator)
     orch.main_agent = type("MA", (), {"decompose": staticmethod(fake_decompose)})()
     orch._active_sessions = {}
+
+    # M4: mock structural validator so no real TaskAgent LLM call is made if rules change
+    async def _noop_coroutine(*args, **kwargs):
+        return None
+    orch._structural_validate_and_retry_simple = _noop_coroutine
 
     events = await _collect_stream(
         orch.process_message_stream("给我剑", session_id="e2e-sess-on-2")
