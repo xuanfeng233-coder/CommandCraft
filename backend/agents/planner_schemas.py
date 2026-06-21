@@ -98,7 +98,13 @@ def validate_graph(d: Decomposition) -> None:
             if dep not in id_set:
                 raise GraphError(f"任务 '{task.id}' 依赖了不存在的 task_id：'{dep}'")
 
-    # ④ No cycles (Kahn topological sort)
+    # ④ No self-dependency — check before Kahn so self-loops get the
+    #    dedicated "自依赖" message rather than the generic cycle message.
+    for task in tasks:
+        if task.id in task.depends_on:
+            raise GraphError(f"任务 '{task.id}' 依赖了自身（自依赖）")
+
+    # ⑤ No cycles (Kahn topological sort)
     # Build in-degree map and adjacency list (edges: dep → task)
     in_degree: dict[str, int] = {task.id: 0 for task in tasks}
     children: dict[str, list[str]] = {task.id: [] for task in tasks}
@@ -120,12 +126,6 @@ def validate_graph(d: Decomposition) -> None:
     if visited_count != len(tasks):
         cycle_ids = [tid for tid, deg in in_degree.items() if deg > 0]
         raise GraphError(f"任务依赖图存在循环：涉及 task_id {cycle_ids}")
-
-    # ⑤ No self-dependency — already caught by cycle detection, but check
-    #    explicitly so the error is deterministic even if Kahn misses it.
-    for task in tasks:
-        if task.id in task.depends_on:
-            raise GraphError(f"任务 '{task.id}' 依赖了自身（自依赖）")
 
     return None
 
@@ -155,7 +155,7 @@ def to_legacy_decomposition(d: Decomposition, *, original_input: str) -> dict[st
         "overview": d.overview,
         "is_single_task": d.is_single_task,
         "tasks": legacy_tasks,
-        # original_input is carried through for downstream consumers that need
-        # the raw user text (e.g. TaskAgent context injection).
-        "original_input": original_input,
+        # _original_input is carried through for downstream consumers that need
+        # the raw user text (e.g. TaskAgent context injection, _resume_task).
+        "_original_input": original_input,
     }

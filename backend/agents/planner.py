@@ -95,7 +95,7 @@ class Planner:
                 logger.warning("Planner attempt %d: JSON extraction failed", attempt)
                 # Append assistant response + repair request for next iteration
                 msgs.append({"role": "assistant", "content": content})
-                msgs.append({"role": "user", "content": repair_text + "，只输出修正后的 JSON 对象"})
+                msgs.append({"role": "user", "content": repair_text})
                 continue
 
             # --- Schema + graph validation ---

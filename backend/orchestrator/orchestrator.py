@@ -16,9 +16,8 @@ import time
 from typing import Any, AsyncGenerator
 
 from backend.agents.main_agent import MainAgent
-from backend.agents.planner import Planner, PlannerParseError
+from backend.agents.planner import Planner
 from backend.agents.planner_schemas import to_legacy_decomposition
-from backend.llm.errors import LLMError
 from backend.agents.task_agent import TaskAgent
 from backend.agents.task_result import TaskResult, task_result_from_legacy
 from backend.agentloop import single_task
@@ -613,12 +612,13 @@ class Orchestrator:
         # Phase 1: Decompose (Planner or MainAgent depending on flag)
         yield {"event": "thinking", "data": {"text": "正在分析您的需求...\n"}}
 
+        thinking = ""  # initialised here — belt-and-suspenders against any unbound use
         if USE_AGENT_LOOP and hasattr(self, "planner"):
             try:
                 decomp, thinking = await self.planner.plan(
                     user_input, session_context, edition=edition,
                 )
-            except (PlannerParseError, LLMError) as e:
+            except Exception as e:
                 yield {"event": "error", "data": {"message": f"任务分解失败：{e}"}}
                 yield {"event": "done", "data": {}}
                 return

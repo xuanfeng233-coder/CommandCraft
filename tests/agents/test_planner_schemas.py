@@ -51,8 +51,9 @@ def test_cycle_raises():
 
 def test_self_dep_raises():
     d = _decomp([{"task_id": "1", "depends_on": ["1"]}])
-    with pytest.raises(GraphError):
+    with pytest.raises(GraphError) as e:
         validate_graph(d)
+    assert "自依赖" in e.value.message
 
 
 def test_bad_enum_raises_validation_error():

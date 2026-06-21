@@ -544,9 +544,11 @@ async def test_flag_on_hard_failure_always_cyclic_emits_error(monkeypatch):
         f"Got task_list events: {task_list_events}"
     )
 
-    # Gate 4e: client.chat was called (1 + max_repairs = 3 times by default)
-    # Planner default max_repairs=2, so 3 total attempts
-    assert chat_call_count["n"] >= 1, "client.chat must have been called"
+    # Gate 4e: client.chat was called exactly 1 + max_repairs = 3 times (default max_repairs=2)
+    assert chat_call_count["n"] == 3, (
+        f"client.chat must be called exactly 3 times (1 initial + 2 repairs), "
+        f"got {chat_call_count['n']}"
+    )
 
 
 # ---------------------------------------------------------------------------
