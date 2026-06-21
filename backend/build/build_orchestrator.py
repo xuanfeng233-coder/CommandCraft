@@ -15,7 +15,7 @@ from typing import Any, AsyncGenerator
 
 from backend.agents.main_agent import MainAgent
 from backend.agents.planner import Planner, PlannerParseError
-from backend.agents.planner_schemas import Decomposition
+from backend.agents.planner_schemas import Decomposition, to_legacy_decomposition
 from backend.build.agents.clarify_agent import ClarifyResult, clarify_agent
 from backend.build.agents.reader_agent import reader_agent
 from backend.build.agents.review_agent import review_agent
@@ -342,6 +342,12 @@ class BuildOrchestrator:
         step_index: int,
     ) -> AsyncGenerator[dict[str, Any], None]:
         """Execute a single step with review retry loop and context chain."""
+        # flag-on: route to agent-loop path (no ReviewAgent, no retry)
+        if BUILD_USE_AGENT_LOOP:
+            async for ev in self._execute_step_loop(project_id, step_index):
+                yield ev
+            return
+
         state = self._active_builds.get(project_id)
         if not state:
             return
@@ -472,6 +478,120 @@ class BuildOrchestrator:
             summary=result_summary,
             command_layout=command_layout,
         )
+        await project_manager.write_project_md(project_id, updated_md)
+
+        yield _sse("build_step_update", {
+            "step_index": step_index,
+            "status": "complete",
+            "result_summary": result_summary,
+        })
+
+    # ------------------------------------------------------------------
+    # Flag-on: agent-loop execution path (no ReviewAgent retry)
+    # ------------------------------------------------------------------
+
+    async def _execute_step_loop(
+        self,
+        project_id: str,
+        step_index: int,
+    ) -> AsyncGenerator[dict[str, Any], None]:
+        """Execute a single build step via Planner + TaskManager(use_loop=True).
+
+        No ReviewAgent, no retry loop — one TaskManager pass per step.
+        PROJECT.md is marked done via deterministic regex (_regex_mark_step_done).
+        """
+        state = self._active_builds.get(project_id)
+        if not state:
+            return
+
+        # 1. Read step
+        yield _sse("build_step_update", {"step_index": step_index, "status": "reading"})
+
+        md_content = await project_manager.read_project_md(project_id)
+        step = reader_agent.get_step(md_content, step_index)
+
+        if not step:
+            yield _sse("build_step_update", {
+                "step_index": step_index,
+                "status": "failed",
+                "error": f"步骤 {step_index} 未找到",
+            })
+            return
+
+        # 2. Build step request + execution context (reuse existing helpers)
+        step_request = self._build_step_request(step)
+        execution_context = self._build_execution_context(state, step_index)
+
+        # 3. Decompose via Planner
+        yield _sse("build_step_update", {"step_index": step_index, "status": "decomposing"})
+
+        try:
+            decomp, _ = await self.planner.plan(
+                step_request,
+                session_context=execution_context,
+                client=get_build_chat_client(),
+                edition=state.edition,
+            )
+        except (PlannerParseError, Exception) as e:
+            logger.error(
+                "Planner failed for project %s step %d: %s", project_id, step_index, e
+            )
+            yield _sse("build_step_update", {
+                "step_index": step_index,
+                "status": "failed",
+                "error": f"分解失败: {e}",
+            })
+            return
+
+        legacy = to_legacy_decomposition(decomp, original_input=step_request)
+        tasks = legacy.get("tasks", [])
+
+        if not tasks:
+            yield _sse("build_step_update", {
+                "step_index": step_index,
+                "status": "failed",
+                "error": "任务分解结果为空",
+            })
+            return
+
+        # 4. Emit task list (mirror the flag-off shape)
+        yield _sse("task_list", {
+            "project_name": f"步骤 {step_index}: {step.title}",
+            "overview": step.requirement,
+            "tasks": [
+                {
+                    "task_id": t.get("task_id", str(i + 1)),
+                    "description": t.get("description", ""),
+                    "depends_on": t.get("depends_on", []),
+                    "status": "blocked" if t.get("depends_on") else "pending",
+                }
+                for i, t in enumerate(tasks)
+            ],
+        })
+
+        # 5. Execute via TaskManager(use_loop=True) — routes to _run_via_agentloop
+        yield _sse("build_step_update", {"step_index": step_index, "status": "executing"})
+
+        mgr = TaskManager(legacy, edition=state.edition)
+        mgr.use_loop = True
+        async for ev in mgr.execute_all():
+            yield ev
+
+        # 6. Collect results and update accumulated context
+        completed_results = mgr.get_completed_results()
+        state.all_commands.extend(self._extract_all_commands(completed_results))
+        state.accumulated_context = self._extract_step_artifacts(
+            state.accumulated_context, step_index, step, completed_results,
+        )
+
+        # 7. Mark step done in PROJECT.md via deterministic regex (no LLM)
+        yield _sse("build_step_update", {"step_index": step_index, "status": "updating"})
+
+        result_summary = self._build_result_summary(completed_results)
+        command_layout = self._build_command_layout_text(completed_results)
+
+        fresh_md = await project_manager.read_project_md(project_id)
+        updated_md = _regex_mark_step_done(fresh_md, step_index, result_summary, command_layout)
         await project_manager.write_project_md(project_id, updated_md)
 
         yield _sse("build_step_update", {
@@ -670,6 +790,60 @@ class BuildOrchestrator:
 def _sse(event: str, data: dict[str, Any]) -> dict[str, Any]:
     """Build an SSE event dict."""
     return {"event": event, "data": data}
+
+
+def _regex_mark_step_done(
+    md_content: str,
+    step_index: int,
+    summary: str,
+    command_layout: str = "",
+) -> str:
+    """Mark a build step as done in PROJECT.md using pure regex (no LLM).
+
+    - Replaces ``## 步骤 N: … [ ]`` → ``## 步骤 N: … [x]``
+    - Replaces ``- [ ]`` → ``- [x]`` within the step section
+    - Appends ``**执行结果**: …`` (and optionally ``**命令布局**: …``) to the section
+
+    This is the deterministic flag-on alternative to write_agent.mark_step_done.
+    Lifted from WriteAgent._regex_mark_done and extended with layout support.
+    """
+    # Update step header: [ ] → [x]
+    header_pattern = re.compile(
+        rf"(##\s+步骤\s*{step_index}\s*[:：]\s*.+?)\s*\[\s*\]",
+        re.MULTILINE,
+    )
+    md_content = header_pattern.sub(r"\1 [x]", md_content)
+
+    # Find the step section boundaries
+    step_header_re = re.compile(
+        rf"^##\s+步骤\s*{step_index}\s*[:：]",
+        re.MULTILINE,
+    )
+    next_header_re = re.compile(r"^##\s+步骤\s*\d+", re.MULTILINE)
+
+    match = step_header_re.search(md_content)
+    if match:
+        start = match.start()
+        next_match = next_header_re.search(md_content, match.end())
+        end = next_match.start() if next_match else len(md_content)
+
+        section = md_content[start:end]
+        # Mark all subtasks done
+        section = re.sub(r"- \[ \]", "- [x]", section)
+
+        # Append execution result if not already present
+        if "**执行结果**" not in section:
+            section = section.rstrip() + f"\n**执行结果**: {summary}\n"
+
+        # Optionally append command layout block
+        if command_layout and "**命令布局**" not in section:
+            section = section.rstrip() + f"\n**命令布局**:\n{command_layout}\n\n"
+        else:
+            section = section.rstrip() + "\n\n"
+
+        md_content = md_content[:start] + section + md_content[end:]
+
+    return md_content
 
 
 # Singleton
