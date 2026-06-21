@@ -23,6 +23,12 @@ SUBTASK_GENERATOR_MAX_TOKENS = int(os.environ.get("SUBTASK_GENERATOR_MAX_TOKENS"
 MAX_TOOL_ROUNDS = int(os.environ.get("MAX_TOOL_ROUNDS", "5"))
 MAX_VALIDATION_RETRIES = int(os.environ.get("MAX_VALIDATION_RETRIES", "1"))
 TASK_AGENT_MAX_TOKENS = int(os.environ.get("TASK_AGENT_MAX_TOKENS", "8192"))
+
+# 统一 Agent 循环（Phase 2B）
+USE_AGENT_LOOP = os.environ.get("USE_AGENT_LOOP", "false").lower() in ("1", "true", "yes")
+AGENT_LOOP_MAX_ROUNDS = int(os.environ.get("AGENT_LOOP_MAX_ROUNDS", "8"))
+AGENT_LOOP_MAX_TOKENS = int(os.environ.get("AGENT_LOOP_MAX_TOKENS", str(TASK_AGENT_MAX_TOKENS)))
+
 SUMMARY_MAX_TOKENS = int(os.environ.get("SUMMARY_MAX_TOKENS", "8192"))
 DECOMPOSE_MAX_TOKENS = int(os.environ.get("DECOMPOSE_MAX_TOKENS", "4096"))
 MAX_PARALLEL_TASKS = int(os.environ.get("MAX_PARALLEL_TASKS", "8"))
