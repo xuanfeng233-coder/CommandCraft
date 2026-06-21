@@ -41,13 +41,56 @@ class NativeToolStep(LLMStep):
 
 
 class PromptedToolStep(LLMStep):
-    """提示式工具调用步骤（Task 4 完整实现 run）。"""
+    """对 supports_tools=False 的 provider，用提示式 JSON 协议模拟工具调用。"""
 
     def __init__(self, client) -> None:
         self._client = client
+        self._round = 0
+        self._protocol_injected = False  # 实例属性记注入状态，避免污染 message dict
 
     async def run(self, messages: list[dict[str, Any]], tool_schemas: list[dict[str, Any]]) -> StepResult:
-        raise NotImplementedError("PromptedToolStep.run 将在 Task 4 实现")
+        from backend.skills.base import BaseSkill
+
+        msgs = self._ensure_protocol(messages, tool_schemas)
+        resp = await self._client.chat(msgs, max_tokens=AGENT_LOOP_MAX_TOKENS)
+        msg = resp["message"]
+        content = msg.get("content", "")
+        thinking = msg.get("thinking", "")
+        data = BaseSkill.extract_json(content)
+        tool_calls: list[ToolCall] = []
+        if isinstance(data, dict) and data.get("tool"):
+            tool_calls = [ToolCall(
+                id=f"prompted-{self._round}",
+                name=str(data["tool"]),
+                arguments=data.get("arguments", {}) if isinstance(data.get("arguments"), dict) else {},
+            )]
+            self._round += 1
+        return StepResult(
+            content=content,
+            thinking=thinking,
+            tool_calls=tool_calls,
+            raw_assistant_msg={"role": "assistant", "content": content},
+        )
+
+    def _ensure_protocol(self, messages: list[dict[str, Any]], tool_schemas: list[dict[str, Any]]) -> list[dict[str, Any]]:
+        """注入工具协议前导到 system message（仅注入一次，用实例属性追踪状态）。"""
+        if self._protocol_injected:
+            return messages
+        manifest_lines = [
+            "你可使用以下工具。若需调用，仅输出 JSON：{\"tool\":\"<名称>\",\"arguments\":{...}}；"
+            "若已得最终答案，直接输出最终结果（不要包工具 JSON）。可用工具："
+        ]
+        for s in tool_schemas:
+            fn = s.get("function", {})
+            manifest_lines.append(f"- {fn.get('name')}: {fn.get('description', '')}")
+        manifest = "\n".join(manifest_lines)
+        new = list(messages)
+        if new and new[0].get("role") == "system":
+            new[0] = {**new[0], "content": new[0]["content"] + "\n\n" + manifest}
+        else:
+            new.insert(0, {"role": "system", "content": manifest})
+        self._protocol_injected = True
+        return new
 
     def format_observation(self, call: ToolCall, obs: Observation) -> dict[str, Any]:
         return {"role": "user", "content": f"[工具 {call.name} 返回]\n{obs.to_tool_content()}"}
