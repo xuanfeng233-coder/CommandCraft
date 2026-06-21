@@ -17,15 +17,24 @@ from typing import Any, AsyncGenerator
 
 from backend.agents.main_agent import MainAgent
 from backend.agents.task_agent import TaskAgent
+from backend.agentloop import single_task
+from backend.agentloop.loop import AgentLoop
+from backend.agentloop.schemas import AgentOutcome, FinishReason, LoopBudget
+from backend.agentloop.step import build_step
+from backend.agentloop.tools.finish import build_default_registry
 from backend.config import (
+    AGENT_LOOP_MAX_ROUNDS,
     MAX_PARALLEL_TASKS,
     MAX_VALIDATION_RETRIES,
     SESSION_STATE_TTL,
+    USE_AGENT_LOOP,
 )
 from backend.skills.command_block_layout import command_block_layout
 from backend.skills.command_validator import command_validator
 from backend.skills.output_formatter import output_formatter
 from backend.skills.structural_validator import structural_validator
+from backend.subscription.llm_context import get_llm_client
+from backend.tools.command_tools import build_command_directory_text
 
 logger = logging.getLogger(__name__)
 
@@ -522,6 +531,12 @@ class Orchestrator:
             },
         }
 
+        # Single-task AgentLoop fast path (USE_AGENT_LOOP guard)
+        if USE_AGENT_LOOP and is_single and len(tasks) == 1:
+            async for event in self._run_single_task_loop(tasks[0], user_input, session_id, edition):
+                yield event
+            return
+
         # Phase 2: TaskAgent tier-based execution
         if has_deps:
             yield {"event": "thinking", "data": {"text": f"正在按依赖顺序执行 {len(tasks)} 个任务...\n"}}
@@ -585,6 +600,124 @@ class Orchestrator:
             del self._active_sessions[session_id]
 
         yield {"event": "done", "data": {}}
+
+    # ----- AgentLoop single-task branch -----
+
+    async def _run_single_task_loop(
+        self,
+        task_def: dict[str, Any],
+        user_input: str,
+        session_id: str,
+        edition: str,
+    ) -> AsyncGenerator[dict[str, Any], None]:
+        """Execute a single task via AgentLoop (USE_AGENT_LOOP=True path).
+
+        Emits verbatim event shapes as the existing single-task TaskAgent path:
+        task_update(generating) → [task_thinking*] → task_update(validating|paused) →
+        [content] → done
+        """
+        task_id = task_def.get("task_id", "1")
+        user_request = task_def.get("user_request", user_input)
+        output_type = task_def.get("output_type", "simple_command")
+
+        # 1. task_update(generating)
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "generating"}}
+
+        # 2. Build messages
+        command_directory = build_command_directory_text(edition=edition)
+        messages = single_task.build_single_task_messages(
+            user_request, output_type, command_directory, edition=edition,
+        )
+
+        # 3. Construct AgentLoop
+        loop = AgentLoop(
+            registry=build_default_registry(),
+            step=build_step(get_llm_client()),
+            budget=LoopBudget(
+                max_rounds=AGENT_LOOP_MAX_ROUNDS,
+                warn_at_round=AGENT_LOOP_MAX_ROUNDS - 1,
+            ),
+            edition=edition,
+        )
+
+        # 4. Run loop — forward thinking events; capture outcome
+        outcome: AgentOutcome | None = None
+        async for ev in loop.run(messages):
+            if ev.get("event") == "thinking":
+                # Re-emit as task_thinking (matches task_agent.py:971-974 shape)
+                yield {
+                    "event": "task_thinking",
+                    "data": {"task_id": task_id, "text": ev["data"]["text"]},
+                }
+            elif ev.get("event") == "_agent_outcome":
+                outcome = ev["data"]["outcome"]
+            # Other internal events are dropped
+
+        if outcome is None:
+            # Defensive: loop produced no outcome — treat as give_up
+            from backend.agentloop.schemas import FinishReason as _FR
+            outcome = AgentOutcome(
+                reason=_FR.GIVE_UP, content="", thinking="", observations=[], rounds_used=0,
+            )
+
+        # 5. Convert outcome → result
+        result = self._outcome_to_result(outcome, output_type, task_id)
+
+        # 6a. ASK_USER → emit paused + done, return (no validation)
+        if outcome.reason == FinishReason.ASK_USER:
+            yield {"event": "task_update", "data": {"task_id": task_id, "status": "paused", "result": result}}
+            yield {"event": "done", "data": {}}
+            return
+
+        # 6b. All other reasons → validate + post-process
+        yield {"event": "task_update", "data": {"task_id": task_id, "status": "validating"}}
+        single_task.run_validation(result)
+
+        # 7. Post-process (mirrors orchestrator.py:552-559)
+        result_type = result.get("type", "")
+        if result_type == "project":
+            result = self._post_process_project(result)
+        elif result_type == "single_command":
+            retried = await self._structural_validate_and_retry_simple(result, user_input)
+            if retried is not None:
+                result = retried
+
+        # 8. Emit content + done
+        formatted = output_formatter.format_result(result)
+        yield {"event": "content", "data": formatted}
+        yield {"event": "done", "data": {}}
+
+    @staticmethod
+    def _outcome_to_result(
+        outcome: AgentOutcome,
+        output_type: str,
+        task_id: str,
+    ) -> dict[str, Any]:
+        """Convert an AgentOutcome to a structured result dict.
+
+        ASK_USER  → conversation result (mirrors task_agent.py:1095-1106 shape)
+        all other → parse_output(outcome.content, output_type); attach thinking
+        """
+        if outcome.reason == FinishReason.ASK_USER:
+            # Build a conversation result with the question text
+            question_text = outcome.content
+            return {
+                "type": "conversation",
+                "questions": [
+                    {
+                        "param": "user_clarification",
+                        "question": question_text,
+                        "options": [],
+                        "default": None,
+                    }
+                ],
+                "current_progress": "",
+            }
+
+        result = single_task.parse_output(outcome.content, output_type)
+        if outcome.thinking:
+            result["thinking"] = outcome.thinking
+        return result
 
     # ----- Resume paused task -----
 
