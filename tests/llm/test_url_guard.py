@@ -99,3 +99,14 @@ def test_allow_loopback_still_blocks_private():
 def test_default_still_blocks_loopback():
     with pytest.raises(UnsafeURLError):
         assert_safe_outbound_url("http://x/m", resolver=_resolver("127.0.0.1"))
+
+
+def test_rejects_cgnat_shared_address():
+    # CGNAT 100.64.0.0/10（共享地址段）非全局，应拒
+    with pytest.raises(UnsafeURLError):
+        assert_safe_outbound_url("http://x/m", resolver=_resolver("100.64.0.1"))
+
+
+def test_allows_public_still_passes():
+    # 回归：公网 IP 仍通过
+    assert_safe_outbound_url("https://api/v1/models", resolver=_resolver("93.184.216.34"))

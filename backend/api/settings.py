@@ -8,6 +8,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from backend.llm.catalog import model_catalog
+from backend.llm.url_guard import UnsafeURLError, assert_safe_outbound_url
 from backend.utils.providers import get_provider, list_providers
 from backend.utils.settings_manager import settings_manager
 
@@ -70,6 +71,14 @@ async def post_config(req: LLMSettingsRequest):
 @router.post("/verify", response_model=VerifyResponse)
 async def verify_config(req: LLMSettingsRequest):
     """Test a configuration by making a minimal API call."""
+    # Pre-check: reject SSRF attempts before setting config or calling health
+    base_url = req.base_url or (get_provider(req.provider_id).base_url if get_provider(req.provider_id) else "")
+    if base_url:
+        try:
+            assert_safe_outbound_url(base_url)
+        except UnsafeURLError:
+            return VerifyResponse(ok=False, error="base_url 指向受限地址，已拒绝")
+
     # Temporarily apply the config
     settings_manager.set_config(req.model_dump())
 

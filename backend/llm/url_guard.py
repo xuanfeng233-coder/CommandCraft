@@ -48,6 +48,7 @@ def _is_blocked_ip(ip_str: str, *, allow_loopback: bool = False) -> bool:
         or ip.is_reserved
         or ip.is_multicast
         or ip.is_unspecified
+        or not ip.is_global   # CGNAT(100.64/10) 等非全局段一并拦截
     )
 
 
