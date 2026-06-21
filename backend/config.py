@@ -32,6 +32,7 @@ SESSION_STATE_TTL = int(os.environ.get("SESSION_STATE_TTL", "600"))  # seconds
 LLM_REQUEST_TIMEOUT = float(os.environ.get("LLM_REQUEST_TIMEOUT", "60"))
 LLM_MAX_RETRIES = int(os.environ.get("LLM_MAX_RETRIES", "3"))
 LLM_RETRY_BASE_DELAY = float(os.environ.get("LLM_RETRY_BASE_DELAY", "0.5"))
+MODEL_CATALOG_TTL = int(os.environ.get("MODEL_CATALOG_TTL", "21600"))  # 6h
 
 # Server
 API_HOST = "0.0.0.0"
