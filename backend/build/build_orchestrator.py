@@ -14,7 +14,7 @@ from dataclasses import dataclass, field
 from typing import Any, AsyncGenerator
 
 from backend.agents.main_agent import MainAgent
-from backend.agents.planner import Planner, PlannerParseError
+from backend.agents.planner import Planner
 from backend.agents.planner_schemas import Decomposition, to_legacy_decomposition
 from backend.agentloop.loop import AgentLoop
 from backend.agentloop.schemas import FinishReason, LoopBudget
@@ -166,7 +166,7 @@ class BuildOrchestrator:
                 client=get_build_chat_client(),
                 edition=state.edition,
             )
-        except (PlannerParseError, Exception) as e:
+        except Exception as e:
             logger.error("Planner failed for project %s: %s", project_id, e)
             yield _sse("error", {"message": f"规划失败: {e}"})
             yield _sse("done", {"project_id": project_id})
@@ -528,6 +528,8 @@ class BuildOrchestrator:
         # 2. Build step request + execution context (reuse existing helpers)
         step_request = self._build_step_request(step)
         execution_context = self._build_execution_context(state, step_index)
+        # Phase-4 双机制共存：跨步骤上下文用字符串 accumulated_context（即 session_context），
+        # 步骤内任务依赖用 _typed_predecessors 类型化对象（在 _run_via_agentloop 中注入）。
 
         # 3. Decompose via Planner
         yield _sse("build_step_update", {"step_index": step_index, "status": "decomposing"})
@@ -539,7 +541,7 @@ class BuildOrchestrator:
                 client=get_build_chat_client(),
                 edition=state.edition,
             )
-        except (PlannerParseError, Exception) as e:
+        except Exception as e:
             logger.error(
                 "Planner failed for project %s step %d: %s", project_id, step_index, e
             )
@@ -630,7 +632,7 @@ class BuildOrchestrator:
                         client=get_build_chat_client(),
                         edition=state.edition,
                     )
-                except (PlannerParseError, Exception) as e:
+                except Exception as e:
                     logger.warning(
                         "Planner failed during loop-review retry for project %s step %d: %s",
                         project_id, step_index, e,
@@ -721,9 +723,17 @@ class BuildOrchestrator:
         )
 
         outcome = None
-        async for ev in loop.run(messages):
-            if ev.get("event") == "_agent_outcome":
-                outcome = ev["data"]["outcome"]
+        try:
+            # 失败回落开放（fail-open）：LLM/传输异常时视步骤为完整，
+            # 避免 SSE 流因校验异常中断，与旧版 ReviewAgent 的"假设完成"行为一致。
+            async for ev in loop.run(messages):
+                if ev.get("event") == "_agent_outcome":
+                    outcome = ev["data"]["outcome"]
+        except Exception:
+            logger.warning(
+                "_loop_validate_step: AgentLoop raised an exception; treating step as complete (fail-open)"
+            )
+            return True, []
 
         if outcome is None:
             # Shouldn't happen; treat as complete to avoid infinite retries

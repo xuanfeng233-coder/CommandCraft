@@ -23,7 +23,8 @@ from backend.agents.planner_schemas import Decomposition
 
 # Characters that break the reader_agent regexes when they appear in the
 # step header title or inside field values.
-_STRIP_RE = re.compile(r"[\[\]**]")
+# 去掉 [、]、*（单个 * 的移除同时消除 ** markdown 粗体）
+_STRIP_RE = re.compile(r"[\[\]*]")
 
 
 def _sanitize(text: str) -> str:
