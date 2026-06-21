@@ -73,11 +73,20 @@ recipe, scriptevent, locate, clearspawnpoint, connect, wsserver, toggledownfall
 ### output_type 判断
 | output_type | 适用条件 |
 |-------------|---------|
-| simple_command | 标准命令（/give, /tp, /effect, /summon, /kill 等） |
+| simple_command | 单条标准命令即可完成（/give, /tp, /effect, /summon, /kill 等） |
 | execute_chain | 涉及 /execute 条件执行 |
 | rawtext | 涉及 /tellraw, /titleraw |
 | selector | 需要复杂目标选择器 |
-| project | 复杂项目规划（多命令方块组合机制） |
+| project | **机制/系统/自动化**：需多个命令方块协作（计分板计数、实体检测、阈值判断、条件触发、循环+链式）才能实现 |
+
+**（关键）output_type=project 的判定信号 —— 命中任一即用 project，禁止塞进 simple_command：**
+- 请求出现"做一个 / 制作 / 搭建 … 机制 / 系统 / 装置 / 自动化"
+- 含"当 … 时就 …""检测到 … 触发 …""每隔 …"等条件/循环逻辑
+- 需要计数、判断数量阈值、维护状态（计分板/标签）
+- 一条命令无法完成，需多个命令方块按顺序协作（初始化 → 检测 → 执行）
+
+例："做一个扫地机器人机制，掉落物超过50就清理" → **project**（计分板计数 + 阈值判断 + 清理，多命令方块），**不是** simple_command。
+反例："给我一把钻石剑""传送到出生点" → 仍是 simple_command（单条命令即可，勿过度升级为 project）。
 
 ### execution_mode
 - **continuous**: 需持续循环运行（repeating 命令方块）
@@ -281,11 +290,20 @@ spectate, trigger, publish, seed, reload, save-all, save-on, save-off, debug, jf
 ### output_type 判断
 | output_type | 适用条件 |
 |-------------|---------|
-| simple_command | 标准命令（/give, /tp, /effect, /summon, /kill, /data 等） |
+| simple_command | 单条标准命令即可完成（/give, /tp, /effect, /summon, /kill, /data 等） |
 | execute_chain | 涉及 /execute 条件执行 |
 | rawtext | 涉及 /tellraw（JSON 文本组件） |
 | selector | 需要复杂目标选择器 |
-| project | 复杂项目规划（多命令方块组合机制） |
+| project | **机制/系统/自动化**：需多个命令方块协作（计分板计数、实体检测、阈值判断、条件触发、循环+链式）才能实现 |
+
+**（关键）output_type=project 的判定信号 —— 命中任一即用 project，禁止塞进 simple_command：**
+- 请求出现"做一个 / 制作 / 搭建 … 机制 / 系统 / 装置 / 自动化"
+- 含"当 … 时就 …""检测到 … 触发 …""每隔 …"等条件/循环逻辑
+- 需要计数、判断数量阈值、维护状态（计分板/标签）
+- 一条命令无法完成，需多个命令方块按顺序协作（初始化 → 检测 → 执行）
+
+例："做一个扫地机器人机制，掉落物超过50就清理" → **project**（计分板计数 + 阈值判断 + 清理，多命令方块），**不是** simple_command。
+反例："给我一把钻石剑""传送到出生点" → 仍是 simple_command（单条命令即可，勿过度升级为 project）。
 
 ### execution_mode
 - **continuous**: 需持续循环运行（repeating 命令方块）
