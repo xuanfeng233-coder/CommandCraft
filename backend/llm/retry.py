@@ -33,6 +33,8 @@ async def with_retry(
     while True:
         try:
             return await fn()
+        except asyncio.CancelledError:
+            raise
         except BaseException as exc:  # noqa: BLE001 - 统一分类后再决策
             err = classify_exception(exc)
             attempt += 1

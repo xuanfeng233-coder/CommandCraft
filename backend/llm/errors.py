@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import httpx
 from openai import APIConnectionError, APIStatusError, APITimeoutError
 
@@ -30,6 +31,10 @@ def _wrap(cls: type[LLMError], exc: BaseException) -> LLMError:
 
 def classify_exception(exc: BaseException) -> LLMError:
     """把任意异常分类为 Transient / Permanent 的 LLMError。"""
+    # 协程取消：必须放行，不能包装为 LLMError
+    if isinstance(exc, asyncio.CancelledError):
+        raise exc
+
     # 已分类：原样返回
     if isinstance(exc, LLMError):
         return exc

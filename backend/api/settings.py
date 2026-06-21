@@ -8,7 +8,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 from backend.llm.catalog import model_catalog
-from backend.utils.providers import list_providers
+from backend.utils.providers import get_provider, list_providers
 from backend.utils.settings_manager import settings_manager
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
@@ -94,8 +94,6 @@ async def verify_config(req: LLMSettingsRequest):
 @router.post("/models")
 async def get_models(req: ModelsRequest):
     """返回某 provider 的可选模型列表（优先动态发现，失败回落 curated）。"""
-    from backend.utils.providers import get_provider
-
     base_url = req.base_url
     if not base_url:
         provider = get_provider(req.provider_id)

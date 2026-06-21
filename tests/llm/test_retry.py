@@ -83,3 +83,21 @@ async def test_max_delay_caps_backoff():
         await with_retry(fn, max_attempts=5, base_delay=1.0, max_delay=2.0, sleep=sleep)
     # 1, 2, 2, 2（被 max_delay=2.0 截断），第 5 次失败不 sleep
     assert calls == [1.0, 2.0, 2.0, 2.0]
+
+
+async def test_cancelled_error_propagates_immediately():
+    """asyncio.CancelledError 必须透传出 with_retry，不能被包装为 PermanentLLMError。"""
+    import asyncio as _asyncio
+
+    call_count = {"n": 0}
+
+    async def fn():
+        call_count["n"] += 1
+        raise _asyncio.CancelledError()
+
+    calls, sleep = _recording_sleep()
+    with pytest.raises(_asyncio.CancelledError):
+        await with_retry(fn, max_attempts=3, sleep=sleep)
+    # 取消应立即放行：fn 只被调用一次，且没有 sleep
+    assert call_count["n"] == 1
+    assert calls == []

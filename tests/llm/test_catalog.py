@@ -1,3 +1,4 @@
+import logging
 import httpx
 import pytest
 import respx
@@ -54,7 +55,6 @@ async def test_missing_credentials_logs_warning(caplog):
         return ["should-not-happen"]
 
     cat = ModelCatalog(fetcher=fetcher)
-    import logging
     with caplog.at_level(logging.WARNING):
         out = await cat.list_models("deepseek", api_key="", base_url="")
     assert all(m.source == "curated" for m in out)

@@ -15,6 +15,7 @@ import httpx
 from openai import AsyncOpenAI
 
 from backend.config import MODEL_TEMPERATURE, LLM_REQUEST_TIMEOUT, LLM_MAX_RETRIES, LLM_RETRY_BASE_DELAY
+from backend.llm.retry import with_retry
 
 logger = logging.getLogger(__name__)
 
@@ -145,8 +146,6 @@ class LLMClient:
 
         瞬时错误（连接/超时/429/5xx）自动重试；永久错误抛 PermanentLLMError。
         """
-        from backend.llm.retry import with_retry
-
         async def _call():
             return await self._client.chat.completions.create(**kwargs)
 

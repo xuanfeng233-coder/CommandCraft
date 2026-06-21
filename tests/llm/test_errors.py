@@ -62,3 +62,11 @@ def test_preserves_cause_and_message():
     assert err.__cause__ is src
     assert "refused" in str(err)
     assert isinstance(err, LLMError)
+
+
+def test_cancelled_error_is_reraised():
+    """classify_exception 绝不能把 CancelledError 包装为 LLMError。"""
+    import asyncio as _asyncio
+
+    with pytest.raises(_asyncio.CancelledError):
+        classify_exception(_asyncio.CancelledError())
