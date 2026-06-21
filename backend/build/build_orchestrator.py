@@ -78,6 +78,7 @@ class BuildOrchestrator:
         user_input: str,
         device_fp: str,
         session_id: str = "",
+        edition: str = "bedrock",
     ) -> AsyncGenerator[dict[str, Any], None]:
         """Phase A: ClarifyAgent analyses → optional clarify → generate plan.
 
@@ -95,6 +96,7 @@ class BuildOrchestrator:
             project_id=project_id,
             device_fp=device_fp,
             user_input=user_input,
+            edition=edition,
             status="planning",
         )
         self._active_builds[project_id] = state
