@@ -56,6 +56,9 @@ class ModelCatalog:
         """返回某 provider 的可选模型。优先动态，失败回落 curated。"""
         # 无凭证/无 url：直接 curated，不尝试拉取
         if not api_key or not base_url:
+            logger.warning(
+                "缺少凭证（provider=%s），回落 curated 模型列表", provider_id
+            )
             return self._curated(provider_id)
 
         cache_key = (provider_id, base_url)

@@ -49,6 +49,18 @@ async def test_missing_credentials_uses_curated_without_fetch():
     assert all(m.source == "curated" for m in out)
 
 
+async def test_missing_credentials_logs_warning(caplog):
+    async def fetcher(base_url, api_key):
+        return ["should-not-happen"]
+
+    cat = ModelCatalog(fetcher=fetcher)
+    import logging
+    with caplog.at_level(logging.WARNING):
+        out = await cat.list_models("deepseek", api_key="", base_url="")
+    assert all(m.source == "curated" for m in out)
+    assert any("回落 curated 模型列表" in r.message for r in caplog.records)
+
+
 async def test_cache_hit_within_ttl():
     calls = {"n": 0}
 
