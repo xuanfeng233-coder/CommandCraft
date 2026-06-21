@@ -1,0 +1,26 @@
+{
+  "name": "wsserver",
+  "syntax": "/wsserver <serverUri: string>",
+  "description": "连接到指定的WebSocket服务器（/connect 的原始命令名）",
+  "category": "websocket",
+  "parameters": [
+    {
+      "name": "serverUri",
+      "type": "string",
+      "required": true,
+      "description": "WebSocket服务器URI地址，如 ws://localhost:8080"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/wsserver ws://localhost:8080",
+      "description": "连接到本地8080端口的WebSocket服务器"
+    },
+    {
+      "input": "/wsserver localhost:19131",
+      "description": "连接到运行在本机19131端口的WebSocket服务器"
+    }
+  ],
+  "bedrock_specific_notes": "wsserver 是 /connect 命令的原始名称（/connect 是 wsserver 的别名，二者功能完全相同）。用于将游戏客户端连接到外部 WebSocket 服务器，实现与外部程序（如 Code Connection、教育版工具）的双向命令通信。Java版没有此功能。基岩版权限等级为2，教育版为0；不能在命令方块中使用。出于安全考虑，部分平台可能限制此命令。",
+  "version_added": "1.0.0"
+}

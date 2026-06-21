@@ -1,0 +1,396 @@
+[
+  {
+    "id": "minecraft:fog_bamboo_jungle_fog_setting",
+    "name": "Bamboo Jungle Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_bamboo_jungle_hills_fog_setting",
+    "name": "Bamboo Jungle Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_basalt_deltas_fog_setting",
+    "name": "Basalt Deltas Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_beach_fog_setting",
+    "name": "Beach Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_birch_forest_fog_setting",
+    "name": "Birch Forest Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_birch_forest_hills_fog_setting",
+    "name": "Birch Forest Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cherry_grove_fog_setting",
+    "name": "Cherry Grove Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cold_beach_fog_setting",
+    "name": "Cold Beach Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cold_ocean_fog_setting",
+    "name": "Cold Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cold_taiga_fog_setting",
+    "name": "Cold Taiga Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cold_taiga_hills_fog_setting",
+    "name": "Cold Taiga Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_cold_taiga_mutated_fog_setting",
+    "name": "Cold Taiga Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_crimson_forest_fog_setting",
+    "name": "Crimson Forest Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_deep_cold_ocean_fog_setting",
+    "name": "Deep Cold Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_deep_frozen_ocean_fog_setting",
+    "name": "Deep Frozen Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_deep_lukewarm_ocean_fog_setting",
+    "name": "Deep Lukewarm Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_deep_ocean_fog_setting",
+    "name": "Deep Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_deep_warm_ocean_fog_setting",
+    "name": "Deep Warm Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_default_fog_setting",
+    "name": "Default Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_desert_fog_setting",
+    "name": "Desert Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_desert_hills_fog_setting",
+    "name": "Desert Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_dry_fog_setting",
+    "name": "Dry Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_edge_fog_setting",
+    "name": "Extreme Hills Edge Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_fog_setting",
+    "name": "Extreme Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_mutated_fog_setting",
+    "name": "Extreme Hills Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_plus_trees_fog_setting",
+    "name": "Extreme Hills Plus Trees Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_extreme_hills_plus_trees_mutated_fog_setting",
+    "name": "Extreme Hills Plus Trees Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_flower_forest_fog_setting",
+    "name": "Flower Forest Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_forest_fog_setting",
+    "name": "Forest Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_forest_hills_fog_setting",
+    "name": "Forest Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_frozen_ocean_fog_setting",
+    "name": "Frozen Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_frozen_river_fog_setting",
+    "name": "Frozen River Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_hell_fog_setting",
+    "name": "Hell Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_humid_fog_setting",
+    "name": "Humid Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_ice_mountains_fog_setting",
+    "name": "Ice Mountains Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_ice_plains_fog_setting",
+    "name": "Ice Plains Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_ice_plains_spikes_fog_setting",
+    "name": "Ice Plains Spikes Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_jungle_edge_fog_setting",
+    "name": "Jungle Edge Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_jungle_fog_setting",
+    "name": "Jungle Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_jungle_hills_fog_setting",
+    "name": "Jungle Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_jungle_mutated_fog_setting",
+    "name": "Jungle Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_lukewarm_ocean_fog_setting",
+    "name": "Lukewarm Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_lush_caves_fog_setting",
+    "name": "Lush Caves Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mangrove_swamp_fog_setting",
+    "name": "Mangrove Swamp Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mega_spruce_taiga_fog_setting",
+    "name": "Mega Spruce Taiga Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mega_spruse_taiga_mutated_fog_setting",
+    "name": "Mega Spruce Taiga Mutated Fog Setting",
+    "description": "",
+    "aliases": [
+      "minecraft:fog_mega_spruce_taiga_mutated_fog_setting"
+    ]
+  },
+  {
+    "id": "minecraft:fog_mega_taiga_fog_setting",
+    "name": "Mega Taiga Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mega_taiga_hills_fog_setting",
+    "name": "Mega Taiga Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mega_taiga_mutated_fog_setting",
+    "name": "Mega Taiga Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mesa_bryce_fog_setting",
+    "name": "Mesa Bryce Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mesa_fog_setting",
+    "name": "Mesa Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mesa_mutated_fog_setting",
+    "name": "Mesa Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mesa_plateau_fog_setting",
+    "name": "Mesa Plateau Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mesa_plateau_stone_fog_setting",
+    "name": "Mesa Plateau Stone Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mushroom_island_fog_setting",
+    "name": "Mushroom Island Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_mushroom_island_shore_fog_setting",
+    "name": "Mushroom Island Shore Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_ocean_fog_setting",
+    "name": "Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_pale_garden_fog_setting",
+    "name": "Pale Garden Fog Setting",
+    "description": "",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:fog_plains_fog_setting",
+    "name": "Plains Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_powder_snow_fog_setting",
+    "name": "Powder Snow Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_river_fog_setting",
+    "name": "River Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_roofed_forest_fog_setting",
+    "name": "Roofed Forest Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_roofed_forest_mutated_fog_setting",
+    "name": "Roofed Forest Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_savanna_fog_setting",
+    "name": "Savanna Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_savanna_mutated_fog_setting",
+    "name": "Savanna Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_savanna_plateau_fog_setting",
+    "name": "Savanna Plateau Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_semi_humid_fog_setting",
+    "name": "Semi Humid Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_soulsand_valley_fog_setting",
+    "name": "Soulsand Valley Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_stone_beach_fog_setting",
+    "name": "Stone Beach Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_sunflower_plains_fog_setting",
+    "name": "Sunflower Plains Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_swampland_fog_setting",
+    "name": "Swampland Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_swampland_mutated_fog_setting",
+    "name": "Swampland Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_taiga_fog_setting",
+    "name": "Taiga Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_taiga_hills_fog_setting",
+    "name": "Taiga Hills Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_taiga_mutated_fog_setting",
+    "name": "Taiga Mutated Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_the_end_fog_setting",
+    "name": "The End Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_warm_ocean_fog_setting",
+    "name": "Warm Ocean Fog Setting",
+    "description": ""
+  },
+  {
+    "id": "minecraft:fog_warped_forest_fog_setting",
+    "name": "Warped Forest Fog Setting",
+    "description": ""
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "id": "minecraft:creeper",
+  "inherits": "_mob_common",
+  "description": "苦力怕实体NBT标签",
+  "tags": [
+    {
+      "name": "Fuse",
+      "type": "short",
+      "description": "爆炸引信时间（刻），默认30刻（1.5秒）",
+      "default": 30
+    },
+    {
+      "name": "ExplosionRadius",
+      "type": "byte",
+      "description": "爆炸半径，默认3",
+      "default": 3
+    },
+    {
+      "name": "powered",
+      "type": "byte",
+      "description": "是否为闪电苦力怕（爆炸威力翻倍）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "ignited",
+      "type": "byte",
+      "description": "是否已被打火石点燃",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "playsound",
+  "syntax": "/playsound <sound> <source> [<targets>] [<pos>] [<volume>] [<pitch>] [<minVolume>]",
+  "description": "向玩家播放指定音效",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "sound",
+      "type": "sound_id",
+      "required": true,
+      "description": "音效ID（如 minecraft:entity.experience_orb.pickup）"
+    },
+    {
+      "name": "source",
+      "type": "SoundSource",
+      "required": true,
+      "description": "音效来源类别：master、music、record、weather、block、hostile、neutral、player、ambient、voice"
+    },
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "听到音效的玩家",
+      "default": "@s"
+    },
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "音效播放位置",
+      "default": "目标玩家位置"
+    },
+    {
+      "name": "volume",
+      "type": "float",
+      "required": false,
+      "description": "音量（0.0以上）。大于1.0时增大可听范围",
+      "default": "1.0"
+    },
+    {
+      "name": "pitch",
+      "type": "float",
+      "required": false,
+      "description": "音调（0.0-2.0）。1.0为正常",
+      "default": "1.0"
+    },
+    {
+      "name": "minVolume",
+      "type": "float",
+      "required": false,
+      "description": "最小音量（0.0-1.0），当玩家超出音效范围时的最低音量",
+      "default": "0.0"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/playsound minecraft:entity.experience_orb.pickup master @a",
+      "description": "向所有玩家播放经验球拾取音效"
+    },
+    {
+      "input": "/playsound minecraft:entity.ender_dragon.growl hostile @a ~ ~ ~ 1 0.5",
+      "description": "播放低音调的末影龙咆哮声"
+    },
+    {
+      "input": "/playsound minecraft:block.note_block.pling block @s ~ ~ ~ 1 2",
+      "description": "播放高音调的音符盒叮声"
+    },
+    {
+      "input": "/playsound minecraft:ui.toast.challenge_complete player @s",
+      "description": "播放挑战完成的UI音效"
+    }
+  ],
+  "java_specific_notes": "Java版playsound的source参数是必需的（基岩版也类似但分类不同）。Java版音效ID使用点号分隔格式（如minecraft:entity.experience_orb.pickup）。source决定了该音效受哪个音量滑块控制。",
+  "version_added": "1.9"
+}

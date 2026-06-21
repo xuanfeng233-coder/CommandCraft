@@ -1,0 +1,21 @@
+{
+  "id": "minecraft:sheep",
+  "inherits": "_mob_common",
+  "description": "羊实体NBT标签",
+  "tags": [
+    {
+      "name": "Sheared",
+      "type": "byte",
+      "description": "是否已被剪毛",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Color",
+      "type": "byte",
+      "description": "羊毛颜色（染料颜色ID）：0=白, 1=橙, 2=品红, 3=淡蓝, 4=黄, 5=黄绿, 6=粉, 7=灰, 8=淡灰, 9=青, 10=紫, 11=蓝, 12=棕, 13=绿, 14=红, 15=黑",
+      "range": "0..15",
+      "default": 0
+    }
+  ]
+}

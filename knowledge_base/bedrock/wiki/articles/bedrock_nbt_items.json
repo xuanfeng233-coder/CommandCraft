@@ -1,0 +1,21 @@
+{
+  "id": "bedrock_nbt_items",
+  "title": "基岩版NBT物品组件",
+  "source": "wiki.bedrock.dev",
+  "url": "https://wiki.bedrock.dev/commands/giving-nbt-items",
+  "category": "commands",
+  "tags": [
+    "NBT",
+    "物品",
+    "give",
+    "replaceitem",
+    "can_place_on",
+    "can_destroy",
+    "item_lock",
+    "keep_on_death"
+  ],
+  "summary": "基岩版通过JSON格式的NBT组件自定义物品属性，支持can_place_on（限制放置）、can_destroy（限制破坏）、item_lock（锁定物品）、keep_on_death（死亡保留）四种组件。",
+  "content": "基岩版可以通过命令给予带有特殊NBT组件的物品，实现冒险模式限制、物品锁定、死亡保留等功能。\n\n## 基本语法\n\n```\n/give <玩家> <物品ID> <数量> <数据值> <JSON组件>\n/replaceitem entity <玩家> <栏位> <物品ID> <数量> <数据值> <JSON组件>\n```\n\nJSON组件以 JSON 对象格式附加在命令末尾。\n\n## 组件一：can_place_on（限制放置）\n\n限制方块只能放在指定方块上，用于冒险模式地图。\n\n### 语法\n```\n{\"can_place_on\":{\"blocks\":[\"方块ID1\",\"方块ID2\"]}}\n```\n\n### 示例\n给予只能放在草方块和泥土上的石头：\n```\n/give @s stone 1 0 {\"can_place_on\":{\"blocks\":[\"grass\",\"dirt\"]}}\n```\n\n给予只能放在钻石块上的红石火把：\n```\n/give @s redstone_torch 1 0 {\"can_place_on\":{\"blocks\":[\"diamond_block\"]}}\n```\n\n在冒险模式下，物品tooltip会显示「可放置于：」并列出允许的方块。\n\n## 组件二：can_destroy（限制破坏）\n\n限制工具只能破坏指定方块，用于冒险模式地图。\n\n### 语法\n```\n{\"can_destroy\":{\"blocks\":[\"方块ID1\",\"方块ID2\"]}}\n```\n\n### 示例\n给予只能破坏木板和原木的钻石斧：\n```\n/give @s diamond_axe 1 0 {\"can_destroy\":{\"blocks\":[\"planks\",\"log\"]}}\n```\n\n给予只能挖沙子的铁锹：\n```\n/give @s iron_shovel 1 0 {\"can_destroy\":{\"blocks\":[\"sand\",\"gravel\",\"clay\"]}}\n```\n\n## 组件三：item_lock（物品锁定）\n\n防止玩家移动、丢弃或拆解物品，常用于小游戏固定装备。\n\n### 锁定模式\n\n#### lock_in_slot — 锁定在当前栏位\n物品不能被移动、丢弃或放入容器，完全固定在当前位置。\n```\n/give @s diamond_sword 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}\n```\n\n#### lock_in_inventory — 锁定在背包\n物品可以在背包内移动，但不能丢弃或放入容器。\n```\n/give @s compass 1 0 {\"item_lock\":{\"mode\":\"lock_in_inventory\"}}\n```\n\n### replaceitem 配合使用\n将锁定物品直接放入指定栏位：\n```\n/replaceitem entity @a slot.hotbar 0 diamond_sword 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}\n/replaceitem entity @a slot.armor.chest 0 diamond_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"}}\n```\n\n### 视觉效果\n- lock_in_slot：物品左上角显示锁链图标\n- lock_in_inventory：物品左上角显示锁头图标\n\n## 组件四：keep_on_death（死亡保留）\n\n玩家死亡后保留该物品，不会掉落。\n\n### 语法\n```\n{\"keep_on_death\":{}}\n```\n\n### 示例\n```\n/give @s diamond_sword 1 0 {\"keep_on_death\":{}}\n```\n\n## 组合使用多个组件\n\n多个组件可以在同一个JSON对象中同时使用：\n\n### 锁定+死亡保留\n给予一把锁定在栏位且死亡不掉落的剑：\n```\n/give @s diamond_sword 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n```\n\n### 全组件组合\n给予一把可破坏特定方块、锁定在栏位且死亡保留的工具：\n```\n/give @s diamond_pickaxe 1 0 {\"can_destroy\":{\"blocks\":[\"stone\",\"cobblestone\",\"iron_ore\"]},\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n```\n\n### 冒险模式完整装备套装\n```\n## 武器（锁定+保留+限制破坏）\n/replaceitem entity @a slot.hotbar 0 diamond_sword 1 0 {\"can_destroy\":{\"blocks\":[\"web\",\"bamboo\"]},\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n\n## 工具（锁定+保留+限制破坏）\n/replaceitem entity @a slot.hotbar 1 diamond_pickaxe 1 0 {\"can_destroy\":{\"blocks\":[\"stone\",\"iron_ore\",\"coal_ore\"]},\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n\n## 建筑方块（锁定+限制放置）\n/replaceitem entity @a slot.hotbar 2 planks 64 0 {\"can_place_on\":{\"blocks\":[\"grass\",\"dirt\",\"stone\"]},\"item_lock\":{\"mode\":\"lock_in_inventory\"}}\n\n## 盔甲（锁定+保留）\n/replaceitem entity @a slot.armor.head 0 diamond_helmet 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n/replaceitem entity @a slot.armor.chest 0 diamond_chestplate 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n/replaceitem entity @a slot.armor.legs 0 diamond_leggings 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n/replaceitem entity @a slot.armor.feet 0 diamond_boots 1 0 {\"item_lock\":{\"mode\":\"lock_in_slot\"},\"keep_on_death\":{}}\n```\n\n## 注意事项\n\n- JSON组件必须是合法JSON格式，注意引号和括号匹配\n- can_place_on 和 can_destroy 在冒险模式下才有可见效果\n- item_lock 在创造模式下无效\n- 方块ID使用不带 minecraft: 前缀的短名称\n- 数据值为0时可以省略，但使用JSON组件时必须写明数据值参数",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

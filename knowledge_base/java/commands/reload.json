@@ -1,0 +1,15 @@
+{
+  "name": "reload",
+  "syntax": "/reload",
+  "description": "重新加载所有数据包",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/reload",
+      "description": "重新加载所有数据包（函数、进度、配方、战利品表等）"
+    }
+  ],
+  "java_specific_notes": "reload命令会重新加载所有已启用数据包中的内容，包括函数、进度、配方、标签、谓词、战利品表等。重载后会自动执行#minecraft:load标签中的函数。不会重置世界状态（如实体、方块等）。",
+  "version_added": "1.12"
+}

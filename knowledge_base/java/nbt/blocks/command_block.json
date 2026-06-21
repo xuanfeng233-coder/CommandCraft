@@ -1,0 +1,64 @@
+{
+  "id": "minecraft:command_block",
+  "inherits": "_common",
+  "description": "命令方块方块实体NBT标签（包括脉冲、连锁、循环命令方块）",
+  "tags": [
+    {
+      "name": "Command",
+      "type": "string",
+      "description": "命令方块中存储的命令",
+      "default": ""
+    },
+    {
+      "name": "SuccessCount",
+      "type": "int",
+      "description": "命令最后一次执行的成功次数",
+      "default": 0
+    },
+    {
+      "name": "LastOutput",
+      "type": "string",
+      "description": "最后一次命令输出（JSON文本组件格式）"
+    },
+    {
+      "name": "TrackOutput",
+      "type": "byte",
+      "description": "是否记录命令输出",
+      "values": [0, 1],
+      "default": 1
+    },
+    {
+      "name": "powered",
+      "type": "byte",
+      "description": "命令方块是否被红石激活",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "auto",
+      "type": "byte",
+      "description": "是否为「保持开启」模式（无需红石信号即可执行）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "conditionMet",
+      "type": "byte",
+      "description": "条件命令方块的条件是否满足",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "UpdateLastExecution",
+      "type": "byte",
+      "description": "是否更新最后执行时间（用于避免循环命令方块在同一刻多次执行）",
+      "values": [0, 1],
+      "default": 1
+    },
+    {
+      "name": "LastExecution",
+      "type": "long",
+      "description": "最后一次执行的游戏刻时间"
+    }
+  ]
+}

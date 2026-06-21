@@ -1,0 +1,42 @@
+{
+  "name": "debug",
+  "syntax": "/debug start|stop|function <name>",
+  "description": "管理调试性能分析",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "start",
+      "type": "子命令",
+      "required": false,
+      "description": "开始性能分析"
+    },
+    {
+      "name": "stop",
+      "type": "子命令",
+      "required": false,
+      "description": "停止性能分析并生成报告"
+    },
+    {
+      "name": "function <name>",
+      "type": "子命令",
+      "required": false,
+      "description": "对指定函数进行性能分析"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/debug start",
+      "description": "开始性能分析"
+    },
+    {
+      "input": "/debug stop",
+      "description": "停止分析并生成报告文件"
+    },
+    {
+      "input": "/debug function my_pack:heavy_function",
+      "description": "分析指定函数的性能"
+    }
+  ],
+  "java_specific_notes": "debug报告保存在debug/目录下。function子命令会详细记录函数执行中每条命令的耗时，非常适合优化数据包性能。",
+  "version_added": "1.0"
+}

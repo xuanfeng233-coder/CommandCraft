@@ -1,0 +1,152 @@
+[
+  {
+    "id": "dummy",
+    "name": "虚拟",
+    "category": "simple",
+    "description": "仅可被命令修改"
+  },
+  {
+    "id": "trigger",
+    "name": "触发器",
+    "category": "simple",
+    "description": "可被玩家 /trigger 修改"
+  },
+  {
+    "id": "deathCount",
+    "name": "死亡次数",
+    "category": "simple",
+    "description": "玩家死亡累加"
+  },
+  {
+    "id": "playerKillCount",
+    "name": "击杀玩家数",
+    "category": "simple",
+    "description": "计分项标准：击杀玩家数"
+  },
+  {
+    "id": "totalKillCount",
+    "name": "总击杀数",
+    "category": "simple",
+    "description": "计分项标准：总击杀数"
+  },
+  {
+    "id": "health",
+    "name": "生命值",
+    "category": "stat",
+    "description": "只读，0-20"
+  },
+  {
+    "id": "xp",
+    "name": "经验",
+    "category": "stat",
+    "description": "计分项标准：经验"
+  },
+  {
+    "id": "level",
+    "name": "经验等级",
+    "category": "stat",
+    "description": "计分项标准：经验等级"
+  },
+  {
+    "id": "food",
+    "name": "饥饿值",
+    "category": "stat",
+    "description": "计分项标准：饥饿值"
+  },
+  {
+    "id": "air",
+    "name": "氧气",
+    "category": "stat",
+    "description": "计分项标准：氧气"
+  },
+  {
+    "id": "armor",
+    "name": "护甲值",
+    "category": "stat",
+    "description": "计分项标准：护甲值"
+  },
+  {
+    "id": "minecraft.custom:minecraft.jump",
+    "name": "跳跃次数",
+    "category": "custom",
+    "description": "格式 minecraft.custom:minecraft.<统计项>"
+  },
+  {
+    "id": "minecraft.custom:minecraft.play_time",
+    "name": "游戏时间",
+    "category": "custom",
+    "description": "以刻计"
+  },
+  {
+    "id": "minecraft.custom:minecraft.walk_one_cm",
+    "name": "步行距离",
+    "category": "custom",
+    "description": "计分项标准：步行距离"
+  },
+  {
+    "id": "minecraft.custom:minecraft.deaths",
+    "name": "死亡(自定义统计)",
+    "category": "custom",
+    "description": "计分项标准：死亡(自定义统计)"
+  },
+  {
+    "id": "minecraft.mined:minecraft.diamond_ore",
+    "name": "挖掘钻石矿",
+    "category": "mined",
+    "description": "格式 minecraft.mined:minecraft.<方块>"
+  },
+  {
+    "id": "minecraft.crafted:minecraft.bread",
+    "name": "合成面包",
+    "category": "crafted",
+    "description": "格式 minecraft.crafted:minecraft.<物品>"
+  },
+  {
+    "id": "minecraft.used:minecraft.bow",
+    "name": "使用弓",
+    "category": "used",
+    "description": "格式 minecraft.used:minecraft.<物品>"
+  },
+  {
+    "id": "minecraft.broken:minecraft.iron_pickaxe",
+    "name": "损坏物品",
+    "category": "broken",
+    "description": "计分项标准：损坏物品"
+  },
+  {
+    "id": "minecraft.picked_up:minecraft.diamond",
+    "name": "拾取物品",
+    "category": "picked_up",
+    "description": "计分项标准：拾取物品"
+  },
+  {
+    "id": "minecraft.dropped:minecraft.dirt",
+    "name": "丢弃物品",
+    "category": "dropped",
+    "description": "计分项标准：丢弃物品"
+  },
+  {
+    "id": "minecraft.killed:minecraft.zombie",
+    "name": "击杀某生物",
+    "category": "killed",
+    "description": "格式 minecraft.killed:minecraft.<生物>"
+  },
+  {
+    "id": "minecraft.killed_by:minecraft.creeper",
+    "name": "被某生物击杀",
+    "category": "killed_by",
+    "description": "计分项标准：被某生物击杀"
+  },
+  {
+    "id": "teamkill.red",
+    "name": "击杀某队",
+    "category": "team",
+    "description": "teamkill.<颜色>"
+  },
+  {
+    "id": "killedByTeam.red",
+    "name": "被某队击杀",
+    "category": "team",
+    "description": "killedByTeam.<颜色>"
+  }
+]

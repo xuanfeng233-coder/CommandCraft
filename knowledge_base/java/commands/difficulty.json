@@ -1,0 +1,30 @@
+{
+  "name": "difficulty",
+  "syntax": "/difficulty [<difficulty>]",
+  "description": "设置或查询世界的游戏难度",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "difficulty",
+      "type": "Difficulty",
+      "required": false,
+      "description": "难度级别：peaceful（和平）、easy（简单）、normal（普通）、hard（困难）。省略则查询当前难度"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/difficulty peaceful",
+      "description": "将难度设为和平"
+    },
+    {
+      "input": "/difficulty hard",
+      "description": "将难度设为困难"
+    },
+    {
+      "input": "/difficulty",
+      "description": "查询当前难度"
+    }
+  ],
+  "java_specific_notes": "Java版不支持数字ID指定难度，必须使用全称。困难模式下生物会有更强的属性和更多特殊行为（如僵尸可以破门）。",
+  "version_added": "1.0"
+}

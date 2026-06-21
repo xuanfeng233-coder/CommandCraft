@@ -1,0 +1,49 @@
+{
+  "id": "minecraft:brewing_stand",
+  "inherits": "_common",
+  "description": "酿造台方块实体NBT标签",
+  "tags": [
+    {
+      "name": "Items",
+      "type": "list<compound>",
+      "description": "酿造台中的物品（槽位0-2为药水瓶，3为材料，4为燃料/烈焰粉）",
+      "children": [
+        {
+          "name": "Slot",
+          "type": "byte",
+          "description": "槽位编号（0-2=瓶子, 3=材料, 4=烈焰粉）",
+          "range": "0..4"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "BrewTime",
+      "type": "short",
+      "description": "酿造剩余刻数（总共400刻=20秒）",
+      "default": 0
+    },
+    {
+      "name": "Fuel",
+      "type": "byte",
+      "description": "剩余燃料量（每个烈焰粉提供20次）",
+      "default": 0,
+      "range": "0..20"
+    }
+  ]
+}

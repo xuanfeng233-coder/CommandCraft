@@ -1,0 +1,2886 @@
+[
+  {
+    "id": "minecraft:diamond_sword",
+    "name": "Diamond Sword",
+    "category": "combat",
+    "description": "钻石剑"
+  },
+  {
+    "id": "minecraft:iron_sword",
+    "name": "Iron Sword",
+    "category": "combat",
+    "description": "铁剑"
+  },
+  {
+    "id": "minecraft:golden_sword",
+    "name": "Golden Sword",
+    "category": "combat",
+    "description": "金剑"
+  },
+  {
+    "id": "minecraft:stone_sword",
+    "name": "Stone Sword",
+    "category": "combat",
+    "description": "石剑"
+  },
+  {
+    "id": "minecraft:wooden_sword",
+    "name": "Wooden Sword",
+    "category": "combat",
+    "description": "木剑"
+  },
+  {
+    "id": "minecraft:netherite_sword",
+    "name": "Netherite Sword",
+    "category": "combat",
+    "description": "下界合金剑"
+  },
+  {
+    "id": "minecraft:diamond_pickaxe",
+    "name": "Diamond Pickaxe",
+    "category": "tools",
+    "description": "钻石镐"
+  },
+  {
+    "id": "minecraft:iron_pickaxe",
+    "name": "Iron Pickaxe",
+    "category": "tools",
+    "description": "铁镐"
+  },
+  {
+    "id": "minecraft:golden_pickaxe",
+    "name": "Golden Pickaxe",
+    "category": "tools",
+    "description": "金镐"
+  },
+  {
+    "id": "minecraft:stone_pickaxe",
+    "name": "Stone Pickaxe",
+    "category": "tools",
+    "description": "石镐"
+  },
+  {
+    "id": "minecraft:wooden_pickaxe",
+    "name": "Wooden Pickaxe",
+    "category": "tools",
+    "description": "木镐"
+  },
+  {
+    "id": "minecraft:netherite_pickaxe",
+    "name": "Netherite Pickaxe",
+    "category": "tools",
+    "description": "下界合金镐"
+  },
+  {
+    "id": "minecraft:diamond_axe",
+    "name": "Diamond Axe",
+    "category": "tools",
+    "description": "钻石斧"
+  },
+  {
+    "id": "minecraft:iron_axe",
+    "name": "Iron Axe",
+    "category": "tools",
+    "description": "铁斧"
+  },
+  {
+    "id": "minecraft:golden_axe",
+    "name": "Golden Axe",
+    "category": "tools",
+    "description": "金斧"
+  },
+  {
+    "id": "minecraft:stone_axe",
+    "name": "Stone Axe",
+    "category": "tools",
+    "description": "石斧"
+  },
+  {
+    "id": "minecraft:wooden_axe",
+    "name": "Wooden Axe",
+    "category": "tools",
+    "description": "木斧"
+  },
+  {
+    "id": "minecraft:netherite_axe",
+    "name": "Netherite Axe",
+    "category": "tools",
+    "description": "下界合金斧"
+  },
+  {
+    "id": "minecraft:diamond_shovel",
+    "name": "Diamond Shovel",
+    "category": "tools",
+    "description": "钻石锹"
+  },
+  {
+    "id": "minecraft:iron_shovel",
+    "name": "Iron Shovel",
+    "category": "tools",
+    "description": "铁锹"
+  },
+  {
+    "id": "minecraft:golden_shovel",
+    "name": "Golden Shovel",
+    "category": "tools",
+    "description": "金锹"
+  },
+  {
+    "id": "minecraft:stone_shovel",
+    "name": "Stone Shovel",
+    "category": "tools",
+    "description": "石锹"
+  },
+  {
+    "id": "minecraft:wooden_shovel",
+    "name": "Wooden Shovel",
+    "category": "tools",
+    "description": "木锹"
+  },
+  {
+    "id": "minecraft:netherite_shovel",
+    "name": "Netherite Shovel",
+    "category": "tools",
+    "description": "下界合金锹"
+  },
+  {
+    "id": "minecraft:diamond_hoe",
+    "name": "Diamond Hoe",
+    "category": "tools",
+    "description": "钻石锄"
+  },
+  {
+    "id": "minecraft:iron_hoe",
+    "name": "Iron Hoe",
+    "category": "tools",
+    "description": "铁锄"
+  },
+  {
+    "id": "minecraft:golden_hoe",
+    "name": "Golden Hoe",
+    "category": "tools",
+    "description": "金锄"
+  },
+  {
+    "id": "minecraft:stone_hoe",
+    "name": "Stone Hoe",
+    "category": "tools",
+    "description": "石锄"
+  },
+  {
+    "id": "minecraft:wooden_hoe",
+    "name": "Wooden Hoe",
+    "category": "tools",
+    "description": "木锄"
+  },
+  {
+    "id": "minecraft:netherite_hoe",
+    "name": "Netherite Hoe",
+    "category": "tools",
+    "description": "下界合金锄"
+  },
+  {
+    "id": "minecraft:bow",
+    "name": "Bow",
+    "category": "combat",
+    "description": "弓"
+  },
+  {
+    "id": "minecraft:crossbow",
+    "name": "Crossbow",
+    "category": "combat",
+    "description": "弩"
+  },
+  {
+    "id": "minecraft:trident",
+    "name": "Trident",
+    "category": "combat",
+    "description": "三叉戟"
+  },
+  {
+    "id": "minecraft:mace",
+    "name": "Mace",
+    "category": "combat",
+    "description": "锤"
+  },
+  {
+    "id": "minecraft:shield",
+    "name": "Shield",
+    "category": "combat",
+    "description": "盾牌"
+  },
+  {
+    "id": "minecraft:arrow",
+    "name": "Arrow",
+    "category": "combat",
+    "description": "箭"
+  },
+  {
+    "id": "minecraft:spectral_arrow",
+    "name": "Spectral Arrow",
+    "category": "combat",
+    "description": "光灵箭"
+  },
+  {
+    "id": "minecraft:tipped_arrow",
+    "name": "Tipped Arrow",
+    "category": "combat",
+    "description": "药箭"
+  },
+  {
+    "id": "minecraft:diamond_helmet",
+    "name": "Diamond Helmet",
+    "category": "armor",
+    "description": "钻石头盔"
+  },
+  {
+    "id": "minecraft:diamond_chestplate",
+    "name": "Diamond Chestplate",
+    "category": "armor",
+    "description": "钻石胸甲"
+  },
+  {
+    "id": "minecraft:diamond_leggings",
+    "name": "Diamond Leggings",
+    "category": "armor",
+    "description": "钻石护腿"
+  },
+  {
+    "id": "minecraft:diamond_boots",
+    "name": "Diamond Boots",
+    "category": "armor",
+    "description": "钻石靴子"
+  },
+  {
+    "id": "minecraft:iron_helmet",
+    "name": "Iron Helmet",
+    "category": "armor",
+    "description": "铁头盔"
+  },
+  {
+    "id": "minecraft:iron_chestplate",
+    "name": "Iron Chestplate",
+    "category": "armor",
+    "description": "铁胸甲"
+  },
+  {
+    "id": "minecraft:iron_leggings",
+    "name": "Iron Leggings",
+    "category": "armor",
+    "description": "铁护腿"
+  },
+  {
+    "id": "minecraft:iron_boots",
+    "name": "Iron Boots",
+    "category": "armor",
+    "description": "铁靴子"
+  },
+  {
+    "id": "minecraft:golden_helmet",
+    "name": "Golden Helmet",
+    "category": "armor",
+    "description": "金头盔"
+  },
+  {
+    "id": "minecraft:golden_chestplate",
+    "name": "Golden Chestplate",
+    "category": "armor",
+    "description": "金胸甲"
+  },
+  {
+    "id": "minecraft:golden_leggings",
+    "name": "Golden Leggings",
+    "category": "armor",
+    "description": "金护腿"
+  },
+  {
+    "id": "minecraft:golden_boots",
+    "name": "Golden Boots",
+    "category": "armor",
+    "description": "金靴子"
+  },
+  {
+    "id": "minecraft:chainmail_helmet",
+    "name": "Chainmail Helmet",
+    "category": "armor",
+    "description": "锁链头盔"
+  },
+  {
+    "id": "minecraft:chainmail_chestplate",
+    "name": "Chainmail Chestplate",
+    "category": "armor",
+    "description": "锁链胸甲"
+  },
+  {
+    "id": "minecraft:chainmail_leggings",
+    "name": "Chainmail Leggings",
+    "category": "armor",
+    "description": "锁链护腿"
+  },
+  {
+    "id": "minecraft:chainmail_boots",
+    "name": "Chainmail Boots",
+    "category": "armor",
+    "description": "锁链靴子"
+  },
+  {
+    "id": "minecraft:leather_helmet",
+    "name": "Leather Cap",
+    "category": "armor",
+    "description": "皮革帽子"
+  },
+  {
+    "id": "minecraft:leather_chestplate",
+    "name": "Leather Tunic",
+    "category": "armor",
+    "description": "皮革外套"
+  },
+  {
+    "id": "minecraft:leather_leggings",
+    "name": "Leather Pants",
+    "category": "armor",
+    "description": "皮革裤子"
+  },
+  {
+    "id": "minecraft:leather_boots",
+    "name": "Leather Boots",
+    "category": "armor",
+    "description": "皮革靴子"
+  },
+  {
+    "id": "minecraft:netherite_helmet",
+    "name": "Netherite Helmet",
+    "category": "armor",
+    "description": "下界合金头盔"
+  },
+  {
+    "id": "minecraft:netherite_chestplate",
+    "name": "Netherite Chestplate",
+    "category": "armor",
+    "description": "下界合金胸甲"
+  },
+  {
+    "id": "minecraft:netherite_leggings",
+    "name": "Netherite Leggings",
+    "category": "armor",
+    "description": "下界合金护腿"
+  },
+  {
+    "id": "minecraft:netherite_boots",
+    "name": "Netherite Boots",
+    "category": "armor",
+    "description": "下界合金靴子"
+  },
+  {
+    "id": "minecraft:turtle_helmet",
+    "name": "Turtle Shell",
+    "category": "armor",
+    "description": "海龟壳"
+  },
+  {
+    "id": "minecraft:elytra",
+    "name": "Elytra",
+    "category": "armor",
+    "description": "鞘翅"
+  },
+  {
+    "id": "minecraft:leather_horse_armor",
+    "name": "Leather Horse Armor",
+    "category": "armor",
+    "description": "皮革马铠"
+  },
+  {
+    "id": "minecraft:iron_horse_armor",
+    "name": "Iron Horse Armor",
+    "category": "armor",
+    "description": "铁马铠"
+  },
+  {
+    "id": "minecraft:golden_horse_armor",
+    "name": "Golden Horse Armor",
+    "category": "armor",
+    "description": "金马铠"
+  },
+  {
+    "id": "minecraft:diamond_horse_armor",
+    "name": "Diamond Horse Armor",
+    "category": "armor",
+    "description": "钻石马铠"
+  },
+  {
+    "id": "minecraft:wolf_armor",
+    "name": "Wolf Armor",
+    "category": "armor",
+    "description": "狼铠"
+  },
+  {
+    "id": "minecraft:apple",
+    "name": "Apple",
+    "category": "food",
+    "description": "苹果"
+  },
+  {
+    "id": "minecraft:golden_apple",
+    "name": "Golden Apple",
+    "category": "food",
+    "description": "金苹果"
+  },
+  {
+    "id": "minecraft:enchanted_golden_apple",
+    "name": "Enchanted Golden Apple",
+    "category": "food",
+    "description": "附魔金苹果"
+  },
+  {
+    "id": "minecraft:bread",
+    "name": "Bread",
+    "category": "food",
+    "description": "面包"
+  },
+  {
+    "id": "minecraft:cooked_beef",
+    "name": "Steak",
+    "category": "food",
+    "description": "牛排"
+  },
+  {
+    "id": "minecraft:beef",
+    "name": "Raw Beef",
+    "category": "food",
+    "description": "生牛肉"
+  },
+  {
+    "id": "minecraft:cooked_porkchop",
+    "name": "Cooked Porkchop",
+    "category": "food",
+    "description": "熟猪排"
+  },
+  {
+    "id": "minecraft:porkchop",
+    "name": "Raw Porkchop",
+    "category": "food",
+    "description": "生猪排"
+  },
+  {
+    "id": "minecraft:cooked_chicken",
+    "name": "Cooked Chicken",
+    "category": "food",
+    "description": "熟鸡肉"
+  },
+  {
+    "id": "minecraft:chicken",
+    "name": "Raw Chicken",
+    "category": "food",
+    "description": "生鸡肉"
+  },
+  {
+    "id": "minecraft:cooked_mutton",
+    "name": "Cooked Mutton",
+    "category": "food",
+    "description": "熟羊肉"
+  },
+  {
+    "id": "minecraft:mutton",
+    "name": "Raw Mutton",
+    "category": "food",
+    "description": "生羊肉"
+  },
+  {
+    "id": "minecraft:cooked_rabbit",
+    "name": "Cooked Rabbit",
+    "category": "food",
+    "description": "熟兔肉"
+  },
+  {
+    "id": "minecraft:rabbit",
+    "name": "Raw Rabbit",
+    "category": "food",
+    "description": "生兔肉"
+  },
+  {
+    "id": "minecraft:cooked_cod",
+    "name": "Cooked Cod",
+    "category": "food",
+    "description": "熟鳕鱼"
+  },
+  {
+    "id": "minecraft:cod",
+    "name": "Raw Cod",
+    "category": "food",
+    "description": "生鳕鱼"
+  },
+  {
+    "id": "minecraft:cooked_salmon",
+    "name": "Cooked Salmon",
+    "category": "food",
+    "description": "熟鲑鱼"
+  },
+  {
+    "id": "minecraft:salmon",
+    "name": "Raw Salmon",
+    "category": "food",
+    "description": "生鲑鱼"
+  },
+  {
+    "id": "minecraft:baked_potato",
+    "name": "Baked Potato",
+    "category": "food",
+    "description": "烤马铃薯"
+  },
+  {
+    "id": "minecraft:potato",
+    "name": "Potato",
+    "category": "food",
+    "description": "马铃薯"
+  },
+  {
+    "id": "minecraft:carrot",
+    "name": "Carrot",
+    "category": "food",
+    "description": "胡萝卜"
+  },
+  {
+    "id": "minecraft:golden_carrot",
+    "name": "Golden Carrot",
+    "category": "food",
+    "description": "金胡萝卜"
+  },
+  {
+    "id": "minecraft:melon_slice",
+    "name": "Melon Slice",
+    "category": "food",
+    "description": "西瓜片"
+  },
+  {
+    "id": "minecraft:sweet_berries",
+    "name": "Sweet Berries",
+    "category": "food",
+    "description": "甜浆果"
+  },
+  {
+    "id": "minecraft:glow_berries",
+    "name": "Glow Berries",
+    "category": "food",
+    "description": "发光浆果"
+  },
+  {
+    "id": "minecraft:chorus_fruit",
+    "name": "Chorus Fruit",
+    "category": "food",
+    "description": "紫颂果"
+  },
+  {
+    "id": "minecraft:mushroom_stew",
+    "name": "Mushroom Stew",
+    "category": "food",
+    "description": "蘑菇煲"
+  },
+  {
+    "id": "minecraft:rabbit_stew",
+    "name": "Rabbit Stew",
+    "category": "food",
+    "description": "兔肉煲"
+  },
+  {
+    "id": "minecraft:beetroot_soup",
+    "name": "Beetroot Soup",
+    "category": "food",
+    "description": "甜菜汤"
+  },
+  {
+    "id": "minecraft:suspicious_stew",
+    "name": "Suspicious Stew",
+    "category": "food",
+    "description": "迷之炖菜"
+  },
+  {
+    "id": "minecraft:cookie",
+    "name": "Cookie",
+    "category": "food",
+    "description": "曲奇"
+  },
+  {
+    "id": "minecraft:pumpkin_pie",
+    "name": "Pumpkin Pie",
+    "category": "food",
+    "description": "南瓜派"
+  },
+  {
+    "id": "minecraft:cake",
+    "name": "Cake",
+    "category": "food",
+    "description": "蛋糕"
+  },
+  {
+    "id": "minecraft:honey_bottle",
+    "name": "Honey Bottle",
+    "category": "food",
+    "description": "蜂蜜瓶"
+  },
+  {
+    "id": "minecraft:dried_kelp",
+    "name": "Dried Kelp",
+    "category": "food",
+    "description": "干海带"
+  },
+  {
+    "id": "minecraft:rotten_flesh",
+    "name": "Rotten Flesh",
+    "category": "food",
+    "description": "腐肉"
+  },
+  {
+    "id": "minecraft:spider_eye",
+    "name": "Spider Eye",
+    "category": "food",
+    "description": "蜘蛛眼"
+  },
+  {
+    "id": "minecraft:poisonous_potato",
+    "name": "Poisonous Potato",
+    "category": "food",
+    "description": "毒马铃薯"
+  },
+  {
+    "id": "minecraft:pufferfish",
+    "name": "Pufferfish",
+    "category": "food",
+    "description": "河豚"
+  },
+  {
+    "id": "minecraft:tropical_fish",
+    "name": "Tropical Fish",
+    "category": "food",
+    "description": "热带鱼"
+  },
+  {
+    "id": "minecraft:beetroot",
+    "name": "Beetroot",
+    "category": "food",
+    "description": "甜菜根"
+  },
+  {
+    "id": "minecraft:diamond",
+    "name": "Diamond",
+    "category": "material",
+    "description": "钻石"
+  },
+  {
+    "id": "minecraft:emerald",
+    "name": "Emerald",
+    "category": "material",
+    "description": "绿宝石"
+  },
+  {
+    "id": "minecraft:gold_ingot",
+    "name": "Gold Ingot",
+    "category": "material",
+    "description": "金锭"
+  },
+  {
+    "id": "minecraft:iron_ingot",
+    "name": "Iron Ingot",
+    "category": "material",
+    "description": "铁锭"
+  },
+  {
+    "id": "minecraft:copper_ingot",
+    "name": "Copper Ingot",
+    "category": "material",
+    "description": "铜锭"
+  },
+  {
+    "id": "minecraft:netherite_ingot",
+    "name": "Netherite Ingot",
+    "category": "material",
+    "description": "下界合金锭"
+  },
+  {
+    "id": "minecraft:netherite_scrap",
+    "name": "Netherite Scrap",
+    "category": "material",
+    "description": "下界合金碎片"
+  },
+  {
+    "id": "minecraft:gold_nugget",
+    "name": "Gold Nugget",
+    "category": "material",
+    "description": "金粒"
+  },
+  {
+    "id": "minecraft:iron_nugget",
+    "name": "Iron Nugget",
+    "category": "material",
+    "description": "铁粒"
+  },
+  {
+    "id": "minecraft:raw_iron",
+    "name": "Raw Iron",
+    "category": "material",
+    "description": "粗铁"
+  },
+  {
+    "id": "minecraft:raw_gold",
+    "name": "Raw Gold",
+    "category": "material",
+    "description": "粗金"
+  },
+  {
+    "id": "minecraft:raw_copper",
+    "name": "Raw Copper",
+    "category": "material",
+    "description": "粗铜"
+  },
+  {
+    "id": "minecraft:coal",
+    "name": "Coal",
+    "category": "material",
+    "description": "煤炭"
+  },
+  {
+    "id": "minecraft:charcoal",
+    "name": "Charcoal",
+    "category": "material",
+    "description": "木炭"
+  },
+  {
+    "id": "minecraft:lapis_lazuli",
+    "name": "Lapis Lazuli",
+    "category": "material",
+    "description": "青金石"
+  },
+  {
+    "id": "minecraft:redstone",
+    "name": "Redstone Dust",
+    "category": "material",
+    "description": "红石粉"
+  },
+  {
+    "id": "minecraft:quartz",
+    "name": "Nether Quartz",
+    "category": "material",
+    "description": "下界石英"
+  },
+  {
+    "id": "minecraft:amethyst_shard",
+    "name": "Amethyst Shard",
+    "category": "material",
+    "description": "紫水晶碎片"
+  },
+  {
+    "id": "minecraft:flint",
+    "name": "Flint",
+    "category": "material",
+    "description": "燧石"
+  },
+  {
+    "id": "minecraft:stick",
+    "name": "Stick",
+    "category": "material",
+    "description": "木棍"
+  },
+  {
+    "id": "minecraft:string",
+    "name": "String",
+    "category": "material",
+    "description": "线"
+  },
+  {
+    "id": "minecraft:feather",
+    "name": "Feather",
+    "category": "material",
+    "description": "羽毛"
+  },
+  {
+    "id": "minecraft:leather",
+    "name": "Leather",
+    "category": "material",
+    "description": "皮革"
+  },
+  {
+    "id": "minecraft:rabbit_hide",
+    "name": "Rabbit Hide",
+    "category": "material",
+    "description": "兔子皮"
+  },
+  {
+    "id": "minecraft:bone",
+    "name": "Bone",
+    "category": "material",
+    "description": "骨头"
+  },
+  {
+    "id": "minecraft:bone_meal",
+    "name": "Bone Meal",
+    "category": "material",
+    "description": "骨粉"
+  },
+  {
+    "id": "minecraft:ink_sac",
+    "name": "Ink Sac",
+    "category": "material",
+    "description": "墨囊"
+  },
+  {
+    "id": "minecraft:glow_ink_sac",
+    "name": "Glow Ink Sac",
+    "category": "material",
+    "description": "荧光墨囊"
+  },
+  {
+    "id": "minecraft:blaze_rod",
+    "name": "Blaze Rod",
+    "category": "material",
+    "description": "烈焰棒"
+  },
+  {
+    "id": "minecraft:blaze_powder",
+    "name": "Blaze Powder",
+    "category": "material",
+    "description": "烈焰粉"
+  },
+  {
+    "id": "minecraft:ender_pearl",
+    "name": "Ender Pearl",
+    "category": "material",
+    "description": "末影珍珠"
+  },
+  {
+    "id": "minecraft:ender_eye",
+    "name": "Eye of Ender",
+    "category": "material",
+    "description": "末影之眼"
+  },
+  {
+    "id": "minecraft:nether_star",
+    "name": "Nether Star",
+    "category": "material",
+    "description": "下界之星"
+  },
+  {
+    "id": "minecraft:ghast_tear",
+    "name": "Ghast Tear",
+    "category": "material",
+    "description": "恶魂之泪"
+  },
+  {
+    "id": "minecraft:slime_ball",
+    "name": "Slimeball",
+    "category": "material",
+    "description": "粘液球"
+  },
+  {
+    "id": "minecraft:magma_cream",
+    "name": "Magma Cream",
+    "category": "material",
+    "description": "岩浆膏"
+  },
+  {
+    "id": "minecraft:prismarine_shard",
+    "name": "Prismarine Shard",
+    "category": "material",
+    "description": "海晶碎片"
+  },
+  {
+    "id": "minecraft:prismarine_crystals",
+    "name": "Prismarine Crystals",
+    "category": "material",
+    "description": "海晶砂粒"
+  },
+  {
+    "id": "minecraft:phantom_membrane",
+    "name": "Phantom Membrane",
+    "category": "material",
+    "description": "幻翼膜"
+  },
+  {
+    "id": "minecraft:nautilus_shell",
+    "name": "Nautilus Shell",
+    "category": "material",
+    "description": "鹦鹉螺壳"
+  },
+  {
+    "id": "minecraft:heart_of_the_sea",
+    "name": "Heart of the Sea",
+    "category": "material",
+    "description": "海洋之心"
+  },
+  {
+    "id": "minecraft:shulker_shell",
+    "name": "Shulker Shell",
+    "category": "material",
+    "description": "潜影壳"
+  },
+  {
+    "id": "minecraft:echo_shard",
+    "name": "Echo Shard",
+    "category": "material",
+    "description": "回响碎片"
+  },
+  {
+    "id": "minecraft:disc_fragment_5",
+    "name": "Disc Fragment",
+    "category": "material",
+    "description": "唱片碎片"
+  },
+  {
+    "id": "minecraft:breeze_rod",
+    "name": "Breeze Rod",
+    "category": "material",
+    "description": "旋风棒"
+  },
+  {
+    "id": "minecraft:trial_key",
+    "name": "Trial Key",
+    "category": "material",
+    "description": "试炼钥匙"
+  },
+  {
+    "id": "minecraft:ominous_trial_key",
+    "name": "Ominous Trial Key",
+    "category": "material",
+    "description": "不祥试炼钥匙"
+  },
+  {
+    "id": "minecraft:resin_clump",
+    "name": "Resin Clump",
+    "category": "material",
+    "description": "树脂团"
+  },
+  {
+    "id": "minecraft:bucket",
+    "name": "Bucket",
+    "category": "tools",
+    "description": "桶"
+  },
+  {
+    "id": "minecraft:water_bucket",
+    "name": "Water Bucket",
+    "category": "tools",
+    "description": "水桶"
+  },
+  {
+    "id": "minecraft:lava_bucket",
+    "name": "Lava Bucket",
+    "category": "tools",
+    "description": "熔岩桶"
+  },
+  {
+    "id": "minecraft:milk_bucket",
+    "name": "Milk Bucket",
+    "category": "tools",
+    "description": "奶桶"
+  },
+  {
+    "id": "minecraft:powder_snow_bucket",
+    "name": "Powder Snow Bucket",
+    "category": "tools",
+    "description": "细雪桶"
+  },
+  {
+    "id": "minecraft:axolotl_bucket",
+    "name": "Bucket of Axolotl",
+    "category": "tools",
+    "description": "美西螈桶"
+  },
+  {
+    "id": "minecraft:cod_bucket",
+    "name": "Bucket of Cod",
+    "category": "tools",
+    "description": "鳕鱼桶"
+  },
+  {
+    "id": "minecraft:salmon_bucket",
+    "name": "Bucket of Salmon",
+    "category": "tools",
+    "description": "鲑鱼桶"
+  },
+  {
+    "id": "minecraft:tropical_fish_bucket",
+    "name": "Bucket of Tropical Fish",
+    "category": "tools",
+    "description": "热带鱼桶"
+  },
+  {
+    "id": "minecraft:pufferfish_bucket",
+    "name": "Bucket of Pufferfish",
+    "category": "tools",
+    "description": "河豚桶"
+  },
+  {
+    "id": "minecraft:tadpole_bucket",
+    "name": "Bucket of Tadpole",
+    "category": "tools",
+    "description": "蝌蚪桶"
+  },
+  {
+    "id": "minecraft:fishing_rod",
+    "name": "Fishing Rod",
+    "category": "tools",
+    "description": "钓鱼竿"
+  },
+  {
+    "id": "minecraft:flint_and_steel",
+    "name": "Flint and Steel",
+    "category": "tools",
+    "description": "打火石"
+  },
+  {
+    "id": "minecraft:shears",
+    "name": "Shears",
+    "category": "tools",
+    "description": "剪刀"
+  },
+  {
+    "id": "minecraft:compass",
+    "name": "Compass",
+    "category": "tools",
+    "description": "指南针"
+  },
+  {
+    "id": "minecraft:recovery_compass",
+    "name": "Recovery Compass",
+    "category": "tools",
+    "description": "追溯指南针"
+  },
+  {
+    "id": "minecraft:clock",
+    "name": "Clock",
+    "category": "tools",
+    "description": "时钟"
+  },
+  {
+    "id": "minecraft:spyglass",
+    "name": "Spyglass",
+    "category": "tools",
+    "description": "望远镜"
+  },
+  {
+    "id": "minecraft:map",
+    "name": "Empty Map",
+    "category": "tools",
+    "description": "空地图"
+  },
+  {
+    "id": "minecraft:filled_map",
+    "name": "Map",
+    "category": "tools",
+    "description": "地图"
+  },
+  {
+    "id": "minecraft:lead",
+    "name": "Lead",
+    "category": "tools",
+    "description": "拴绳"
+  },
+  {
+    "id": "minecraft:name_tag",
+    "name": "Name Tag",
+    "category": "tools",
+    "description": "命名牌"
+  },
+  {
+    "id": "minecraft:saddle",
+    "name": "Saddle",
+    "category": "tools",
+    "description": "鞍"
+  },
+  {
+    "id": "minecraft:totem_of_undying",
+    "name": "Totem of Undying",
+    "category": "combat",
+    "description": "不死图腾"
+  },
+  {
+    "id": "minecraft:firework_rocket",
+    "name": "Firework Rocket",
+    "category": "misc",
+    "description": "烟花火箭"
+  },
+  {
+    "id": "minecraft:firework_star",
+    "name": "Firework Star",
+    "category": "misc",
+    "description": "烟火之星"
+  },
+  {
+    "id": "minecraft:experience_bottle",
+    "name": "Bottle o' Enchanting",
+    "category": "misc",
+    "description": "附魔之瓶"
+  },
+  {
+    "id": "minecraft:glass_bottle",
+    "name": "Glass Bottle",
+    "category": "brewing",
+    "description": "玻璃瓶"
+  },
+  {
+    "id": "minecraft:potion",
+    "name": "Potion",
+    "category": "brewing",
+    "description": "药水"
+  },
+  {
+    "id": "minecraft:splash_potion",
+    "name": "Splash Potion",
+    "category": "brewing",
+    "description": "喷溅药水"
+  },
+  {
+    "id": "minecraft:lingering_potion",
+    "name": "Lingering Potion",
+    "category": "brewing",
+    "description": "滞留药水"
+  },
+  {
+    "id": "minecraft:brewing_stand",
+    "name": "Brewing Stand",
+    "category": "brewing",
+    "description": "酿造台"
+  },
+  {
+    "id": "minecraft:nether_wart",
+    "name": "Nether Wart",
+    "category": "brewing",
+    "description": "下界疣"
+  },
+  {
+    "id": "minecraft:fermented_spider_eye",
+    "name": "Fermented Spider Eye",
+    "category": "brewing",
+    "description": "发酵蛛眼"
+  },
+  {
+    "id": "minecraft:glistering_melon_slice",
+    "name": "Glistering Melon Slice",
+    "category": "brewing",
+    "description": "闪烁的西瓜片"
+  },
+  {
+    "id": "minecraft:rabbit_foot",
+    "name": "Rabbit's Foot",
+    "category": "brewing",
+    "description": "兔子脚"
+  },
+  {
+    "id": "minecraft:dragon_breath",
+    "name": "Dragon's Breath",
+    "category": "brewing",
+    "description": "龙息"
+  },
+  {
+    "id": "minecraft:gunpowder",
+    "name": "Gunpowder",
+    "category": "material",
+    "description": "火药"
+  },
+  {
+    "id": "minecraft:glowstone_dust",
+    "name": "Glowstone Dust",
+    "category": "material",
+    "description": "荧石粉"
+  },
+  {
+    "id": "minecraft:sugar",
+    "name": "Sugar",
+    "category": "material",
+    "description": "糖"
+  },
+  {
+    "id": "minecraft:redstone_torch",
+    "name": "Redstone Torch",
+    "category": "redstone",
+    "description": "红石火把"
+  },
+  {
+    "id": "minecraft:repeater",
+    "name": "Redstone Repeater",
+    "category": "redstone",
+    "description": "红石中继器"
+  },
+  {
+    "id": "minecraft:comparator",
+    "name": "Redstone Comparator",
+    "category": "redstone",
+    "description": "红石比较器"
+  },
+  {
+    "id": "minecraft:piston",
+    "name": "Piston",
+    "category": "redstone",
+    "description": "活塞"
+  },
+  {
+    "id": "minecraft:sticky_piston",
+    "name": "Sticky Piston",
+    "category": "redstone",
+    "description": "粘性活塞"
+  },
+  {
+    "id": "minecraft:observer",
+    "name": "Observer",
+    "category": "redstone",
+    "description": "侦测器"
+  },
+  {
+    "id": "minecraft:hopper",
+    "name": "Hopper",
+    "category": "redstone",
+    "description": "漏斗"
+  },
+  {
+    "id": "minecraft:dropper",
+    "name": "Dropper",
+    "category": "redstone",
+    "description": "投掷器"
+  },
+  {
+    "id": "minecraft:dispenser",
+    "name": "Dispenser",
+    "category": "redstone",
+    "description": "发射器"
+  },
+  {
+    "id": "minecraft:lever",
+    "name": "Lever",
+    "category": "redstone",
+    "description": "拉杆"
+  },
+  {
+    "id": "minecraft:stone_button",
+    "name": "Stone Button",
+    "category": "redstone",
+    "description": "石头按钮"
+  },
+  {
+    "id": "minecraft:oak_button",
+    "name": "Oak Button",
+    "category": "redstone",
+    "description": "橡木按钮"
+  },
+  {
+    "id": "minecraft:stone_pressure_plate",
+    "name": "Stone Pressure Plate",
+    "category": "redstone",
+    "description": "石头压力板"
+  },
+  {
+    "id": "minecraft:oak_pressure_plate",
+    "name": "Oak Pressure Plate",
+    "category": "redstone",
+    "description": "橡木压力板"
+  },
+  {
+    "id": "minecraft:light_weighted_pressure_plate",
+    "name": "Light Weighted Pressure Plate",
+    "category": "redstone",
+    "description": "测重压力板（轻质）"
+  },
+  {
+    "id": "minecraft:heavy_weighted_pressure_plate",
+    "name": "Heavy Weighted Pressure Plate",
+    "category": "redstone",
+    "description": "测重压力板（重质）"
+  },
+  {
+    "id": "minecraft:tripwire_hook",
+    "name": "Tripwire Hook",
+    "category": "redstone",
+    "description": "绊线钩"
+  },
+  {
+    "id": "minecraft:daylight_detector",
+    "name": "Daylight Detector",
+    "category": "redstone",
+    "description": "阳光探测器"
+  },
+  {
+    "id": "minecraft:target",
+    "name": "Target",
+    "category": "redstone",
+    "description": "标靶"
+  },
+  {
+    "id": "minecraft:sculk_sensor",
+    "name": "Sculk Sensor",
+    "category": "redstone",
+    "description": "幽匿感测体"
+  },
+  {
+    "id": "minecraft:calibrated_sculk_sensor",
+    "name": "Calibrated Sculk Sensor",
+    "category": "redstone",
+    "description": "校频幽匿感测体"
+  },
+  {
+    "id": "minecraft:tnt",
+    "name": "TNT",
+    "category": "redstone",
+    "description": "TNT"
+  },
+  {
+    "id": "minecraft:redstone_lamp",
+    "name": "Redstone Lamp",
+    "category": "redstone",
+    "description": "红石灯"
+  },
+  {
+    "id": "minecraft:note_block",
+    "name": "Note Block",
+    "category": "redstone",
+    "description": "音符盒"
+  },
+  {
+    "id": "minecraft:oak_door",
+    "name": "Oak Door",
+    "category": "redstone",
+    "description": "橡木门"
+  },
+  {
+    "id": "minecraft:iron_door",
+    "name": "Iron Door",
+    "category": "redstone",
+    "description": "铁门"
+  },
+  {
+    "id": "minecraft:oak_trapdoor",
+    "name": "Oak Trapdoor",
+    "category": "redstone",
+    "description": "橡木活板门"
+  },
+  {
+    "id": "minecraft:iron_trapdoor",
+    "name": "Iron Trapdoor",
+    "category": "redstone",
+    "description": "铁活板门"
+  },
+  {
+    "id": "minecraft:oak_fence_gate",
+    "name": "Oak Fence Gate",
+    "category": "redstone",
+    "description": "橡木栅栏门"
+  },
+  {
+    "id": "minecraft:book",
+    "name": "Book",
+    "category": "misc",
+    "description": "书"
+  },
+  {
+    "id": "minecraft:writable_book",
+    "name": "Book and Quill",
+    "category": "misc",
+    "description": "书与笔"
+  },
+  {
+    "id": "minecraft:written_book",
+    "name": "Written Book",
+    "category": "misc",
+    "description": "成书"
+  },
+  {
+    "id": "minecraft:enchanted_book",
+    "name": "Enchanted Book",
+    "category": "misc",
+    "description": "附魔书"
+  },
+  {
+    "id": "minecraft:knowledge_book",
+    "name": "Knowledge Book",
+    "category": "misc",
+    "description": "知识之书"
+  },
+  {
+    "id": "minecraft:paper",
+    "name": "Paper",
+    "category": "material",
+    "description": "纸"
+  },
+  {
+    "id": "minecraft:painting",
+    "name": "Painting",
+    "category": "decoration",
+    "description": "画"
+  },
+  {
+    "id": "minecraft:item_frame",
+    "name": "Item Frame",
+    "category": "decoration",
+    "description": "物品展示框"
+  },
+  {
+    "id": "minecraft:glow_item_frame",
+    "name": "Glow Item Frame",
+    "category": "decoration",
+    "description": "荧光物品展示框"
+  },
+  {
+    "id": "minecraft:flower_pot",
+    "name": "Flower Pot",
+    "category": "decoration",
+    "description": "花盆"
+  },
+  {
+    "id": "minecraft:bowl",
+    "name": "Bowl",
+    "category": "material",
+    "description": "碗"
+  },
+  {
+    "id": "minecraft:minecart",
+    "name": "Minecart",
+    "category": "transportation",
+    "description": "矿车"
+  },
+  {
+    "id": "minecraft:chest_minecart",
+    "name": "Minecart with Chest",
+    "category": "transportation",
+    "description": "运输矿车"
+  },
+  {
+    "id": "minecraft:furnace_minecart",
+    "name": "Minecart with Furnace",
+    "category": "transportation",
+    "description": "动力矿车"
+  },
+  {
+    "id": "minecraft:tnt_minecart",
+    "name": "Minecart with TNT",
+    "category": "transportation",
+    "description": "TNT矿车"
+  },
+  {
+    "id": "minecraft:hopper_minecart",
+    "name": "Minecart with Hopper",
+    "category": "transportation",
+    "description": "漏斗矿车"
+  },
+  {
+    "id": "minecraft:command_block_minecart",
+    "name": "Minecart with Command Block",
+    "category": "transportation",
+    "description": "命令方块矿车"
+  },
+  {
+    "id": "minecraft:oak_boat",
+    "name": "Oak Boat",
+    "category": "transportation",
+    "description": "橡木船"
+  },
+  {
+    "id": "minecraft:oak_chest_boat",
+    "name": "Oak Boat with Chest",
+    "category": "transportation",
+    "description": "橡木箱船"
+  },
+  {
+    "id": "minecraft:bamboo_raft",
+    "name": "Bamboo Raft",
+    "category": "transportation",
+    "description": "竹筏"
+  },
+  {
+    "id": "minecraft:rail",
+    "name": "Rail",
+    "category": "transportation",
+    "description": "铁轨"
+  },
+  {
+    "id": "minecraft:powered_rail",
+    "name": "Powered Rail",
+    "category": "transportation",
+    "description": "充能铁轨"
+  },
+  {
+    "id": "minecraft:detector_rail",
+    "name": "Detector Rail",
+    "category": "transportation",
+    "description": "探测铁轨"
+  },
+  {
+    "id": "minecraft:activator_rail",
+    "name": "Activator Rail",
+    "category": "transportation",
+    "description": "激活铁轨"
+  },
+  {
+    "id": "minecraft:white_dye",
+    "name": "White Dye",
+    "category": "material",
+    "description": "白色染料"
+  },
+  {
+    "id": "minecraft:orange_dye",
+    "name": "Orange Dye",
+    "category": "material",
+    "description": "橙色染料"
+  },
+  {
+    "id": "minecraft:magenta_dye",
+    "name": "Magenta Dye",
+    "category": "material",
+    "description": "品红色染料"
+  },
+  {
+    "id": "minecraft:light_blue_dye",
+    "name": "Light Blue Dye",
+    "category": "material",
+    "description": "淡蓝色染料"
+  },
+  {
+    "id": "minecraft:yellow_dye",
+    "name": "Yellow Dye",
+    "category": "material",
+    "description": "黄色染料"
+  },
+  {
+    "id": "minecraft:lime_dye",
+    "name": "Lime Dye",
+    "category": "material",
+    "description": "黄绿色染料"
+  },
+  {
+    "id": "minecraft:pink_dye",
+    "name": "Pink Dye",
+    "category": "material",
+    "description": "粉红色染料"
+  },
+  {
+    "id": "minecraft:gray_dye",
+    "name": "Gray Dye",
+    "category": "material",
+    "description": "灰色染料"
+  },
+  {
+    "id": "minecraft:light_gray_dye",
+    "name": "Light Gray Dye",
+    "category": "material",
+    "description": "淡灰色染料"
+  },
+  {
+    "id": "minecraft:cyan_dye",
+    "name": "Cyan Dye",
+    "category": "material",
+    "description": "青色染料"
+  },
+  {
+    "id": "minecraft:purple_dye",
+    "name": "Purple Dye",
+    "category": "material",
+    "description": "紫色染料"
+  },
+  {
+    "id": "minecraft:blue_dye",
+    "name": "Blue Dye",
+    "category": "material",
+    "description": "蓝色染料"
+  },
+  {
+    "id": "minecraft:brown_dye",
+    "name": "Brown Dye",
+    "category": "material",
+    "description": "棕色染料"
+  },
+  {
+    "id": "minecraft:green_dye",
+    "name": "Green Dye",
+    "category": "material",
+    "description": "绿色染料"
+  },
+  {
+    "id": "minecraft:red_dye",
+    "name": "Red Dye",
+    "category": "material",
+    "description": "红色染料"
+  },
+  {
+    "id": "minecraft:black_dye",
+    "name": "Black Dye",
+    "category": "material",
+    "description": "黑色染料"
+  },
+  {
+    "id": "minecraft:torch",
+    "name": "Torch",
+    "category": "decoration",
+    "description": "火把"
+  },
+  {
+    "id": "minecraft:soul_torch",
+    "name": "Soul Torch",
+    "category": "decoration",
+    "description": "灵魂火把"
+  },
+  {
+    "id": "minecraft:lantern",
+    "name": "Lantern",
+    "category": "decoration",
+    "description": "灯笼"
+  },
+  {
+    "id": "minecraft:soul_lantern",
+    "name": "Soul Lantern",
+    "category": "decoration",
+    "description": "灵魂灯笼"
+  },
+  {
+    "id": "minecraft:candle",
+    "name": "Candle",
+    "category": "decoration",
+    "description": "蜡烛"
+  },
+  {
+    "id": "minecraft:end_crystal",
+    "name": "End Crystal",
+    "category": "decoration",
+    "description": "末地水晶"
+  },
+  {
+    "id": "minecraft:ender_chest",
+    "name": "Ender Chest",
+    "category": "decoration",
+    "description": "末影箱"
+  },
+  {
+    "id": "minecraft:crafting_table",
+    "name": "Crafting Table",
+    "category": "functional",
+    "description": "工作台"
+  },
+  {
+    "id": "minecraft:furnace",
+    "name": "Furnace",
+    "category": "functional",
+    "description": "熔炉"
+  },
+  {
+    "id": "minecraft:blast_furnace",
+    "name": "Blast Furnace",
+    "category": "functional",
+    "description": "高炉"
+  },
+  {
+    "id": "minecraft:smoker",
+    "name": "Smoker",
+    "category": "functional",
+    "description": "烟熏炉"
+  },
+  {
+    "id": "minecraft:anvil",
+    "name": "Anvil",
+    "category": "functional",
+    "description": "铁砧"
+  },
+  {
+    "id": "minecraft:enchanting_table",
+    "name": "Enchanting Table",
+    "category": "functional",
+    "description": "附魔台"
+  },
+  {
+    "id": "minecraft:grindstone",
+    "name": "Grindstone",
+    "category": "functional",
+    "description": "砂轮"
+  },
+  {
+    "id": "minecraft:smithing_table",
+    "name": "Smithing Table",
+    "category": "functional",
+    "description": "锻造台"
+  },
+  {
+    "id": "minecraft:cartography_table",
+    "name": "Cartography Table",
+    "category": "functional",
+    "description": "制图台"
+  },
+  {
+    "id": "minecraft:loom",
+    "name": "Loom",
+    "category": "functional",
+    "description": "织布机"
+  },
+  {
+    "id": "minecraft:stonecutter",
+    "name": "Stonecutter",
+    "category": "functional",
+    "description": "切石机"
+  },
+  {
+    "id": "minecraft:lectern",
+    "name": "Lectern",
+    "category": "functional",
+    "description": "讲台"
+  },
+  {
+    "id": "minecraft:composter",
+    "name": "Composter",
+    "category": "functional",
+    "description": "堆肥桶"
+  },
+  {
+    "id": "minecraft:barrel",
+    "name": "Barrel",
+    "category": "functional",
+    "description": "木桶"
+  },
+  {
+    "id": "minecraft:cauldron",
+    "name": "Cauldron",
+    "category": "functional",
+    "description": "炼药锅"
+  },
+  {
+    "id": "minecraft:bell",
+    "name": "Bell",
+    "category": "functional",
+    "description": "钟"
+  },
+  {
+    "id": "minecraft:beacon",
+    "name": "Beacon",
+    "category": "functional",
+    "description": "信标"
+  },
+  {
+    "id": "minecraft:conduit",
+    "name": "Conduit",
+    "category": "functional",
+    "description": "潮涌核心"
+  },
+  {
+    "id": "minecraft:lodestone",
+    "name": "Lodestone",
+    "category": "functional",
+    "description": "磁石"
+  },
+  {
+    "id": "minecraft:respawn_anchor",
+    "name": "Respawn Anchor",
+    "category": "functional",
+    "description": "重生锚"
+  },
+  {
+    "id": "minecraft:chest",
+    "name": "Chest",
+    "category": "functional",
+    "description": "箱子"
+  },
+  {
+    "id": "minecraft:trapped_chest",
+    "name": "Trapped Chest",
+    "category": "functional",
+    "description": "陷阱箱"
+  },
+  {
+    "id": "minecraft:white_shulker_box",
+    "name": "White Shulker Box",
+    "category": "functional",
+    "description": "白色潜影盒"
+  },
+  {
+    "id": "minecraft:shulker_box",
+    "name": "Shulker Box",
+    "category": "functional",
+    "description": "潜影盒"
+  },
+  {
+    "id": "minecraft:command_block",
+    "name": "Command Block",
+    "category": "command",
+    "description": "命令方块"
+  },
+  {
+    "id": "minecraft:chain_command_block",
+    "name": "Chain Command Block",
+    "category": "command",
+    "description": "连锁命令方块"
+  },
+  {
+    "id": "minecraft:repeating_command_block",
+    "name": "Repeating Command Block",
+    "category": "command",
+    "description": "循环命令方块"
+  },
+  {
+    "id": "minecraft:structure_block",
+    "name": "Structure Block",
+    "category": "command",
+    "description": "结构方块"
+  },
+  {
+    "id": "minecraft:structure_void",
+    "name": "Structure Void",
+    "category": "command",
+    "description": "结构空位"
+  },
+  {
+    "id": "minecraft:jigsaw",
+    "name": "Jigsaw Block",
+    "category": "command",
+    "description": "拼图方块"
+  },
+  {
+    "id": "minecraft:barrier",
+    "name": "Barrier",
+    "category": "command",
+    "description": "屏障"
+  },
+  {
+    "id": "minecraft:light",
+    "name": "Light",
+    "category": "command",
+    "description": "光源方块"
+  },
+  {
+    "id": "minecraft:debug_stick",
+    "name": "Debug Stick",
+    "category": "command",
+    "description": "调试棒"
+  },
+  {
+    "id": "minecraft:spawner",
+    "name": "Spawner",
+    "category": "command",
+    "description": "刷怪笼"
+  },
+  {
+    "id": "minecraft:trial_spawner",
+    "name": "Trial Spawner",
+    "category": "command",
+    "description": "试炼刷怪笼"
+  },
+  {
+    "id": "minecraft:vault",
+    "name": "Vault",
+    "category": "command",
+    "description": "宝库"
+  },
+  {
+    "id": "minecraft:wheat_seeds",
+    "name": "Wheat Seeds",
+    "category": "material",
+    "description": "小麦种子"
+  },
+  {
+    "id": "minecraft:pumpkin_seeds",
+    "name": "Pumpkin Seeds",
+    "category": "material",
+    "description": "南瓜种子"
+  },
+  {
+    "id": "minecraft:melon_seeds",
+    "name": "Melon Seeds",
+    "category": "material",
+    "description": "西瓜种子"
+  },
+  {
+    "id": "minecraft:beetroot_seeds",
+    "name": "Beetroot Seeds",
+    "category": "material",
+    "description": "甜菜种子"
+  },
+  {
+    "id": "minecraft:torchflower_seeds",
+    "name": "Torchflower Seeds",
+    "category": "material",
+    "description": "火把花种子"
+  },
+  {
+    "id": "minecraft:pitcher_pod",
+    "name": "Pitcher Pod",
+    "category": "material",
+    "description": "瓶子草荚果"
+  },
+  {
+    "id": "minecraft:wheat",
+    "name": "Wheat",
+    "category": "material",
+    "description": "小麦"
+  },
+  {
+    "id": "minecraft:egg",
+    "name": "Egg",
+    "category": "misc",
+    "description": "鸡蛋"
+  },
+  {
+    "id": "minecraft:snowball",
+    "name": "Snowball",
+    "category": "misc",
+    "description": "雪球"
+  },
+  {
+    "id": "minecraft:wind_charge",
+    "name": "Wind Charge",
+    "category": "combat",
+    "description": "风弹"
+  },
+  {
+    "id": "minecraft:ominous_bottle",
+    "name": "Ominous Bottle",
+    "category": "misc",
+    "description": "不祥之瓶"
+  },
+  {
+    "id": "minecraft:goat_horn",
+    "name": "Goat Horn",
+    "category": "misc",
+    "description": "山羊角"
+  },
+  {
+    "id": "minecraft:music_disc_13",
+    "name": "Music Disc (13)",
+    "category": "misc",
+    "description": "音乐唱片 (13)"
+  },
+  {
+    "id": "minecraft:music_disc_cat",
+    "name": "Music Disc (Cat)",
+    "category": "misc",
+    "description": "音乐唱片 (Cat)"
+  },
+  {
+    "id": "minecraft:music_disc_blocks",
+    "name": "Music Disc (Blocks)",
+    "category": "misc",
+    "description": "音乐唱片 (Blocks)"
+  },
+  {
+    "id": "minecraft:music_disc_chirp",
+    "name": "Music Disc (Chirp)",
+    "category": "misc",
+    "description": "音乐唱片 (Chirp)"
+  },
+  {
+    "id": "minecraft:music_disc_far",
+    "name": "Music Disc (Far)",
+    "category": "misc",
+    "description": "音乐唱片 (Far)"
+  },
+  {
+    "id": "minecraft:music_disc_mall",
+    "name": "Music Disc (Mall)",
+    "category": "misc",
+    "description": "音乐唱片 (Mall)"
+  },
+  {
+    "id": "minecraft:music_disc_mellohi",
+    "name": "Music Disc (Mellohi)",
+    "category": "misc",
+    "description": "音乐唱片 (Mellohi)"
+  },
+  {
+    "id": "minecraft:music_disc_stal",
+    "name": "Music Disc (Stal)",
+    "category": "misc",
+    "description": "音乐唱片 (Stal)"
+  },
+  {
+    "id": "minecraft:music_disc_strad",
+    "name": "Music Disc (Strad)",
+    "category": "misc",
+    "description": "音乐唱片 (Strad)"
+  },
+  {
+    "id": "minecraft:music_disc_ward",
+    "name": "Music Disc (Ward)",
+    "category": "misc",
+    "description": "音乐唱片 (Ward)"
+  },
+  {
+    "id": "minecraft:music_disc_11",
+    "name": "Music Disc (11)",
+    "category": "misc",
+    "description": "音乐唱片 (11)"
+  },
+  {
+    "id": "minecraft:music_disc_wait",
+    "name": "Music Disc (Wait)",
+    "category": "misc",
+    "description": "音乐唱片 (Wait)"
+  },
+  {
+    "id": "minecraft:music_disc_otherside",
+    "name": "Music Disc (Otherside)",
+    "category": "misc",
+    "description": "音乐唱片 (Otherside)"
+  },
+  {
+    "id": "minecraft:music_disc_5",
+    "name": "Music Disc (5)",
+    "category": "misc",
+    "description": "音乐唱片 (5)"
+  },
+  {
+    "id": "minecraft:music_disc_pigstep",
+    "name": "Music Disc (Pigstep)",
+    "category": "misc",
+    "description": "音乐唱片 (Pigstep)"
+  },
+  {
+    "id": "minecraft:music_disc_relic",
+    "name": "Music Disc (Relic)",
+    "category": "misc",
+    "description": "音乐唱片 (Relic)"
+  },
+  {
+    "id": "minecraft:music_disc_creator",
+    "name": "Music Disc (Creator)",
+    "category": "misc",
+    "description": "音乐唱片 (Creator)"
+  },
+  {
+    "id": "minecraft:music_disc_creator_music_box",
+    "name": "Music Disc (Creator Music Box)",
+    "category": "misc",
+    "description": "音乐唱片 (Creator Music Box)"
+  },
+  {
+    "id": "minecraft:music_disc_precipice",
+    "name": "Music Disc (Precipice)",
+    "category": "misc",
+    "description": "音乐唱片 (Precipice)"
+  },
+  {
+    "id": "minecraft:netherite_upgrade_smithing_template",
+    "name": "Netherite Upgrade Smithing Template",
+    "category": "material",
+    "description": "下界合金升级锻造模板"
+  },
+  {
+    "id": "minecraft:sentry_armor_trim_smithing_template",
+    "name": "Sentry Armor Trim Smithing Template",
+    "category": "material",
+    "description": "哨卫纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:coast_armor_trim_smithing_template",
+    "name": "Coast Armor Trim Smithing Template",
+    "category": "material",
+    "description": "海岸纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:wild_armor_trim_smithing_template",
+    "name": "Wild Armor Trim Smithing Template",
+    "category": "material",
+    "description": "旷野纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:ward_armor_trim_smithing_template",
+    "name": "Ward Armor Trim Smithing Template",
+    "category": "material",
+    "description": "守卫纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:eye_armor_trim_smithing_template",
+    "name": "Eye Armor Trim Smithing Template",
+    "category": "material",
+    "description": "末影之眼纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:vex_armor_trim_smithing_template",
+    "name": "Vex Armor Trim Smithing Template",
+    "category": "material",
+    "description": "恼鬼纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:tide_armor_trim_smithing_template",
+    "name": "Tide Armor Trim Smithing Template",
+    "category": "material",
+    "description": "潮汐纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:snout_armor_trim_smithing_template",
+    "name": "Snout Armor Trim Smithing Template",
+    "category": "material",
+    "description": "猪鼻纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:rib_armor_trim_smithing_template",
+    "name": "Rib Armor Trim Smithing Template",
+    "category": "material",
+    "description": "肋骨纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:spire_armor_trim_smithing_template",
+    "name": "Spire Armor Trim Smithing Template",
+    "category": "material",
+    "description": "尖塔纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:silence_armor_trim_smithing_template",
+    "name": "Silence Armor Trim Smithing Template",
+    "category": "material",
+    "description": "静谧纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:wayfinder_armor_trim_smithing_template",
+    "name": "Wayfinder Armor Trim Smithing Template",
+    "category": "material",
+    "description": "导路纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:raiser_armor_trim_smithing_template",
+    "name": "Raiser Armor Trim Smithing Template",
+    "category": "material",
+    "description": "塑形纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:shaper_armor_trim_smithing_template",
+    "name": "Shaper Armor Trim Smithing Template",
+    "category": "material",
+    "description": "匠心纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:host_armor_trim_smithing_template",
+    "name": "Host Armor Trim Smithing Template",
+    "category": "material",
+    "description": "主人纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:flow_armor_trim_smithing_template",
+    "name": "Flow Armor Trim Smithing Template",
+    "category": "material",
+    "description": "流动纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:bolt_armor_trim_smithing_template",
+    "name": "Bolt Armor Trim Smithing Template",
+    "category": "material",
+    "description": "螺栓纹饰锻造模板"
+  },
+  {
+    "id": "minecraft:angler_pottery_sherd",
+    "name": "Angler Pottery Sherd",
+    "category": "material",
+    "description": "垂钓者纹饰陶片",
+    "aliases": [
+      "minecraft:pottery_shard_angler"
+    ],
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:brush",
+    "name": "Brush",
+    "category": "tools",
+    "description": "刷子"
+  },
+  {
+    "id": "minecraft:bundle",
+    "name": "Bundle",
+    "category": "tools",
+    "description": "收纳袋"
+  },
+  {
+    "id": "minecraft:spawn_egg",
+    "name": "Spawn Egg",
+    "category": "misc",
+    "description": "刷怪蛋（各种生物）",
+    "deprecated": true
+  },
+  {
+    "id": "minecraft:zombie_spawn_egg",
+    "name": "Zombie Spawn Egg",
+    "category": "misc",
+    "description": "僵尸刷怪蛋"
+  },
+  {
+    "id": "minecraft:skeleton_spawn_egg",
+    "name": "Skeleton Spawn Egg",
+    "category": "misc",
+    "description": "骷髅刷怪蛋"
+  },
+  {
+    "id": "minecraft:creeper_spawn_egg",
+    "name": "Creeper Spawn Egg",
+    "category": "misc",
+    "description": "苦力怕刷怪蛋"
+  },
+  {
+    "id": "minecraft:villager_spawn_egg",
+    "name": "Villager Spawn Egg",
+    "category": "misc",
+    "description": "村民刷怪蛋"
+  },
+  {
+    "id": "minecraft:spider_spawn_egg",
+    "name": "Spider Spawn Egg",
+    "category": "misc",
+    "description": "蜘蛛刷怪蛋"
+  },
+  {
+    "id": "minecraft:enderman_spawn_egg",
+    "name": "Enderman Spawn Egg",
+    "category": "misc",
+    "description": "末影人刷怪蛋"
+  },
+  {
+    "id": "minecraft:allay_spawn_egg",
+    "name": "Allay Spawn Egg",
+    "category": "spawn_egg",
+    "description": "悦灵刷怪蛋，生成会拾取物品并交给玩家的友善飞行生物。"
+  },
+  {
+    "id": "minecraft:armadillo_spawn_egg",
+    "name": "Armadillo Spawn Egg",
+    "category": "spawn_egg",
+    "description": "犰狳刷怪蛋，生成会蜷缩成球并掉落鳞甲的生物。",
+    "since": "1.20.5"
+  },
+  {
+    "id": "minecraft:axolotl_spawn_egg",
+    "name": "Axolotl Spawn Egg",
+    "category": "spawn_egg",
+    "description": "美西螈刷怪蛋，生成可在水中协助玩家战斗的两栖生物。"
+  },
+  {
+    "id": "minecraft:bat_spawn_egg",
+    "name": "Bat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蝙蝠刷怪蛋，生成在洞穴中飞行的小型被动生物。"
+  },
+  {
+    "id": "minecraft:bee_spawn_egg",
+    "name": "Bee Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蜜蜂刷怪蛋，生成可授粉并生产蜂蜜的飞行中立生物。"
+  },
+  {
+    "id": "minecraft:blaze_spawn_egg",
+    "name": "Blaze Spawn Egg",
+    "category": "spawn_egg",
+    "description": "烈焰人刷怪蛋，生成会发射火球并掉落烈焰棒的下界敌对生物。"
+  },
+  {
+    "id": "minecraft:bogged_spawn_egg",
+    "name": "Bogged Spawn Egg",
+    "category": "spawn_egg",
+    "description": "沼骸刷怪蛋，生成会射出中毒之箭的骷髅变种。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:breeze_spawn_egg",
+    "name": "Breeze Spawn Egg",
+    "category": "spawn_egg",
+    "description": "旋风人刷怪蛋，生成会发射风弹并跳跃的试炼密室敌对生物。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:camel_spawn_egg",
+    "name": "Camel Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骆驼刷怪蛋，生成可供两名玩家骑乘的高大骑乘生物。"
+  },
+  {
+    "id": "minecraft:cat_spawn_egg",
+    "name": "Cat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猫刷怪蛋，生成可被驯服并吓退苦力怕和幻翼的宠物。"
+  },
+  {
+    "id": "minecraft:cave_spider_spawn_egg",
+    "name": "Cave Spider Spawn Egg",
+    "category": "spawn_egg",
+    "description": "洞穴蜘蛛刷怪蛋，生成体型较小且攻击带中毒的敌对生物。"
+  },
+  {
+    "id": "minecraft:chicken_spawn_egg",
+    "name": "Chicken Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鸡刷怪蛋，生成会下蛋并掉落鸡肉和羽毛的农场生物。"
+  },
+  {
+    "id": "minecraft:cod_spawn_egg",
+    "name": "Cod Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鳕鱼刷怪蛋，生成成群游动的水生鱼类。"
+  },
+  {
+    "id": "minecraft:cow_spawn_egg",
+    "name": "Cow Spawn Egg",
+    "category": "spawn_egg",
+    "description": "牛刷怪蛋，生成可挤奶并掉落牛肉和皮革的农场生物。"
+  },
+  {
+    "id": "minecraft:creaking_spawn_egg",
+    "name": "Creaking Spawn Egg",
+    "category": "spawn_egg",
+    "description": "嘎枝刷怪蛋，生成与嘎枝心相连、仅在被注视外移动的苍白橡木生物。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:dolphin_spawn_egg",
+    "name": "Dolphin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "海豚刷怪蛋，生成会引导玩家寻宝并加速游泳的水生生物。"
+  },
+  {
+    "id": "minecraft:donkey_spawn_egg",
+    "name": "Donkey Spawn Egg",
+    "category": "spawn_egg",
+    "description": "驴刷怪蛋，生成可骑乘并装载箱子的运输生物。"
+  },
+  {
+    "id": "minecraft:drowned_spawn_egg",
+    "name": "Drowned Spawn Egg",
+    "category": "spawn_egg",
+    "description": "溺尸刷怪蛋，生成可投掷三叉戟的水下僵尸变种。"
+  },
+  {
+    "id": "minecraft:elder_guardian_spawn_egg",
+    "name": "Elder Guardian Spawn Egg",
+    "category": "spawn_egg",
+    "description": "远古守卫者刷怪蛋，生成守护海底神殿、施加挖掘疲劳的Boss型生物。"
+  },
+  {
+    "id": "minecraft:endermite_spawn_egg",
+    "name": "Endermite Spawn Egg",
+    "category": "spawn_egg",
+    "description": "末影螨刷怪蛋，生成投掷末影珍珠时偶尔出现的小型敌对生物。"
+  },
+  {
+    "id": "minecraft:evoker_spawn_egg",
+    "name": "Evoker Spawn Egg",
+    "category": "spawn_egg",
+    "description": "唤魔者刷怪蛋，生成召唤恼鬼与尖牙、掉落不死图腾的灾厄村民。"
+  },
+  {
+    "id": "minecraft:fox_spawn_egg",
+    "name": "Fox Spawn Egg",
+    "category": "spawn_egg",
+    "description": "狐狸刷怪蛋，生成会叼物、捕食并可繁殖驯化的生物。"
+  },
+  {
+    "id": "minecraft:frog_spawn_egg",
+    "name": "Frog Spawn Egg",
+    "category": "spawn_egg",
+    "description": "青蛙刷怪蛋，生成会吞食小型生物并随生物群系变色的两栖生物。"
+  },
+  {
+    "id": "minecraft:ghast_spawn_egg",
+    "name": "Ghast Spawn Egg",
+    "category": "spawn_egg",
+    "description": "恶魂刷怪蛋，生成在下界飞行并发射爆炸火球的大型敌对生物。"
+  },
+  {
+    "id": "minecraft:glow_squid_spawn_egg",
+    "name": "Glow Squid Spawn Egg",
+    "category": "spawn_egg",
+    "description": "发光鱿鱼刷怪蛋，生成掉落荧光墨囊的水中发光生物。"
+  },
+  {
+    "id": "minecraft:goat_spawn_egg",
+    "name": "Goat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "山羊刷怪蛋，生成会冲撞并掉落山羊角的山地生物。"
+  },
+  {
+    "id": "minecraft:guardian_spawn_egg",
+    "name": "Guardian Spawn Egg",
+    "category": "spawn_egg",
+    "description": "守卫者刷怪蛋，生成守护海底神殿、发射激光束的水下敌对生物。"
+  },
+  {
+    "id": "minecraft:hoglin_spawn_egg",
+    "name": "Hoglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "疣猪兽刷怪蛋，生成下界中可繁殖、掉落猪肉的敌对生物。"
+  },
+  {
+    "id": "minecraft:horse_spawn_egg",
+    "name": "Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "马刷怪蛋，生成可驯服骑乘、装备马铠的坐骑生物。"
+  },
+  {
+    "id": "minecraft:husk_spawn_egg",
+    "name": "Husk Spawn Egg",
+    "category": "spawn_egg",
+    "description": "尸壳刷怪蛋，生成沙漠中不会被日光烧毁、攻击致饥饿的僵尸变种。"
+  },
+  {
+    "id": "minecraft:iron_golem_spawn_egg",
+    "name": "Iron Golem Spawn Egg",
+    "category": "spawn_egg",
+    "description": "铁傀儡刷怪蛋，生成保护村民、攻击敌对生物的高血量守卫。"
+  },
+  {
+    "id": "minecraft:llama_spawn_egg",
+    "name": "Llama Spawn Egg",
+    "category": "spawn_egg",
+    "description": "羊驼刷怪蛋，生成可组队、吐口水并装载货物的运输生物。"
+  },
+  {
+    "id": "minecraft:magma_cube_spawn_egg",
+    "name": "Magma Cube Spawn Egg",
+    "category": "spawn_egg",
+    "description": "岩浆怪刷怪蛋，生成在下界跳跃、死亡后分裂的敌对生物。"
+  },
+  {
+    "id": "minecraft:mooshroom_spawn_egg",
+    "name": "Mooshroom Spawn Egg",
+    "category": "spawn_egg",
+    "description": "哞菇刷怪蛋，生成可挤取蘑菇煲的蘑菇岛特有牛类。"
+  },
+  {
+    "id": "minecraft:mule_spawn_egg",
+    "name": "Mule Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骡刷怪蛋，生成可骑乘并装载箱子、由马与驴繁殖而来的生物。"
+  },
+  {
+    "id": "minecraft:ocelot_spawn_egg",
+    "name": "Ocelot Spawn Egg",
+    "category": "spawn_egg",
+    "description": "豹猫刷怪蛋，生成丛林中可被信任喂食的胆小猫科生物。"
+  },
+  {
+    "id": "minecraft:panda_spawn_egg",
+    "name": "Panda Spawn Egg",
+    "category": "spawn_egg",
+    "description": "熊猫刷怪蛋，生成具有多种性格、喜食竹子的丛林生物。"
+  },
+  {
+    "id": "minecraft:parrot_spawn_egg",
+    "name": "Parrot Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鹦鹉刷怪蛋，生成可驯服、停在肩上并模仿声音的彩色鸟类。"
+  },
+  {
+    "id": "minecraft:phantom_spawn_egg",
+    "name": "Phantom Spawn Egg",
+    "category": "spawn_egg",
+    "description": "幻翼刷怪蛋，生成在玩家久未睡眠时夜间俯冲攻击的飞行敌对生物。"
+  },
+  {
+    "id": "minecraft:pig_spawn_egg",
+    "name": "Pig Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪刷怪蛋，生成可用胡萝卜钓竿骑乘、掉落猪肉的农场生物。"
+  },
+  {
+    "id": "minecraft:piglin_spawn_egg",
+    "name": "Piglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪灵刷怪蛋，生成下界中可与金锭交易物品的中立生物。"
+  },
+  {
+    "id": "minecraft:piglin_brute_spawn_egg",
+    "name": "Piglin Brute Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪灵蛮兵刷怪蛋，生成守护堡垒遗迹、不交易的强力敌对生物。"
+  },
+  {
+    "id": "minecraft:pillager_spawn_egg",
+    "name": "Pillager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "掠夺者刷怪蛋，生成手持弩、参与袭击的灾厄村民。"
+  },
+  {
+    "id": "minecraft:polar_bear_spawn_egg",
+    "name": "Polar Bear Spawn Egg",
+    "category": "spawn_egg",
+    "description": "北极熊刷怪蛋，生成雪地中护崽时具攻击性的中立生物。"
+  },
+  {
+    "id": "minecraft:pufferfish_spawn_egg",
+    "name": "Pufferfish Spawn Egg",
+    "category": "spawn_egg",
+    "description": "河豚刷怪蛋，生成受威胁时膨胀并使靠近者中毒的鱼类。"
+  },
+  {
+    "id": "minecraft:rabbit_spawn_egg",
+    "name": "Rabbit Spawn Egg",
+    "category": "spawn_egg",
+    "description": "兔子刷怪蛋，生成跳跃移动、掉落兔肉和兔毛的小型生物。"
+  },
+  {
+    "id": "minecraft:ravager_spawn_egg",
+    "name": "Ravager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "劫掠兽刷怪蛋，生成袭击中冲撞建筑的大型敌对坐骑生物。"
+  },
+  {
+    "id": "minecraft:salmon_spawn_egg",
+    "name": "Salmon Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鲑鱼刷怪蛋，生成在寒冷水域逆流游动的鱼类。"
+  },
+  {
+    "id": "minecraft:sheep_spawn_egg",
+    "name": "Sheep Spawn Egg",
+    "category": "spawn_egg",
+    "description": "绵羊刷怪蛋，生成可剪取羊毛、可染色的农场生物。"
+  },
+  {
+    "id": "minecraft:shulker_spawn_egg",
+    "name": "Shulker Spawn Egg",
+    "category": "spawn_egg",
+    "description": "潜影贝刷怪蛋，生成末地城中发射使目标飘浮弹幕的敌对生物。"
+  },
+  {
+    "id": "minecraft:silverfish_spawn_egg",
+    "name": "Silverfish Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蠹虫刷怪蛋，生成藏于虫蚀方块、成群出现的小型敌对生物。"
+  },
+  {
+    "id": "minecraft:skeleton_horse_spawn_egg",
+    "name": "Skeleton Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骷髅马刷怪蛋，生成可水下骑乘的不死坐骑生物。"
+  },
+  {
+    "id": "minecraft:slime_spawn_egg",
+    "name": "Slime Spawn Egg",
+    "category": "spawn_egg",
+    "description": "史莱姆刷怪蛋，生成跳跃攻击、死亡分裂并掉落黏液球的敌对生物。"
+  },
+  {
+    "id": "minecraft:sniffer_spawn_egg",
+    "name": "Sniffer Spawn Egg",
+    "category": "spawn_egg",
+    "description": "嗅探兽刷怪蛋，生成嗅探地面挖出远古种子的远古生物。"
+  },
+  {
+    "id": "minecraft:snow_golem_spawn_egg",
+    "name": "Snow Golem Spawn Egg",
+    "category": "spawn_egg",
+    "description": "雪傀儡刷怪蛋，生成投掷雪球、留下雪径的友善守卫。"
+  },
+  {
+    "id": "minecraft:squid_spawn_egg",
+    "name": "Squid Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鱿鱼刷怪蛋，生成掉落墨囊的水中被动生物。"
+  },
+  {
+    "id": "minecraft:stray_spawn_egg",
+    "name": "Stray Spawn Egg",
+    "category": "spawn_egg",
+    "description": "流浪者刷怪蛋，生成寒冷生物群系中射出缓速之箭的骷髅变种。"
+  },
+  {
+    "id": "minecraft:strider_spawn_egg",
+    "name": "Strider Spawn Egg",
+    "category": "spawn_egg",
+    "description": "炽足兽刷怪蛋，生成可在熔岩上骑乘行走的下界生物。"
+  },
+  {
+    "id": "minecraft:tadpole_spawn_egg",
+    "name": "Tadpole Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蝌蚪刷怪蛋，生成会成长为青蛙的水生幼体。"
+  },
+  {
+    "id": "minecraft:trader_llama_spawn_egg",
+    "name": "Trader Llama Spawn Egg",
+    "category": "spawn_egg",
+    "description": "行商羊驼刷怪蛋，生成伴随流浪商人、携带货物的羊驼变种。"
+  },
+  {
+    "id": "minecraft:tropical_fish_spawn_egg",
+    "name": "Tropical Fish Spawn Egg",
+    "category": "spawn_egg",
+    "description": "热带鱼刷怪蛋，生成珊瑚礁中多彩外观的小型鱼类。"
+  },
+  {
+    "id": "minecraft:turtle_spawn_egg",
+    "name": "Turtle Spawn Egg",
+    "category": "spawn_egg",
+    "description": "海龟刷怪蛋，生成在沙滩产蛋、掉落鳞甲的水陆两栖生物。"
+  },
+  {
+    "id": "minecraft:vex_spawn_egg",
+    "name": "Vex Spawn Egg",
+    "category": "spawn_egg",
+    "description": "恼鬼刷怪蛋，生成由唤魔者召唤、可穿墙攻击的小型飞行敌对生物。"
+  },
+  {
+    "id": "minecraft:vindicator_spawn_egg",
+    "name": "Vindicator Spawn Egg",
+    "category": "spawn_egg",
+    "description": "卫道士刷怪蛋，生成手持斧、参与袭击的灾厄村民。"
+  },
+  {
+    "id": "minecraft:wandering_trader_spawn_egg",
+    "name": "Wandering Trader Spawn Egg",
+    "category": "spawn_egg",
+    "description": "流浪商人刷怪蛋，生成临时出现、出售稀有物品的交易NPC。"
+  },
+  {
+    "id": "minecraft:warden_spawn_egg",
+    "name": "Warden Spawn Egg",
+    "category": "spawn_egg",
+    "description": "监守者刷怪蛋，生成深暗之域中依振动追踪、攻击极强的盲眼Boss型生物。"
+  },
+  {
+    "id": "minecraft:witch_spawn_egg",
+    "name": "Witch Spawn Egg",
+    "category": "spawn_egg",
+    "description": "女巫刷怪蛋，生成投掷负面药水并自饮治疗的敌对生物。"
+  },
+  {
+    "id": "minecraft:wither_skeleton_spawn_egg",
+    "name": "Wither Skeleton Spawn Egg",
+    "category": "spawn_egg",
+    "description": "凋灵骷髅刷怪蛋，生成下界堡垒中攻击致凋零、掉落头颅的骷髅变种。"
+  },
+  {
+    "id": "minecraft:wolf_spawn_egg",
+    "name": "Wolf Spawn Egg",
+    "category": "spawn_egg",
+    "description": "狼刷怪蛋，生成可用骨头驯服、协助战斗的犬类生物。"
+  },
+  {
+    "id": "minecraft:zoglin_spawn_egg",
+    "name": "Zoglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸疣猪兽刷怪蛋，生成由疣猪兽僵尸化而来、攻击一切生物的敌对生物。"
+  },
+  {
+    "id": "minecraft:zombie_horse_spawn_egg",
+    "name": "Zombie Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸马刷怪蛋，生成可骑乘的不死坐骑生物。"
+  },
+  {
+    "id": "minecraft:zombie_villager_spawn_egg",
+    "name": "Zombie Villager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸村民刷怪蛋，生成可用金苹果与虚弱药水治疗为村民的僵尸变种。"
+  },
+  {
+    "id": "minecraft:zombified_piglin_spawn_egg",
+    "name": "Zombified Piglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸猪灵刷怪蛋，生成下界中被激怒才群起攻击的中立生物。"
+  },
+  {
+    "id": "minecraft:bordure_indented_banner_pattern",
+    "name": "Bordure Indented Banner Pattern",
+    "category": "banner_pattern",
+    "description": "锯齿边旗帜图案，用于在织布机上为旗帜添加锯齿状边框纹样。"
+  },
+  {
+    "id": "minecraft:creeper_banner_pattern",
+    "name": "Creeper Charge Banner Pattern",
+    "category": "banner_pattern",
+    "description": "苦力怕盾徽旗帜图案，用于在织布机上添加苦力怕脸形纹样。"
+  },
+  {
+    "id": "minecraft:field_masoned_banner_pattern",
+    "name": "Field Masoned Banner Pattern",
+    "category": "banner_pattern",
+    "description": "砖纹旗帜图案，用于在织布机上添加砖块状纹样。"
+  },
+  {
+    "id": "minecraft:flow_banner_pattern",
+    "name": "Flow Banner Pattern",
+    "category": "banner_pattern",
+    "description": "涡流旗帜图案，源自试炼密室战利品，用于添加涡流纹样。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:flower_banner_pattern",
+    "name": "Flower Charge Banner Pattern",
+    "category": "banner_pattern",
+    "description": "花朵盾徽旗帜图案，用于在织布机上添加花朵纹样。"
+  },
+  {
+    "id": "minecraft:globe_banner_pattern",
+    "name": "Globe Banner Pattern",
+    "category": "banner_pattern",
+    "description": "地球旗帜图案，用于在织布机上添加地球状纹样。"
+  },
+  {
+    "id": "minecraft:guster_banner_pattern",
+    "name": "Guster Banner Pattern",
+    "category": "banner_pattern",
+    "description": "旋风旗帜图案，源自试炼密室战利品，用于添加旋风人主题纹样。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:mojang_banner_pattern",
+    "name": "Thing Banner Pattern",
+    "category": "banner_pattern",
+    "description": "Mojang徽标旗帜图案，用于在织布机上添加Mojang标志纹样。"
+  },
+  {
+    "id": "minecraft:piglin_banner_pattern",
+    "name": "Snout Banner Pattern",
+    "category": "banner_pattern",
+    "description": "猪鼻旗帜图案，用于在织布机上添加猪灵鼻形纹样。"
+  },
+  {
+    "id": "minecraft:skull_banner_pattern",
+    "name": "Skull Charge Banner Pattern",
+    "category": "banner_pattern",
+    "description": "骷髅盾徽旗帜图案，用于在织布机上添加骷髅头纹样。"
+  },
+  {
+    "id": "minecraft:archer_pottery_sherd",
+    "name": "Archer Pottery Sherd",
+    "category": "pottery",
+    "description": "弓手陶片，由可疑方块刷出，用于合成饰纹陶罐并显示弓手图案。"
+  },
+  {
+    "id": "minecraft:arms_up_pottery_sherd",
+    "name": "Arms Up Pottery Sherd",
+    "category": "pottery",
+    "description": "举臂陶片，由可疑方块刷出，用于合成饰纹陶罐并显示举臂图案。"
+  },
+  {
+    "id": "minecraft:blade_pottery_sherd",
+    "name": "Blade Pottery Sherd",
+    "category": "pottery",
+    "description": "利刃陶片，由可疑方块刷出，用于合成饰纹陶罐并显示利刃图案。"
+  },
+  {
+    "id": "minecraft:brewer_pottery_sherd",
+    "name": "Brewer Pottery Sherd",
+    "category": "pottery",
+    "description": "酿造陶片，由可疑方块刷出，用于合成饰纹陶罐并显示酿造图案。"
+  },
+  {
+    "id": "minecraft:burn_pottery_sherd",
+    "name": "Burn Pottery Sherd",
+    "category": "pottery",
+    "description": "燃烧陶片，由可疑方块刷出，用于合成饰纹陶罐并显示火焰图案。"
+  },
+  {
+    "id": "minecraft:danger_pottery_sherd",
+    "name": "Danger Pottery Sherd",
+    "category": "pottery",
+    "description": "危险陶片，由可疑方块刷出，用于合成饰纹陶罐并显示危险图案。"
+  },
+  {
+    "id": "minecraft:explorer_pottery_sherd",
+    "name": "Explorer Pottery Sherd",
+    "category": "pottery",
+    "description": "探险家陶片，由可疑方块刷出，用于合成饰纹陶罐并显示探险图案。"
+  },
+  {
+    "id": "minecraft:flow_pottery_sherd",
+    "name": "Flow Pottery Sherd",
+    "category": "pottery",
+    "description": "涡流陶片，源自试炼密室战利品，用于合成饰纹陶罐并显示涡流图案。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:friend_pottery_sherd",
+    "name": "Friend Pottery Sherd",
+    "category": "pottery",
+    "description": "朋友陶片，由可疑方块刷出，用于合成饰纹陶罐并显示朋友图案。"
+  },
+  {
+    "id": "minecraft:guster_pottery_sherd",
+    "name": "Guster Pottery Sherd",
+    "category": "pottery",
+    "description": "旋风陶片，源自试炼密室战利品，用于合成饰纹陶罐并显示旋风图案。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:heart_pottery_sherd",
+    "name": "Heart Pottery Sherd",
+    "category": "pottery",
+    "description": "爱心陶片，由可疑方块刷出，用于合成饰纹陶罐并显示爱心图案。"
+  },
+  {
+    "id": "minecraft:heartbreak_pottery_sherd",
+    "name": "Heartbreak Pottery Sherd",
+    "category": "pottery",
+    "description": "心碎陶片，由可疑方块刷出，用于合成饰纹陶罐并显示心碎图案。"
+  },
+  {
+    "id": "minecraft:howl_pottery_sherd",
+    "name": "Howl Pottery Sherd",
+    "category": "pottery",
+    "description": "嚎叫陶片，由可疑方块刷出，用于合成饰纹陶罐并显示嚎叫图案。"
+  },
+  {
+    "id": "minecraft:miner_pottery_sherd",
+    "name": "Miner Pottery Sherd",
+    "category": "pottery",
+    "description": "矿工陶片，由可疑方块刷出，用于合成饰纹陶罐并显示矿工图案。"
+  },
+  {
+    "id": "minecraft:mourner_pottery_sherd",
+    "name": "Mourner Pottery Sherd",
+    "category": "pottery",
+    "description": "哀悼者陶片，由可疑方块刷出，用于合成饰纹陶罐并显示哀悼图案。"
+  },
+  {
+    "id": "minecraft:plenty_pottery_sherd",
+    "name": "Plenty Pottery Sherd",
+    "category": "pottery",
+    "description": "丰饶陶片，由可疑方块刷出，用于合成饰纹陶罐并显示丰饶图案。"
+  },
+  {
+    "id": "minecraft:prize_pottery_sherd",
+    "name": "Prize Pottery Sherd",
+    "category": "pottery",
+    "description": "奖品陶片，由可疑方块刷出，用于合成饰纹陶罐并显示奖品图案。"
+  },
+  {
+    "id": "minecraft:scrape_pottery_sherd",
+    "name": "Scrape Pottery Sherd",
+    "category": "pottery",
+    "description": "刮擦陶片，由可疑方块刷出，用于合成饰纹陶罐并显示刮擦图案。"
+  },
+  {
+    "id": "minecraft:sheaf_pottery_sherd",
+    "name": "Sheaf Pottery Sherd",
+    "category": "pottery",
+    "description": "麦束陶片，由可疑方块刷出，用于合成饰纹陶罐并显示麦束图案。"
+  },
+  {
+    "id": "minecraft:shelter_pottery_sherd",
+    "name": "Shelter Pottery Sherd",
+    "category": "pottery",
+    "description": "庇护陶片，由可疑方块刷出，用于合成饰纹陶罐并显示庇护图案。"
+  },
+  {
+    "id": "minecraft:skull_pottery_sherd",
+    "name": "Skull Pottery Sherd",
+    "category": "pottery",
+    "description": "骷髅陶片，由可疑方块刷出，用于合成饰纹陶罐并显示骷髅图案。"
+  },
+  {
+    "id": "minecraft:snort_pottery_sherd",
+    "name": "Snort Pottery Sherd",
+    "category": "pottery",
+    "description": "鼻息陶片，由可疑方块刷出，用于合成饰纹陶罐并显示嗅探兽图案。"
+  },
+  {
+    "id": "minecraft:dune_armor_trim_smithing_template",
+    "name": "Dune Armor Trim Smithing Template",
+    "category": "smithing",
+    "description": "沙丘纹饰锻造模板，在锻造台上为盔甲添加沙丘纹饰。"
+  },
+  {
+    "id": "minecraft:music_disc_tears",
+    "name": "Music Disc - Tears",
+    "category": "music_disc",
+    "description": "音乐唱片（泪，Amos Roddy，1.21.6 新增）",
+    "since": "1.21.6"
+  },
+  {
+    "id": "minecraft:music_disc_lava_chicken",
+    "name": "Music Disc - Lava Chicken",
+    "category": "music_disc",
+    "description": "音乐唱片（熔岩鸡，Hyper Potions，1.21.7 新增）",
+    "since": "1.21.7"
+  },
+  {
+    "id": "minecraft:bamboo_chest_raft",
+    "name": "Bamboo Chest Raft",
+    "category": "transportation",
+    "description": "竹运输筏",
+    "since": "1.21.2"
+  }
+]

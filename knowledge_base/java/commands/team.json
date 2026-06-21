@@ -1,0 +1,82 @@
+{
+  "name": "team",
+  "syntax": "/team add|empty|join|leave|list|modify|remove ...",
+  "description": "管理计分板队伍",
+  "category": "entity_management",
+  "parameters": [
+    {
+      "name": "add <team> [<displayName>]",
+      "type": "子命令",
+      "required": false,
+      "description": "创建新队伍，可指定显示名称（JSON文本组件）"
+    },
+    {
+      "name": "remove <team>",
+      "type": "子命令",
+      "required": false,
+      "description": "删除指定队伍"
+    },
+    {
+      "name": "empty <team>",
+      "type": "子命令",
+      "required": false,
+      "description": "清空指定队伍的所有成员"
+    },
+    {
+      "name": "join <team> [<members>]",
+      "type": "子命令",
+      "required": false,
+      "description": "将成员加入指定队伍。省略members则加入执行者"
+    },
+    {
+      "name": "leave [<members>]",
+      "type": "子命令",
+      "required": false,
+      "description": "使成员离开当前队伍"
+    },
+    {
+      "name": "list [<team>]",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有队伍或指定队伍的成员"
+    },
+    {
+      "name": "modify <team> <option> <value>",
+      "type": "子命令",
+      "required": false,
+      "description": "修改队伍属性。option可选：displayName、color、friendlyFire、seeFriendlyInvisibles、nametagVisibility、deathMessageVisibility、collisionRule、prefix、suffix"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/team add red {\"text\":\"红队\",\"color\":\"red\"}",
+      "description": "创建名为red的队伍，显示名为红色的'红队'"
+    },
+    {
+      "input": "/team join red @a[tag=team_red]",
+      "description": "将带有team_red标签的玩家加入红队"
+    },
+    {
+      "input": "/team modify red color red",
+      "description": "将红队的颜色设为红色（影响名称显示和发光颜色）"
+    },
+    {
+      "input": "/team modify red friendlyFire false",
+      "description": "禁止红队成员间的友军伤害"
+    },
+    {
+      "input": "/team modify red prefix {\"text\":\"[红] \",\"color\":\"red\"}",
+      "description": "为红队成员添加名称前缀"
+    },
+    {
+      "input": "/team modify red nametagVisibility hideForOtherTeams",
+      "description": "对其他队伍隐藏红队成员的名牌"
+    },
+    {
+      "input": "/team modify red collisionRule pushOwnTeam",
+      "description": "红队成员只能被本队成员推动"
+    }
+  ],
+  "java_specific_notes": "team命令是Java版独有的命令，基岩版没有对应命令（基岩版通常用tag替代）。color选项会影响玩家名称颜色、发光效果颜色。nametagVisibility可选：always、hideForOtherTeams、hideForOwnTeam、never。deathMessageVisibility可选同上。collisionRule可选：always、never、pushOtherTeams、pushOwnTeam。选择器中可使用team=xxx或team=!xxx过滤。",
+  "version_added": "1.9"
+}

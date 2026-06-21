@@ -1,0 +1,48 @@
+{
+  "name": "effect",
+  "syntax": "/effect give <targets> <effect> [<seconds>] [<amplifier>] [<hideParticles>] | /effect clear [<targets>] [<effect>]",
+  "description": "给予、移除或清除实体的状态效果",
+  "category": "effects",
+  "parameters": [
+    {
+      "name": "give <targets> <effect> [<seconds>] [<amplifier>] [<hideParticles>]",
+      "type": "子命令",
+      "required": false,
+      "description": "给予目标指定状态效果。effect使用命名空间ID（如minecraft:speed）。seconds默认30秒，最大1000000，可用infinite表示无限。amplifier为等级（0=I级）。hideParticles为true时隐藏粒子"
+    },
+    {
+      "name": "clear [<targets>] [<effect>]",
+      "type": "子命令",
+      "required": false,
+      "description": "清除目标身上的状态效果。省略targets默认@s，省略effect则清除所有效果"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/effect give @s minecraft:speed 60 1",
+      "description": "给自己60秒的速度II效果"
+    },
+    {
+      "input": "/effect give @a minecraft:night_vision infinite 0 true",
+      "description": "给所有玩家无限持续的夜视效果，且隐藏粒子"
+    },
+    {
+      "input": "/effect clear @s",
+      "description": "清除自己身上的所有状态效果"
+    },
+    {
+      "input": "/effect give @e[type=minecraft:zombie] minecraft:strength 30 2",
+      "description": "给所有僵尸30秒的力量III效果"
+    },
+    {
+      "input": "/effect clear @s minecraft:speed",
+      "description": "仅清除自己身上的速度效果"
+    },
+    {
+      "input": "/effect give @s minecraft:resistance infinite 3 true",
+      "description": "给自己无限持续的抗性提升IV（几乎无敌），隐藏粒子"
+    }
+  ],
+  "java_specific_notes": "Java版effect命令使用子命令格式（give/clear），不同于基岩版直接写效果。效果ID使用命名空间格式（如minecraft:speed）。Java版支持infinite关键字给予无限持续效果。某些效果名称与基岩版不同，如Java版使用minecraft:slowness（基岩版为slowness）。",
+  "version_added": "1.0"
+}

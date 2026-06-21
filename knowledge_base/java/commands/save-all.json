@@ -1,0 +1,26 @@
+{
+  "name": "save-all",
+  "syntax": "/save-all [flush]",
+  "description": "保存服务器世界数据到磁盘",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "flush",
+      "type": "flag",
+      "required": false,
+      "description": "如果指定，将强制所有区块立即写入磁盘（而非异步保存）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/save-all",
+      "description": "保存所有世界数据"
+    },
+    {
+      "input": "/save-all flush",
+      "description": "立即强制保存所有数据到磁盘"
+    }
+  ],
+  "java_specific_notes": "save-all仅在专用服务器中使用。flush参数确保数据完全写入磁盘，适合在备份前使用。",
+  "version_added": "1.0"
+}

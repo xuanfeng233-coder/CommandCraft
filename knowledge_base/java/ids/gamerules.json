@@ -1,0 +1,382 @@
+[
+  {
+    "id": "announceAdvancements",
+    "name": "公告进度",
+    "type": "boolean",
+    "default": "true",
+    "description": "当玩家获得进度时在聊天栏中公告"
+  },
+  {
+    "id": "blockExplosionDropDecay",
+    "name": "方块爆炸掉落衰减",
+    "type": "boolean",
+    "default": "true",
+    "description": "方块爆炸产生的掉落物是否随机消失"
+  },
+  {
+    "id": "commandBlockOutput",
+    "name": "命令方块输出",
+    "type": "boolean",
+    "default": "true",
+    "description": "命令方块执行命令时是否在聊天栏显示"
+  },
+  {
+    "id": "commandModificationBlockLimit",
+    "name": "命令修改方块限制",
+    "type": "int",
+    "default": "32768",
+    "description": "/clone、/fill、/forceload等命令一次操作的最大方块数"
+  },
+  {
+    "id": "disableElytraMovementCheck",
+    "name": "禁用鞘翅移动检查",
+    "type": "boolean",
+    "default": "false",
+    "description": "禁用鞘翅飞行时的速度检查"
+  },
+  {
+    "id": "disableRaids",
+    "name": "禁用袭击",
+    "type": "boolean",
+    "default": "false",
+    "description": "禁止袭击事件发生"
+  },
+  {
+    "id": "doDaylightCycle",
+    "name": "日夜更替",
+    "type": "boolean",
+    "default": "true",
+    "description": "是否进行日夜更替和月相变化"
+  },
+  {
+    "id": "doEntityDrops",
+    "name": "实体掉落物",
+    "type": "boolean",
+    "default": "true",
+    "description": "非生物实体（矿车、物品展示框等）是否掉落物品"
+  },
+  {
+    "id": "doFireTick",
+    "name": "火焰蔓延",
+    "type": "boolean",
+    "default": "true",
+    "description": "火焰是否蔓延和自然熄灭"
+  },
+  {
+    "id": "doImmediateRespawn",
+    "name": "立即重生",
+    "type": "boolean",
+    "default": "false",
+    "description": "玩家死亡时是否跳过死亡界面直接重生"
+  },
+  {
+    "id": "doInsomnia",
+    "name": "幻翼生成",
+    "type": "boolean",
+    "default": "true",
+    "description": "幻翼是否在长时间不睡觉后生成"
+  },
+  {
+    "id": "doLimitedCrafting",
+    "name": "限制合成",
+    "type": "boolean",
+    "default": "false",
+    "description": "是否只允许合成已解锁的配方"
+  },
+  {
+    "id": "doMobLoot",
+    "name": "生物掉落",
+    "type": "boolean",
+    "default": "true",
+    "description": "生物被杀死时是否掉落物品和经验"
+  },
+  {
+    "id": "doMobSpawning",
+    "name": "生物生成",
+    "type": "boolean",
+    "default": "true",
+    "description": "生物是否自然生成"
+  },
+  {
+    "id": "doPatrolSpawning",
+    "name": "巡逻队生成",
+    "type": "boolean",
+    "default": "true",
+    "description": "掠夺者巡逻队是否生成"
+  },
+  {
+    "id": "doTileDrops",
+    "name": "方块掉落物",
+    "type": "boolean",
+    "default": "true",
+    "description": "方块被破坏时是否掉落物品"
+  },
+  {
+    "id": "doTraderSpawning",
+    "name": "流浪商人生成",
+    "type": "boolean",
+    "default": "true",
+    "description": "流浪商人是否自然生成"
+  },
+  {
+    "id": "doVinesSpread",
+    "name": "藤蔓蔓延",
+    "type": "boolean",
+    "default": "true",
+    "description": "藤蔓是否蔓延到附近的方块"
+  },
+  {
+    "id": "doWardenSpawning",
+    "name": "监守者生成",
+    "type": "boolean",
+    "default": "true",
+    "description": "幽匿尖啸体是否可以召唤监守者"
+  },
+  {
+    "id": "doWeatherCycle",
+    "name": "天气更替",
+    "type": "boolean",
+    "default": "true",
+    "description": "天气是否自然变化"
+  },
+  {
+    "id": "drowningDamage",
+    "name": "溺水伤害",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家是否受到溺水伤害"
+  },
+  {
+    "id": "enderPearlsVanishOnDeath",
+    "name": "死亡时末影珍珠消失",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家死亡后已投掷的末影珍珠是否消失"
+  },
+  {
+    "id": "fallDamage",
+    "name": "摔落伤害",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家是否受到摔落伤害"
+  },
+  {
+    "id": "fireDamage",
+    "name": "火焰伤害",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家是否受到火焰伤害"
+  },
+  {
+    "id": "forgiveDeadPlayers",
+    "name": "原谅死亡玩家",
+    "type": "boolean",
+    "default": "true",
+    "description": "被激怒的中立生物是否在目标玩家死亡后停止攻击"
+  },
+  {
+    "id": "freezeDamage",
+    "name": "冰冻伤害",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家是否受到细雪冰冻伤害"
+  },
+  {
+    "id": "globalSoundEvents",
+    "name": "全局声音事件",
+    "type": "boolean",
+    "default": "true",
+    "description": "是否向所有玩家播放全局声音事件"
+  },
+  {
+    "id": "keepInventory",
+    "name": "保留物品栏",
+    "type": "boolean",
+    "default": "false",
+    "description": "玩家死亡后是否保留物品栏和经验"
+  },
+  {
+    "id": "lavaSourceConversion",
+    "name": "熔岩源转换",
+    "type": "boolean",
+    "default": "false",
+    "description": "熔岩是否能形成新的源方块"
+  },
+  {
+    "id": "logAdminCommands",
+    "name": "记录管理员命令",
+    "type": "boolean",
+    "default": "true",
+    "description": "管理员使用的命令是否记录到服务器日志"
+  },
+  {
+    "id": "maxCommandChainLength",
+    "name": "最大命令链长度",
+    "type": "int",
+    "default": "65536",
+    "description": "命令方块链/函数中可执行的最大命令数"
+  },
+  {
+    "id": "maxCommandForkCount",
+    "name": "最大命令分叉数",
+    "type": "int",
+    "default": "65536",
+    "description": "execute命令可产生的最大分叉数"
+  },
+  {
+    "id": "maxEntityCramming",
+    "name": "最大实体挤压",
+    "type": "int",
+    "default": "24",
+    "description": "实体挤压致死的阈值"
+  },
+  {
+    "id": "minecartMaxSpeed",
+    "name": "矿车最大速度",
+    "type": "int",
+    "default": "8",
+    "description": "矿车在直轨上的最大速度（方块/秒，范围1-1000）",
+    "since": "1.21.2"
+  },
+  {
+    "id": "mobExplosionDropDecay",
+    "name": "生物爆炸掉落衰减",
+    "type": "boolean",
+    "default": "true",
+    "description": "生物爆炸产生的掉落物是否随机消失"
+  },
+  {
+    "id": "mobGriefing",
+    "name": "生物破坏",
+    "type": "boolean",
+    "default": "true",
+    "description": "生物是否能改变或破坏方块"
+  },
+  {
+    "id": "naturalRegeneration",
+    "name": "自然恢复",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家是否在饱和时自然恢复生命"
+  },
+  {
+    "id": "playersNetherPortalCreativeDelay",
+    "name": "创造模式传送门延迟",
+    "type": "int",
+    "default": "1",
+    "description": "创造模式玩家在传送门中等待的时间（tick）"
+  },
+  {
+    "id": "playersNetherPortalDefaultDelay",
+    "name": "默认传送门延迟",
+    "type": "int",
+    "default": "80",
+    "description": "玩家在传送门中等待的时间（tick）"
+  },
+  {
+    "id": "playersSleepingPercentage",
+    "name": "玩家睡觉百分比",
+    "type": "int",
+    "default": "100",
+    "description": "跳过夜晚所需的睡觉玩家百分比"
+  },
+  {
+    "id": "projectilesCanBreakBlocks",
+    "name": "弹射物可破坏方块",
+    "type": "boolean",
+    "default": "true",
+    "description": "弹射物是否可以破坏某些方块"
+  },
+  {
+    "id": "pvp",
+    "name": "PVP",
+    "type": "boolean",
+    "default": "true",
+    "description": "是否允许玩家间PVP（仅服务器属性）"
+  },
+  {
+    "id": "randomTickSpeed",
+    "name": "随机刻速度",
+    "type": "int",
+    "default": "3",
+    "description": "每游戏刻每区段执行的随机刻数量"
+  },
+  {
+    "id": "reducedDebugInfo",
+    "name": "减少调试信息",
+    "type": "boolean",
+    "default": "false",
+    "description": "是否减少F3调试界面显示的信息"
+  },
+  {
+    "id": "sendCommandFeedback",
+    "name": "发送命令反馈",
+    "type": "boolean",
+    "default": "true",
+    "description": "命令执行结果是否在聊天栏显示"
+  },
+  {
+    "id": "showDeathMessages",
+    "name": "显示死亡消息",
+    "type": "boolean",
+    "default": "true",
+    "description": "玩家死亡时是否在聊天栏显示死亡消息"
+  },
+  {
+    "id": "snowAccumulationHeight",
+    "name": "积雪高度",
+    "type": "int",
+    "default": "1",
+    "description": "降雪时雪层可积累的最大层数"
+  },
+  {
+    "id": "spawnChunkMinRadius",
+    "name": "出生点区块最小半径",
+    "type": "int",
+    "default": "2",
+    "description": "出生点附近始终加载的区块半径"
+  },
+  {
+    "id": "spawnChunkRadius",
+    "name": "出生点区块半径",
+    "type": "int",
+    "default": "2",
+    "description": "世界出生点周围始终加载的区块半径（0表示禁用出生点区块加载）",
+    "since": "1.20.5"
+  },
+  {
+    "id": "spawnRadius",
+    "name": "出生点半径",
+    "type": "int",
+    "default": "10",
+    "description": "首次生成和没有重生点时的出生范围半径"
+  },
+  {
+    "id": "spectatorsGenerateChunks",
+    "name": "旁观者生成区块",
+    "type": "boolean",
+    "default": "true",
+    "description": "旁观者模式玩家是否可以加载新区块"
+  },
+  {
+    "id": "tntExplosionDropDecay",
+    "name": "TNT爆炸掉落衰减",
+    "type": "boolean",
+    "default": "false",
+    "description": "TNT爆炸产生的掉落物是否随机消失"
+  },
+  {
+    "id": "universalAnger",
+    "name": "全局愤怒",
+    "type": "boolean",
+    "default": "false",
+    "description": "被激怒的中立生物是否攻击所有附近的玩家"
+  },
+  {
+    "id": "waterSourceConversion",
+    "name": "水源转换",
+    "type": "boolean",
+    "default": "true",
+    "description": "水是否能形成新的源方块"
+  }
+]

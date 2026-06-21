@@ -1,0 +1,42 @@
+{
+  "id": "minecraft:compass",
+  "inherits": "_common",
+  "description": "指南针/磁石指南针物品NBT标签",
+  "tags": [
+    {
+      "name": "LodestoneTracked",
+      "type": "byte",
+      "description": "是否追踪磁石（如果磁石被破坏，指南针会失效）",
+      "values": [0, 1],
+      "default": 1
+    },
+    {
+      "name": "LodestoneDimension",
+      "type": "string",
+      "description": "磁石所在维度",
+      "values": ["minecraft:overworld", "minecraft:the_nether", "minecraft:the_end"]
+    },
+    {
+      "name": "LodestonePos",
+      "type": "compound",
+      "description": "磁石的坐标位置",
+      "children": [
+        {
+          "name": "X",
+          "type": "int",
+          "description": "X坐标"
+        },
+        {
+          "name": "Y",
+          "type": "int",
+          "description": "Y坐标"
+        },
+        {
+          "name": "Z",
+          "type": "int",
+          "description": "Z坐标"
+        }
+      ]
+    }
+  ]
+}

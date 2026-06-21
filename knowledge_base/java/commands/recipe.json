@@ -1,0 +1,36 @@
+{
+  "name": "recipe",
+  "syntax": "/recipe give|take <targets> *|<recipe>",
+  "description": "管理玩家的配方解锁",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "give <targets> *|<recipe>",
+      "type": "子命令",
+      "required": false,
+      "description": "给予玩家指定配方或所有配方。*表示所有配方"
+    },
+    {
+      "name": "take <targets> *|<recipe>",
+      "type": "子命令",
+      "required": false,
+      "description": "撤销玩家的指定配方或所有配方"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/recipe give @s *",
+      "description": "解锁自己的所有配方"
+    },
+    {
+      "input": "/recipe take @a *",
+      "description": "锁定所有玩家的所有配方"
+    },
+    {
+      "input": "/recipe give @s minecraft:diamond_sword",
+      "description": "解锁钻石剑的合成配方"
+    }
+  ],
+  "java_specific_notes": "Java版的配方解锁系统会在配方书中显示已解锁的配方。配方ID与物品ID通常相同。数据包可以定义自定义配方。配合进度系统可以实现渐进式配方解锁。",
+  "version_added": "1.12"
+}

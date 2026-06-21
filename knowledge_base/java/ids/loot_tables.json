@@ -1,0 +1,236 @@
+[
+  {
+    "id": "minecraft:chests/simple_dungeon",
+    "name": "刷怪笼地牢箱",
+    "category": "chests",
+    "description": "战利品表：刷怪笼地牢箱"
+  },
+  {
+    "id": "minecraft:chests/abandoned_mineshaft",
+    "name": "废弃矿井箱",
+    "category": "chests",
+    "description": "战利品表：废弃矿井箱"
+  },
+  {
+    "id": "minecraft:chests/desert_pyramid",
+    "name": "沙漠神殿箱",
+    "category": "chests",
+    "description": "战利品表：沙漠神殿箱"
+  },
+  {
+    "id": "minecraft:chests/jungle_temple",
+    "name": "丛林神庙箱",
+    "category": "chests",
+    "description": "战利品表：丛林神庙箱"
+  },
+  {
+    "id": "minecraft:chests/stronghold_corridor",
+    "name": "要塞走廊箱",
+    "category": "chests",
+    "description": "战利品表：要塞走廊箱"
+  },
+  {
+    "id": "minecraft:chests/stronghold_crossing",
+    "name": "要塞交叉箱",
+    "category": "chests",
+    "description": "战利品表：要塞交叉箱"
+  },
+  {
+    "id": "minecraft:chests/stronghold_library",
+    "name": "要塞图书馆箱",
+    "category": "chests",
+    "description": "战利品表：要塞图书馆箱"
+  },
+  {
+    "id": "minecraft:chests/end_city_treasure",
+    "name": "末地城宝藏箱",
+    "category": "chests",
+    "description": "战利品表：末地城宝藏箱"
+  },
+  {
+    "id": "minecraft:chests/bastion_treasure",
+    "name": "堡垒遗迹宝藏箱",
+    "category": "chests",
+    "description": "战利品表：堡垒遗迹宝藏箱"
+  },
+  {
+    "id": "minecraft:chests/bastion_bridge",
+    "name": "堡垒桥箱",
+    "category": "chests",
+    "description": "战利品表：堡垒桥箱"
+  },
+  {
+    "id": "minecraft:chests/bastion_hoglin_stable",
+    "name": "堡垒猪林厩箱",
+    "category": "chests",
+    "description": "战利品表：堡垒猪林厩箱"
+  },
+  {
+    "id": "minecraft:chests/bastion_other",
+    "name": "堡垒其它箱",
+    "category": "chests",
+    "description": "战利品表：堡垒其它箱"
+  },
+  {
+    "id": "minecraft:chests/nether_bridge",
+    "name": "下界要塞箱",
+    "category": "chests",
+    "description": "战利品表：下界要塞箱"
+  },
+  {
+    "id": "minecraft:chests/ancient_city",
+    "name": "远古城市箱",
+    "category": "chests",
+    "description": "战利品表：远古城市箱"
+  },
+  {
+    "id": "minecraft:chests/ancient_city_ice_box",
+    "name": "远古城市冰盒",
+    "category": "chests",
+    "description": "战利品表：远古城市冰盒"
+  },
+  {
+    "id": "minecraft:chests/woodland_mansion",
+    "name": "林地府邸箱",
+    "category": "chests",
+    "description": "战利品表：林地府邸箱"
+  },
+  {
+    "id": "minecraft:chests/shipwreck_treasure",
+    "name": "沉船宝藏箱",
+    "category": "chests",
+    "description": "战利品表：沉船宝藏箱"
+  },
+  {
+    "id": "minecraft:chests/shipwreck_supply",
+    "name": "沉船补给箱",
+    "category": "chests",
+    "description": "战利品表：沉船补给箱"
+  },
+  {
+    "id": "minecraft:chests/shipwreck_map",
+    "name": "沉船地图箱",
+    "category": "chests",
+    "description": "战利品表：沉船地图箱"
+  },
+  {
+    "id": "minecraft:chests/buried_treasure",
+    "name": "埋藏的宝藏",
+    "category": "chests",
+    "description": "战利品表：埋藏的宝藏"
+  },
+  {
+    "id": "minecraft:chests/igloo_chest",
+    "name": "雪屋箱",
+    "category": "chests",
+    "description": "战利品表：雪屋箱"
+  },
+  {
+    "id": "minecraft:chests/pillager_outpost",
+    "name": "掠夺者前哨站箱",
+    "category": "chests",
+    "description": "战利品表：掠夺者前哨站箱"
+  },
+  {
+    "id": "minecraft:chests/ruined_portal",
+    "name": "废弃传送门箱",
+    "category": "chests",
+    "description": "战利品表：废弃传送门箱"
+  },
+  {
+    "id": "minecraft:chests/village/village_weaponsmith",
+    "name": "村庄武器匠箱",
+    "category": "chests",
+    "description": "战利品表：村庄武器匠箱"
+  },
+  {
+    "id": "minecraft:chests/village/village_armorer",
+    "name": "村庄盔甲匠箱",
+    "category": "chests",
+    "description": "战利品表：村庄盔甲匠箱"
+  },
+  {
+    "id": "minecraft:chests/village/village_toolsmith",
+    "name": "村庄工具匠箱",
+    "category": "chests",
+    "description": "战利品表：村庄工具匠箱"
+  },
+  {
+    "id": "minecraft:chests/trial_chambers/reward",
+    "name": "试炼密室奖励",
+    "category": "chests",
+    "description": "战利品表：试炼密室奖励"
+  },
+  {
+    "id": "minecraft:chests/trial_chambers/reward_ominous",
+    "name": "不祥试炼奖励",
+    "category": "chests",
+    "description": "战利品表：不祥试炼奖励"
+  },
+  {
+    "id": "minecraft:entities/ender_dragon",
+    "name": "末影龙掉落",
+    "category": "entities",
+    "description": "战利品表：末影龙掉落"
+  },
+  {
+    "id": "minecraft:entities/sheep",
+    "name": "绵羊掉落",
+    "category": "entities",
+    "description": "战利品表：绵羊掉落"
+  },
+  {
+    "id": "minecraft:entities/cow",
+    "name": "牛掉落",
+    "category": "entities",
+    "description": "战利品表：牛掉落"
+  },
+  {
+    "id": "minecraft:entities/zombie",
+    "name": "僵尸掉落",
+    "category": "entities",
+    "description": "战利品表：僵尸掉落"
+  },
+  {
+    "id": "minecraft:gameplay/fishing",
+    "name": "钓鱼",
+    "category": "gameplay",
+    "description": "战利品表：钓鱼"
+  },
+  {
+    "id": "minecraft:gameplay/fishing/fish",
+    "name": "钓鱼-鱼",
+    "category": "gameplay",
+    "description": "战利品表：钓鱼-鱼"
+  },
+  {
+    "id": "minecraft:gameplay/fishing/treasure",
+    "name": "钓鱼-宝藏",
+    "category": "gameplay",
+    "description": "战利品表：钓鱼-宝藏"
+  },
+  {
+    "id": "minecraft:gameplay/fishing/junk",
+    "name": "钓鱼-垃圾",
+    "category": "gameplay",
+    "description": "战利品表：钓鱼-垃圾"
+  },
+  {
+    "id": "minecraft:gameplay/cat_morning_gift",
+    "name": "猫的晨礼",
+    "category": "gameplay",
+    "description": "战利品表：猫的晨礼"
+  },
+  {
+    "id": "minecraft:gameplay/sniffer_digging",
+    "name": "嗅探兽挖掘",
+    "category": "gameplay",
+    "description": "战利品表：嗅探兽挖掘"
+  },
+  {
+    "id": "minecraft:gameplay/hero_of_the_village/farmer_gift",
+    "name": "村庄英雄-农民赠礼",
+    "category": "gameplay",
+    "description": "战利品表：村庄英雄-农民赠礼"
+  }
+]

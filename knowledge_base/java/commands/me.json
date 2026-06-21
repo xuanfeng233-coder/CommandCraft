@@ -1,0 +1,26 @@
+{
+  "name": "me",
+  "syntax": "/me <action>",
+  "description": "发送一条关于自己的动作消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "action",
+      "type": "string",
+      "required": true,
+      "description": "动作描述文本"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/me 正在建造城堡",
+      "description": "显示 '* 玩家名 正在建造城堡'"
+    },
+    {
+      "input": "/me 赢得了比赛！",
+      "description": "显示 '* 玩家名 赢得了比赛！'"
+    }
+  ],
+  "java_specific_notes": "me命令以 '* 玩家名 动作' 的格式显示消息，常用于角色扮演服务器。",
+  "version_added": "1.0"
+}

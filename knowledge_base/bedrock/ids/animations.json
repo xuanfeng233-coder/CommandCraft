@@ -1,0 +1,727 @@
+[
+  {
+    "id": "animation.actor",
+    "name": "Actor",
+    "description": "角色 动画"
+  },
+  {
+    "id": "animation.agent",
+    "name": "Agent",
+    "description": "代理机器人 动画"
+  },
+  {
+    "id": "animation.allay",
+    "name": "Allay",
+    "description": "悦灵 动画"
+  },
+  {
+    "id": "animation.armadillo",
+    "name": "Armadillo",
+    "description": "犰狳 动画",
+    "since": "1.20.80"
+  },
+  {
+    "id": "animation.armor",
+    "name": "Armor",
+    "description": "盔甲 动画"
+  },
+  {
+    "id": "animation.armor_stand",
+    "name": "Armor Stand",
+    "description": "盔甲架 动画"
+  },
+  {
+    "id": "animation.arrow",
+    "name": "Arrow",
+    "description": "箭 动画"
+  },
+  {
+    "id": "animation.axolotl",
+    "name": "Axolotl",
+    "description": "美西螈 动画"
+  },
+  {
+    "id": "animation.bat",
+    "name": "Bat",
+    "description": "蝙蝠 动画"
+  },
+  {
+    "id": "animation.bee",
+    "name": "Bee",
+    "description": "蜜蜂 动画"
+  },
+  {
+    "id": "animation.blaze",
+    "name": "Blaze",
+    "description": "烈焰人 动画"
+  },
+  {
+    "id": "animation.bow",
+    "name": "Bow",
+    "description": "弓 动画"
+  },
+  {
+    "id": "animation.breeze",
+    "name": "Breeze",
+    "description": "旋风人 动画",
+    "since": "1.21.0"
+  },
+  {
+    "id": "animation.camel",
+    "name": "Camel",
+    "description": "骆驼 动画"
+  },
+  {
+    "id": "animation.cat",
+    "name": "Cat",
+    "description": "猫 动画"
+  },
+  {
+    "id": "animation.chicken",
+    "name": "Chicken",
+    "description": "鸡 动画"
+  },
+  {
+    "id": "animation.cod",
+    "name": "Cod",
+    "description": "鳕鱼 动画"
+  },
+  {
+    "id": "animation.copper_golem",
+    "name": "Copper Golem",
+    "description": "铜傀儡 动画",
+    "since": "1.21.90"
+  },
+  {
+    "id": "animation.cow",
+    "name": "Cow",
+    "description": "牛 动画"
+  },
+  {
+    "id": "animation.creaking",
+    "name": "Creaking",
+    "description": "嘎枝怪 动画",
+    "since": "1.21.40"
+  },
+  {
+    "id": "animation.creeper",
+    "name": "Creeper",
+    "description": "苦力怕 动画"
+  },
+  {
+    "id": "animation.crossbow",
+    "name": "Crossbow",
+    "description": "弩 动画"
+  },
+  {
+    "id": "animation.dolphin",
+    "name": "Dolphin",
+    "description": "海豚 动画"
+  },
+  {
+    "id": "animation.dressing_room_idle_arm_1.anim",
+    "name": "Dressing Room Idle Arm 1 Anim",
+    "description": "试衣间 — 待机(手臂)1"
+  },
+  {
+    "id": "animation.dressing_room_idle_back_1.anim",
+    "name": "Dressing Room Idle Back 1 Anim",
+    "description": "试衣间 — 待机(背部)1"
+  },
+  {
+    "id": "animation.dressing_room_idle_bottom_1.anim",
+    "name": "Dressing Room Idle Bottom 1 Anim",
+    "description": "试衣间 — 待机(下身)1"
+  },
+  {
+    "id": "animation.dressing_room_idle_torso_1.anim",
+    "name": "Dressing Room Idle Torso 1 Anim",
+    "description": "试衣间 — 待机(躯干)1"
+  },
+  {
+    "id": "animation.dressing_room_react_arm_1.anim",
+    "name": "Dressing Room React Arm 1 Anim",
+    "description": "试衣间 — 反应(手臂)1"
+  },
+  {
+    "id": "animation.dressing_room_react_arm_2.anim",
+    "name": "Dressing Room React Arm 2 Anim",
+    "description": "试衣间 — 反应(手臂)2"
+  },
+  {
+    "id": "animation.dressing_room_react_back_1.anim",
+    "name": "Dressing Room React Back 1 Anim",
+    "description": "试衣间 — 反应(背部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_back_2.anim",
+    "name": "Dressing Room React Back 2 Anim",
+    "description": "试衣间 — 反应(背部)2"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_1.anim",
+    "name": "Dressing Room React Bored 1 Anim",
+    "description": "试衣间 — 反应1"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_arm_1.anim",
+    "name": "Dressing Room React Bored Arm 1 Anim",
+    "description": "试衣间 — 反应(手臂)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_back_1.anim",
+    "name": "Dressing Room React Bored Back 1 Anim",
+    "description": "试衣间 — 反应(背部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_bottom_1.anim",
+    "name": "Dressing Room React Bored Bottom 1 Anim",
+    "description": "试衣间 — 反应(下身)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_head_1.anim",
+    "name": "Dressing Room React Bored Head 1 Anim",
+    "description": "试衣间 — 反应(头部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bored_torso_1.anim",
+    "name": "Dressing Room React Bored Torso 1 Anim",
+    "description": "试衣间 — 反应(躯干)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bottom_1.anim",
+    "name": "Dressing Room React Bottom 1 Anim",
+    "description": "试衣间 — 反应(下身)1"
+  },
+  {
+    "id": "animation.dressing_room_react_bottom_2.anim",
+    "name": "Dressing Room React Bottom 2 Anim",
+    "description": "试衣间 — 反应(下身)2"
+  },
+  {
+    "id": "animation.dressing_room_react_bottom_3.anim",
+    "name": "Dressing Room React Bottom 3 Anim",
+    "description": "试衣间 — 反应(下身)3"
+  },
+  {
+    "id": "animation.dressing_room_react_confirm_1.anim",
+    "name": "Dressing Room React Confirm 1 Anim",
+    "description": "试衣间 — 反应1"
+  },
+  {
+    "id": "animation.dressing_room_react_confirm_2.anim",
+    "name": "Dressing Room React Confirm 2 Anim",
+    "description": "试衣间 — 反应2"
+  },
+  {
+    "id": "animation.dressing_room_react_head_1.anim",
+    "name": "Dressing Room React Head 1 Anim",
+    "description": "试衣间 — 反应(头部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_head_2.anim",
+    "name": "Dressing Room React Head 2 Anim",
+    "description": "试衣间 — 反应(头部)2"
+  },
+  {
+    "id": "animation.dressing_room_react_idle.anim",
+    "name": "Dressing Room React Idle Anim",
+    "description": "试衣间 — 反应"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_1",
+    "name": "Dressing Room React Offer 1",
+    "description": "试衣间 — 反应1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_2",
+    "name": "Dressing Room React Offer 2",
+    "description": "试衣间 — 反应2"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_arm_1",
+    "name": "Dressing Room React Offer Arm 1",
+    "description": "试衣间 — 反应(手臂)1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_arm_2",
+    "name": "Dressing Room React Offer Arm 2",
+    "description": "试衣间 — 反应(手臂)2"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_back_1",
+    "name": "Dressing Room React Offer Back 1",
+    "description": "试衣间 — 反应(背部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_back_2",
+    "name": "Dressing Room React Offer Back 2",
+    "description": "试衣间 — 反应(背部)2"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_bottom_1",
+    "name": "Dressing Room React Offer Bottom 1",
+    "description": "试衣间 — 反应(下身)1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_bottom_2",
+    "name": "Dressing Room React Offer Bottom 2",
+    "description": "试衣间 — 反应(下身)2"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_head_1",
+    "name": "Dressing Room React Offer Head 1",
+    "description": "试衣间 — 反应(头部)1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_head_2",
+    "name": "Dressing Room React Offer Head 2",
+    "description": "试衣间 — 反应(头部)2"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_torso_1",
+    "name": "Dressing Room React Offer Torso 1",
+    "description": "试衣间 — 反应(躯干)1"
+  },
+  {
+    "id": "animation.dressing_room_react_offer_torso_2",
+    "name": "Dressing Room React Offer Torso 2",
+    "description": "试衣间 — 反应(躯干)2"
+  },
+  {
+    "id": "animation.dressing_room_react_torso_1.anim",
+    "name": "Dressing Room React Torso 1 Anim",
+    "description": "试衣间 — 反应(躯干)1"
+  },
+  {
+    "id": "animation.dressing_room_react_torso_2.anim",
+    "name": "Dressing Room React Torso 2 Anim",
+    "description": "试衣间 — 反应(躯干)2"
+  },
+  {
+    "id": "animation.drowned",
+    "name": "Drowned",
+    "description": "溺尸 动画"
+  },
+  {
+    "id": "animation.drowned.animation.v1.0",
+    "name": "Drowned Animation V1 0",
+    "description": "溺尸 动画"
+  },
+  {
+    "id": "animation.elytra",
+    "name": "Elytra",
+    "description": "鞘翅 动画"
+  },
+  {
+    "id": "animation.ender_crystal",
+    "name": "Ender Crystal",
+    "description": "末影水晶 动画"
+  },
+  {
+    "id": "animation.ender_dragon",
+    "name": "Ender Dragon",
+    "description": "末影龙 动画"
+  },
+  {
+    "id": "animation.enderman",
+    "name": "Enderman",
+    "description": "末影人 动画"
+  },
+  {
+    "id": "animation.enderman.animation.v1.0",
+    "name": "Enderman Animation V1 0",
+    "description": "末影人 动画"
+  },
+  {
+    "id": "animation.endermite",
+    "name": "Endermite",
+    "description": "末影螨 动画"
+  },
+  {
+    "id": "animation.evocation_fang",
+    "name": "Evocation Fang",
+    "description": "唤魔者尖牙 动画"
+  },
+  {
+    "id": "animation.evoker",
+    "name": "Evoker",
+    "description": "唤魔者 动画"
+  },
+  {
+    "id": "animation.fireworks_rocket",
+    "name": "Fireworks Rocket",
+    "description": "烟花火箭 动画"
+  },
+  {
+    "id": "animation.fox",
+    "name": "Fox",
+    "description": "狐狸 动画"
+  },
+  {
+    "id": "animation.frog",
+    "name": "Frog",
+    "description": "青蛙 动画"
+  },
+  {
+    "id": "animation.ghast",
+    "name": "Ghast",
+    "description": "恶魂 动画"
+  },
+  {
+    "id": "animation.goat",
+    "name": "Goat",
+    "description": "山羊 动画"
+  },
+  {
+    "id": "animation.guardian",
+    "name": "Guardian",
+    "description": "守卫者 动画"
+  },
+  {
+    "id": "animation.guardian.animation.v1.0",
+    "name": "Guardian Animation V1 0",
+    "description": "守卫者 动画"
+  },
+  {
+    "id": "animation.happy_ghast",
+    "name": "Happy Ghast",
+    "description": "善念恶魂 动画",
+    "since": "1.21.80"
+  },
+  {
+    "id": "animation.hoglin",
+    "name": "Hoglin",
+    "description": "疣猪兽 动画"
+  },
+  {
+    "id": "animation.horse_v1",
+    "name": "Horse V1",
+    "description": "马v1 动画"
+  },
+  {
+    "id": "animation.horse_v2",
+    "name": "Horse V2",
+    "description": "马v2 动画"
+  },
+  {
+    "id": "animation.horse_v3",
+    "name": "Horse V3",
+    "description": "马v3 动画"
+  },
+  {
+    "id": "animation.humanoid",
+    "name": "Humanoid",
+    "description": "人形 动画"
+  },
+  {
+    "id": "animation.iron_golem",
+    "name": "Iron Golem",
+    "description": "铁傀儡 动画"
+  },
+  {
+    "id": "animation.llama",
+    "name": "Llama",
+    "description": "羊驼 动画"
+  },
+  {
+    "id": "animation.llama_spit",
+    "name": "Llama Spit",
+    "description": "羊驼口水 动画"
+  },
+  {
+    "id": "animation.look_at_target",
+    "name": "Look At Target",
+    "description": "注视目标 动画"
+  },
+  {
+    "id": "animation.magma_cube",
+    "name": "Magma Cube",
+    "description": "岩浆怪 动画"
+  },
+  {
+    "id": "animation.minecart",
+    "name": "Minecart",
+    "description": "矿车 动画"
+  },
+  {
+    "id": "animation.minecart.animation.v1.0",
+    "name": "Minecart Animation V1 0",
+    "description": "矿车 动画"
+  },
+  {
+    "id": "animation.mooshroom",
+    "name": "Mooshroom",
+    "description": "哞菇 动画"
+  },
+  {
+    "id": "animation.nautilus",
+    "name": "Nautilus",
+    "description": "鹦鹉螺 动画",
+    "since": "1.21.90"
+  },
+  {
+    "id": "animation.npc",
+    "name": "Npc",
+    "description": "NPC 动画"
+  },
+  {
+    "id": "animation.ocelot",
+    "name": "Ocelot",
+    "description": "豹猫 动画"
+  },
+  {
+    "id": "animation.ocelot.animations.v1.0",
+    "name": "Ocelot Animations V1 0",
+    "description": "豹猫 动画"
+  },
+  {
+    "id": "animation.panda",
+    "name": "Panda",
+    "description": "熊猫 动画"
+  },
+  {
+    "id": "animation.parrot",
+    "name": "Parrot",
+    "description": "鹦鹉 动画"
+  },
+  {
+    "id": "animation.phantom",
+    "name": "Phantom",
+    "description": "幻翼 动画"
+  },
+  {
+    "id": "animation.pig",
+    "name": "Pig",
+    "description": "猪 动画"
+  },
+  {
+    "id": "animation.piglin",
+    "name": "Piglin",
+    "description": "猪灵 动画"
+  },
+  {
+    "id": "animation.pillager",
+    "name": "Pillager",
+    "description": "掠夺者 动画"
+  },
+  {
+    "id": "animation.player",
+    "name": "Player",
+    "description": "玩家 动画"
+  },
+  {
+    "id": "animation.player_firstperson",
+    "name": "Player Firstperson",
+    "description": "玩家第一人称 动画"
+  },
+  {
+    "id": "animation.polar_bear",
+    "name": "Polar Bear",
+    "description": "北极熊 动画"
+  },
+  {
+    "id": "animation.pufferfish",
+    "name": "Pufferfish",
+    "description": "河豚 动画"
+  },
+  {
+    "id": "animation.quadruped",
+    "name": "Quadruped",
+    "description": "四足动物 动画"
+  },
+  {
+    "id": "animation.rabbit",
+    "name": "Rabbit",
+    "description": "兔子 动画"
+  },
+  {
+    "id": "animation.rabbit.v2",
+    "name": "Rabbit V2",
+    "description": "兔子 动画"
+  },
+  {
+    "id": "animation.ravager",
+    "name": "Ravager",
+    "description": "劫掠兽 动画"
+  },
+  {
+    "id": "animation.salmon",
+    "name": "Salmon",
+    "description": "鲑鱼 动画"
+  },
+  {
+    "id": "animation.sheep",
+    "name": "Sheep",
+    "description": "羊 动画"
+  },
+  {
+    "id": "animation.shield",
+    "name": "Shield",
+    "description": "盾牌 动画"
+  },
+  {
+    "id": "animation.shulker",
+    "name": "Shulker",
+    "description": "潜影贝 动画"
+  },
+  {
+    "id": "animation.shulker.animations.v1.0",
+    "name": "Shulker Animations V1 0",
+    "description": "潜影贝 动画"
+  },
+  {
+    "id": "animation.shulker_bullet",
+    "name": "Shulker Bullet",
+    "description": "潜影弹 动画"
+  },
+  {
+    "id": "animation.silverfish",
+    "name": "Silverfish",
+    "description": "蠹虫 动画"
+  },
+  {
+    "id": "animation.skeleton",
+    "name": "Skeleton",
+    "description": "骷髅 动画"
+  },
+  {
+    "id": "animation.skeleton.animations.v1.0",
+    "name": "Skeleton Animations V1 0",
+    "description": "骷髅 动画"
+  },
+  {
+    "id": "animation.sniffer",
+    "name": "Sniffer",
+    "description": "嗅探兽 动画"
+  },
+  {
+    "id": "animation.snow_golem",
+    "name": "Snow Golem",
+    "description": "雪傀儡 动画"
+  },
+  {
+    "id": "animation.snow_golem.animations.v1.0",
+    "name": "Snow Golem Animations V1 0",
+    "description": "雪傀儡 动画"
+  },
+  {
+    "id": "animation.spear",
+    "name": "Spear",
+    "description": "长矛 动画"
+  },
+  {
+    "id": "animation.spider",
+    "name": "Spider",
+    "description": "蜘蛛 动画"
+  },
+  {
+    "id": "animation.spyglass",
+    "name": "Spyglass",
+    "description": "望远镜 动画"
+  },
+  {
+    "id": "animation.squid",
+    "name": "Squid",
+    "description": "鱿鱼 动画"
+  },
+  {
+    "id": "animation.strider",
+    "name": "Strider",
+    "description": "炽足兽 动画"
+  },
+  {
+    "id": "animation.tadpole",
+    "name": "Tadpole",
+    "description": "蝌蚪 动画"
+  },
+  {
+    "id": "animation.trident",
+    "name": "Trident",
+    "description": "三叉戟 动画"
+  },
+  {
+    "id": "animation.tripod_camera",
+    "name": "Tripod Camera",
+    "description": "三脚架摄像机 动画"
+  },
+  {
+    "id": "animation.tropicalfish",
+    "name": "Tropicalfish",
+    "description": "热带鱼 动画"
+  },
+  {
+    "id": "animation.turtle",
+    "name": "Turtle",
+    "description": "海龟 动画"
+  },
+  {
+    "id": "animation.turtle.animations",
+    "name": "Turtle Animations",
+    "description": "海龟 动画"
+  },
+  {
+    "id": "animation.vex",
+    "name": "Vex",
+    "description": "恼鬼 动画"
+  },
+  {
+    "id": "animation.villager",
+    "name": "Villager",
+    "description": "村民 动画"
+  },
+  {
+    "id": "animation.vindicator",
+    "name": "Vindicator",
+    "description": "卫道士 动画"
+  },
+  {
+    "id": "animation.warden",
+    "name": "Warden",
+    "description": "监守者 动画"
+  },
+  {
+    "id": "animation.wind_charge",
+    "name": "Wind Charge",
+    "description": "风弹 动画",
+    "since": "1.21.0"
+  },
+  {
+    "id": "animation.witch",
+    "name": "Witch",
+    "description": "女巫 动画"
+  },
+  {
+    "id": "animation.wither_boss",
+    "name": "Wither Boss",
+    "description": "凋灵Boss 动画"
+  },
+  {
+    "id": "animation.wither_skeleton",
+    "name": "Wither Skeleton",
+    "description": "凋灵骷髅 动画"
+  },
+  {
+    "id": "animation.wither_skull",
+    "name": "Wither Skull",
+    "description": "凋灵之首 动画"
+  },
+  {
+    "id": "animation.wolf",
+    "name": "Wolf",
+    "description": "狼 动画",
+    "aliases": [
+      "animation.wolf.animations"
+    ]
+  },
+  {
+    "id": "animation.wolf.animations",
+    "name": "Wolf Animations",
+    "description": "狼 动画"
+  },
+  {
+    "id": "animation.zombie",
+    "name": "Zombie",
+    "description": "僵尸 动画"
+  }
+]

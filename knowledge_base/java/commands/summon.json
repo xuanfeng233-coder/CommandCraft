@@ -1,0 +1,59 @@
+{
+  "name": "summon",
+  "syntax": "/summon <entity> [<pos>] [<nbt>]",
+  "description": "在指定位置生成实体，可附带NBT数据",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "entity",
+      "type": "entity_id",
+      "required": true,
+      "description": "要生成的实体类型ID，使用命名空间格式（如 minecraft:zombie）。可省略minecraft:前缀"
+    },
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "生成位置坐标，支持相对坐标~和局部坐标^",
+      "default": "执行者位置"
+    },
+    {
+      "name": "nbt",
+      "type": "compound_tag",
+      "required": false,
+      "description": "实体的NBT数据，用于自定义实体属性（如自定义名称、装备、效果等）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/summon minecraft:zombie ~ ~ ~",
+      "description": "在自己的位置生成一只僵尸"
+    },
+    {
+      "input": "/summon minecraft:armor_stand ~ ~1 ~ {Invisible:1b,NoGravity:1b,CustomName:'{\"text\":\"标记点\"}',CustomNameVisible:1b}",
+      "description": "在上方1格生成一个隐形、无重力、显示名称的盔甲架"
+    },
+    {
+      "input": "/summon minecraft:creeper ~ ~ ~ {powered:1b}",
+      "description": "生成一只闪电苦力怕（高压苦力怕）"
+    },
+    {
+      "input": "/summon minecraft:zombie ~ ~ ~ {CustomName:'{\"text\":\"Boss僵尸\",\"color\":\"red\"}',Health:100f,ArmorItems:[{},{},{},{id:\"minecraft:diamond_helmet\",count:1}],HandItems:[{id:\"minecraft:diamond_sword\",count:1},{}]}",
+      "description": "生成一只自定义Boss僵尸：100血、红色名字、头戴钻石头盔、手持钻石剑"
+    },
+    {
+      "input": "/summon minecraft:villager ~ ~ ~ {VillagerData:{profession:\"minecraft:weaponsmith\",level:5,type:\"minecraft:plains\"}}",
+      "description": "生成一个满级的平原武器匠村民"
+    },
+    {
+      "input": "/summon minecraft:tnt ~ ~ ~ {fuse:80}",
+      "description": "生成一个引信时间为80刻（4秒）的TNT"
+    },
+    {
+      "input": "/summon minecraft:item ~ ~ ~ {Item:{id:\"minecraft:diamond\",count:64}}",
+      "description": "在当前位置生成64个钻石掉落物"
+    }
+  ],
+  "java_specific_notes": "Java版summon命令支持NBT数据参数，可以在生成时完全自定义实体属性。不同于基岩版使用spawnEvent参数，Java版通过NBT直接控制实体的所有属性。村民ID为minecraft:villager（不是villager_v2）。NBT使用花括号{}格式。常用NBT标签包括：CustomName（JSON文本）、NoAI、Invisible、Invulnerable、NoGravity、Silent、Glowing、Tags（标签列表）、Passengers（骑乘者）、Health、ArmorItems、HandItems等。",
+  "version_added": "1.0"
+}

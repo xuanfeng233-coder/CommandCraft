@@ -1,0 +1,36 @@
+{
+  "id": "minecraft:written_book",
+  "inherits": "_common",
+  "description": "成书物品NBT标签",
+  "tags": [
+    {
+      "name": "title",
+      "type": "string",
+      "description": "书的标题（最多32字符）"
+    },
+    {
+      "name": "author",
+      "type": "string",
+      "description": "书的作者名"
+    },
+    {
+      "name": "generation",
+      "type": "int",
+      "description": "书的世代：0=原版, 1=副本, 2=副本的副本, 3=破损",
+      "values": [0, 1, 2, 3],
+      "default": 0
+    },
+    {
+      "name": "pages",
+      "type": "list<string>",
+      "description": "书页内容列表（每页为JSON文本组件格式）"
+    },
+    {
+      "name": "resolved",
+      "type": "byte",
+      "description": "书的JSON文本是否已解析（选择器等是否已替换为实际值）",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

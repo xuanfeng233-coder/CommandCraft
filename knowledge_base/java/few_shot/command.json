@@ -1,0 +1,333 @@
+[
+  {
+    "input": "给我一把钻石剑",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:diamond_sword",
+        "explanation": "@s = 命令执行者自身\nminecraft:diamond_sword = 钻石剑的物品ID（Java版需要 minecraft: 命名空间前缀）",
+        "variants": ["/give @s diamond_sword"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "给我一把锋利5的钻石剑",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:diamond_sword[minecraft:enchantments={levels:{\"minecraft:sharpness\":5}}]",
+        "explanation": "@s = 命令执行者\nminecraft:diamond_sword = 钻石剑\n[minecraft:enchantments=...] = 数据组件语法（1.20.5+），直接附带锋利V附魔",
+        "variants": ["/give @s minecraft:diamond_sword{Enchantments:[{id:\"minecraft:sharpness\",lvl:5s}]} 1"],
+        "warnings": ["数据组件语法适用于1.20.5+，variants中为1.20.4及更早版本的NBT语法"]
+      }
+    },
+    "commands_used": ["give"],
+    "note": "Java版/give支持NBT和数据组件，可以直接给附魔物品，无需分步操作"
+  },
+  {
+    "input": "给我10个金苹果",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:golden_apple 10",
+        "explanation": "@s = 命令执行者自身\nminecraft:golden_apple = 金苹果的物品ID\n10 = 数量",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "传送所有玩家到坐标0 64 0",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tp @a 0 64 0",
+        "explanation": "@a = 所有玩家\n0 64 0 = 目标坐标(x=0, y=64, z=0)",
+        "variants": ["/teleport @a 0 64 0"],
+        "warnings": ["传送前确保目标位置安全"]
+      }
+    },
+    "commands_used": ["tp"]
+  },
+  {
+    "input": "在我的位置生成一只苦力怕",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/summon minecraft:creeper ~ ~ ~",
+        "explanation": "minecraft:creeper = 苦力怕实体ID\n~ ~ ~ = 命令执行者当前位置",
+        "variants": ["/summon minecraft:creeper"],
+        "warnings": ["苦力怕可能会爆炸，注意安全"]
+      }
+    },
+    "commands_used": ["summon"]
+  },
+  {
+    "input": "生成一只不会爆炸的苦力怕",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/summon minecraft:creeper ~ ~ ~ {ExplosionRadius:0b}",
+        "explanation": "minecraft:creeper = 苦力怕\n{ExplosionRadius:0b} = NBT标签，将爆炸半径设为0",
+        "variants": ["/summon minecraft:creeper ~ ~ ~ {Fuse:32767s,ExplosionRadius:0b}"],
+        "warnings": ["ExplosionRadius:0b 使爆炸不造成破坏，但苦力怕仍会尝试爆炸"]
+      }
+    },
+    "commands_used": ["summon"],
+    "note": "Java版/summon支持NBT标签，可直接自定义实体属性"
+  },
+  {
+    "input": "生成一只穿钻石甲的僵尸",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/summon minecraft:zombie ~ ~ ~ {ArmorItems:[{id:\"minecraft:diamond_boots\",count:1},{id:\"minecraft:diamond_leggings\",count:1},{id:\"minecraft:diamond_chestplate\",count:1},{id:\"minecraft:diamond_helmet\",count:1}]}",
+        "explanation": "ArmorItems 数组按顺序为：脚→腿→胸→头\n每个槽位用 {id:...,count:1} 指定装备",
+        "variants": [],
+        "warnings": ["ArmorItems 顺序从脚到头：[boots, leggings, chestplate, helmet]"]
+      }
+    },
+    "commands_used": ["summon"],
+    "note": "Java版/summon可通过NBT直接给实体穿装备，无需额外命令"
+  },
+  {
+    "input": "给所有玩家速度II效果30秒",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/effect give @a minecraft:speed 30 1",
+        "explanation": "@a = 所有玩家\nminecraft:speed = 速度效果\n30 = 持续30秒\n1 = 等级II（从0开始计数，0=I，1=II）",
+        "variants": [],
+        "warnings": ["Java版语法为 /effect give，不是直接 /effect @a"]
+      }
+    },
+    "commands_used": ["effect"]
+  },
+  {
+    "input": "给我的钻石剑附魔锋利5",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/enchant @s minecraft:sharpness 5",
+        "explanation": "@s = 命令执行者\nminecraft:sharpness = 锋利附魔ID\n5 = 附魔等级",
+        "variants": [],
+        "warnings": ["需要手持钻石剑时执行此命令", "/enchant 受原版附魔等级限制，超过上限需用/give+NBT"]
+      }
+    },
+    "commands_used": ["enchant"]
+  },
+  {
+    "input": "在坐标10 64 10到20 70 20之间填充石头",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/fill 10 64 10 20 70 20 minecraft:stone",
+        "explanation": "10 64 10 = 起始坐标\n20 70 20 = 结束坐标\nminecraft:stone = 石头方块ID",
+        "variants": ["/fill 10 64 10 20 70 20 minecraft:stone replace"],
+        "warnings": ["fill 命令一次最多填充 32768 个方块"]
+      }
+    },
+    "commands_used": ["fill"]
+  },
+  {
+    "input": "在我脚下放一个红石块",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/setblock ~ ~-1 ~ minecraft:redstone_block",
+        "explanation": "~ ~-1 ~ = 执行者脚下一格\nminecraft:redstone_block = 红石块方块ID",
+        "variants": ["/setblock ~ ~-1 ~ minecraft:redstone_block replace"],
+        "warnings": []
+      }
+    },
+    "commands_used": ["setblock"]
+  },
+  {
+    "input": "创建一个叫kills的计分板统计玩家击杀数",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/scoreboard objectives add kills playerKillCount \"击杀数\"",
+        "explanation": "objectives add = 添加计分板目标\nkills = 目标名称\nplayerKillCount = 准则类型（自动追踪玩家击杀数）\n\"击杀数\" = 显示名称",
+        "variants": ["/scoreboard objectives add kills playerKillCount {\"text\":\"击杀数\",\"color\":\"red\"}"],
+        "warnings": ["Java版支持多种准则类型：playerKillCount自动追踪击杀，dummy需手动更新"]
+      }
+    },
+    "commands_used": ["scoreboard"],
+    "note": "Java版计分板支持丰富准则类型（playerKillCount, totalKillCount, deathCount, health等），不仅仅是dummy"
+  },
+  {
+    "input": "给所有玩家添加一个vip标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tag @a add vip",
+        "explanation": "@a = 所有玩家\nadd = 添加标签操作\nvip = 标签名称",
+        "variants": [],
+        "warnings": []
+      }
+    },
+    "commands_used": ["tag"]
+  },
+  {
+    "input": "把我的游戏模式改成创造",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/gamemode creative @s",
+        "explanation": "creative = 创造模式\n@s = 命令执行者",
+        "variants": ["/gamemode creative"],
+        "warnings": ["不指定目标时默认对执行者生效"]
+      }
+    },
+    "commands_used": ["gamemode"]
+  },
+  {
+    "input": "创建一个名为Lobby的队伍，颜色为绿色",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/team add Lobby \"大厅\"",
+        "explanation": "team add = 创建队伍\nLobby = 队伍内部名称\n\"大厅\" = 显示名称",
+        "variants": [],
+        "warnings": ["创建后需用 /team modify Lobby color green 设置颜色"]
+      }
+    },
+    "commands_used": ["team"],
+    "note": "Java版独有/team命令，可设置颜色、碰撞规则、友军伤害等"
+  },
+  {
+    "input": "创建一个Boss血条显示",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/bossbar add minecraft:my_bar \"Boss战\"",
+        "explanation": "bossbar add = 创建Boss血条\nminecraft:my_bar = 血条ID\n\"Boss战\" = 显示名称",
+        "variants": ["/bossbar set minecraft:my_bar players @a", "/bossbar set minecraft:my_bar color red", "/bossbar set minecraft:my_bar visible true"],
+        "warnings": ["创建后需用 /bossbar set 设置显示玩家、颜色、数值等"]
+      }
+    },
+    "commands_used": ["bossbar"],
+    "note": "Java版独有/bossbar命令，可创建自定义Boss血条UI"
+  },
+  {
+    "input": "设置世界边界半径为500格",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/worldborder set 1000",
+        "explanation": "worldborder set = 设置世界边界\n1000 = 直径（不是半径），半径500格对应直径1000",
+        "variants": ["/worldborder set 1000 60"],
+        "warnings": ["参数是直径不是半径！", "variants中的60表示60秒内逐渐变化到目标大小"]
+      }
+    },
+    "commands_used": ["worldborder"],
+    "note": "Java版独有/worldborder命令，可设置世界边界大小、中心、警告距离等"
+  },
+  {
+    "input": "给我一把不可破坏的钻石镐",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:diamond_pickaxe[minecraft:unbreakable={}]",
+        "explanation": "@s = 命令执行者\nminecraft:diamond_pickaxe = 钻石镐\n[minecraft:unbreakable={}] = 数据组件，使物品不可破坏（1.20.5+）",
+        "variants": ["/give @s minecraft:diamond_pickaxe{Unbreakable:1b} 1"],
+        "warnings": ["数据组件语法适用于1.20.5+，variants中为旧版NBT语法"]
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "给我一个自定义名称的物品",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:diamond_sword[minecraft:custom_name='\"\\u00a76\\u00a7l\\u795e\\u5723\\u4e4b\\u5251\"']",
+        "explanation": "@s = 命令执行者\nminecraft:custom_name = 自定义名称数据组件\n名称支持JSON文本格式，可包含颜色代码",
+        "variants": ["/give @s minecraft:diamond_sword{display:{Name:'{\"text\":\"神圣之剑\",\"color\":\"gold\",\"bold\":true}'}} 1"],
+        "warnings": ["custom_name的值是JSON文本组件字符串"]
+      }
+    },
+    "commands_used": ["give"]
+  },
+  {
+    "input": "清除所有玩家身上的泥土",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/clear @a minecraft:dirt",
+        "explanation": "@a = 所有玩家\nminecraft:dirt = 泥土物品ID",
+        "variants": ["/clear @a minecraft:dirt 64"],
+        "warnings": ["可选参数指定最大清除数量"]
+      }
+    },
+    "commands_used": ["clear"]
+  },
+  {
+    "input": "给玩家一个附魔弓",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:bow[minecraft:enchantments={levels:{\"minecraft:power\":5,\"minecraft:infinity\":1}}]",
+        "explanation": "@s = 命令执行者\n力量V + 无限I 的弓\n数据组件可同时附加多个附魔",
+        "variants": ["/give @s minecraft:bow{Enchantments:[{id:\"minecraft:power\",lvl:5s},{id:\"minecraft:infinity\",lvl:1s}]} 1"],
+        "warnings": ["Java版可直接通过/give给予附魔物品，无需分步操作"]
+      }
+    },
+    "commands_used": ["give"],
+    "note": "Java版/give支持NBT/数据组件，可以一条命令完成附魔物品的给予"
+  },
+  {
+    "input": "清除附近的东西",
+    "output": {
+      "type": "conversation",
+      "questions": [
+        {
+          "param": "clear_target",
+          "question": "你想清除的是什么？",
+          "options": [
+            {"value": "dropped_items", "label": "地上的掉落物（用 /kill @e[type=minecraft:item]）"},
+            {"value": "inventory", "label": "自己背包里的物品（用 /clear）"},
+            {"value": "entities", "label": "附近的怪物/生物（用 /kill @e[type=...]）"},
+            {"value": "blocks", "label": "一片区域的方块（用 /fill ... air）"}
+          ],
+          "default": null
+        }
+      ],
+      "current_progress": "需要明确清除目标类型"
+    },
+    "commands_used": ["kill", "clear", "fill"]
+  },
+  {
+    "input": "找最近的玩家并给他一个苹果",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @p minecraft:apple",
+        "explanation": "@p = 最近的玩家\nminecraft:apple = 苹果物品ID",
+        "variants": ["/give @p[distance=..10] minecraft:apple"],
+        "warnings": ["@p 默认选择最近的一个玩家", "variants中 distance=..10 限制10格范围内"]
+      }
+    },
+    "commands_used": ["give"],
+    "selector_features": ["@p", "distance"]
+  },
+  {
+    "input": "杀死10格内的所有僵尸",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/kill @e[type=minecraft:zombie,distance=..10]",
+        "explanation": "type=minecraft:zombie = 筛选僵尸\ndistance=..10 = 10格范围内",
+        "variants": ["/kill @e[type=minecraft:zombie,distance=..10,limit=5,sort=nearest]"],
+        "warnings": ["Java版用 distance= 代替基岩版的 r=", "limit= 限制数量，sort= 指定排序方式"]
+      }
+    },
+    "commands_used": ["kill"],
+    "selector_features": ["@e", "type", "distance", "limit", "sort"],
+    "note": "Java版选择器使用 distance= 而非 r=，支持 limit= 和 sort= 参数"
+  }
+]

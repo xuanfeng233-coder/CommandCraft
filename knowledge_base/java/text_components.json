@@ -1,0 +1,274 @@
+{
+  "description": "Minecraft Java Edition JSON文本组件（Raw JSON Text）完整格式定义",
+  "version": "1.21.4",
+  "content_types": [
+    {
+      "type": "text",
+      "description": "纯文本内容",
+      "field": "text",
+      "value_type": "string",
+      "example": "{\"text\":\"Hello World\"}"
+    },
+    {
+      "type": "selector",
+      "description": "实体选择器，显示匹配实体的名称",
+      "field": "selector",
+      "value_type": "string",
+      "example": "{\"selector\":\"@a\"}",
+      "extra_fields": [
+        {
+          "name": "separator",
+          "type": "text_component",
+          "description": "多个匹配结果之间的分隔符"
+        }
+      ]
+    },
+    {
+      "type": "score",
+      "description": "显示计分板分数",
+      "field": "score",
+      "value_type": "compound",
+      "example": "{\"score\":{\"name\":\"@p\",\"objective\":\"deaths\"}}",
+      "children": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "实体选择器或玩家名"
+        },
+        {
+          "name": "objective",
+          "type": "string",
+          "description": "计分板目标名称"
+        }
+      ]
+    },
+    {
+      "type": "translate",
+      "description": "可翻译文本（使用语言文件中的键）",
+      "field": "translate",
+      "value_type": "string",
+      "example": "{\"translate\":\"chat.type.text\",\"with\":[{\"text\":\"Steve\"},{\"text\":\"Hello\"}]}",
+      "extra_fields": [
+        {
+          "name": "with",
+          "type": "list<text_component>",
+          "description": "翻译文本中 %s 或 %1$s 的替换参数"
+        },
+        {
+          "name": "fallback",
+          "type": "string",
+          "description": "翻译键不存在时的回退文本"
+        }
+      ]
+    },
+    {
+      "type": "keybind",
+      "description": "显示玩家按键绑定",
+      "field": "keybind",
+      "value_type": "string",
+      "example": "{\"keybind\":\"key.jump\"}",
+      "common_values": [
+        "key.jump", "key.sneak", "key.sprint", "key.left", "key.right",
+        "key.back", "key.forward", "key.attack", "key.use",
+        "key.drop", "key.inventory", "key.chat", "key.playerlist",
+        "key.pickItem", "key.swapOffhand"
+      ]
+    },
+    {
+      "type": "nbt",
+      "description": "显示实体、方块或存储的NBT数据",
+      "field": "nbt",
+      "value_type": "string",
+      "example": "{\"nbt\":\"Pos\",\"entity\":\"@s\"}",
+      "extra_fields": [
+        {
+          "name": "entity",
+          "type": "string",
+          "description": "实体选择器（与entity类型配合使用）"
+        },
+        {
+          "name": "block",
+          "type": "string",
+          "description": "方块坐标（与block类型配合使用，如 \"0 64 0\"）"
+        },
+        {
+          "name": "storage",
+          "type": "string",
+          "description": "存储ID（与storage类型配合使用，如 \"minecraft:my_data\"）"
+        },
+        {
+          "name": "interpret",
+          "type": "boolean",
+          "description": "是否将NBT字符串值解析为JSON文本组件",
+          "default": false
+        },
+        {
+          "name": "separator",
+          "type": "text_component",
+          "description": "多个结果之间的分隔符"
+        }
+      ]
+    }
+  ],
+  "formatting": {
+    "color": {
+      "type": "string",
+      "description": "文本颜色，可用命名颜色或十六进制颜色码",
+      "named_colors": [
+        {"name": "black", "hex": "#000000", "cn": "黑色"},
+        {"name": "dark_blue", "hex": "#0000AA", "cn": "深蓝色"},
+        {"name": "dark_green", "hex": "#00AA00", "cn": "深绿色"},
+        {"name": "dark_aqua", "hex": "#00AAAA", "cn": "深青色"},
+        {"name": "dark_red", "hex": "#AA0000", "cn": "深红色"},
+        {"name": "dark_purple", "hex": "#AA00AA", "cn": "深紫色"},
+        {"name": "gold", "hex": "#FFAA00", "cn": "金色"},
+        {"name": "gray", "hex": "#AAAAAA", "cn": "灰色"},
+        {"name": "dark_gray", "hex": "#555555", "cn": "深灰色"},
+        {"name": "blue", "hex": "#5555FF", "cn": "蓝色"},
+        {"name": "green", "hex": "#55FF55", "cn": "绿色"},
+        {"name": "aqua", "hex": "#55FFFF", "cn": "青色"},
+        {"name": "red", "hex": "#FF5555", "cn": "红色"},
+        {"name": "light_purple", "hex": "#FF55FF", "cn": "粉紫色"},
+        {"name": "yellow", "hex": "#FFFF55", "cn": "黄色"},
+        {"name": "white", "hex": "#FFFFFF", "cn": "白色"}
+      ],
+      "hex_format": "#RRGGBB",
+      "hex_example": "\"color\":\"#FF6600\""
+    },
+    "bold": {
+      "type": "boolean",
+      "description": "粗体"
+    },
+    "italic": {
+      "type": "boolean",
+      "description": "斜体"
+    },
+    "underlined": {
+      "type": "boolean",
+      "description": "下划线"
+    },
+    "strikethrough": {
+      "type": "boolean",
+      "description": "删除线"
+    },
+    "obfuscated": {
+      "type": "boolean",
+      "description": "随机变化字符（乱码效果）"
+    },
+    "font": {
+      "type": "string",
+      "description": "字体资源标识符",
+      "default": "minecraft:default",
+      "values": ["minecraft:default", "minecraft:uniform", "minecraft:alt", "minecraft:illageralt"]
+    },
+    "insertion": {
+      "type": "string",
+      "description": "Shift+点击时插入到聊天框的文本"
+    }
+  },
+  "events": {
+    "clickEvent": {
+      "type": "compound",
+      "description": "点击事件",
+      "children": [
+        {
+          "name": "action",
+          "type": "string",
+          "description": "点击动作类型",
+          "values": [
+            {
+              "value": "open_url",
+              "description": "打开URL链接",
+              "value_desc": "完整URL（需要 http:// 或 https:// 前缀）"
+            },
+            {
+              "value": "run_command",
+              "description": "执行命令（以 / 开头）",
+              "value_desc": "要执行的命令"
+            },
+            {
+              "value": "suggest_command",
+              "description": "将文本填入聊天框",
+              "value_desc": "填入的文本"
+            },
+            {
+              "value": "change_page",
+              "description": "翻到指定页（仅书本中有效）",
+              "value_desc": "页码（从1开始）"
+            },
+            {
+              "value": "copy_to_clipboard",
+              "description": "将文本复制到剪贴板",
+              "value_desc": "复制的文本"
+            }
+          ]
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "动作的参数值"
+        }
+      ],
+      "example": "{\"text\":\"点击传送\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @s 0 64 0\"}}"
+    },
+    "hoverEvent": {
+      "type": "compound",
+      "description": "悬浮事件",
+      "children": [
+        {
+          "name": "action",
+          "type": "string",
+          "description": "悬浮动作类型",
+          "values": ["show_text", "show_item", "show_entity"]
+        },
+        {
+          "name": "contents",
+          "type": "varies",
+          "description": "悬浮内容（根据action类型不同而不同）",
+          "variants": [
+            {
+              "action": "show_text",
+              "type": "text_component",
+              "description": "显示的文本（JSON文本组件）",
+              "example": "{\"action\":\"show_text\",\"contents\":{\"text\":\"提示文本\",\"color\":\"yellow\"}}"
+            },
+            {
+              "action": "show_item",
+              "type": "compound",
+              "description": "显示物品信息",
+              "children": [
+                {"name": "id", "type": "string", "description": "物品ID"},
+                {"name": "count", "type": "int", "description": "数量"},
+                {"name": "tag", "type": "string", "description": "物品NBT的SNBT字符串"}
+              ],
+              "example": "{\"action\":\"show_item\",\"contents\":{\"id\":\"minecraft:diamond_sword\",\"count\":1,\"tag\":\"{Enchantments:[{id:\\\"minecraft:sharpness\\\",lvl:5}]}\"}}"
+            },
+            {
+              "action": "show_entity",
+              "type": "compound",
+              "description": "显示实体信息",
+              "children": [
+                {"name": "type", "type": "string", "description": "实体类型ID"},
+                {"name": "id", "type": "string", "description": "实体UUID（字符串格式）"},
+                {"name": "name", "type": "text_component", "description": "实体名称"}
+              ],
+              "example": "{\"action\":\"show_entity\",\"contents\":{\"type\":\"minecraft:pig\",\"id\":\"12345678-1234-1234-1234-123456789abc\",\"name\":{\"text\":\"小猪佩奇\"}}}"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "extra": {
+    "type": "list<text_component>",
+    "description": "子组件列表，继承父组件的格式设置",
+    "example": "{\"text\":\"前缀: \",\"color\":\"gold\",\"extra\":[{\"text\":\"内容\",\"color\":\"white\"}]}"
+  },
+  "shorthand": {
+    "description": "简写形式：纯字符串等价于 {\"text\":\"...\"}，数组等价于 [{\"text\":\"\"}, ...]",
+    "examples": [
+      "\"Hello\" => {\"text\":\"Hello\"}",
+      "[\"前缀\",{\"text\":\"内容\",\"color\":\"red\"}] => {\"text\":\"前缀\",\"extra\":[{\"text\":\"内容\",\"color\":\"red\"}]}"
+    ]
+  }
+}

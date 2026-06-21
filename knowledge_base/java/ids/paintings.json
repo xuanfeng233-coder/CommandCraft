@@ -1,0 +1,309 @@
+[
+  {
+    "id": "minecraft:kebab",
+    "name": "Kebab",
+    "size": "1x1",
+    "description": "烤串"
+  },
+  {
+    "id": "minecraft:aztec",
+    "name": "Aztec",
+    "size": "1x1",
+    "description": "阿兹特克"
+  },
+  {
+    "id": "minecraft:alban",
+    "name": "Alban",
+    "size": "1x1",
+    "description": "阿尔巴尼亚"
+  },
+  {
+    "id": "minecraft:aztec2",
+    "name": "Aztec2",
+    "size": "1x1",
+    "description": "阿兹特克2"
+  },
+  {
+    "id": "minecraft:bomb",
+    "name": "Bomb",
+    "size": "1x1",
+    "description": "炸弹"
+  },
+  {
+    "id": "minecraft:plant",
+    "name": "Plant",
+    "size": "1x1",
+    "description": "植物"
+  },
+  {
+    "id": "minecraft:wasteland",
+    "name": "Wasteland",
+    "size": "1x1",
+    "description": "荒原"
+  },
+  {
+    "id": "minecraft:meditative",
+    "name": "Meditative",
+    "size": "1x1",
+    "description": "冥想"
+  },
+  {
+    "id": "minecraft:wanderer",
+    "name": "Wanderer",
+    "size": "1x1",
+    "description": "流浪者"
+  },
+  {
+    "id": "minecraft:graham",
+    "name": "Graham",
+    "size": "1x1",
+    "description": "格雷厄姆"
+  },
+  {
+    "id": "minecraft:prairie_ride",
+    "name": "Prairie Ride",
+    "size": "1x1",
+    "description": "草原骑行"
+  },
+  {
+    "id": "minecraft:pool",
+    "name": "Pool",
+    "size": "2x1",
+    "description": "泳池"
+  },
+  {
+    "id": "minecraft:courbet",
+    "name": "Courbet",
+    "size": "2x1",
+    "description": "库尔贝"
+  },
+  {
+    "id": "minecraft:sea",
+    "name": "Sea",
+    "size": "2x1",
+    "description": "海"
+  },
+  {
+    "id": "minecraft:sunset",
+    "name": "Sunset",
+    "size": "2x1",
+    "description": "日落"
+  },
+  {
+    "id": "minecraft:creebet",
+    "name": "Creebet",
+    "size": "2x1",
+    "description": "苦力怕贝"
+  },
+  {
+    "id": "minecraft:match",
+    "name": "Match",
+    "size": "2x2",
+    "description": "火柴"
+  },
+  {
+    "id": "minecraft:bust",
+    "name": "Bust",
+    "size": "2x2",
+    "description": "半身像"
+  },
+  {
+    "id": "minecraft:stage",
+    "name": "Stage",
+    "size": "2x2",
+    "description": "舞台"
+  },
+  {
+    "id": "minecraft:void",
+    "name": "Void",
+    "size": "2x2",
+    "description": "虚空"
+  },
+  {
+    "id": "minecraft:skull_and_roses",
+    "name": "Skull and Roses",
+    "size": "2x2",
+    "description": "骷髅与玫瑰"
+  },
+  {
+    "id": "minecraft:wither",
+    "name": "Wither",
+    "size": "2x2",
+    "description": "凋灵"
+  },
+  {
+    "id": "minecraft:baroque",
+    "name": "Baroque",
+    "size": "2x2",
+    "description": "巴洛克"
+  },
+  {
+    "id": "minecraft:humble",
+    "name": "Humble",
+    "size": "2x2",
+    "description": "谦逊"
+  },
+  {
+    "id": "minecraft:bouquet",
+    "name": "Bouquet",
+    "size": "3x3",
+    "description": "花束"
+  },
+  {
+    "id": "minecraft:cavebird",
+    "name": "Cavebird",
+    "size": "3x3",
+    "description": "洞穴鸟"
+  },
+  {
+    "id": "minecraft:cotan",
+    "name": "Cotan",
+    "size": "3x3",
+    "description": "科坦"
+  },
+  {
+    "id": "minecraft:endboss",
+    "name": "Endboss",
+    "size": "3x3",
+    "description": "末影Boss"
+  },
+  {
+    "id": "minecraft:fern",
+    "name": "Fern",
+    "size": "3x3",
+    "description": "蕨"
+  },
+  {
+    "id": "minecraft:owlemons",
+    "name": "Owlemons",
+    "size": "3x3",
+    "description": "猫头鹰柠檬"
+  },
+  {
+    "id": "minecraft:sunflowers",
+    "name": "Sunflowers",
+    "size": "3x3",
+    "description": "向日葵"
+  },
+  {
+    "id": "minecraft:tides",
+    "name": "Tides",
+    "size": "3x3",
+    "description": "潮汐"
+  },
+  {
+    "id": "minecraft:fighters",
+    "name": "Fighters",
+    "size": "4x2",
+    "description": "战士"
+  },
+  {
+    "id": "minecraft:skeleton",
+    "name": "Skeleton",
+    "size": "4x3",
+    "description": "骷髅"
+  },
+  {
+    "id": "minecraft:donkey_kong",
+    "name": "Donkey Kong",
+    "size": "4x3",
+    "description": "大金刚"
+  },
+  {
+    "id": "minecraft:backyard",
+    "name": "Backyard",
+    "size": "3x4",
+    "description": "后院"
+  },
+  {
+    "id": "minecraft:pond",
+    "name": "Pond",
+    "size": "3x4",
+    "description": "池塘"
+  },
+  {
+    "id": "minecraft:pointer",
+    "name": "Pointer",
+    "size": "4x4",
+    "description": "指针"
+  },
+  {
+    "id": "minecraft:pigscene",
+    "name": "Pigscene",
+    "size": "4x4",
+    "description": "猪场景"
+  },
+  {
+    "id": "minecraft:burning_skull",
+    "name": "Burning Skull",
+    "size": "4x4",
+    "description": "燃烧的头颅"
+  },
+  {
+    "id": "minecraft:unpacked",
+    "name": "Unpacked",
+    "size": "4x4",
+    "description": "拆包"
+  },
+  {
+    "id": "minecraft:orb",
+    "name": "Orb",
+    "size": "4x4",
+    "description": "宝珠"
+  },
+  {
+    "id": "minecraft:changing",
+    "name": "Changing",
+    "size": "4x2",
+    "description": "变化"
+  },
+  {
+    "id": "minecraft:finding",
+    "name": "Finding",
+    "size": "4x2",
+    "description": "发现"
+  },
+  {
+    "id": "minecraft:lowmist",
+    "name": "Lowmist",
+    "size": "4x2",
+    "description": "薄雾"
+  },
+  {
+    "id": "minecraft:passage",
+    "name": "Passage",
+    "size": "4x2",
+    "description": "通道"
+  },
+  {
+    "id": "minecraft:earth",
+    "name": "Earth",
+    "size": "2x2",
+    "description": "地球"
+  },
+  {
+    "id": "minecraft:wind",
+    "name": "Wind",
+    "size": "2x2",
+    "description": "风"
+  },
+  {
+    "id": "minecraft:water",
+    "name": "Water",
+    "size": "2x2",
+    "description": "水"
+  },
+  {
+    "id": "minecraft:fire",
+    "name": "Fire",
+    "size": "2x2",
+    "description": "火"
+  },
+  {
+    "id": "minecraft:dennis",
+    "name": "Dennis",
+    "size": "3x3",
+    "description": "丹尼斯",
+    "since": "1.21"
+  }
+]

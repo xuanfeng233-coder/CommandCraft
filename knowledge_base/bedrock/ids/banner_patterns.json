@@ -1,0 +1,262 @@
+[
+  {
+    "id": "b",
+    "name": "底色",
+    "pattern": "base",
+    "description": "旗帜图案代码 b：底色"
+  },
+  {
+    "id": "bs",
+    "name": "底部横条",
+    "pattern": "stripe_bottom",
+    "description": "旗帜图案代码 bs：底部横条"
+  },
+  {
+    "id": "ts",
+    "name": "顶部横条",
+    "pattern": "stripe_top",
+    "description": "旗帜图案代码 ts：顶部横条"
+  },
+  {
+    "id": "ls",
+    "name": "左竖条",
+    "pattern": "stripe_left",
+    "description": "旗帜图案代码 ls：左竖条"
+  },
+  {
+    "id": "rs",
+    "name": "右竖条",
+    "pattern": "stripe_right",
+    "description": "旗帜图案代码 rs：右竖条"
+  },
+  {
+    "id": "cs",
+    "name": "中竖条",
+    "pattern": "stripe_center",
+    "description": "旗帜图案代码 cs：中竖条"
+  },
+  {
+    "id": "ms",
+    "name": "中横条",
+    "pattern": "stripe_middle",
+    "description": "旗帜图案代码 ms：中横条"
+  },
+  {
+    "id": "drs",
+    "name": "右下斜条",
+    "pattern": "stripe_downright",
+    "description": "旗帜图案代码 drs：右下斜条"
+  },
+  {
+    "id": "dls",
+    "name": "左下斜条",
+    "pattern": "stripe_downleft",
+    "description": "旗帜图案代码 dls：左下斜条"
+  },
+  {
+    "id": "ss",
+    "name": "细竖条",
+    "pattern": "small_stripes",
+    "description": "旗帜图案代码 ss：细竖条"
+  },
+  {
+    "id": "cr",
+    "name": "斜十字",
+    "pattern": "cross",
+    "description": "旗帜图案代码 cr：斜十字"
+  },
+  {
+    "id": "sc",
+    "name": "正十字",
+    "pattern": "straight_cross",
+    "description": "旗帜图案代码 sc：正十字"
+  },
+  {
+    "id": "ld",
+    "name": "左下半分",
+    "pattern": "diagonal_left",
+    "description": "旗帜图案代码 ld：左下半分"
+  },
+  {
+    "id": "rud",
+    "name": "右下半分",
+    "pattern": "diagonal_right",
+    "description": "旗帜图案代码 rud：右下半分"
+  },
+  {
+    "id": "lud",
+    "name": "左上半分",
+    "pattern": "diagonal_up_left",
+    "description": "旗帜图案代码 lud：左上半分"
+  },
+  {
+    "id": "rd",
+    "name": "右上半分",
+    "pattern": "diagonal_up_right",
+    "description": "旗帜图案代码 rd：右上半分"
+  },
+  {
+    "id": "vh",
+    "name": "左半",
+    "pattern": "half_vertical",
+    "description": "旗帜图案代码 vh：左半"
+  },
+  {
+    "id": "vhr",
+    "name": "右半",
+    "pattern": "half_vertical_right",
+    "description": "旗帜图案代码 vhr：右半"
+  },
+  {
+    "id": "hh",
+    "name": "上半",
+    "pattern": "half_horizontal",
+    "description": "旗帜图案代码 hh：上半"
+  },
+  {
+    "id": "hhb",
+    "name": "下半",
+    "pattern": "half_horizontal_bottom",
+    "description": "旗帜图案代码 hhb：下半"
+  },
+  {
+    "id": "bl",
+    "name": "左下角",
+    "pattern": "square_bottom_left",
+    "description": "旗帜图案代码 bl：左下角"
+  },
+  {
+    "id": "br",
+    "name": "右下角",
+    "pattern": "square_bottom_right",
+    "description": "旗帜图案代码 br：右下角"
+  },
+  {
+    "id": "tl",
+    "name": "左上角",
+    "pattern": "square_top_left",
+    "description": "旗帜图案代码 tl：左上角"
+  },
+  {
+    "id": "tr",
+    "name": "右上角",
+    "pattern": "square_top_right",
+    "description": "旗帜图案代码 tr：右上角"
+  },
+  {
+    "id": "bt",
+    "name": "底角(山形)",
+    "pattern": "triangle_bottom",
+    "description": "旗帜图案代码 bt：底角(山形)"
+  },
+  {
+    "id": "tt",
+    "name": "顶角(倒山形)",
+    "pattern": "triangle_top",
+    "description": "旗帜图案代码 tt：顶角(倒山形)"
+  },
+  {
+    "id": "bts",
+    "name": "底锯齿",
+    "pattern": "triangles_bottom",
+    "description": "旗帜图案代码 bts：底锯齿"
+  },
+  {
+    "id": "tts",
+    "name": "顶锯齿",
+    "pattern": "triangles_top",
+    "description": "旗帜图案代码 tts：顶锯齿"
+  },
+  {
+    "id": "mc",
+    "name": "圆",
+    "pattern": "circle",
+    "description": "旗帜图案代码 mc：圆"
+  },
+  {
+    "id": "mr",
+    "name": "菱形",
+    "pattern": "rhombus",
+    "description": "旗帜图案代码 mr：菱形"
+  },
+  {
+    "id": "bo",
+    "name": "边框",
+    "pattern": "border",
+    "description": "旗帜图案代码 bo：边框"
+  },
+  {
+    "id": "cbo",
+    "name": "波纹边框",
+    "pattern": "curly_border",
+    "description": "旗帜图案代码 cbo：波纹边框"
+  },
+  {
+    "id": "bri",
+    "name": "砖纹",
+    "pattern": "bricks",
+    "description": "旗帜图案代码 bri：砖纹"
+  },
+  {
+    "id": "gra",
+    "name": "渐变(上深)",
+    "pattern": "gradient",
+    "description": "旗帜图案代码 gra：渐变(上深)"
+  },
+  {
+    "id": "gru",
+    "name": "渐变(下深)",
+    "pattern": "gradient_up",
+    "description": "旗帜图案代码 gru：渐变(下深)"
+  },
+  {
+    "id": "cre",
+    "name": "苦力怕徽记",
+    "pattern": "creeper",
+    "description": "旗帜图案代码 cre：苦力怕徽记"
+  },
+  {
+    "id": "sku",
+    "name": "头颅徽记",
+    "pattern": "skull",
+    "description": "旗帜图案代码 sku：头颅徽记"
+  },
+  {
+    "id": "flo",
+    "name": "花朵徽记",
+    "pattern": "flower",
+    "description": "旗帜图案代码 flo：花朵徽记"
+  },
+  {
+    "id": "moj",
+    "name": "Mojang 标志",
+    "pattern": "mojang",
+    "description": "旗帜图案代码 moj：Mojang 标志"
+  },
+  {
+    "id": "glb",
+    "name": "地球",
+    "pattern": "globe",
+    "description": "旗帜图案代码 glb：地球"
+  },
+  {
+    "id": "pig",
+    "name": "猪鼻",
+    "pattern": "piglin",
+    "description": "旗帜图案代码 pig：猪鼻"
+  },
+  {
+    "id": "flw",
+    "name": "纹涡",
+    "pattern": "flow",
+    "description": "旗帜图案代码 flw：纹涡",
+    "since": "1.21.0"
+  },
+  {
+    "id": "gus",
+    "name": "旋风",
+    "pattern": "guster",
+    "description": "旗帜图案代码 gus：旋风",
+    "since": "1.21.0"
+  }
+]

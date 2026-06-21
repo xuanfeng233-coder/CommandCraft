@@ -1,0 +1,15 @@
+{
+  "name": "seed",
+  "syntax": "/seed",
+  "description": "显示世界种子",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/seed",
+      "description": "显示当前世界的种子值"
+    }
+  ],
+  "java_specific_notes": "在单人世界中不需要OP权限即可使用。在专用服务器中需要OP权限。种子值为64位整数。种子可用于在相同设置下重新生成相同的世界。",
+  "version_added": "1.0"
+}

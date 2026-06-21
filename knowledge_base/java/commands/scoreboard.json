@@ -1,0 +1,150 @@
+{
+  "name": "scoreboard",
+  "syntax": "/scoreboard objectives|players <子命令> ...",
+  "description": "管理计分板目标和玩家分数，支持多种准则类型实现自动追踪",
+  "category": "scoreboard",
+  "parameters": [
+    {
+      "name": "objectives add <objective> <criteria> [<displayName>]",
+      "type": "子命令",
+      "required": false,
+      "description": "创建新的计分板目标。criteria可为dummy、trigger、deathCount、playerKillCount、totalKillCount、health、xp、level、food、armor、killed_by、minecraft.custom:minecraft.xxx等"
+    },
+    {
+      "name": "objectives list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有已创建的计分板目标"
+    },
+    {
+      "name": "objectives remove <objective>",
+      "type": "子命令",
+      "required": false,
+      "description": "删除指定的计分板目标及其所有分数数据"
+    },
+    {
+      "name": "objectives setdisplay <slot> [<objective>]",
+      "type": "子命令",
+      "required": false,
+      "description": "设置计分板的显示位置。slot可选：belowName、list、sidebar、sidebar.team.<color>（按队伍颜色显示）"
+    },
+    {
+      "name": "objectives modify <objective> displayname <displayName>",
+      "type": "子命令",
+      "required": false,
+      "description": "修改计分板目标的显示名称（支持JSON文本组件）"
+    },
+    {
+      "name": "objectives modify <objective> rendertype hearts|integer",
+      "type": "子命令",
+      "required": false,
+      "description": "修改计分板目标的渲染类型（hearts为心形图标，integer为数字）"
+    },
+    {
+      "name": "objectives modify <objective> numberformat ...",
+      "type": "子命令",
+      "required": false,
+      "description": "修改计分板分数的显示格式（1.20.2+）。可选：blank（隐藏）、fixed <text>（固定文本）、styled <style>（样式化）"
+    },
+    {
+      "name": "players add <targets> <objective> <score>",
+      "type": "子命令",
+      "required": false,
+      "description": "增加目标在指定计分板上的分数"
+    },
+    {
+      "name": "players remove <targets> <objective> <score>",
+      "type": "子命令",
+      "required": false,
+      "description": "减少目标在指定计分板上的分数"
+    },
+    {
+      "name": "players set <targets> <objective> <score>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置目标在指定计分板上的分数为指定值"
+    },
+    {
+      "name": "players reset <targets> [<objective>]",
+      "type": "子命令",
+      "required": false,
+      "description": "重置目标的分数。省略objective则重置该目标所有计分板分数"
+    },
+    {
+      "name": "players get <target> <objective>",
+      "type": "子命令",
+      "required": false,
+      "description": "获取单个目标的指定分数值"
+    },
+    {
+      "name": "players list [<target>]",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有被追踪的玩家，或指定玩家的所有分数"
+    },
+    {
+      "name": "players enable <targets> <objective>",
+      "type": "子命令",
+      "required": false,
+      "description": "允许目标使用/trigger命令修改指定trigger类型的计分板分数"
+    },
+    {
+      "name": "players operation <targets> <targetObjective> <operation> <source> <sourceObjective>",
+      "type": "子命令",
+      "required": false,
+      "description": "对两个计分板分数执行运算。运算符：+=、-=、*=、/=、%=、<（取较小）、>（取较大）、=（赋值）、><（交换）"
+    },
+    {
+      "name": "players display name <targets> <objective> <text>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置特定分数条目的显示名称（1.20.2+）"
+    },
+    {
+      "name": "players display numberformat <targets> <objective> ...",
+      "type": "子命令",
+      "required": false,
+      "description": "设置特定分数条目的数字显示格式（1.20.2+）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/scoreboard objectives add kills playerKillCount 击杀数",
+      "description": "创建自动追踪玩家击杀数的计分板"
+    },
+    {
+      "input": "/scoreboard objectives add deaths deathCount 死亡数",
+      "description": "创建自动追踪死亡次数的计分板"
+    },
+    {
+      "input": "/scoreboard objectives add health health 生命值",
+      "description": "创建自动追踪生命值的计分板"
+    },
+    {
+      "input": "/scoreboard objectives add timer dummy 计时器",
+      "description": "创建名为timer的手动计分板"
+    },
+    {
+      "input": "/scoreboard objectives add useCarrot minecraft.used:minecraft.carrot_on_a_stick",
+      "description": "创建追踪使用胡萝卜钓竿次数的计分板"
+    },
+    {
+      "input": "/scoreboard objectives setdisplay sidebar kills",
+      "description": "将kills计分板显示在屏幕右侧侧边栏"
+    },
+    {
+      "input": "/scoreboard players add @p kills 1",
+      "description": "给最近的玩家增加1点kills分数"
+    },
+    {
+      "input": "/scoreboard players operation @s total += @s kills",
+      "description": "将自己的kills分数加到total分数上"
+    },
+    {
+      "input": "/scoreboard objectives modify health rendertype hearts",
+      "description": "将health计分板显示为心形图标"
+    }
+  ],
+  "java_specific_notes": "Java版计分板支持大量准则类型（criteria），远超基岩版的dummy限制。常用准则包括：dummy（手动）、trigger（玩家可触发）、deathCount（死亡数）、playerKillCount（玩家击杀）、totalKillCount（总击杀）、health（生命值）、xp（经验值）、level（等级）、food（饱食度）、armor（护甲值）。还支持自定义准则如 minecraft.used:minecraft.<item>（使用物品次数）、minecraft.mined:minecraft.<block>（挖掘方块次数）、minecraft.killed:minecraft.<entity>（击杀实体次数）、minecraft.custom:minecraft.<stat>（自定义统计）。Java版不支持基岩版的players random和players test子命令。1.20.2+新增了numberformat和display子命令用于自定义分数显示。",
+  "version_added": "1.5"
+}

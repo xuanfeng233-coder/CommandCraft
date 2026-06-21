@@ -1,0 +1,15 @@
+{
+  "name": "save-on",
+  "syntax": "/save-on",
+  "description": "启用服务器自动保存",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/save-on",
+      "description": "启用自动保存功能"
+    }
+  ],
+  "java_specific_notes": "仅在专用服务器中使用。通常在完成备份操作后执行save-on恢复自动保存。",
+  "version_added": "1.0"
+}

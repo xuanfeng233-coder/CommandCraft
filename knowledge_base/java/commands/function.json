@@ -1,0 +1,36 @@
+{
+  "name": "function",
+  "syntax": "/function <name> [<arguments>]",
+  "description": "执行数据包中的函数文件",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "resource_location",
+      "required": true,
+      "description": "函数的资源位置（如 minecraft:my_function 或 my_pack:path/to/function）。也支持函数标签（如 #minecraft:tick）"
+    },
+    {
+      "name": "arguments",
+      "type": "compound_tag",
+      "required": false,
+      "description": "宏函数参数（1.20.2+），使用花括号传递命名参数"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/function my_pack:setup",
+      "description": "执行my_pack数据包中的setup函数"
+    },
+    {
+      "input": "/function #minecraft:load",
+      "description": "手动执行load函数标签中的所有函数"
+    },
+    {
+      "input": "/function my_pack:greet {name:\"Steve\"}",
+      "description": "执行宏函数并传递name参数（1.20.2+）"
+    }
+  ],
+  "java_specific_notes": "Java版函数文件位于数据包的data/<命名空间>/function/路径下，扩展名为.mcfunction。函数标签（#开头）可以引用多个函数同时执行。特殊标签#minecraft:tick每游戏刻执行一次，#minecraft:load在数据包加载时执行。1.20.2+支持宏函数（macro），可使用$()语法在函数中引用传入的参数。函数执行默认有最大命令数限制（maxCommandChainLength游戏规则，默认65536）。",
+  "version_added": "1.12"
+}

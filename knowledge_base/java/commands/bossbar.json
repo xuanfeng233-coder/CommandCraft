@@ -1,0 +1,106 @@
+{
+  "name": "bossbar",
+  "syntax": "/bossbar add|get|list|remove|set ...",
+  "description": "管理自定义Boss血条",
+  "category": "data_management",
+  "parameters": [
+    {
+      "name": "add <id> <name>",
+      "type": "子命令",
+      "required": false,
+      "description": "创建新的Boss血条。id为命名空间标识符，name为JSON文本组件"
+    },
+    {
+      "name": "remove <id>",
+      "type": "子命令",
+      "required": false,
+      "description": "删除指定Boss血条"
+    },
+    {
+      "name": "list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出所有已创建的Boss血条"
+    },
+    {
+      "name": "get <id> max|players|value|visible",
+      "type": "子命令",
+      "required": false,
+      "description": "获取Boss血条的属性值"
+    },
+    {
+      "name": "set <id> color blue|green|pink|purple|red|white|yellow",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条的颜色"
+    },
+    {
+      "name": "set <id> max <max>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条的最大值"
+    },
+    {
+      "name": "set <id> name <name>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条的显示名称（JSON文本组件）"
+    },
+    {
+      "name": "set <id> players [<targets>]",
+      "type": "子命令",
+      "required": false,
+      "description": "设置可以看到Boss血条的玩家。省略targets则隐藏"
+    },
+    {
+      "name": "set <id> style notched_6|notched_10|notched_12|notched_20|progress",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条的样式（分段或连续进度条）"
+    },
+    {
+      "name": "set <id> value <value>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条的当前值"
+    },
+    {
+      "name": "set <id> visible <visible>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置Boss血条是否可见"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/bossbar add minecraft:timer {\"text\":\"倒计时\",\"color\":\"gold\"}",
+      "description": "创建一个名为timer的Boss血条"
+    },
+    {
+      "input": "/bossbar set minecraft:timer max 100",
+      "description": "设置timer血条的最大值为100"
+    },
+    {
+      "input": "/bossbar set minecraft:timer value 50",
+      "description": "设置timer血条的当前值为50"
+    },
+    {
+      "input": "/bossbar set minecraft:timer color red",
+      "description": "将timer血条颜色设为红色"
+    },
+    {
+      "input": "/bossbar set minecraft:timer players @a",
+      "description": "让所有玩家看到timer血条"
+    },
+    {
+      "input": "/bossbar set minecraft:timer style notched_20",
+      "description": "将timer血条设为20段式样式"
+    },
+    {
+      "input": "/bossbar remove minecraft:timer",
+      "description": "删除timer血条"
+    }
+  ],
+  "java_specific_notes": "bossbar命令是Java版独有的命令。Boss血条可配合execute store使用，将命令结果存储到血条的value或max中。Boss血条在世界保存时会持久化。常用于制作计时器、生命值显示、进度条等。颜色只能选择预设值，不支持自定义颜色。",
+  "version_added": "1.13"
+}

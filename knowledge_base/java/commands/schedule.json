@@ -1,0 +1,40 @@
+{
+  "name": "schedule",
+  "syntax": "/schedule function <function> <time> [append|replace] | /schedule clear <function>",
+  "description": "安排函数在指定时间后执行",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "function <function> <time> [append|replace]",
+      "type": "子命令",
+      "required": false,
+      "description": "安排函数在指定时间后执行。time支持后缀：t(刻)、s(秒)、d(游戏日)。append追加到已有计划，replace替换已有计划"
+    },
+    {
+      "name": "clear <function>",
+      "type": "子命令",
+      "required": false,
+      "description": "清除指定函数的所有计划执行"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/schedule function my_pack:delayed_action 5s",
+      "description": "5秒后执行delayed_action函数"
+    },
+    {
+      "input": "/schedule function my_pack:daily_reset 1d append",
+      "description": "1个游戏日后执行daily_reset函数（追加到已有计划）"
+    },
+    {
+      "input": "/schedule function my_pack:loop 1t",
+      "description": "1刻后执行loop函数（常用于函数自调用实现循环）"
+    },
+    {
+      "input": "/schedule clear my_pack:delayed_action",
+      "description": "清除delayed_action的所有计划执行"
+    }
+  ],
+  "java_specific_notes": "schedule命令安排的函数以服务器身份执行（没有特定执行者）。默认模式为replace，即同一函数只保留最新的计划。append模式允许多次安排同一函数。schedule常用于实现延迟执行和循环（函数内再次schedule自身）。时间参数是相对于当前游戏时间的。",
+  "version_added": "1.14"
+}

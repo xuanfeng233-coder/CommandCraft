@@ -1,0 +1,1262 @@
+[
+  {
+    "id": "minecraft:arrow_spell_emitter",
+    "name": "Arrowspell",
+    "aliases": [
+      "minecraft:arrowspell"
+    ],
+    "description": "弓箭附带的药水效果残留粒子"
+  },
+  {
+    "id": "minecraft:balloon_gas_particle",
+    "name": "Balloon Gas",
+    "aliases": [
+      "minecraft:balloon_gas"
+    ],
+    "description": "教育版气球升空时的气体粒子"
+  },
+  {
+    "id": "minecraft:basic_bubble_particle",
+    "name": "Basic Bubble",
+    "aliases": [
+      "minecraft:basic_bubble"
+    ],
+    "description": "基础气泡粒子（水下）"
+  },
+  {
+    "id": "minecraft:basic_bubble_particle_manual",
+    "name": "Basic Bubble Manual",
+    "aliases": [
+      "minecraft:basic_bubble_manual"
+    ],
+    "description": "手动触发的基础气泡粒子"
+  },
+  {
+    "id": "minecraft:basic_crit_particle",
+    "name": "Basic Crit",
+    "aliases": [
+      "minecraft:basic_crit"
+    ],
+    "description": "暴击时的星形粒子"
+  },
+  {
+    "id": "minecraft:basic_flame_particle",
+    "name": "Basic Flame",
+    "aliases": [
+      "minecraft:basic_flame"
+    ],
+    "description": "基础火焰粒子"
+  },
+  {
+    "id": "minecraft:basic_portal_particle",
+    "name": "Basic Portal",
+    "aliases": [
+      "minecraft:basic_portal"
+    ],
+    "description": "下界传送门的紫色粒子"
+  },
+  {
+    "id": "minecraft:basic_smoke_particle",
+    "name": "Basic Smoke",
+    "aliases": [
+      "minecraft:basic_smoke"
+    ],
+    "description": "基础烟雾粒子"
+  },
+  {
+    "id": "minecraft:biome_tinted_leaves_particle",
+    "name": "Biome Tinted Leaves Particle",
+    "description": "随生物群系着色的落叶粒子"
+  },
+  {
+    "id": "minecraft:bleach",
+    "name": "Bleach",
+    "description": "教育版漂白剂粒子"
+  },
+  {
+    "id": "minecraft:block_destruct",
+    "name": "Block Destruct",
+    "description": "方块被破坏时的碎块粒子"
+  },
+  {
+    "id": "minecraft:block_slide",
+    "name": "Block Slide",
+    "description": "实体沿方块滑动时的粒子"
+  },
+  {
+    "id": "minecraft:blue_flame_particle",
+    "name": "Blue Flame",
+    "aliases": [
+      "minecraft:blue_flame"
+    ],
+    "description": "蓝色火焰粒子"
+  },
+  {
+    "id": "minecraft:breaking_item_icon",
+    "name": "Breaking Item Icon",
+    "description": "物品破碎时的图标碎块粒子"
+  },
+  {
+    "id": "minecraft:breaking_item_terrain",
+    "name": "Breaking Item Terrain",
+    "description": "方块破碎时的材质碎块粒子"
+  },
+  {
+    "id": "minecraft:breeze_ground_particle",
+    "name": "Breeze Ground Particle",
+    "description": "旋风人落地时的地面粒子"
+  },
+  {
+    "id": "minecraft:breeze_wind_explosion_emitter",
+    "name": "Breeze Wind Explosion",
+    "aliases": [
+      "minecraft:breeze_wind_explosion"
+    ],
+    "description": "旋风人风弹爆裂的发射器粒子"
+  },
+  {
+    "id": "minecraft:bubble_column_bubble",
+    "name": "Bubble Column Bubble",
+    "description": "气泡柱中的气泡粒子"
+  },
+  {
+    "id": "minecraft:bubble_column_down_particle",
+    "name": "Bubble Column Down",
+    "aliases": [
+      "minecraft:bubble_column_down"
+    ],
+    "description": "向下气泡柱（灵魂沙）的气泡粒子"
+  },
+  {
+    "id": "minecraft:bubble_column_up_particle",
+    "name": "Bubble Column Up",
+    "aliases": [
+      "minecraft:bubble_column_up"
+    ],
+    "description": "向上气泡柱（岩浆块）的气泡粒子"
+  },
+  {
+    "id": "minecraft:camera_shoot_explosion",
+    "name": "Camera Shoot Explosion",
+    "description": "教育版相机拍照时的爆闪粒子"
+  },
+  {
+    "id": "minecraft:campfire_smoke_particle",
+    "name": "Campfire Smoke",
+    "aliases": [
+      "minecraft:campfire_smoke"
+    ],
+    "description": "营火的烟雾粒子"
+  },
+  {
+    "id": "minecraft:campfire_tall_smoke_particle",
+    "name": "Campfire Smoke Tall",
+    "aliases": [
+      "minecraft:campfire_smoke_tall"
+    ],
+    "description": "干草堆上营火的高烟雾粒子"
+  },
+  {
+    "id": "minecraft:candle_flame_particle",
+    "name": "Candle Flame",
+    "aliases": [
+      "minecraft:candle_flame"
+    ],
+    "description": "蜡烛火焰粒子"
+  },
+  {
+    "id": "minecraft:cauldron_bubble_particle",
+    "name": "Cauldron Bubble",
+    "aliases": [
+      "minecraft:cauldron_bubble"
+    ],
+    "description": "炼药锅药水翻腾的气泡粒子"
+  },
+  {
+    "id": "minecraft:cauldron_splash_particle",
+    "name": "Cauldron Splash",
+    "aliases": [
+      "minecraft:cauldron_splash"
+    ],
+    "description": "炼药锅溅出的水花粒子"
+  },
+  {
+    "id": "minecraft:cauldron_spell_emitter",
+    "name": "Cauldronspell",
+    "aliases": [
+      "minecraft:cauldronspell"
+    ],
+    "description": "炼药锅药水的魔法效果粒子"
+  },
+  {
+    "id": "minecraft:cherry_leaves_particle",
+    "name": "Cherry Leaves Particle",
+    "description": "樱花树飘落的花瓣粒子"
+  },
+  {
+    "id": "minecraft:colored_flame_particle",
+    "name": "Colored Flame",
+    "aliases": [
+      "minecraft:colored_flame"
+    ],
+    "description": "可染色的火焰粒子"
+  },
+  {
+    "id": "minecraft:conduit_particle",
+    "name": "Conduit",
+    "aliases": [
+      "minecraft:conduit"
+    ],
+    "description": "潮涌核心的能量粒子"
+  },
+  {
+    "id": "minecraft:conduit_absorb_particle",
+    "name": "Conduit Absorb",
+    "aliases": [
+      "minecraft:conduit_absorb"
+    ],
+    "description": "潮涌核心吸收物品时的粒子"
+  },
+  {
+    "id": "minecraft:conduit_attack_emitter",
+    "name": "Conduit Attack",
+    "aliases": [
+      "minecraft:conduit_attack"
+    ],
+    "description": "潮涌核心攻击敌对生物的粒子"
+  },
+  {
+    "id": "minecraft:creaking_crumble_body",
+    "name": "Creaking Crumble Body",
+    "description": "嘎枝身躯崩解时的粒子"
+  },
+  {
+    "id": "minecraft:creaking_crumble_head",
+    "name": "Creaking Crumble Head",
+    "description": "嘎枝头部崩解时的粒子"
+  },
+  {
+    "id": "minecraft:creaking_heart_trail",
+    "name": "Creaking Heart Trail",
+    "description": "嘎枝之心连接的轨迹粒子"
+  },
+  {
+    "id": "minecraft:critical_hit_emitter",
+    "name": "Critical Hit",
+    "aliases": [
+      "minecraft:critical_hit"
+    ],
+    "description": "暴击命中时的发射器粒子"
+  },
+  {
+    "id": "minecraft:crop_growth_emitter",
+    "name": "Crop Growth",
+    "aliases": [
+      "minecraft:crop_growth"
+    ],
+    "description": "骨粉催熟作物时的粒子"
+  },
+  {
+    "id": "minecraft:crop_growth_area_emitter",
+    "name": "Crop Growth Area",
+    "aliases": [
+      "minecraft:crop_growth_area"
+    ],
+    "description": "区域范围内作物生长的粒子"
+  },
+  {
+    "id": "minecraft:dolphin_move_particle",
+    "name": "Dolphin Move Particle",
+    "description": "海豚游动时的水花粒子"
+  },
+  {
+    "id": "minecraft:dragon_breath_fire",
+    "name": "Dragon Breath Fire",
+    "description": "末影龙吐息的火焰粒子"
+  },
+  {
+    "id": "minecraft:dragon_breath_lingering",
+    "name": "Dragon Breath Lingering",
+    "description": "末影龙吐息滞留的紫色烟雾粒子"
+  },
+  {
+    "id": "minecraft:dragon_breath_trail",
+    "name": "Dragon Breath Trail",
+    "description": "末影龙吐息的轨迹粒子"
+  },
+  {
+    "id": "minecraft:dragon_death_explosion_emitter",
+    "name": "Dragon Death Explosion",
+    "aliases": [
+      "minecraft:dragon_death_explosion"
+    ],
+    "description": "末影龙死亡爆炸的发射器粒子"
+  },
+  {
+    "id": "minecraft:dragon_destroy_block",
+    "name": "Dragon Destroy Block",
+    "description": "末影龙撞毁方块时的粒子"
+  },
+  {
+    "id": "minecraft:dragon_dying_explosion",
+    "name": "Dragon Dying Explosion",
+    "description": "末影龙濒死时的爆炸光束粒子"
+  },
+  {
+    "id": "minecraft:stalactite_lava_drip_particle",
+    "name": "Dripstone Lava Drip",
+    "aliases": [
+      "minecraft:dripstone_lava_drip"
+    ],
+    "description": "钟乳石滴落岩浆的粒子"
+  },
+  {
+    "id": "minecraft:stalactite_water_drip_particle",
+    "name": "Dripstone Water Drip",
+    "aliases": [
+      "minecraft:dripstone_water_drip"
+    ],
+    "description": "钟乳石滴落水的粒子"
+  },
+  {
+    "id": "minecraft:dust_plume",
+    "name": "Dust Plume",
+    "description": "尘羽（拍打蛋糕等）扬起的尘埃粒子"
+  },
+  {
+    "id": "minecraft:electric_spark_particle",
+    "name": "Electric Spark",
+    "aliases": [
+      "minecraft:electric_spark"
+    ],
+    "description": "避雷针导电时的电火花粒子"
+  },
+  {
+    "id": "minecraft:enchanting_table_particle",
+    "name": "Enchanting Table Particle",
+    "description": "附魔台飞向书本的符文粒子"
+  },
+  {
+    "id": "minecraft:end_chest",
+    "name": "End Chest",
+    "description": "末影箱开启时的紫色粒子"
+  },
+  {
+    "id": "minecraft:endrod",
+    "name": "Endrod",
+    "description": "末地烛散发的白色粒子"
+  },
+  {
+    "id": "minecraft:elephant_tooth_paste_vapor_particle",
+    "name": "Evaporation Elephant Toothpaste",
+    "aliases": [
+      "minecraft:evaporation_elephant_toothpaste"
+    ],
+    "description": "教育版象牙膏反应蒸发的蒸汽粒子"
+  },
+  {
+    "id": "minecraft:evocation_fang_particle",
+    "name": "Evocation Fang",
+    "aliases": [
+      "minecraft:evocation_fang"
+    ],
+    "description": "唤魔者尖牙出现时的粒子"
+  },
+  {
+    "id": "minecraft:evoker_spell",
+    "name": "Evoker Spell",
+    "description": "唤魔者施法时的粒子"
+  },
+  {
+    "id": "minecraft:cauldron_explosion_emitter",
+    "name": "Explosion Cauldron",
+    "aliases": [
+      "minecraft:explosion_cauldron"
+    ],
+    "description": "教育版炼药锅化学爆炸的发射器粒子"
+  },
+  {
+    "id": "minecraft:death_explosion_emitter",
+    "name": "Explosion Death",
+    "aliases": [
+      "minecraft:explosion_death"
+    ],
+    "description": "生物死亡时的爆炸烟雾发射器粒子"
+  },
+  {
+    "id": "minecraft:egg_destroy_emitter",
+    "name": "Explosion Egg Destroy",
+    "aliases": [
+      "minecraft:explosion_egg_destroy"
+    ],
+    "description": "龙蛋被破坏时的爆炸粒子"
+  },
+  {
+    "id": "minecraft:eyeofender_death_explode_particle",
+    "name": "Explosion Eyeofender Death",
+    "aliases": [
+      "minecraft:explosion_eyeofender_death"
+    ],
+    "description": "末影之眼坠落破碎时的粒子"
+  },
+  {
+    "id": "minecraft:misc_fire_vapor_particle",
+    "name": "Explosion Labtable Fire",
+    "aliases": [
+      "minecraft:explosion_labtable_fire"
+    ],
+    "description": "教育版实验台起火的火焰蒸汽粒子"
+  },
+  {
+    "id": "minecraft:explosion_particle",
+    "name": "Explosion Level",
+    "aliases": [
+      "minecraft:explosion_level"
+    ],
+    "description": "标准爆炸的烟雾粒子"
+  },
+  {
+    "id": "minecraft:explosion_manual",
+    "name": "Explosion Manual",
+    "description": "手动触发的爆炸粒子"
+  },
+  {
+    "id": "minecraft:eye_of_ender_bubble_particle",
+    "name": "Eye Of Ender Bubble",
+    "aliases": [
+      "minecraft:eye_of_ender_bubble"
+    ],
+    "description": "末影之眼飞行时的气泡轨迹粒子"
+  },
+  {
+    "id": "minecraft:eyeblossom_close",
+    "name": "Eyeblossom Close",
+    "description": "眼眸花闭合时的粒子"
+  },
+  {
+    "id": "minecraft:eyeblossom_open",
+    "name": "Eyeblossom Open",
+    "description": "眼眸花绽放时的粒子"
+  },
+  {
+    "id": "minecraft:falling_border_dust_particle",
+    "name": "Falling Border Dust",
+    "aliases": [
+      "minecraft:falling_border_dust"
+    ],
+    "description": "世界边界下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust",
+    "name": "Falling Dust",
+    "description": "通用下落方块的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_concrete_powder_particle",
+    "name": "Falling Dust Concrete Powder",
+    "aliases": [
+      "minecraft:falling_dust_concrete_powder"
+    ],
+    "description": "混凝土粉末下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_dragon_egg_particle",
+    "name": "Falling Dust Dragon Egg",
+    "aliases": [
+      "minecraft:falling_dust_dragon_egg"
+    ],
+    "description": "龙蛋下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_gravel_particle",
+    "name": "Falling Dust Gravel",
+    "aliases": [
+      "minecraft:falling_dust_gravel"
+    ],
+    "description": "沙砾下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_red_sand_particle",
+    "name": "Falling Dust Red Sand",
+    "aliases": [
+      "minecraft:falling_dust_red_sand"
+    ],
+    "description": "红沙下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_sand_particle",
+    "name": "Falling Dust Sand",
+    "aliases": [
+      "minecraft:falling_dust_sand"
+    ],
+    "description": "沙子下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_scaffolding_particle",
+    "name": "Falling Dust Scaffolding",
+    "aliases": [
+      "minecraft:falling_dust_scaffolding"
+    ],
+    "description": "脚手架下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:falling_dust_top_snow_particle",
+    "name": "Falling Dust Top Snow",
+    "aliases": [
+      "minecraft:falling_dust_top_snow"
+    ],
+    "description": "顶层雪下落的尘埃粒子"
+  },
+  {
+    "id": "minecraft:firefly_particle",
+    "name": "Firefly Particle",
+    "description": "萤火虫发光的粒子"
+  },
+  {
+    "id": "minecraft:fish_hook_particle",
+    "name": "Fish Hook",
+    "aliases": [
+      "minecraft:fish_hook"
+    ],
+    "description": "钓鱼上钩时鱼钩处的水花粒子"
+  },
+  {
+    "id": "minecraft:fish_pos_particle",
+    "name": "Fish Pos",
+    "aliases": [
+      "minecraft:fish_pos"
+    ],
+    "description": "鱼咬钩前水中接近的气泡粒子"
+  },
+  {
+    "id": "minecraft:glow_particle",
+    "name": "Glow",
+    "aliases": [
+      "minecraft:glow"
+    ],
+    "description": "发光鱿鱼散发的发光墨粒子"
+  },
+  {
+    "id": "minecraft:green_flame_particle",
+    "name": "Green Flame",
+    "aliases": [
+      "minecraft:green_flame"
+    ],
+    "description": "绿色火焰粒子"
+  },
+  {
+    "id": "minecraft:guardian_attack_particle",
+    "name": "Guardian Attack",
+    "aliases": [
+      "minecraft:guardian_attack"
+    ],
+    "description": "守卫者激光攻击的粒子"
+  },
+  {
+    "id": "minecraft:guardian_water_move_particle",
+    "name": "Guardian Water Move",
+    "aliases": [
+      "minecraft:guardian_water_move"
+    ],
+    "description": "守卫者水中移动的粒子"
+  },
+  {
+    "id": "minecraft:heart_particle",
+    "name": "Heart",
+    "aliases": [
+      "minecraft:heart"
+    ],
+    "description": "繁殖或驯服时的爱心粒子"
+  },
+  {
+    "id": "minecraft:honey_drip_particle",
+    "name": "Honey Drip",
+    "aliases": [
+      "minecraft:honey_drip"
+    ],
+    "description": "蜂巢滴落蜂蜜的粒子"
+  },
+  {
+    "id": "minecraft:huge_explosion_lab_misc_emitter",
+    "name": "Huge Explosion Lab Misc",
+    "aliases": [
+      "minecraft:huge_explosion_lab_misc"
+    ],
+    "description": "教育版实验台巨型爆炸的发射器粒子"
+  },
+  {
+    "id": "minecraft:huge_explosion_emitter",
+    "name": "Huge Explosion Level",
+    "aliases": [
+      "minecraft:huge_explosion_level"
+    ],
+    "description": "巨型爆炸（高威力TNT等）的发射器粒子"
+  },
+  {
+    "id": "minecraft:ice_evaporation_emitter",
+    "name": "Ice Evaporation",
+    "aliases": [
+      "minecraft:ice_evaporation"
+    ],
+    "description": "炽热环境中冰蒸发的发射器粒子"
+  },
+  {
+    "id": "minecraft:infested_ambient",
+    "name": "Infested Ambient",
+    "description": "感染效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:infested_emitter",
+    "name": "Infested Emitter",
+    "description": "感染效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:ink_emitter",
+    "name": "Ink",
+    "aliases": [
+      "minecraft:ink"
+    ],
+    "description": "鱿鱼喷墨的发射器粒子"
+  },
+  {
+    "id": "minecraft:knockback_roar_particle",
+    "name": "Knockback Roar",
+    "aliases": [
+      "minecraft:knockback_roar"
+    ],
+    "description": "监守者咆哮击退时的粒子"
+  },
+  {
+    "id": "minecraft:lab_table_heatblock_dust_particle",
+    "name": "Lab Table Heatblock Dust",
+    "aliases": [
+      "minecraft:lab_table_heatblock_dust"
+    ],
+    "description": "教育版实验台加热块的尘埃粒子"
+  },
+  {
+    "id": "minecraft:lab_table_misc_mystical_particle",
+    "name": "Lab Table Misc Mystical",
+    "aliases": [
+      "minecraft:lab_table_misc_mystical"
+    ],
+    "description": "教育版实验台神秘合成的粒子"
+  },
+  {
+    "id": "minecraft:large_explosion",
+    "name": "Large Explosion Level",
+    "aliases": [
+      "minecraft:large_explosion_level"
+    ],
+    "description": "大型爆炸的粒子"
+  },
+  {
+    "id": "minecraft:lava_drip_particle",
+    "name": "Lava Drip",
+    "aliases": [
+      "minecraft:lava_drip"
+    ],
+    "description": "岩浆从方块下方滴落的粒子"
+  },
+  {
+    "id": "minecraft:lava_particle",
+    "name": "Lava Particle",
+    "description": "岩浆表面迸溅的火星粒子"
+  },
+  {
+    "id": "minecraft:llama_spit_smoke",
+    "name": "Llama Spit",
+    "aliases": [
+      "minecraft:llama_spit"
+    ],
+    "description": "羊驼吐口水时的烟雾粒子"
+  },
+  {
+    "id": "minecraft:magic_critical_hit_emitter",
+    "name": "Magic Critical Hit",
+    "aliases": [
+      "minecraft:magic_critical_hit"
+    ],
+    "description": "附魔武器暴击时的青色魔法粒子"
+  },
+  {
+    "id": "minecraft:magnesium_salts_emitter",
+    "name": "Magnesium Salts",
+    "aliases": [
+      "minecraft:magnesium_salts"
+    ],
+    "description": "教育版镁盐反应的发射器粒子"
+  },
+  {
+    "id": "minecraft:mob_block_spawn_emitter",
+    "name": "Mob Block Spawn",
+    "aliases": [
+      "minecraft:mob_block_spawn"
+    ],
+    "description": "生物从方块生成时的发射器粒子"
+  },
+  {
+    "id": "minecraft:mob_portal",
+    "name": "Mob Portal",
+    "description": "生物穿越传送门时的粒子"
+  },
+  {
+    "id": "minecraft:mobflame_emitter",
+    "name": "Mobflame",
+    "aliases": [
+      "minecraft:mobflame"
+    ],
+    "description": "着火生物（如烈焰人）的火焰发射器粒子"
+  },
+  {
+    "id": "minecraft:mobflame_single",
+    "name": "Mobflame Single",
+    "description": "着火生物的单个火焰粒子"
+  },
+  {
+    "id": "minecraft:mobspell_emitter",
+    "name": "Mobspell",
+    "aliases": [
+      "minecraft:mobspell"
+    ],
+    "description": "生物身上药水效果的发射器粒子"
+  },
+  {
+    "id": "minecraft:mobspell_ambient",
+    "name": "Mobspell Ambient",
+    "description": "信标等环境药水效果的环绕粒子"
+  },
+  {
+    "id": "minecraft:mobspell_lingering",
+    "name": "Mobspell Lingering",
+    "description": "滞留药水效果的粒子"
+  },
+  {
+    "id": "minecraft:mycelium_dust_particle",
+    "name": "Mycelium Dust",
+    "aliases": [
+      "minecraft:mycelium_dust"
+    ],
+    "description": "菌丝体散发的孢子尘埃粒子"
+  },
+  {
+    "id": "minecraft:nautilus_bubbles_particle",
+    "name": "Nautilus Bubbles",
+    "aliases": [
+      "minecraft:nautilus_bubbles"
+    ],
+    "description": "鹦鹉螺壳潮涌核心的气泡粒子"
+  },
+  {
+    "id": "minecraft:nectar_drip_particle",
+    "name": "Nectar Drip",
+    "aliases": [
+      "minecraft:nectar_drip"
+    ],
+    "description": "花蜜滴落的粒子"
+  },
+  {
+    "id": "minecraft:note_particle",
+    "name": "Note",
+    "aliases": [
+      "minecraft:note"
+    ],
+    "description": "音符盒演奏时的音符粒子"
+  },
+  {
+    "id": "minecraft:obsidian_glow_dust_particle",
+    "name": "Obsidian Glow Dust",
+    "aliases": [
+      "minecraft:obsidian_glow_dust"
+    ],
+    "description": "哭泣的黑曜石散发的发光尘埃粒子"
+  },
+  {
+    "id": "minecraft:obsidian_tear_particle",
+    "name": "Obsidian Tear",
+    "aliases": [
+      "minecraft:obsidian_tear"
+    ],
+    "description": "哭泣的黑曜石滴落的紫色泪滴粒子"
+  },
+  {
+    "id": "minecraft:ominous_spawning_particle",
+    "name": "Ominous Spawning Particle",
+    "description": "不祥之灵刷怪时的粒子"
+  },
+  {
+    "id": "minecraft:oozing_ambient",
+    "name": "Oozing Ambient",
+    "description": "渗浆效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:oozing_emitter",
+    "name": "Oozing Emitter",
+    "description": "渗浆效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:pale_oak_leaves_particle",
+    "name": "Pale Oak Leaves Particle",
+    "description": "苍白橡树飘落的叶片粒子"
+  },
+  {
+    "id": "minecraft:pause_mob_growth",
+    "name": "Pause Mob Growth",
+    "description": "暂停幼年生物成长的内部粒子"
+  },
+  {
+    "id": "minecraft:phantom_trail_particle",
+    "name": "Phantom Trail",
+    "aliases": [
+      "minecraft:phantom_trail"
+    ],
+    "description": "幻翼飞行的轨迹粒子"
+  },
+  {
+    "id": "minecraft:portal_directional",
+    "name": "Portal Directional",
+    "description": "传送门定向流动的粒子"
+  },
+  {
+    "id": "minecraft:portal_east_west",
+    "name": "Portal East West",
+    "description": "东西向传送门的粒子"
+  },
+  {
+    "id": "minecraft:portal_north_south",
+    "name": "Portal North South",
+    "description": "南北向传送门的粒子"
+  },
+  {
+    "id": "minecraft:portal_reverse_particle",
+    "name": "Portal Reverse",
+    "aliases": [
+      "minecraft:portal_reverse"
+    ],
+    "description": "传送门反向汇聚的粒子"
+  },
+  {
+    "id": "minecraft:raid_omen_ambient",
+    "name": "Raid Omen Ambient",
+    "description": "袭击预兆效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:raid_omen_emitter",
+    "name": "Raid Omen Emitter",
+    "description": "袭击预兆效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:rain_splash_particle",
+    "name": "Rain Splash",
+    "aliases": [
+      "minecraft:rain_splash"
+    ],
+    "description": "雨滴落地溅起的水花粒子"
+  },
+  {
+    "id": "minecraft:redstone_ore_dust_particle",
+    "name": "Redstone Ore Dust",
+    "aliases": [
+      "minecraft:redstone_ore_dust"
+    ],
+    "description": "红石矿石被触发的红色尘埃粒子"
+  },
+  {
+    "id": "minecraft:redstone_repeater_dust_particle",
+    "name": "Redstone Repeater Dust",
+    "aliases": [
+      "minecraft:redstone_repeater_dust"
+    ],
+    "description": "红石中继器的红色尘埃粒子"
+  },
+  {
+    "id": "minecraft:redstone_torch_dust_particle",
+    "name": "Redstone Torch Dust",
+    "aliases": [
+      "minecraft:redstone_torch_dust"
+    ],
+    "description": "红石火把的红色尘埃粒子"
+  },
+  {
+    "id": "minecraft:redstone_wire_dust_particle",
+    "name": "Redstone Wire Dust",
+    "aliases": [
+      "minecraft:redstone_wire_dust"
+    ],
+    "description": "红石线通电的红色尘埃粒子"
+  },
+  {
+    "id": "minecraft:reset_mob_growth",
+    "name": "Reset Mob Growth",
+    "description": "重置幼年生物成长的内部粒子"
+  },
+  {
+    "id": "minecraft:rising_border_dust_particle",
+    "name": "Rising Border Dust",
+    "aliases": [
+      "minecraft:rising_border_dust"
+    ],
+    "description": "世界边界上升的尘埃粒子"
+  },
+  {
+    "id": "minecraft:sculk_charge_particle",
+    "name": "Sculk Charge",
+    "aliases": [
+      "minecraft:sculk_charge"
+    ],
+    "description": "幽匿充能蔓延的粒子"
+  },
+  {
+    "id": "minecraft:sculk_charge_pop_particle",
+    "name": "Sculk Charge Pop",
+    "aliases": [
+      "minecraft:sculk_charge_pop"
+    ],
+    "description": "幽匿充能爆开时的粒子"
+  },
+  {
+    "id": "minecraft:sculk_sensor_redstone_particle",
+    "name": "Sculk Sensor Redstone Particle",
+    "description": "幽匿感测体激活的红石粒子"
+  },
+  {
+    "id": "minecraft:sculk_soul_particle",
+    "name": "Sculk Soul",
+    "aliases": [
+      "minecraft:sculk_soul"
+    ],
+    "description": "幽匿块吸收经验时的灵魂粒子"
+  },
+  {
+    "id": "minecraft:shriek_particle",
+    "name": "Shriek",
+    "aliases": [
+      "minecraft:shriek"
+    ],
+    "description": "幽匿尖啸体尖啸时的粒子"
+  },
+  {
+    "id": "minecraft:shulker_bullet",
+    "name": "Shulker Bullet",
+    "description": "潜影贝弹射物的粒子"
+  },
+  {
+    "id": "minecraft:silverfish_grief_emitter",
+    "name": "Silverfish Grief",
+    "aliases": [
+      "minecraft:silverfish_grief"
+    ],
+    "description": "蠹虫钻入方块时的发射器粒子"
+  },
+  {
+    "id": "minecraft:small_flame_particle",
+    "name": "Small Flame",
+    "aliases": [
+      "minecraft:small_flame"
+    ],
+    "description": "小型火焰粒子（蜡烛等）"
+  },
+  {
+    "id": "minecraft:small_soul_fire_flame",
+    "name": "Small Soul Fire Flame",
+    "description": "小型灵魂火焰粒子"
+  },
+  {
+    "id": "minecraft:smash_ground_particle",
+    "name": "Smash Ground Particle",
+    "description": "重锤砸地时的地面粒子"
+  },
+  {
+    "id": "minecraft:smash_ground_particle_center",
+    "name": "Smash Ground Particle Center",
+    "description": "重锤砸地中心的粒子"
+  },
+  {
+    "id": "minecraft:sneeze",
+    "name": "Sneeze",
+    "description": "幼年熊猫打喷嚏的粒子"
+  },
+  {
+    "id": "minecraft:snowflake_particle",
+    "name": "Snowflake",
+    "aliases": [
+      "minecraft:snowflake"
+    ],
+    "description": "细雪/粉雪飘落的雪花粒子"
+  },
+  {
+    "id": "minecraft:sonic_explosion",
+    "name": "Sonic Explosion",
+    "description": "监守者音波攻击的粒子"
+  },
+  {
+    "id": "minecraft:soul_particle",
+    "name": "Soul",
+    "aliases": [
+      "minecraft:soul"
+    ],
+    "description": "在灵魂沙/灵魂土上行走时的灵魂粒子"
+  },
+  {
+    "id": "minecraft:sparkler_emitter",
+    "name": "Sparkler",
+    "aliases": [
+      "minecraft:sparkler"
+    ],
+    "description": "教育版烟花棒的火花发射器粒子"
+  },
+  {
+    "id": "minecraft:splash_spell_emitter",
+    "name": "Splashpotionspell",
+    "aliases": [
+      "minecraft:splashpotionspell"
+    ],
+    "description": "喷溅药水破碎时的魔法粒子"
+  },
+  {
+    "id": "minecraft:sponge_absorb_water_particle",
+    "name": "Sponge Absorb Bubble",
+    "aliases": [
+      "minecraft:sponge_absorb_bubble"
+    ],
+    "description": "海绵吸水时的气泡粒子"
+  },
+  {
+    "id": "minecraft:spore_blossom_ambient_particle",
+    "name": "Spore Blossom Ambient Block Actor",
+    "aliases": [
+      "minecraft:spore_blossom_ambient_block_actor"
+    ],
+    "description": "孢子花环绕的环境孢子粒子"
+  },
+  {
+    "id": "minecraft:spore_blossom_shower_particle",
+    "name": "Spore Blossom Shower",
+    "aliases": [
+      "minecraft:spore_blossom_shower"
+    ],
+    "description": "孢子花飘落的孢子粒子"
+  },
+  {
+    "id": "minecraft:squid_flee_particle",
+    "name": "Squid Flee",
+    "aliases": [
+      "minecraft:squid_flee"
+    ],
+    "description": "鱿鱼逃逸时的墨水粒子"
+  },
+  {
+    "id": "minecraft:squid_ink_bubble",
+    "name": "Squid Ink Bubble",
+    "description": "鱿鱼墨汁形成的气泡粒子"
+  },
+  {
+    "id": "minecraft:squid_move_particle",
+    "name": "Squid Move",
+    "aliases": [
+      "minecraft:squid_move"
+    ],
+    "description": "鱿鱼游动时的粒子"
+  },
+  {
+    "id": "minecraft:stunned_emitter",
+    "name": "Stunned",
+    "aliases": [
+      "minecraft:stunned"
+    ],
+    "description": "实体被眩晕（如旋风人格挡）的发射器粒子"
+  },
+  {
+    "id": "minecraft:totem_particle",
+    "name": "Totem",
+    "aliases": [
+      "minecraft:totem"
+    ],
+    "description": "不死图腾触发时的绿色粒子"
+  },
+  {
+    "id": "minecraft:totem_manual",
+    "name": "Totem Manual",
+    "description": "手动触发的不死图腾粒子"
+  },
+  {
+    "id": "minecraft:trial_omen_ambient",
+    "name": "Trial Omen Ambient",
+    "description": "试炼预兆效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:trial_omen_emitter",
+    "name": "Trial Omen Emitter",
+    "description": "试炼预兆效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:trial_omen_single",
+    "name": "Trial Omen Single",
+    "description": "试炼预兆的单个粒子"
+  },
+  {
+    "id": "minecraft:trial_spawner_detection",
+    "name": "Trial Spawner Detection.Particle",
+    "aliases": [
+      "minecraft:trial_spawner_detection.particle"
+    ],
+    "description": "试炼刷怪笼侦测到玩家时的粒子"
+  },
+  {
+    "id": "minecraft:trial_spawner_detection_ominous",
+    "name": "Trial Spawner Detection Ominous.Particle",
+    "aliases": [
+      "minecraft:trial_spawner_detection_ominous.particle"
+    ],
+    "description": "不祥试炼刷怪笼侦测到玩家时的粒子"
+  },
+  {
+    "id": "minecraft:underwater_torch_particle",
+    "name": "Underwater Torch Bubble",
+    "aliases": [
+      "minecraft:underwater_torch_bubble"
+    ],
+    "description": "水下火把冒出的气泡粒子"
+  },
+  {
+    "id": "minecraft:vault_connection_particle",
+    "name": "Vault Connection",
+    "aliases": [
+      "minecraft:vault_connection"
+    ],
+    "description": "宝库与玩家连接的粒子"
+  },
+  {
+    "id": "minecraft:vibration_signal",
+    "name": "Vibration Signal",
+    "description": "幽匿感测体接收振动信号的粒子"
+  },
+  {
+    "id": "minecraft:villager_angry",
+    "name": "Villager Angry",
+    "description": "生物愤怒时头顶的粒子"
+  },
+  {
+    "id": "minecraft:villager_happy",
+    "name": "Villager Happy",
+    "description": "村民交易成功等高兴时的绿色粒子"
+  },
+  {
+    "id": "minecraft:warden_dig",
+    "name": "Warden Dig.Particle",
+    "aliases": [
+      "minecraft:warden_dig.particle"
+    ],
+    "description": "监守者钻地时的粒子"
+  },
+  {
+    "id": "minecraft:water_drip_particle",
+    "name": "Water Drip",
+    "aliases": [
+      "minecraft:water_drip"
+    ],
+    "description": "水从方块下方滴落的粒子"
+  },
+  {
+    "id": "minecraft:water_evaporation_actor_emitter",
+    "name": "Water Evaporation Actor",
+    "aliases": [
+      "minecraft:water_evaporation_actor"
+    ],
+    "description": "实体身上水分蒸发的发射器粒子"
+  },
+  {
+    "id": "minecraft:water_evaporation_bucket_emitter",
+    "name": "Water Evaporation Bucket",
+    "aliases": [
+      "minecraft:water_evaporation_bucket"
+    ],
+    "description": "炽热环境中倒水蒸发的发射器粒子"
+  },
+  {
+    "id": "minecraft:water_evaporation_manual",
+    "name": "Water Evaporation Manual",
+    "description": "手动触发的水蒸发粒子"
+  },
+  {
+    "id": "minecraft:water_splash_particle",
+    "name": "Water Splash",
+    "aliases": [
+      "minecraft:water_splash"
+    ],
+    "description": "落入水中或水花的粒子"
+  },
+  {
+    "id": "minecraft:water_splash_particle_manual",
+    "name": "Water Splash Manual",
+    "aliases": [
+      "minecraft:water_splash_manual"
+    ],
+    "description": "手动触发的水花粒子"
+  },
+  {
+    "id": "minecraft:water_wake_particle",
+    "name": "Water Wake",
+    "aliases": [
+      "minecraft:water_wake"
+    ],
+    "description": "实体或船在水面划过的尾迹粒子"
+  },
+  {
+    "id": "minecraft:wax_particle",
+    "name": "Wax",
+    "aliases": [
+      "minecraft:wax"
+    ],
+    "description": "对铜块打蜡或刮蜡时的粒子"
+  },
+  {
+    "id": "minecraft:weaving_ambient",
+    "name": "Weaving Ambient",
+    "description": "盘丝效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:weaving_emitter",
+    "name": "Weaving Emitter",
+    "description": "盘丝效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:white_smoke_particle",
+    "name": "White Smoke",
+    "aliases": [
+      "minecraft:white_smoke"
+    ],
+    "description": "白色烟雾粒子"
+  },
+  {
+    "id": "minecraft:wind_charged_ambient",
+    "name": "Wind Charged Ambient",
+    "description": "蓄风效果环绕实体的环境粒子"
+  },
+  {
+    "id": "minecraft:wind_charged_emitter",
+    "name": "Wind Charged Emitter",
+    "description": "蓄风效果触发时的发射器粒子"
+  },
+  {
+    "id": "minecraft:wind_explosion_emitter",
+    "name": "Wind Explosion",
+    "aliases": [
+      "minecraft:wind_explosion"
+    ],
+    "description": "风弹爆裂时的发射器粒子"
+  },
+  {
+    "id": "minecraft:witchspell_emitter",
+    "name": "Witchspell",
+    "aliases": [
+      "minecraft:witchspell"
+    ],
+    "description": "女巫施法/喝药水时的紫色魔法粒子"
+  },
+  {
+    "id": "minecraft:wither_boss_invulnerable",
+    "name": "Wither Boss Invulnerable",
+    "description": "凋灵无敌（生成充能）阶段的粒子"
+  }
+]

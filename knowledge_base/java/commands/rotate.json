@@ -1,0 +1,45 @@
+{
+  "name": "rotate",
+  "syntax": "/rotate <target> <rotation> | /rotate <target> facing <location> | /rotate <target> facing entity <entity> [<anchor>]",
+  "description": "改变实体的朝向（旋转角度），不改变其位置",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "目标选择器",
+      "required": true,
+      "description": "要旋转的实体（玩家名、目标选择器或UUID）"
+    },
+    {
+      "name": "rotation",
+      "type": "rotation",
+      "required": false,
+      "description": "目标朝向的偏航角和俯仰角（两个角度值，支持~相对量）"
+    },
+    {
+      "name": "facing <location>",
+      "type": "子命令",
+      "required": false,
+      "description": "使实体朝向指定坐标位置"
+    },
+    {
+      "name": "facing entity <entity> [<anchor>]",
+      "type": "子命令",
+      "required": false,
+      "description": "使实体朝向另一个实体，anchor可选eyes或feet（默认feet）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/rotate @s 90 0",
+      "description": "将自己的朝向设为偏航角90度、俯仰角0度"
+    },
+    {
+      "input": "/rotate @e[type=armor_stand] facing entity @p eyes",
+      "description": "让所有盔甲架朝向最近玩家的眼睛"
+    }
+  ],
+  "java_specific_notes": "rotate命令是Java版1.21.2（快照24w40a）新增的。它取代了过去用teleport原地传送来改变实体朝向的技巧。语法与execute的rotated/facing子命令对应。需要OP权限等级2。rotation使用偏航角(yaw)和俯仰角(pitch)，支持~相对旋转。",
+  "version_added": "1.21.2",
+  "since": "1.21.2"
+}

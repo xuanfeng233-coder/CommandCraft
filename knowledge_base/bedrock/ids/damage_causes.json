@@ -1,0 +1,182 @@
+[
+  {
+    "id": "all",
+    "name": "所有",
+    "description": "匹配所有伤害来源"
+  },
+  {
+    "id": "none",
+    "name": "无",
+    "description": "无伤害来源"
+  },
+  {
+    "id": "override",
+    "name": "覆盖",
+    "description": "强制覆盖伤害"
+  },
+  {
+    "id": "contact",
+    "name": "接触",
+    "description": "接触仙人掌/甜浆果等"
+  },
+  {
+    "id": "entity_attack",
+    "name": "实体攻击",
+    "description": "被实体近战攻击"
+  },
+  {
+    "id": "entity_explosion",
+    "name": "实体爆炸",
+    "description": "苦力怕/末影水晶等爆炸"
+  },
+  {
+    "id": "block_explosion",
+    "name": "方块爆炸",
+    "description": "TNT/床等方块爆炸"
+  },
+  {
+    "id": "projectile",
+    "name": "弹射物",
+    "description": "被箭/雪球等击中"
+  },
+  {
+    "id": "suffocation",
+    "name": "窒息",
+    "description": "卡在方块内窒息"
+  },
+  {
+    "id": "fall",
+    "name": "摔落",
+    "description": "摔落伤害"
+  },
+  {
+    "id": "falling_block",
+    "name": "下落方块",
+    "description": "被沙/砧砸中"
+  },
+  {
+    "id": "fire",
+    "name": "着火",
+    "description": "处于火焰中"
+  },
+  {
+    "id": "fire_tick",
+    "name": "火焰灼烧",
+    "description": "着火状态持续伤害"
+  },
+  {
+    "id": "lava",
+    "name": "岩浆",
+    "description": "处于岩浆中"
+  },
+  {
+    "id": "magma",
+    "name": "岩浆块",
+    "description": "站在岩浆块上"
+  },
+  {
+    "id": "drowning",
+    "name": "溺水",
+    "description": "氧气耗尽溺水"
+  },
+  {
+    "id": "starve",
+    "name": "饥饿",
+    "description": "饥饿值耗尽"
+  },
+  {
+    "id": "freezing",
+    "name": "冰冻",
+    "description": "细雪冰冻伤害"
+  },
+  {
+    "id": "temperature",
+    "name": "温度",
+    "description": "温度伤害"
+  },
+  {
+    "id": "anvil",
+    "name": "铁砧",
+    "description": "被坠落的铁砧砸中"
+  },
+  {
+    "id": "thorns",
+    "name": "荆棘",
+    "description": "荆棘附魔反伤"
+  },
+  {
+    "id": "piston",
+    "name": "活塞",
+    "description": "被活塞挤压"
+  },
+  {
+    "id": "fly_into_wall",
+    "name": "撞墙",
+    "description": "鞘翅飞行撞墙"
+  },
+  {
+    "id": "magic",
+    "name": "魔法",
+    "description": "药水/魔法伤害"
+  },
+  {
+    "id": "wither",
+    "name": "凋零",
+    "description": "凋零效果伤害"
+  },
+  {
+    "id": "void",
+    "name": "虚空",
+    "description": "掉入虚空"
+  },
+  {
+    "id": "lightning",
+    "name": "闪电",
+    "description": "被闪电击中"
+  },
+  {
+    "id": "fireworks",
+    "name": "烟花",
+    "description": "烟花火箭爆炸"
+  },
+  {
+    "id": "ram_attack",
+    "name": "冲撞",
+    "description": "山羊冲撞"
+  },
+  {
+    "id": "sonic_boom",
+    "name": "音爆",
+    "description": "监守者音波攻击"
+  },
+  {
+    "id": "stalactite",
+    "name": "钟乳石",
+    "description": "被坠落钟乳石砸中"
+  },
+  {
+    "id": "stalagmite",
+    "name": "石笋",
+    "description": "落在石笋上"
+  },
+  {
+    "id": "campfire",
+    "name": "营火",
+    "description": "站在营火上"
+  },
+  {
+    "id": "soul_campfire",
+    "name": "灵魂营火",
+    "description": "站在灵魂营火上"
+  },
+  {
+    "id": "self_destruct",
+    "name": "自毁",
+    "description": "实体自毁"
+  },
+  {
+    "id": "suicide",
+    "name": "自杀",
+    "description": "/kill 等自杀伤害"
+  }
+]

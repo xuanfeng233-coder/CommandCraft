@@ -1,0 +1,12 @@
+{
+  "id": "bedrock_scoreboard_timers",
+  "title": "基岩版计分板计时器系统",
+  "source": "wiki.bedrock.dev",
+  "url": "https://wiki.bedrock.dev/commands/scoreboard-timers",
+  "category": "examples",
+  "tags": ["计时器", "计分板", "scoreboard", "定时", "modulo", "函数"],
+  "summary": "使用计分板模运算实现精确的游戏内计时器，可在指定时间间隔执行命令，应用于定时广播、物品清理、效果刷新等场景。",
+  "content": "计分板计时器系统允许在精确时间间隔内执行命令。通过模运算（%=）将全局计时器与事件周期结合，实现可靠的定时触发机制。\n\n## 时间换算\n\n基岩版中1秒约等于20游戏刻（tick）。常用换算表：\n- 2小时 = 7,200秒 = 144,000刻\n- 10分钟 = 600秒 = 12,000刻\n- 30秒 = 600刻\n- 5秒 = 100刻\n- 1秒 = 20刻\n\n## 初始化命令\n\n首先创建所需的计分板记分项，并设置时间常量：\n\n```\n/scoreboard objectives add wiki:ticks dummy\n/scoreboard objectives add wiki:events dummy\n/scoreboard players set .2h wiki:ticks 144000\n/scoreboard players set .10m wiki:ticks 12000\n/scoreboard players set .30s wiki:ticks 600\n```\n\nwiki:ticks 用于存储全局计时器和时间常量，wiki:events 用于存储每个事件的模运算结果。\n\n## 核心函数 (world_timer.mcfunction)\n\n将以下内容保存为函数文件，并通过循环命令方块或 tick.json 每刻执行：\n\n```\n## 全局计时器每刻+1\nscoreboard players add .Timer wiki:ticks 1\n\n## 将当前计时器值复制给所有事件\nscoreboard players operation * wiki:events = .Timer wiki:ticks\n\n## 事件1：每2小时广播消息\nscoreboard players operation .ChatMessage wiki:events %= .2h wiki:ticks\nexecute if score .ChatMessage wiki:events matches 0 run say Technoblade never dies!\n\n## 事件2：每10分钟清理掉落物\nscoreboard players operation .LagClear wiki:events %= .10m wiki:ticks\nexecute if score .LagClear wiki:events matches 0 run function clear_lag\n\n## 事件3：每30秒给所有玩家速度效果\nscoreboard players operation .SpeedEffect wiki:events %= .30s wiki:ticks\nexecute if score .SpeedEffect wiki:events matches 0 run effect @a speed 10 2 true\n```\n\n## 工作原理\n\n计时器的核心机制是模运算（%=）：\n\n1. 全局计时器 .Timer 每游戏刻自增1\n2. 将 .Timer 的值复制给每个事件的变量\n3. 对每个事件变量执行取模运算，除以对应的时间间隔常量\n4. 当模运算结果为0时，说明计时器恰好是该间隔的整数倍，触发对应事件\n\n例如：当 .Timer = 24000 时，24000 % 12000 = 0，触发10分钟事件。\n\n## 添加新事件\n\n添加新的定时事件只需三步：\n1. 设置时间常量：/scoreboard players set .5m wiki:ticks 6000\n2. 在函数中添加模运算行\n3. 在函数中添加条件执行行\n\n## 应用场景\n\n- 定时广播消息（每2小时发送服务器公告）\n- 定期清理掉落物（每10分钟减少服务器卡顿）\n- 周期性应用药水效果（每30秒刷新速度/力量效果）\n- 小游戏倒计时系统（精确到刻的倒计时）\n- 日夜循环事件（根据游戏时间触发特殊事件）\n- 资源刷新系统（每隔一段时间在指定位置生成资源）",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

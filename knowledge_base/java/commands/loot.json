@@ -1,0 +1,82 @@
+{
+  "name": "loot",
+  "syntax": "/loot <target> <source>",
+  "description": "根据战利品表生成物品",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "target: give <players>",
+      "type": "子命令",
+      "required": false,
+      "description": "将生成的物品直接给予玩家"
+    },
+    {
+      "name": "target: insert <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "将生成的物品放入指定位置的容器"
+    },
+    {
+      "name": "target: spawn <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "将生成的物品以掉落物形式生成在指定位置"
+    },
+    {
+      "name": "target: replace block <pos> <slot> [<count>]",
+      "type": "子命令",
+      "required": false,
+      "description": "将生成的物品放入容器的指定槽位"
+    },
+    {
+      "name": "target: replace entity <entities> <slot> [<count>]",
+      "type": "子命令",
+      "required": false,
+      "description": "将生成的物品放入实体的指定槽位"
+    },
+    {
+      "name": "source: fish <loot_table> <pos> [<tool>]",
+      "type": "子命令",
+      "required": false,
+      "description": "使用钓鱼战利品表生成物品"
+    },
+    {
+      "name": "source: loot <loot_table>",
+      "type": "子命令",
+      "required": false,
+      "description": "使用指定战利品表生成物品"
+    },
+    {
+      "name": "source: kill <target>",
+      "type": "子命令",
+      "required": false,
+      "description": "模拟击杀实体的掉落物"
+    },
+    {
+      "name": "source: mine <pos> [<tool>]",
+      "type": "子命令",
+      "required": false,
+      "description": "模拟挖掘方块的掉落物"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/loot give @s loot minecraft:chests/simple_dungeon",
+      "description": "给自己生成地牢箱子的随机战利品"
+    },
+    {
+      "input": "/loot spawn ~ ~1 ~ kill @e[type=minecraft:zombie,limit=1,sort=nearest]",
+      "description": "模拟击杀最近僵尸的掉落物并生成在上方"
+    },
+    {
+      "input": "/loot insert ~ ~-1 ~ mine ~ ~ ~ minecraft:diamond_pickaxe",
+      "description": "模拟用钻石镐挖掘当前方块并将掉落物放入脚下容器"
+    },
+    {
+      "input": "/loot replace entity @s armor.head loot minecraft:chests/end_city_treasure",
+      "description": "用末地城战利品替换自己头盔槽的物品"
+    }
+  ],
+  "java_specific_notes": "loot命令是Java版独有的。它可以引用数据包中定义的战利品表来生成物品。战利品表路径如minecraft:chests/xxx、minecraft:entities/xxx等。配合自定义战利品表可以实现复杂的物品生成逻辑。mine来源可以指定工具来模拟不同等级的挖掘。",
+  "version_added": "1.14"
+}

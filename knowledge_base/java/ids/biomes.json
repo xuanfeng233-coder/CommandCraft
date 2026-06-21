@@ -1,0 +1,393 @@
+[
+  {
+    "id": "minecraft:plains",
+    "name": "Plains",
+    "category": "overworld",
+    "description": "平原"
+  },
+  {
+    "id": "minecraft:sunflower_plains",
+    "name": "Sunflower Plains",
+    "category": "overworld",
+    "description": "向日葵平原"
+  },
+  {
+    "id": "minecraft:snowy_plains",
+    "name": "Snowy Plains",
+    "category": "overworld",
+    "description": "积雪的平原"
+  },
+  {
+    "id": "minecraft:ice_spikes",
+    "name": "Ice Spikes",
+    "category": "overworld",
+    "description": "冰刺平原"
+  },
+  {
+    "id": "minecraft:desert",
+    "name": "Desert",
+    "category": "overworld",
+    "description": "沙漠"
+  },
+  {
+    "id": "minecraft:swamp",
+    "name": "Swamp",
+    "category": "overworld",
+    "description": "沼泽"
+  },
+  {
+    "id": "minecraft:mangrove_swamp",
+    "name": "Mangrove Swamp",
+    "category": "overworld",
+    "description": "红树林沼泽"
+  },
+  {
+    "id": "minecraft:forest",
+    "name": "Forest",
+    "category": "overworld",
+    "description": "森林"
+  },
+  {
+    "id": "minecraft:flower_forest",
+    "name": "Flower Forest",
+    "category": "overworld",
+    "description": "繁花森林"
+  },
+  {
+    "id": "minecraft:birch_forest",
+    "name": "Birch Forest",
+    "category": "overworld",
+    "description": "白桦森林"
+  },
+  {
+    "id": "minecraft:dark_forest",
+    "name": "Dark Forest",
+    "category": "overworld",
+    "description": "黑森林"
+  },
+  {
+    "id": "minecraft:old_growth_birch_forest",
+    "name": "Old Growth Birch Forest",
+    "category": "overworld",
+    "description": "原始白桦森林"
+  },
+  {
+    "id": "minecraft:old_growth_pine_taiga",
+    "name": "Old Growth Pine Taiga",
+    "category": "overworld",
+    "description": "原始松木针叶林"
+  },
+  {
+    "id": "minecraft:old_growth_spruce_taiga",
+    "name": "Old Growth Spruce Taiga",
+    "category": "overworld",
+    "description": "原始云杉针叶林"
+  },
+  {
+    "id": "minecraft:taiga",
+    "name": "Taiga",
+    "category": "overworld",
+    "description": "针叶林"
+  },
+  {
+    "id": "minecraft:snowy_taiga",
+    "name": "Snowy Taiga",
+    "category": "overworld",
+    "description": "积雪的针叶林"
+  },
+  {
+    "id": "minecraft:savanna",
+    "name": "Savanna",
+    "category": "overworld",
+    "description": "热带草原"
+  },
+  {
+    "id": "minecraft:savanna_plateau",
+    "name": "Savanna Plateau",
+    "category": "overworld",
+    "description": "热带高原"
+  },
+  {
+    "id": "minecraft:windswept_hills",
+    "name": "Windswept Hills",
+    "category": "overworld",
+    "description": "风袭丘陵"
+  },
+  {
+    "id": "minecraft:windswept_gravelly_hills",
+    "name": "Windswept Gravelly Hills",
+    "category": "overworld",
+    "description": "风袭沙砾丘陵"
+  },
+  {
+    "id": "minecraft:windswept_forest",
+    "name": "Windswept Forest",
+    "category": "overworld",
+    "description": "风袭森林"
+  },
+  {
+    "id": "minecraft:windswept_savanna",
+    "name": "Windswept Savanna",
+    "category": "overworld",
+    "description": "风袭热带草原"
+  },
+  {
+    "id": "minecraft:jungle",
+    "name": "Jungle",
+    "category": "overworld",
+    "description": "丛林"
+  },
+  {
+    "id": "minecraft:sparse_jungle",
+    "name": "Sparse Jungle",
+    "category": "overworld",
+    "description": "稀疏的丛林"
+  },
+  {
+    "id": "minecraft:bamboo_jungle",
+    "name": "Bamboo Jungle",
+    "category": "overworld",
+    "description": "竹林"
+  },
+  {
+    "id": "minecraft:badlands",
+    "name": "Badlands",
+    "category": "overworld",
+    "description": "恶地"
+  },
+  {
+    "id": "minecraft:eroded_badlands",
+    "name": "Eroded Badlands",
+    "category": "overworld",
+    "description": "风蚀恶地"
+  },
+  {
+    "id": "minecraft:wooded_badlands",
+    "name": "Wooded Badlands",
+    "category": "overworld",
+    "description": "繁茂的恶地"
+  },
+  {
+    "id": "minecraft:meadow",
+    "name": "Meadow",
+    "category": "overworld",
+    "description": "草甸"
+  },
+  {
+    "id": "minecraft:cherry_grove",
+    "name": "Cherry Grove",
+    "category": "overworld",
+    "description": "樱花树林"
+  },
+  {
+    "id": "minecraft:grove",
+    "name": "Grove",
+    "category": "overworld",
+    "description": "雪林"
+  },
+  {
+    "id": "minecraft:snowy_slopes",
+    "name": "Snowy Slopes",
+    "category": "overworld",
+    "description": "积雪的山坡"
+  },
+  {
+    "id": "minecraft:frozen_peaks",
+    "name": "Frozen Peaks",
+    "category": "overworld",
+    "description": "冰封山峰"
+  },
+  {
+    "id": "minecraft:jagged_peaks",
+    "name": "Jagged Peaks",
+    "category": "overworld",
+    "description": "尖峭山峰"
+  },
+  {
+    "id": "minecraft:stony_peaks",
+    "name": "Stony Peaks",
+    "category": "overworld",
+    "description": "裸岩山峰"
+  },
+  {
+    "id": "minecraft:river",
+    "name": "River",
+    "category": "overworld",
+    "description": "河流"
+  },
+  {
+    "id": "minecraft:frozen_river",
+    "name": "Frozen River",
+    "category": "overworld",
+    "description": "冻河"
+  },
+  {
+    "id": "minecraft:beach",
+    "name": "Beach",
+    "category": "overworld",
+    "description": "沙滩"
+  },
+  {
+    "id": "minecraft:snowy_beach",
+    "name": "Snowy Beach",
+    "category": "overworld",
+    "description": "积雪的沙滩"
+  },
+  {
+    "id": "minecraft:stony_shore",
+    "name": "Stony Shore",
+    "category": "overworld",
+    "description": "石岸"
+  },
+  {
+    "id": "minecraft:ocean",
+    "name": "Ocean",
+    "category": "overworld",
+    "description": "海洋"
+  },
+  {
+    "id": "minecraft:deep_ocean",
+    "name": "Deep Ocean",
+    "category": "overworld",
+    "description": "深海"
+  },
+  {
+    "id": "minecraft:cold_ocean",
+    "name": "Cold Ocean",
+    "category": "overworld",
+    "description": "冷水海洋"
+  },
+  {
+    "id": "minecraft:deep_cold_ocean",
+    "name": "Deep Cold Ocean",
+    "category": "overworld",
+    "description": "冷水深海"
+  },
+  {
+    "id": "minecraft:frozen_ocean",
+    "name": "Frozen Ocean",
+    "category": "overworld",
+    "description": "冻洋"
+  },
+  {
+    "id": "minecraft:deep_frozen_ocean",
+    "name": "Deep Frozen Ocean",
+    "category": "overworld",
+    "description": "冰冻深海"
+  },
+  {
+    "id": "minecraft:lukewarm_ocean",
+    "name": "Lukewarm Ocean",
+    "category": "overworld",
+    "description": "温水海洋"
+  },
+  {
+    "id": "minecraft:deep_lukewarm_ocean",
+    "name": "Deep Lukewarm Ocean",
+    "category": "overworld",
+    "description": "温水深海"
+  },
+  {
+    "id": "minecraft:warm_ocean",
+    "name": "Warm Ocean",
+    "category": "overworld",
+    "description": "暖水海洋"
+  },
+  {
+    "id": "minecraft:mushroom_fields",
+    "name": "Mushroom Fields",
+    "category": "overworld",
+    "description": "蘑菇岛"
+  },
+  {
+    "id": "minecraft:dripstone_caves",
+    "name": "Dripstone Caves",
+    "category": "overworld",
+    "description": "溶洞"
+  },
+  {
+    "id": "minecraft:lush_caves",
+    "name": "Lush Caves",
+    "category": "overworld",
+    "description": "繁茂洞穴"
+  },
+  {
+    "id": "minecraft:deep_dark",
+    "name": "Deep Dark",
+    "category": "overworld",
+    "description": "深暗之域"
+  },
+  {
+    "id": "minecraft:pale_garden",
+    "name": "Pale Garden",
+    "category": "overworld",
+    "description": "苍白花园",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:nether_wastes",
+    "name": "Nether Wastes",
+    "category": "nether",
+    "description": "下界荒地"
+  },
+  {
+    "id": "minecraft:warped_forest",
+    "name": "Warped Forest",
+    "category": "nether",
+    "description": "诡异森林"
+  },
+  {
+    "id": "minecraft:crimson_forest",
+    "name": "Crimson Forest",
+    "category": "nether",
+    "description": "绯红森林"
+  },
+  {
+    "id": "minecraft:soul_sand_valley",
+    "name": "Soul Sand Valley",
+    "category": "nether",
+    "description": "灵魂沙峡谷"
+  },
+  {
+    "id": "minecraft:basalt_deltas",
+    "name": "Basalt Deltas",
+    "category": "nether",
+    "description": "玄武岩三角洲"
+  },
+  {
+    "id": "minecraft:the_end",
+    "name": "The End",
+    "category": "end",
+    "description": "末地"
+  },
+  {
+    "id": "minecraft:end_highlands",
+    "name": "End Highlands",
+    "category": "end",
+    "description": "末地高地"
+  },
+  {
+    "id": "minecraft:end_midlands",
+    "name": "End Midlands",
+    "category": "end",
+    "description": "末地中地"
+  },
+  {
+    "id": "minecraft:small_end_islands",
+    "name": "Small End Islands",
+    "category": "end",
+    "description": "末地小型岛屿"
+  },
+  {
+    "id": "minecraft:end_barrens",
+    "name": "End Barrens",
+    "category": "end",
+    "description": "末地荒地"
+  },
+  {
+    "id": "minecraft:the_void",
+    "name": "The Void",
+    "category": "other",
+    "description": "虚空"
+  }
+]

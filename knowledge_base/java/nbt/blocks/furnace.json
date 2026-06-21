@@ -1,0 +1,59 @@
+{
+  "id": "minecraft:furnace",
+  "inherits": "_common",
+  "description": "熔炉方块实体NBT标签（也适用于高炉和烟熏炉）",
+  "tags": [
+    {
+      "name": "Items",
+      "type": "list<compound>",
+      "description": "熔炉中的物品（槽位0=待烧物品, 1=燃料, 2=产出物品）",
+      "children": [
+        {
+          "name": "Slot",
+          "type": "byte",
+          "description": "槽位编号（0=输入, 1=燃料, 2=输出）",
+          "values": [0, 1, 2]
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "BurnTime",
+      "type": "short",
+      "description": "当前燃料剩余燃烧刻数",
+      "default": 0
+    },
+    {
+      "name": "CookTime",
+      "type": "short",
+      "description": "当前物品已烧炼的刻数",
+      "default": 0
+    },
+    {
+      "name": "CookTimeTotal",
+      "type": "short",
+      "description": "烧炼完成所需的总刻数（普通熔炉200刻，高炉/烟熏炉100刻）",
+      "default": 200
+    },
+    {
+      "name": "RecipesUsed",
+      "type": "compound",
+      "description": "已使用的配方及次数（键为配方ID，值为次数int）"
+    }
+  ]
+}

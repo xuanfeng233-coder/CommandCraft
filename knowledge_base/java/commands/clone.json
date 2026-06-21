@@ -1,0 +1,83 @@
+{
+  "name": "clone",
+  "syntax": "/clone [from <dimension>] <begin> <end> [to <dimension>] <destination> [replace|masked|filtered <filter>] [force|move|normal]",
+  "description": "将一个区域的方块复制到另一个位置",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "begin",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的起始角坐标"
+    },
+    {
+      "name": "end",
+      "type": "x y z",
+      "required": true,
+      "description": "源区域的对角坐标"
+    },
+    {
+      "name": "destination",
+      "type": "x y z",
+      "required": true,
+      "description": "目标区域的最小角（西北下角）坐标"
+    },
+    {
+      "name": "from <dimension>",
+      "type": "dimension",
+      "required": false,
+      "description": "源区域的维度（1.20.2+，如 minecraft:overworld）"
+    },
+    {
+      "name": "to <dimension>",
+      "type": "dimension",
+      "required": false,
+      "description": "目标区域的维度（1.20.2+）"
+    },
+    {
+      "name": "maskMode",
+      "type": "MaskMode",
+      "required": false,
+      "description": "过滤模式：replace(复制所有方块)、masked(仅复制非空气方块)、filtered(仅复制匹配filter的方块)",
+      "default": "replace"
+    },
+    {
+      "name": "cloneMode",
+      "type": "CloneMode",
+      "required": false,
+      "description": "克隆模式：normal(正常)、force(允许重叠)、move(克隆后清除源区域)",
+      "default": "normal"
+    },
+    {
+      "name": "filter",
+      "type": "block_predicate",
+      "required": false,
+      "description": "仅在filtered模式下使用，指定要复制的方块，支持方块标签"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clone 0 64 0 10 70 10 100 64 100",
+      "description": "将(0,64,0)到(10,70,10)的区域克隆到(100,64,100)位置"
+    },
+    {
+      "input": "/clone ~-5 ~ ~-5 ~5 ~10 ~5 ~10 ~ ~ masked",
+      "description": "将自己附近区域克隆到东边10格处，仅复制非空气方块"
+    },
+    {
+      "input": "/clone 0 64 0 10 70 10 100 64 100 replace move",
+      "description": "将区域移动到新位置（源区域方块被清除）"
+    },
+    {
+      "input": "/clone from minecraft:the_nether 0 64 0 10 70 10 to minecraft:overworld 100 64 100",
+      "description": "从下界克隆区域到主世界（1.20.2+跨维度克隆）"
+    },
+    {
+      "input": "/clone ~-5 ~ ~-5 ~5 ~5 ~5 ~ ~ ~ filtered #minecraft:logs force",
+      "description": "仅克隆区域内的所有原木类方块，允许区域重叠"
+    }
+  ],
+  "java_specific_notes": "Java版clone命令单次最多克隆32768个方块。1.20.2+支持跨维度克隆（from/to参数）。filtered模式支持方块标签（#minecraft:tag）。Java版克隆会保留方块实体的NBT数据（如箱子物品）。",
+  "version_notes": "1.20.2之前：语法为 /clone <begin> <end> <destination> [maskMode] [cloneMode]，源与目标必须在同一维度。1.20.2及以后：新增可选的 [from <dimension>] 和 [to <dimension>] 关键字，支持跨维度克隆，例如 /clone from minecraft:the_nether ... to minecraft:overworld ...。",
+  "version_added": "1.8"
+}

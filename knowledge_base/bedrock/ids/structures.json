@@ -1,0 +1,110 @@
+[
+  {
+    "id": "ancient_city",
+    "name": "远古城市",
+    "description": "深暗之域中的大型地下结构",
+    "aliases": [
+      "ancientcity"
+    ]
+  },
+  {
+    "id": "bastion_remnant",
+    "name": "堡垒遗迹",
+    "description": "下界中的猪灵堡垒",
+    "aliases": [
+      "bastionremnant"
+    ]
+  },
+  {
+    "id": "buried_treasure",
+    "name": "埋藏的宝藏",
+    "description": "海滩下方的宝箱",
+    "aliases": [
+      "buriedtreasure"
+    ]
+  },
+  {
+    "id": "end_city",
+    "name": "末地城",
+    "description": "末地外岛的结构",
+    "aliases": [
+      "endcity"
+    ]
+  },
+  {
+    "id": "fortress",
+    "name": "下界要塞",
+    "description": "下界中的烈焰人要塞"
+  },
+  {
+    "id": "mansion",
+    "name": "林地府邸",
+    "description": "黑森林中的大型建筑",
+    "aliases": [
+      "woodland_mansion"
+    ]
+  },
+  {
+    "id": "mineshaft",
+    "name": "废弃矿井",
+    "description": "地下矿道网络"
+  },
+  {
+    "id": "monument",
+    "name": "海底神殿",
+    "description": "深海中的守卫者神殿",
+    "aliases": [
+      "ocean_monument"
+    ]
+  },
+  {
+    "id": "ocean_ruin",
+    "name": "海底废墟",
+    "description": "海底的小型废墟",
+    "aliases": [
+      "ruins"
+    ]
+  },
+  {
+    "id": "pillager_outpost",
+    "name": "掠夺者前哨站",
+    "description": "掠夺者巡逻塔"
+  },
+  {
+    "id": "ruined_portal",
+    "name": "废弃传送门",
+    "description": "损坏的下界传送门"
+  },
+  {
+    "id": "shipwreck",
+    "name": "沉船",
+    "description": "海底/海滩的沉船"
+  },
+  {
+    "id": "stronghold",
+    "name": "要塞",
+    "description": "末地传送门所在的地下要塞"
+  },
+  {
+    "id": "temple",
+    "name": "神殿",
+    "description": "沙漠神殿/丛林神殿/女巫小屋/雪屋"
+  },
+  {
+    "id": "village",
+    "name": "村庄",
+    "description": "村民居住的村庄"
+  },
+  {
+    "id": "trail_ruins",
+    "name": "古迹废墟",
+    "description": "可考古挖掘的古迹",
+    "since": "1.20.0"
+  },
+  {
+    "id": "trial_chambers",
+    "name": "试炼密室",
+    "description": "地下试炼刷怪笼迷宫",
+    "since": "1.21.0"
+  }
+]

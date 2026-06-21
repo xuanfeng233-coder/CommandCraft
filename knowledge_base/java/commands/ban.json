@@ -1,0 +1,32 @@
+{
+  "name": "ban",
+  "syntax": "/ban <targets> [<reason>]",
+  "description": "封禁指定玩家，阻止其加入服务器",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "string",
+      "required": true,
+      "description": "要封禁的玩家名称"
+    },
+    {
+      "name": "reason",
+      "type": "string",
+      "required": false,
+      "description": "封禁原因"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ban Steve",
+      "description": "封禁玩家Steve"
+    },
+    {
+      "input": "/ban Steve 作弊行为",
+      "description": "以指定原因封禁玩家Steve"
+    }
+  ],
+  "java_specific_notes": "ban命令仅在专用服务器(dedicated server)中可用。封禁列表保存在banned-players.json文件中。还有ban-ip命令可以封禁IP地址。使用pardon命令解除封禁。",
+  "version_added": "1.0"
+}

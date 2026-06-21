@@ -1,0 +1,32 @@
+{
+  "name": "jfr",
+  "syntax": "/jfr start|stop",
+  "description": "启动或停止Java Flight Recorder性能分析",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "start",
+      "type": "子命令",
+      "required": false,
+      "description": "启动JFR性能记录"
+    },
+    {
+      "name": "stop",
+      "type": "子命令",
+      "required": false,
+      "description": "停止JFR记录并保存.jfr文件"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/jfr start",
+      "description": "开始JFR性能记录"
+    },
+    {
+      "input": "/jfr stop",
+      "description": "停止记录并保存分析文件"
+    }
+  ],
+  "java_specific_notes": "JFR(Java Flight Recorder)是Java内置的低开销性能分析工具。生成的.jfr文件可以用JDK Mission Control等工具打开分析。记录包含游戏刻时长、区块生成、网络数据包等Minecraft特有事件。需要Java 11+才能使用。",
+  "version_added": "1.18"
+}

@@ -1,0 +1,46 @@
+{
+  "name": "return",
+  "syntax": "/return <value> | /return run <command> | /return fail",
+  "description": "从函数中返回值并停止执行后续命令",
+  "category": "execution",
+  "parameters": [
+    {
+      "name": "value",
+      "type": "int",
+      "required": false,
+      "description": "返回指定整数值并终止当前函数"
+    },
+    {
+      "name": "run <command>",
+      "type": "子命令",
+      "required": false,
+      "description": "执行命令并将其返回值作为函数的返回值"
+    },
+    {
+      "name": "fail",
+      "type": "子命令",
+      "required": false,
+      "description": "使函数返回失败状态（success=0, result=0）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/return 1",
+      "description": "从函数返回值1"
+    },
+    {
+      "input": "/return 0",
+      "description": "从函数返回值0"
+    },
+    {
+      "input": "/return run data get entity @s Health",
+      "description": "返回当前实体的生命值作为函数返回值"
+    },
+    {
+      "input": "/return fail",
+      "description": "以失败状态终止函数"
+    }
+  ],
+  "java_specific_notes": "return命令是Java版1.20.2新增的。仅在函数(.mcfunction)文件中使用才有意义。return会立即终止当前函数的执行。返回值可被execute store捕获。return run可以将任何命令的result转发为函数返回值。return fail会将success和result都设为0。不使用return的函数默认返回最后一条命令的result。",
+  "version_added": "1.20.2"
+}

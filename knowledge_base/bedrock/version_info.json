@@ -1,0 +1,8 @@
+{
+  "game_edition": "Minecraft Bedrock Edition",
+  "supported_version": "1.21.x (latest stable)",
+  "baseline_version": "1.21.0",
+  "multi_version": true,
+  "last_updated": "2026-06-21",
+  "notes": "数据对齐 1.21.x 最新稳定版并保持向后兼容：被重命名/旧版标识以 aliases 保留，被移除的以 deprecated 标注，新增内容以 since 标注引入版本。不含需实验开关的内容（如长矛/Drop 实验特性）。"
+}

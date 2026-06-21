@@ -1,0 +1,31 @@
+{
+  "name": "locatebiome",
+  "syntax": "/locate biome <biome>",
+  "description": "定位最近的指定生物群系",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "biome",
+      "type": "biome_id",
+      "required": true,
+      "description": "要定位的生物群系ID（如 minecraft:desert、minecraft:jungle 等）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/locate biome minecraft:desert",
+      "description": "定位最近的沙漠"
+    },
+    {
+      "input": "/locate biome minecraft:jungle",
+      "description": "定位最近的丛林"
+    },
+    {
+      "input": "/locate biome minecraft:deep_dark",
+      "description": "定位最近的深暗之域"
+    }
+  ],
+  "java_specific_notes": "在1.19+版本中，locatebiome已合并到locate biome子命令中。此文件保留作为兼容参考。实际使用请用 /locate biome <biome> 格式。",
+  "version_notes": "1.16–1.18：独立命令 /locatebiome <biome>。1.19及以后：该命令被移除，功能合并到 /locate biome <biome>。在1.21.x中应使用 /locate biome。",
+  "version_added": "1.16"
+}

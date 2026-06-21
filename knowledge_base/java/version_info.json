@@ -1,0 +1,10 @@
+{
+  "game_edition": "Minecraft Java Edition",
+  "supported_version": "1.21.x (latest stable)",
+  "baseline_version": "1.21.0",
+  "multi_version": true,
+  "nbt_format": "both",
+  "data_components_since": "1.20.5",
+  "last_updated": "2026-06-21",
+  "notes": "数据对齐 1.21.x 最新稳定版并向后兼容。1.21.2 起属性去除 generic./player./horse. 前缀（旧名以 aliases 保留）；1.20.5+ 数据组件系统逐步替代部分 NBT，NBT 仍用于实体/方块实体。新增以 since、移除以 deprecated、改名以 aliases 标注。不含实验性(Drop)特性如长矛。"
+}

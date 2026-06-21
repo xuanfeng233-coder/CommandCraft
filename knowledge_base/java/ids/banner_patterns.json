@@ -1,0 +1,262 @@
+[
+  {
+    "id": "minecraft:base",
+    "name": "底色",
+    "legacy_code": "b",
+    "description": "旗帜图案：底色（旧版代码 b）"
+  },
+  {
+    "id": "minecraft:stripe_bottom",
+    "name": "底部横条",
+    "legacy_code": "bs",
+    "description": "旗帜图案：底部横条（旧版代码 bs）"
+  },
+  {
+    "id": "minecraft:stripe_top",
+    "name": "顶部横条",
+    "legacy_code": "ts",
+    "description": "旗帜图案：顶部横条（旧版代码 ts）"
+  },
+  {
+    "id": "minecraft:stripe_left",
+    "name": "左竖条",
+    "legacy_code": "ls",
+    "description": "旗帜图案：左竖条（旧版代码 ls）"
+  },
+  {
+    "id": "minecraft:stripe_right",
+    "name": "右竖条",
+    "legacy_code": "rs",
+    "description": "旗帜图案：右竖条（旧版代码 rs）"
+  },
+  {
+    "id": "minecraft:stripe_center",
+    "name": "中竖条",
+    "legacy_code": "cs",
+    "description": "旗帜图案：中竖条（旧版代码 cs）"
+  },
+  {
+    "id": "minecraft:stripe_middle",
+    "name": "中横条",
+    "legacy_code": "ms",
+    "description": "旗帜图案：中横条（旧版代码 ms）"
+  },
+  {
+    "id": "minecraft:stripe_downright",
+    "name": "右下斜条",
+    "legacy_code": "drs",
+    "description": "旗帜图案：右下斜条（旧版代码 drs）"
+  },
+  {
+    "id": "minecraft:stripe_downleft",
+    "name": "左下斜条",
+    "legacy_code": "dls",
+    "description": "旗帜图案：左下斜条（旧版代码 dls）"
+  },
+  {
+    "id": "minecraft:small_stripes",
+    "name": "细竖条",
+    "legacy_code": "ss",
+    "description": "旗帜图案：细竖条（旧版代码 ss）"
+  },
+  {
+    "id": "minecraft:cross",
+    "name": "斜十字",
+    "legacy_code": "cr",
+    "description": "旗帜图案：斜十字（旧版代码 cr）"
+  },
+  {
+    "id": "minecraft:straight_cross",
+    "name": "正十字",
+    "legacy_code": "sc",
+    "description": "旗帜图案：正十字（旧版代码 sc）"
+  },
+  {
+    "id": "minecraft:diagonal_left",
+    "name": "左下半分",
+    "legacy_code": "ld",
+    "description": "旗帜图案：左下半分（旧版代码 ld）"
+  },
+  {
+    "id": "minecraft:diagonal_right",
+    "name": "右下半分",
+    "legacy_code": "rud",
+    "description": "旗帜图案：右下半分（旧版代码 rud）"
+  },
+  {
+    "id": "minecraft:diagonal_up_left",
+    "name": "左上半分",
+    "legacy_code": "lud",
+    "description": "旗帜图案：左上半分（旧版代码 lud）"
+  },
+  {
+    "id": "minecraft:diagonal_up_right",
+    "name": "右上半分",
+    "legacy_code": "rd",
+    "description": "旗帜图案：右上半分（旧版代码 rd）"
+  },
+  {
+    "id": "minecraft:half_vertical",
+    "name": "左半",
+    "legacy_code": "vh",
+    "description": "旗帜图案：左半（旧版代码 vh）"
+  },
+  {
+    "id": "minecraft:half_vertical_right",
+    "name": "右半",
+    "legacy_code": "vhr",
+    "description": "旗帜图案：右半（旧版代码 vhr）"
+  },
+  {
+    "id": "minecraft:half_horizontal",
+    "name": "上半",
+    "legacy_code": "hh",
+    "description": "旗帜图案：上半（旧版代码 hh）"
+  },
+  {
+    "id": "minecraft:half_horizontal_bottom",
+    "name": "下半",
+    "legacy_code": "hhb",
+    "description": "旗帜图案：下半（旧版代码 hhb）"
+  },
+  {
+    "id": "minecraft:square_bottom_left",
+    "name": "左下角",
+    "legacy_code": "bl",
+    "description": "旗帜图案：左下角（旧版代码 bl）"
+  },
+  {
+    "id": "minecraft:square_bottom_right",
+    "name": "右下角",
+    "legacy_code": "br",
+    "description": "旗帜图案：右下角（旧版代码 br）"
+  },
+  {
+    "id": "minecraft:square_top_left",
+    "name": "左上角",
+    "legacy_code": "tl",
+    "description": "旗帜图案：左上角（旧版代码 tl）"
+  },
+  {
+    "id": "minecraft:square_top_right",
+    "name": "右上角",
+    "legacy_code": "tr",
+    "description": "旗帜图案：右上角（旧版代码 tr）"
+  },
+  {
+    "id": "minecraft:triangle_bottom",
+    "name": "底角(山形)",
+    "legacy_code": "bt",
+    "description": "旗帜图案：底角(山形)（旧版代码 bt）"
+  },
+  {
+    "id": "minecraft:triangle_top",
+    "name": "顶角(倒山形)",
+    "legacy_code": "tt",
+    "description": "旗帜图案：顶角(倒山形)（旧版代码 tt）"
+  },
+  {
+    "id": "minecraft:triangles_bottom",
+    "name": "底锯齿",
+    "legacy_code": "bts",
+    "description": "旗帜图案：底锯齿（旧版代码 bts）"
+  },
+  {
+    "id": "minecraft:triangles_top",
+    "name": "顶锯齿",
+    "legacy_code": "tts",
+    "description": "旗帜图案：顶锯齿（旧版代码 tts）"
+  },
+  {
+    "id": "minecraft:circle",
+    "name": "圆",
+    "legacy_code": "mc",
+    "description": "旗帜图案：圆（旧版代码 mc）"
+  },
+  {
+    "id": "minecraft:rhombus",
+    "name": "菱形",
+    "legacy_code": "mr",
+    "description": "旗帜图案：菱形（旧版代码 mr）"
+  },
+  {
+    "id": "minecraft:border",
+    "name": "边框",
+    "legacy_code": "bo",
+    "description": "旗帜图案：边框（旧版代码 bo）"
+  },
+  {
+    "id": "minecraft:curly_border",
+    "name": "波纹边框",
+    "legacy_code": "cbo",
+    "description": "旗帜图案：波纹边框（旧版代码 cbo）"
+  },
+  {
+    "id": "minecraft:bricks",
+    "name": "砖纹",
+    "legacy_code": "bri",
+    "description": "旗帜图案：砖纹（旧版代码 bri）"
+  },
+  {
+    "id": "minecraft:gradient",
+    "name": "渐变(上深)",
+    "legacy_code": "gra",
+    "description": "旗帜图案：渐变(上深)（旧版代码 gra）"
+  },
+  {
+    "id": "minecraft:gradient_up",
+    "name": "渐变(下深)",
+    "legacy_code": "gru",
+    "description": "旗帜图案：渐变(下深)（旧版代码 gru）"
+  },
+  {
+    "id": "minecraft:creeper",
+    "name": "苦力怕徽记",
+    "legacy_code": "cre",
+    "description": "旗帜图案：苦力怕徽记（旧版代码 cre）"
+  },
+  {
+    "id": "minecraft:skull",
+    "name": "头颅徽记",
+    "legacy_code": "sku",
+    "description": "旗帜图案：头颅徽记（旧版代码 sku）"
+  },
+  {
+    "id": "minecraft:flower",
+    "name": "花朵徽记",
+    "legacy_code": "flo",
+    "description": "旗帜图案：花朵徽记（旧版代码 flo）"
+  },
+  {
+    "id": "minecraft:mojang",
+    "name": "Mojang 标志",
+    "legacy_code": "moj",
+    "description": "旗帜图案：Mojang 标志（旧版代码 moj）"
+  },
+  {
+    "id": "minecraft:globe",
+    "name": "地球",
+    "legacy_code": "glb",
+    "description": "旗帜图案：地球（旧版代码 glb）"
+  },
+  {
+    "id": "minecraft:piglin",
+    "name": "猪鼻",
+    "legacy_code": "pig",
+    "description": "旗帜图案：猪鼻（旧版代码 pig）"
+  },
+  {
+    "id": "minecraft:flow",
+    "name": "纹涡",
+    "legacy_code": "flw",
+    "description": "旗帜图案：纹涡（旧版代码 flw）",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:guster",
+    "name": "旋风",
+    "legacy_code": "gus",
+    "description": "旗帜图案：旋风（旧版代码 gus）",
+    "since": "1.21"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "id": "white",
+    "name": "白色",
+    "decimal": 16383998,
+    "hex": "#F9FFFE",
+    "description": "染料/颜色：白色（十进制 16383998）"
+  },
+  {
+    "id": "orange",
+    "name": "橙色",
+    "decimal": 16351261,
+    "hex": "#F9801D",
+    "description": "染料/颜色：橙色（十进制 16351261）"
+  },
+  {
+    "id": "magenta",
+    "name": "品红色",
+    "decimal": 13061821,
+    "hex": "#C74EBD",
+    "description": "染料/颜色：品红色（十进制 13061821）"
+  },
+  {
+    "id": "light_blue",
+    "name": "淡蓝色",
+    "decimal": 3847130,
+    "hex": "#3AB3DA",
+    "description": "染料/颜色：淡蓝色（十进制 3847130）"
+  },
+  {
+    "id": "yellow",
+    "name": "黄色",
+    "decimal": 16701501,
+    "hex": "#FED83D",
+    "description": "染料/颜色：黄色（十进制 16701501）"
+  },
+  {
+    "id": "lime",
+    "name": "黄绿色",
+    "decimal": 8439583,
+    "hex": "#80C71F",
+    "description": "染料/颜色：黄绿色（十进制 8439583）"
+  },
+  {
+    "id": "pink",
+    "name": "粉红色",
+    "decimal": 15961002,
+    "hex": "#F38BAA",
+    "description": "染料/颜色：粉红色（十进制 15961002）"
+  },
+  {
+    "id": "gray",
+    "name": "灰色",
+    "decimal": 4673362,
+    "hex": "#474F52",
+    "description": "染料/颜色：灰色（十进制 4673362）"
+  },
+  {
+    "id": "light_gray",
+    "name": "淡灰色",
+    "decimal": 10329495,
+    "hex": "#9D9D97",
+    "description": "染料/颜色：淡灰色（十进制 10329495）"
+  },
+  {
+    "id": "cyan",
+    "name": "青色",
+    "decimal": 1481884,
+    "hex": "#169C9C",
+    "description": "染料/颜色：青色（十进制 1481884）"
+  },
+  {
+    "id": "purple",
+    "name": "紫色",
+    "decimal": 8991416,
+    "hex": "#8932B8",
+    "description": "染料/颜色：紫色（十进制 8991416）"
+  },
+  {
+    "id": "blue",
+    "name": "蓝色",
+    "decimal": 3949738,
+    "hex": "#3C44AA",
+    "description": "染料/颜色：蓝色（十进制 3949738）"
+  },
+  {
+    "id": "brown",
+    "name": "棕色",
+    "decimal": 8606770,
+    "hex": "#835432",
+    "description": "染料/颜色：棕色（十进制 8606770）"
+  },
+  {
+    "id": "green",
+    "name": "绿色",
+    "decimal": 6192150,
+    "hex": "#5E7C16",
+    "description": "染料/颜色：绿色（十进制 6192150）"
+  },
+  {
+    "id": "red",
+    "name": "红色",
+    "decimal": 11546150,
+    "hex": "#B02E26",
+    "description": "染料/颜色：红色（十进制 11546150）"
+  },
+  {
+    "id": "black",
+    "name": "黑色",
+    "decimal": 1908001,
+    "hex": "#1D1D21",
+    "description": "染料/颜色：黑色（十进制 1908001）"
+  }
+]

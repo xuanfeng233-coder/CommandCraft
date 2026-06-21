@@ -1,0 +1,22 @@
+[
+  {
+    "id": "minecraft:pillager_patrols_event",
+    "name": "灾厄巡逻队",
+    "description": "控制灾厄巡逻队生成"
+  },
+  {
+    "id": "minecraft:wandering_trader_event",
+    "name": "流浪商人",
+    "description": "控制流浪商人生成"
+  },
+  {
+    "id": "minecraft:ender_dragon_event",
+    "name": "末影龙",
+    "description": "控制末影龙生成"
+  },
+  {
+    "id": "minecraft:events_enabled",
+    "name": "全局事件开关",
+    "description": "所有可控事件的总开关"
+  }
+]

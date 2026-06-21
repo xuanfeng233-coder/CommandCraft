@@ -1,0 +1,16 @@
+{
+  "id": "commands_inputpermission",
+  "title": "命令/inputpermission",
+  "source": "zh.minecraft.wiki",
+  "url": "https://zh.minecraft.wiki/w/命令/inputpermission",
+  "category": "commands",
+  "tags": [
+    "inputpermission",
+    "输入权限",
+    "控制"
+  ],
+  "summary": "inputpermission query <targets: target> <permission: permission> [state: state] 查询目标的指定权限的状态。 inputpermission set <targets: target> <permission: permission> <state: state> 修改目标的指定权限的状态。",
+  "content": "## 语法\ninputpermission query <targets: target> <permission: permission> [state: state] 查询目标的指定权限的状态。 inputpermission set <targets: target> <permission: permission> <state: state> 修改目标的指定权限的状态。\n\n## 参数\ntargets: target ： CommandSelector<Player>\n指定权限的拥有者。 必须为玩家名或 目标选择器 。且要求目标选择器为 玩家类型 ，若不是则在命令执行时会执行失败。\npermission: permission ： enum\n指定操作所作用的权限。 必须为以下其中之一： camera — 转动相机视角 dismount — 停止骑乘 jump — 跳跃和向上飞行 lateral_movement — 移动 mount — 骑乘 move_backward — 向后移动 move_forward — 向前移动 move_left — 向左移动 move_right — 向右移动 movement — 移动、潜行、跳跃和飞行 sneak — 潜行和向下飞行\nstate: state ： enum\n指定权限的状态。 必须为 enabled （启用）或 disabled （禁用）。 对于 ... query ... ，如果未指定，则会查询所有的状态；如果已指定，则仅在当前权限状态为指定状态时命令执行成功。\n\n## 示例\n• 禁用所有玩家的转动相机视角权限： /inputpermission set @a camera disabled\n• 禁用所有玩家的移动权限： /inputpermission set @a movement disabled",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

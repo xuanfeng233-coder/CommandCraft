@@ -1,0 +1,32 @@
+{
+  "name": "kick",
+  "syntax": "/kick <targets> [<reason>]",
+  "description": "将指定玩家踢出服务器",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "要踢出的玩家"
+    },
+    {
+      "name": "reason",
+      "type": "string",
+      "required": false,
+      "description": "踢出原因（显示给被踢玩家）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/kick Steve",
+      "description": "踢出玩家Steve"
+    },
+    {
+      "input": "/kick Steve 违规行为",
+      "description": "以指定原因踢出玩家Steve"
+    }
+  ],
+  "java_specific_notes": "kick命令需要OP权限。被踢出的玩家可以立即重新加入（除非被ban）。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,82 @@
+{
+  "id": "minecraft:horse",
+  "inherits": "_mob_common",
+  "description": "马实体NBT标签",
+  "tags": [
+    {
+      "name": "Bred",
+      "type": "byte",
+      "description": "是否为人工繁殖的马",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "EatingHaystack",
+      "type": "byte",
+      "description": "是否正在吃干草块",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Tame",
+      "type": "byte",
+      "description": "是否已驯服",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Temper",
+      "type": "int",
+      "description": "驯服进度值，0-100，越高越容易驯服",
+      "range": "0..100",
+      "default": 0
+    },
+    {
+      "name": "Owner",
+      "type": "int_array",
+      "description": "主人的UUID"
+    },
+    {
+      "name": "ArmorItem",
+      "type": "compound",
+      "description": "马铠物品数据",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "马铠物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        }
+      ]
+    },
+    {
+      "name": "SaddleItem",
+      "type": "compound",
+      "description": "鞍物品数据",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "鞍的物品ID",
+          "default": "minecraft:saddle"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量",
+          "default": 1
+        }
+      ]
+    },
+    {
+      "name": "Variant",
+      "type": "int",
+      "description": "马的外观变种，由底色和花纹组合而成。底色(0-6) + 花纹(0-4)*256"
+    }
+  ]
+}

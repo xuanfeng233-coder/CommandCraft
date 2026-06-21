@@ -1,0 +1,42 @@
+{
+  "name": "stopsound",
+  "syntax": "/stopsound <targets> [<source>] [<sound>]",
+  "description": "停止正在播放的音效",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "source",
+      "type": "SoundSource",
+      "required": false,
+      "description": "音效来源类别。省略时使用*匹配所有来源"
+    },
+    {
+      "name": "sound",
+      "type": "sound_id",
+      "required": false,
+      "description": "要停止的音效ID。省略则停止指定来源的所有音效"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/stopsound @a",
+      "description": "停止所有玩家的所有音效"
+    },
+    {
+      "input": "/stopsound @s music",
+      "description": "停止自己正在听到的所有音乐"
+    },
+    {
+      "input": "/stopsound @a * minecraft:music.creative",
+      "description": "停止所有玩家的创造模式背景音乐"
+    }
+  ],
+  "java_specific_notes": "stopsound可以通过source和sound精确控制要停止的音效。如果只指定source而不指定sound，则停止该来源类别下的所有音效。",
+  "version_added": "1.10"
+}

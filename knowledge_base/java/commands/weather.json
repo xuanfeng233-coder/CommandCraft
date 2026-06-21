@@ -1,0 +1,37 @@
+{
+  "name": "weather",
+  "syntax": "/weather clear|rain|thunder [<duration>]",
+  "description": "设置当前世界的天气状态",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "state",
+      "type": "WeatherState",
+      "required": true,
+      "description": "天气状态：clear（晴天）、rain（下雨）、thunder（雷暴）"
+    },
+    {
+      "name": "duration",
+      "type": "int",
+      "required": false,
+      "description": "天气持续时间（秒），范围1-1000000",
+      "default": "随机（6000-18000刻）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/weather clear",
+      "description": "将天气设为晴天"
+    },
+    {
+      "input": "/weather rain 600",
+      "description": "下雨600秒（10分钟）"
+    },
+    {
+      "input": "/weather thunder",
+      "description": "将天气设为雷暴"
+    }
+  ],
+  "java_specific_notes": "Java版weather命令的duration参数单位为秒（而非游戏刻）。雷暴天气可以引导闪电苦力怕和村民转变。可以配合gamerule doWeatherCycle false禁止天气自动变化。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,663 @@
+{
+  "description": "Minecraft Java Edition 数据组件系统（Data Components），自1.20.5引入，替代部分传统NBT标签",
+  "version": "1.21.4",
+  "since": "1.20.5",
+  "syntax_note": "在give等命令中使用 [] 语法：/give @s diamond_sword[minecraft:enchantments={levels:{\"minecraft:sharpness\":5}}]",
+  "components": [
+    {
+      "id": "minecraft:enchantments",
+      "description": "物品附魔",
+      "type": "compound",
+      "schema": {
+        "levels": {
+          "type": "compound",
+          "description": "附魔等级映射（键为附魔ID，值为等级int）",
+          "example": "{\"minecraft:sharpness\":5,\"minecraft:unbreaking\":3}"
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "description": "是否在物品提示中显示附魔",
+          "default": true
+        }
+      },
+      "example": "minecraft:enchantments={levels:{\"minecraft:sharpness\":5}}"
+    },
+    {
+      "id": "minecraft:stored_enchantments",
+      "description": "附魔书存储的附魔（仅用于附魔书）",
+      "type": "compound",
+      "schema": {
+        "levels": {
+          "type": "compound",
+          "description": "附魔等级映射"
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:stored_enchantments={levels:{\"minecraft:mending\":1}}"
+    },
+    {
+      "id": "minecraft:custom_name",
+      "description": "物品自定义名称（JSON文本组件格式）",
+      "type": "string",
+      "example": "minecraft:custom_name='{\"text\":\"神剑\",\"color\":\"gold\",\"italic\":false}'"
+    },
+    {
+      "id": "minecraft:item_name",
+      "description": "物品名称（不显示斜体，不受铁砧重命名影响）",
+      "type": "string",
+      "example": "minecraft:item_name='{\"text\":\"特殊物品\"}'"
+    },
+    {
+      "id": "minecraft:lore",
+      "description": "物品描述文本（Lore）",
+      "type": "list<string>",
+      "note": "每行为JSON文本组件格式",
+      "example": "minecraft:lore=['{\"text\":\"第一行描述\",\"color\":\"gray\"}','{\"text\":\"第二行描述\",\"color\":\"dark_purple\"}']"
+    },
+    {
+      "id": "minecraft:damage",
+      "description": "物品当前损耗值",
+      "type": "int",
+      "default": 0,
+      "example": "minecraft:damage=100"
+    },
+    {
+      "id": "minecraft:max_damage",
+      "description": "物品最大耐久值",
+      "type": "int",
+      "example": "minecraft:max_damage=2000"
+    },
+    {
+      "id": "minecraft:max_stack_size",
+      "description": "物品最大堆叠数量",
+      "type": "int",
+      "range": "1..99",
+      "example": "minecraft:max_stack_size=99"
+    },
+    {
+      "id": "minecraft:unbreakable",
+      "description": "物品不可破坏",
+      "type": "compound",
+      "schema": {
+        "show_in_tooltip": {
+          "type": "boolean",
+          "description": "是否在提示中显示「不可破坏」",
+          "default": true
+        }
+      },
+      "example": "minecraft:unbreakable={}"
+    },
+    {
+      "id": "minecraft:attribute_modifiers",
+      "description": "物品属性修饰符",
+      "type": "compound",
+      "schema": {
+        "modifiers": {
+          "type": "list<compound>",
+          "description": "修饰符列表",
+          "children": [
+            {
+              "name": "type",
+              "type": "string",
+              "description": "属性类型",
+              "values": [
+                "minecraft:generic.max_health",
+                "minecraft:generic.follow_range",
+                "minecraft:generic.knockback_resistance",
+                "minecraft:generic.movement_speed",
+                "minecraft:generic.flying_speed",
+                "minecraft:generic.attack_damage",
+                "minecraft:generic.attack_knockback",
+                "minecraft:generic.attack_speed",
+                "minecraft:generic.armor",
+                "minecraft:generic.armor_toughness",
+                "minecraft:generic.luck",
+                "minecraft:generic.max_absorption",
+                "minecraft:player.block_interaction_range",
+                "minecraft:player.entity_interaction_range",
+                "minecraft:generic.scale",
+                "minecraft:generic.step_height",
+                "minecraft:generic.gravity",
+                "minecraft:generic.safe_fall_distance",
+                "minecraft:generic.fall_damage_multiplier",
+                "minecraft:generic.burning_time",
+                "minecraft:generic.explosion_knockback_resistance",
+                "minecraft:generic.movement_efficiency",
+                "minecraft:generic.oxygen_bonus",
+                "minecraft:generic.water_movement_efficiency",
+                "minecraft:player.block_break_speed",
+                "minecraft:player.mining_efficiency",
+                "minecraft:player.sneaking_speed",
+                "minecraft:player.submerged_mining_speed",
+                "minecraft:player.sweeping_damage_ratio"
+              ]
+            },
+            {
+              "name": "id",
+              "type": "string",
+              "description": "修饰符的命名空间ID（1.21+必须唯一）"
+            },
+            {
+              "name": "amount",
+              "type": "double",
+              "description": "修饰符数值"
+            },
+            {
+              "name": "operation",
+              "type": "string",
+              "description": "运算方式",
+              "values": ["add_value", "add_multiplied_base", "add_multiplied_total"]
+            },
+            {
+              "name": "slot",
+              "type": "string",
+              "description": "生效的装备槽（可选，不指定则任意槽位生效）",
+              "values": ["any", "mainhand", "offhand", "hand", "head", "chest", "legs", "feet", "armor", "body"]
+            }
+          ]
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:attribute_modifiers={modifiers:[{type:\"minecraft:generic.attack_damage\",id:\"minecraft:base_attack_damage\",amount:10.0,operation:\"add_value\",slot:\"mainhand\"}]}"
+    },
+    {
+      "id": "minecraft:custom_model_data",
+      "description": "自定义模型数据（用于资源包自定义外观）",
+      "type": "int",
+      "example": "minecraft:custom_model_data=1234"
+    },
+    {
+      "id": "minecraft:hide_additional_tooltip",
+      "description": "隐藏附加提示信息（如药水效果、旗帜图案等）",
+      "type": "unit",
+      "note": "无需值，存在即生效",
+      "example": "minecraft:hide_additional_tooltip={}"
+    },
+    {
+      "id": "minecraft:hide_tooltip",
+      "description": "完全隐藏物品提示框",
+      "type": "unit",
+      "example": "minecraft:hide_tooltip={}"
+    },
+    {
+      "id": "minecraft:repair_cost",
+      "description": "铁砧修复的附加经验消耗",
+      "type": "int",
+      "default": 0,
+      "example": "minecraft:repair_cost=5"
+    },
+    {
+      "id": "minecraft:can_break",
+      "description": "冒险模式下此物品可破坏的方块",
+      "type": "compound",
+      "schema": {
+        "predicates": {
+          "type": "list<compound>",
+          "description": "方块谓词列表",
+          "children": [
+            {
+              "name": "blocks",
+              "type": "string_or_list",
+              "description": "方块ID或方块标签"
+            }
+          ]
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:can_break={predicates:[{blocks:\"minecraft:stone\"},{blocks:\"#minecraft:logs\"}]}"
+    },
+    {
+      "id": "minecraft:can_place_on",
+      "description": "冒险模式下此方块可放置在哪些方块上",
+      "type": "compound",
+      "schema": {
+        "predicates": {
+          "type": "list<compound>",
+          "description": "方块谓词列表",
+          "children": [
+            {
+              "name": "blocks",
+              "type": "string_or_list",
+              "description": "方块ID或方块标签"
+            }
+          ]
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:can_place_on={predicates:[{blocks:\"minecraft:grass_block\"}]}"
+    },
+    {
+      "id": "minecraft:dyed_color",
+      "description": "皮革盔甲的染色颜色",
+      "type": "compound",
+      "schema": {
+        "rgb": {
+          "type": "int",
+          "description": "RGB十进制颜色值"
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:dyed_color={rgb:16711680}"
+    },
+    {
+      "id": "minecraft:potion_contents",
+      "description": "药水内容数据",
+      "type": "compound",
+      "schema": {
+        "potion": {
+          "type": "string",
+          "description": "药水类型ID"
+        },
+        "custom_color": {
+          "type": "int",
+          "description": "自定义颜色（RGB十进制值）"
+        },
+        "custom_effects": {
+          "type": "list<compound>",
+          "description": "自定义药水效果",
+          "children": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "效果ID",
+              "id_category": "effects"
+            },
+            {
+              "name": "amplifier",
+              "type": "int",
+              "description": "效果等级",
+              "default": 0
+            },
+            {
+              "name": "duration",
+              "type": "int",
+              "description": "持续刻数",
+              "default": 600
+            },
+            {
+              "name": "ambient",
+              "type": "boolean",
+              "default": false
+            },
+            {
+              "name": "show_particles",
+              "type": "boolean",
+              "default": true
+            },
+            {
+              "name": "show_icon",
+              "type": "boolean",
+              "default": true
+            }
+          ]
+        }
+      },
+      "example": "minecraft:potion_contents={potion:\"minecraft:strong_healing\"}"
+    },
+    {
+      "id": "minecraft:written_book_content",
+      "description": "成书内容",
+      "type": "compound",
+      "schema": {
+        "title": {
+          "type": "filtered_text",
+          "description": "书的标题",
+          "children": [
+            {"name": "raw", "type": "string"},
+            {"name": "filtered", "type": "string", "description": "过滤后文本（可选）"}
+          ]
+        },
+        "author": {
+          "type": "string",
+          "description": "作者"
+        },
+        "generation": {
+          "type": "int",
+          "description": "世代：0=原版, 1=副本, 2=副本的副本, 3=破损",
+          "default": 0
+        },
+        "pages": {
+          "type": "list<filtered_text>",
+          "description": "书页列表（JSON文本组件格式）"
+        },
+        "resolved": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "example": "minecraft:written_book_content={title:{raw:\"我的书\"},author:\"Steve\",pages:[{raw:'{\"text\":\"第一页内容\"}'}]}"
+    },
+    {
+      "id": "minecraft:charged_projectiles",
+      "description": "弩的已装填弹射物",
+      "type": "list<compound>",
+      "note": "列表中每个元素是完整的物品数据",
+      "example": "minecraft:charged_projectiles=[{id:\"minecraft:arrow\",count:1}]"
+    },
+    {
+      "id": "minecraft:food",
+      "description": "物品的食物属性",
+      "type": "compound",
+      "schema": {
+        "nutrition": {
+          "type": "int",
+          "description": "恢复的饥饿值（鸡腿数×2）"
+        },
+        "saturation": {
+          "type": "float",
+          "description": "恢复的饱和度"
+        },
+        "can_always_eat": {
+          "type": "boolean",
+          "description": "是否在不饥饿时也能吃",
+          "default": false
+        },
+        "eat_seconds": {
+          "type": "float",
+          "description": "食用所需秒数",
+          "default": 1.6
+        },
+        "effects": {
+          "type": "list<compound>",
+          "description": "食用后获得的效果",
+          "children": [
+            {
+              "name": "effect",
+              "type": "compound",
+              "description": "药水效果",
+              "children": [
+                {"name": "id", "type": "string", "description": "效果ID", "id_category": "effects"},
+                {"name": "amplifier", "type": "int"},
+                {"name": "duration", "type": "int"}
+              ]
+            },
+            {
+              "name": "probability",
+              "type": "float",
+              "description": "效果触发概率（0.0-1.0）",
+              "default": 1.0
+            }
+          ]
+        }
+      },
+      "example": "minecraft:food={nutrition:6,saturation:0.6,can_always_eat:true}"
+    },
+    {
+      "id": "minecraft:fire_resistant",
+      "description": "物品抗火（不会被火焰或岩浆摧毁）",
+      "type": "unit",
+      "example": "minecraft:fire_resistant={}"
+    },
+    {
+      "id": "minecraft:tool",
+      "description": "物品的工具属性（挖掘速度和适用方块）",
+      "type": "compound",
+      "schema": {
+        "rules": {
+          "type": "list<compound>",
+          "description": "工具规则列表",
+          "children": [
+            {
+              "name": "blocks",
+              "type": "string_or_list",
+              "description": "适用的方块ID或方块标签"
+            },
+            {
+              "name": "speed",
+              "type": "float",
+              "description": "挖掘速度"
+            },
+            {
+              "name": "correct_for_drops",
+              "type": "boolean",
+              "description": "是否可以正确掉落物品（如铁镐挖钻石矿）"
+            }
+          ]
+        },
+        "default_mining_speed": {
+          "type": "float",
+          "description": "默认挖掘速度",
+          "default": 1.0
+        },
+        "damage_per_block": {
+          "type": "int",
+          "description": "每挖一个方块损耗的耐久",
+          "default": 1
+        }
+      },
+      "example": "minecraft:tool={rules:[{blocks:\"#minecraft:mineable/pickaxe\",speed:8.0,correct_for_drops:true}],default_mining_speed:1.0,damage_per_block:1}"
+    },
+    {
+      "id": "minecraft:trim",
+      "description": "盔甲纹饰",
+      "type": "compound",
+      "schema": {
+        "material": {
+          "type": "string",
+          "description": "纹饰材料",
+          "values": [
+            "minecraft:quartz", "minecraft:iron", "minecraft:netherite",
+            "minecraft:redstone", "minecraft:copper", "minecraft:gold",
+            "minecraft:emerald", "minecraft:diamond", "minecraft:lapis",
+            "minecraft:amethyst"
+          ]
+        },
+        "pattern": {
+          "type": "string",
+          "description": "纹饰图案",
+          "values": [
+            "minecraft:sentry", "minecraft:dune", "minecraft:coast",
+            "minecraft:wild", "minecraft:ward", "minecraft:eye",
+            "minecraft:vex", "minecraft:tide", "minecraft:snout",
+            "minecraft:rib", "minecraft:spire", "minecraft:wayfinder",
+            "minecraft:shaper", "minecraft:silence", "minecraft:raiser",
+            "minecraft:host", "minecraft:flow", "minecraft:bolt"
+          ]
+        },
+        "show_in_tooltip": {
+          "type": "boolean",
+          "default": true
+        }
+      },
+      "example": "minecraft:trim={material:\"minecraft:gold\",pattern:\"minecraft:sentry\"}"
+    },
+    {
+      "id": "minecraft:banner_patterns",
+      "description": "旗帜图案",
+      "type": "list<compound>",
+      "children": [
+        {
+          "name": "pattern",
+          "type": "string",
+          "description": "图案ID（如 minecraft:stripe_bottom）"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "颜色名称",
+          "values": [
+            "white", "orange", "magenta", "light_blue", "yellow",
+            "lime", "pink", "gray", "light_gray", "cyan",
+            "purple", "blue", "brown", "green", "red", "black"
+          ]
+        }
+      ],
+      "example": "minecraft:banner_patterns=[{pattern:\"minecraft:stripe_bottom\",color:\"red\"},{pattern:\"minecraft:cross\",color:\"blue\"}]"
+    },
+    {
+      "id": "minecraft:container",
+      "description": "容器内容（潜影盒等）",
+      "type": "list<compound>",
+      "children": [
+        {
+          "name": "slot",
+          "type": "int",
+          "description": "槽位编号"
+        },
+        {
+          "name": "item",
+          "type": "compound",
+          "description": "物品数据",
+          "children": [
+            {"name": "id", "type": "string", "description": "物品ID", "id_category": "items"},
+            {"name": "count", "type": "int", "description": "数量"}
+          ]
+        }
+      ],
+      "example": "minecraft:container=[{slot:0,item:{id:\"minecraft:diamond\",count:64}}]"
+    },
+    {
+      "id": "minecraft:block_state",
+      "description": "方块物品的方块状态属性",
+      "type": "compound",
+      "note": "键值对，键为状态名，值为字符串",
+      "example": "minecraft:block_state={axis:\"y\"}"
+    },
+    {
+      "id": "minecraft:entity_data",
+      "description": "物品放置/使用时应用到实体的NBT数据（如刷怪蛋）",
+      "type": "compound",
+      "note": "必须包含 id 字段指定实体类型",
+      "example": "minecraft:entity_data={id:\"minecraft:zombie\",IsBaby:1b,CustomName:'{\"text\":\"幼年僵尸\"}'}"
+    },
+    {
+      "id": "minecraft:profile",
+      "description": "玩家头颅的皮肤数据",
+      "type": "compound",
+      "schema": {
+        "name": {
+          "type": "string",
+          "description": "玩家名"
+        },
+        "id": {
+          "type": "int_array",
+          "description": "玩家UUID"
+        },
+        "properties": {
+          "type": "list<compound>",
+          "description": "属性列表",
+          "children": [
+            {"name": "name", "type": "string", "description": "属性名（通常为 textures）"},
+            {"name": "value", "type": "string", "description": "Base64编码的纹理数据"},
+            {"name": "signature", "type": "string", "description": "签名（可选）"}
+          ]
+        }
+      },
+      "example": "minecraft:profile={name:\"Notch\"}"
+    },
+    {
+      "id": "minecraft:instrument",
+      "description": "山羊角的乐器类型",
+      "type": "string",
+      "values": [
+        "minecraft:ponder_goat_horn",
+        "minecraft:sing_goat_horn",
+        "minecraft:seek_goat_horn",
+        "minecraft:feel_goat_horn",
+        "minecraft:admire_goat_horn",
+        "minecraft:call_goat_horn",
+        "minecraft:yearn_goat_horn",
+        "minecraft:dream_goat_horn"
+      ],
+      "example": "minecraft:instrument=\"minecraft:ponder_goat_horn\""
+    },
+    {
+      "id": "minecraft:recipes",
+      "description": "知识之书中已解锁的配方",
+      "type": "list<string>",
+      "note": "配方命名空间ID列表",
+      "example": "minecraft:recipes=[\"minecraft:diamond_sword\",\"minecraft:enchanting_table\"]"
+    },
+    {
+      "id": "minecraft:lodestone_tracker",
+      "description": "磁石指南针追踪数据",
+      "type": "compound",
+      "schema": {
+        "target": {
+          "type": "compound",
+          "description": "磁石位置",
+          "children": [
+            {"name": "pos", "type": "int_array", "description": "坐标 [x, y, z]"},
+            {"name": "dimension", "type": "string", "description": "维度ID"}
+          ]
+        },
+        "tracked": {
+          "type": "boolean",
+          "description": "是否追踪磁石存在（如果磁石被破坏，设为false时指南针仍指向位置）",
+          "default": true
+        }
+      },
+      "example": "minecraft:lodestone_tracker={target:{pos:[I;100,64,200],dimension:\"minecraft:overworld\"},tracked:true}"
+    },
+    {
+      "id": "minecraft:firework_explosion",
+      "description": "烟火之星的爆炸数据",
+      "type": "compound",
+      "schema": {
+        "shape": {
+          "type": "string",
+          "description": "爆炸形状",
+          "values": ["small_ball", "large_ball", "star", "creeper", "burst"]
+        },
+        "colors": {
+          "type": "int_array",
+          "description": "初始颜色列表（RGB十进制值）"
+        },
+        "fade_colors": {
+          "type": "int_array",
+          "description": "渐变颜色列表"
+        },
+        "has_trail": {
+          "type": "boolean",
+          "description": "是否有轨迹",
+          "default": false
+        },
+        "has_twinkle": {
+          "type": "boolean",
+          "description": "是否有闪烁",
+          "default": false
+        }
+      },
+      "example": "minecraft:firework_explosion={shape:\"star\",colors:[I;16711680,255],has_trail:true}"
+    },
+    {
+      "id": "minecraft:fireworks",
+      "description": "烟花火箭的飞行和爆炸数据",
+      "type": "compound",
+      "schema": {
+        "flight_duration": {
+          "type": "byte",
+          "description": "飞行持续时间（1-3）",
+          "range": "1..3"
+        },
+        "explosions": {
+          "type": "list<compound>",
+          "description": "爆炸效果列表（同 firework_explosion 组件格式）",
+          "children": [
+            {"name": "shape", "type": "string", "values": ["small_ball", "large_ball", "star", "creeper", "burst"]},
+            {"name": "colors", "type": "int_array"},
+            {"name": "fade_colors", "type": "int_array"},
+            {"name": "has_trail", "type": "boolean"},
+            {"name": "has_twinkle", "type": "boolean"}
+          ]
+        }
+      },
+      "example": "minecraft:fireworks={flight_duration:2b,explosions:[{shape:\"large_ball\",colors:[I;16776960],has_trail:true}]}"
+    }
+  ]
+}

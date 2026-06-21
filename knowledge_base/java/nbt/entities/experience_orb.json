@@ -1,0 +1,31 @@
+{
+  "id": "minecraft:experience_orb",
+  "inherits": "_common",
+  "description": "经验球实体NBT标签",
+  "tags": [
+    {
+      "name": "Age",
+      "type": "short",
+      "description": "经验球已存在的刻数，达到6000（5分钟）后消失",
+      "default": 0
+    },
+    {
+      "name": "Health",
+      "type": "short",
+      "description": "经验球的耐久值（受到伤害时减少，归零消失）",
+      "default": 5
+    },
+    {
+      "name": "Value",
+      "type": "short",
+      "description": "经验球包含的经验值",
+      "default": 1
+    },
+    {
+      "name": "Count",
+      "type": "int",
+      "description": "合并在一起的经验球数量",
+      "default": 1
+    }
+  ]
+}

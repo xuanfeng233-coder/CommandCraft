@@ -1,0 +1,57 @@
+{
+  "name": "waypoint",
+  "syntax": "/waypoint list | /waypoint modify <target> color <color>|hex <hex>|reset | /waypoint modify <target> style set <style>|reset",
+  "description": "管理在定位栏（locator bar）上显示的路径点",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出当前所有路径点"
+    },
+    {
+      "name": "modify <target> color <color>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置目标路径点的颜色（如red、blue、light_purple等颜色名）"
+    },
+    {
+      "name": "modify <target> color hex <hex>",
+      "type": "子命令",
+      "required": false,
+      "description": "用6位十六进制颜色码设置路径点颜色（000000-FFFFFF）"
+    },
+    {
+      "name": "modify <target> color reset",
+      "type": "子命令",
+      "required": false,
+      "description": "重置路径点颜色为默认值"
+    },
+    {
+      "name": "modify <target> style set <style>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置路径点样式（来自资源包的样式资源位置）"
+    },
+    {
+      "name": "modify <target> style reset",
+      "type": "子命令",
+      "required": false,
+      "description": "重置路径点样式为默认值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/waypoint modify @s color red",
+      "description": "将自己在定位栏上的路径点颜色设为红色"
+    },
+    {
+      "input": "/waypoint list",
+      "description": "列出当前所有路径点"
+    }
+  ],
+  "java_specific_notes": "waypoint命令是Java版1.21.6（快照25w15a引入，25w17a进入正常游戏）新增的，属于Chase the Skies更新。需要OP权限等级2。路径点显示在新的定位栏（locator bar）HUD上。target在modify时只能选择单个实体。color支持颜色名或hex十六进制码，style引用资源包中定义的样式。",
+  "version_added": "1.21.6",
+  "since": "1.21.6"
+}

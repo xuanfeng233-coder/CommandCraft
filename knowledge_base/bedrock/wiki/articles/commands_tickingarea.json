@@ -1,0 +1,16 @@
+{
+  "id": "commands_tickingarea",
+  "title": "命令/tickingarea",
+  "source": "zh.minecraft.wiki",
+  "url": "https://zh.minecraft.wiki/w/命令/tickingarea",
+  "category": "commands",
+  "tags": [
+    "tickingarea",
+    "常加载区域",
+    "tick"
+  ],
+  "summary": "添加、删除或列出 常加载区域 。同时最多可以定义10个常加载区域。",
+  "content": "## 概述\n添加、删除或列出 常加载区域 。同时最多可以定义10个常加载区域。\n\n## 语法\ntickingarea add <from: x y z> <to: x y z> [name: string] [preload: Boolean] 添加与矩形区域有重叠部分的所有区块组成的常加载区域。 tickingarea add circle <center: x y z> <radius: int> [name: string] [preload: Boolean] 添加与圆形区域有重叠部分的所有区块组成的常加载区域。 tickingarea remove <position: x y z> tickingarea remove <name: string> 删除常加载区域。如果指定了名称，则只会删除具有该名称的常加载区域。如果指定了位置，则删除包含这个坐标点的所有常加载区域。 tickingarea remove_all 删除本维度中所有已定义的常加载区域。 tickingarea preload <name: string> [preload: Boolean] tickingarea preload <position: x y z> [preload: Boolean] 设置或显示常加载区域是否预加载。如果指定了名称，则只会处理具有该名称的常加载区域。如果指定了位置，则处理包含这个坐标点的所有常加载区域。 tickingarea list [all-dimensions: AllDimensions] 显示当前维度中的常加载区域。如果指定了可选的所有维度参数，则列出已定义的所有常加载区域。注意，列表中显示的坐标在矩形的情况下被调整为区块的边界，在圆的情况下被调整为区块的中心。\n\n## 参数\nY坐标在识别区块的时候实际上并不需要，因为区块跨越整个世界的垂直高度。但是必须在下面的参数中显示的地方输入Y坐标，它可以是任意值，但总是被储存为0。\nfrom: x y z ： CommandPosition 或 to: x y z ： CommandPosition\n指定用于定义矩形常加载区域的两个对角坐标。 必须为三维的 坐标 ，格式为 < X > < Y > < Z > ，三个值必须是浮点数、 相对坐标 或 局部坐标 。\ncenter: x y z ： CommandPosition\n指定用于定义圆形常加载区域的圆心的坐标。 必须为三维的 坐标 ，格式为 < X > < Y > < Z > ，三个值必须是浮点数、 相对坐标 或 局部坐标 。\nradius: int ： int\n指定圆形常加载区域的半径作为从中心到圆周的区块数。它只能是从1到4的整数。 必须为 32位整数 。\nname: string ： basic_string\n指定常加载区域的可选名称。包含空格的值必须用英文双引号括起来。该名称会显示在常加载区域列表中，可用于删除特定区域或设置和查询特定区域是否预加载。 必须为 字符串 。必须为单个词或者双引号（ \" ）括起的字符串。引号内的字符可以使用 \\ 进行转义。\nposition: x y z ： CommandPosition\n指定要选择的常加载区域所包含的坐标。可用于删除特定区域或设置和查询特定区域是否预加载。 必须为三维的 坐标 ，格式为 < X > < Y > < Z > ，三个值必须是浮点数、 相对坐标 或 局部坐标 。\npreload: Boolean ： enum\n指定常加载区域是否预加载，只能填写 false 或 true 。在 add 语法中若不填则默认为 false ，在 preload 语法中若不填则可以查询指定的常加载区域是否预加载。 必须为 布尔值（ true 或 false ）。\nall-dimensions: AllDimensions ： enum\n指定是否列出所有 维度 中的常加载区域。只能填写 all-dimensions ，如不填则默认为仅显示本维度常加载区域。\n\n## 示例\n• 添加X=0，Z=0至X=63，Z=63的常加载区域： tickingarea add 0 0 0 63 0 63\n• 添加以执行者位置为中心半径4个区块的非预加载常加载区域 Area1 ： tickingarea add circle ~ ~ ~ 4 Area1 false\n• 删除包含坐标X=0，Z=0的常加载区域： tickingarea remove 0 0 0\n• 删除常加载区域 Area2 ： tickingarea remove Area2\n• 删除本维度中所有已定义的常加载区域： tickingarea remove_all\n• 查询常加载区域 Area3 是否预加载： tickingarea preload Area3\n• 列出本维度中的常加载区域： tickingarea list\n• 列出所有维度中的常加载区域： tickingarea list all-dimensions",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

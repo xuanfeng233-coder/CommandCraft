@@ -1,0 +1,98 @@
+[
+  {
+    "id": "harp",
+    "name": "竖琴",
+    "description": "音符盒乐器；下方放置：泥土/默认方块",
+    "block_below": "泥土/默认方块"
+  },
+  {
+    "id": "bass",
+    "name": "低音吉他",
+    "description": "音符盒乐器；下方放置：木质方块",
+    "block_below": "木质方块"
+  },
+  {
+    "id": "snare",
+    "name": "小军鼓",
+    "description": "音符盒乐器；下方放置：沙子/砂砾",
+    "block_below": "沙子/砂砾"
+  },
+  {
+    "id": "hat",
+    "name": "击鼓声",
+    "description": "音符盒乐器；下方放置：玻璃/海晶灯",
+    "block_below": "玻璃/海晶灯"
+  },
+  {
+    "id": "basedrum",
+    "name": "低音鼓",
+    "description": "音符盒乐器；下方放置：石头类方块",
+    "block_below": "石头类方块"
+  },
+  {
+    "id": "bell",
+    "name": "钟",
+    "description": "音符盒乐器；下方放置：金块",
+    "block_below": "金块"
+  },
+  {
+    "id": "chime",
+    "name": "编钟",
+    "description": "音符盒乐器；下方放置：海晶灯",
+    "block_below": "海晶灯"
+  },
+  {
+    "id": "flute",
+    "name": "长笛",
+    "description": "音符盒乐器；下方放置：黏土",
+    "block_below": "黏土"
+  },
+  {
+    "id": "xylophone",
+    "name": "木琴",
+    "description": "音符盒乐器；下方放置：骨块",
+    "block_below": "骨块"
+  },
+  {
+    "id": "iron_xylophone",
+    "name": "铁木琴",
+    "description": "音符盒乐器；下方放置：铁块",
+    "block_below": "铁块"
+  },
+  {
+    "id": "cow_bell",
+    "name": "牛铃",
+    "description": "音符盒乐器；下方放置：灵魂沙",
+    "block_below": "灵魂沙"
+  },
+  {
+    "id": "didgeridoo",
+    "name": "迪吉里杜管",
+    "description": "音符盒乐器；下方放置：南瓜",
+    "block_below": "南瓜"
+  },
+  {
+    "id": "bit",
+    "name": "电子音",
+    "description": "音符盒乐器；下方放置：绿宝石块",
+    "block_below": "绿宝石块"
+  },
+  {
+    "id": "banjo",
+    "name": "班卓琴",
+    "description": "音符盒乐器；下方放置：干草块",
+    "block_below": "干草块"
+  },
+  {
+    "id": "pling",
+    "name": "电钢琴",
+    "description": "音符盒乐器；下方放置：发光石",
+    "block_below": "发光石"
+  },
+  {
+    "id": "guitar",
+    "name": "吉他",
+    "description": "音符盒乐器；下方放置：羊毛",
+    "block_below": "羊毛"
+  }
+]

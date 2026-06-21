@@ -1,0 +1,33 @@
+{
+  "name": "teleport",
+  "syntax": "/teleport [<targets>] <destination> | /teleport [<targets>] <location> [<rotation>] | /teleport [<targets>] <location> facing <facingLocation> | /teleport [<targets>] <location> facing entity <facingEntity> [<facingAnchor>]",
+  "description": "传送实体到指定位置（tp的全称别名，功能完全相同）",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "要传送的目标实体",
+      "default": "@s"
+    },
+    {
+      "name": "destination/location",
+      "type": "target 或 x y z",
+      "required": true,
+      "description": "传送目的地（实体或坐标）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/teleport @s 100 64 200",
+      "description": "将自己传送到坐标(100,64,200)"
+    },
+    {
+      "input": "/teleport @a @s",
+      "description": "将所有玩家传送到自己的位置"
+    }
+  ],
+  "java_specific_notes": "teleport与tp完全等效，两者可互换使用。详细语法参见tp.json。",
+  "version_added": "1.0"
+}

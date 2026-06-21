@@ -1,0 +1,237 @@
+[
+  {
+    "id": "minecraft:in_fire",
+    "name": "处于火中",
+    "description": "伤害类型：处于火中"
+  },
+  {
+    "id": "minecraft:lightning_bolt",
+    "name": "闪电",
+    "description": "伤害类型：闪电"
+  },
+  {
+    "id": "minecraft:on_fire",
+    "name": "着火持续",
+    "description": "伤害类型：着火持续"
+  },
+  {
+    "id": "minecraft:lava",
+    "name": "岩浆",
+    "description": "伤害类型：岩浆"
+  },
+  {
+    "id": "minecraft:hot_floor",
+    "name": "岩浆块灼烧",
+    "description": "伤害类型：岩浆块灼烧"
+  },
+  {
+    "id": "minecraft:in_wall",
+    "name": "卡墙窒息",
+    "description": "伤害类型：卡墙窒息"
+  },
+  {
+    "id": "minecraft:cramming",
+    "name": "实体挤压",
+    "description": "伤害类型：实体挤压"
+  },
+  {
+    "id": "minecraft:drown",
+    "name": "溺水",
+    "description": "伤害类型：溺水"
+  },
+  {
+    "id": "minecraft:starve",
+    "name": "饥饿",
+    "description": "伤害类型：饥饿"
+  },
+  {
+    "id": "minecraft:cactus",
+    "name": "仙人掌",
+    "description": "伤害类型：仙人掌"
+  },
+  {
+    "id": "minecraft:fall",
+    "name": "摔落",
+    "description": "伤害类型：摔落"
+  },
+  {
+    "id": "minecraft:fly_into_wall",
+    "name": "鞘翅撞墙",
+    "description": "伤害类型：鞘翅撞墙"
+  },
+  {
+    "id": "minecraft:out_of_world",
+    "name": "虚空",
+    "description": "伤害类型：虚空"
+  },
+  {
+    "id": "minecraft:generic",
+    "name": "通用",
+    "description": "伤害类型：通用"
+  },
+  {
+    "id": "minecraft:magic",
+    "name": "魔法",
+    "description": "伤害类型：魔法"
+  },
+  {
+    "id": "minecraft:wither",
+    "name": "凋零",
+    "description": "伤害类型：凋零"
+  },
+  {
+    "id": "minecraft:dragon_breath",
+    "name": "龙息",
+    "description": "伤害类型：龙息"
+  },
+  {
+    "id": "minecraft:dry_out",
+    "name": "离水干涸",
+    "description": "伤害类型：离水干涸"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "name": "甜浆果丛",
+    "description": "伤害类型：甜浆果丛"
+  },
+  {
+    "id": "minecraft:freeze",
+    "name": "冰冻",
+    "description": "伤害类型：冰冻"
+  },
+  {
+    "id": "minecraft:stalagmite",
+    "name": "石笋",
+    "description": "伤害类型：石笋"
+  },
+  {
+    "id": "minecraft:falling_block",
+    "name": "下落方块",
+    "description": "伤害类型：下落方块"
+  },
+  {
+    "id": "minecraft:falling_anvil",
+    "name": "坠落铁砧",
+    "description": "伤害类型：坠落铁砧"
+  },
+  {
+    "id": "minecraft:falling_stalactite",
+    "name": "坠落钟乳石",
+    "description": "伤害类型：坠落钟乳石"
+  },
+  {
+    "id": "minecraft:sting",
+    "name": "蜜蜂蜇刺",
+    "description": "伤害类型：蜜蜂蜇刺"
+  },
+  {
+    "id": "minecraft:mob_attack",
+    "name": "生物攻击",
+    "description": "伤害类型：生物攻击"
+  },
+  {
+    "id": "minecraft:mob_attack_no_aggro",
+    "name": "生物攻击(不激怒)",
+    "description": "伤害类型：生物攻击(不激怒)"
+  },
+  {
+    "id": "minecraft:player_attack",
+    "name": "玩家攻击",
+    "description": "伤害类型：玩家攻击"
+  },
+  {
+    "id": "minecraft:arrow",
+    "name": "箭",
+    "description": "伤害类型：箭"
+  },
+  {
+    "id": "minecraft:trident",
+    "name": "三叉戟",
+    "description": "伤害类型：三叉戟"
+  },
+  {
+    "id": "minecraft:mob_projectile",
+    "name": "生物弹射物",
+    "description": "伤害类型：生物弹射物"
+  },
+  {
+    "id": "minecraft:spit",
+    "name": "羊驼吐口水",
+    "description": "伤害类型：羊驼吐口水"
+  },
+  {
+    "id": "minecraft:fireball",
+    "name": "火球",
+    "description": "伤害类型：火球"
+  },
+  {
+    "id": "minecraft:unattributed_fireball",
+    "name": "无主火球",
+    "description": "伤害类型：无主火球"
+  },
+  {
+    "id": "minecraft:wither_skull",
+    "name": "凋零之首",
+    "description": "伤害类型：凋零之首"
+  },
+  {
+    "id": "minecraft:thrown",
+    "name": "投掷物",
+    "description": "伤害类型：投掷物"
+  },
+  {
+    "id": "minecraft:indirect_magic",
+    "name": "间接魔法",
+    "description": "伤害类型：间接魔法"
+  },
+  {
+    "id": "minecraft:thorns",
+    "name": "荆棘反伤",
+    "description": "伤害类型：荆棘反伤"
+  },
+  {
+    "id": "minecraft:explosion",
+    "name": "爆炸",
+    "description": "伤害类型：爆炸"
+  },
+  {
+    "id": "minecraft:player_explosion",
+    "name": "玩家引发爆炸",
+    "description": "伤害类型：玩家引发爆炸"
+  },
+  {
+    "id": "minecraft:sonic_boom",
+    "name": "音爆",
+    "description": "伤害类型：音爆"
+  },
+  {
+    "id": "minecraft:bad_respawn_point",
+    "name": "重生点爆炸",
+    "description": "伤害类型：重生点爆炸"
+  },
+  {
+    "id": "minecraft:outside_border",
+    "name": "世界边界外",
+    "description": "伤害类型：世界边界外"
+  },
+  {
+    "id": "minecraft:generic_kill",
+    "name": "强制击杀",
+    "description": "伤害类型：强制击杀"
+  },
+  {
+    "id": "minecraft:wind_charge",
+    "name": "风弹",
+    "description": "伤害类型：风弹"
+  },
+  {
+    "id": "minecraft:mace_smash",
+    "name": "重锤砸击",
+    "description": "伤害类型：重锤砸击"
+  },
+  {
+    "id": "minecraft:campfire",
+    "name": "营火",
+    "description": "伤害类型：营火"
+  }
+]

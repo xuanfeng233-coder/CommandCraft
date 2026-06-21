@@ -1,0 +1,52 @@
+{
+  "name": "place",
+  "syntax": "/place feature|jigsaw|structure|template ...",
+  "description": "放置配置地物、拼图结构或结构模板",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "feature <feature> [<pos>]",
+      "type": "子命令",
+      "required": false,
+      "description": "在指定位置放置配置地物（configured feature）"
+    },
+    {
+      "name": "jigsaw <pool> <target> <maxDepth> [<pos>]",
+      "type": "子命令",
+      "required": false,
+      "description": "从拼图模板池生成结构"
+    },
+    {
+      "name": "structure <structure> [<pos>]",
+      "type": "子命令",
+      "required": false,
+      "description": "放置结构（structure）"
+    },
+    {
+      "name": "template <template> [<pos>] [<rotation>] [<mirror>] [<integrity>] [<seed>]",
+      "type": "子命令",
+      "required": false,
+      "description": "放置结构模板（structure template），支持旋转、镜像和完整度设置"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/place feature minecraft:oak ~ ~ ~",
+      "description": "在当前位置生成一棵橡树"
+    },
+    {
+      "input": "/place structure minecraft:village_plains ~ ~ ~",
+      "description": "在当前位置生成一个平原村庄"
+    },
+    {
+      "input": "/place template minecraft:end_city ~ ~ ~ clockwise_90 front_back 0.8 12345",
+      "description": "放置旋转90度、前后镜像、80%完整度的末地城模板"
+    },
+    {
+      "input": "/place jigsaw minecraft:village/plains/town_centers jigsaw 7 ~ ~ ~",
+      "description": "从平原村庄中心模板池生成拼图结构"
+    }
+  ],
+  "java_specific_notes": "place命令是Java版1.19新增的。它整合了旧版的placefeature命令。template子命令可以放置结构方块保存的结构。rotation可选：none、clockwise_90、counterclockwise_90、180。mirror可选：none、front_back、left_right。integrity控制结构方块随机缺失的概率（0.0-1.0）。",
+  "version_added": "1.19"
+}

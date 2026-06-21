@@ -1,0 +1,42 @@
+{
+  "name": "trigger",
+  "syntax": "/trigger <objective> [add|set <value>]",
+  "description": "允许非OP玩家修改自己的trigger类型计分板分数",
+  "category": "scoreboard",
+  "parameters": [
+    {
+      "name": "objective",
+      "type": "string",
+      "required": true,
+      "description": "trigger类型的计分板目标名称"
+    },
+    {
+      "name": "add <value>",
+      "type": "子命令",
+      "required": false,
+      "description": "增加指定值到自己的分数"
+    },
+    {
+      "name": "set <value>",
+      "type": "子命令",
+      "required": false,
+      "description": "将自己的分数设为指定值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/trigger vote add 1",
+      "description": "给自己的vote分数增加1（投票）"
+    },
+    {
+      "input": "/trigger menu set 3",
+      "description": "将自己的menu分数设为3（选择菜单选项）"
+    },
+    {
+      "input": "/trigger shop",
+      "description": "简单触发shop目标（默认add 1）"
+    }
+  ],
+  "java_specific_notes": "trigger命令是Java版独有的。它允许非OP玩家在聊天中输入命令修改特定计分板分数，常用于实现交互式菜单和投票系统。使用前需要：1)创建trigger类型的计分板目标(scoreboard objectives add xxx trigger)；2)使用scoreboard players enable命令允许玩家使用。每次使用后目标会自动禁用，需要重新enable。配合tellraw的clickEvent实现点击菜单。",
+  "version_added": "1.8"
+}

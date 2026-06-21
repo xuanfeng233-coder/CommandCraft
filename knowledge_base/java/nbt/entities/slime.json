@@ -1,0 +1,19 @@
+{
+  "id": "minecraft:slime",
+  "inherits": "_mob_common",
+  "description": "史莱姆实体NBT标签（也适用于岩浆怪 magma_cube）",
+  "tags": [
+    {
+      "name": "Size",
+      "type": "int",
+      "description": "史莱姆大小（0=最小, 1=小, 3=大），实际尺寸为 Size+1",
+      "default": 0
+    },
+    {
+      "name": "wasOnGround",
+      "type": "byte",
+      "description": "上一刻是否在地面上（用于跳跃逻辑）",
+      "values": [0, 1]
+    }
+  ]
+}

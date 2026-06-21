@@ -1,0 +1,22 @@
+{
+  "name": "deop",
+  "syntax": "/deop <targets>",
+  "description": "移除玩家的操作员权限",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "string",
+      "required": true,
+      "description": "要移除OP权限的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/deop Steve",
+      "description": "移除玩家Steve的操作员权限"
+    }
+  ],
+  "java_specific_notes": "deop会立即移除玩家的所有OP权限。在专用服务器中需要OP等级3以上才能使用。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "input": "给所有玩家发送一条红色加粗的消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"text\":\"重要公告！\",\"color\":\"red\",\"bold\":true}",
+        "explanation": "@a = 所有玩家\nJSON文本组件: text=文本内容, color=颜色, bold=加粗",
+        "variants": ["/tellraw @a [{\"text\":\"[公告] \",\"color\":\"gold\",\"bold\":true},{\"text\":\"服务器将在5分钟后重启\",\"color\":\"yellow\"}]"],
+        "warnings": ["Java版 /tellraw 的JSON文本组件远比基岩版 rawtext 强大", "variants中展示了多组件拼接"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "发送一条可点击的链接消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a {\"text\":\"[点击访问官网]\",\"color\":\"aqua\",\"underlined\":true,\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://example.com\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":{\"text\":\"点击打开网页\",\"color\":\"gray\"}}}",
+        "explanation": "clickEvent.open_url = 点击时打开URL\nhoverEvent.show_text = 鼠标悬停显示提示文字",
+        "variants": [],
+        "warnings": ["clickEvent 支持: open_url, run_command, suggest_command, copy_to_clipboard", "hoverEvent 支持: show_text, show_item, show_entity"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "note": "clickEvent和hoverEvent是Java版JSON文本组件的强大交互功能"
+  },
+  {
+    "input": "发送一条点击执行命令的消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a [{\"text\":\"[传送到大厅]\",\"color\":\"green\",\"bold\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @s 0 64 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":\"点击传送到大厅\"}},{\"text\":\" | \"},{\"text\":\"[传送到竞技场]\",\"color\":\"red\",\"bold\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @s 100 64 100\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":\"点击传送到竞技场\"}}]",
+        "explanation": "多个可点击按钮拼接：\n[传送到大厅] -> 执行tp到0 64 0\n[传送到竞技场] -> 执行tp到100 64 100\nrun_command = 点击直接执行命令",
+        "variants": [],
+        "warnings": ["run_command 会以点击者身份执行命令", "suggest_command 会将命令填入聊天框但不执行"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "发送一条显示物品信息的消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a [{\"text\":\"获得了 \"},{\"text\":\"[钻石剑]\",\"color\":\"aqua\",\"hoverEvent\":{\"action\":\"show_item\",\"contents\":{\"id\":\"minecraft:diamond_sword\",\"count\":1,\"components\":{\"minecraft:enchantments\":{\"levels\":{\"minecraft:sharpness\":5}}}}}}]",
+        "explanation": "hoverEvent.show_item = 鼠标悬停显示物品信息\ncontents包含物品ID、数量和数据组件",
+        "variants": [],
+        "warnings": ["show_item 可以展示完整的物品信息（包括附魔、耐久等）"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "在屏幕中央显示大标题",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/title @a title {\"text\":\"欢迎回来！\",\"color\":\"gold\",\"bold\":true}",
+        "explanation": "title = 在屏幕中央显示大标题\nJSON文本组件支持颜色和样式",
+        "variants": ["/title @a subtitle {\"text\":\"祝你游戏愉快\",\"color\":\"yellow\"}", "/title @a times 10 40 20"],
+        "warnings": ["先用 /title times 设置淡入/停留/淡出时间（单位tick）", "subtitle 要在 title 之前或同时发送才能显示"]
+      }
+    },
+    "commands_used": ["title"]
+  },
+  {
+    "input": "在动作栏显示玩家的分数",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/title @a actionbar [{\"text\":\"击杀数: \",\"color\":\"white\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kills\"},\"color\":\"gold\",\"bold\":true}]",
+        "explanation": "actionbar = 在屏幕底部动作栏显示\nscore组件 = 显示计分板分数\nname=@s表示显示当前玩家自己的分数",
+        "variants": [],
+        "warnings": ["score组件会自动替换为玩家的实际分数", "需要先创建kills计分板目标"]
+      }
+    },
+    "commands_used": ["title", "scoreboard"]
+  },
+  {
+    "input": "显示玩家名字和实时翻译文本",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a [{\"text\":\"玩家 \",\"color\":\"gray\"},{\"selector\":\"@s\",\"color\":\"green\"},{\"text\":\" 完成了挑战！\",\"color\":\"gray\"}]",
+        "explanation": "selector组件 = 显示实体名称（自动替换为玩家名）\n多个组件拼接形成完整消息",
+        "variants": ["/tellraw @a {\"translate\":\"chat.type.text\",\"with\":[{\"selector\":\"@s\"},{\"text\":\"Hello!\"}]}"],
+        "warnings": ["selector组件会被替换为目标实体的实际名字", "variants中translate可以使用Minecraft内置的翻译键"]
+      }
+    },
+    "commands_used": ["tellraw"]
+  },
+  {
+    "input": "发送一条显示NBT数据的消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a [{\"text\":\"你的生命值: \",\"color\":\"red\"},{\"nbt\":\"Health\",\"entity\":\"@s\",\"color\":\"gold\"}]",
+        "explanation": "nbt组件 = 显示实体/方块/存储的NBT值\nentity=@s表示读取执行者的NBT\nHealth = 生命值路径",
+        "variants": [
+          "/tellraw @a {\"nbt\":\"Items[0]\",\"block\":\"0 64 0\",\"interpret\":true}",
+          "/tellraw @a {\"nbt\":\"message\",\"storage\":\"minecraft:my_data\"}"
+        ],
+        "warnings": ["nbt组件可从entity/block/storage三种来源读取", "interpret:true 会将读取的NBT作为JSON文本组件解析", "variants中展示了从方块和存储空间读取NBT"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "note": "nbt文本组件是Java版独有功能，可在消息中动态显示NBT数据"
+  },
+  {
+    "input": "发送一条包含按键提示的消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/tellraw @a [{\"text\":\"按 \"},{\"keybind\":\"key.sneak\",\"color\":\"yellow\",\"bold\":true},{\"text\":\" 蹲下，按 \"},{\"keybind\":\"key.jump\",\"color\":\"yellow\",\"bold\":true},{\"text\":\" 跳跃\"}]",
+        "explanation": "keybind组件 = 显示玩家实际绑定的按键名\nkey.sneak = 潜行键（默认Shift）\nkey.jump = 跳跃键（默认Space）",
+        "variants": [],
+        "warnings": ["keybind会自动显示玩家实际绑定的按键，不是固定文字", "常用keybind: key.sneak, key.jump, key.sprint, key.inventory, key.drop"]
+      }
+    },
+    "commands_used": ["tellraw"],
+    "note": "keybind文本组件会自动适配玩家的按键设置"
+  },
+  {
+    "input": "给物品设置自定义描述(lore)",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/give @s minecraft:diamond_sword[minecraft:lore=['{\"text\":\"传说中的神器\",\"color\":\"light_purple\",\"italic\":false}','{\"text\":\"攻击力+999\",\"color\":\"red\",\"italic\":false}','{\"text\":\"\"}','{\"text\":\"稀有度: 传说\",\"color\":\"gold\",\"italic\":false}']]",
+        "explanation": "minecraft:lore = 数据组件，设置物品描述\n每个字符串是一行lore，支持JSON文本格式\nitalic:false 取消默认斜体",
+        "variants": ["/give @s minecraft:diamond_sword{display:{Lore:['{\"text\":\"传说中的神器\",\"color\":\"light_purple\",\"italic\":false}','{\"text\":\"攻击力+999\",\"color\":\"red\",\"italic\":false}']}} 1"],
+        "warnings": ["物品lore默认是斜体紫色，需要显式设置 italic:false 取消", "数据组件语法适用于1.20.5+"]
+      }
+    },
+    "commands_used": ["give"]
+  }
+]

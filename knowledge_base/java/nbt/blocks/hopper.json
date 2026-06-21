@@ -1,0 +1,42 @@
+{
+  "id": "minecraft:hopper",
+  "inherits": "_common",
+  "description": "漏斗方块实体NBT标签",
+  "tags": [
+    {
+      "name": "Items",
+      "type": "list<compound>",
+      "description": "漏斗中的物品（5个槽位）",
+      "children": [
+        {
+          "name": "Slot",
+          "type": "byte",
+          "description": "槽位编号",
+          "range": "0..4"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "TransferCooldown",
+      "type": "int",
+      "description": "传输冷却刻数（每次传输后设为8刻）",
+      "default": 0
+    }
+  ]
+}

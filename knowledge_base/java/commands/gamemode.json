@@ -1,0 +1,42 @@
+{
+  "name": "gamemode",
+  "syntax": "/gamemode <gamemode> [<target>]",
+  "description": "设置玩家的游戏模式",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "gamemode",
+      "type": "GameMode",
+      "required": true,
+      "description": "游戏模式：survival（生存）、creative（创造）、adventure（冒险）、spectator（旁观）"
+    },
+    {
+      "name": "target",
+      "type": "target",
+      "required": false,
+      "description": "目标玩家",
+      "default": "@s"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gamemode creative",
+      "description": "将自己切换为创造模式"
+    },
+    {
+      "input": "/gamemode survival @a",
+      "description": "将所有玩家切换为生存模式"
+    },
+    {
+      "input": "/gamemode spectator @s",
+      "description": "将自己切换为旁观模式"
+    },
+    {
+      "input": "/gamemode adventure @a[tag=player]",
+      "description": "将带有player标签的玩家切换为冒险模式"
+    }
+  ],
+  "java_specific_notes": "Java版不支持数字ID指定游戏模式（不能用0/1/2/3），必须使用全称。Java版有旁观模式（spectator），旁观者可以穿透方块、观察其他实体的视角。可简写为 /gamemode sp 等。",
+  "version_notes": "1.13之前：Java版曾可用数字ID指定游戏模式（如 /gamemode 0）。1.13及以后：必须使用游戏模式名称（survival/creative/adventure/spectator）或其简写（s/c/a/sp），不再接受数字ID。",
+  "version_added": "1.0"
+}

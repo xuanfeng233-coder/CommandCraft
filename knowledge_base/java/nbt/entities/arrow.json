@@ -1,0 +1,87 @@
+{
+  "id": "minecraft:arrow",
+  "inherits": "_common",
+  "description": "箭实体NBT标签（包括普通箭和药水箭）",
+  "tags": [
+    {
+      "name": "pickup",
+      "type": "byte",
+      "description": "捡起规则：0=不可, 1=可以, 2=仅创造模式",
+      "values": [0, 1, 2],
+      "default": 0
+    },
+    {
+      "name": "damage",
+      "type": "double",
+      "description": "箭的基础伤害值",
+      "default": 2.0
+    },
+    {
+      "name": "life",
+      "type": "short",
+      "description": "箭插在方块上的刻数，达到1200（60秒）后消失",
+      "default": 0
+    },
+    {
+      "name": "PierceLevel",
+      "type": "byte",
+      "description": "穿透等级（穿透附魔提供）",
+      "default": 0
+    },
+    {
+      "name": "ShotFromCrossbow",
+      "type": "byte",
+      "description": "是否从弩射出",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "crit",
+      "type": "byte",
+      "description": "是否为暴击箭（满蓄力射出时）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Color",
+      "type": "int",
+      "description": "药水箭的颜色（RGB十进制值），-1为无颜色",
+      "default": -1
+    },
+    {
+      "name": "Potion",
+      "type": "string",
+      "description": "药水箭的药水类型ID"
+    },
+    {
+      "name": "custom_potion_effects",
+      "type": "list<compound>",
+      "description": "自定义药水效果",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "效果ID",
+          "id_category": "effects"
+        },
+        {
+          "name": "amplifier",
+          "type": "byte",
+          "description": "效果等级"
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "description": "效果持续刻数"
+        }
+      ]
+    },
+    {
+      "name": "inGround",
+      "type": "byte",
+      "description": "箭是否已插在方块上",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

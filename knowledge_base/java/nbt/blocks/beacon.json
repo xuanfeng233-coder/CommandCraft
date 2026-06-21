@@ -1,0 +1,41 @@
+{
+  "id": "minecraft:beacon",
+  "inherits": "_common",
+  "description": "信标方块实体NBT标签",
+  "tags": [
+    {
+      "name": "primary_effect",
+      "type": "string",
+      "description": "主效果ID",
+      "values": [
+        "minecraft:speed",
+        "minecraft:haste",
+        "minecraft:resistance",
+        "minecraft:jump_boost",
+        "minecraft:strength"
+      ],
+      "id_category": "effects"
+    },
+    {
+      "name": "secondary_effect",
+      "type": "string",
+      "description": "副效果ID（需要4层金字塔，可选再生或主效果的二级）",
+      "values": [
+        "minecraft:regeneration",
+        "minecraft:speed",
+        "minecraft:haste",
+        "minecraft:resistance",
+        "minecraft:jump_boost",
+        "minecraft:strength"
+      ],
+      "id_category": "effects"
+    },
+    {
+      "name": "Levels",
+      "type": "int",
+      "description": "信标金字塔的层数（0-4），决定效果范围和可用效果",
+      "range": "0..4",
+      "default": 0
+    }
+  ]
+}

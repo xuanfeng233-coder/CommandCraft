@@ -1,0 +1,60 @@
+{
+  "name": "spreadplayers",
+  "syntax": "/spreadplayers <center> <spreadDistance> <maxRange> [under <maxHeight>] <respectTeams> <targets>",
+  "description": "将实体随机分散传送到指定区域内",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "center",
+      "type": "x z",
+      "required": true,
+      "description": "分散区域的中心坐标（仅x和z）"
+    },
+    {
+      "name": "spreadDistance",
+      "type": "float",
+      "required": true,
+      "description": "每个实体之间的最小距离"
+    },
+    {
+      "name": "maxRange",
+      "type": "float",
+      "required": true,
+      "description": "分散区域的最大半径"
+    },
+    {
+      "name": "under <maxHeight>",
+      "type": "int",
+      "required": false,
+      "description": "最大高度限制，实体不会被传送到该高度以上"
+    },
+    {
+      "name": "respectTeams",
+      "type": "boolean",
+      "required": true,
+      "description": "是否保持同一队伍的成员在一起（true=同队聚集，false=完全随机）"
+    },
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "要分散的目标实体"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spreadplayers 0 0 5 50 false @a",
+      "description": "将所有玩家在(0,0)为中心50格半径内随机分散，最小间距5格"
+    },
+    {
+      "input": "/spreadplayers 0 0 10 100 true @a",
+      "description": "按队伍分散所有玩家，同队成员在一起"
+    },
+    {
+      "input": "/spreadplayers ~ ~ 3 20 under 100 false @a",
+      "description": "在当前位置附近分散玩家，不超过Y=100"
+    }
+  ],
+  "java_specific_notes": "Java版spreadplayers支持under参数限制最大高度。respectTeams参数与team命令配合使用。如果无法在指定区域内找到足够安全位置，命令会失败。",
+  "version_added": "1.6"
+}

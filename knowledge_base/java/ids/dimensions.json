@@ -1,0 +1,17 @@
+[
+  {
+    "id": "minecraft:overworld",
+    "name": "主世界",
+    "description": "常规世界维度；数据包自定义维度同样有效"
+  },
+  {
+    "id": "minecraft:the_nether",
+    "name": "下界",
+    "description": "地狱维度；数据包自定义维度同样有效"
+  },
+  {
+    "id": "minecraft:the_end",
+    "name": "末地",
+    "description": "末影龙所在维度；数据包自定义维度同样有效"
+  }
+]

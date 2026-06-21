@@ -1,0 +1,22 @@
+{
+  "name": "op",
+  "syntax": "/op <targets>",
+  "description": "授予玩家操作员权限",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "string",
+      "required": true,
+      "description": "要授予OP权限的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/op Steve",
+      "description": "给予玩家Steve操作员权限"
+    }
+  ],
+  "java_specific_notes": "Java版OP有4个等级（在server.properties中配置op-permission-level）。等级1可以绕过出生点保护，等级2可以使用大多数命令，等级3可以管理玩家（kick/ban/op等），等级4可以使用所有命令包括/stop。OP列表保存在ops.json文件中。",
+  "version_added": "1.0"
+}

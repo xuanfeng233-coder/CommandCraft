@@ -1,0 +1,52 @@
+{
+  "name": "forceload",
+  "syntax": "/forceload add|remove|query <pos> [<pos>]",
+  "description": "管理强制加载的区块",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "add <from> [<to>]",
+      "type": "子命令",
+      "required": false,
+      "description": "强制加载指定坐标所在的区块（或区域内的所有区块）"
+    },
+    {
+      "name": "remove <from> [<to>]",
+      "type": "子命令",
+      "required": false,
+      "description": "取消强制加载指定区块"
+    },
+    {
+      "name": "remove all",
+      "type": "子命令",
+      "required": false,
+      "description": "取消所有强制加载的区块"
+    },
+    {
+      "name": "query [<pos>]",
+      "type": "子命令",
+      "required": false,
+      "description": "查询指定位置是否被强制加载，或列出所有强制加载的区块"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/forceload add 0 0",
+      "description": "强制加载坐标(0,0)所在的区块"
+    },
+    {
+      "input": "/forceload add 0 0 100 100",
+      "description": "强制加载(0,0)到(100,100)范围内的所有区块"
+    },
+    {
+      "input": "/forceload remove 0 0",
+      "description": "取消强制加载坐标(0,0)所在的区块"
+    },
+    {
+      "input": "/forceload query",
+      "description": "列出当前维度所有强制加载的区块"
+    }
+  ],
+  "java_specific_notes": "forceload命令是Java版独有的（基岩版使用tickingarea命令实现类似功能）。强制加载的区块即使没有玩家在附近也会保持加载状态，游戏刻继续运行。常用于确保命令方块机器、红石装置、作物农场等持续运行。坐标参数只需要x和z。",
+  "version_added": "1.13.1"
+}

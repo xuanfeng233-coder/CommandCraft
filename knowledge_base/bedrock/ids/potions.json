@@ -1,0 +1,288 @@
+[
+  {
+    "id": "water",
+    "name": "水瓶",
+    "data_value": 0,
+    "description": "药水数据值 0：水瓶（/give potion|splash_potion|lingering_potion <数量> 0）"
+  },
+  {
+    "id": "mundane",
+    "name": "平凡药水",
+    "data_value": 1,
+    "description": "药水数据值 1：平凡药水（/give potion|splash_potion|lingering_potion <数量> 1）"
+  },
+  {
+    "id": "long_mundane",
+    "name": "平凡药水(延长)",
+    "data_value": 2,
+    "description": "药水数据值 2：平凡药水(延长)（/give potion|splash_potion|lingering_potion <数量> 2）"
+  },
+  {
+    "id": "thick",
+    "name": "浓稠药水",
+    "data_value": 3,
+    "description": "药水数据值 3：浓稠药水（/give potion|splash_potion|lingering_potion <数量> 3）"
+  },
+  {
+    "id": "awkward",
+    "name": "粗制药水",
+    "data_value": 4,
+    "description": "药水数据值 4：粗制药水（/give potion|splash_potion|lingering_potion <数量> 4）"
+  },
+  {
+    "id": "night_vision",
+    "name": "夜视",
+    "data_value": 5,
+    "description": "药水数据值 5：夜视（/give potion|splash_potion|lingering_potion <数量> 5）"
+  },
+  {
+    "id": "long_night_vision",
+    "name": "夜视(延长)",
+    "data_value": 6,
+    "description": "药水数据值 6：夜视(延长)（/give potion|splash_potion|lingering_potion <数量> 6）"
+  },
+  {
+    "id": "invisibility",
+    "name": "隐身",
+    "data_value": 7,
+    "description": "药水数据值 7：隐身（/give potion|splash_potion|lingering_potion <数量> 7）"
+  },
+  {
+    "id": "long_invisibility",
+    "name": "隐身(延长)",
+    "data_value": 8,
+    "description": "药水数据值 8：隐身(延长)（/give potion|splash_potion|lingering_potion <数量> 8）"
+  },
+  {
+    "id": "leaping",
+    "name": "跳跃提升",
+    "data_value": 9,
+    "description": "药水数据值 9：跳跃提升（/give potion|splash_potion|lingering_potion <数量> 9）"
+  },
+  {
+    "id": "long_leaping",
+    "name": "跳跃提升(延长)",
+    "data_value": 10,
+    "description": "药水数据值 10：跳跃提升(延长)（/give potion|splash_potion|lingering_potion <数量> 10）"
+  },
+  {
+    "id": "strong_leaping",
+    "name": "跳跃提升 II",
+    "data_value": 11,
+    "description": "药水数据值 11：跳跃提升 II（/give potion|splash_potion|lingering_potion <数量> 11）"
+  },
+  {
+    "id": "fire_resistance",
+    "name": "抗火",
+    "data_value": 12,
+    "description": "药水数据值 12：抗火（/give potion|splash_potion|lingering_potion <数量> 12）"
+  },
+  {
+    "id": "long_fire_resistance",
+    "name": "抗火(延长)",
+    "data_value": 13,
+    "description": "药水数据值 13：抗火(延长)（/give potion|splash_potion|lingering_potion <数量> 13）"
+  },
+  {
+    "id": "swiftness",
+    "name": "迅捷",
+    "data_value": 14,
+    "description": "药水数据值 14：迅捷（/give potion|splash_potion|lingering_potion <数量> 14）"
+  },
+  {
+    "id": "long_swiftness",
+    "name": "迅捷(延长)",
+    "data_value": 15,
+    "description": "药水数据值 15：迅捷(延长)（/give potion|splash_potion|lingering_potion <数量> 15）"
+  },
+  {
+    "id": "strong_swiftness",
+    "name": "迅捷 II",
+    "data_value": 16,
+    "description": "药水数据值 16：迅捷 II（/give potion|splash_potion|lingering_potion <数量> 16）"
+  },
+  {
+    "id": "slowness",
+    "name": "缓慢",
+    "data_value": 17,
+    "description": "药水数据值 17：缓慢（/give potion|splash_potion|lingering_potion <数量> 17）"
+  },
+  {
+    "id": "long_slowness",
+    "name": "缓慢(延长)",
+    "data_value": 18,
+    "description": "药水数据值 18：缓慢(延长)（/give potion|splash_potion|lingering_potion <数量> 18）"
+  },
+  {
+    "id": "water_breathing",
+    "name": "水下呼吸",
+    "data_value": 19,
+    "description": "药水数据值 19：水下呼吸（/give potion|splash_potion|lingering_potion <数量> 19）"
+  },
+  {
+    "id": "long_water_breathing",
+    "name": "水下呼吸(延长)",
+    "data_value": 20,
+    "description": "药水数据值 20：水下呼吸(延长)（/give potion|splash_potion|lingering_potion <数量> 20）"
+  },
+  {
+    "id": "healing",
+    "name": "治疗",
+    "data_value": 21,
+    "description": "药水数据值 21：治疗（/give potion|splash_potion|lingering_potion <数量> 21）"
+  },
+  {
+    "id": "strong_healing",
+    "name": "治疗 II",
+    "data_value": 22,
+    "description": "药水数据值 22：治疗 II（/give potion|splash_potion|lingering_potion <数量> 22）"
+  },
+  {
+    "id": "harming",
+    "name": "伤害",
+    "data_value": 23,
+    "description": "药水数据值 23：伤害（/give potion|splash_potion|lingering_potion <数量> 23）"
+  },
+  {
+    "id": "strong_harming",
+    "name": "伤害 II",
+    "data_value": 24,
+    "description": "药水数据值 24：伤害 II（/give potion|splash_potion|lingering_potion <数量> 24）"
+  },
+  {
+    "id": "poison",
+    "name": "中毒",
+    "data_value": 25,
+    "description": "药水数据值 25：中毒（/give potion|splash_potion|lingering_potion <数量> 25）"
+  },
+  {
+    "id": "long_poison",
+    "name": "中毒(延长)",
+    "data_value": 26,
+    "description": "药水数据值 26：中毒(延长)（/give potion|splash_potion|lingering_potion <数量> 26）"
+  },
+  {
+    "id": "strong_poison",
+    "name": "中毒 II",
+    "data_value": 27,
+    "description": "药水数据值 27：中毒 II（/give potion|splash_potion|lingering_potion <数量> 27）"
+  },
+  {
+    "id": "regeneration",
+    "name": "生命恢复",
+    "data_value": 28,
+    "description": "药水数据值 28：生命恢复（/give potion|splash_potion|lingering_potion <数量> 28）"
+  },
+  {
+    "id": "long_regeneration",
+    "name": "生命恢复(延长)",
+    "data_value": 29,
+    "description": "药水数据值 29：生命恢复(延长)（/give potion|splash_potion|lingering_potion <数量> 29）"
+  },
+  {
+    "id": "strong_regeneration",
+    "name": "生命恢复 II",
+    "data_value": 30,
+    "description": "药水数据值 30：生命恢复 II（/give potion|splash_potion|lingering_potion <数量> 30）"
+  },
+  {
+    "id": "strength",
+    "name": "力量",
+    "data_value": 31,
+    "description": "药水数据值 31：力量（/give potion|splash_potion|lingering_potion <数量> 31）"
+  },
+  {
+    "id": "long_strength",
+    "name": "力量(延长)",
+    "data_value": 32,
+    "description": "药水数据值 32：力量(延长)（/give potion|splash_potion|lingering_potion <数量> 32）"
+  },
+  {
+    "id": "strong_strength",
+    "name": "力量 II",
+    "data_value": 33,
+    "description": "药水数据值 33：力量 II（/give potion|splash_potion|lingering_potion <数量> 33）"
+  },
+  {
+    "id": "weakness",
+    "name": "虚弱",
+    "data_value": 34,
+    "description": "药水数据值 34：虚弱（/give potion|splash_potion|lingering_potion <数量> 34）"
+  },
+  {
+    "id": "long_weakness",
+    "name": "虚弱(延长)",
+    "data_value": 35,
+    "description": "药水数据值 35：虚弱(延长)（/give potion|splash_potion|lingering_potion <数量> 35）"
+  },
+  {
+    "id": "decay",
+    "name": "衰变(凋零)",
+    "data_value": 36,
+    "description": "药水数据值 36：衰变(凋零)（/give potion|splash_potion|lingering_potion <数量> 36）"
+  },
+  {
+    "id": "turtle_master",
+    "name": "神龟",
+    "data_value": 37,
+    "description": "药水数据值 37：神龟（/give potion|splash_potion|lingering_potion <数量> 37）"
+  },
+  {
+    "id": "long_turtle_master",
+    "name": "神龟(延长)",
+    "data_value": 38,
+    "description": "药水数据值 38：神龟(延长)（/give potion|splash_potion|lingering_potion <数量> 38）"
+  },
+  {
+    "id": "strong_turtle_master",
+    "name": "神龟 II",
+    "data_value": 39,
+    "description": "药水数据值 39：神龟 II（/give potion|splash_potion|lingering_potion <数量> 39）"
+  },
+  {
+    "id": "slow_falling",
+    "name": "缓降",
+    "data_value": 40,
+    "description": "药水数据值 40：缓降（/give potion|splash_potion|lingering_potion <数量> 40）"
+  },
+  {
+    "id": "long_slow_falling",
+    "name": "缓降(延长)",
+    "data_value": 41,
+    "description": "药水数据值 41：缓降(延长)（/give potion|splash_potion|lingering_potion <数量> 41）"
+  },
+  {
+    "id": "strong_slowness",
+    "name": "缓慢 IV",
+    "data_value": 42,
+    "description": "药水数据值 42：缓慢 IV（/give potion|splash_potion|lingering_potion <数量> 42）"
+  },
+  {
+    "id": "wind_charged",
+    "name": "蓄风",
+    "data_value": 43,
+    "description": "药水数据值 43：蓄风（/give potion|splash_potion|lingering_potion <数量> 43）",
+    "since": "1.21.0"
+  },
+  {
+    "id": "weaving",
+    "name": "盘丝",
+    "data_value": 44,
+    "description": "药水数据值 44：盘丝（/give potion|splash_potion|lingering_potion <数量> 44）",
+    "since": "1.21.0"
+  },
+  {
+    "id": "oozing",
+    "name": "渗浆",
+    "data_value": 45,
+    "description": "药水数据值 45：渗浆（/give potion|splash_potion|lingering_potion <数量> 45）",
+    "since": "1.21.0"
+  },
+  {
+    "id": "infested",
+    "name": "虫蚀",
+    "data_value": 46,
+    "description": "药水数据值 46：虫蚀（/give potion|splash_potion|lingering_potion <数量> 46）",
+    "since": "1.21.0"
+  }
+]

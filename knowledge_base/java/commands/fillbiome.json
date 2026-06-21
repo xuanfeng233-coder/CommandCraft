@@ -1,0 +1,48 @@
+{
+  "name": "fillbiome",
+  "syntax": "/fillbiome <from> <to> <biome> [replace <filter>]",
+  "description": "用指定生物群系填充指定区域",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的起始角坐标"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的对角坐标"
+    },
+    {
+      "name": "biome",
+      "type": "biome_id",
+      "required": true,
+      "description": "目标生物群系ID（如 minecraft:plains、minecraft:desert 等）"
+    },
+    {
+      "name": "replace <filter>",
+      "type": "biome_predicate",
+      "required": false,
+      "description": "仅替换匹配filter的生物群系，支持生物群系标签（#minecraft:tag）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/fillbiome ~-50 ~-64 ~-50 ~50 ~64 ~50 minecraft:mushroom_fields",
+      "description": "将周围大区域改为蘑菇岛生物群系"
+    },
+    {
+      "input": "/fillbiome ~-20 ~-64 ~-20 ~20 ~320 ~20 minecraft:plains replace minecraft:desert",
+      "description": "将周围的沙漠生物群系替换为平原"
+    },
+    {
+      "input": "/fillbiome ~ ~ ~ ~10 ~10 ~10 minecraft:cherry_grove",
+      "description": "在附近区域创建樱花树林生物群系"
+    }
+  ],
+  "java_specific_notes": "fillbiome是Java版1.19.4新增的命令，基岩版没有对应命令。生物群系以4x4x4的分辨率存储，因此实际填充区域会对齐到4格边界。更改生物群系后需要重新加载区块才能看到效果（如草地颜色变化）。单次最多填充32768个生物群系段。",
+  "version_added": "1.19.4"
+}

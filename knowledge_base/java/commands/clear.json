@@ -1,0 +1,48 @@
+{
+  "name": "clear",
+  "syntax": "/clear [<targets>] [<item>] [<maxCount>]",
+  "description": "清除玩家物品栏中的指定物品",
+  "category": "item_management",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "要清除物品的玩家，默认为命令执行者",
+      "default": "@s"
+    },
+    {
+      "name": "item",
+      "type": "item_predicate",
+      "required": false,
+      "description": "要清除的物品。可使用数据组件匹配，如 minecraft:diamond_sword[minecraft:enchantments~{levels:{\"minecraft:sharpness\":5}}]。省略则清除所有物品"
+    },
+    {
+      "name": "maxCount",
+      "type": "int",
+      "required": false,
+      "description": "最多清除的物品数量。设为0可检测物品是否存在而不实际清除",
+      "default": "全部"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/clear @s",
+      "description": "清除自己的所有物品"
+    },
+    {
+      "input": "/clear @a minecraft:dirt",
+      "description": "清除所有玩家的泥土"
+    },
+    {
+      "input": "/clear @s minecraft:diamond 0",
+      "description": "检测自己是否拥有钻石（不实际清除）"
+    },
+    {
+      "input": "/clear @s minecraft:diamond 10",
+      "description": "从自己背包中清除最多10个钻石"
+    }
+  ],
+  "java_specific_notes": "Java版的clear命令支持数据组件匹配来精确指定要清除的物品。maxCount=0时不清除物品，仅检测是否存在（可配合execute store使用）。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,234 @@
+[
+  {
+    "id": "speed",
+    "name": "速度",
+    "numeric_id": 1,
+    "description": "增加移动速度"
+  },
+  {
+    "id": "slowness",
+    "name": "缓慢",
+    "numeric_id": 2,
+    "description": "降低移动速度"
+  },
+  {
+    "id": "haste",
+    "name": "急迫",
+    "numeric_id": 3,
+    "description": "加快挖掘速度"
+  },
+  {
+    "id": "mining_fatigue",
+    "name": "挖掘疲劳",
+    "numeric_id": 4,
+    "description": "减慢挖掘速度"
+  },
+  {
+    "id": "strength",
+    "name": "力量",
+    "numeric_id": 5,
+    "description": "增加近战伤害"
+  },
+  {
+    "id": "instant_health",
+    "name": "瞬间治疗",
+    "numeric_id": 6,
+    "description": "立即恢复生命值"
+  },
+  {
+    "id": "instant_damage",
+    "name": "瞬间伤害",
+    "numeric_id": 7,
+    "description": "立即造成伤害"
+  },
+  {
+    "id": "jump_boost",
+    "name": "跳跃提升",
+    "numeric_id": 8,
+    "description": "增加跳跃高度"
+  },
+  {
+    "id": "nausea",
+    "name": "反胃",
+    "numeric_id": 9,
+    "description": "扭曲视野"
+  },
+  {
+    "id": "regeneration",
+    "name": "生命恢复",
+    "numeric_id": 10,
+    "description": "随时间恢复生命值"
+  },
+  {
+    "id": "resistance",
+    "name": "抗性提升",
+    "numeric_id": 11,
+    "description": "减少受到的伤害"
+  },
+  {
+    "id": "fire_resistance",
+    "name": "防火",
+    "numeric_id": 12,
+    "description": "免疫火焰伤害"
+  },
+  {
+    "id": "water_breathing",
+    "name": "水下呼吸",
+    "numeric_id": 13,
+    "description": "水下不消耗氧气"
+  },
+  {
+    "id": "invisibility",
+    "name": "隐身",
+    "numeric_id": 14,
+    "description": "使实体隐形"
+  },
+  {
+    "id": "blindness",
+    "name": "失明",
+    "numeric_id": 15,
+    "description": "限制视野范围"
+  },
+  {
+    "id": "night_vision",
+    "name": "夜视",
+    "numeric_id": 16,
+    "description": "在黑暗中看清"
+  },
+  {
+    "id": "hunger",
+    "name": "饥饿",
+    "numeric_id": 17,
+    "description": "加快饥饿消耗"
+  },
+  {
+    "id": "weakness",
+    "name": "虚弱",
+    "numeric_id": 18,
+    "description": "降低近战伤害"
+  },
+  {
+    "id": "poison",
+    "name": "中毒",
+    "numeric_id": 19,
+    "description": "随时间造成伤害（不致死）"
+  },
+  {
+    "id": "wither",
+    "name": "凋零",
+    "numeric_id": 20,
+    "description": "随时间造成伤害（可致死）"
+  },
+  {
+    "id": "health_boost",
+    "name": "生命提升",
+    "numeric_id": 21,
+    "description": "增加最大生命值"
+  },
+  {
+    "id": "absorption",
+    "name": "伤害吸收",
+    "numeric_id": 22,
+    "description": "添加额外吸收心"
+  },
+  {
+    "id": "saturation",
+    "name": "饱和",
+    "numeric_id": 23,
+    "description": "恢复饥饿值和饱和度"
+  },
+  {
+    "id": "levitation",
+    "name": "飘浮",
+    "numeric_id": 24,
+    "description": "使实体上浮"
+  },
+  {
+    "id": "fatal_poison",
+    "name": "致命中毒",
+    "numeric_id": 25,
+    "description": "随时间造成伤害（可致死）"
+  },
+  {
+    "id": "slow_falling",
+    "name": "缓降",
+    "numeric_id": 26,
+    "description": "降低下落速度，免疫摔伤"
+  },
+  {
+    "id": "conduit_power",
+    "name": "潮涌能量",
+    "numeric_id": 27,
+    "description": "水下视野和挖掘速度提升"
+  },
+  {
+    "id": "bad_omen",
+    "name": "不祥之兆",
+    "numeric_id": 28,
+    "description": "进入有床的村庄附近时转变为袭击之兆（1.21 起不再直接触发袭击）"
+  },
+  {
+    "id": "hero_of_the_village",
+    "name": "村庄英雄",
+    "numeric_id": 29,
+    "description": "村民交易折扣",
+    "aliases": [
+      "village_hero"
+    ]
+  },
+  {
+    "id": "darkness",
+    "name": "黑暗",
+    "numeric_id": 30,
+    "description": "限制视野，周期性降低亮度"
+  },
+  {
+    "id": "trial_omen",
+    "name": "试炼之兆",
+    "numeric_id": 31,
+    "description": "激活试炼刷怪笼的不祥变体",
+    "since": "1.21.0"
+  },
+  {
+    "id": "raid_omen",
+    "name": "袭击之兆",
+    "numeric_id": 32,
+    "description": "倒计时结束后在所处村庄触发袭击（由不祥之兆转化而来）",
+    "since": "1.21.0"
+  },
+  {
+    "id": "wind_charged",
+    "name": "风能充能",
+    "numeric_id": 33,
+    "description": "死亡时释放风弹",
+    "since": "1.21.0"
+  },
+  {
+    "id": "weaving",
+    "name": "缠绕",
+    "numeric_id": 34,
+    "description": "死亡时生成蛛网",
+    "since": "1.21.0"
+  },
+  {
+    "id": "oozing",
+    "name": "渗浆",
+    "numeric_id": 35,
+    "description": "死亡时生成史莱姆",
+    "since": "1.21.0"
+  },
+  {
+    "id": "infested",
+    "name": "虫噬",
+    "numeric_id": 36,
+    "description": "受伤时生成蠹虫",
+    "since": "1.21.0"
+  },
+  {
+    "id": "breath_of_the_nautilus",
+    "name": "鹦鹉螺之息",
+    "numeric_id": 37,
+    "description": "潮涌核心水下效果增强",
+    "since": "1.21.110"
+  }
+]

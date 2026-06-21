@@ -1,0 +1,39 @@
+{
+  "id": "minecraft:white_banner",
+  "inherits": "_common",
+  "description": "旗帜物品NBT标签（适用于所有颜色旗帜）",
+  "tags": [
+    {
+      "name": "BlockEntityTag",
+      "type": "compound",
+      "description": "旗帜方块实体数据",
+      "children": [
+        {
+          "name": "Patterns",
+          "type": "list<compound>",
+          "description": "旗帜图案列表（最多6层+底色）",
+          "children": [
+            {
+              "name": "Pattern",
+              "type": "string",
+              "description": "图案类型代码",
+              "values": [
+                "b", "bs", "ts", "ls", "rs", "cs", "ms", "drs", "dls",
+                "ss", "cr", "sc", "ld", "rud", "lud", "rd", "vh", "vhr",
+                "hh", "hhb", "bl", "br", "tl", "tr", "bt", "tt",
+                "bts", "tts", "mc", "mr", "bo", "cbo", "bri",
+                "gra", "gru", "cre", "sku", "flo", "moj", "glb", "pig"
+              ]
+            },
+            {
+              "name": "Color",
+              "type": "int",
+              "description": "图案颜色（染料颜色ID）：0=白, 1=橙, 2=品红, 3=淡蓝, 4=黄, 5=黄绿, 6=粉, 7=灰, 8=淡灰, 9=青, 10=紫, 11=蓝, 12=棕, 13=绿, 14=红, 15=黑",
+              "range": "0..15"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

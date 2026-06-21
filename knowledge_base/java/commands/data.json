@@ -1,0 +1,120 @@
+{
+  "name": "data",
+  "syntax": "/data get|merge|modify|remove <target> [<path>] [<scale>]",
+  "description": "读取或修改方块实体、实体或命令存储的NBT数据",
+  "category": "data_management",
+  "parameters": [
+    {
+      "name": "get block <pos> [<path>] [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取方块实体在指定NBT路径的数据。scale可缩放数值类型的返回值"
+    },
+    {
+      "name": "get entity <target> [<path>] [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取实体在指定NBT路径的数据。target必须为单个实体"
+    },
+    {
+      "name": "get storage <target> [<path>] [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取命令存储在指定NBT路径的数据"
+    },
+    {
+      "name": "merge block <pos> <nbt>",
+      "type": "子命令",
+      "required": false,
+      "description": "将NBT数据合并到方块实体。已有标签会被覆盖，新标签会被添加"
+    },
+    {
+      "name": "merge entity <target> <nbt>",
+      "type": "子命令",
+      "required": false,
+      "description": "将NBT数据合并到实体。注意：玩家的部分数据不可修改"
+    },
+    {
+      "name": "merge storage <target> <nbt>",
+      "type": "子命令",
+      "required": false,
+      "description": "将NBT数据合并到命令存储"
+    },
+    {
+      "name": "modify block <pos> <path> set|merge|append|prepend|insert <source>",
+      "type": "子命令",
+      "required": false,
+      "description": "修改方块实体指定路径的数据。来源可以是 from block/entity/storage 或 value <nbt>"
+    },
+    {
+      "name": "modify entity <target> <path> set|merge|append|prepend|insert <source>",
+      "type": "子命令",
+      "required": false,
+      "description": "修改实体指定路径的数据"
+    },
+    {
+      "name": "modify storage <target> <path> set|merge|append|prepend|insert <source>",
+      "type": "子命令",
+      "required": false,
+      "description": "修改命令存储指定路径的数据"
+    },
+    {
+      "name": "remove block <pos> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "移除方块实体指定路径的NBT数据"
+    },
+    {
+      "name": "remove entity <target> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "移除实体指定路径的NBT数据"
+    },
+    {
+      "name": "remove storage <target> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "移除命令存储指定路径的NBT数据"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/data get entity @s Pos",
+      "description": "获取自己的位置坐标NBT数据"
+    },
+    {
+      "input": "/data get entity @s Health 1",
+      "description": "获取自己的生命值（scale=1）"
+    },
+    {
+      "input": "/data merge entity @e[type=minecraft:armor_stand,limit=1,sort=nearest] {Invisible:1b,NoGravity:1b}",
+      "description": "将最近的盔甲架设为隐形且无重力"
+    },
+    {
+      "input": "/data merge block ~ ~-1 ~ {Lock:\"密码\"}",
+      "description": "给脚下的容器方块加锁"
+    },
+    {
+      "input": "/data modify entity @s Inventory[{Slot:0b}].Count set value 64b",
+      "description": "将自己快捷栏第一格的物品数量设为64"
+    },
+    {
+      "input": "/data modify storage minecraft:my_data scores append value {name:\"Player1\",score:100}",
+      "description": "向自定义存储的scores列表追加一条数据"
+    },
+    {
+      "input": "/data modify entity @s Inventory append from entity @p Inventory[{Slot:0b}]",
+      "description": "将最近玩家快捷栏第一格的物品复制到自己的背包"
+    },
+    {
+      "input": "/data remove entity @e[type=minecraft:item,limit=1,sort=nearest] Item.components",
+      "description": "移除最近掉落物的物品组件数据"
+    },
+    {
+      "input": "/data get block ~ ~ ~ Items",
+      "description": "获取脚下容器方块中的所有物品数据"
+    }
+  ],
+  "java_specific_notes": "data命令是Java版独有的命令，基岩版没有对应命令。它是Java版命令系统中最强大的命令之一，可以直接读写NBT数据。配合execute store使用可以实现复杂的数据操作。命令存储（storage）是一种不依赖实体或方块的持久化数据存储方式，非常适合数据包开发。NBT路径支持点号分隔（如Pos[0]）、过滤（如Inventory[{Slot:0b}]）等高级语法。注意：玩家实体的部分数据（如Pos、Health等）不可通过merge修改。",
+  "version_added": "1.13"
+}

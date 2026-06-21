@@ -1,0 +1,55 @@
+{
+  "name": "locate",
+  "syntax": "/locate structure <structure> | /locate biome <biome> | /locate poi <poi>",
+  "description": "定位最近的结构、生物群系或兴趣点",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "structure <structure>",
+      "type": "子命令",
+      "required": false,
+      "description": "定位最近的指定结构（如 minecraft:village、minecraft:stronghold 等），支持结构标签（#minecraft:tag）"
+    },
+    {
+      "name": "biome <biome>",
+      "type": "子命令",
+      "required": false,
+      "description": "定位最近的指定生物群系（如 minecraft:mushroom_fields）"
+    },
+    {
+      "name": "poi <poi>",
+      "type": "子命令",
+      "required": false,
+      "description": "定位最近的指定兴趣点（如 minecraft:bee_nest、minecraft:lodestone 等）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/locate structure minecraft:stronghold",
+      "description": "定位最近的要塞"
+    },
+    {
+      "input": "/locate structure minecraft:village_plains",
+      "description": "定位最近的平原村庄"
+    },
+    {
+      "input": "/locate structure #minecraft:village",
+      "description": "定位最近的任何类型村庄（使用结构标签）"
+    },
+    {
+      "input": "/locate biome minecraft:mushroom_fields",
+      "description": "定位最近的蘑菇岛"
+    },
+    {
+      "input": "/locate biome minecraft:cherry_grove",
+      "description": "定位最近的樱花树林"
+    },
+    {
+      "input": "/locate poi minecraft:bee_nest",
+      "description": "定位最近的蜂巢"
+    }
+  ],
+  "java_specific_notes": "Java版locate命令统一了结构和生物群系的定位功能。1.19+使用子命令格式(structure/biome/poi)，旧版使用独立的locate和locatebiome命令。结构标签（#开头）可以匹配多种结构。命令返回坐标，可配合execute store存储结果。搜索范围有限制，过远的目标可能找不到。",
+  "version_notes": "1.19之前：旧语法为 /locate <StructureType>（直接跟结构名，如 /locate Stronghold），且无法定位生物群系或兴趣点。1.19及以后：改为子命令格式 /locate structure <id> | /locate biome <id> | /locate poi <id>，结构名改用命名空间ID并支持结构标签（#minecraft:tag）。旧的 /locatebiome 命令被合并为 /locate biome。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,53 @@
+{
+  "id": "minecraft:player_head",
+  "inherits": "_common",
+  "description": "玩家头颅物品NBT标签",
+  "tags": [
+    {
+      "name": "SkullOwner",
+      "type": "string",
+      "description": "头颅所有者的玩家名（简单形式，自动获取皮肤）"
+    },
+    {
+      "name": "SkullOwner",
+      "type": "compound",
+      "description": "头颅所有者的详细数据（复合形式，可指定自定义皮肤）",
+      "children": [
+        {
+          "name": "Id",
+          "type": "int_array",
+          "description": "玩家UUID"
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "description": "玩家名"
+        },
+        {
+          "name": "Properties",
+          "type": "compound",
+          "description": "玩家属性数据",
+          "children": [
+            {
+              "name": "textures",
+              "type": "list<compound>",
+              "description": "皮肤纹理列表",
+              "children": [
+                {
+                  "name": "Value",
+                  "type": "string",
+                  "description": "Base64编码的皮肤纹理JSON数据"
+                },
+                {
+                  "name": "Signature",
+                  "type": "string",
+                  "description": "纹理签名（可选）"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "farmer",
+    "name": "农民",
+    "description": "村民职业：农民",
+    "type": "profession"
+  },
+  {
+    "id": "fisherman",
+    "name": "渔夫",
+    "description": "村民职业：渔夫",
+    "type": "profession"
+  },
+  {
+    "id": "shepherd",
+    "name": "牧羊人",
+    "description": "村民职业：牧羊人",
+    "type": "profession"
+  },
+  {
+    "id": "fletcher",
+    "name": "制箭师",
+    "description": "村民职业：制箭师",
+    "type": "profession"
+  },
+  {
+    "id": "librarian",
+    "name": "图书管理员",
+    "description": "村民职业：图书管理员",
+    "type": "profession"
+  },
+  {
+    "id": "cartographer",
+    "name": "制图师",
+    "description": "村民职业：制图师",
+    "type": "profession"
+  },
+  {
+    "id": "cleric",
+    "name": "牧师",
+    "description": "村民职业：牧师",
+    "type": "profession"
+  },
+  {
+    "id": "armorer",
+    "name": "盔甲匠",
+    "description": "村民职业：盔甲匠",
+    "type": "profession"
+  },
+  {
+    "id": "weaponsmith",
+    "name": "武器匠",
+    "description": "村民职业：武器匠",
+    "type": "profession"
+  },
+  {
+    "id": "toolsmith",
+    "name": "工具匠",
+    "description": "村民职业：工具匠",
+    "type": "profession"
+  },
+  {
+    "id": "butcher",
+    "name": "屠夫",
+    "description": "村民职业：屠夫",
+    "type": "profession"
+  },
+  {
+    "id": "leatherworker",
+    "name": "皮匠",
+    "description": "村民职业：皮匠",
+    "type": "profession"
+  },
+  {
+    "id": "mason",
+    "name": "石匠",
+    "description": "村民职业：石匠",
+    "type": "profession"
+  },
+  {
+    "id": "nitwit",
+    "name": "傻子",
+    "description": "村民职业：傻子",
+    "type": "profession"
+  },
+  {
+    "id": "unskilled",
+    "name": "无业村民",
+    "description": "村民职业：无业村民",
+    "type": "profession"
+  },
+  {
+    "id": "plains",
+    "name": "平原",
+    "description": "村民生物群系外观：平原",
+    "type": "biome_type"
+  },
+  {
+    "id": "desert",
+    "name": "沙漠",
+    "description": "村民生物群系外观：沙漠",
+    "type": "biome_type"
+  },
+  {
+    "id": "jungle",
+    "name": "丛林",
+    "description": "村民生物群系外观：丛林",
+    "type": "biome_type"
+  },
+  {
+    "id": "savanna",
+    "name": "热带草原",
+    "description": "村民生物群系外观：热带草原",
+    "type": "biome_type"
+  },
+  {
+    "id": "snow",
+    "name": "雪地",
+    "description": "村民生物群系外观：雪地",
+    "type": "biome_type"
+  },
+  {
+    "id": "swamp",
+    "name": "沼泽",
+    "description": "村民生物群系外观：沼泽",
+    "type": "biome_type"
+  },
+  {
+    "id": "taiga",
+    "name": "针叶林",
+    "description": "村民生物群系外观：针叶林",
+    "type": "biome_type"
+  }
+]

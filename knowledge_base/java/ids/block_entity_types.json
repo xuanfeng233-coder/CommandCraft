@@ -1,0 +1,266 @@
+[
+  {
+    "id": "minecraft:furnace",
+    "name": "熔炉",
+    "description": "方块实体：熔炉",
+    "blocks": "furnace"
+  },
+  {
+    "id": "minecraft:chest",
+    "name": "箱子",
+    "description": "方块实体：箱子",
+    "blocks": "chest"
+  },
+  {
+    "id": "minecraft:trapped_chest",
+    "name": "陷阱箱",
+    "description": "方块实体：陷阱箱",
+    "blocks": "trapped_chest"
+  },
+  {
+    "id": "minecraft:ender_chest",
+    "name": "末影箱",
+    "description": "方块实体：末影箱",
+    "blocks": "ender_chest"
+  },
+  {
+    "id": "minecraft:jukebox",
+    "name": "唱片机",
+    "description": "方块实体：唱片机",
+    "blocks": "jukebox"
+  },
+  {
+    "id": "minecraft:dispenser",
+    "name": "发射器",
+    "description": "方块实体：发射器",
+    "blocks": "dispenser"
+  },
+  {
+    "id": "minecraft:dropper",
+    "name": "投掷器",
+    "description": "方块实体：投掷器",
+    "blocks": "dropper"
+  },
+  {
+    "id": "minecraft:sign",
+    "name": "告示牌",
+    "description": "方块实体：告示牌",
+    "blocks": "各类告示牌"
+  },
+  {
+    "id": "minecraft:hanging_sign",
+    "name": "悬挂告示牌",
+    "description": "方块实体：悬挂告示牌",
+    "blocks": "各类悬挂告示牌"
+  },
+  {
+    "id": "minecraft:mob_spawner",
+    "name": "刷怪笼",
+    "description": "方块实体：刷怪笼",
+    "blocks": "spawner"
+  },
+  {
+    "id": "minecraft:trial_spawner",
+    "name": "试炼刷怪笼",
+    "description": "方块实体：试炼刷怪笼",
+    "blocks": "trial_spawner(1.21)"
+  },
+  {
+    "id": "minecraft:vault",
+    "name": "宝库",
+    "description": "方块实体：宝库",
+    "blocks": "vault(1.21)"
+  },
+  {
+    "id": "minecraft:piston",
+    "name": "活塞",
+    "description": "方块实体：活塞",
+    "blocks": "moving_piston"
+  },
+  {
+    "id": "minecraft:brewing_stand",
+    "name": "酿造台",
+    "description": "方块实体：酿造台",
+    "blocks": "brewing_stand"
+  },
+  {
+    "id": "minecraft:enchanting_table",
+    "name": "附魔台",
+    "description": "方块实体：附魔台",
+    "blocks": "enchanting_table"
+  },
+  {
+    "id": "minecraft:end_portal",
+    "name": "末地传送门",
+    "description": "方块实体：末地传送门",
+    "blocks": "end_portal"
+  },
+  {
+    "id": "minecraft:beacon",
+    "name": "信标",
+    "description": "方块实体：信标",
+    "blocks": "beacon"
+  },
+  {
+    "id": "minecraft:skull",
+    "name": "头颅",
+    "description": "方块实体：头颅",
+    "blocks": "各类头颅"
+  },
+  {
+    "id": "minecraft:daylight_detector",
+    "name": "阳光探测器",
+    "description": "方块实体：阳光探测器",
+    "blocks": "daylight_detector"
+  },
+  {
+    "id": "minecraft:hopper",
+    "name": "漏斗",
+    "description": "方块实体：漏斗",
+    "blocks": "hopper"
+  },
+  {
+    "id": "minecraft:comparator",
+    "name": "比较器",
+    "description": "方块实体：比较器",
+    "blocks": "comparator"
+  },
+  {
+    "id": "minecraft:banner",
+    "name": "旗帜",
+    "description": "方块实体：旗帜",
+    "blocks": "各类旗帜"
+  },
+  {
+    "id": "minecraft:structure_block",
+    "name": "结构方块",
+    "description": "方块实体：结构方块",
+    "blocks": "structure_block"
+  },
+  {
+    "id": "minecraft:end_gateway",
+    "name": "末地折跃门",
+    "description": "方块实体：末地折跃门",
+    "blocks": "end_gateway"
+  },
+  {
+    "id": "minecraft:command_block",
+    "name": "命令方块",
+    "description": "方块实体：命令方块",
+    "blocks": "三类命令方块"
+  },
+  {
+    "id": "minecraft:shulker_box",
+    "name": "潜影盒",
+    "description": "方块实体：潜影盒",
+    "blocks": "各色潜影盒"
+  },
+  {
+    "id": "minecraft:bed",
+    "name": "床",
+    "description": "方块实体：床",
+    "blocks": "各色床"
+  },
+  {
+    "id": "minecraft:conduit",
+    "name": "潮涌核心",
+    "description": "方块实体：潮涌核心",
+    "blocks": "conduit"
+  },
+  {
+    "id": "minecraft:barrel",
+    "name": "木桶",
+    "description": "方块实体：木桶",
+    "blocks": "barrel"
+  },
+  {
+    "id": "minecraft:smoker",
+    "name": "烟熏炉",
+    "description": "方块实体：烟熏炉",
+    "blocks": "smoker"
+  },
+  {
+    "id": "minecraft:blast_furnace",
+    "name": "高炉",
+    "description": "方块实体：高炉",
+    "blocks": "blast_furnace"
+  },
+  {
+    "id": "minecraft:lectern",
+    "name": "讲台",
+    "description": "方块实体：讲台",
+    "blocks": "lectern"
+  },
+  {
+    "id": "minecraft:bell",
+    "name": "钟",
+    "description": "方块实体：钟",
+    "blocks": "bell"
+  },
+  {
+    "id": "minecraft:jigsaw",
+    "name": "拼图方块",
+    "description": "方块实体：拼图方块",
+    "blocks": "jigsaw"
+  },
+  {
+    "id": "minecraft:campfire",
+    "name": "营火",
+    "description": "方块实体：营火",
+    "blocks": "campfire/soul_campfire"
+  },
+  {
+    "id": "minecraft:beehive",
+    "name": "蜂巢",
+    "description": "方块实体：蜂巢",
+    "blocks": "beehive/bee_nest"
+  },
+  {
+    "id": "minecraft:sculk_sensor",
+    "name": "幽匿感测体",
+    "description": "方块实体：幽匿感测体",
+    "blocks": "sculk_sensor"
+  },
+  {
+    "id": "minecraft:calibrated_sculk_sensor",
+    "name": "校频幽匿感测体",
+    "description": "方块实体：校频幽匿感测体",
+    "blocks": "calibrated_sculk_sensor"
+  },
+  {
+    "id": "minecraft:sculk_catalyst",
+    "name": "幽匿催发体",
+    "description": "方块实体：幽匿催发体",
+    "blocks": "sculk_catalyst"
+  },
+  {
+    "id": "minecraft:sculk_shrieker",
+    "name": "幽匿尖啸体",
+    "description": "方块实体：幽匿尖啸体",
+    "blocks": "sculk_shrieker"
+  },
+  {
+    "id": "minecraft:chiseled_bookshelf",
+    "name": "錾制书架",
+    "description": "方块实体：錾制书架",
+    "blocks": "chiseled_bookshelf"
+  },
+  {
+    "id": "minecraft:brushable_block",
+    "name": "可刷方块",
+    "description": "方块实体：可刷方块",
+    "blocks": "可疑的沙/沙砾"
+  },
+  {
+    "id": "minecraft:decorated_pot",
+    "name": "饰纹陶罐",
+    "description": "方块实体：饰纹陶罐",
+    "blocks": "decorated_pot"
+  },
+  {
+    "id": "minecraft:crafter",
+    "name": "合成器",
+    "description": "方块实体：合成器",
+    "blocks": "crafter(1.21)"
+  }
+]

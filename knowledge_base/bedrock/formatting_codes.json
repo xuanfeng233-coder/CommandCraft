@@ -1,0 +1,82 @@
+{
+  "colors": {
+    "standard_16": [
+      {"code": "§0", "name": "黑色", "hex": "#000000", "usage": "深色背景文字"},
+      {"code": "§1", "name": "深蓝", "hex": "#0000AA", "usage": "系统提示/链接"},
+      {"code": "§2", "name": "深绿", "hex": "#00AA00", "usage": "成功/确认信息"},
+      {"code": "§3", "name": "深青", "hex": "#00AAAA", "usage": "次要信息"},
+      {"code": "§4", "name": "深红", "hex": "#AA0000", "usage": "错误/警告"},
+      {"code": "§5", "name": "深紫", "hex": "#AA00AA", "usage": "特殊/魔法"},
+      {"code": "§6", "name": "金色", "hex": "#FFAA00", "usage": "标题/金币/重要"},
+      {"code": "§7", "name": "灰色", "hex": "#AAAAAA", "usage": "次要文字/说明"},
+      {"code": "§8", "name": "深灰", "hex": "#555555", "usage": "禁用/注释"},
+      {"code": "§9", "name": "蓝色", "hex": "#5555FF", "usage": "链接/提示"},
+      {"code": "§a", "name": "绿色", "hex": "#55FF55", "usage": "成功/正面信息"},
+      {"code": "§b", "name": "青色", "hex": "#55FFFF", "usage": "信息提示"},
+      {"code": "§c", "name": "红色", "hex": "#FF5555", "usage": "错误/危险/生命值"},
+      {"code": "§d", "name": "粉红", "hex": "#FF55FF", "usage": "特殊/稀有"},
+      {"code": "§e", "name": "黄色", "hex": "#FFFF55", "usage": "警告/高亮/坐标"},
+      {"code": "§f", "name": "白色", "hex": "#FFFFFF", "usage": "默认/正文"}
+    ],
+    "bedrock_exclusive_material": [
+      {"code": "§g", "name": "硬币金", "hex": "#DDD605", "usage": "Minecoin/货币"},
+      {"code": "§h", "name": "材质浅色", "hex": "#E3D4D1", "usage": "材质背景"},
+      {"code": "§i", "name": "材质深色", "hex": "#CECACA", "usage": "材质文字"},
+      {"code": "§j", "name": "材质暗色", "hex": "#443A3B", "usage": "深色材质"},
+      {"code": "§m", "name": "材质红", "hex": "#971607", "usage": "红色材质"},
+      {"code": "§n", "name": "材质棕", "hex": "#B4684D", "usage": "棕色材质"},
+      {"code": "§p", "name": "材质金", "hex": "#DEB12D", "usage": "金色材质"},
+      {"code": "§q", "name": "材质绿", "hex": "#47A036", "usage": "绿色材质"},
+      {"code": "§s", "name": "材质蓝", "hex": "#2CBAA8", "usage": "蓝色材质"},
+      {"code": "§t", "name": "材质靛", "hex": "#21497B", "usage": "靛蓝材质"},
+      {"code": "§u", "name": "材质紫", "hex": "#9A5CC6", "usage": "紫色材质"}
+    ]
+  },
+  "java_vs_bedrock_warning": {
+    "description": "基岩版 §g-§u 为独有材质色，Java 版不支持。§k(混淆)、§l(加粗)、§o(斜体) 两版通用，但基岩版不支持 §m(删除线) 和 §n(下划线)。"
+  },
+  "modifiers": [
+    {"code": "§k", "name": "混淆", "description": "文字随机闪烁，用于神秘/装饰效果"},
+    {"code": "§l", "name": "加粗", "description": "粗体文字，用于标题/强调"},
+    {"code": "§o", "name": "斜体", "description": "斜体文字，用于引用/旁白"},
+    {"code": "§r", "name": "重置", "description": "清除所有颜色和格式，恢复默认。必须在修饰符后使用以终止效果"}
+  ],
+  "best_practices": [
+    "颜色代码必须放在文字之前: §c错误 ✓ / 错误§c ✗",
+    "修饰符叠加: §c§l 先颜色后修饰 (红色加粗)",
+    "每段文字结尾用 §r 重置，防止后续文字继承样式",
+    "tellraw/titleraw 中使用 JSON rawtext，每段可单独设置颜色",
+    "§k(混淆) 慎用，可能影响可读性；常用于装饰分隔线",
+    "深色(§0-§8)在暗色背景下不可见，建议用§f白色或亮色系"
+  ],
+  "common_patterns": [
+    {"name": "错误提示", "example": "§c§l错误! §r§7详细说明...", "description": "红色加粗标题 + 灰色说明"},
+    {"name": "成功提示", "example": "§a✔ §f操作完成", "description": "绿色符号 + 白色文字"},
+    {"name": "标题栏", "example": "§6§l=== 标题 ===§r", "description": "金色加粗标题"},
+    {"name": "信息面板", "example": "§b[信息] §f内容 §7(备注)", "description": "青色标签 + 白色正文 + 灰色备注"},
+    {"name": "警告消息", "example": "§e⚠ 警告: §f请注意...", "description": "黄色警告符 + 白色文字"},
+    {"name": "分隔线", "example": "§8§k|§r§8§m----------§r§8§k|§r", "description": "混淆端点 + 灰色线条"}
+  ],
+  "special_symbols": [
+    {"symbol": "♥", "name": "心"},
+    {"symbol": "★", "name": "实心星"},
+    {"symbol": "☆", "name": "空心星"},
+    {"symbol": "✔", "name": "对勾"},
+    {"symbol": "✖", "name": "叉号"},
+    {"symbol": "●", "name": "实心圆"},
+    {"symbol": "○", "name": "空心圆"},
+    {"symbol": "■", "name": "实心方"},
+    {"symbol": "□", "name": "空心方"},
+    {"symbol": "▶", "name": "右箭头"},
+    {"symbol": "◀", "name": "左箭头"},
+    {"symbol": "▲", "name": "上箭头"},
+    {"symbol": "▼", "name": "下箭头"},
+    {"symbol": "⚡", "name": "闪电"},
+    {"symbol": "☠", "name": "骷髅"},
+    {"symbol": "⚔", "name": "剑"},
+    {"symbol": "🛡", "name": "盾"},
+    {"symbol": "♦", "name": "菱形"},
+    {"symbol": "»", "name": "右双箭头"},
+    {"symbol": "«", "name": "左双箭头"}
+  ]
+}

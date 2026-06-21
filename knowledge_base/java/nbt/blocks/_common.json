@@ -1,0 +1,37 @@
+{
+  "id": "_common",
+  "inherits": null,
+  "description": "所有方块实体共享的通用NBT标签",
+  "tags": [
+    {
+      "name": "x",
+      "type": "int",
+      "description": "方块实体的X坐标"
+    },
+    {
+      "name": "y",
+      "type": "int",
+      "description": "方块实体的Y坐标"
+    },
+    {
+      "name": "z",
+      "type": "int",
+      "description": "方块实体的Z坐标"
+    },
+    {
+      "name": "id",
+      "type": "string",
+      "description": "方块实体类型ID（如 minecraft:chest）"
+    },
+    {
+      "name": "CustomName",
+      "type": "string",
+      "description": "自定义名称（JSON文本组件格式）"
+    },
+    {
+      "name": "Lock",
+      "type": "string",
+      "description": "锁定密码，只有手持同名物品的玩家才能打开此容器"
+    }
+  ]
+}

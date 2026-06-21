@@ -1,0 +1,77 @@
+[
+  {
+    "id": "minecraft:health",
+    "name": "生命值",
+    "description": "最大/当前生命值"
+  },
+  {
+    "id": "minecraft:absorption",
+    "name": "伤害吸收",
+    "description": "额外吸收护盾值"
+  },
+  {
+    "id": "minecraft:attack_damage",
+    "name": "攻击伤害",
+    "description": "近战攻击伤害"
+  },
+  {
+    "id": "minecraft:follow_range",
+    "name": "追踪范围",
+    "description": "怪物侦测玩家范围"
+  },
+  {
+    "id": "minecraft:knockback_resistance",
+    "name": "击退抗性",
+    "description": "抵抗击退（0-1）"
+  },
+  {
+    "id": "minecraft:movement",
+    "name": "移动速度",
+    "description": "陆地移动速度"
+  },
+  {
+    "id": "minecraft:underwater_movement",
+    "name": "水下移动速度",
+    "description": "水中移动速度"
+  },
+  {
+    "id": "minecraft:lava_movement",
+    "name": "岩浆移动速度",
+    "description": "岩浆中移动速度"
+  },
+  {
+    "id": "minecraft:luck",
+    "name": "幸运",
+    "description": "影响战利品概率"
+  },
+  {
+    "id": "minecraft:horse.jump_strength",
+    "name": "马跳跃强度",
+    "description": "马/骆驼跳跃强度"
+  },
+  {
+    "id": "minecraft:player.hunger",
+    "name": "饥饿度",
+    "description": "玩家饥饿值"
+  },
+  {
+    "id": "minecraft:player.saturation",
+    "name": "饱和度",
+    "description": "玩家饱和度"
+  },
+  {
+    "id": "minecraft:player.exhaustion",
+    "name": "消耗度",
+    "description": "玩家消耗度"
+  },
+  {
+    "id": "minecraft:player.level",
+    "name": "经验等级",
+    "description": "玩家等级"
+  },
+  {
+    "id": "minecraft:player.experience",
+    "name": "经验值",
+    "description": "当前等级内经验进度"
+  }
+]

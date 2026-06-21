@@ -1,0 +1,50 @@
+{
+  "name": "xp",
+  "syntax": "/xp add|set|query <targets> <amount> [levels|points]",
+  "description": "给予、设置或查询玩家经验值",
+  "category": "player_management",
+  "parameters": [
+    {
+      "name": "add <targets> <amount> [levels|points]",
+      "type": "子命令",
+      "required": false,
+      "description": "给予或扣除经验值。amount可为负数。levels为等级，points为经验点数"
+    },
+    {
+      "name": "set <targets> <amount> [levels|points]",
+      "type": "子命令",
+      "required": false,
+      "description": "设置经验值为指定数量"
+    },
+    {
+      "name": "query <targets> levels|points",
+      "type": "子命令",
+      "required": false,
+      "description": "查询目标的经验等级或经验点数"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/xp add @s 10 levels",
+      "description": "给自己增加10级经验"
+    },
+    {
+      "input": "/xp add @s 100 points",
+      "description": "给自己增加100点经验值"
+    },
+    {
+      "input": "/xp set @s 0 levels",
+      "description": "将自己的经验等级设为0"
+    },
+    {
+      "input": "/xp query @s levels",
+      "description": "查询自己的经验等级"
+    },
+    {
+      "input": "/xp add @a -5 levels",
+      "description": "扣除所有玩家5级经验"
+    }
+  ],
+  "java_specific_notes": "Java版xp命令（也可用experience）使用子命令格式（add/set/query），与基岩版的 /xp <amount>[L] <player> 格式不同。支持points和levels两种单位。query子命令可配合execute store获取精确值。",
+  "version_added": "1.0"
+}

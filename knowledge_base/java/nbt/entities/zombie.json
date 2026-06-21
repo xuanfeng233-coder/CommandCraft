@@ -1,0 +1,33 @@
+{
+  "id": "minecraft:zombie",
+  "inherits": "_mob_common",
+  "description": "僵尸实体NBT标签",
+  "tags": [
+    {
+      "name": "IsBaby",
+      "type": "byte",
+      "description": "是否为幼年僵尸",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "CanBreakDoors",
+      "type": "byte",
+      "description": "是否能破门（困难难度下部分僵尸可以）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "DrownedConversionTime",
+      "type": "int",
+      "description": "转变为溺尸的剩余刻数，-1表示不在转变中",
+      "default": -1
+    },
+    {
+      "name": "InWaterTime",
+      "type": "int",
+      "description": "僵尸在水中待的刻数，用于计算溺尸转变",
+      "default": 0
+    }
+  ]
+}

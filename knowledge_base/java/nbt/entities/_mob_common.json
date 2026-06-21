@@ -1,0 +1,254 @@
+{
+  "id": "_mob_common",
+  "inherits": "_common",
+  "description": "所有生物（Mob）共享的NBT标签",
+  "tags": [
+    {
+      "name": "Health",
+      "type": "float",
+      "description": "生物当前生命值",
+      "default": 20.0
+    },
+    {
+      "name": "AbsorptionAmount",
+      "type": "float",
+      "description": "生物的吸收（黄心）生命值",
+      "default": 0.0
+    },
+    {
+      "name": "HurtTime",
+      "type": "short",
+      "description": "生物受伤后的红色闪烁剩余刻数",
+      "default": 0
+    },
+    {
+      "name": "HurtByTimestamp",
+      "type": "int",
+      "description": "生物最后一次受伤的游戏刻时间戳",
+      "default": 0
+    },
+    {
+      "name": "DeathTime",
+      "type": "short",
+      "description": "生物死亡动画的刻数（0-20）",
+      "default": 0,
+      "range": "0..20"
+    },
+    {
+      "name": "HandItems",
+      "type": "list<compound>",
+      "description": "生物手持物品列表 [主手, 副手]",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "ArmorItems",
+      "type": "list<compound>",
+      "description": "生物装备的盔甲列表 [脚, 腿, 胸, 头]",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "HandDropChances",
+      "type": "list<float>",
+      "description": "手持物品掉落几率 [主手, 副手]，默认0.085",
+      "default": [0.085, 0.085]
+    },
+    {
+      "name": "ArmorDropChances",
+      "type": "list<float>",
+      "description": "盔甲掉落几率 [脚, 腿, 胸, 头]，默认0.085",
+      "default": [0.085, 0.085, 0.085, 0.085]
+    },
+    {
+      "name": "NoAI",
+      "type": "byte",
+      "description": "是否禁用AI（生物不会移动、攻击或执行任何行为）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Leash",
+      "type": "compound",
+      "description": "拴绳数据",
+      "children": [
+        {
+          "name": "UUID",
+          "type": "int_array",
+          "description": "拴住此生物的实体UUID"
+        },
+        {
+          "name": "X",
+          "type": "int",
+          "description": "拴绳系在栅栏上的X坐标"
+        },
+        {
+          "name": "Y",
+          "type": "int",
+          "description": "拴绳系在栅栏上的Y坐标"
+        },
+        {
+          "name": "Z",
+          "type": "int",
+          "description": "拴绳系在栅栏上的Z坐标"
+        }
+      ]
+    },
+    {
+      "name": "LeftHanded",
+      "type": "byte",
+      "description": "生物是否左撇子（主副手互换）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "PersistenceRequired",
+      "type": "byte",
+      "description": "生物是否不会自然消失",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "CanPickUpLoot",
+      "type": "byte",
+      "description": "生物是否能捡起地上的物品",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "ActiveEffects",
+      "type": "list<compound>",
+      "description": "当前生效的药水效果列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "效果ID（如 minecraft:speed）",
+          "id_category": "effects"
+        },
+        {
+          "name": "amplifier",
+          "type": "byte",
+          "description": "效果等级（0=一级，1=二级...）",
+          "default": 0
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "description": "效果剩余持续刻数（20刻=1秒）",
+          "default": 600
+        },
+        {
+          "name": "ambient",
+          "type": "byte",
+          "description": "是否为信标等环境来源的效果（粒子更半透明）",
+          "values": [0, 1],
+          "default": 0
+        },
+        {
+          "name": "show_particles",
+          "type": "byte",
+          "description": "是否显示粒子效果",
+          "values": [0, 1],
+          "default": 1
+        },
+        {
+          "name": "show_icon",
+          "type": "byte",
+          "description": "是否在HUD上显示效果图标",
+          "values": [0, 1],
+          "default": 1
+        }
+      ]
+    },
+    {
+      "name": "Attributes",
+      "type": "list<compound>",
+      "description": "生物属性列表（最大生命值、移速等）",
+      "children": [
+        {
+          "name": "Name",
+          "type": "string",
+          "description": "属性名称（如 minecraft:generic.max_health）"
+        },
+        {
+          "name": "Base",
+          "type": "double",
+          "description": "属性基础值"
+        },
+        {
+          "name": "Modifiers",
+          "type": "list<compound>",
+          "description": "属性修饰符列表",
+          "children": [
+            {
+              "name": "UUID",
+              "type": "int_array",
+              "description": "修饰符的唯一ID"
+            },
+            {
+              "name": "Name",
+              "type": "string",
+              "description": "修饰符名称"
+            },
+            {
+              "name": "Amount",
+              "type": "double",
+              "description": "修饰符数值"
+            },
+            {
+              "name": "Operation",
+              "type": "int",
+              "description": "运算方式：0=加法, 1=乘法(基础值), 2=乘法(总值)",
+              "values": [0, 1, 2]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Team",
+      "type": "string",
+      "description": "生物所属的计分板队伍名称"
+    },
+    {
+      "name": "FallFlying",
+      "type": "byte",
+      "description": "生物是否正在使用鞘翅滑翔",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "id": "minecraft:spawner",
+  "inherits": "_common",
+  "description": "刷怪笼方块实体NBT标签",
+  "tags": [
+    {
+      "name": "SpawnData",
+      "type": "compound",
+      "description": "当前要生成的实体数据",
+      "children": [
+        {
+          "name": "entity",
+          "type": "compound",
+          "description": "实体NBT数据",
+          "children": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "实体ID",
+              "id_category": "entities"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SpawnPotentials",
+      "type": "list<compound>",
+      "description": "可生成的实体列表（带权重）",
+      "children": [
+        {
+          "name": "weight",
+          "type": "int",
+          "description": "此条目被选中的权重",
+          "default": 1
+        },
+        {
+          "name": "data",
+          "type": "compound",
+          "description": "生成数据",
+          "children": [
+            {
+              "name": "entity",
+              "type": "compound",
+              "description": "实体NBT数据",
+              "children": [
+                {
+                  "name": "id",
+                  "type": "string",
+                  "description": "实体ID",
+                  "id_category": "entities"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "SpawnCount",
+      "type": "short",
+      "description": "每次尝试生成的实体数量",
+      "default": 4
+    },
+    {
+      "name": "SpawnRange",
+      "type": "short",
+      "description": "生成范围半径（格数）",
+      "default": 4
+    },
+    {
+      "name": "Delay",
+      "type": "short",
+      "description": "下次生成前的剩余延迟刻数",
+      "default": 20
+    },
+    {
+      "name": "MinSpawnDelay",
+      "type": "short",
+      "description": "最小生成间隔刻数",
+      "default": 200
+    },
+    {
+      "name": "MaxSpawnDelay",
+      "type": "short",
+      "description": "最大生成间隔刻数",
+      "default": 800
+    },
+    {
+      "name": "MaxNearbyEntities",
+      "type": "short",
+      "description": "附近同类实体最大数量（超过则停止生成）",
+      "default": 6
+    },
+    {
+      "name": "RequiredPlayerRange",
+      "type": "short",
+      "description": "激活刷怪笼所需的玩家距离（格数）",
+      "default": 16
+    }
+  ]
+}

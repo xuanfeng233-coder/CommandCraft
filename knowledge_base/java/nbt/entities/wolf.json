@@ -1,0 +1,43 @@
+{
+  "id": "minecraft:wolf",
+  "inherits": "_mob_common",
+  "description": "狼实体NBT标签",
+  "tags": [
+    {
+      "name": "Owner",
+      "type": "int_array",
+      "description": "主人的UUID（驯服后）"
+    },
+    {
+      "name": "CollarColor",
+      "type": "byte",
+      "description": "项圈颜色（染料颜色ID）：0=白, 1=橙, 2=品红, 3=淡蓝, 4=黄, 5=黄绿, 6=粉, 7=灰, 8=淡灰, 9=青, 10=紫, 11=蓝, 12=棕, 13=绿, 14=红, 15=黑",
+      "range": "0..15",
+      "default": 14
+    },
+    {
+      "name": "Sitting",
+      "type": "byte",
+      "description": "是否正在坐下",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "variant",
+      "type": "string",
+      "description": "狼的变种类型（1.20.5+）",
+      "values": [
+        "minecraft:pale",
+        "minecraft:spotted",
+        "minecraft:snowy",
+        "minecraft:black",
+        "minecraft:ashen",
+        "minecraft:rusty",
+        "minecraft:woods",
+        "minecraft:chestnut",
+        "minecraft:striped"
+      ],
+      "default": "minecraft:pale"
+    }
+  ]
+}

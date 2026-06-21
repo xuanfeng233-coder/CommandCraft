@@ -1,0 +1,84 @@
+{
+  "name": "attribute",
+  "syntax": "/attribute <target> <attribute> base get|set|<modifier_operation> ...",
+  "description": "查询或修改实体的属性值",
+  "category": "effects",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "目标实体（必须为单个实体）"
+    },
+    {
+      "name": "attribute",
+      "type": "attribute_id",
+      "required": true,
+      "description": "属性ID（如 minecraft:max_health、minecraft:movement_speed、minecraft:attack_damage 等）"
+    },
+    {
+      "name": "base get [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取属性的基础值"
+    },
+    {
+      "name": "base set <value>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置属性的基础值"
+    },
+    {
+      "name": "get [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取属性的总值（包含所有修饰符）"
+    },
+    {
+      "name": "modifier add <id> <value> add_value|add_multiplied_base|add_multiplied_total",
+      "type": "子命令",
+      "required": false,
+      "description": "添加属性修饰符。id为资源位置标识符（1.21+），value为修饰值，operation为运算类型"
+    },
+    {
+      "name": "modifier remove <id>",
+      "type": "子命令",
+      "required": false,
+      "description": "移除指定ID的属性修饰符"
+    },
+    {
+      "name": "modifier value get <id> [<scale>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取指定修饰符的值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/attribute @s minecraft:max_health base set 40",
+      "description": "将自己的最大生命值设为40（20颗心）"
+    },
+    {
+      "input": "/attribute @s minecraft:max_health base get",
+      "description": "获取自己的最大生命值基础值"
+    },
+    {
+      "input": "/attribute @s minecraft:movement_speed base set 0.2",
+      "description": "将自己的移动速度设为0.2（默认为0.1）"
+    },
+    {
+      "input": "/attribute @s minecraft:attack_damage base set 20",
+      "description": "将自己的攻击力设为20"
+    },
+    {
+      "input": "/attribute @s minecraft:max_health modifier add minecraft:custom/bonus 10 add_value",
+      "description": "给自己添加一个+10生命值的修饰符"
+    },
+    {
+      "input": "/attribute @s minecraft:movement_speed modifier add minecraft:custom/speed_boost 1.0 add_multiplied_total",
+      "description": "给自己添加一个2倍移动速度的修饰符"
+    }
+  ],
+  "java_specific_notes": "attribute命令是Java版独有命令。常用属性包括：minecraft:max_health（最大生命值，默认20）、minecraft:movement_speed（移动速度，默认0.1）、minecraft:attack_damage（攻击力）、minecraft:attack_speed（攻击速度）、minecraft:armor（护甲值）、minecraft:armor_toughness（护甲韧性）、minecraft:knockback_resistance（击退抗性）、minecraft:luck（幸运值）、minecraft:follow_range（追踪范围）、minecraft:scale（实体缩放，1.20.5+）、minecraft:step_height（台阶高度，1.20.5+）、minecraft:block_interaction_range（方块交互距离，1.20.5+）、minecraft:entity_interaction_range（实体交互距离，1.20.5+）。1.21+修饰符ID使用资源位置格式。",
+  "version_added": "1.16"
+}

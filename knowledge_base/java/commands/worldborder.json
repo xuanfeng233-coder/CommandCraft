@@ -1,0 +1,84 @@
+{
+  "name": "worldborder",
+  "syntax": "/worldborder add|center|damage|get|set|warning ...",
+  "description": "管理世界边界",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "set <distance> [<time>]",
+      "type": "子命令",
+      "required": false,
+      "description": "设置世界边界大小。distance为直径（方块数）。time为过渡时间（秒），0为立即生效"
+    },
+    {
+      "name": "add <distance> [<time>]",
+      "type": "子命令",
+      "required": false,
+      "description": "增加或减少世界边界大小。正数扩大，负数缩小"
+    },
+    {
+      "name": "center <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置世界边界的中心坐标（仅x和z）"
+    },
+    {
+      "name": "get",
+      "type": "子命令",
+      "required": false,
+      "description": "获取当前世界边界的大小"
+    },
+    {
+      "name": "damage amount <damagePerBlock>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置超出边界时每个方块的伤害量（默认0.2）"
+    },
+    {
+      "name": "damage buffer <distance>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置超出边界后开始受到伤害前的缓冲距离（默认5格）"
+    },
+    {
+      "name": "warning distance <distance>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置距离边界多少格时开始显示红色警告效果（默认5格）"
+    },
+    {
+      "name": "warning time <time>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置边界缩小时，距离到达还有多少秒时开始警告（默认15秒）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/worldborder set 500",
+      "description": "立即将世界边界大小设为500x500"
+    },
+    {
+      "input": "/worldborder set 100 300",
+      "description": "在300秒内将世界边界缩小到100x100"
+    },
+    {
+      "input": "/worldborder center 0 0",
+      "description": "将世界边界中心设为坐标(0,0)"
+    },
+    {
+      "input": "/worldborder add -50 60",
+      "description": "在60秒内将世界边界缩小50格"
+    },
+    {
+      "input": "/worldborder warning distance 10",
+      "description": "距离边界10格时开始显示警告"
+    },
+    {
+      "input": "/worldborder damage amount 1.0",
+      "description": "将超出边界的伤害设为每格1.0"
+    }
+  ],
+  "java_specific_notes": "worldborder命令是Java版独有的命令。世界边界是一个以中心点为基准的正方形区域。边界缩小常用于制作大逃杀等游戏模式。边界外的区域会显示红色警告效果且玩家受到伤害。边界会阻止玩家移动到外部但不会阻止传送。",
+  "version_added": "1.8"
+}

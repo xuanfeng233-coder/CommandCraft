@@ -1,0 +1,93 @@
+{
+  "name": "test",
+  "syntax": "/test run|runthese|runfailed|runclosest|runmultiple|create|pos|locate|clearall|stop|verify|export ...",
+  "description": "管理和执行游戏测试（GameTest），用于自动化测试结构和机制",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "run <tests> [<numberOfTimes>] [<untilFailed>] [<rotationSteps>] [<testsPerRow>]",
+      "type": "子命令",
+      "required": false,
+      "description": "运行指定的测试，可指定运行次数、失败即停、旋转步数和每行测试数"
+    },
+    {
+      "name": "runthese",
+      "type": "子命令",
+      "required": false,
+      "description": "运行附近所有的测试"
+    },
+    {
+      "name": "runfailed [<numberOfTimes>] [<untilFailed>] [<rotationSteps>] [<testsPerRow>]",
+      "type": "子命令",
+      "required": false,
+      "description": "重新运行上次失败的测试"
+    },
+    {
+      "name": "runclosest [<numberOfTimes>] [<untilFailed>]",
+      "type": "子命令",
+      "required": false,
+      "description": "运行距离最近的测试"
+    },
+    {
+      "name": "runmultiple <tests> [<amount>]",
+      "type": "子命令",
+      "required": false,
+      "description": "批量运行多个测试实例"
+    },
+    {
+      "name": "create <id> [<width>] [<height> <depth>]",
+      "type": "子命令",
+      "required": false,
+      "description": "创建一个新的测试结构区域"
+    },
+    {
+      "name": "pos [<var>]",
+      "type": "子命令",
+      "required": false,
+      "description": "获取相对于测试的坐标位置，可保存到变量"
+    },
+    {
+      "name": "locate <tests>",
+      "type": "子命令",
+      "required": false,
+      "description": "定位指定测试的结构"
+    },
+    {
+      "name": "clearall [<radius>]",
+      "type": "子命令",
+      "required": false,
+      "description": "清除指定半径内的所有测试结构"
+    },
+    {
+      "name": "stop",
+      "type": "子命令",
+      "required": false,
+      "description": "停止当前正在运行的测试"
+    },
+    {
+      "name": "verify <tests>",
+      "type": "子命令",
+      "required": false,
+      "description": "在所有旋转方向上验证测试"
+    },
+    {
+      "name": "export <test>",
+      "type": "子命令",
+      "required": false,
+      "description": "将测试结构导出为文件"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/test runthese",
+      "description": "运行附近所有的游戏测试"
+    },
+    {
+      "input": "/test create my_test 5 5 5",
+      "description": "创建一个5x5x5的新测试结构区域"
+    }
+  ],
+  "java_specific_notes": "test命令最早在Java版1.15（快照19w34a）引入，但长期仅在开发(IDE)环境可用，直到Java版1.21.5（快照25w03a）才能在正常游戏中通过OP权限访问。需要OP权限等级2。GameTest用于自动化测试机制和结构是否按预期工作，主要面向数据包/模组开发者。还包含clearthat/clearthese/resetclosest/resetthat/resetthese/runthat/exportclosest/exportthat/exportthese等同类子命令。",
+  "version_added": "1.21.5",
+  "since": "1.21.5"
+}

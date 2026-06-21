@@ -1,0 +1,130 @@
+{
+  "id": "_common",
+  "inherits": null,
+  "description": "所有实体共享的通用NBT标签",
+  "tags": [
+    {
+      "name": "Pos",
+      "type": "list<double>",
+      "description": "实体的坐标位置 [x, y, z]"
+    },
+    {
+      "name": "Motion",
+      "type": "list<double>",
+      "description": "实体的速度向量 [dx, dy, dz]"
+    },
+    {
+      "name": "Rotation",
+      "type": "list<float>",
+      "description": "实体的旋转角度 [水平旋转(yaw), 垂直旋转(pitch)]"
+    },
+    {
+      "name": "FallDistance",
+      "type": "float",
+      "description": "实体已坠落的距离（格数），用于计算摔落伤害",
+      "default": 0.0
+    },
+    {
+      "name": "Fire",
+      "type": "short",
+      "description": "实体着火的剩余刻数，负值表示可以着火前的免疫刻数",
+      "default": -1
+    },
+    {
+      "name": "Air",
+      "type": "short",
+      "description": "实体剩余的氧气刻数，最大300（15秒）",
+      "default": 300,
+      "range": "0..300"
+    },
+    {
+      "name": "OnGround",
+      "type": "byte",
+      "description": "实体是否在地面上",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Invulnerable",
+      "type": "byte",
+      "description": "实体是否无敌（免疫除虚空外的所有伤害）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "NoGravity",
+      "type": "byte",
+      "description": "实体是否不受重力影响",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Silent",
+      "type": "byte",
+      "description": "实体是否静音（不发出任何声音）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Glowing",
+      "type": "byte",
+      "description": "实体是否发光（显示发光轮廓）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "CustomName",
+      "type": "string",
+      "description": "实体的自定义名称（JSON文本组件格式）"
+    },
+    {
+      "name": "CustomNameVisible",
+      "type": "byte",
+      "description": "是否始终显示自定义名称（即使不看向实体）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Tags",
+      "type": "list<string>",
+      "description": "实体的自定义标签列表，可用于命令选择器"
+    },
+    {
+      "name": "Passengers",
+      "type": "list<compound>",
+      "description": "骑乘在此实体上的乘客实体列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "乘客实体的类型ID",
+          "id_category": "entities"
+        }
+      ]
+    },
+    {
+      "name": "UUID",
+      "type": "int_array",
+      "description": "实体的唯一标识符（4个int组成的数组）"
+    },
+    {
+      "name": "PortalCooldown",
+      "type": "int",
+      "description": "实体再次使用传送门前的冷却刻数",
+      "default": 0
+    },
+    {
+      "name": "TicksFrozen",
+      "type": "int",
+      "description": "实体在细雪中冻结的刻数",
+      "default": 0
+    },
+    {
+      "name": "HasVisualFire",
+      "type": "byte",
+      "description": "实体是否显示火焰效果（视觉上着火但不受伤害）",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

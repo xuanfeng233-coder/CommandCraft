@@ -1,0 +1,66 @@
+{
+  "id": "minecraft:sign",
+  "inherits": "_common",
+  "description": "告示牌方块实体NBT标签（适用于所有木种的告示牌和悬挂告示牌）",
+  "tags": [
+    {
+      "name": "front_text",
+      "type": "compound",
+      "description": "告示牌正面文字",
+      "children": [
+        {
+          "name": "messages",
+          "type": "list<string>",
+          "description": "四行文字内容（JSON文本组件格式），固定4个元素"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "文字颜色",
+          "values": ["black", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "gold", "gray", "dark_gray", "blue", "green", "aqua", "red", "light_purple", "yellow", "white"],
+          "default": "black"
+        },
+        {
+          "name": "has_glowing_text",
+          "type": "byte",
+          "description": "是否为发光文字（使用荧光墨囊）",
+          "values": [0, 1],
+          "default": 0
+        }
+      ]
+    },
+    {
+      "name": "back_text",
+      "type": "compound",
+      "description": "告示牌背面文字",
+      "children": [
+        {
+          "name": "messages",
+          "type": "list<string>",
+          "description": "四行文字内容（JSON文本组件格式），固定4个元素"
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "文字颜色",
+          "values": ["black", "dark_blue", "dark_green", "dark_aqua", "dark_red", "dark_purple", "gold", "gray", "dark_gray", "blue", "green", "aqua", "red", "light_purple", "yellow", "white"],
+          "default": "black"
+        },
+        {
+          "name": "has_glowing_text",
+          "type": "byte",
+          "description": "是否为发光文字",
+          "values": [0, 1],
+          "default": 0
+        }
+      ]
+    },
+    {
+      "name": "is_waxed",
+      "type": "byte",
+      "description": "告示牌是否已涂蜡（不可再编辑）",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

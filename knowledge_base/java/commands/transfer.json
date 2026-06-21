@@ -1,0 +1,39 @@
+{
+  "name": "transfer",
+  "syntax": "/transfer <hostname> [<port>] [<players>]",
+  "description": "将玩家转移到另一个服务器",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "hostname",
+      "type": "string",
+      "required": true,
+      "description": "目标服务器的主机名或IP地址"
+    },
+    {
+      "name": "port",
+      "type": "int",
+      "required": false,
+      "description": "目标服务器端口号（1-65535，默认25565）"
+    },
+    {
+      "name": "players",
+      "type": "目标选择器",
+      "required": false,
+      "description": "要转移的玩家（默认为命令执行者）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/transfer play.example.com",
+      "description": "将命令执行者转移到 play.example.com 的默认端口服务器"
+    },
+    {
+      "input": "/transfer play.example.com 25566 @a",
+      "description": "将所有玩家转移到指定服务器的25566端口"
+    }
+  ],
+  "java_specific_notes": "transfer命令是Java版1.20.5（快照24w04a）新增的。仅在专用服务器（多人游戏）中可用，需要OP权限等级3。目标客户端需要支持服务器转移功能；客户端会断开当前连接并尝试连接到新服务器。常用于服务器群组之间的玩家分流。",
+  "version_added": "1.20.5",
+  "since": "1.20.5"
+}

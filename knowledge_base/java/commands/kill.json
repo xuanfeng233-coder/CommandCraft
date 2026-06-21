@@ -1,0 +1,39 @@
+{
+  "name": "kill",
+  "syntax": "/kill [<targets>]",
+  "description": "杀死/消灭指定的实体",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "要杀死的目标实体，可使用选择器。省略则杀死执行者自己",
+      "default": "@s"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/kill @e[type=minecraft:item]",
+      "description": "清除所有掉落物"
+    },
+    {
+      "input": "/kill @e[type=!minecraft:player]",
+      "description": "杀死除玩家外的所有实体"
+    },
+    {
+      "input": "/kill @e[type=minecraft:zombie,distance=..20]",
+      "description": "杀死20格内的所有僵尸"
+    },
+    {
+      "input": "/kill @e[type=minecraft:arrow]",
+      "description": "清除所有箭矢"
+    },
+    {
+      "input": "/kill @e[type=minecraft:experience_orb]",
+      "description": "清除所有经验球"
+    }
+  ],
+  "java_specific_notes": "Java版kill命令省略目标时默认杀死执行者自己。使用distance=..N代替基岩版的r=N来限定范围。Java版中物品实体类型为minecraft:item，经验球为minecraft:experience_orb。",
+  "version_added": "1.0"
+}

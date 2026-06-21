@@ -1,0 +1,26 @@
+{
+  "name": "say",
+  "syntax": "/say <message>",
+  "description": "向所有玩家广播消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "message",
+      "type": "string",
+      "required": true,
+      "description": "要广播的消息内容，支持目标选择器（会被解析为实体名称）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/say 游戏即将开始！",
+      "description": "向所有玩家广播消息"
+    },
+    {
+      "input": "/say @p 被选中了！",
+      "description": "广播消息并显示最近玩家的名称"
+    }
+  ],
+  "java_specific_notes": "say命令会以[执行者名称]的格式显示消息来源。消息中的目标选择器会被解析为实体名称列表。",
+  "version_added": "1.0"
+}

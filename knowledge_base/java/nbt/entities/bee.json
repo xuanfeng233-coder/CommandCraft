@@ -1,0 +1,94 @@
+{
+  "id": "minecraft:bee",
+  "inherits": "_mob_common",
+  "description": "蜜蜂实体NBT标签",
+  "tags": [
+    {
+      "name": "AngerTime",
+      "type": "int",
+      "description": "蜜蜂愤怒状态的剩余刻数，0表示不愤怒",
+      "default": 0
+    },
+    {
+      "name": "AngryAt",
+      "type": "int_array",
+      "description": "蜜蜂愤怒目标的UUID"
+    },
+    {
+      "name": "HivePos",
+      "type": "compound",
+      "description": "蜜蜂所属蜂巢的位置",
+      "children": [
+        {
+          "name": "X",
+          "type": "int",
+          "description": "蜂巢X坐标"
+        },
+        {
+          "name": "Y",
+          "type": "int",
+          "description": "蜂巢Y坐标"
+        },
+        {
+          "name": "Z",
+          "type": "int",
+          "description": "蜂巢Z坐标"
+        }
+      ]
+    },
+    {
+      "name": "FlowerPos",
+      "type": "compound",
+      "description": "蜜蜂目标花朵的位置",
+      "children": [
+        {
+          "name": "X",
+          "type": "int",
+          "description": "花朵X坐标"
+        },
+        {
+          "name": "Y",
+          "type": "int",
+          "description": "花朵Y坐标"
+        },
+        {
+          "name": "Z",
+          "type": "int",
+          "description": "花朵Z坐标"
+        }
+      ]
+    },
+    {
+      "name": "HasNectar",
+      "type": "byte",
+      "description": "蜜蜂是否携带花蜜（身上有花粉粒子）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "HasStung",
+      "type": "byte",
+      "description": "蜜蜂是否已蛰刺过（蛰刺后会死亡）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "TicksSincePollination",
+      "type": "int",
+      "description": "自上次采蜜以来的刻数",
+      "default": 0
+    },
+    {
+      "name": "CannotEnterHiveTicks",
+      "type": "int",
+      "description": "不能进入蜂巢的剩余刻数",
+      "default": 0
+    },
+    {
+      "name": "CropsGrownSincePollination",
+      "type": "int",
+      "description": "自采蜜后催熟的作物数量",
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+[
+  {
+    "id": "minecraft:village_plains",
+    "name": "Plains Village",
+    "category": "overworld",
+    "description": "平原村庄"
+  },
+  {
+    "id": "minecraft:village_desert",
+    "name": "Desert Village",
+    "category": "overworld",
+    "description": "沙漠村庄"
+  },
+  {
+    "id": "minecraft:village_savanna",
+    "name": "Savanna Village",
+    "category": "overworld",
+    "description": "热带草原村庄"
+  },
+  {
+    "id": "minecraft:village_snowy",
+    "name": "Snowy Village",
+    "category": "overworld",
+    "description": "积雪村庄"
+  },
+  {
+    "id": "minecraft:village_taiga",
+    "name": "Taiga Village",
+    "category": "overworld",
+    "description": "针叶林村庄"
+  },
+  {
+    "id": "minecraft:desert_pyramid",
+    "name": "Desert Pyramid",
+    "category": "overworld",
+    "description": "沙漠神殿"
+  },
+  {
+    "id": "minecraft:jungle_pyramid",
+    "name": "Jungle Pyramid",
+    "category": "overworld",
+    "description": "丛林神殿"
+  },
+  {
+    "id": "minecraft:swamp_hut",
+    "name": "Swamp Hut",
+    "category": "overworld",
+    "description": "沼泽小屋"
+  },
+  {
+    "id": "minecraft:igloo",
+    "name": "Igloo",
+    "category": "overworld",
+    "description": "雪屋"
+  },
+  {
+    "id": "minecraft:ocean_ruin_warm",
+    "name": "Warm Ocean Ruins",
+    "category": "overworld",
+    "description": "暖水海洋废墟"
+  },
+  {
+    "id": "minecraft:ocean_ruin_cold",
+    "name": "Cold Ocean Ruins",
+    "category": "overworld",
+    "description": "冷水海洋废墟"
+  },
+  {
+    "id": "minecraft:shipwreck",
+    "name": "Shipwreck",
+    "category": "overworld",
+    "description": "沉船"
+  },
+  {
+    "id": "minecraft:shipwreck_beached",
+    "name": "Beached Shipwreck",
+    "category": "overworld",
+    "description": "搁浅沉船"
+  },
+  {
+    "id": "minecraft:buried_treasure",
+    "name": "Buried Treasure",
+    "category": "overworld",
+    "description": "埋藏的宝藏"
+  },
+  {
+    "id": "minecraft:monument",
+    "name": "Ocean Monument",
+    "category": "overworld",
+    "description": "海底神殿"
+  },
+  {
+    "id": "minecraft:mansion",
+    "name": "Woodland Mansion",
+    "category": "overworld",
+    "description": "林地府邸",
+    "aliases": [
+      "minecraft:woodland_mansion"
+    ]
+  },
+  {
+    "id": "minecraft:stronghold",
+    "name": "Stronghold",
+    "category": "overworld",
+    "description": "要塞"
+  },
+  {
+    "id": "minecraft:mineshaft",
+    "name": "Mineshaft",
+    "category": "overworld",
+    "description": "废弃矿井"
+  },
+  {
+    "id": "minecraft:mineshaft_mesa",
+    "name": "Mesa Mineshaft",
+    "category": "overworld",
+    "description": "恶地废弃矿井"
+  },
+  {
+    "id": "minecraft:pillager_outpost",
+    "name": "Pillager Outpost",
+    "category": "overworld",
+    "description": "掠夺者前哨站"
+  },
+  {
+    "id": "minecraft:ruined_portal",
+    "name": "Ruined Portal",
+    "category": "overworld",
+    "description": "废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_desert",
+    "name": "Desert Ruined Portal",
+    "category": "overworld",
+    "description": "沙漠废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_jungle",
+    "name": "Jungle Ruined Portal",
+    "category": "overworld",
+    "description": "丛林废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_mountain",
+    "name": "Mountain Ruined Portal",
+    "category": "overworld",
+    "description": "山地废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_nether",
+    "name": "Nether Ruined Portal",
+    "category": "nether",
+    "description": "下界废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_ocean",
+    "name": "Ocean Ruined Portal",
+    "category": "overworld",
+    "description": "海洋废弃传送门"
+  },
+  {
+    "id": "minecraft:ruined_portal_swamp",
+    "name": "Swamp Ruined Portal",
+    "category": "overworld",
+    "description": "沼泽废弃传送门"
+  },
+  {
+    "id": "minecraft:fortress",
+    "name": "Nether Fortress",
+    "category": "nether",
+    "description": "下界要塞"
+  },
+  {
+    "id": "minecraft:bastion_remnant",
+    "name": "Bastion Remnant",
+    "category": "nether",
+    "description": "堡垒遗迹"
+  },
+  {
+    "id": "minecraft:end_city",
+    "name": "End City",
+    "category": "end",
+    "description": "末地城"
+  },
+  {
+    "id": "minecraft:ancient_city",
+    "name": "Ancient City",
+    "category": "overworld",
+    "description": "远古城市"
+  },
+  {
+    "id": "minecraft:trail_ruins",
+    "name": "Trail Ruins",
+    "category": "overworld",
+    "description": "古迹废墟"
+  },
+  {
+    "id": "minecraft:trial_chambers",
+    "name": "Trial Chambers",
+    "category": "overworld",
+    "description": "试炼密室"
+  },
+  {
+    "id": "minecraft:nether_fossil",
+    "name": "Nether Fossil",
+    "category": "nether",
+    "description": "下界化石"
+  }
+]

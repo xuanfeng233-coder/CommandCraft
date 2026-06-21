@@ -1,0 +1,42 @@
+{
+  "name": "ride",
+  "syntax": "/ride <target> mount <vehicle> | /ride <target> dismount",
+  "description": "管理实体骑乘关系",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "要操作骑乘关系的实体（骑乘者）"
+    },
+    {
+      "name": "mount <vehicle>",
+      "type": "子命令",
+      "required": false,
+      "description": "使目标骑上指定的载具实体"
+    },
+    {
+      "name": "dismount",
+      "type": "子命令",
+      "required": false,
+      "description": "使目标从当前载具下来"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/ride @s mount @e[type=minecraft:horse,limit=1,sort=nearest]",
+      "description": "骑上最近的马"
+    },
+    {
+      "input": "/ride @s dismount",
+      "description": "从当前载具下来"
+    },
+    {
+      "input": "/ride @e[type=minecraft:zombie,limit=1] mount @e[type=minecraft:spider,limit=1]",
+      "description": "让僵尸骑上蜘蛛（创建蜘蛛骑士）"
+    }
+  ],
+  "java_specific_notes": "ride命令是Java版1.19.4新增的。之前版本需要通过summon命令的Passengers NBT标签来创建骑乘关系。ride命令简化了运行时的骑乘操作。注意：并非所有实体组合都可以骑乘。",
+  "version_added": "1.19.4"
+}

@@ -1,0 +1,6 @@
+{
+  "id": "minecraft:witch",
+  "inherits": "_mob_common",
+  "description": "女巫实体NBT标签",
+  "tags": []
+}

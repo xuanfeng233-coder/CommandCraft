@@ -1,0 +1,33 @@
+{
+  "name": "setworldspawn",
+  "syntax": "/setworldspawn [<pos>] [<angle>]",
+  "description": "设置世界的默认出生点",
+  "category": "player_management",
+  "parameters": [
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "世界出生点坐标",
+      "default": "执行者位置"
+    },
+    {
+      "name": "angle",
+      "type": "float",
+      "required": false,
+      "description": "出生时面朝的角度"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setworldspawn 0 64 0",
+      "description": "将世界出生点设为(0,64,0)"
+    },
+    {
+      "input": "/setworldspawn",
+      "description": "将世界出生点设为当前位置"
+    }
+  ],
+  "java_specific_notes": "世界出生点是新玩家首次加入和没有设置个人重生点的玩家死亡后的重生位置。指南针默认指向世界出生点。",
+  "version_added": "1.0"
+}

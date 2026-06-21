@@ -1,0 +1,28 @@
+{
+  "id": "minecraft:phantom",
+  "inherits": "_mob_common",
+  "description": "幻翼实体NBT标签",
+  "tags": [
+    {
+      "name": "AX",
+      "type": "int",
+      "description": "盘旋锚点的X坐标"
+    },
+    {
+      "name": "AY",
+      "type": "int",
+      "description": "盘旋锚点的Y坐标"
+    },
+    {
+      "name": "AZ",
+      "type": "int",
+      "description": "盘旋锚点的Z坐标"
+    },
+    {
+      "name": "Size",
+      "type": "int",
+      "description": "幻翼大小（影响碰撞箱和伤害），默认0",
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+[
+  {
+    "input": "如果玩家站在钻石块上就给他发消息",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a at @s if block ~ ~-1 ~ minecraft:diamond_block run say 你站在钻石块上！",
+        "explanation": "以每个玩家身份 -> 在其位置 -> 检测脚下是否为钻石块 -> 发送消息",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置执行"},
+          {"subcommand": "if block", "value": "~ ~-1 ~ minecraft:diamond_block", "purpose": "检测脚下方块是否为钻石块"},
+          {"subcommand": "run", "value": "say 你站在钻石块上！", "purpose": "发送聊天消息"}
+        ],
+        "variants": [],
+        "warnings": ["Java版方块ID需要 minecraft: 前缀"]
+      }
+    },
+    "commands_used": ["execute", "say"]
+  },
+  {
+    "input": "在所有僵尸的位置播放爆炸粒子",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @e[type=minecraft:zombie] at @s run particle minecraft:explosion ~ ~1 ~ 0.5 0.5 0.5 0.1 10",
+        "explanation": "以每个僵尸身份 -> 在僵尸位置 -> 播放爆炸粒子",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@e[type=minecraft:zombie]", "purpose": "以每个僵尸身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该僵尸位置"},
+          {"subcommand": "run", "value": "particle minecraft:explosion ~ ~1 ~ 0.5 0.5 0.5 0.1 10", "purpose": "在僵尸位置上方播放10个爆炸粒子"}
+        ],
+        "variants": [],
+        "warnings": ["Java版particle命令参数: <粒子> <坐标> <范围xyz> <速度> <数量>"]
+      }
+    },
+    "commands_used": ["execute", "particle"]
+  },
+  {
+    "input": "如果玩家分数kills大于10就给他加一个称号标签",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[scores={kills=10..}] run tag @s add killer",
+        "explanation": "选择kills分数>=10的玩家 -> 给他们添加killer标签",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[scores={kills=10..}]", "purpose": "以kills>=10的玩家身份执行"},
+          {"subcommand": "run", "value": "tag @s add killer", "purpose": "给该玩家添加killer标签"}
+        ],
+        "variants": [],
+        "warnings": ["确保kills计分板目标已创建"]
+      }
+    },
+    "commands_used": ["execute", "tag", "scoreboard"]
+  },
+  {
+    "input": "把僵尸的数量存到计分板里",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute store result score #zombie_count global run execute if entity @e[type=minecraft:zombie]",
+        "explanation": "使用 execute store 将命令结果存入计分板分数",
+        "chain_breakdown": [
+          {"subcommand": "store result score", "value": "#zombie_count global", "purpose": "将结果存入 #zombie_count 在 global 计分板中的分数"},
+          {"subcommand": "run", "value": "execute if entity @e[type=minecraft:zombie]", "purpose": "检测僵尸数量，返回匹配的实体数"}
+        ],
+        "variants": [],
+        "warnings": ["#zombie_count 以#开头是假名（fake player），不对应真实玩家", "需要先创建 global 计分板：/scoreboard objectives add global dummy"]
+      }
+    },
+    "commands_used": ["execute", "scoreboard"],
+    "note": "execute store 是Java版独有功能，可将命令执行结果存入计分板或NBT"
+  },
+  {
+    "input": "把玩家的生命值存到计分板",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a store result score @s health run data get entity @s Health 1",
+        "explanation": "以每个玩家身份 -> 将结果存入其health分数 -> 读取该玩家的Health NBT值",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "store result score", "value": "@s health", "purpose": "将结果存入该玩家的health计分板分数"},
+          {"subcommand": "run", "value": "data get entity @s Health 1", "purpose": "读取当前实体的生命值NBT（乘以1倍率）"}
+        ],
+        "variants": [],
+        "warnings": ["需要先创建 health 计分板：/scoreboard objectives add health dummy", "Health 是浮点数，倍率1会截断小数部分"]
+      }
+    },
+    "commands_used": ["execute", "data", "scoreboard"],
+    "note": "execute store + data get 组合可以读取任意NBT数据到计分板"
+  },
+  {
+    "input": "把计分板分数写入实体的NBT",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute store result entity @e[type=minecraft:armor_stand,limit=1,sort=nearest] ArmorItems[3].count byte 1 run scoreboard players get @s score",
+        "explanation": "将玩家的score分数存入最近盔甲架头部槽位的物品数量",
+        "chain_breakdown": [
+          {"subcommand": "store result entity", "value": "@e[...] ArmorItems[3].count byte 1", "purpose": "将结果存入目标实体的NBT路径，类型byte，倍率1"},
+          {"subcommand": "run", "value": "scoreboard players get @s score", "purpose": "读取执行者的score计分板分数"}
+        ],
+        "variants": [],
+        "warnings": ["store result entity 可将值写入实体NBT的指定路径", "需指定数据类型(byte/short/int/long/float/double)和倍率"]
+      }
+    },
+    "commands_used": ["execute", "scoreboard"],
+    "note": "execute store result entity 可以将数值写入实体的任意NBT路径"
+  },
+  {
+    "input": "如果附近没有僵尸就生成一只",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute unless entity @e[type=minecraft:zombie,distance=..20] run summon minecraft:zombie ~ ~ ~",
+        "explanation": "如果20格内没有僵尸 -> 在执行位置生成一只僵尸",
+        "chain_breakdown": [
+          {"subcommand": "unless entity", "value": "@e[type=minecraft:zombie,distance=..20]", "purpose": "检测20格内是否没有僵尸（Java版用distance=..20而非r=20）"},
+          {"subcommand": "run", "value": "summon minecraft:zombie ~ ~ ~", "purpose": "在当前位置生成僵尸"}
+        ],
+        "variants": [],
+        "warnings": ["Java版选择器使用 distance=..20 代替基岩版的 r=20"]
+      }
+    },
+    "commands_used": ["execute", "summon"]
+  },
+  {
+    "input": "以所有有vip标签的玩家身份在他们头顶5格处生成烟花",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[tag=vip] at @s positioned ~ ~5 ~ run summon minecraft:firework_rocket ~ ~ ~",
+        "explanation": "选择VIP玩家 -> 在其位置 -> 偏移到头顶5格 -> 生成烟花火箭",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[tag=vip]", "purpose": "以有vip标签的玩家身份"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置"},
+          {"subcommand": "positioned", "value": "~ ~5 ~", "purpose": "偏移到头顶5格高度"},
+          {"subcommand": "run", "value": "summon minecraft:firework_rocket ~ ~ ~", "purpose": "生成烟花火箭"}
+        ],
+        "variants": [],
+        "warnings": ["Java版烟花实体ID是 firework_rocket，不是 fireworks_rocket"]
+      }
+    },
+    "commands_used": ["execute", "summon"]
+  },
+  {
+    "input": "检测玩家背包里是否有钻石",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a[nbt={Inventory:[{id:\"minecraft:diamond\"}]}] run say 我有钻石！",
+        "explanation": "使用nbt选择器参数检测玩家背包 -> 匹配到的玩家说出消息",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a[nbt={Inventory:[{id:\"minecraft:diamond\"}]}]", "purpose": "以背包中有钻石的玩家身份执行（Java版用nbt选择器参数）"},
+          {"subcommand": "run", "value": "say 我有钻石！", "purpose": "发送消息"}
+        ],
+        "variants": ["/execute if data entity @s Inventory[{id:\"minecraft:diamond\"}] run say 我有钻石！"],
+        "warnings": ["Java版使用 nbt= 选择器参数检测实体NBT，基岩版用 hasitem=", "variants中展示了 if data 的替代写法"]
+      }
+    },
+    "commands_used": ["execute", "say"],
+    "selector_features": ["@a", "nbt"],
+    "note": "Java版用 nbt= 选择器参数或 execute if data 检测物品，基岩版用 hasitem="
+  },
+  {
+    "input": "在地狱维度的所有玩家位置生成火焰粒子",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute in minecraft:the_nether as @a at @s run particle minecraft:flame ~ ~1 ~ 0.3 0.3 0.3 0.02 5",
+        "explanation": "切换到地狱维度 -> 以所有玩家身份 -> 在各自位置 -> 生成火焰粒子",
+        "chain_breakdown": [
+          {"subcommand": "in", "value": "minecraft:the_nether", "purpose": "在地狱维度执行（Java版用 minecraft:the_nether）"},
+          {"subcommand": "as", "value": "@a", "purpose": "以所有玩家身份"},
+          {"subcommand": "at", "value": "@s", "purpose": "在各自位置"},
+          {"subcommand": "run", "value": "particle minecraft:flame ~ ~1 ~ 0.3 0.3 0.3 0.02 5", "purpose": "生成5个火焰粒子"}
+        ],
+        "variants": [],
+        "warnings": ["Java版维度ID：minecraft:overworld, minecraft:the_nether, minecraft:the_end"]
+      }
+    },
+    "commands_used": ["execute", "particle"]
+  },
+  {
+    "input": "把命令执行成功次数存到bossbar值里",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute store result bossbar minecraft:my_bar value run execute if entity @e[type=minecraft:zombie]",
+        "explanation": "将检测到的僵尸数量存入bossbar的值",
+        "chain_breakdown": [
+          {"subcommand": "store result bossbar", "value": "minecraft:my_bar value", "purpose": "将结果存入bossbar的当前值"},
+          {"subcommand": "run", "value": "execute if entity @e[type=minecraft:zombie]", "purpose": "检测僵尸数量"}
+        ],
+        "variants": ["/execute store result bossbar minecraft:my_bar max run scoreboard players get #max global"],
+        "warnings": ["store result bossbar 可存入 value 或 max", "variants中展示了设置bossbar最大值的写法"]
+      }
+    },
+    "commands_used": ["execute", "bossbar"],
+    "note": "execute store result bossbar 是Java版独有功能，可动态更新bossbar数值"
+  },
+  {
+    "input": "检测玩家朝向并判断是否面朝北方",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/execute as @a at @s if predicate {\"condition\":\"minecraft:entity_properties\",\"entity\":\"this\",\"predicate\":{\"location\":{\"position\":{}}}} rotated ~ 0 positioned ^ ^ ^1 if block ~ ~-1 ~ minecraft:air run say 我面朝北方",
+        "explanation": "使用 rotated 和 positioned 的组合判断朝向",
+        "chain_breakdown": [
+          {"subcommand": "as", "value": "@a", "purpose": "以每个玩家身份执行"},
+          {"subcommand": "at", "value": "@s", "purpose": "在该玩家位置"},
+          {"subcommand": "rotated", "value": "~ 0", "purpose": "锁定垂直视角为水平"},
+          {"subcommand": "positioned", "value": "^ ^ ^1", "purpose": "向玩家面朝方向前进1格"},
+          {"subcommand": "run", "value": "say ...", "purpose": "发送消息"}
+        ],
+        "variants": ["/execute as @a at @s if entity @s[y_rotation=-45..45] run say 我面朝南方"],
+        "warnings": ["y_rotation选择器参数可以更简单地判断朝向", "variants中的方案更实用：y_rotation范围 -45..45=南, 135..-135=北"]
+      }
+    },
+    "commands_used": ["execute", "say"],
+    "selector_features": ["y_rotation"]
+  }
+]

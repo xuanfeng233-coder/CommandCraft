@@ -1,0 +1,15 @@
+{
+  "name": "save-off",
+  "syntax": "/save-off",
+  "description": "禁用服务器自动保存",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/save-off",
+      "description": "禁用自动保存功能"
+    }
+  ],
+  "java_specific_notes": "仅在专用服务器中使用。通常在执行备份操作前先save-off禁用自动保存，save-all flush手动保存，完成备份后save-on恢复。",
+  "version_added": "1.0"
+}

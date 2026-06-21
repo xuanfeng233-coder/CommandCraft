@@ -1,0 +1,15 @@
+{
+  "name": "stop",
+  "syntax": "/stop",
+  "description": "关闭服务器",
+  "category": "server_admin",
+  "parameters": [],
+  "examples": [
+    {
+      "input": "/stop",
+      "description": "保存世界数据并关闭服务器"
+    }
+  ],
+  "java_specific_notes": "stop命令会自动保存所有世界数据后关闭服务器。需要OP等级4（server.properties中的op-permission-level）。",
+  "version_added": "1.0"
+}

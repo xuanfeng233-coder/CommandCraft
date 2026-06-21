@@ -1,0 +1,21 @@
+{
+  "id": "bedrock_command_blocks_guide",
+  "title": "基岩版命令方块实战指南",
+  "source": "wiki.bedrock.dev",
+  "url": "https://wiki.bedrock.dev/commands/intro-to-command-blocks",
+  "category": "commands",
+  "tags": [
+    "命令方块",
+    "脉冲",
+    "连锁",
+    "循环",
+    "条件",
+    "红石",
+    "入门",
+    "最佳实践"
+  ],
+  "summary": "命令方块分为脉冲型（单次触发）、连锁型（顺序执行）和循环型（每刻执行）三种，支持条件/无条件模式和红石/保持开启激活方式，标准搭建为循环+连锁链。",
+  "content": "命令方块是基岩版中自动执行命令的核心工具。通过组合不同类型的命令方块，可以构建从简单触发到复杂系统的各种命令装置。\n\n## 获取命令方块\n\n命令方块无法在创造模式物品栏中找到，需要通过命令获取：\n```\n/give @s command_block\n/give @s chain_command_block\n/give @s repeating_command_block\n```\n\n或直接放置：\n```\n/setblock ~ ~ ~ command_block\n/setblock ~ ~ ~ chain_command_block\n/setblock ~ ~ ~ repeating_command_block\n```\n\n## 三种命令方块类型\n\n### 脉冲型命令方块（橙色）\n\n- 每次激活时执行一次命令\n- 激活方式：红石信号或玩家手动按下按钮\n- 适合一次性操作（初始化、重置等）\n\n```\n/give @s command_block\n```\n\n### 连锁型命令方块（绿色/青色）\n\n- 当前方指向的命令方块执行完毕后立即执行\n- 必须被前一个命令方块指向（箭头方向）\n- 适合构建命令序列\n\n```\n/give @s chain_command_block\n```\n\n### 循环型命令方块（紫色）\n\n- 每个游戏刻（1/20秒）持续执行命令\n- 适合持续检测和循环逻辑\n\n```\n/give @s repeating_command_block\n```\n\n## 条件模式\n\n每种命令方块都有两种条件模式：\n\n### 无条件（默认）\n无论前方命令方块是否成功，都会执行。\n\n### 条件\n仅当前方（指向自己的）命令方块成功执行时才执行。\n\n命令方块UI中可以切换条件/无条件模式。条件模式命令方块的纹理上有一条暗色条纹。\n\n### 条件模式应用\n```\n## 循环命令方块（无条件）：检测玩家\nexecute if entity @a[tag=winner]\n\n## 连锁命令方块（条件）：只有检测成功才执行\ntitle @a[tag=winner] title §6恭喜获胜！\n\n## 连锁命令方块（条件）：继续执行\nplaysound random.levelup @a[tag=winner]\n```\n\n## 激活方式\n\n### 红石控制\n需要红石信号才能激活。适用于需要手动控制的场景。\n\n### 保持开启\n始终处于激活状态，无需红石信号。连锁和循环命令方块通常使用此模式。\n\n## 标准搭建模式\n\n### 循环+连锁链（最常用）\n\n最标准的命令方块搭建方式：一个循环命令方块后面跟若干连锁命令方块。\n\n```\n[循环] → [连锁] → [连锁] → [连锁]\n 保持开启   保持开启   保持开启   保持开启\n 无条件     无条件     无条件     无条件\n```\n\n放置步骤：\n1. 放置循环命令方块，设为「保持开启」\n2. 在循环命令方块的箭头指向方向依次放置连锁命令方块\n3. 所有连锁命令方块设为「保持开启」\n4. 按顺序填入命令\n\n### 箭头方向\n\n命令方块的箭头表示输出方向（指向下一个命令方块）。放置时面朝的方向就是箭头方向。\n\n重要：连锁命令方块必须被前一个命令方块的箭头指向，否则不会执行。\n\n## 延迟设置\n\n命令方块可以设置延迟刻数（Tick Delay）：\n- 脉冲型：激活后延迟指定刻数再执行\n- 循环型：每次执行之间的间隔\n- 连锁型：前一个命令方块执行后延迟执行\n\n```\n## 设置5刻（0.25秒）延迟的循环命令方块\n## 在命令方块UI中设置 Tick Delay = 5\n```\n\n## 实战示例\n\n### 示例1：持续检测系统\n```\n[循环] execute as @a at @s if block ~ ~-1 ~ gold_block run tag @s add on_gold\n[连锁] execute as @a[tag=on_gold] run effect @s speed 3 1 true\n[连锁] execute as @a at @s unless block ~ ~-1 ~ gold_block run tag @s remove on_gold\n```\n\n### 示例2：初始化系统（脉冲触发）\n```\n[脉冲] scoreboard objectives add game dummy\n[连锁] scoreboard objectives add kills playerKillCount\n[连锁] scoreboard objectives add deaths deathCount\n[连锁] scoreboard players set .gameState game 0\n[连锁] say 游戏系统初始化完成！\n```\n\n### 示例3：条件执行链\n```\n[循环] execute if score .gameState game matches 1\n[连锁·条件] title @a actionbar §a游戏进行中\n[连锁·条件] execute as @a at @s run particle minecraft:villager_happy ~ ~2 ~\n[连锁·无条件] execute if score .gameState game matches 0 run title @a actionbar §7等待开始\n```\n\n## 最佳实践\n\n### 1. 始终使用循环+连锁结构\n避免使用多个独立的循环命令方块，将相关命令放在同一条链中以确保执行顺序。\n\n### 2. 使用函数替代超长命令链\n当命令链超过15-20个方块时，考虑使用 .mcfunction 文件。函数更易维护且性能更好。\n\n### 3. 合理使用条件模式\n条件模式可以减少不必要的命令执行，提高性能。\n\n### 4. 命名和注释\n给命令方块添加悬浮名称（在UI中设置），方便识别每个方块的功能。\n\n### 5. 常加载区域\n命令方块必须在已加载的区块中才能工作。使用 tickingarea 确保命令方块区域始终加载：\n```\n/tickingarea add 0 0 0 15 0 15 command_area\n```\n\n### 6. 避免每刻执行高开销命令\n以下命令应避免在循环命令方块中无条件使用：\n- clone（大范围克隆）\n- fill（大范围填充）\n- structure（结构加载）\n\n## 故障排除\n\n### 命令方块不执行\n- 检查是否启用了命令方块：/gamerule commandblocksenabled true\n- 检查激活方式是否正确（红石/保持开启）\n- 检查连锁命令方块的箭头方向\n- 检查是否在已加载区块内\n\n### 条件链中断\n- 条件命令方块在前方命令失败时不执行，后续条件命令方块也全部跳过\n- 在条件链后放置一个「无条件」命令方块以恢复执行流\n\n### 命令执行顺序错误\n- 确保连锁方块的箭头方向正确（一个接一个指向）\n- 不要让两个循环命令方块指向同一个连锁命令方块\n\n### 性能问题\n- 减少不必要的循环命令方块数量\n- 使用条件模式避免无效执行\n- 考虑用函数替代复杂命令链\n- 使用标签（tag）缩小选择器范围，避免每刻遍历所有实体",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

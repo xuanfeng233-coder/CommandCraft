@@ -1,0 +1,48 @@
+{
+  "id": "minecraft:jukebox",
+  "inherits": "_common",
+  "description": "唱片机方块实体NBT标签",
+  "tags": [
+    {
+      "name": "RecordItem",
+      "type": "compound",
+      "description": "唱片机中的唱片物品",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "唱片物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量",
+          "default": 1
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "IsPlaying",
+      "type": "byte",
+      "description": "是否正在播放",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "RecordStartTick",
+      "type": "long",
+      "description": "开始播放的游戏刻时间"
+    },
+    {
+      "name": "TickCount",
+      "type": "long",
+      "description": "已播放的刻数"
+    }
+  ]
+}

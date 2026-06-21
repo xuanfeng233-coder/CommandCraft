@@ -1,0 +1,38 @@
+{
+  "id": "minecraft:crossbow",
+  "inherits": "_common",
+  "description": "弩物品NBT标签",
+  "tags": [
+    {
+      "name": "ChargedProjectiles",
+      "type": "list<compound>",
+      "description": "已装填的弹射物列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "弹射物ID（箭或烟花火箭）",
+          "values": ["minecraft:arrow", "minecraft:tipped_arrow", "minecraft:spectral_arrow", "minecraft:firework_rocket"],
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "弹射物NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "Charged",
+      "type": "byte",
+      "description": "弩是否已装填",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "item",
+  "syntax": "/item replace <target> <slot> with <item> [<count>] | /item replace <target> <slot> from <source> <sourceSlot> [<modifier>] | /item modify <target> <slot> <modifier>",
+  "description": "操作实体或方块容器的物品槽位（替代旧版replaceitem命令）",
+  "category": "item_management",
+  "parameters": [
+    {
+      "name": "replace ... with",
+      "type": "子命令",
+      "required": false,
+      "description": "用指定物品替换目标槽位。target可以是 block <pos> 或 entity <targets>"
+    },
+    {
+      "name": "replace ... from",
+      "type": "子命令",
+      "required": false,
+      "description": "从源槽位复制物品到目标槽位，可选应用物品修饰器"
+    },
+    {
+      "name": "modify",
+      "type": "子命令",
+      "required": false,
+      "description": "对指定槽位的物品应用物品修饰器（item_modifier）"
+    },
+    {
+      "name": "slot",
+      "type": "item_slot",
+      "required": true,
+      "description": "物品槽位，如 container.0-53、hotbar.0-8、inventory.0-26、armor.head/chest/legs/feet、weapon.mainhand/offhand、enderchest.0-26、horse.saddle/armor/chest.0-14、villager.0-7"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/item replace entity @s armor.head with minecraft:diamond_helmet",
+      "description": "将自己的头盔槽替换为钻石头盔"
+    },
+    {
+      "input": "/item replace entity @s weapon.offhand with minecraft:shield",
+      "description": "将自己的副手设为盾牌"
+    },
+    {
+      "input": "/item replace block ~ ~ ~ container.0 with minecraft:diamond 64",
+      "description": "在脚下方块容器的第一个槽位放入64个钻石"
+    },
+    {
+      "input": "/item replace entity @s hotbar.0 from entity @p hotbar.0",
+      "description": "将最近玩家的快捷栏第一格物品复制到自己的快捷栏第一格"
+    },
+    {
+      "input": "/item modify entity @s weapon.mainhand minecraft:enchant_randomly",
+      "description": "对自己主手物品应用随机附魔修饰器"
+    }
+  ],
+  "java_specific_notes": "item命令是Java版1.17引入的，替代了旧版的replaceitem命令。支持from子命令在实体/方块间复制物品，支持modify子命令应用物品修饰器。槽位命名使用点号分隔（如armor.head）而非基岩版的slot.armor.head。",
+  "version_added": "1.17"
+}

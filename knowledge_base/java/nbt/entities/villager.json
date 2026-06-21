@@ -1,0 +1,166 @@
+{
+  "id": "minecraft:villager",
+  "inherits": "_mob_common",
+  "description": "村民实体NBT标签",
+  "tags": [
+    {
+      "name": "VillagerData",
+      "type": "compound",
+      "description": "村民职业和类型数据",
+      "children": [
+        {
+          "name": "level",
+          "type": "int",
+          "description": "交易等级：1=新手, 2=学徒, 3=老手, 4=专家, 5=大师",
+          "range": "1..5",
+          "default": 1
+        },
+        {
+          "name": "profession",
+          "type": "string",
+          "description": "村民职业",
+          "values": [
+            "minecraft:none",
+            "minecraft:armorer",
+            "minecraft:butcher",
+            "minecraft:cartographer",
+            "minecraft:cleric",
+            "minecraft:farmer",
+            "minecraft:fisherman",
+            "minecraft:fletcher",
+            "minecraft:leatherworker",
+            "minecraft:librarian",
+            "minecraft:mason",
+            "minecraft:nitwit",
+            "minecraft:shepherd",
+            "minecraft:toolsmith",
+            "minecraft:weaponsmith"
+          ],
+          "default": "minecraft:none"
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "村民生物群系类型（影响外观）",
+          "values": [
+            "minecraft:desert",
+            "minecraft:jungle",
+            "minecraft:plains",
+            "minecraft:savanna",
+            "minecraft:snow",
+            "minecraft:swamp",
+            "minecraft:taiga"
+          ],
+          "default": "minecraft:plains"
+        }
+      ]
+    },
+    {
+      "name": "Offers",
+      "type": "compound",
+      "description": "村民的交易列表",
+      "children": [
+        {
+          "name": "Recipes",
+          "type": "list<compound>",
+          "description": "交易配方列表",
+          "children": [
+            {
+              "name": "buy",
+              "type": "compound",
+              "description": "交易所需的第一个物品"
+            },
+            {
+              "name": "buyB",
+              "type": "compound",
+              "description": "交易所需的第二个物品（可选）"
+            },
+            {
+              "name": "sell",
+              "type": "compound",
+              "description": "交易获得的物品"
+            },
+            {
+              "name": "maxUses",
+              "type": "int",
+              "description": "最大交易次数",
+              "default": 12
+            },
+            {
+              "name": "uses",
+              "type": "int",
+              "description": "已交易次数",
+              "default": 0
+            },
+            {
+              "name": "xp",
+              "type": "int",
+              "description": "村民获得的经验值"
+            },
+            {
+              "name": "priceMultiplier",
+              "type": "float",
+              "description": "价格乘数（受供需影响）",
+              "default": 0.0
+            },
+            {
+              "name": "rewardExp",
+              "type": "byte",
+              "description": "玩家是否获得经验",
+              "values": [0, 1],
+              "default": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Xp",
+      "type": "int",
+      "description": "村民当前经验值（影响交易等级）",
+      "default": 0
+    },
+    {
+      "name": "Gossips",
+      "type": "list<compound>",
+      "description": "村民的声望系统数据",
+      "children": [
+        {
+          "name": "Type",
+          "type": "string",
+          "description": "声望类型",
+          "values": ["major_positive", "minor_positive", "minor_negative", "major_negative", "trading"]
+        },
+        {
+          "name": "Value",
+          "type": "int",
+          "description": "声望值"
+        },
+        {
+          "name": "Target",
+          "type": "int_array",
+          "description": "目标玩家的UUID"
+        }
+      ]
+    },
+    {
+      "name": "LastRestock",
+      "type": "long",
+      "description": "上次补货的游戏刻时间"
+    },
+    {
+      "name": "RestocksToday",
+      "type": "int",
+      "description": "今天已补货次数（最多2次/天）",
+      "default": 0,
+      "range": "0..2"
+    },
+    {
+      "name": "Willing",
+      "type": "byte",
+      "description": "村民是否愿意繁殖",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

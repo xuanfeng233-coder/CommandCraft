@@ -1,0 +1,22 @@
+{
+  "name": "pardon",
+  "syntax": "/pardon <targets>",
+  "description": "解除玩家的封禁",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "string",
+      "required": true,
+      "description": "要解封的玩家名称"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/pardon Steve",
+      "description": "解除对玩家Steve的封禁"
+    }
+  ],
+  "java_specific_notes": "pardon命令仅在专用服务器中可用。还有pardon-ip命令可以解除IP封禁。",
+  "version_added": "1.0"
+}

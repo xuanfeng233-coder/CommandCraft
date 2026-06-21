@@ -1,0 +1,48 @@
+{
+  "name": "enchant",
+  "syntax": "/enchant <targets> <enchantment> [<level>]",
+  "description": "为玩家手持物品附加附魔效果",
+  "category": "effects",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "目标玩家"
+    },
+    {
+      "name": "enchantment",
+      "type": "enchantment_id",
+      "required": true,
+      "description": "附魔ID，使用命名空间格式（如 minecraft:sharpness、minecraft:protection 等）"
+    },
+    {
+      "name": "level",
+      "type": "int",
+      "required": false,
+      "description": "附魔等级",
+      "default": "1",
+      "range": "1-255（受附魔最大等级限制）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/enchant @s minecraft:sharpness 5",
+      "description": "给自己手持的武器附加锋利V"
+    },
+    {
+      "input": "/enchant @s minecraft:unbreaking 3",
+      "description": "给自己手持的物品附加耐久III"
+    },
+    {
+      "input": "/enchant @s minecraft:fortune 3",
+      "description": "给自己手持的工具附加时运III"
+    },
+    {
+      "input": "/enchant @a minecraft:protection 4",
+      "description": "给所有玩家手持物品附加保护IV"
+    }
+  ],
+  "java_specific_notes": "Java版enchant命令只能附加与物品类型兼容的附魔，且不能超过原版最大等级。要附加超过限制的附魔或不兼容的附魔，应使用/give命令配合数据组件或/data命令修改NBT。附魔ID使用命名空间格式（如minecraft:sharpness）。",
+  "version_added": "1.0"
+}

@@ -1,0 +1,58 @@
+{
+  "id": "minecraft:item",
+  "inherits": "_common",
+  "description": "掉落物实体NBT标签",
+  "tags": [
+    {
+      "name": "Age",
+      "type": "short",
+      "description": "掉落物已存在的刻数，达到6000（5分钟）后消失。设为-32768则永不消失",
+      "default": 0
+    },
+    {
+      "name": "Health",
+      "type": "short",
+      "description": "掉落物的耐久值（受伤时减少，归零消失）",
+      "default": 5
+    },
+    {
+      "name": "PickupDelay",
+      "type": "short",
+      "description": "可被捡起前的延迟刻数。设为32767则无法被捡起",
+      "default": 10
+    },
+    {
+      "name": "Owner",
+      "type": "int_array",
+      "description": "掉落物所有者的UUID（优先被该玩家捡起）"
+    },
+    {
+      "name": "Thrower",
+      "type": "int_array",
+      "description": "丢出此物品的实体UUID"
+    },
+    {
+      "name": "Item",
+      "type": "compound",
+      "description": "掉落物的物品数据",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    }
+  ]
+}

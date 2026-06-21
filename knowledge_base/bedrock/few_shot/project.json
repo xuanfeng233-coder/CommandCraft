@@ -1,0 +1,3254 @@
+[
+  {
+    "input": "做一个每5秒清理地面掉落物的系统",
+    "output": {
+      "type": "project",
+      "project_name": "定时掉落物清理系统",
+      "overview": "使用循环命令方块配合延迟，每5秒清理所有掉落物实体",
+      "phases": [
+        {
+          "phase_name": "核心清理机制",
+          "description": "设置定时清理命令方块链",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "每5秒清理所有掉落物并通知玩家",
+              "commands": ["kill", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/kill @e[type=item]",
+                  "comment": "循环清理所有掉落物实体"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§a掉落物已清理\"}]}",
+                  "comment": "通知所有玩家"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["kill", "titleraw"]
+  },
+  {
+    "input": "做一个击杀计分板系统，追踪每个玩家的击杀数并显示在侧边栏",
+    "output": {
+      "type": "project",
+      "project_name": "击杀计分板追踪系统",
+      "overview": "创建计分板目标追踪击杀数，显示在侧边栏，使用命令方块持续检测和更新",
+      "phases": [
+        {
+          "phase_name": "初始化阶段",
+          "description": "创建计分板目标并设置显示",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建kills计分板并设置侧边栏显示",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add kills dummy \"击杀数\"",
+                  "comment": "创建击杀计分板目标（一次性执行）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives setdisplay sidebar kills",
+                  "comment": "设置侧边栏显示"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "运行阶段",
+          "description": "持续追踪玩家击杀并初始化新玩家分数",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "为新玩家初始化分数",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a kills 0",
+                  "comment": "循环为所有玩家初始化分数（已有分数的不受影响）"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard"]
+  },
+  {
+    "input": "做一个传送门系统，玩家站在铁块上就传送到另一个位置",
+    "output": {
+      "type": "project",
+      "project_name": "方块传送门系统",
+      "overview": "检测玩家脚下的铁块，触发传送到目标位置，传送后添加冷却标签防止重复触发",
+      "phases": [
+        {
+          "phase_name": "传送检测与执行",
+          "description": "持续检测站在铁块上的玩家并传送",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测脚下铁块并传送玩家（带冷却）",
+              "commands": ["execute", "tp", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!tp_cooldown] at @s if block ~ ~-1 ~ iron_block run tp @s 100 64 100",
+                  "comment": "检测脚下铁块并传送（排除冷却中的玩家）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=!tp_cooldown] add tp_cooldown",
+                  "comment": "传送成功后添加冷却标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=tp_cooldown] unless block ~ ~-1 ~ iron_block run tag @s remove tp_cooldown",
+                  "comment": "离开铁块后移除冷却标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "tp", "tag"]
+  },
+  {
+    "input": "做一个简单的商店系统，玩家用金锭购买钻石",
+    "output": {
+      "type": "project",
+      "project_name": "金锭兑换钻石商店",
+      "overview": "检测玩家手持金锭，扣除金锭并给予钻石，使用计分板追踪交易状态",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建商店所需的计分板和标签",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建交易计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add shop_buy dummy",
+                  "comment": "创建购买状态计分板（一次性执行）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "交易检测与执行",
+          "description": "持续运行的交易逻辑",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "检测并执行金锭→钻石交易",
+              "commands": ["execute", "clear", "give", "scoreboard", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] at @s run clear @s gold_ingot 0 5",
+                  "comment": "扣除有购买标签玩家的5个金锭"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] run give @s diamond 1",
+                  "comment": "给予1个钻石"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_diamond] run titleraw @s actionbar {\"rawtext\":[{\"text\":\"§a交易成功！获得1颗钻石\"}]}",
+                  "comment": "显示交易成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_diamond] remove buy_diamond",
+                  "comment": "移除购买标签"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "clear", "give", "scoreboard", "titleraw", "tag"]
+  },
+  {
+    "input": "做一个PVP竞技场倒计时系统",
+    "output": {
+      "type": "project",
+      "project_name": "PVP竞技场倒计时系统",
+      "overview": "使用计分板实现倒计时，显示在动作栏，倒计时结束后开始PVP",
+      "phases": [
+        {
+          "phase_name": "初始化阶段",
+          "description": "创建计时器计分板并设置初始值",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建倒计时计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add timer dummy \"倒计时\"",
+                  "comment": "创建倒计时计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set countdown timer 200",
+                  "comment": "设置倒计时为200tick（10秒）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "倒计时运行",
+          "description": "持续减少计时器并在动作栏显示",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "每tick减少计时器并显示",
+              "commands": ["scoreboard", "titleraw", "execute"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 1.. run scoreboard players remove countdown timer 1",
+                  "comment": "每tick减少倒计时（仅当>0时）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 1.. run titleraw @a actionbar {\"rawtext\":[{\"text\":\"§e倒计时: \"},{\"score\":{\"name\":\"countdown\",\"objective\":\"timer\"}}]}",
+                  "comment": "在动作栏显示剩余时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score countdown timer matches 0 run titleraw @a title {\"rawtext\":[{\"text\":\"§c§lGO!\"}]}",
+                  "comment": "倒计时归零时显示开始标题"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "titleraw", "execute"]
+  },
+  {
+    "input": "做一个世界边界系统，防止玩家跑出指定范围",
+    "output": {
+      "type": "project",
+      "project_name": "世界边界限制系统",
+      "overview": "使用命令方块持续检测玩家坐标，超出范围自动拉回，并在动作栏提示",
+      "phases": [
+        {
+          "phase_name": "边界检测与执行",
+          "description": "以坐标 0 64 0 为中心，半径100格的方形边界",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测并拉回越界玩家",
+              "commands": ["execute", "tp", "titleraw", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s unless entity @s[x=-100,z=-100,dx=200,dz=200] run tp @s 0 64 0",
+                  "comment": "超出边界的玩家传送回中心"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[x=-100,z=-100,dx=200,dz=200] actionbar {\"rawtext\":[{\"text\":\"§c已超出世界边界，已传送回中心\"}]}",
+                  "comment": "提示被拉回的玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if entity @s[r=90,x=0,z=0] unless entity @s[r=80,x=0,z=0] run titleraw @s actionbar {\"rawtext\":[{\"text\":\"§e⚠ 你已接近世界边界\"}]}",
+                  "comment": "接近边界时警告"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "tp", "titleraw"]
+  },
+  {
+    "input": "做一个出生点保护系统，玩家在出生点附近自动变成冒险模式",
+    "output": {
+      "type": "project",
+      "project_name": "出生点保护系统",
+      "overview": "在出生点范围内自动切换玩家为冒险模式防止破坏，离开后恢复生存模式",
+      "phases": [
+        {
+          "phase_name": "模式切换逻辑",
+          "description": "根据玩家距离出生点的距离自动切换游戏模式",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "进入/离开保护区自动切换模式",
+              "commands": ["gamemode", "execute", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/gamemode adventure @a[x=0,y=60,z=0,r=30,m=!adventure]",
+                  "comment": "出生点30格内非冒险模式的玩家切换为冒险模式"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[x=0,y=60,z=0,r=30,m=adventure] actionbar {\"rawtext\":[{\"text\":\"§b✦ 你已进入出生点保护区\"}]}",
+                  "comment": "提示进入保护区"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/gamemode survival @a[x=0,y=60,z=0,rm=30,m=adventure]",
+                  "comment": "离开保护区的玩家恢复生存模式"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["gamemode", "execute", "titleraw"]
+  },
+  {
+    "input": "做一个跳跃板系统，玩家站在史莱姆块上会被弹射上天",
+    "output": {
+      "type": "project",
+      "project_name": "弹射跳跃板系统",
+      "overview": "检测玩家脚下的史莱姆块，施加跳跃提升效果实现弹射",
+      "phases": [
+        {
+          "phase_name": "弹射逻辑",
+          "description": "检测特定方块并施加效果",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "踩到史莱姆块触发弹射",
+              "commands": ["execute", "effect", "playsound"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ slime run effect @s levitation 1 5 true",
+                  "comment": "脚下是史莱姆块则施加短暂漂浮效果"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ slime run playsound mob.slime.big @s ~ ~ ~",
+                  "comment": "播放弹射音效"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[hasitem={item=feather,location=slot.weapon.mainhand}] slow_falling 3 0 true",
+                  "comment": "手持羽毛的玩家获得缓降效果（安全落地）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "effect", "playsound"]
+  },
+  {
+    "input": "做一个自动回血区域系统",
+    "output": {
+      "type": "project",
+      "project_name": "区域回血系统",
+      "overview": "在指定区域放置标记盔甲架，附近玩家自动获得生命恢复效果和粒子提示",
+      "phases": [
+        {
+          "phase_name": "设置回血区标记",
+          "description": "在目标位置放置命名盔甲架作为区域中心",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建回血区域标记实体",
+              "commands": ["summon"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/summon armor_stand heal_zone 50 64 50",
+                  "comment": "在坐标50 64 50召唤名为heal_zone的盔甲架"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "回血逻辑",
+          "description": "持续检测范围内的玩家并施加恢复效果",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "给区域内玩家施加效果和粒子",
+              "commands": ["execute", "effect", "particle"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute at @e[type=armor_stand,name=heal_zone] run effect @a[r=8] regeneration 2 1 true",
+                  "comment": "以盔甲架为中心8格内施加生命恢复II"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute at @e[type=armor_stand,name=heal_zone] run particle minecraft:heart ~ ~2 ~",
+                  "comment": "在回血区域播放心形粒子"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute at @e[type=armor_stand,name=heal_zone] as @a[r=8] run titleraw @s actionbar {\"rawtext\":[{\"text\":\"§a❤ 回血区域 ❤\"}]}",
+                  "comment": "显示回血区域提示"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["summon", "execute", "effect", "particle", "titleraw"]
+  },
+  {
+    "input": "做一个双队伍系统，随机分配红蓝两队",
+    "output": {
+      "type": "project",
+      "project_name": "红蓝队伍分配系统",
+      "overview": "使用计分板随机分数+标签系统将玩家分配到红队或蓝队，并设置各队出生点",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建队伍计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建队伍管理所需的计分板和初始化",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add team_id dummy",
+                  "comment": "创建队伍ID计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add team_score dummy \"队伍分数\"",
+                  "comment": "创建队伍分数计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "队伍分配",
+          "description": "随机为未分配的玩家安排队伍",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "自动给未分配的玩家随机分队",
+              "commands": ["tag", "scoreboard", "execute", "tellraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=!red,tag=!blue] add unassigned",
+                  "comment": "标记未分队的玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @r[tag=unassigned] add red",
+                  "comment": "随机选一名未分队玩家分到红队（@r = 随机选择器）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @r[tag=unassigned] add blue",
+                  "comment": "随机选一名剩余未分队玩家分到蓝队"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a[tag=unassigned,tag=red] {\"rawtext\":[{\"text\":\"§c你被分配到了 §l红队！\"}]}",
+                  "comment": "通知红队玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a[tag=unassigned,tag=blue] {\"rawtext\":[{\"text\":\"§9你被分配到了 §l蓝队！\"}]}",
+                  "comment": "通知蓝队玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=unassigned] remove unassigned",
+                  "comment": "移除临时标签"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        },
+        {
+          "phase_name": "队伍传送",
+          "description": "将两队玩家传送到各自出生点",
+          "tasks": [
+            {
+              "task_id": "3",
+              "description": "按队伍传送到对应出生区域",
+              "commands": ["tp", "execute"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/tp @a[tag=red] 50 64 0",
+                  "comment": "红队传送到红色出生点"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tp @a[tag=blue] -50 64 0",
+                  "comment": "蓝队传送到蓝色出生点"
+                }
+              ],
+              "dependencies": ["2"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "tag", "tp", "tellraw", "execute"]
+  },
+  {
+    "input": "做一个计时跑酷系统，记录每个玩家的跑酷用时",
+    "output": {
+      "type": "project",
+      "project_name": "计时跑酷系统",
+      "overview": "玩家踩到起点压力板开始计时，到达终点停止计时，显示用时（tick为单位）",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建计时用的计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建跑酷计时计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add parkour_time dummy \"跑酷用时\"",
+                  "comment": "创建跑酷计时计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add parkour_best dummy \"最佳成绩\"",
+                  "comment": "创建最佳成绩计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "计时逻辑",
+          "description": "检测起点/终点，控制计时",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "起点/终点检测与计时",
+              "commands": ["execute", "scoreboard", "tag", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ emerald_block run tag @s add parkour_running",
+                  "comment": "踩到绿宝石块（起点）开始计时"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @a[tag=parkour_running] parkour_time 0",
+                  "comment": "重置计时"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a[tag=parkour_running] parkour_time 1",
+                  "comment": "每tick增加计时"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=parkour_running] actionbar {\"rawtext\":[{\"text\":\"§e计时: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"parkour_time\"}},{\"text\":\" ticks\"}]}",
+                  "comment": "在动作栏显示当前用时"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=parkour_running] at @s if block ~ ~-1 ~ gold_block run titleraw @s title {\"rawtext\":[{\"text\":\"§a§l完成！\"}]}",
+                  "comment": "踩到金块（终点）显示完成"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=parkour_running] remove parkour_running",
+                  "comment": "到达终点后停止计时"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "scoreboard", "tag", "titleraw"]
+  },
+  {
+    "input": "做一个装备发放系统，给玩家一套铁装备",
+    "output": {
+      "type": "project",
+      "project_name": "一键装备发放系统",
+      "overview": "通过命令方块链一次性给玩家发放全套装备和武器",
+      "phases": [
+        {
+          "phase_name": "装备发放",
+          "description": "一键给予全套装备",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "给标记玩家发放铁套装备",
+              "commands": ["give", "tag", "replaceitem", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=get_kit] run replaceitem entity @s slot.armor.head 0 iron_helmet",
+                  "comment": "装备铁头盔"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=get_kit] run replaceitem entity @s slot.armor.chest 0 iron_chestplate",
+                  "comment": "装备铁胸甲"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=get_kit] run replaceitem entity @s slot.armor.legs 0 iron_leggings",
+                  "comment": "装备铁护腿"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=get_kit] run replaceitem entity @s slot.armor.feet 0 iron_boots",
+                  "comment": "装备铁靴子"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=get_kit] iron_sword 1",
+                  "comment": "给铁剑"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=get_kit] bow 1",
+                  "comment": "给弓"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=get_kit] arrow 32",
+                  "comment": "给32支箭"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=get_kit] cooked_beef 16",
+                  "comment": "给16个牛排"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=get_kit] actionbar {\"rawtext\":[{\"text\":\"§a已领取铁套装备！\"}]}",
+                  "comment": "提示领取成功"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=get_kit] remove get_kit",
+                  "comment": "移除领取标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["replaceitem", "give", "tag", "titleraw", "execute"]
+  },
+  {
+    "input": "做一个飞行检测系统，在生存模式检测到飞行的玩家自动踢出",
+    "output": {
+      "type": "project",
+      "project_name": "简易飞行检测反作弊",
+      "overview": "通过计分板追踪玩家离地时间，超过阈值判定为飞行并处理",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建检测用计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建离地时间计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add airtime dummy",
+                  "comment": "离地时间计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "检测逻辑",
+          "description": "持续检测玩家是否离地过久",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "检测离地时间并处罚",
+              "commands": ["execute", "scoreboard", "kick", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[m=survival] at @s if block ~ ~-1 ~ air if block ~ ~-2 ~ air run scoreboard players add @s airtime 1",
+                  "comment": "生存模式玩家脚下2格都是空气时增加离地时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[m=survival] at @s unless block ~ ~-1 ~ air run scoreboard players set @s airtime 0",
+                  "comment": "着陆后重置离地时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[scores={airtime=60..80}] actionbar {\"rawtext\":[{\"text\":\"§c⚠ 检测到异常飞行行为\"}]}",
+                  "comment": "离地3-4秒时警告"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/kick @a[scores={airtime=100..}] 检测到飞行作弊",
+                  "comment": "离地5秒以上踢出服务器"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "scoreboard", "kick", "titleraw"]
+  },
+  {
+    "input": "做一个抽奖系统，随机给一个玩家奖品",
+    "output": {
+      "type": "project",
+      "project_name": "随机抽奖系统",
+      "overview": "使用 @r 随机选择器配合命令方块链实现抽奖，给中奖者发放随机奖品",
+      "phases": [
+        {
+          "phase_name": "抽奖执行",
+          "description": "触发后随机选择一个玩家发放奖品",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "随机抽取一个玩家并发奖",
+              "commands": ["tag", "give", "titleraw", "tellraw", "playsound"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/tag @r add lottery_winner",
+                  "comment": "随机给一个玩家添加中奖标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§6§l🎉 抽奖时间！\"}]}",
+                  "comment": "全服显示抽奖标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a {\"rawtext\":[{\"text\":\"§e恭喜 \"},{\"selector\":\"@a[tag=lottery_winner]\"},{\"text\":\" §e中奖了！\"}]}",
+                  "comment": "公布中奖者"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=lottery_winner] diamond 5",
+                  "comment": "给中奖者5颗钻石"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=lottery_winner] at @s run playsound random.levelup @s ~ ~ ~ 1 1",
+                  "comment": "给中奖者播放升级音效"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=lottery_winner] remove lottery_winner",
+                  "comment": "清除中奖标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["tag", "give", "titleraw", "tellraw", "playsound", "execute"]
+  },
+  {
+    "input": "做一个日夜循环锁定系统，投票决定锁白天还是黑夜",
+    "output": {
+      "type": "project",
+      "project_name": "日夜投票锁定系统",
+      "overview": "用计分板让玩家投票选择锁定白天或黑夜，多数票决定结果",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建投票计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建投票计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add vote_day dummy \"投票白天\"",
+                  "comment": "白天投票计数"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add vote_night dummy \"投票黑夜\"",
+                  "comment": "黑夜投票计数"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set day_count vote_day 0",
+                  "comment": "初始化白天票数"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set night_count vote_night 0",
+                  "comment": "初始化黑夜票数"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "执行锁定",
+          "description": "根据投票结果持续锁定时间",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "根据标签锁定日夜",
+              "commands": ["execute", "time", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score day_count vote_day > night_count vote_night run time set day",
+                  "comment": "白天票多则锁定白天"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score night_count vote_night > day_count vote_day run time set midnight",
+                  "comment": "黑夜票多则锁定黑夜"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "time", "execute", "titleraw"]
+  },
+  {
+    "input": "做一个死亡惩罚系统，玩家死亡后扣除金币",
+    "output": {
+      "type": "project",
+      "project_name": "死亡惩罚金币系统",
+      "overview": "追踪玩家死亡次数，每次死亡扣除一定金币并通知",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建金币和死亡计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建金币和死亡标记计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add coins dummy \"金币\"",
+                  "comment": "创建金币计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add death_flag dummy",
+                  "comment": "死亡标记计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives setdisplay sidebar coins",
+                  "comment": "侧边栏显示金币"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "死亡检测与扣费",
+          "description": "检测玩家死亡并扣除金币",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "死亡扣除10金币",
+              "commands": ["scoreboard", "execute", "titleraw", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a coins 0",
+                  "comment": "初始化所有玩家金币（不影响已有分数）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @e[type=player] death_flag 0",
+                  "comment": "活着的玩家重置死亡标记"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[scores={death_flag=1..}] run scoreboard players remove @s coins 10",
+                  "comment": "有死亡标记的玩家扣除10金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[scores={death_flag=1..}] actionbar {\"rawtext\":[{\"text\":\"§c死亡惩罚: -10 金币\"}]}",
+                  "comment": "通知扣费"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @a death_flag 1",
+                  "comment": "给所有人设置死亡标记（活人下tick会被重置）"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "execute", "titleraw"]
+  },
+  {
+    "input": "做一个移动速度道路系统，在特定路面上跑得更快",
+    "output": {
+      "type": "project",
+      "project_name": "加速道路系统",
+      "overview": "检测玩家脚下方块类型，在特定方块上给予速度效果",
+      "phases": [
+        {
+          "phase_name": "加速逻辑",
+          "description": "在不同方块上给予不同速度",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "方块检测与速度赋予",
+              "commands": ["execute", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ gold_block run effect @s speed 1 2 true",
+                  "comment": "金块 → 速度III（高速公路）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ iron_block run effect @s speed 1 1 true",
+                  "comment": "铁块 → 速度II（普通道路）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ soul_sand run effect @s slowness 1 1 true",
+                  "comment": "灵魂沙 → 减速（减速带）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "effect"]
+  },
+  {
+    "input": "做一个禁区系统，进入某个区域会受到持续伤害",
+    "output": {
+      "type": "project",
+      "project_name": "禁区伤害系统",
+      "overview": "在指定坐标范围内持续对玩家造成伤害，并给予警告提示",
+      "phases": [
+        {
+          "phase_name": "禁区逻辑",
+          "description": "检测区域内玩家并施加伤害",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "区域伤害检测",
+              "commands": ["damage", "titleraw", "execute", "particle"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/damage @a[x=100,y=60,z=100,dx=50,dy=20,dz=50] 1 magic",
+                  "comment": "区域内玩家每tick受1点魔法伤害"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[x=100,y=60,z=100,dx=50,dy=20,dz=50] actionbar {\"rawtext\":[{\"text\":\"§4☠ 你正在禁区中，快速离开！\"}]}",
+                  "comment": "警告在禁区内的玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[x=100,y=60,z=100,dx=50,dy=20,dz=50] at @s run particle minecraft:redstone_ore_dust ~ ~1 ~",
+                  "comment": "在禁区内玩家周围生成红色粒子"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["damage", "titleraw", "execute", "particle"]
+  },
+  {
+    "input": "做一个欢迎新玩家系统，玩家第一次加入时显示欢迎信息并给新手礼包",
+    "output": {
+      "type": "project",
+      "project_name": "新玩家欢迎系统",
+      "overview": "使用标签追踪玩家是否首次加入，首次加入时发放新手礼包和欢迎消息",
+      "phases": [
+        {
+          "phase_name": "首次加入检测与欢迎",
+          "description": "检测新玩家并发放礼包",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测并欢迎新玩家",
+              "commands": ["tag", "give", "titleraw", "tellraw", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!joined] run tag @s add new_player",
+                  "comment": "标记没有joined标签的玩家为新玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=new_player] title {\"rawtext\":[{\"text\":\"§6§l欢迎来到服务器！\"}]}",
+                  "comment": "显示欢迎标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=new_player] subtitle {\"rawtext\":[{\"text\":\"§7祝你游戏愉快\"}]}",
+                  "comment": "显示欢迎副标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=new_player] iron_pickaxe 1",
+                  "comment": "新手礼包：铁镐"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=new_player] bread 16",
+                  "comment": "新手礼包：面包"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=new_player] torch 32",
+                  "comment": "新手礼包：火把"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[tag=new_player] resistance 60 2 true",
+                  "comment": "60秒抗性提升保护新手"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a {\"rawtext\":[{\"text\":\"§e欢迎 \"},{\"selector\":\"@a[tag=new_player]\"},{\"text\":\" §e加入服务器！\"}]}",
+                  "comment": "全服公告"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=new_player] add joined",
+                  "comment": "标记为已加入（永久标签）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=new_player] remove new_player",
+                  "comment": "移除临时新玩家标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["tag", "give", "titleraw", "tellraw", "effect", "execute"]
+  },
+  {
+    "input": "做一个掌控者系统，手持特定物品触发不同技能",
+    "output": {
+      "type": "project",
+      "project_name": "物品技能系统",
+      "overview": "检测玩家主手持有的特定物品，触发对应的技能效果",
+      "phases": [
+        {
+          "phase_name": "技能逻辑",
+          "description": "根据主手物品触发不同效果",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "持有物品检测与技能触发",
+              "commands": ["execute", "effect", "particle", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[hasitem={item=blaze_rod,location=slot.weapon.mainhand}] speed 1 2 true",
+                  "comment": "持有烈焰棒 → 速度III（疾跑之杖）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[hasitem={item=nether_star,location=slot.weapon.mainhand}] regeneration 1 2 true",
+                  "comment": "持有下界之星 → 生命恢复III（治愈之星）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[hasitem={item=feather,location=slot.weapon.mainhand}] slow_falling 2 0 true",
+                  "comment": "持有羽毛 → 缓降（轻盈之羽）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[hasitem={item=ender_pearl,location=slot.weapon.mainhand}] at @s run effect @s invisibility 1 0 true",
+                  "comment": "持有末影珍珠 → 隐身（暗影之眼）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "effect", "particle"]
+  },
+  {
+    "input": "做一个安全区PVP切换系统",
+    "output": {
+      "type": "project",
+      "project_name": "安全区PVP切换系统",
+      "overview": "在安全区域内禁止PVP（给予抗性），离开安全区恢复正常PVP",
+      "phases": [
+        {
+          "phase_name": "安全区逻辑",
+          "description": "进入安全区获得抗性，离开取消",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "安全区效果管理",
+              "commands": ["execute", "effect", "tag", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[x=-20,y=60,z=-20,dx=40,dy=20,dz=40,tag=!in_safe] run tag @s add in_safe",
+                  "comment": "进入安全区添加标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=in_safe] actionbar {\"rawtext\":[{\"text\":\"§a✦ 安全区域 - PVP已关闭\"}]}",
+                  "comment": "提示进入安全区"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[tag=in_safe] resistance 2 255 true",
+                  "comment": "安全区内给予最高抗性（免伤）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=in_safe] at @s unless entity @s[x=-20,y=60,z=-20,dx=40,dy=20,dz=40] run tag @s remove in_safe",
+                  "comment": "离开安全区移除标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=!in_safe] actionbar {\"rawtext\":[{\"text\":\"§c⚔ 你已离开安全区，PVP已开启\"}]}",
+                  "comment": "提示离开安全区"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "effect", "tag", "titleraw"]
+  },
+  {
+    "input": "做一个自动种植系统，让农田自动重新种上小麦",
+    "output": {
+      "type": "project",
+      "project_name": "自动小麦重种系统",
+      "overview": "检测已收割的农田（空耕地），自动放置小麦种子",
+      "phases": [
+        {
+          "phase_name": "自动种植逻辑",
+          "description": "持续检测空耕地并补种",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测并补种小麦",
+              "commands": ["execute", "setblock", "fill"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[type=armor_stand,name=farm_center] at @s run fill ~-5 ~ ~-5 ~5 ~ ~5 wheat 0 replace air",
+                  "comment": "以标记盔甲架为中心，在11x11范围的耕地上自动种植小麦"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "fill"]
+  },
+  {
+    "input": "做一个AFK检测系统，长时间不动的玩家自动踢出",
+    "output": {
+      "type": "project",
+      "project_name": "AFK挂机检测系统",
+      "overview": "用计分板追踪玩家位置变化，长时间未移动则警告并踢出",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建检测用计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建AFK计时器",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add afk_time dummy",
+                  "comment": "AFK时间计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "检测逻辑",
+          "description": "检测玩家移动状态",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "追踪移动状态并处理AFK",
+              "commands": ["scoreboard", "execute", "titleraw", "kick"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a afk_time 1",
+                  "comment": "所有玩家AFK时间+1"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[scores={afk_time=1..}] at @s if block ~ ~-1 ~ air run scoreboard players set @s afk_time 0",
+                  "comment": "跳跃/移动到空中则重置（简单运动检测）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[scores={afk_time=3600..5400}] actionbar {\"rawtext\":[{\"text\":\"§e⚠ 你已AFK超过3分钟，5分钟后将被踢出\"}]}",
+                  "comment": "3分钟后警告"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/kick @a[scores={afk_time=6000..}] 你因长时间AFK被踢出",
+                  "comment": "5分钟后踢出"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "execute", "titleraw", "kick"]
+  },
+  {
+    "input": "做一个随机传送系统，把玩家随机撒到地图上",
+    "output": {
+      "type": "project",
+      "project_name": "随机传送散布系统",
+      "overview": "使用spreadplayers命令将玩家随机散布到指定区域",
+      "phases": [
+        {
+          "phase_name": "随机传送",
+          "description": "触发后随机散布所有玩家",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "随机传送所有玩家",
+              "commands": ["spreadplayers", "titleraw", "effect"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/spreadplayers 0 0 10 200 @a",
+                  "comment": "以0,0为中心在10-200格范围内随机散布所有玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§c§l开始！\"}]}",
+                  "comment": "显示开始标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a subtitle {\"rawtext\":[{\"text\":\"§7你已被随机传送\"}]}",
+                  "comment": "显示副标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a resistance 10 2 true",
+                  "comment": "给10秒抗性保护落地"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a slow_falling 5 0 true",
+                  "comment": "给5秒缓降防摔死"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["spreadplayers", "titleraw", "effect"]
+  },
+  {
+    "input": "做一个剑蹲下触发技能系统，下蹲时手持钻石剑释放闪电",
+    "output": {
+      "type": "project",
+      "project_name": "蹲击闪电技能系统",
+      "overview": "检测玩家下蹲且手持钻石剑，在前方召唤闪电并添加冷却",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建冷却计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建技能冷却计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add skill_cd dummy",
+                  "comment": "技能冷却计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "技能逻辑",
+          "description": "下蹲触发+冷却管理",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "下蹲释放闪电",
+              "commands": ["execute", "summon", "scoreboard", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[scores={skill_cd=1..}] run scoreboard players remove @s skill_cd 1",
+                  "comment": "每tick减少冷却时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[hasitem={item=diamond_sword,location=slot.weapon.mainhand},scores={skill_cd=0}] at @s positioned ~ ~1.62 ~ run summon lightning_bolt ^^^3",
+                  "comment": "手持钻石剑+冷却为0时，在视线前方3格召唤闪电"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @a[hasitem={item=diamond_sword,location=slot.weapon.mainhand},scores={skill_cd=0}] skill_cd 60",
+                  "comment": "触发后设置3秒冷却"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[scores={skill_cd=55..60}] actionbar {\"rawtext\":[{\"text\":\"§b⚡ 雷击已释放！\"}]}",
+                  "comment": "技能触发提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[scores={skill_cd=1..54}] actionbar {\"rawtext\":[{\"text\":\"§7冷却中: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"skill_cd\"}}]}",
+                  "comment": "显示冷却时间"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "summon", "scoreboard", "titleraw"]
+  },
+  {
+    "input": "做一个监狱系统，把违规玩家关进监狱",
+    "output": {
+      "type": "project",
+      "project_name": "玩家监狱系统",
+      "overview": "管理员给玩家添加监狱标签，玩家被传送到监狱并限制移动，到期自动释放",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建监狱计时器",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建监狱时间计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add jail_time dummy \"监禁时间\"",
+                  "comment": "监狱剩余时间计分板"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "监狱逻辑",
+          "description": "入狱、倒计时、释放",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "监狱管理与自动释放",
+              "commands": ["execute", "tp", "tag", "scoreboard", "titleraw", "effect", "gamemode"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=jailed,scores={jail_time=0}] run tp @s 0 64 0",
+                  "comment": "刚入狱的玩家传送到监狱位置"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/gamemode adventure @a[tag=jailed]",
+                  "comment": "在押玩家切换为冒险模式（无法破坏）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[tag=jailed] slowness 2 5 true",
+                  "comment": "减速防止逃跑"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players remove @a[tag=jailed,scores={jail_time=1..}] jail_time 1",
+                  "comment": "每tick减少监禁时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=jailed,scores={jail_time=1..}] actionbar {\"rawtext\":[{\"text\":\"§c监禁中... 剩余: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"jail_time\"}},{\"text\":\" ticks\"}]}",
+                  "comment": "显示剩余监禁时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=jailed,scores={jail_time=..0}] run tag @s remove jailed",
+                  "comment": "时间到自动释放"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/gamemode survival @a[tag=!jailed]",
+                  "comment": "释放后恢复生存模式"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tp @a[tag=!jailed,x=-5,y=60,z=-5,dx=10,dy=10,dz=10] 50 64 50",
+                  "comment": "释放后传送出监狱区域"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "tp", "tag", "scoreboard", "titleraw", "effect", "gamemode"]
+  },
+  {
+    "input": "做一个自定义天气粒子系统，下雪时地面铺白色粒子",
+    "output": {
+      "type": "project",
+      "project_name": "自定义天气粒子系统",
+      "overview": "使用循环命令方块在所有玩家附近持续生成粒子模拟自定义天气效果",
+      "phases": [
+        {
+          "phase_name": "粒子逻辑",
+          "description": "在玩家周围生成自定义天气粒子",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "在所有玩家位置生成雪花粒子",
+              "commands": ["execute", "particle"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s run particle minecraft:snowflake ~3 ~10 ~3",
+                  "comment": "在玩家上方生成雪花粒子1"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s run particle minecraft:snowflake ~-2 ~8 ~4",
+                  "comment": "多个偏移位置增加密度"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s run particle minecraft:snowflake ~5 ~12 ~-1",
+                  "comment": "更多粒子位置"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s run particle minecraft:snowflake ~-4 ~9 ~-3",
+                  "comment": "更多粒子位置"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "particle"]
+  },
+  {
+    "input": "做一个多阶段Boss战系统，用凋灵模拟Boss并追踪血量",
+    "output": {
+      "type": "project",
+      "project_name": "多阶段Boss战系统",
+      "overview": "使用命名凋灵作为Boss，通过标签追踪阶段，不同阶段触发不同技能",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "召唤Boss并设置计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "召唤Boss凋灵并初始化",
+              "commands": ["summon", "scoreboard", "tag"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add boss_phase dummy",
+                  "comment": "Boss阶段计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/summon wither \"§c§l暗影领主\" 0 80 0",
+                  "comment": "召唤命名凋灵作为Boss"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @e[type=wither,name=\"§c§l暗影领主\"] add boss",
+                  "comment": "给Boss添加标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @e[tag=boss] boss_phase 1",
+                  "comment": "设置初始阶段为1"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§c§l暗影领主 已降临！\"}]}",
+                  "comment": "全服Boss出现提示"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "Boss技能",
+          "description": "不同阶段释放不同技能",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "Boss技能循环",
+              "commands": ["execute", "effect", "summon", "particle", "damage", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[tag=boss] at @s run effect @a[r=10] wither 3 0",
+                  "comment": "Boss 10格内的玩家持续受凋零效果"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[tag=boss] at @s run particle minecraft:wither_boss_invulnerable ~ ~2 ~",
+                  "comment": "Boss周围生成粒子"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[tag=boss] at @s run summon zombie ~ ~ ~",
+                  "comment": "Boss周期性召唤僵尸援兵"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[tag=boss] at @s run execute as @a[r=20] at @s run playsound mob.wither.ambient @s ~ ~ ~ 0.5",
+                  "comment": "Boss环境音效"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§c暗影领主 §7- 阶段 \"},{\"score\":{\"name\":\"@e[tag=boss]\",\"objective\":\"boss_phase\"}}]}",
+                  "comment": "动作栏显示Boss阶段"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        },
+        {
+          "phase_name": "Boss死亡奖励",
+          "description": "Boss死亡后给予所有参战玩家奖励",
+          "tasks": [
+            {
+              "task_id": "3",
+              "description": "检测Boss死亡并发放奖励",
+              "commands": ["execute", "give", "titleraw", "playsound"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute unless entity @e[tag=boss] run titleraw @a title {\"rawtext\":[{\"text\":\"§6§l暗影领主 已被击败！\"}]}",
+                  "comment": "Boss不存在时显示胜利信息"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a diamond 10",
+                  "comment": "给所有玩家10颗钻石作为奖励"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a golden_apple 3",
+                  "comment": "给3个金苹果"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s run playsound random.levelup @s ~ ~ ~ 1 1",
+                  "comment": "播放胜利音效"
+                }
+              ],
+              "dependencies": ["1", "2"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["summon", "scoreboard", "tag", "execute", "effect", "particle", "damage", "titleraw", "give", "playsound"]
+  },
+  {
+    "input": "做一个资源点刷新系统，定时在固定位置刷新矿物",
+    "output": {
+      "type": "project",
+      "project_name": "资源点定时刷新系统",
+      "overview": "使用计时器定时在固定坐标放置矿物方块，玩家挖走后等待下次刷新",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建刷新计时器",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建资源刷新计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add res_timer dummy",
+                  "comment": "资源刷新计时器"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set refresh res_timer 0",
+                  "comment": "初始化计时器"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "刷新逻辑",
+          "description": "定时放置矿物",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "每600tick(30秒)刷新一次矿物",
+              "commands": ["scoreboard", "execute", "setblock", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add refresh res_timer 1",
+                  "comment": "每tick增加计时器"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score refresh res_timer matches 600.. run setblock 10 65 10 diamond_ore",
+                  "comment": "到时间放置钻石矿"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score refresh res_timer matches 600.. run setblock 15 65 10 iron_ore",
+                  "comment": "放置铁矿"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score refresh res_timer matches 600.. run setblock 10 65 15 gold_ore",
+                  "comment": "放置金矿"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score refresh res_timer matches 600.. run titleraw @a actionbar {\"rawtext\":[{\"text\":\"§a矿物资源已刷新！\"}]}",
+                  "comment": "通知所有玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score refresh res_timer matches 600.. run scoreboard players set refresh res_timer 0",
+                  "comment": "重置计时器"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "execute", "setblock", "titleraw"]
+  },
+  {
+    "input": "做一个背包检测违禁品系统，自动清除TNT和岩浆桶",
+    "output": {
+      "type": "project",
+      "project_name": "违禁品自动清除系统",
+      "overview": "持续检测所有玩家背包，发现违禁物品自动清除并警告",
+      "phases": [
+        {
+          "phase_name": "违禁品检测与清除",
+          "description": "扫描并清除违禁物品",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测并清除违禁品",
+              "commands": ["clear", "execute", "tellraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/clear @a[hasitem={item=tnt,quantity=1..}] tnt 0 64",
+                  "comment": "清除所有玩家背包中的TNT"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a[hasitem={item=tnt}] {\"rawtext\":[{\"text\":\"§c你的TNT已被没收！这是违禁品。\"}]}",
+                  "comment": "通知被没收TNT的玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/clear @a[hasitem={item=lava_bucket,quantity=1..}] lava_bucket 0 64",
+                  "comment": "清除岩浆桶"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tellraw @a[hasitem={item=lava_bucket}] {\"rawtext\":[{\"text\":\"§c你的岩浆桶已被没收！\"}]}",
+                  "comment": "通知被没收岩浆桶的玩家"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/clear @a[hasitem={item=fire_charge,quantity=1..}] fire_charge 0 64",
+                  "comment": "清除火焰弹"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/clear @a[hasitem={item=end_crystal,quantity=1..}] end_crystal 0 64",
+                  "comment": "清除末影水晶"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["clear", "execute", "tellraw"]
+  },
+  {
+    "input": "做一个饥饿游戏缩圈系统，随时间推移伤害区域越来越大",
+    "output": {
+      "type": "project",
+      "project_name": "饥饿游戏缩圈系统",
+      "overview": "使用计分板控制安全半径，随时间递减，在安全区域外的玩家受伤害",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "设置安全圈计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建缩圈用计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add circle dummy",
+                  "comment": "缩圈计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set radius circle 100",
+                  "comment": "初始安全半径100格"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set shrink_timer circle 0",
+                  "comment": "缩圈计时器归零"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "缩圈与伤害",
+          "description": "逐渐缩小安全区域",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "定时缩圈并对圈外玩家造成伤害",
+              "commands": ["scoreboard", "execute", "damage", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add shrink_timer circle 1",
+                  "comment": "每tick增加缩圈计时器"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score shrink_timer circle matches 600 if score radius circle matches 10.. run scoreboard players remove radius circle 5",
+                  "comment": "每30秒缩小5格（最小到10）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score shrink_timer circle matches 600 run scoreboard players set shrink_timer circle 0",
+                  "comment": "重置缩圈计时器"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if score shrink_timer circle matches 600 run titleraw @a actionbar {\"rawtext\":[{\"text\":\"§c⚠ 安全区域缩小！当前半径: \"},{\"score\":{\"name\":\"radius\",\"objective\":\"circle\"}}]}",
+                  "comment": "通知缩圈"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s unless entity @s[x=0,z=0,r=100] run damage @s 2 magic",
+                  "comment": "安全区外的玩家受2点伤害（需动态调整r值）"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "execute", "damage", "titleraw"]
+  },
+  {
+    "input": "做一个怪物竞技场系统，一波一波刷怪",
+    "output": {
+      "type": "project",
+      "project_name": "波次怪物竞技场",
+      "overview": "使用计分板管理波次，每波结束自动刷新下一波更强的怪物",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建波次管理计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建波次和怪物计数计分板",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add wave dummy \"波次\"",
+                  "comment": "当前波次计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add mob_count dummy",
+                  "comment": "存活怪物数量"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set current wave 1",
+                  "comment": "设置初始波次为1"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set alive mob_count 0",
+                  "comment": "初始化怪物计数"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @e[type=!player] add arena_mob",
+                  "comment": "标记现有实体（排除后续处理）"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "波次逻辑",
+          "description": "检测怪物数量并刷新下一波",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "怪物波次刷新管理",
+              "commands": ["execute", "summon", "scoreboard", "titleraw", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute unless entity @e[tag=arena_mob,type=!player] if score current wave matches 1 run summon zombie \"§c僵尸\" 5 64 5",
+                  "comment": "第1波：没有怪物时刷僵尸"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/summon zombie \"§c僵尸\" -5 64 5",
+                  "comment": "第1波：第二只僵尸"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/summon zombie \"§c僵尸\" 5 64 -5",
+                  "comment": "第1波：第三只僵尸"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @e[type=zombie,name=\"§c僵尸\"] add arena_mob",
+                  "comment": "标记竞技场怪物"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§c§l第 1 波\"}]}",
+                  "comment": "显示波次标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set current wave 2",
+                  "comment": "切换到第2波等待"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute unless entity @e[tag=arena_mob,type=!player] if score current wave matches 2 run summon skeleton \"§7骷髅\" 5 64 5",
+                  "comment": "第2波：刷骷髅"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/summon skeleton \"§7骷髅\" -5 64 -5",
+                  "comment": "第2波：更多骷髅"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/summon spider \"§8蜘蛛\" 0 64 5",
+                  "comment": "第2波：混合蜘蛛"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @e[type=skeleton,name=\"§7骷髅\"] add arena_mob",
+                  "comment": "标记怪物"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @e[type=spider,name=\"§8蜘蛛\"] add arena_mob",
+                  "comment": "标记蜘蛛"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a title {\"rawtext\":[{\"text\":\"§e§l第 2 波\"}]}",
+                  "comment": "显示波次标题"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set current wave 3",
+                  "comment": "标记第2波已开始"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "summon", "scoreboard", "titleraw", "tag"]
+  },
+  {
+    "input": "做一个音乐播放器系统，在特定区域循环播放背景音乐",
+    "output": {
+      "type": "project",
+      "project_name": "区域背景音乐系统",
+      "overview": "使用music命令在特定区域为玩家播放/停止背景音乐",
+      "phases": [
+        {
+          "phase_name": "音乐控制",
+          "description": "检测玩家位置并控制音乐播放",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "区域进出音乐控制",
+              "commands": ["execute", "music", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[x=0,y=60,z=0,r=30,tag=!music_playing] run music play record.13 0.5 1 loop",
+                  "comment": "进入音乐区域开始播放（30格范围）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[x=0,y=60,z=0,r=30,tag=!music_playing] add music_playing",
+                  "comment": "标记已在播放音乐"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=music_playing,x=0,y=60,z=0,rm=30] run music stop",
+                  "comment": "离开区域停止音乐"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=music_playing,x=0,y=60,z=0,rm=30] remove music_playing",
+                  "comment": "移除音乐标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "music", "tag"]
+  },
+  {
+    "input": "做一个经济系统，玩家杀怪得金币，金币可以买东西",
+    "output": {
+      "type": "project",
+      "project_name": "击杀奖励经济系统",
+      "overview": "追踪玩家击杀怪物的行为，给予金币奖励，可在商店NPC处消费",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建经济系统计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建金币计分板并显示",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add money dummy \"§6金币\"",
+                  "comment": "创建金币计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add kill_reward dummy",
+                  "comment": "击杀奖励追踪"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives setdisplay sidebar money",
+                  "comment": "在侧边栏显示金币"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "击杀奖励",
+          "description": "检测玩家附近怪物死亡并奖励金币",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "击杀怪物获得金币",
+              "commands": ["scoreboard", "execute", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a money 0",
+                  "comment": "初始化所有玩家金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if entity @e[type=zombie,r=3,tag=dying] run scoreboard players add @s money 5",
+                  "comment": "附近有将死僵尸时奖励5金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if entity @e[type=skeleton,r=3,tag=dying] run scoreboard players add @s money 8",
+                  "comment": "击杀骷髅奖励8金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if entity @e[type=creeper,r=3,tag=dying] run scoreboard players add @s money 10",
+                  "comment": "击杀苦力怕奖励10金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§6金币: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"money\"}}]}",
+                  "comment": "动作栏持续显示金币数"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        },
+        {
+          "phase_name": "商店购买",
+          "description": "在NPC处消费金币购买物品",
+          "tasks": [
+            {
+              "task_id": "3",
+              "description": "商店购买逻辑",
+              "commands": ["execute", "scoreboard", "give", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_sword,scores={money=50..}] run scoreboard players remove @s money 50",
+                  "comment": "扣除50金币"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=buy_sword] diamond_sword 1",
+                  "comment": "给予钻石剑"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=buy_sword] actionbar {\"rawtext\":[{\"text\":\"§a购买成功！-50金币\"}]}",
+                  "comment": "购买成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=buy_sword,scores={money=..49}] actionbar {\"rawtext\":[{\"text\":\"§c金币不足！需要50金币\"}]}",
+                  "comment": "金币不足提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_sword] remove buy_sword",
+                  "comment": "清除购买标签"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "execute", "give", "titleraw", "tag"]
+  },
+  {
+    "input": "做一个隐身检测系统，让隐身的玩家留下脚印粒子",
+    "output": {
+      "type": "project",
+      "project_name": "隐身脚印追踪系统",
+      "overview": "检测隐身状态的玩家，在其脚下生成粒子效果暴露位置",
+      "phases": [
+        {
+          "phase_name": "脚印粒子逻辑",
+          "description": "隐身玩家脚下生成粒子",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测隐身并生成脚印",
+              "commands": ["execute", "particle", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=invisible] at @s run particle minecraft:falling_dust_scaffolding ~ ~ ~",
+                  "comment": "隐身标签的玩家脚下生成粒子（需配合effect检测给予invisible标签）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=invisible] at @s run particle minecraft:basic_smoke ~ ~0.1 ~",
+                  "comment": "有隐身标签的玩家脚下生成烟雾"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "particle"]
+  },
+  {
+    "input": "做一个单人Spleef掘地求生小游戏",
+    "output": {
+      "type": "project",
+      "project_name": "Spleef掘地求生",
+      "overview": "玩家站在雪块平台上，雪块会逐渐消失，掉入岩浆则失败",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "搭建竞技场并设置计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建竞技场和计时器",
+              "commands": ["fill", "scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/fill -10 64 -10 10 64 10 snow",
+                  "comment": "填充21x21雪块平台"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/fill -10 60 -10 10 60 10 lava",
+                  "comment": "底部填充岩浆"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives add spleef_time dummy \"存活时间\"",
+                  "comment": "创建存活时间计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tp @a 0 65 0",
+                  "comment": "传送玩家到平台上方"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "游戏逻辑",
+          "description": "雪块消失和存活检测",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "脚下雪块消失+存活计时",
+              "commands": ["execute", "setblock", "scoreboard", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=spleef_playing] at @s if block ~ ~-1 ~ snow run setblock ~ ~-1 ~ air",
+                  "comment": "玩家脚下的雪块1tick后消失"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players add @a[tag=spleef_playing] spleef_time 1",
+                  "comment": "存活时间+1"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=spleef_playing] actionbar {\"rawtext\":[{\"text\":\"§e存活: \"},{\"score\":{\"name\":\"@s\",\"objective\":\"spleef_time\"}},{\"text\":\" ticks\"}]}",
+                  "comment": "显示存活时间"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=spleef_playing,y=60,dy=2] run titleraw @s title {\"rawtext\":[{\"text\":\"§c§l游戏结束！\"}]}",
+                  "comment": "掉入岩浆层显示游戏结束"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=spleef_playing,y=60,dy=2] remove spleef_playing",
+                  "comment": "移除游戏标签"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["fill", "scoreboard", "execute", "setblock", "titleraw", "tp", "tag"]
+  },
+  {
+    "input": "做一个可骑乘的火箭系统，骑上马后按下蹲起飞",
+    "output": {
+      "type": "project",
+      "project_name": "可骑乘火箭系统",
+      "overview": "在玩家骑乘生物时，使用漂浮效果模拟飞行，搭配粒子效果",
+      "phases": [
+        {
+          "phase_name": "火箭逻辑",
+          "description": "骑乘中的玩家获得漂浮和粒子效果",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "骑乘飞行效果",
+              "commands": ["execute", "effect", "particle"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=rocket_active] at @s run effect @s levitation 1 3 true",
+                  "comment": "有火箭标签的玩家获得强力漂浮（向上飞）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=rocket_active] at @s run particle minecraft:basic_flame ~ ~ ~",
+                  "comment": "脚下生成火焰粒子"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=rocket_active] at @s run particle minecraft:campfire_smoke ~ ~ ~",
+                  "comment": "生成烟雾尾迹"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=rocket_active] at @s run playsound firework.blast @s ~ ~ ~ 0.5",
+                  "comment": "播放火箭音效"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/effect @a[tag=rocket_active] slow_falling 3 0 true",
+                  "comment": "停止后缓降"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "effect", "particle", "playsound"]
+  },
+  {
+    "input": "做一个血量显示系统，在玩家名字下方显示血条",
+    "output": {
+      "type": "project",
+      "project_name": "玩家血量HUD显示",
+      "overview": "使用计分板追踪玩家生命值，在名称下方显示或在动作栏实时更新",
+      "phases": [
+        {
+          "phase_name": "初始化",
+          "description": "创建血量计分板",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "创建生命值计分板并设置显示",
+              "commands": ["scoreboard"],
+              "command_blocks": [
+                {
+                  "type": "impulse",
+                  "conditional": false,
+                  "needs_redstone": true,
+                  "command": "/scoreboard objectives add health dummy \"§c❤\"",
+                  "comment": "创建血量计分板"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard objectives setdisplay belowname health",
+                  "comment": "在玩家名称下方显示血量"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "血量更新",
+          "description": "持续同步玩家血量到计分板",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "实时更新血量显示",
+              "commands": ["scoreboard", "execute", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/scoreboard players set @a health 20",
+                  "comment": "默认设置为满血20（需配合damage事件调整）"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§c❤ \"},{\"score\":{\"name\":\"@s\",\"objective\":\"health\"}},{\"text\":\"/20\"}]}",
+                  "comment": "动作栏显示血量"
+                }
+              ],
+              "dependencies": ["1"]
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["scoreboard", "titleraw"]
+  },
+  {
+    "input": "做一个双向传送门系统，A点传到B点，B点传到A点",
+    "output": {
+      "type": "project",
+      "project_name": "双向传送门系统",
+      "overview": "在两个位置放置不同颜色方块，踩上去互相传送，带冷却防止循环触发",
+      "phases": [
+        {
+          "phase_name": "传送逻辑",
+          "description": "双向传送检测与执行",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "A→B 和 B→A 传送",
+              "commands": ["execute", "tp", "tag", "particle", "playsound"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!tp_cd] at @s if block ~ ~-1 ~ lapis_block run tp @s 100 64 100",
+                  "comment": "A点（青金石块） → 传送到B点(100,64,100)"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ lapis_block run tag @s add tp_cd",
+                  "comment": "添加传送冷却"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!tp_cd] at @s if block ~ ~-1 ~ redstone_block run tp @s 0 64 0",
+                  "comment": "B点（红石块） → 传送到A点(0,64,0)"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/execute as @a at @s if block ~ ~-1 ~ redstone_block run tag @s add tp_cd",
+                  "comment": "添加传送冷却"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=tp_cd] at @s run particle minecraft:endrod ~ ~1 ~",
+                  "comment": "传送到达时的粒子效果"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=tp_cd] at @s run playsound mob.endermen.portal @s ~ ~ ~",
+                  "comment": "传送音效"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=tp_cd] at @s unless block ~ ~-1 ~ lapis_block unless block ~ ~-1 ~ redstone_block run tag @s remove tp_cd",
+                  "comment": "离开传送方块后移除冷却"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "tp", "tag", "particle", "playsound"]
+  },
+  {
+    "input": "做一个自动清怪系统，夜晚结束时清除所有怪物",
+    "output": {
+      "type": "project",
+      "project_name": "黎明自动清怪系统",
+      "overview": "检测游戏时间，在白天到来时自动清除所有敌对生物",
+      "phases": [
+        {
+          "phase_name": "清怪逻辑",
+          "description": "白天时间段自动清除怪物",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "白天清除敌对生物",
+              "commands": ["execute", "kill", "titleraw"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute if block ~ ~ ~ daylight_detector run kill @e[family=monster]",
+                  "comment": "阳光传感器检测到白天时清除所有怪物族"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a actionbar {\"rawtext\":[{\"text\":\"§a☀ 黎明已至，怪物已清除\"}]}",
+                  "comment": "通知玩家怪物已清除"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "kill", "titleraw"]
+  },
+  {
+    "input": "做一个多货币商店系统，用不同物品兑换不同商品",
+    "output": {
+      "type": "project",
+      "project_name": "多货币商店系统",
+      "overview": "玩家可以用绿宝石买武器、用金锭买食物、用铁锭买工具",
+      "phases": [
+        {
+          "phase_name": "武器商店",
+          "description": "用绿宝石购买武器",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "绿宝石→武器交易",
+              "commands": ["execute", "clear", "give", "titleraw", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_iron_sword] run clear @s emerald 0 3",
+                  "comment": "扣除3颗绿宝石"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=buy_iron_sword] iron_sword 1",
+                  "comment": "给予铁剑"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=buy_iron_sword] actionbar {\"rawtext\":[{\"text\":\"§a购买铁剑成功！ -3绿宝石\"}]}",
+                  "comment": "成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_iron_sword] remove buy_iron_sword",
+                  "comment": "清除购买标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "食物商店",
+          "description": "用金锭购买食物",
+          "tasks": [
+            {
+              "task_id": "2",
+              "description": "金锭→食物交易",
+              "commands": ["execute", "clear", "give", "titleraw", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_food] run clear @s gold_ingot 0 1",
+                  "comment": "扣除1个金锭"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=buy_food] cooked_beef 8",
+                  "comment": "给予8个牛排"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=buy_food] actionbar {\"rawtext\":[{\"text\":\"§a购买食物成功！ -1金锭\"}]}",
+                  "comment": "成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_food] remove buy_food",
+                  "comment": "清除购买标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        },
+        {
+          "phase_name": "工具商店",
+          "description": "用铁锭购买工具",
+          "tasks": [
+            {
+              "task_id": "3",
+              "description": "铁锭→工具交易",
+              "commands": ["execute", "clear", "give", "titleraw", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=buy_pickaxe] run clear @s iron_ingot 0 2",
+                  "comment": "扣除2个铁锭"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=buy_pickaxe] diamond_pickaxe 1",
+                  "comment": "给予钻石镐"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=buy_pickaxe] actionbar {\"rawtext\":[{\"text\":\"§a购买钻石镐成功！ -2铁锭\"}]}",
+                  "comment": "成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=buy_pickaxe] remove buy_pickaxe",
+                  "comment": "清除购买标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "clear", "give", "titleraw", "tag"]
+  },
+  {
+    "input": "做一个方块构建检测系统，玩家搭建正确的结构后给予奖励",
+    "output": {
+      "type": "project",
+      "project_name": "结构搭建检测系统",
+      "overview": "使用testforblocks/clone命令检测玩家搭建的结构是否与模板匹配",
+      "phases": [
+        {
+          "phase_name": "检测逻辑",
+          "description": "持续比对玩家搭建区域和模板区域",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "检测3x3x3结构是否匹配",
+              "commands": ["execute", "testforblocks", "titleraw", "give", "tag"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=!build_complete] run testforblocks 0 65 0 2 67 2 100 65 100 masked",
+                  "comment": "比对搭建区域(0,65,0)-(2,67,2)与模板区域(100,65,100)，masked模式忽略空气"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=!build_complete] title {\"rawtext\":[{\"text\":\"§a§l搭建完成！\"}]}",
+                  "comment": "结构匹配时显示完成"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/give @a[tag=!build_complete] diamond 3",
+                  "comment": "奖励3颗钻石"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/tag @a add build_complete",
+                  "comment": "标记完成防止重复奖励"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "testforblocks", "titleraw", "give", "tag"]
+  },
+  {
+    "input": "做一个坐标记录和传送系统，玩家可以保存当前位置并传送回去",
+    "output": {
+      "type": "project",
+      "project_name": "坐标保存与传送系统",
+      "overview": "在玩家位置生成隐身命名盔甲架作为标记点，传送时tp到盔甲架位置",
+      "phases": [
+        {
+          "phase_name": "保存与传送",
+          "description": "用隐身盔甲架标记保存位置，tp回标记点",
+          "tasks": [
+            {
+              "task_id": "1",
+              "description": "保存坐标（生成标记盔甲架）并传送回保存点",
+              "commands": ["execute", "summon", "kill", "tp", "titleraw", "tag", "effect"],
+              "command_blocks": [
+                {
+                  "type": "repeating",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=save_pos] at @s run kill @e[type=armor_stand,name=saved_pos,r=1000]",
+                  "comment": "先清除之前的保存点标记"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=save_pos] at @s run summon armor_stand ~ ~ ~ minecraft:no_ai",
+                  "comment": "在玩家位置生成盔甲架标记"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @e[type=armor_stand,name=!saved_pos] at @s if entity @p[tag=save_pos,r=2] run effect @s invisibility 999999 0 true",
+                  "comment": "给新生成的盔甲架隐身效果"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=save_pos] actionbar {\"rawtext\":[{\"text\":\"§a位置已保存！\"}]}",
+                  "comment": "保存成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=save_pos] remove save_pos",
+                  "comment": "清除保存标签"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/execute as @a[tag=go_back] at @s run tp @s @e[type=armor_stand,name=saved_pos,c=1]",
+                  "comment": "传送到保存的盔甲架位置"
+                },
+                {
+                  "type": "chain",
+                  "conditional": true,
+                  "needs_redstone": false,
+                  "command": "/titleraw @a[tag=go_back] actionbar {\"rawtext\":[{\"text\":\"§b已传送回保存的位置！\"}]}",
+                  "comment": "传送成功提示"
+                },
+                {
+                  "type": "chain",
+                  "conditional": false,
+                  "needs_redstone": false,
+                  "command": "/tag @a[tag=go_back] remove go_back",
+                  "comment": "清除传送标签"
+                }
+              ],
+              "dependencies": []
+            }
+          ]
+        }
+      ]
+    },
+    "commands_used": ["execute", "summon", "kill", "tp", "titleraw", "tag", "effect"]
+  }
+]

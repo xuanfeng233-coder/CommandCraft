@@ -1,0 +1,296 @@
+[
+  {
+    "id": "protection",
+    "name": "保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少大部分伤害"
+  },
+  {
+    "id": "fire_protection",
+    "name": "火焰保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少火焰伤害"
+  },
+  {
+    "id": "feather_falling",
+    "name": "摔落保护",
+    "max_level": 4,
+    "applicable": "靴子",
+    "description": "减少摔落伤害"
+  },
+  {
+    "id": "blast_protection",
+    "name": "爆炸保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少爆炸伤害"
+  },
+  {
+    "id": "projectile_protection",
+    "name": "弹射物保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少弹射物伤害"
+  },
+  {
+    "id": "thorns",
+    "name": "荆棘",
+    "max_level": 3,
+    "applicable": "胸甲",
+    "description": "受攻击时反弹伤害"
+  },
+  {
+    "id": "respiration",
+    "name": "水下呼吸",
+    "max_level": 3,
+    "applicable": "头盔",
+    "description": "延长水下呼吸时间"
+  },
+  {
+    "id": "aqua_affinity",
+    "name": "水下速掘",
+    "max_level": 1,
+    "applicable": "头盔",
+    "description": "加快水下挖掘速度"
+  },
+  {
+    "id": "depth_strider",
+    "name": "深海探索者",
+    "max_level": 3,
+    "applicable": "靴子",
+    "description": "加快水中移动速度"
+  },
+  {
+    "id": "frost_walker",
+    "name": "冰霜行者",
+    "max_level": 2,
+    "applicable": "靴子",
+    "description": "在水面生成霜冰"
+  },
+  {
+    "id": "soul_speed",
+    "name": "灵魂疾行",
+    "max_level": 3,
+    "applicable": "靴子",
+    "description": "加快在灵魂沙上的速度"
+  },
+  {
+    "id": "sharpness",
+    "name": "锋利",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加近战伤害"
+  },
+  {
+    "id": "smite",
+    "name": "亡灵杀手",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加对亡灵生物的伤害"
+  },
+  {
+    "id": "bane_of_arthropods",
+    "name": "节肢杀手",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加对节肢生物的伤害"
+  },
+  {
+    "id": "knockback",
+    "name": "击退",
+    "max_level": 2,
+    "applicable": "剑",
+    "description": "增加击退距离"
+  },
+  {
+    "id": "fire_aspect",
+    "name": "火焰附加",
+    "max_level": 2,
+    "applicable": "剑",
+    "description": "点燃目标"
+  },
+  {
+    "id": "looting",
+    "name": "抢夺",
+    "max_level": 3,
+    "applicable": "剑",
+    "description": "增加怪物掉落物"
+  },
+  {
+    "id": "efficiency",
+    "name": "效率",
+    "max_level": 5,
+    "applicable": "镐/斧/锹/锄",
+    "description": "加快挖掘速度"
+  },
+  {
+    "id": "silk_touch",
+    "name": "精准采集",
+    "max_level": 1,
+    "applicable": "镐/斧/锹/锄",
+    "description": "采集方块本身"
+  },
+  {
+    "id": "fortune",
+    "name": "时运",
+    "max_level": 3,
+    "applicable": "镐/斧/锹/锄",
+    "description": "增加方块掉落物"
+  },
+  {
+    "id": "unbreaking",
+    "name": "耐久",
+    "max_level": 3,
+    "applicable": "大部分物品",
+    "description": "增加耐久度"
+  },
+  {
+    "id": "mending",
+    "name": "经验修补",
+    "max_level": 1,
+    "applicable": "大部分物品",
+    "description": "经验值修复耐久"
+  },
+  {
+    "id": "power",
+    "name": "力量",
+    "max_level": 5,
+    "applicable": "弓",
+    "description": "增加箭矢伤害"
+  },
+  {
+    "id": "punch",
+    "name": "冲击",
+    "max_level": 2,
+    "applicable": "弓",
+    "description": "增加箭矢击退"
+  },
+  {
+    "id": "flame",
+    "name": "火矢",
+    "max_level": 1,
+    "applicable": "弓",
+    "description": "射出火焰箭"
+  },
+  {
+    "id": "infinity",
+    "name": "无限",
+    "max_level": 1,
+    "applicable": "弓",
+    "description": "无限箭矢"
+  },
+  {
+    "id": "luck_of_the_sea",
+    "name": "海之眷顾",
+    "max_level": 3,
+    "applicable": "钓鱼竿",
+    "description": "增加宝藏钓获率"
+  },
+  {
+    "id": "lure",
+    "name": "饵钓",
+    "max_level": 3,
+    "applicable": "钓鱼竿",
+    "description": "加快钓鱼速度"
+  },
+  {
+    "id": "loyalty",
+    "name": "忠诚",
+    "max_level": 3,
+    "applicable": "三叉戟",
+    "description": "三叉戟自动返回"
+  },
+  {
+    "id": "impaling",
+    "name": "穿刺",
+    "max_level": 5,
+    "applicable": "三叉戟",
+    "description": "增加对水生生物伤害(BE:接触水的生物)"
+  },
+  {
+    "id": "riptide",
+    "name": "激流",
+    "max_level": 3,
+    "applicable": "三叉戟",
+    "description": "在水中或雨中投掷时带动玩家"
+  },
+  {
+    "id": "channeling",
+    "name": "引雷",
+    "max_level": 1,
+    "applicable": "三叉戟",
+    "description": "雷暴时击中生物召唤闪电"
+  },
+  {
+    "id": "multishot",
+    "name": "多重射击",
+    "max_level": 1,
+    "applicable": "弩",
+    "description": "一次射出三支箭"
+  },
+  {
+    "id": "quick_charge",
+    "name": "快速装填",
+    "max_level": 3,
+    "applicable": "弩",
+    "description": "加快弩装填速度"
+  },
+  {
+    "id": "piercing",
+    "name": "穿透",
+    "max_level": 4,
+    "applicable": "弩",
+    "description": "箭矢穿透多个实体"
+  },
+  {
+    "id": "vanishing",
+    "name": "消失诅咒",
+    "max_level": 1,
+    "applicable": "大部分物品",
+    "description": "死亡时物品消失",
+    "aliases": [
+      "curse_of_vanishing"
+    ]
+  },
+  {
+    "id": "binding",
+    "name": "绑定诅咒",
+    "max_level": 1,
+    "applicable": "盔甲/鞘翅",
+    "description": "无法脱下",
+    "aliases": [
+      "curse_of_binding"
+    ]
+  },
+  {
+    "id": "breach",
+    "name": "破甲",
+    "max_level": 4,
+    "applicable": "锤",
+    "description": "减少目标盔甲有效性"
+  },
+  {
+    "id": "density",
+    "name": "密度",
+    "max_level": 5,
+    "applicable": "锤",
+    "description": "增加下落攻击伤害"
+  },
+  {
+    "id": "swift_sneak",
+    "name": "迅捷潜行",
+    "max_level": 3,
+    "applicable": "护腿",
+    "description": "减少潜行时的移动减速"
+  },
+  {
+    "id": "wind_burst",
+    "name": "风爆",
+    "max_level": 3,
+    "applicable": "锤",
+    "description": "重击命中后释放风爆将玩家弹起",
+    "since": "1.21.0"
+  }
+]

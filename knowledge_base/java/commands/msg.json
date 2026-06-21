@@ -1,0 +1,32 @@
+{
+  "name": "msg",
+  "syntax": "/msg <targets> <message>",
+  "description": "向指定玩家发送私聊消息",
+  "category": "communication",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "接收消息的目标玩家"
+    },
+    {
+      "name": "message",
+      "type": "string",
+      "required": true,
+      "description": "私聊消息内容"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/msg @a 这是私聊消息",
+      "description": "向所有玩家发送私聊消息"
+    },
+    {
+      "input": "/msg Steve 你好！",
+      "description": "向玩家Steve发送私聊"
+    }
+  ],
+  "java_specific_notes": "msg命令的别名包括tell和w。私聊消息只有发送者和接收者可以看到。",
+  "version_added": "1.0"
+}

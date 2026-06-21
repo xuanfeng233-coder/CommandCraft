@@ -1,0 +1,161 @@
+[
+  {
+    "input": "查看我手上物品的NBT数据",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data get entity @s SelectedItem",
+        "explanation": "data get entity = 读取实体NBT\n@s = 命令执行者\nSelectedItem = 主手物品的NBT路径",
+        "variants": ["/data get entity @s Inventory[{Slot:0b}]"],
+        "warnings": ["SelectedItem 是玩家当前手持物品的NBT路径"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "查看脚下方块的NBT",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data get block ~ ~-1 ~",
+        "explanation": "data get block = 读取方块实体NBT\n~ ~-1 ~ = 脚下方块坐标",
+        "variants": ["/data get block ~ ~-1 ~ Items"],
+        "warnings": ["只有方块实体（箱子、熔炉、告示牌等）才有NBT数据", "variants中 Items 路径只适用于容器方块"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "修改告示牌的文字",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data merge block ~ ~1 ~ {front_text:{messages:['{\"text\":\"第一行\",\"color\":\"gold\"}','{\"text\":\"第二行\"}','{\"text\":\"\"}','{\"text\":\"\"}']}}",
+        "explanation": "data merge block = 合并NBT数据到方块实体\n~ ~1 ~ = 目标告示牌坐标\nfront_text.messages = 告示牌正面四行文字",
+        "variants": [],
+        "warnings": ["告示牌有4行文字，都需要提供（空行用 '{\"text\":\"\"}' 填充）", "1.20+ 告示牌使用 front_text 和 back_text 区分正反面"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "把箱子里的第一个物品改成钻石",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data modify block ~ ~-1 ~ Items[0] set value {id:\"minecraft:diamond\",count:64}",
+        "explanation": "data modify = 修改NBT数据\nblock ~ ~-1 ~ = 目标箱子\nItems[0] = 第一个物品槽\nset value = 设置为指定值",
+        "variants": ["/data modify block ~ ~-1 ~ Items[0].count set value 32"],
+        "warnings": ["Items数组索引从0开始", "data modify 支持 set/merge/append/prepend/insert 操作"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "复制一个箱子的物品到另一个箱子",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data modify block 10 64 10 Items set from block 0 64 0 Items",
+        "explanation": "data modify ... set from = 从另一个来源复制NBT\nblock 10 64 10 Items = 目标箱子的物品列表\nfrom block 0 64 0 Items = 从源箱子的物品列表复制",
+        "variants": ["/data modify block 10 64 10 Items append from block 0 64 0 Items[0]"],
+        "warnings": ["set from 会完全替换目标数据", "variants中 append from 会追加单个物品到目标箱子"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "移除最近盔甲架的自定义名称",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data remove entity @e[type=minecraft:armor_stand,limit=1,sort=nearest] CustomName",
+        "explanation": "data remove = 删除NBT标签\n@e[...] = 最近的盔甲架\nCustomName = 自定义名称NBT路径",
+        "variants": [],
+        "warnings": ["data remove 可以删除实体、方块实体或存储的任意NBT路径"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "让最近的盔甲架隐形",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data merge entity @e[type=minecraft:armor_stand,limit=1,sort=nearest] {Invisible:1b}",
+        "explanation": "data merge entity = 合并NBT到实体\nInvisible:1b = 设置隐形（1b=true）",
+        "variants": ["/data merge entity @e[type=minecraft:armor_stand,limit=1,sort=nearest] {Invisible:1b,NoGravity:1b,ShowArms:1b}"],
+        "warnings": ["data merge 会合并而非替换，原有NBT不受影响", "variants中同时设置了隐形、无重力、显示手臂"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "查看自己的生命值",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data get entity @s Health",
+        "explanation": "data get entity = 读取实体NBT\n@s = 命令执行者\nHealth = 生命值NBT路径",
+        "variants": ["/data get entity @s Health 100"],
+        "warnings": ["返回的是浮点数（如20.0=满血）", "variants中100是倍率，将数值乘以100显示（2000=20.0血）"]
+      }
+    },
+    "commands_used": ["data"]
+  },
+  {
+    "input": "使用data storage存储自定义数据",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/data merge storage minecraft:my_data {counter:0,settings:{enabled:1b,message:\"Hello\"}}",
+        "explanation": "data merge storage = 将数据合并到虚拟存储空间\nminecraft:my_data = 存储命名空间\n后面是要存储的NBT数据",
+        "variants": ["/data get storage minecraft:my_data counter"],
+        "warnings": ["storage 是虚拟存储空间，不与任何实体或方块关联", "数据在服务器重启后会丢失", "variants中展示了读取存储数据"]
+      }
+    },
+    "commands_used": ["data"],
+    "note": "data storage 是Java版独有功能，可用于存储临时数据和变量"
+  },
+  {
+    "input": "用data modify实现数组操作",
+    "output": {
+      "type": "command_list",
+      "commands": [
+        {
+          "command": "/data modify storage minecraft:temp list append value \"新元素\"",
+          "explanation": "向数组末尾追加元素（append）"
+        },
+        {
+          "command": "/data modify storage minecraft:temp list prepend value \"首元素\"",
+          "explanation": "向数组开头插入元素（prepend）"
+        },
+        {
+          "command": "/data modify storage minecraft:temp list insert 2 value \"中间元素\"",
+          "explanation": "在索引2处插入元素（insert）"
+        },
+        {
+          "command": "/data remove storage minecraft:temp list[0]",
+          "explanation": "删除数组第一个元素"
+        }
+      ],
+      "overview": "data modify 支持多种数组操作：append(追加)、prepend(前置)、insert(插入)、set(设置)、merge(合并)"
+    },
+    "commands_used": ["data"],
+    "note": "data modify 的数组操作是实现复杂数据包逻辑的基础"
+  },
+  {
+    "input": "生成一只自定义属性的僵尸",
+    "output": {
+      "type": "single_command",
+      "command": {
+        "command": "/summon minecraft:zombie ~ ~ ~ {CustomName:'{\"text\":\"强化僵尸\",\"color\":\"red\"}',Health:40.0f,Attributes:[{Name:\"minecraft:generic.max_health\",Base:40.0d},{Name:\"minecraft:generic.movement_speed\",Base:0.4d},{Name:\"minecraft:generic.attack_damage\",Base:8.0d}],HandItems:[{id:\"minecraft:diamond_sword\",count:1},{}],ArmorItems:[{},{},{},{id:\"minecraft:diamond_helmet\",count:1}]}",
+        "explanation": "CustomName = 自定义显示名\nHealth/Attributes = 自定义生命值和属性\nHandItems = [主手,副手]\nArmorItems = [脚,腿,胸,头]",
+        "variants": [],
+        "warnings": ["Attributes 中的 Base 值需要用 d 后缀标记为 double 类型", "HandItems和ArmorItems的空槽位用 {} 占位"]
+      }
+    },
+    "commands_used": ["summon"],
+    "note": "Java版/summon可通过NBT实现高度自定义的实体"
+  }
+]

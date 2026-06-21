@@ -1,0 +1,590 @@
+[
+  {
+    "id": "minecraft:ambient_entity_effect",
+    "name": "Ambient Entity Effect",
+    "description": "环境实体效果粒子",
+    "deprecated": true
+  },
+  {
+    "id": "minecraft:angry_villager",
+    "name": "Angry Villager",
+    "description": "愤怒村民粒子（雷云）"
+  },
+  {
+    "id": "minecraft:ash",
+    "name": "Ash",
+    "description": "灰烬粒子"
+  },
+  {
+    "id": "minecraft:block",
+    "name": "Block",
+    "description": "方块破坏粒子"
+  },
+  {
+    "id": "minecraft:block_crumble",
+    "name": "Block Crumble",
+    "description": "方块崩碎粒子",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:block_marker",
+    "name": "Block Marker",
+    "description": "方块标记粒子"
+  },
+  {
+    "id": "minecraft:bubble",
+    "name": "Bubble",
+    "description": "气泡粒子"
+  },
+  {
+    "id": "minecraft:bubble_column_up",
+    "name": "Bubble Column Up",
+    "description": "向上气泡柱粒子"
+  },
+  {
+    "id": "minecraft:bubble_pop",
+    "name": "Bubble Pop",
+    "description": "气泡破裂粒子"
+  },
+  {
+    "id": "minecraft:campfire_cosy_smoke",
+    "name": "Campfire Cosy Smoke",
+    "description": "营火舒适烟雾粒子"
+  },
+  {
+    "id": "minecraft:campfire_signal_smoke",
+    "name": "Campfire Signal Smoke",
+    "description": "营火信号烟雾粒子"
+  },
+  {
+    "id": "minecraft:cherry_leaves",
+    "name": "Cherry Leaves",
+    "description": "樱花树叶飘落粒子"
+  },
+  {
+    "id": "minecraft:cloud",
+    "name": "Cloud",
+    "description": "云朵粒子"
+  },
+  {
+    "id": "minecraft:composter",
+    "name": "Composter",
+    "description": "堆肥桶粒子"
+  },
+  {
+    "id": "minecraft:copper_fire_flame",
+    "name": "Copper Fire Flame",
+    "description": "铜火焰粒子（青绿色火焰）",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:crimson_spore",
+    "name": "Crimson Spore",
+    "description": "绯红孢子粒子"
+  },
+  {
+    "id": "minecraft:crit",
+    "name": "Crit",
+    "description": "暴击粒子"
+  },
+  {
+    "id": "minecraft:current_down",
+    "name": "Current Down",
+    "description": "向下水流粒子"
+  },
+  {
+    "id": "minecraft:damage_indicator",
+    "name": "Damage Indicator",
+    "description": "伤害指示粒子"
+  },
+  {
+    "id": "minecraft:dolphin",
+    "name": "Dolphin",
+    "description": "海豚粒子"
+  },
+  {
+    "id": "minecraft:dragon_breath",
+    "name": "Dragon Breath",
+    "description": "龙息粒子"
+  },
+  {
+    "id": "minecraft:dripping_dripstone_lava",
+    "name": "Dripping Dripstone Lava",
+    "description": "滴水石锥滴落熔岩粒子"
+  },
+  {
+    "id": "minecraft:dripping_dripstone_water",
+    "name": "Dripping Dripstone Water",
+    "description": "滴水石锥滴落水粒子"
+  },
+  {
+    "id": "minecraft:dripping_honey",
+    "name": "Dripping Honey",
+    "description": "滴落蜂蜜粒子"
+  },
+  {
+    "id": "minecraft:dripping_lava",
+    "name": "Dripping Lava",
+    "description": "滴落熔岩粒子"
+  },
+  {
+    "id": "minecraft:dripping_obsidian_tear",
+    "name": "Dripping Obsidian Tear",
+    "description": "滴落黑曜石泪粒子"
+  },
+  {
+    "id": "minecraft:dripping_water",
+    "name": "Dripping Water",
+    "description": "滴落水粒子"
+  },
+  {
+    "id": "minecraft:dust",
+    "name": "Dust",
+    "description": "粉尘粒子（可自定义颜色）"
+  },
+  {
+    "id": "minecraft:dust_color_transition",
+    "name": "Dust Color Transition",
+    "description": "颜色过渡粉尘粒子"
+  },
+  {
+    "id": "minecraft:dust_pillar",
+    "name": "Dust Pillar",
+    "description": "粉尘柱粒子"
+  },
+  {
+    "id": "minecraft:dust_plume",
+    "name": "Dust Plume",
+    "description": "粉尘羽流粒子"
+  },
+  {
+    "id": "minecraft:effect",
+    "name": "Effect",
+    "description": "药水效果粒子"
+  },
+  {
+    "id": "minecraft:egg_crack",
+    "name": "Egg Crack",
+    "description": "蛋裂开粒子"
+  },
+  {
+    "id": "minecraft:elder_guardian",
+    "name": "Elder Guardian",
+    "description": "远古守卫者诅咒粒子"
+  },
+  {
+    "id": "minecraft:electric_spark",
+    "name": "Electric Spark",
+    "description": "电火花粒子"
+  },
+  {
+    "id": "minecraft:enchant",
+    "name": "Enchant",
+    "description": "附魔粒子"
+  },
+  {
+    "id": "minecraft:enchanted_hit",
+    "name": "Enchanted Hit",
+    "description": "附魔击中粒子"
+  },
+  {
+    "id": "minecraft:end_rod",
+    "name": "End Rod",
+    "description": "末地烛粒子"
+  },
+  {
+    "id": "minecraft:entity_effect",
+    "name": "Entity Effect",
+    "description": "实体效果粒子",
+    "aliases": [
+      "ambient_entity_effect"
+    ]
+  },
+  {
+    "id": "minecraft:explosion",
+    "name": "Explosion",
+    "description": "爆炸粒子"
+  },
+  {
+    "id": "minecraft:explosion_emitter",
+    "name": "Explosion Emitter",
+    "description": "大型爆炸粒子"
+  },
+  {
+    "id": "minecraft:falling_dripstone_lava",
+    "name": "Falling Dripstone Lava",
+    "description": "滴水石锥下落熔岩粒子"
+  },
+  {
+    "id": "minecraft:falling_dripstone_water",
+    "name": "Falling Dripstone Water",
+    "description": "滴水石锥下落水粒子"
+  },
+  {
+    "id": "minecraft:falling_dust",
+    "name": "Falling Dust",
+    "description": "下落粉尘粒子"
+  },
+  {
+    "id": "minecraft:falling_honey",
+    "name": "Falling Honey",
+    "description": "下落蜂蜜粒子"
+  },
+  {
+    "id": "minecraft:falling_lava",
+    "name": "Falling Lava",
+    "description": "下落熔岩粒子"
+  },
+  {
+    "id": "minecraft:falling_nectar",
+    "name": "Falling Nectar",
+    "description": "下落花蜜粒子"
+  },
+  {
+    "id": "minecraft:falling_obsidian_tear",
+    "name": "Falling Obsidian Tear",
+    "description": "下落黑曜石泪粒子"
+  },
+  {
+    "id": "minecraft:falling_spore_blossom",
+    "name": "Falling Spore Blossom",
+    "description": "下落孢子花粒子"
+  },
+  {
+    "id": "minecraft:falling_water",
+    "name": "Falling Water",
+    "description": "下落水粒子"
+  },
+  {
+    "id": "minecraft:firefly",
+    "name": "Firefly",
+    "description": "萤火虫粒子",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:firework",
+    "name": "Firework",
+    "description": "烟花粒子"
+  },
+  {
+    "id": "minecraft:fishing",
+    "name": "Fishing",
+    "description": "钓鱼粒子"
+  },
+  {
+    "id": "minecraft:flame",
+    "name": "Flame",
+    "description": "火焰粒子"
+  },
+  {
+    "id": "minecraft:flash",
+    "name": "Flash",
+    "description": "闪光粒子"
+  },
+  {
+    "id": "minecraft:glow",
+    "name": "Glow",
+    "description": "发光粒子"
+  },
+  {
+    "id": "minecraft:glow_squid_ink",
+    "name": "Glow Squid Ink",
+    "description": "发光鱿鱼墨汁粒子"
+  },
+  {
+    "id": "minecraft:gust",
+    "name": "Gust",
+    "description": "阵风粒子"
+  },
+  {
+    "id": "minecraft:gust_emitter_large",
+    "name": "Large Gust Emitter",
+    "description": "大型阵风发射粒子"
+  },
+  {
+    "id": "minecraft:gust_emitter_small",
+    "name": "Small Gust Emitter",
+    "description": "小型阵风发射粒子"
+  },
+  {
+    "id": "minecraft:happy_villager",
+    "name": "Happy Villager",
+    "description": "快乐村民粒子（绿色星星）"
+  },
+  {
+    "id": "minecraft:heart",
+    "name": "Heart",
+    "description": "爱心粒子"
+  },
+  {
+    "id": "minecraft:infested",
+    "name": "Infested",
+    "description": "虫蚀粒子"
+  },
+  {
+    "id": "minecraft:instant_effect",
+    "name": "Instant Effect",
+    "description": "瞬间效果粒子"
+  },
+  {
+    "id": "minecraft:item",
+    "name": "Item",
+    "description": "物品破碎粒子"
+  },
+  {
+    "id": "minecraft:item_cobweb",
+    "name": "Item Cobweb",
+    "description": "蛛网物品粒子"
+  },
+  {
+    "id": "minecraft:item_slime",
+    "name": "Item Slime",
+    "description": "史莱姆物品粒子"
+  },
+  {
+    "id": "minecraft:item_snowball",
+    "name": "Item Snowball",
+    "description": "雪球物品粒子"
+  },
+  {
+    "id": "minecraft:landing_honey",
+    "name": "Landing Honey",
+    "description": "蜂蜜着陆粒子"
+  },
+  {
+    "id": "minecraft:landing_lava",
+    "name": "Landing Lava",
+    "description": "熔岩着陆粒子"
+  },
+  {
+    "id": "minecraft:landing_obsidian_tear",
+    "name": "Landing Obsidian Tear",
+    "description": "黑曜石泪着陆粒子"
+  },
+  {
+    "id": "minecraft:large_smoke",
+    "name": "Large Smoke",
+    "description": "大型烟雾粒子"
+  },
+  {
+    "id": "minecraft:lava",
+    "name": "Lava",
+    "description": "熔岩粒子"
+  },
+  {
+    "id": "minecraft:mycelium",
+    "name": "Mycelium",
+    "description": "菌丝粒子"
+  },
+  {
+    "id": "minecraft:nautilus",
+    "name": "Nautilus",
+    "description": "鹦鹉螺粒子"
+  },
+  {
+    "id": "minecraft:note",
+    "name": "Note",
+    "description": "音符粒子"
+  },
+  {
+    "id": "minecraft:ominous_spawning",
+    "name": "Ominous Spawning",
+    "description": "不祥生成粒子"
+  },
+  {
+    "id": "minecraft:pale_oak_leaves",
+    "name": "Pale Oak Leaves",
+    "description": "苍白橡树树叶飘落粒子"
+  },
+  {
+    "id": "minecraft:poof",
+    "name": "Poof",
+    "description": "消失烟雾粒子"
+  },
+  {
+    "id": "minecraft:portal",
+    "name": "Portal",
+    "description": "传送门粒子"
+  },
+  {
+    "id": "minecraft:raid_omen",
+    "name": "Raid Omen",
+    "description": "袭击之兆粒子"
+  },
+  {
+    "id": "minecraft:rain",
+    "name": "Rain",
+    "description": "雨滴粒子"
+  },
+  {
+    "id": "minecraft:reverse_portal",
+    "name": "Reverse Portal",
+    "description": "反向传送门粒子"
+  },
+  {
+    "id": "minecraft:scrape",
+    "name": "Scrape",
+    "description": "刮擦粒子"
+  },
+  {
+    "id": "minecraft:sculk_charge",
+    "name": "Sculk Charge",
+    "description": "幽匿充能粒子"
+  },
+  {
+    "id": "minecraft:sculk_charge_pop",
+    "name": "Sculk Charge Pop",
+    "description": "幽匿充能弹出粒子"
+  },
+  {
+    "id": "minecraft:sculk_soul",
+    "name": "Sculk Soul",
+    "description": "幽匿灵魂粒子"
+  },
+  {
+    "id": "minecraft:shriek",
+    "name": "Shriek",
+    "description": "尖啸粒子"
+  },
+  {
+    "id": "minecraft:small_flame",
+    "name": "Small Flame",
+    "description": "小火焰粒子"
+  },
+  {
+    "id": "minecraft:small_gust",
+    "name": "Small Gust",
+    "description": "小阵风粒子"
+  },
+  {
+    "id": "minecraft:smoke",
+    "name": "Smoke",
+    "description": "烟雾粒子"
+  },
+  {
+    "id": "minecraft:sneeze",
+    "name": "Sneeze",
+    "description": "喷嚏粒子"
+  },
+  {
+    "id": "minecraft:snowflake",
+    "name": "Snowflake",
+    "description": "雪花粒子"
+  },
+  {
+    "id": "minecraft:sonic_boom",
+    "name": "Sonic Boom",
+    "description": "音爆粒子"
+  },
+  {
+    "id": "minecraft:soul",
+    "name": "Soul",
+    "description": "灵魂粒子"
+  },
+  {
+    "id": "minecraft:soul_fire_flame",
+    "name": "Soul Fire Flame",
+    "description": "灵魂火焰粒子"
+  },
+  {
+    "id": "minecraft:spit",
+    "name": "Spit",
+    "description": "唾沫粒子"
+  },
+  {
+    "id": "minecraft:splash",
+    "name": "Splash",
+    "description": "溅射粒子"
+  },
+  {
+    "id": "minecraft:spore_blossom_air",
+    "name": "Spore Blossom Air",
+    "description": "孢子花空气粒子"
+  },
+  {
+    "id": "minecraft:squid_ink",
+    "name": "Squid Ink",
+    "description": "鱿鱼墨汁粒子"
+  },
+  {
+    "id": "minecraft:sweep_attack",
+    "name": "Sweep Attack",
+    "description": "横扫攻击粒子"
+  },
+  {
+    "id": "minecraft:tinted_leaves",
+    "name": "Tinted Leaves",
+    "description": "染色树叶飘落粒子",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:totem_of_undying",
+    "name": "Totem of Undying",
+    "description": "不死图腾粒子"
+  },
+  {
+    "id": "minecraft:trail",
+    "name": "Trail",
+    "description": "轨迹粒子"
+  },
+  {
+    "id": "minecraft:trial_omen",
+    "name": "Trial Omen",
+    "description": "试炼之兆粒子"
+  },
+  {
+    "id": "minecraft:trial_spawner_detection",
+    "name": "Trial Spawner Detection",
+    "description": "试炼刷怪笼探测粒子"
+  },
+  {
+    "id": "minecraft:trial_spawner_detection_ominous",
+    "name": "Trial Spawner Detection Ominous",
+    "description": "不祥试炼刷怪笼探测粒子"
+  },
+  {
+    "id": "minecraft:underwater",
+    "name": "Underwater",
+    "description": "水下粒子"
+  },
+  {
+    "id": "minecraft:vault_connection",
+    "name": "Vault Connection",
+    "description": "宝库连接粒子"
+  },
+  {
+    "id": "minecraft:vibration",
+    "name": "Vibration",
+    "description": "振动粒子"
+  },
+  {
+    "id": "minecraft:warped_spore",
+    "name": "Warped Spore",
+    "description": "诡异孢子粒子"
+  },
+  {
+    "id": "minecraft:wax_off",
+    "name": "Wax Off",
+    "description": "去蜡粒子"
+  },
+  {
+    "id": "minecraft:wax_on",
+    "name": "Wax On",
+    "description": "涂蜡粒子"
+  },
+  {
+    "id": "minecraft:white_ash",
+    "name": "White Ash",
+    "description": "白色灰烬粒子"
+  },
+  {
+    "id": "minecraft:white_smoke",
+    "name": "White Smoke",
+    "description": "白色烟雾粒子"
+  },
+  {
+    "id": "minecraft:witch",
+    "name": "Witch",
+    "description": "女巫粒子"
+  }
+]

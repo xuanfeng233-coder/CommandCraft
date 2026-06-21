@@ -1,0 +1,83 @@
+{
+  "name": "particle",
+  "syntax": "/particle <name> [<pos>] [<delta>] [<speed>] [<count>] [force|normal] [<viewers>]",
+  "description": "在指定位置生成粒子效果",
+  "category": "multimedia",
+  "parameters": [
+    {
+      "name": "name",
+      "type": "particle_id",
+      "required": true,
+      "description": "粒子ID（如 minecraft:flame、minecraft:heart、minecraft:dust 等），某些粒子支持参数"
+    },
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "粒子生成的中心位置",
+      "default": "执行者位置"
+    },
+    {
+      "name": "delta",
+      "type": "dx dy dz",
+      "required": false,
+      "description": "粒子在各轴的随机偏移范围",
+      "default": "0 0 0"
+    },
+    {
+      "name": "speed",
+      "type": "float",
+      "required": false,
+      "description": "粒子速度",
+      "default": "0"
+    },
+    {
+      "name": "count",
+      "type": "int",
+      "required": false,
+      "description": "粒子数量。设为0时delta表示运动方向、speed表示速度",
+      "default": "1"
+    },
+    {
+      "name": "mode",
+      "type": "force|normal",
+      "required": false,
+      "description": "force可在512格范围内看到，normal在32格内",
+      "default": "normal"
+    },
+    {
+      "name": "viewers",
+      "type": "target",
+      "required": false,
+      "description": "可以看到粒子的玩家"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/particle minecraft:flame ~ ~1 ~ 0.5 0.5 0.5 0 50",
+      "description": "在上方1格处生成50个火焰粒子，随机分布在1格范围内"
+    },
+    {
+      "input": "/particle minecraft:heart ~ ~2 ~ 0.5 0.5 0.5 0 10",
+      "description": "在头顶生成10个爱心粒子"
+    },
+    {
+      "input": "/particle minecraft:dust{color:[1.0,0.0,0.0],scale:1.5} ~ ~1 ~ 0.3 0.3 0.3 0 30",
+      "description": "生成红色大尺寸灰尘粒子"
+    },
+    {
+      "input": "/particle minecraft:explosion ~ ~ ~ 0 0 0 0 1 force",
+      "description": "生成一个爆炸粒子效果（强制模式，远处可见）"
+    },
+    {
+      "input": "/particle minecraft:dust_color_transition{from_color:[1.0,0.0,0.0],to_color:[0.0,0.0,1.0],scale:1.0} ~ ~1 ~ 0 0 0 0 1",
+      "description": "生成从红色渐变到蓝色的灰尘粒子"
+    },
+    {
+      "input": "/particle minecraft:block{block_state:\"minecraft:diamond_block\"} ~ ~1 ~ 0.5 0.5 0.5 0 20",
+      "description": "生成钻石块破碎粒子"
+    }
+  ],
+  "java_specific_notes": "Java版粒子支持复杂参数。minecraft:dust粒子可指定颜色(RGB 0.0-1.0)和大小。minecraft:dust_color_transition支持颜色渐变。minecraft:block和minecraft:item可指定方块/物品类型。minecraft:entity_effect可指定颜色。minecraft:vibration可指定目标。count=0时为特殊模式：delta变为方向向量，speed变为实际速度。force模式下粒子可视范围从32格增加到512格。",
+  "version_added": "1.8"
+}

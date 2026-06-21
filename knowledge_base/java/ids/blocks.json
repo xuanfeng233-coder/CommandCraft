@@ -1,0 +1,7140 @@
+[
+  {
+    "id": "minecraft:stone",
+    "name": "Stone",
+    "category": "building",
+    "description": "石头"
+  },
+  {
+    "id": "minecraft:granite",
+    "name": "Granite",
+    "category": "building",
+    "description": "花岗岩"
+  },
+  {
+    "id": "minecraft:polished_granite",
+    "name": "Polished Granite",
+    "category": "building",
+    "description": "磨制花岗岩"
+  },
+  {
+    "id": "minecraft:diorite",
+    "name": "Diorite",
+    "category": "building",
+    "description": "闪长岩"
+  },
+  {
+    "id": "minecraft:polished_diorite",
+    "name": "Polished Diorite",
+    "category": "building",
+    "description": "磨制闪长岩"
+  },
+  {
+    "id": "minecraft:andesite",
+    "name": "Andesite",
+    "category": "building",
+    "description": "安山岩"
+  },
+  {
+    "id": "minecraft:polished_andesite",
+    "name": "Polished Andesite",
+    "category": "building",
+    "description": "磨制安山岩"
+  },
+  {
+    "id": "minecraft:deepslate",
+    "name": "Deepslate",
+    "category": "building",
+    "description": "深板岩"
+  },
+  {
+    "id": "minecraft:cobbled_deepslate",
+    "name": "Cobbled Deepslate",
+    "category": "building",
+    "description": "深板岩圆石"
+  },
+  {
+    "id": "minecraft:polished_deepslate",
+    "name": "Polished Deepslate",
+    "category": "building",
+    "description": "磨制深板岩"
+  },
+  {
+    "id": "minecraft:deepslate_bricks",
+    "name": "Deepslate Bricks",
+    "category": "building",
+    "description": "深板岩砖"
+  },
+  {
+    "id": "minecraft:deepslate_tiles",
+    "name": "Deepslate Tiles",
+    "category": "building",
+    "description": "深板岩瓦"
+  },
+  {
+    "id": "minecraft:tuff",
+    "name": "Tuff",
+    "category": "building",
+    "description": "凝灰岩"
+  },
+  {
+    "id": "minecraft:polished_tuff",
+    "name": "Polished Tuff",
+    "category": "building",
+    "description": "磨制凝灰岩"
+  },
+  {
+    "id": "minecraft:tuff_bricks",
+    "name": "Tuff Bricks",
+    "category": "building",
+    "description": "凝灰岩砖"
+  },
+  {
+    "id": "minecraft:grass_block",
+    "name": "Grass Block",
+    "category": "natural",
+    "description": "草方块"
+  },
+  {
+    "id": "minecraft:dirt",
+    "name": "Dirt",
+    "category": "natural",
+    "description": "泥土"
+  },
+  {
+    "id": "minecraft:coarse_dirt",
+    "name": "Coarse Dirt",
+    "category": "natural",
+    "description": "砂土"
+  },
+  {
+    "id": "minecraft:podzol",
+    "name": "Podzol",
+    "category": "natural",
+    "description": "灰化土"
+  },
+  {
+    "id": "minecraft:rooted_dirt",
+    "name": "Rooted Dirt",
+    "category": "natural",
+    "description": "缠根泥土"
+  },
+  {
+    "id": "minecraft:mud",
+    "name": "Mud",
+    "category": "natural",
+    "description": "泥巴"
+  },
+  {
+    "id": "minecraft:packed_mud",
+    "name": "Packed Mud",
+    "category": "building",
+    "description": "泥坯"
+  },
+  {
+    "id": "minecraft:mud_bricks",
+    "name": "Mud Bricks",
+    "category": "building",
+    "description": "泥砖"
+  },
+  {
+    "id": "minecraft:cobblestone",
+    "name": "Cobblestone",
+    "category": "building",
+    "description": "圆石"
+  },
+  {
+    "id": "minecraft:mossy_cobblestone",
+    "name": "Mossy Cobblestone",
+    "category": "building",
+    "description": "苔石"
+  },
+  {
+    "id": "minecraft:oak_planks",
+    "name": "Oak Planks",
+    "category": "building",
+    "description": "橡木木板"
+  },
+  {
+    "id": "minecraft:spruce_planks",
+    "name": "Spruce Planks",
+    "category": "building",
+    "description": "云杉木板"
+  },
+  {
+    "id": "minecraft:birch_planks",
+    "name": "Birch Planks",
+    "category": "building",
+    "description": "白桦木板"
+  },
+  {
+    "id": "minecraft:jungle_planks",
+    "name": "Jungle Planks",
+    "category": "building",
+    "description": "丛林木板"
+  },
+  {
+    "id": "minecraft:acacia_planks",
+    "name": "Acacia Planks",
+    "category": "building",
+    "description": "金合欢木板"
+  },
+  {
+    "id": "minecraft:dark_oak_planks",
+    "name": "Dark Oak Planks",
+    "category": "building",
+    "description": "深色橡木木板"
+  },
+  {
+    "id": "minecraft:mangrove_planks",
+    "name": "Mangrove Planks",
+    "category": "building",
+    "description": "红树木板"
+  },
+  {
+    "id": "minecraft:cherry_planks",
+    "name": "Cherry Planks",
+    "category": "building",
+    "description": "樱花木板"
+  },
+  {
+    "id": "minecraft:bamboo_planks",
+    "name": "Bamboo Planks",
+    "category": "building",
+    "description": "竹木板"
+  },
+  {
+    "id": "minecraft:crimson_planks",
+    "name": "Crimson Planks",
+    "category": "building",
+    "description": "绯红木板"
+  },
+  {
+    "id": "minecraft:warped_planks",
+    "name": "Warped Planks",
+    "category": "building",
+    "description": "诡异木板"
+  },
+  {
+    "id": "minecraft:pale_oak_planks",
+    "name": "Pale Oak Planks",
+    "category": "building",
+    "description": "苍白橡木木板"
+  },
+  {
+    "id": "minecraft:oak_log",
+    "name": "Oak Log",
+    "category": "natural",
+    "description": "橡木原木"
+  },
+  {
+    "id": "minecraft:spruce_log",
+    "name": "Spruce Log",
+    "category": "natural",
+    "description": "云杉原木"
+  },
+  {
+    "id": "minecraft:birch_log",
+    "name": "Birch Log",
+    "category": "natural",
+    "description": "白桦原木"
+  },
+  {
+    "id": "minecraft:jungle_log",
+    "name": "Jungle Log",
+    "category": "natural",
+    "description": "丛林原木"
+  },
+  {
+    "id": "minecraft:acacia_log",
+    "name": "Acacia Log",
+    "category": "natural",
+    "description": "金合欢原木"
+  },
+  {
+    "id": "minecraft:dark_oak_log",
+    "name": "Dark Oak Log",
+    "category": "natural",
+    "description": "深色橡木原木"
+  },
+  {
+    "id": "minecraft:mangrove_log",
+    "name": "Mangrove Log",
+    "category": "natural",
+    "description": "红树原木"
+  },
+  {
+    "id": "minecraft:cherry_log",
+    "name": "Cherry Log",
+    "category": "natural",
+    "description": "樱花原木"
+  },
+  {
+    "id": "minecraft:pale_oak_log",
+    "name": "Pale Oak Log",
+    "category": "natural",
+    "description": "苍白橡木原木"
+  },
+  {
+    "id": "minecraft:crimson_stem",
+    "name": "Crimson Stem",
+    "category": "natural",
+    "description": "绯红菌柄"
+  },
+  {
+    "id": "minecraft:warped_stem",
+    "name": "Warped Stem",
+    "category": "natural",
+    "description": "诡异菌柄"
+  },
+  {
+    "id": "minecraft:bamboo_block",
+    "name": "Block of Bamboo",
+    "category": "building",
+    "description": "竹块"
+  },
+  {
+    "id": "minecraft:oak_leaves",
+    "name": "Oak Leaves",
+    "category": "natural",
+    "description": "橡树树叶"
+  },
+  {
+    "id": "minecraft:spruce_leaves",
+    "name": "Spruce Leaves",
+    "category": "natural",
+    "description": "云杉树叶"
+  },
+  {
+    "id": "minecraft:birch_leaves",
+    "name": "Birch Leaves",
+    "category": "natural",
+    "description": "白桦树叶"
+  },
+  {
+    "id": "minecraft:jungle_leaves",
+    "name": "Jungle Leaves",
+    "category": "natural",
+    "description": "丛林树叶"
+  },
+  {
+    "id": "minecraft:acacia_leaves",
+    "name": "Acacia Leaves",
+    "category": "natural",
+    "description": "金合欢树叶"
+  },
+  {
+    "id": "minecraft:dark_oak_leaves",
+    "name": "Dark Oak Leaves",
+    "category": "natural",
+    "description": "深色橡树树叶"
+  },
+  {
+    "id": "minecraft:cherry_leaves",
+    "name": "Cherry Leaves",
+    "category": "natural",
+    "description": "樱花树叶"
+  },
+  {
+    "id": "minecraft:mangrove_leaves",
+    "name": "Mangrove Leaves",
+    "category": "natural",
+    "description": "红树树叶"
+  },
+  {
+    "id": "minecraft:azalea_leaves",
+    "name": "Azalea Leaves",
+    "category": "natural",
+    "description": "杜鹃树叶"
+  },
+  {
+    "id": "minecraft:pale_oak_leaves",
+    "name": "Pale Oak Leaves",
+    "category": "natural",
+    "description": "苍白橡树树叶"
+  },
+  {
+    "id": "minecraft:sand",
+    "name": "Sand",
+    "category": "natural",
+    "description": "沙子"
+  },
+  {
+    "id": "minecraft:red_sand",
+    "name": "Red Sand",
+    "category": "natural",
+    "description": "红沙"
+  },
+  {
+    "id": "minecraft:gravel",
+    "name": "Gravel",
+    "category": "natural",
+    "description": "沙砾"
+  },
+  {
+    "id": "minecraft:sandstone",
+    "name": "Sandstone",
+    "category": "building",
+    "description": "砂岩"
+  },
+  {
+    "id": "minecraft:smooth_sandstone",
+    "name": "Smooth Sandstone",
+    "category": "building",
+    "description": "平滑砂岩"
+  },
+  {
+    "id": "minecraft:red_sandstone",
+    "name": "Red Sandstone",
+    "category": "building",
+    "description": "红砂岩"
+  },
+  {
+    "id": "minecraft:coal_ore",
+    "name": "Coal Ore",
+    "category": "natural",
+    "description": "煤矿石"
+  },
+  {
+    "id": "minecraft:iron_ore",
+    "name": "Iron Ore",
+    "category": "natural",
+    "description": "铁矿石"
+  },
+  {
+    "id": "minecraft:copper_ore",
+    "name": "Copper Ore",
+    "category": "natural",
+    "description": "铜矿石"
+  },
+  {
+    "id": "minecraft:gold_ore",
+    "name": "Gold Ore",
+    "category": "natural",
+    "description": "金矿石"
+  },
+  {
+    "id": "minecraft:diamond_ore",
+    "name": "Diamond Ore",
+    "category": "natural",
+    "description": "钻石矿石"
+  },
+  {
+    "id": "minecraft:emerald_ore",
+    "name": "Emerald Ore",
+    "category": "natural",
+    "description": "绿宝石矿石"
+  },
+  {
+    "id": "minecraft:lapis_ore",
+    "name": "Lapis Lazuli Ore",
+    "category": "natural",
+    "description": "青金石矿石"
+  },
+  {
+    "id": "minecraft:redstone_ore",
+    "name": "Redstone Ore",
+    "category": "natural",
+    "description": "红石矿石"
+  },
+  {
+    "id": "minecraft:nether_quartz_ore",
+    "name": "Nether Quartz Ore",
+    "category": "natural",
+    "description": "下界石英矿石"
+  },
+  {
+    "id": "minecraft:nether_gold_ore",
+    "name": "Nether Gold Ore",
+    "category": "natural",
+    "description": "下界金矿石"
+  },
+  {
+    "id": "minecraft:ancient_debris",
+    "name": "Ancient Debris",
+    "category": "natural",
+    "description": "远古残骸"
+  },
+  {
+    "id": "minecraft:deepslate_coal_ore",
+    "name": "Deepslate Coal Ore",
+    "category": "natural",
+    "description": "深层煤矿石"
+  },
+  {
+    "id": "minecraft:deepslate_iron_ore",
+    "name": "Deepslate Iron Ore",
+    "category": "natural",
+    "description": "深层铁矿石"
+  },
+  {
+    "id": "minecraft:deepslate_copper_ore",
+    "name": "Deepslate Copper Ore",
+    "category": "natural",
+    "description": "深层铜矿石"
+  },
+  {
+    "id": "minecraft:deepslate_gold_ore",
+    "name": "Deepslate Gold Ore",
+    "category": "natural",
+    "description": "深层金矿石"
+  },
+  {
+    "id": "minecraft:deepslate_diamond_ore",
+    "name": "Deepslate Diamond Ore",
+    "category": "natural",
+    "description": "深层钻石矿石"
+  },
+  {
+    "id": "minecraft:deepslate_emerald_ore",
+    "name": "Deepslate Emerald Ore",
+    "category": "natural",
+    "description": "深层绿宝石矿石"
+  },
+  {
+    "id": "minecraft:deepslate_lapis_ore",
+    "name": "Deepslate Lapis Lazuli Ore",
+    "category": "natural",
+    "description": "深层青金石矿石"
+  },
+  {
+    "id": "minecraft:deepslate_redstone_ore",
+    "name": "Deepslate Redstone Ore",
+    "category": "natural",
+    "description": "深层红石矿石"
+  },
+  {
+    "id": "minecraft:iron_block",
+    "name": "Block of Iron",
+    "category": "building",
+    "description": "铁块"
+  },
+  {
+    "id": "minecraft:gold_block",
+    "name": "Block of Gold",
+    "category": "building",
+    "description": "金块"
+  },
+  {
+    "id": "minecraft:diamond_block",
+    "name": "Block of Diamond",
+    "category": "building",
+    "description": "钻石块"
+  },
+  {
+    "id": "minecraft:emerald_block",
+    "name": "Block of Emerald",
+    "category": "building",
+    "description": "绿宝石块"
+  },
+  {
+    "id": "minecraft:netherite_block",
+    "name": "Block of Netherite",
+    "category": "building",
+    "description": "下界合金块"
+  },
+  {
+    "id": "minecraft:lapis_block",
+    "name": "Block of Lapis Lazuli",
+    "category": "building",
+    "description": "青金石块"
+  },
+  {
+    "id": "minecraft:redstone_block",
+    "name": "Block of Redstone",
+    "category": "redstone",
+    "description": "红石块"
+  },
+  {
+    "id": "minecraft:coal_block",
+    "name": "Block of Coal",
+    "category": "building",
+    "description": "煤炭块"
+  },
+  {
+    "id": "minecraft:copper_block",
+    "name": "Block of Copper",
+    "category": "building",
+    "description": "铜块"
+  },
+  {
+    "id": "minecraft:raw_iron_block",
+    "name": "Block of Raw Iron",
+    "category": "building",
+    "description": "粗铁块"
+  },
+  {
+    "id": "minecraft:raw_gold_block",
+    "name": "Block of Raw Gold",
+    "category": "building",
+    "description": "粗金块"
+  },
+  {
+    "id": "minecraft:raw_copper_block",
+    "name": "Block of Raw Copper",
+    "category": "building",
+    "description": "粗铜块"
+  },
+  {
+    "id": "minecraft:amethyst_block",
+    "name": "Block of Amethyst",
+    "category": "building",
+    "description": "紫水晶块"
+  },
+  {
+    "id": "minecraft:budding_amethyst",
+    "name": "Budding Amethyst",
+    "category": "natural",
+    "description": "紫水晶母岩"
+  },
+  {
+    "id": "minecraft:glass",
+    "name": "Glass",
+    "category": "building",
+    "description": "玻璃"
+  },
+  {
+    "id": "minecraft:tinted_glass",
+    "name": "Tinted Glass",
+    "category": "building",
+    "description": "遮光玻璃"
+  },
+  {
+    "id": "minecraft:white_stained_glass",
+    "name": "White Stained Glass",
+    "category": "building",
+    "description": "白色染色玻璃"
+  },
+  {
+    "id": "minecraft:glass_pane",
+    "name": "Glass Pane",
+    "category": "building",
+    "description": "玻璃板"
+  },
+  {
+    "id": "minecraft:white_stained_glass_pane",
+    "name": "White Stained Glass Pane",
+    "category": "building",
+    "description": "白色染色玻璃板"
+  },
+  {
+    "id": "minecraft:bricks",
+    "name": "Bricks",
+    "category": "building",
+    "description": "砖块"
+  },
+  {
+    "id": "minecraft:stone_bricks",
+    "name": "Stone Bricks",
+    "category": "building",
+    "description": "石砖"
+  },
+  {
+    "id": "minecraft:mossy_stone_bricks",
+    "name": "Mossy Stone Bricks",
+    "category": "building",
+    "description": "苔石砖"
+  },
+  {
+    "id": "minecraft:cracked_stone_bricks",
+    "name": "Cracked Stone Bricks",
+    "category": "building",
+    "description": "裂纹石砖"
+  },
+  {
+    "id": "minecraft:chiseled_stone_bricks",
+    "name": "Chiseled Stone Bricks",
+    "category": "building",
+    "description": "錾制石砖"
+  },
+  {
+    "id": "minecraft:smooth_stone",
+    "name": "Smooth Stone",
+    "category": "building",
+    "description": "平滑石头"
+  },
+  {
+    "id": "minecraft:obsidian",
+    "name": "Obsidian",
+    "category": "building",
+    "description": "黑曜石"
+  },
+  {
+    "id": "minecraft:crying_obsidian",
+    "name": "Crying Obsidian",
+    "category": "building",
+    "description": "哭泣的黑曜石",
+    "deprecated": true
+  },
+  {
+    "id": "minecraft:bedrock",
+    "name": "Bedrock",
+    "category": "natural",
+    "description": "基岩"
+  },
+  {
+    "id": "minecraft:netherrack",
+    "name": "Netherrack",
+    "category": "natural",
+    "description": "下界岩"
+  },
+  {
+    "id": "minecraft:soul_sand",
+    "name": "Soul Sand",
+    "category": "natural",
+    "description": "灵魂沙"
+  },
+  {
+    "id": "minecraft:soul_soil",
+    "name": "Soul Soil",
+    "category": "natural",
+    "description": "灵魂土"
+  },
+  {
+    "id": "minecraft:basalt",
+    "name": "Basalt",
+    "category": "natural",
+    "description": "玄武岩"
+  },
+  {
+    "id": "minecraft:polished_basalt",
+    "name": "Polished Basalt",
+    "category": "building",
+    "description": "磨制玄武岩"
+  },
+  {
+    "id": "minecraft:smooth_basalt",
+    "name": "Smooth Basalt",
+    "category": "building",
+    "description": "平滑玄武岩"
+  },
+  {
+    "id": "minecraft:blackstone",
+    "name": "Blackstone",
+    "category": "building",
+    "description": "黑石"
+  },
+  {
+    "id": "minecraft:polished_blackstone",
+    "name": "Polished Blackstone",
+    "category": "building",
+    "description": "磨制黑石"
+  },
+  {
+    "id": "minecraft:polished_blackstone_bricks",
+    "name": "Polished Blackstone Bricks",
+    "category": "building",
+    "description": "磨制黑石砖"
+  },
+  {
+    "id": "minecraft:glowstone",
+    "name": "Glowstone",
+    "category": "natural",
+    "description": "荧石"
+  },
+  {
+    "id": "minecraft:nether_bricks",
+    "name": "Nether Bricks",
+    "category": "building",
+    "description": "下界砖块"
+  },
+  {
+    "id": "minecraft:red_nether_bricks",
+    "name": "Red Nether Bricks",
+    "category": "building",
+    "description": "红色下界砖块"
+  },
+  {
+    "id": "minecraft:end_stone",
+    "name": "End Stone",
+    "category": "natural",
+    "description": "末地石"
+  },
+  {
+    "id": "minecraft:end_stone_bricks",
+    "name": "End Stone Bricks",
+    "category": "building",
+    "description": "末地石砖"
+  },
+  {
+    "id": "minecraft:purpur_block",
+    "name": "Purpur Block",
+    "category": "building",
+    "description": "紫珀块"
+  },
+  {
+    "id": "minecraft:purpur_pillar",
+    "name": "Purpur Pillar",
+    "category": "building",
+    "description": "紫珀柱"
+  },
+  {
+    "id": "minecraft:prismarine",
+    "name": "Prismarine",
+    "category": "building",
+    "description": "海晶石"
+  },
+  {
+    "id": "minecraft:prismarine_bricks",
+    "name": "Prismarine Bricks",
+    "category": "building",
+    "description": "海晶石砖"
+  },
+  {
+    "id": "minecraft:dark_prismarine",
+    "name": "Dark Prismarine",
+    "category": "building",
+    "description": "暗海晶石"
+  },
+  {
+    "id": "minecraft:sea_lantern",
+    "name": "Sea Lantern",
+    "category": "building",
+    "description": "海晶灯"
+  },
+  {
+    "id": "minecraft:terracotta",
+    "name": "Terracotta",
+    "category": "building",
+    "description": "陶瓦"
+  },
+  {
+    "id": "minecraft:white_terracotta",
+    "name": "White Terracotta",
+    "category": "building",
+    "description": "白色陶瓦"
+  },
+  {
+    "id": "minecraft:white_glazed_terracotta",
+    "name": "White Glazed Terracotta",
+    "category": "building",
+    "description": "白色带釉陶瓦"
+  },
+  {
+    "id": "minecraft:white_concrete",
+    "name": "White Concrete",
+    "category": "building",
+    "description": "白色混凝土"
+  },
+  {
+    "id": "minecraft:white_concrete_powder",
+    "name": "White Concrete Powder",
+    "category": "building",
+    "description": "白色混凝土粉末"
+  },
+  {
+    "id": "minecraft:white_wool",
+    "name": "White Wool",
+    "category": "building",
+    "description": "白色羊毛"
+  },
+  {
+    "id": "minecraft:white_carpet",
+    "name": "White Carpet",
+    "category": "decoration",
+    "description": "白色地毯"
+  },
+  {
+    "id": "minecraft:white_bed",
+    "name": "White Bed",
+    "category": "functional",
+    "description": "白色床"
+  },
+  {
+    "id": "minecraft:white_banner",
+    "name": "White Banner",
+    "category": "decoration",
+    "description": "白色旗帜"
+  },
+  {
+    "id": "minecraft:white_candle",
+    "name": "White Candle",
+    "category": "decoration",
+    "description": "白色蜡烛"
+  },
+  {
+    "id": "minecraft:sponge",
+    "name": "Sponge",
+    "category": "building",
+    "description": "海绵"
+  },
+  {
+    "id": "minecraft:wet_sponge",
+    "name": "Wet Sponge",
+    "category": "building",
+    "description": "湿海绵"
+  },
+  {
+    "id": "minecraft:hay_block",
+    "name": "Hay Bale",
+    "category": "building",
+    "description": "干草块"
+  },
+  {
+    "id": "minecraft:clay",
+    "name": "Clay",
+    "category": "natural",
+    "description": "黏土块"
+  },
+  {
+    "id": "minecraft:honeycomb_block",
+    "name": "Honeycomb Block",
+    "category": "building",
+    "description": "蜜脾块"
+  },
+  {
+    "id": "minecraft:honey_block",
+    "name": "Honey Block",
+    "category": "redstone",
+    "description": "蜂蜜块"
+  },
+  {
+    "id": "minecraft:slime_block",
+    "name": "Slime Block",
+    "category": "redstone",
+    "description": "粘液块"
+  },
+  {
+    "id": "minecraft:ice",
+    "name": "Ice",
+    "category": "natural",
+    "description": "冰"
+  },
+  {
+    "id": "minecraft:packed_ice",
+    "name": "Packed Ice",
+    "category": "natural",
+    "description": "浮冰"
+  },
+  {
+    "id": "minecraft:blue_ice",
+    "name": "Blue Ice",
+    "category": "natural",
+    "description": "蓝冰"
+  },
+  {
+    "id": "minecraft:snow_block",
+    "name": "Snow Block",
+    "category": "natural",
+    "description": "雪块"
+  },
+  {
+    "id": "minecraft:powder_snow",
+    "name": "Powder Snow",
+    "category": "natural",
+    "description": "细雪"
+  },
+  {
+    "id": "minecraft:moss_block",
+    "name": "Moss Block",
+    "category": "natural",
+    "description": "苔藓块"
+  },
+  {
+    "id": "minecraft:moss_carpet",
+    "name": "Moss Carpet",
+    "category": "decoration",
+    "description": "苔藓地毯"
+  },
+  {
+    "id": "minecraft:dripstone_block",
+    "name": "Dripstone Block",
+    "category": "natural",
+    "description": "滴水石块"
+  },
+  {
+    "id": "minecraft:pointed_dripstone",
+    "name": "Pointed Dripstone",
+    "category": "natural",
+    "description": "滴水石锥"
+  },
+  {
+    "id": "minecraft:calcite",
+    "name": "Calcite",
+    "category": "building",
+    "description": "方解石"
+  },
+  {
+    "id": "minecraft:oak_stairs",
+    "name": "Oak Stairs",
+    "category": "building",
+    "description": "橡木楼梯"
+  },
+  {
+    "id": "minecraft:cobblestone_stairs",
+    "name": "Cobblestone Stairs",
+    "category": "building",
+    "description": "圆石楼梯"
+  },
+  {
+    "id": "minecraft:stone_brick_stairs",
+    "name": "Stone Brick Stairs",
+    "category": "building",
+    "description": "石砖楼梯"
+  },
+  {
+    "id": "minecraft:brick_stairs",
+    "name": "Brick Stairs",
+    "category": "building",
+    "description": "砖块楼梯"
+  },
+  {
+    "id": "minecraft:oak_slab",
+    "name": "Oak Slab",
+    "category": "building",
+    "description": "橡木台阶"
+  },
+  {
+    "id": "minecraft:cobblestone_slab",
+    "name": "Cobblestone Slab",
+    "category": "building",
+    "description": "圆石台阶"
+  },
+  {
+    "id": "minecraft:stone_slab",
+    "name": "Stone Slab",
+    "category": "building",
+    "description": "石头台阶"
+  },
+  {
+    "id": "minecraft:smooth_stone_slab",
+    "name": "Smooth Stone Slab",
+    "category": "building",
+    "description": "平滑石头台阶"
+  },
+  {
+    "id": "minecraft:oak_fence",
+    "name": "Oak Fence",
+    "category": "building",
+    "description": "橡木栅栏"
+  },
+  {
+    "id": "minecraft:cobblestone_wall",
+    "name": "Cobblestone Wall",
+    "category": "building",
+    "description": "圆石墙"
+  },
+  {
+    "id": "minecraft:stone_brick_wall",
+    "name": "Stone Brick Wall",
+    "category": "building",
+    "description": "石砖墙"
+  },
+  {
+    "id": "minecraft:torch",
+    "name": "Torch",
+    "category": "decoration",
+    "description": "火把"
+  },
+  {
+    "id": "minecraft:soul_torch",
+    "name": "Soul Torch",
+    "category": "decoration",
+    "description": "灵魂火把"
+  },
+  {
+    "id": "minecraft:lantern",
+    "name": "Lantern",
+    "category": "decoration",
+    "description": "灯笼"
+  },
+  {
+    "id": "minecraft:soul_lantern",
+    "name": "Soul Lantern",
+    "category": "decoration",
+    "description": "灵魂灯笼"
+  },
+  {
+    "id": "minecraft:iron_chain",
+    "name": "Chain",
+    "category": "decoration",
+    "description": "锁链",
+    "aliases": [
+      "minecraft:chain"
+    ],
+    "since": "1.21.9 (25w32a)"
+  },
+  {
+    "id": "minecraft:candle",
+    "name": "Candle",
+    "category": "decoration",
+    "description": "蜡烛"
+  },
+  {
+    "id": "minecraft:crafting_table",
+    "name": "Crafting Table",
+    "category": "functional",
+    "description": "工作台"
+  },
+  {
+    "id": "minecraft:furnace",
+    "name": "Furnace",
+    "category": "functional",
+    "description": "熔炉"
+  },
+  {
+    "id": "minecraft:blast_furnace",
+    "name": "Blast Furnace",
+    "category": "functional",
+    "description": "高炉"
+  },
+  {
+    "id": "minecraft:smoker",
+    "name": "Smoker",
+    "category": "functional",
+    "description": "烟熏炉"
+  },
+  {
+    "id": "minecraft:anvil",
+    "name": "Anvil",
+    "category": "functional",
+    "description": "铁砧"
+  },
+  {
+    "id": "minecraft:enchanting_table",
+    "name": "Enchanting Table",
+    "category": "functional",
+    "description": "附魔台"
+  },
+  {
+    "id": "minecraft:bookshelf",
+    "name": "Bookshelf",
+    "category": "functional",
+    "description": "书架"
+  },
+  {
+    "id": "minecraft:chiseled_bookshelf",
+    "name": "Chiseled Bookshelf",
+    "category": "functional",
+    "description": "雕纹书架"
+  },
+  {
+    "id": "minecraft:chest",
+    "name": "Chest",
+    "category": "functional",
+    "description": "箱子"
+  },
+  {
+    "id": "minecraft:trapped_chest",
+    "name": "Trapped Chest",
+    "category": "redstone",
+    "description": "陷阱箱"
+  },
+  {
+    "id": "minecraft:ender_chest",
+    "name": "Ender Chest",
+    "category": "functional",
+    "description": "末影箱"
+  },
+  {
+    "id": "minecraft:barrel",
+    "name": "Barrel",
+    "category": "functional",
+    "description": "木桶"
+  },
+  {
+    "id": "minecraft:shulker_box",
+    "name": "Shulker Box",
+    "category": "functional",
+    "description": "潜影盒"
+  },
+  {
+    "id": "minecraft:beacon",
+    "name": "Beacon",
+    "category": "functional",
+    "description": "信标"
+  },
+  {
+    "id": "minecraft:conduit",
+    "name": "Conduit",
+    "category": "functional",
+    "description": "潮涌核心"
+  },
+  {
+    "id": "minecraft:brewing_stand",
+    "name": "Brewing Stand",
+    "category": "functional",
+    "description": "酿造台"
+  },
+  {
+    "id": "minecraft:cauldron",
+    "name": "Cauldron",
+    "category": "functional",
+    "description": "炼药锅"
+  },
+  {
+    "id": "minecraft:bell",
+    "name": "Bell",
+    "category": "functional",
+    "description": "钟"
+  },
+  {
+    "id": "minecraft:lodestone",
+    "name": "Lodestone",
+    "category": "functional",
+    "description": "磁石"
+  },
+  {
+    "id": "minecraft:respawn_anchor",
+    "name": "Respawn Anchor",
+    "category": "functional",
+    "description": "重生锚"
+  },
+  {
+    "id": "minecraft:grindstone",
+    "name": "Grindstone",
+    "category": "functional",
+    "description": "砂轮"
+  },
+  {
+    "id": "minecraft:smithing_table",
+    "name": "Smithing Table",
+    "category": "functional",
+    "description": "锻造台"
+  },
+  {
+    "id": "minecraft:cartography_table",
+    "name": "Cartography Table",
+    "category": "functional",
+    "description": "制图台"
+  },
+  {
+    "id": "minecraft:fletching_table",
+    "name": "Fletching Table",
+    "category": "functional",
+    "description": "制箭台"
+  },
+  {
+    "id": "minecraft:loom",
+    "name": "Loom",
+    "category": "functional",
+    "description": "织布机"
+  },
+  {
+    "id": "minecraft:stonecutter",
+    "name": "Stonecutter",
+    "category": "functional",
+    "description": "切石机"
+  },
+  {
+    "id": "minecraft:composter",
+    "name": "Composter",
+    "category": "functional",
+    "description": "堆肥桶"
+  },
+  {
+    "id": "minecraft:lectern",
+    "name": "Lectern",
+    "category": "functional",
+    "description": "讲台"
+  },
+  {
+    "id": "minecraft:jukebox",
+    "name": "Jukebox",
+    "category": "functional",
+    "description": "唱片机"
+  },
+  {
+    "id": "minecraft:note_block",
+    "name": "Note Block",
+    "category": "redstone",
+    "description": "音符盒"
+  },
+  {
+    "id": "minecraft:tnt",
+    "name": "TNT",
+    "category": "redstone",
+    "description": "TNT"
+  },
+  {
+    "id": "minecraft:piston",
+    "name": "Piston",
+    "category": "redstone",
+    "description": "活塞"
+  },
+  {
+    "id": "minecraft:sticky_piston",
+    "name": "Sticky Piston",
+    "category": "redstone",
+    "description": "粘性活塞"
+  },
+  {
+    "id": "minecraft:observer",
+    "name": "Observer",
+    "category": "redstone",
+    "description": "侦测器"
+  },
+  {
+    "id": "minecraft:hopper",
+    "name": "Hopper",
+    "category": "redstone",
+    "description": "漏斗"
+  },
+  {
+    "id": "minecraft:dropper",
+    "name": "Dropper",
+    "category": "redstone",
+    "description": "投掷器"
+  },
+  {
+    "id": "minecraft:dispenser",
+    "name": "Dispenser",
+    "category": "redstone",
+    "description": "发射器"
+  },
+  {
+    "id": "minecraft:redstone_lamp",
+    "name": "Redstone Lamp",
+    "category": "redstone",
+    "description": "红石灯"
+  },
+  {
+    "id": "minecraft:repeater",
+    "name": "Redstone Repeater",
+    "category": "redstone",
+    "description": "红石中继器"
+  },
+  {
+    "id": "minecraft:comparator",
+    "name": "Redstone Comparator",
+    "category": "redstone",
+    "description": "红石比较器"
+  },
+  {
+    "id": "minecraft:redstone_torch",
+    "name": "Redstone Torch",
+    "category": "redstone",
+    "description": "红石火把"
+  },
+  {
+    "id": "minecraft:lever",
+    "name": "Lever",
+    "category": "redstone",
+    "description": "拉杆"
+  },
+  {
+    "id": "minecraft:stone_button",
+    "name": "Stone Button",
+    "category": "redstone",
+    "description": "石头按钮"
+  },
+  {
+    "id": "minecraft:oak_button",
+    "name": "Oak Button",
+    "category": "redstone",
+    "description": "橡木按钮"
+  },
+  {
+    "id": "minecraft:stone_pressure_plate",
+    "name": "Stone Pressure Plate",
+    "category": "redstone",
+    "description": "石头压力板"
+  },
+  {
+    "id": "minecraft:oak_pressure_plate",
+    "name": "Oak Pressure Plate",
+    "category": "redstone",
+    "description": "橡木压力板"
+  },
+  {
+    "id": "minecraft:light_weighted_pressure_plate",
+    "name": "Light Weighted Pressure Plate",
+    "category": "redstone",
+    "description": "测重压力板（轻质）"
+  },
+  {
+    "id": "minecraft:heavy_weighted_pressure_plate",
+    "name": "Heavy Weighted Pressure Plate",
+    "category": "redstone",
+    "description": "测重压力板（重质）"
+  },
+  {
+    "id": "minecraft:tripwire_hook",
+    "name": "Tripwire Hook",
+    "category": "redstone",
+    "description": "绊线钩"
+  },
+  {
+    "id": "minecraft:daylight_detector",
+    "name": "Daylight Detector",
+    "category": "redstone",
+    "description": "阳光探测器"
+  },
+  {
+    "id": "minecraft:target",
+    "name": "Target",
+    "category": "redstone",
+    "description": "标靶"
+  },
+  {
+    "id": "minecraft:sculk_sensor",
+    "name": "Sculk Sensor",
+    "category": "redstone",
+    "description": "幽匿感测体"
+  },
+  {
+    "id": "minecraft:calibrated_sculk_sensor",
+    "name": "Calibrated Sculk Sensor",
+    "category": "redstone",
+    "description": "校频幽匿感测体"
+  },
+  {
+    "id": "minecraft:sculk",
+    "name": "Sculk",
+    "category": "natural",
+    "description": "幽匿块"
+  },
+  {
+    "id": "minecraft:sculk_catalyst",
+    "name": "Sculk Catalyst",
+    "category": "natural",
+    "description": "幽匿催发体"
+  },
+  {
+    "id": "minecraft:sculk_shrieker",
+    "name": "Sculk Shrieker",
+    "category": "natural",
+    "description": "幽匿尖啸体"
+  },
+  {
+    "id": "minecraft:sculk_vein",
+    "name": "Sculk Vein",
+    "category": "natural",
+    "description": "幽匿脉络"
+  },
+  {
+    "id": "minecraft:oak_door",
+    "name": "Oak Door",
+    "category": "redstone",
+    "description": "橡木门"
+  },
+  {
+    "id": "minecraft:iron_door",
+    "name": "Iron Door",
+    "category": "redstone",
+    "description": "铁门"
+  },
+  {
+    "id": "minecraft:oak_trapdoor",
+    "name": "Oak Trapdoor",
+    "category": "redstone",
+    "description": "橡木活板门"
+  },
+  {
+    "id": "minecraft:iron_trapdoor",
+    "name": "Iron Trapdoor",
+    "category": "redstone",
+    "description": "铁活板门"
+  },
+  {
+    "id": "minecraft:oak_fence_gate",
+    "name": "Oak Fence Gate",
+    "category": "redstone",
+    "description": "橡木栅栏门"
+  },
+  {
+    "id": "minecraft:rail",
+    "name": "Rail",
+    "category": "redstone",
+    "description": "铁轨"
+  },
+  {
+    "id": "minecraft:powered_rail",
+    "name": "Powered Rail",
+    "category": "redstone",
+    "description": "充能铁轨"
+  },
+  {
+    "id": "minecraft:detector_rail",
+    "name": "Detector Rail",
+    "category": "redstone",
+    "description": "探测铁轨"
+  },
+  {
+    "id": "minecraft:activator_rail",
+    "name": "Activator Rail",
+    "category": "redstone",
+    "description": "激活铁轨"
+  },
+  {
+    "id": "minecraft:command_block",
+    "name": "Command Block",
+    "category": "command",
+    "description": "命令方块"
+  },
+  {
+    "id": "minecraft:chain_command_block",
+    "name": "Chain Command Block",
+    "category": "command",
+    "description": "连锁命令方块"
+  },
+  {
+    "id": "minecraft:repeating_command_block",
+    "name": "Repeating Command Block",
+    "category": "command",
+    "description": "循环命令方块"
+  },
+  {
+    "id": "minecraft:structure_block",
+    "name": "Structure Block",
+    "category": "command",
+    "description": "结构方块"
+  },
+  {
+    "id": "minecraft:jigsaw",
+    "name": "Jigsaw Block",
+    "category": "command",
+    "description": "拼图方块"
+  },
+  {
+    "id": "minecraft:barrier",
+    "name": "Barrier",
+    "category": "command",
+    "description": "屏障"
+  },
+  {
+    "id": "minecraft:light",
+    "name": "Light Block",
+    "category": "command",
+    "description": "光源方块"
+  },
+  {
+    "id": "minecraft:spawner",
+    "name": "Spawner",
+    "category": "command",
+    "description": "刷怪笼"
+  },
+  {
+    "id": "minecraft:trial_spawner",
+    "name": "Trial Spawner",
+    "category": "command",
+    "description": "试炼刷怪笼"
+  },
+  {
+    "id": "minecraft:vault",
+    "name": "Vault",
+    "category": "command",
+    "description": "宝库"
+  },
+  {
+    "id": "minecraft:creaking_heart",
+    "name": "Creaking Heart",
+    "category": "natural",
+    "description": "嘎枝之心"
+  },
+  {
+    "id": "minecraft:resin_clump",
+    "name": "Resin Clump",
+    "category": "natural",
+    "description": "树脂团"
+  },
+  {
+    "id": "minecraft:resin_block",
+    "name": "Block of Resin",
+    "category": "building",
+    "description": "树脂块"
+  },
+  {
+    "id": "minecraft:resin_bricks",
+    "name": "Resin Bricks",
+    "category": "building",
+    "description": "树脂砖"
+  },
+  {
+    "id": "minecraft:water",
+    "name": "Water",
+    "category": "natural",
+    "description": "水"
+  },
+  {
+    "id": "minecraft:lava",
+    "name": "Lava",
+    "category": "natural",
+    "description": "熔岩"
+  },
+  {
+    "id": "minecraft:air",
+    "name": "Air",
+    "category": "other",
+    "description": "空气"
+  },
+  {
+    "id": "minecraft:dandelion",
+    "name": "Dandelion",
+    "category": "natural",
+    "description": "蒲公英"
+  },
+  {
+    "id": "minecraft:poppy",
+    "name": "Poppy",
+    "category": "natural",
+    "description": "虞美人"
+  },
+  {
+    "id": "minecraft:blue_orchid",
+    "name": "Blue Orchid",
+    "category": "natural",
+    "description": "兰花"
+  },
+  {
+    "id": "minecraft:allium",
+    "name": "Allium",
+    "category": "natural",
+    "description": "绒球葱"
+  },
+  {
+    "id": "minecraft:azure_bluet",
+    "name": "Azure Bluet",
+    "category": "natural",
+    "description": "茜草花"
+  },
+  {
+    "id": "minecraft:red_tulip",
+    "name": "Red Tulip",
+    "category": "natural",
+    "description": "红色郁金香"
+  },
+  {
+    "id": "minecraft:oxeye_daisy",
+    "name": "Oxeye Daisy",
+    "category": "natural",
+    "description": "滨菊"
+  },
+  {
+    "id": "minecraft:cornflower",
+    "name": "Cornflower",
+    "category": "natural",
+    "description": "矢车菊"
+  },
+  {
+    "id": "minecraft:lily_of_the_valley",
+    "name": "Lily of the Valley",
+    "category": "natural",
+    "description": "铃兰"
+  },
+  {
+    "id": "minecraft:wither_rose",
+    "name": "Wither Rose",
+    "category": "natural",
+    "description": "凋零玫瑰"
+  },
+  {
+    "id": "minecraft:torchflower",
+    "name": "Torchflower",
+    "category": "natural",
+    "description": "火把花"
+  },
+  {
+    "id": "minecraft:sunflower",
+    "name": "Sunflower",
+    "category": "natural",
+    "description": "向日葵"
+  },
+  {
+    "id": "minecraft:lilac",
+    "name": "Lilac",
+    "category": "natural",
+    "description": "丁香"
+  },
+  {
+    "id": "minecraft:rose_bush",
+    "name": "Rose Bush",
+    "category": "natural",
+    "description": "玫瑰丛"
+  },
+  {
+    "id": "minecraft:peony",
+    "name": "Peony",
+    "category": "natural",
+    "description": "牡丹"
+  },
+  {
+    "id": "minecraft:pitcher_plant",
+    "name": "Pitcher Plant",
+    "category": "natural",
+    "description": "瓶子草"
+  },
+  {
+    "id": "minecraft:short_grass",
+    "name": "Short Grass",
+    "category": "natural",
+    "description": "草"
+  },
+  {
+    "id": "minecraft:tall_grass",
+    "name": "Tall Grass",
+    "category": "natural",
+    "description": "高草丛"
+  },
+  {
+    "id": "minecraft:fern",
+    "name": "Fern",
+    "category": "natural",
+    "description": "蕨"
+  },
+  {
+    "id": "minecraft:large_fern",
+    "name": "Large Fern",
+    "category": "natural",
+    "description": "大型蕨"
+  },
+  {
+    "id": "minecraft:dead_bush",
+    "name": "Dead Bush",
+    "category": "natural",
+    "description": "枯萎的灌木"
+  },
+  {
+    "id": "minecraft:bamboo",
+    "name": "Bamboo",
+    "category": "natural",
+    "description": "竹子"
+  },
+  {
+    "id": "minecraft:sugar_cane",
+    "name": "Sugar Cane",
+    "category": "natural",
+    "description": "甘蔗"
+  },
+  {
+    "id": "minecraft:cactus",
+    "name": "Cactus",
+    "category": "natural",
+    "description": "仙人掌"
+  },
+  {
+    "id": "minecraft:vine",
+    "name": "Vines",
+    "category": "natural",
+    "description": "藤蔓"
+  },
+  {
+    "id": "minecraft:glow_lichen",
+    "name": "Glow Lichen",
+    "category": "natural",
+    "description": "发光地衣"
+  },
+  {
+    "id": "minecraft:lily_pad",
+    "name": "Lily Pad",
+    "category": "natural",
+    "description": "睡莲"
+  },
+  {
+    "id": "minecraft:mushroom_stem",
+    "name": "Mushroom Stem",
+    "category": "natural",
+    "description": "蘑菇柄"
+  },
+  {
+    "id": "minecraft:brown_mushroom_block",
+    "name": "Brown Mushroom Block",
+    "category": "natural",
+    "description": "棕色蘑菇方块"
+  },
+  {
+    "id": "minecraft:red_mushroom_block",
+    "name": "Red Mushroom Block",
+    "category": "natural",
+    "description": "红色蘑菇方块"
+  },
+  {
+    "id": "minecraft:brown_mushroom",
+    "name": "Brown Mushroom",
+    "category": "natural",
+    "description": "棕色蘑菇"
+  },
+  {
+    "id": "minecraft:red_mushroom",
+    "name": "Red Mushroom",
+    "category": "natural",
+    "description": "红色蘑菇"
+  },
+  {
+    "id": "minecraft:crimson_fungus",
+    "name": "Crimson Fungus",
+    "category": "natural",
+    "description": "绯红菌"
+  },
+  {
+    "id": "minecraft:warped_fungus",
+    "name": "Warped Fungus",
+    "category": "natural",
+    "description": "诡异菌"
+  },
+  {
+    "id": "minecraft:nether_wart_block",
+    "name": "Nether Wart Block",
+    "category": "natural",
+    "description": "下界疣块"
+  },
+  {
+    "id": "minecraft:warped_wart_block",
+    "name": "Warped Wart Block",
+    "category": "natural",
+    "description": "诡异疣块"
+  },
+  {
+    "id": "minecraft:shroomlight",
+    "name": "Shroomlight",
+    "category": "natural",
+    "description": "菌光体"
+  },
+  {
+    "id": "minecraft:copper_grate",
+    "name": "Copper Grate",
+    "category": "building",
+    "description": "铜格栅"
+  },
+  {
+    "id": "minecraft:copper_bulb",
+    "name": "Copper Bulb",
+    "category": "redstone",
+    "description": "铜灯泡"
+  },
+  {
+    "id": "minecraft:copper_door",
+    "name": "Copper Door",
+    "category": "redstone",
+    "description": "铜门"
+  },
+  {
+    "id": "minecraft:copper_trapdoor",
+    "name": "Copper Trapdoor",
+    "category": "redstone",
+    "description": "铜活板门"
+  },
+  {
+    "id": "minecraft:chiseled_copper",
+    "name": "Chiseled Copper",
+    "category": "building",
+    "description": "雕纹铜块"
+  },
+  {
+    "id": "minecraft:exposed_copper",
+    "name": "Exposed Copper",
+    "category": "building",
+    "description": "斑驳的铜块"
+  },
+  {
+    "id": "minecraft:weathered_copper",
+    "name": "Weathered Copper",
+    "category": "building",
+    "description": "锈蚀的铜块"
+  },
+  {
+    "id": "minecraft:oxidized_copper",
+    "name": "Oxidized Copper",
+    "category": "building",
+    "description": "氧化的铜块"
+  },
+  {
+    "id": "minecraft:cut_copper",
+    "name": "Cut Copper",
+    "category": "building",
+    "description": "切制铜块"
+  },
+  {
+    "id": "minecraft:cut_copper_stairs",
+    "name": "Cut Copper Stairs",
+    "category": "building",
+    "description": "切制铜楼梯"
+  },
+  {
+    "id": "minecraft:cut_copper_slab",
+    "name": "Cut Copper Slab",
+    "category": "building",
+    "description": "切制铜台阶"
+  },
+  {
+    "id": "minecraft:acacia_button",
+    "name": "Acacia Button",
+    "category": "redstone",
+    "description": "金合欢木按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:acacia_door",
+    "name": "Acacia Door",
+    "category": "redstone",
+    "description": "金合欢木门，可手动或用红石信号开关。"
+  },
+  {
+    "id": "minecraft:acacia_fence",
+    "name": "Acacia Fence",
+    "category": "building",
+    "description": "金合欢木栅栏，可连接并阻挡生物通行。"
+  },
+  {
+    "id": "minecraft:acacia_fence_gate",
+    "name": "Acacia Fence Gate",
+    "category": "redstone",
+    "description": "金合欢木栅栏门，可开关供通行。"
+  },
+  {
+    "id": "minecraft:acacia_hanging_sign",
+    "name": "Acacia Hanging Sign",
+    "category": "decoration",
+    "description": "金合欢木悬挂告示牌，可写字并悬挂展示。"
+  },
+  {
+    "id": "minecraft:acacia_pressure_plate",
+    "name": "Acacia Pressure Plate",
+    "category": "redstone",
+    "description": "金合欢木压力板，实体踩踏时输出红石信号。"
+  },
+  {
+    "id": "minecraft:acacia_sapling",
+    "name": "Acacia Sapling",
+    "category": "natural",
+    "description": "金合欢树苗，可种植长成金合欢树。"
+  },
+  {
+    "id": "minecraft:acacia_sign",
+    "name": "Acacia Sign",
+    "category": "decoration",
+    "description": "金合欢木站立告示牌，可写字展示信息。"
+  },
+  {
+    "id": "minecraft:acacia_slab",
+    "name": "Acacia Slab",
+    "category": "building",
+    "description": "金合欢木台阶，高度为半砖的建筑方块。"
+  },
+  {
+    "id": "minecraft:acacia_stairs",
+    "name": "Acacia Stairs",
+    "category": "building",
+    "description": "金合欢木楼梯，用于上下层连接。"
+  },
+  {
+    "id": "minecraft:acacia_trapdoor",
+    "name": "Acacia Trapdoor",
+    "category": "redstone",
+    "description": "金合欢木活板门，可手动或红石控制开关。"
+  },
+  {
+    "id": "minecraft:acacia_wall_hanging_sign",
+    "name": "Acacia Wall Hanging Sign",
+    "category": "decoration",
+    "description": "贴墙的金合欢木悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:acacia_wall_sign",
+    "name": "Acacia Wall Sign",
+    "category": "decoration",
+    "description": "贴墙安放的金合欢木告示牌。"
+  },
+  {
+    "id": "minecraft:acacia_wood",
+    "name": "Acacia Wood",
+    "category": "building",
+    "description": "金合欢原木（六面带树皮），可放置或合成。"
+  },
+  {
+    "id": "minecraft:amethyst_cluster",
+    "name": "Amethyst Cluster",
+    "category": "natural",
+    "description": "紫水晶簇，紫晶洞中生长的最终阶段晶体。"
+  },
+  {
+    "id": "minecraft:andesite_slab",
+    "name": "Andesite Slab",
+    "category": "building",
+    "description": "安山岩台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:andesite_stairs",
+    "name": "Andesite Stairs",
+    "category": "building",
+    "description": "安山岩楼梯，用于连接不同高度。"
+  },
+  {
+    "id": "minecraft:andesite_wall",
+    "name": "Andesite Wall",
+    "category": "building",
+    "description": "安山岩墙，可连接并阻挡实体翻越。"
+  },
+  {
+    "id": "minecraft:attached_melon_stem",
+    "name": "Attached Melon Stem",
+    "category": "natural",
+    "description": "结果后连向西瓜的瓜茎方块。"
+  },
+  {
+    "id": "minecraft:attached_pumpkin_stem",
+    "name": "Attached Pumpkin Stem",
+    "category": "natural",
+    "description": "结果后连向南瓜的瓜茎方块。"
+  },
+  {
+    "id": "minecraft:azalea",
+    "name": "Azalea",
+    "category": "natural",
+    "description": "杜鹃花丛，可用骨粉催生为杜鹃树。"
+  },
+  {
+    "id": "minecraft:bamboo_button",
+    "name": "Bamboo Button",
+    "category": "redstone",
+    "description": "竹按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:bamboo_door",
+    "name": "Bamboo Door",
+    "category": "redstone",
+    "description": "竹门，可手动或用红石信号开关。"
+  },
+  {
+    "id": "minecraft:bamboo_fence",
+    "name": "Bamboo Fence",
+    "category": "building",
+    "description": "竹栅栏，可连接并阻挡生物通行。"
+  },
+  {
+    "id": "minecraft:bamboo_fence_gate",
+    "name": "Bamboo Fence Gate",
+    "category": "redstone",
+    "description": "竹栅栏门，可开关供通行。"
+  },
+  {
+    "id": "minecraft:bamboo_hanging_sign",
+    "name": "Bamboo Hanging Sign",
+    "category": "decoration",
+    "description": "竹悬挂告示牌，可写字并悬挂展示。"
+  },
+  {
+    "id": "minecraft:bamboo_mosaic",
+    "name": "Bamboo Mosaic",
+    "category": "building",
+    "description": "竹马赛克，由切制竹块合成的装饰木方块。"
+  },
+  {
+    "id": "minecraft:bamboo_mosaic_slab",
+    "name": "Bamboo Mosaic Slab",
+    "category": "building",
+    "description": "竹马赛克台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:bamboo_mosaic_stairs",
+    "name": "Bamboo Mosaic Stairs",
+    "category": "building",
+    "description": "竹马赛克楼梯，用于连接不同高度。"
+  },
+  {
+    "id": "minecraft:bamboo_pressure_plate",
+    "name": "Bamboo Pressure Plate",
+    "category": "redstone",
+    "description": "竹压力板，实体踩踏时输出红石信号。"
+  },
+  {
+    "id": "minecraft:bamboo_sapling",
+    "name": "Bamboo Sapling",
+    "category": "natural",
+    "description": "竹笋，竹子生长的初期阶段。"
+  },
+  {
+    "id": "minecraft:bamboo_sign",
+    "name": "Bamboo Sign",
+    "category": "decoration",
+    "description": "竹站立告示牌，可写字展示信息。"
+  },
+  {
+    "id": "minecraft:bamboo_slab",
+    "name": "Bamboo Slab",
+    "category": "building",
+    "description": "竹台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:bamboo_stairs",
+    "name": "Bamboo Stairs",
+    "category": "building",
+    "description": "竹楼梯，用于上下层连接。"
+  },
+  {
+    "id": "minecraft:bamboo_trapdoor",
+    "name": "Bamboo Trapdoor",
+    "category": "redstone",
+    "description": "竹活板门，可手动或红石控制开关。"
+  },
+  {
+    "id": "minecraft:bamboo_wall_hanging_sign",
+    "name": "Bamboo Wall Hanging Sign",
+    "category": "decoration",
+    "description": "贴墙的竹悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:bamboo_wall_sign",
+    "name": "Bamboo Wall Sign",
+    "category": "decoration",
+    "description": "贴墙安放的竹告示牌。"
+  },
+  {
+    "id": "minecraft:bee_nest",
+    "name": "Bee Nest",
+    "category": "natural",
+    "description": "蜂巢，自然生成可容纳蜜蜂并产蜜。"
+  },
+  {
+    "id": "minecraft:beehive",
+    "name": "Beehive",
+    "category": "functional",
+    "description": "蜂箱，玩家合成用于饲养蜜蜂并收获蜂蜜。"
+  },
+  {
+    "id": "minecraft:beetroots",
+    "name": "Beetroots",
+    "category": "natural",
+    "description": "甜菜根作物，成熟后可收获甜菜根与种子。"
+  },
+  {
+    "id": "minecraft:big_dripleaf",
+    "name": "Big Dripleaf",
+    "category": "natural",
+    "description": "大型垂滴叶，实体站立后叶片会倾斜下沉。"
+  },
+  {
+    "id": "minecraft:big_dripleaf_stem",
+    "name": "Big Dripleaf Stem",
+    "category": "natural",
+    "description": "大型垂滴叶的茎部方块。"
+  },
+  {
+    "id": "minecraft:birch_button",
+    "name": "Birch Button",
+    "category": "redstone",
+    "description": "白桦木按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:birch_door",
+    "name": "Birch Door",
+    "category": "redstone",
+    "description": "白桦木门，可手动或用红石信号开关。"
+  },
+  {
+    "id": "minecraft:birch_fence",
+    "name": "Birch Fence",
+    "category": "building",
+    "description": "白桦木栅栏，可连接并阻挡生物通行。"
+  },
+  {
+    "id": "minecraft:birch_fence_gate",
+    "name": "Birch Fence Gate",
+    "category": "redstone",
+    "description": "白桦木栅栏门，可开关供通行。"
+  },
+  {
+    "id": "minecraft:birch_hanging_sign",
+    "name": "Birch Hanging Sign",
+    "category": "decoration",
+    "description": "白桦木悬挂告示牌，可写字并悬挂展示。"
+  },
+  {
+    "id": "minecraft:birch_pressure_plate",
+    "name": "Birch Pressure Plate",
+    "category": "redstone",
+    "description": "白桦木压力板，实体踩踏时输出红石信号。"
+  },
+  {
+    "id": "minecraft:birch_sapling",
+    "name": "Birch Sapling",
+    "category": "natural",
+    "description": "白桦树苗，可种植长成白桦树。"
+  },
+  {
+    "id": "minecraft:birch_sign",
+    "name": "Birch Sign",
+    "category": "decoration",
+    "description": "白桦木站立告示牌，可写字展示信息。"
+  },
+  {
+    "id": "minecraft:birch_slab",
+    "name": "Birch Slab",
+    "category": "building",
+    "description": "白桦木台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:birch_stairs",
+    "name": "Birch Stairs",
+    "category": "building",
+    "description": "白桦木楼梯，用于上下层连接。"
+  },
+  {
+    "id": "minecraft:birch_trapdoor",
+    "name": "Birch Trapdoor",
+    "category": "redstone",
+    "description": "白桦木活板门，可手动或红石控制开关。"
+  },
+  {
+    "id": "minecraft:birch_wall_hanging_sign",
+    "name": "Birch Wall Hanging Sign",
+    "category": "decoration",
+    "description": "贴墙的白桦木悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:birch_wall_sign",
+    "name": "Birch Wall Sign",
+    "category": "decoration",
+    "description": "贴墙安放的白桦木告示牌。"
+  },
+  {
+    "id": "minecraft:birch_wood",
+    "name": "Birch Wood",
+    "category": "building",
+    "description": "白桦原木（六面带树皮），可放置或合成。"
+  },
+  {
+    "id": "minecraft:black_banner",
+    "name": "Black Banner",
+    "category": "decoration",
+    "description": "黑色旗帜，可加图案的站立装饰旗。"
+  },
+  {
+    "id": "minecraft:black_bed",
+    "name": "Black Bed",
+    "category": "functional",
+    "description": "黑色床，可睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:black_candle",
+    "name": "Black Candle",
+    "category": "decoration",
+    "description": "黑色蜡烛，可点燃提供光照的装饰方块。"
+  },
+  {
+    "id": "minecraft:black_candle_cake",
+    "name": "Black Candle Cake",
+    "category": "functional",
+    "description": "插着黑色蜡烛的蛋糕。"
+  },
+  {
+    "id": "minecraft:black_carpet",
+    "name": "Black Carpet",
+    "category": "decoration",
+    "description": "黑色地毯，铺设在地面的薄装饰方块。"
+  },
+  {
+    "id": "minecraft:black_concrete",
+    "name": "Black Concrete",
+    "category": "building",
+    "description": "黑色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:black_concrete_powder",
+    "name": "Black Concrete Powder",
+    "category": "building",
+    "description": "黑色混凝土粉末，遇水变为混凝土，受重力影响。"
+  },
+  {
+    "id": "minecraft:black_glazed_terracotta",
+    "name": "Black Glazed Terracotta",
+    "category": "building",
+    "description": "黑色带釉陶瓦，带花纹的装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:black_shulker_box",
+    "name": "Black Shulker Box",
+    "category": "functional",
+    "description": "黑色潜影盒，可携带存储物品的容器。"
+  },
+  {
+    "id": "minecraft:black_stained_glass",
+    "name": "Black Stained Glass",
+    "category": "building",
+    "description": "黑色染色玻璃，透光的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:black_stained_glass_pane",
+    "name": "Black Stained Glass Pane",
+    "category": "building",
+    "description": "黑色染色玻璃板，薄片状彩色玻璃。"
+  },
+  {
+    "id": "minecraft:black_terracotta",
+    "name": "Black Terracotta",
+    "category": "building",
+    "description": "黑色陶瓦，染色的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:black_wall_banner",
+    "name": "Black Wall Banner",
+    "category": "decoration",
+    "description": "贴墙的黑色旗帜。"
+  },
+  {
+    "id": "minecraft:black_wool",
+    "name": "Black Wool",
+    "category": "building",
+    "description": "黑色羊毛，易燃的柔软建筑方块。"
+  },
+  {
+    "id": "minecraft:blackstone_slab",
+    "name": "Blackstone Slab",
+    "category": "building",
+    "description": "黑石台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:blackstone_stairs",
+    "name": "Blackstone Stairs",
+    "category": "building",
+    "description": "黑石楼梯，用于连接不同高度。"
+  },
+  {
+    "id": "minecraft:blackstone_wall",
+    "name": "Blackstone Wall",
+    "category": "building",
+    "description": "黑石墙，可连接并阻挡实体翻越。"
+  },
+  {
+    "id": "minecraft:blue_banner",
+    "name": "Blue Banner",
+    "category": "decoration",
+    "description": "蓝色旗帜，可加图案的站立装饰旗。"
+  },
+  {
+    "id": "minecraft:blue_bed",
+    "name": "Blue Bed",
+    "category": "functional",
+    "description": "蓝色床，可睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:blue_candle",
+    "name": "Blue Candle",
+    "category": "decoration",
+    "description": "蓝色蜡烛，可点燃提供光照的装饰方块。"
+  },
+  {
+    "id": "minecraft:blue_candle_cake",
+    "name": "Blue Candle Cake",
+    "category": "functional",
+    "description": "插着蓝色蜡烛的蛋糕。"
+  },
+  {
+    "id": "minecraft:blue_carpet",
+    "name": "Blue Carpet",
+    "category": "decoration",
+    "description": "蓝色地毯，铺设在地面的薄装饰方块。"
+  },
+  {
+    "id": "minecraft:blue_concrete",
+    "name": "Blue Concrete",
+    "category": "building",
+    "description": "蓝色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:blue_concrete_powder",
+    "name": "Blue Concrete Powder",
+    "category": "building",
+    "description": "蓝色混凝土粉末，遇水变为混凝土，受重力影响。"
+  },
+  {
+    "id": "minecraft:blue_glazed_terracotta",
+    "name": "Blue Glazed Terracotta",
+    "category": "building",
+    "description": "蓝色带釉陶瓦，带花纹的装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:blue_shulker_box",
+    "name": "Blue Shulker Box",
+    "category": "functional",
+    "description": "蓝色潜影盒，可携带存储物品的容器。"
+  },
+  {
+    "id": "minecraft:blue_stained_glass",
+    "name": "Blue Stained Glass",
+    "category": "building",
+    "description": "蓝色染色玻璃，透光的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:blue_stained_glass_pane",
+    "name": "Blue Stained Glass Pane",
+    "category": "building",
+    "description": "蓝色染色玻璃板，薄片状彩色玻璃。"
+  },
+  {
+    "id": "minecraft:blue_terracotta",
+    "name": "Blue Terracotta",
+    "category": "building",
+    "description": "蓝色陶瓦，染色的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:blue_wall_banner",
+    "name": "Blue Wall Banner",
+    "category": "decoration",
+    "description": "贴墙的蓝色旗帜。"
+  },
+  {
+    "id": "minecraft:blue_wool",
+    "name": "Blue Wool",
+    "category": "building",
+    "description": "蓝色羊毛，易燃的柔软建筑方块。"
+  },
+  {
+    "id": "minecraft:bone_block",
+    "name": "Bone Block",
+    "category": "building",
+    "description": "骨块，化石与建筑用的方向性方块。"
+  },
+  {
+    "id": "minecraft:brain_coral",
+    "name": "Brain Coral",
+    "category": "natural",
+    "description": "脑纹珊瑚，需在水中存活否则枯萎。"
+  },
+  {
+    "id": "minecraft:brain_coral_block",
+    "name": "Brain Coral Block",
+    "category": "natural",
+    "description": "脑纹珊瑚块，离水会变为死珊瑚块。"
+  },
+  {
+    "id": "minecraft:brain_coral_fan",
+    "name": "Brain Coral Fan",
+    "category": "natural",
+    "description": "脑纹珊瑚扇，附着在地面的水生装饰。"
+  },
+  {
+    "id": "minecraft:brain_coral_wall_fan",
+    "name": "Brain Coral Wall Fan",
+    "category": "natural",
+    "description": "附着在墙上的脑纹珊瑚扇。"
+  },
+  {
+    "id": "minecraft:brick_slab",
+    "name": "Brick Slab",
+    "category": "building",
+    "description": "红砖台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:brick_wall",
+    "name": "Brick Wall",
+    "category": "building",
+    "description": "红砖墙，可连接并阻挡实体翻越。"
+  },
+  {
+    "id": "minecraft:brown_banner",
+    "name": "Brown Banner",
+    "category": "decoration",
+    "description": "棕色旗帜，可加图案的站立装饰旗。"
+  },
+  {
+    "id": "minecraft:brown_bed",
+    "name": "Brown Bed",
+    "category": "functional",
+    "description": "棕色床，可睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:brown_candle",
+    "name": "Brown Candle",
+    "category": "decoration",
+    "description": "棕色蜡烛，可点燃提供光照的装饰方块。"
+  },
+  {
+    "id": "minecraft:brown_candle_cake",
+    "name": "Brown Candle Cake",
+    "category": "functional",
+    "description": "插着棕色蜡烛的蛋糕。"
+  },
+  {
+    "id": "minecraft:brown_carpet",
+    "name": "Brown Carpet",
+    "category": "decoration",
+    "description": "棕色地毯，铺设在地面的薄装饰方块。"
+  },
+  {
+    "id": "minecraft:brown_concrete",
+    "name": "Brown Concrete",
+    "category": "building",
+    "description": "棕色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:brown_concrete_powder",
+    "name": "Brown Concrete Powder",
+    "category": "building",
+    "description": "棕色混凝土粉末，遇水变为混凝土，受重力影响。"
+  },
+  {
+    "id": "minecraft:brown_glazed_terracotta",
+    "name": "Brown Glazed Terracotta",
+    "category": "building",
+    "description": "棕色带釉陶瓦，带花纹的装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:brown_shulker_box",
+    "name": "Brown Shulker Box",
+    "category": "functional",
+    "description": "棕色潜影盒，可携带存储物品的容器。"
+  },
+  {
+    "id": "minecraft:brown_stained_glass",
+    "name": "Brown Stained Glass",
+    "category": "building",
+    "description": "棕色染色玻璃，透光的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:brown_stained_glass_pane",
+    "name": "Brown Stained Glass Pane",
+    "category": "building",
+    "description": "棕色染色玻璃板，薄片状彩色玻璃。"
+  },
+  {
+    "id": "minecraft:brown_terracotta",
+    "name": "Brown Terracotta",
+    "category": "building",
+    "description": "棕色陶瓦，染色的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:brown_wall_banner",
+    "name": "Brown Wall Banner",
+    "category": "decoration",
+    "description": "贴墙的棕色旗帜。"
+  },
+  {
+    "id": "minecraft:brown_wool",
+    "name": "Brown Wool",
+    "category": "building",
+    "description": "棕色羊毛，易燃的柔软建筑方块。"
+  },
+  {
+    "id": "minecraft:bubble_coral",
+    "name": "Bubble Coral",
+    "category": "natural",
+    "description": "气泡珊瑚，需在水中存活否则枯萎。"
+  },
+  {
+    "id": "minecraft:bubble_coral_block",
+    "name": "Bubble Coral Block",
+    "category": "natural",
+    "description": "气泡珊瑚块，离水会变为死珊瑚块。"
+  },
+  {
+    "id": "minecraft:bubble_coral_fan",
+    "name": "Bubble Coral Fan",
+    "category": "natural",
+    "description": "气泡珊瑚扇，附着在地面的水生装饰。"
+  },
+  {
+    "id": "minecraft:bubble_coral_wall_fan",
+    "name": "Bubble Coral Wall Fan",
+    "category": "natural",
+    "description": "附着在墙上的气泡珊瑚扇。"
+  },
+  {
+    "id": "minecraft:bush",
+    "name": "Bush",
+    "category": "natural",
+    "description": "灌木，自然生成的小型植被方块。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:cactus_flower",
+    "name": "Cactus Flower",
+    "category": "natural",
+    "description": "仙人掌花，可生长在仙人掌顶部的小花。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:cake",
+    "name": "Cake",
+    "category": "functional",
+    "description": "蛋糕，可分七次食用恢复饥饿值。"
+  },
+  {
+    "id": "minecraft:campfire",
+    "name": "Campfire",
+    "category": "functional",
+    "description": "营火，可烹饪食物、发光并产生烟雾。"
+  },
+  {
+    "id": "minecraft:candle_cake",
+    "name": "Candle Cake",
+    "category": "functional",
+    "description": "插着普通蜡烛的蛋糕。"
+  },
+  {
+    "id": "minecraft:carrots",
+    "name": "Carrots",
+    "category": "natural",
+    "description": "胡萝卜作物，成熟后可收获胡萝卜。"
+  },
+  {
+    "id": "minecraft:carved_pumpkin",
+    "name": "Carved Pumpkin",
+    "category": "building",
+    "description": "雕刻南瓜，可戴头上或用于召唤铁傀儡、雪傀儡。"
+  },
+  {
+    "id": "minecraft:cave_vines",
+    "name": "Cave Vines",
+    "category": "natural",
+    "description": "洞穴藤蔓，向下生长并可结出发光浆果。"
+  },
+  {
+    "id": "minecraft:cave_vines_plant",
+    "name": "Cave Vines Plant",
+    "category": "natural",
+    "description": "洞穴藤蔓的茎干部分，悬挂生长于洞穴顶部，可结发光浆果。"
+  },
+  {
+    "id": "minecraft:cherry_button",
+    "name": "Cherry Button",
+    "category": "redstone",
+    "description": "樱花木按钮，按下后短暂提供红石信号。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_door",
+    "name": "Cherry Door",
+    "category": "building",
+    "description": "樱花木门，可被手动或红石信号开关。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_fence",
+    "name": "Cherry Fence",
+    "category": "building",
+    "description": "樱花木栅栏，用于围挡，可防止生物跨越。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_fence_gate",
+    "name": "Cherry Fence Gate",
+    "category": "redstone",
+    "description": "樱花木栅栏门，可开关供通行，可由红石控制。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_hanging_sign",
+    "name": "Cherry Hanging Sign",
+    "category": "decoration",
+    "description": "樱花木悬挂告示牌，可悬挂于方块下方或侧面展示文字。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_pressure_plate",
+    "name": "Cherry Pressure Plate",
+    "category": "redstone",
+    "description": "樱花木压力板，被实体踩踏时输出红石信号。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_sapling",
+    "name": "Cherry Sapling",
+    "category": "natural",
+    "description": "樱花树苗，可种植并长成樱花树。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_sign",
+    "name": "Cherry Sign",
+    "category": "decoration",
+    "description": "樱花木站立告示牌，可放置于地面展示文字。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_slab",
+    "name": "Cherry Slab",
+    "category": "building",
+    "description": "樱花木台阶，高度为半个方块的建筑材料。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_stairs",
+    "name": "Cherry Stairs",
+    "category": "building",
+    "description": "樱花木楼梯，用于上下层连接的建筑材料。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_trapdoor",
+    "name": "Cherry Trapdoor",
+    "category": "redstone",
+    "description": "樱花木活板门，可手动或红石控制开关。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_wall_hanging_sign",
+    "name": "Cherry Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上的樱花木悬挂告示牌（附着墙面的状态）。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_wall_sign",
+    "name": "Cherry Wall Sign",
+    "category": "decoration",
+    "description": "墙上的樱花木告示牌（附着墙面的状态）。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:cherry_wood",
+    "name": "Cherry Wood",
+    "category": "building",
+    "description": "樱花木（带树皮的原木），六面均为树皮纹理。",
+    "since": "1.20"
+  },
+  {
+    "id": "minecraft:chipped_anvil",
+    "name": "Chipped Anvil",
+    "category": "functional",
+    "description": "轻微损坏的铁砧，使用后可能进一步损坏，仍可锻造修复物品。"
+  },
+  {
+    "id": "minecraft:chiseled_cinnabar",
+    "name": "Chiseled Cinnabar",
+    "category": "building",
+    "description": "錾制朱砂块，带有雕刻纹理的装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:chiseled_deepslate",
+    "name": "Chiseled Deepslate",
+    "category": "building",
+    "description": "錾制深板岩，带有雕刻纹理的装饰性方块。"
+  },
+  {
+    "id": "minecraft:chiseled_nether_bricks",
+    "name": "Chiseled Nether Bricks",
+    "category": "building",
+    "description": "錾制下界砖块，带有雕刻面孔纹理的装饰方块。"
+  },
+  {
+    "id": "minecraft:chiseled_polished_blackstone",
+    "name": "Chiseled Polished Blackstone",
+    "category": "building",
+    "description": "錾制磨制黑石，带有凋灵面孔纹理的装饰方块。"
+  },
+  {
+    "id": "minecraft:chiseled_quartz_block",
+    "name": "Chiseled Quartz Block",
+    "category": "building",
+    "description": "錾制石英块，带有雕刻纹理的装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:chiseled_red_sandstone",
+    "name": "Chiseled Red Sandstone",
+    "category": "building",
+    "description": "錾制红砂岩，带有苦力怕等浮雕纹理的装饰方块。"
+  },
+  {
+    "id": "minecraft:chiseled_resin_bricks",
+    "name": "Chiseled Resin Bricks",
+    "category": "building",
+    "description": "錾制树脂砖，带有雕刻纹理的装饰性建筑方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:chiseled_sandstone",
+    "name": "Chiseled Sandstone",
+    "category": "building",
+    "description": "錾制砂岩，带有苦力怕等浮雕纹理的装饰方块。"
+  },
+  {
+    "id": "minecraft:chiseled_sulfur",
+    "name": "Chiseled Sulfur",
+    "category": "building",
+    "description": "錾制硫磺块，带有雕刻纹理的装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:chiseled_tuff",
+    "name": "Chiseled Tuff",
+    "category": "building",
+    "description": "錾制凝灰岩，带有雕刻纹理的装饰性方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:chiseled_tuff_bricks",
+    "name": "Chiseled Tuff Bricks",
+    "category": "building",
+    "description": "錾制凝灰岩砖，带有雕刻纹理的装饰性方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:chorus_flower",
+    "name": "Chorus Flower",
+    "category": "natural",
+    "description": "紫颂花，末地生长的植物，可繁殖蔓延或被破坏。"
+  },
+  {
+    "id": "minecraft:chorus_plant",
+    "name": "Chorus Plant",
+    "category": "natural",
+    "description": "紫颂植物的茎干，末地中成簇生长，破坏可掉落紫颂果。"
+  },
+  {
+    "id": "minecraft:cinnabar",
+    "name": "Cinnabar",
+    "category": "building",
+    "description": "朱砂块，红色装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:cinnabar_brick_slab",
+    "name": "Cinnabar Brick Slab",
+    "category": "building",
+    "description": "朱砂砖台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:cinnabar_brick_stairs",
+    "name": "Cinnabar Brick Stairs",
+    "category": "building",
+    "description": "朱砂砖楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:cinnabar_brick_wall",
+    "name": "Cinnabar Brick Wall",
+    "category": "building",
+    "description": "朱砂砖墙，可自动连接相邻墙体的矮墙。"
+  },
+  {
+    "id": "minecraft:cinnabar_bricks",
+    "name": "Cinnabar Bricks",
+    "category": "building",
+    "description": "朱砂砖块，由朱砂合成的装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:cinnabar_slab",
+    "name": "Cinnabar Slab",
+    "category": "building",
+    "description": "朱砂台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:cinnabar_stairs",
+    "name": "Cinnabar Stairs",
+    "category": "building",
+    "description": "朱砂楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:cinnabar_wall",
+    "name": "Cinnabar Wall",
+    "category": "building",
+    "description": "朱砂墙，可自动连接相邻墙体的矮墙。"
+  },
+  {
+    "id": "minecraft:closed_eyeblossom",
+    "name": "Closed Eyeblossom",
+    "category": "natural",
+    "description": "闭合的眼眶花，白天闭合的苍白花朵，夜晚会张开。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:cobbled_deepslate_slab",
+    "name": "Cobbled Deepslate Slab",
+    "category": "building",
+    "description": "深板岩圆石台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:cobbled_deepslate_stairs",
+    "name": "Cobbled Deepslate Stairs",
+    "category": "building",
+    "description": "深板岩圆石楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:cobbled_deepslate_wall",
+    "name": "Cobbled Deepslate Wall",
+    "category": "building",
+    "description": "深板岩圆石墙，可自动连接相邻墙体的矮墙。"
+  },
+  {
+    "id": "minecraft:cobweb",
+    "name": "Cobweb",
+    "category": "natural",
+    "description": "蜘蛛网，会大幅减慢穿过其中的实体的移动速度。"
+  },
+  {
+    "id": "minecraft:copper_bars",
+    "name": "Copper Bars",
+    "category": "building",
+    "description": "铜栏杆，类似铁栏杆的装饰与阻挡方块，会随时间氧化。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_chain",
+    "name": "Copper Chain",
+    "category": "decoration",
+    "description": "铜链，可悬挂的装饰性链条，会随时间氧化。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_chest",
+    "name": "Copper Chest",
+    "category": "functional",
+    "description": "铜箱子，可存储物品的容器，会随时间氧化。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_golem_statue",
+    "name": "Copper Golem Statue",
+    "category": "decoration",
+    "description": "铜傀儡雕像，铜傀儡完全氧化后形成的装饰方块。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_lantern",
+    "name": "Copper Lantern",
+    "category": "decoration",
+    "description": "铜灯笼，可放置或悬挂的光源，会随时间氧化。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_torch",
+    "name": "Copper Torch",
+    "category": "decoration",
+    "description": "铜火把，发出青绿色火焰的光源方块。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:copper_wall_torch",
+    "name": "Copper Wall Torch",
+    "category": "decoration",
+    "description": "墙上的铜火把（附着墙面的状态）。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:cracked_deepslate_bricks",
+    "name": "Cracked Deepslate Bricks",
+    "category": "building",
+    "description": "裂纹深板岩砖，带有裂纹纹理的装饰性方块。"
+  },
+  {
+    "id": "minecraft:cracked_deepslate_tiles",
+    "name": "Cracked Deepslate Tiles",
+    "category": "building",
+    "description": "裂纹深板岩瓦，带有裂纹纹理的装饰性方块。"
+  },
+  {
+    "id": "minecraft:cracked_nether_bricks",
+    "name": "Cracked Nether Bricks",
+    "category": "building",
+    "description": "裂纹下界砖块，带有裂纹纹理的装饰性方块。"
+  },
+  {
+    "id": "minecraft:cracked_polished_blackstone_bricks",
+    "name": "Cracked Polished Blackstone Bricks",
+    "category": "building",
+    "description": "裂纹磨制黑石砖，带有裂纹纹理的装饰性方块。"
+  },
+  {
+    "id": "minecraft:crafter",
+    "name": "Crafter",
+    "category": "redstone",
+    "description": "合成器，可由红石信号驱动自动合成物品的方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:creeper_head",
+    "name": "Creeper Head",
+    "category": "decoration",
+    "description": "苦力怕的头，可放置于地面的装饰性头颅。"
+  },
+  {
+    "id": "minecraft:creeper_wall_head",
+    "name": "Creeper Wall Head",
+    "category": "decoration",
+    "description": "墙上的苦力怕头颅（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:crimson_button",
+    "name": "Crimson Button",
+    "category": "redstone",
+    "description": "绯红木按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:crimson_door",
+    "name": "Crimson Door",
+    "category": "building",
+    "description": "绯红木门，可被手动或红石信号开关。"
+  },
+  {
+    "id": "minecraft:crimson_fence",
+    "name": "Crimson Fence",
+    "category": "building",
+    "description": "绯红木栅栏，用于围挡，可防止生物跨越。"
+  },
+  {
+    "id": "minecraft:crimson_fence_gate",
+    "name": "Crimson Fence Gate",
+    "category": "redstone",
+    "description": "绯红木栅栏门，可开关供通行，可由红石控制。"
+  },
+  {
+    "id": "minecraft:crimson_hanging_sign",
+    "name": "Crimson Hanging Sign",
+    "category": "decoration",
+    "description": "绯红木悬挂告示牌，可悬挂于方块下方或侧面展示文字。"
+  },
+  {
+    "id": "minecraft:crimson_hyphae",
+    "name": "Crimson Hyphae",
+    "category": "building",
+    "description": "绯红菌核（带菌皮的菌柄），六面均为菌皮纹理。"
+  },
+  {
+    "id": "minecraft:crimson_nylium",
+    "name": "Crimson Nylium",
+    "category": "natural",
+    "description": "绯红菌岩，下界中可生长绯红植被的菌丝岩石。"
+  },
+  {
+    "id": "minecraft:crimson_pressure_plate",
+    "name": "Crimson Pressure Plate",
+    "category": "redstone",
+    "description": "绯红木压力板，被实体踩踏时输出红石信号。"
+  },
+  {
+    "id": "minecraft:crimson_roots",
+    "name": "Crimson Roots",
+    "category": "natural",
+    "description": "绯红菌索，下界中生长的小型装饰性植物。"
+  },
+  {
+    "id": "minecraft:crimson_sign",
+    "name": "Crimson Sign",
+    "category": "decoration",
+    "description": "绯红木站立告示牌，可放置于地面展示文字。"
+  },
+  {
+    "id": "minecraft:crimson_slab",
+    "name": "Crimson Slab",
+    "category": "building",
+    "description": "绯红木台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:crimson_stairs",
+    "name": "Crimson Stairs",
+    "category": "building",
+    "description": "绯红木楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:crimson_trapdoor",
+    "name": "Crimson Trapdoor",
+    "category": "redstone",
+    "description": "绯红木活板门，可手动或红石控制开关。"
+  },
+  {
+    "id": "minecraft:crimson_wall_hanging_sign",
+    "name": "Crimson Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上的绯红木悬挂告示牌（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:crimson_wall_sign",
+    "name": "Crimson Wall Sign",
+    "category": "decoration",
+    "description": "墙上的绯红木告示牌（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:cut_red_sandstone",
+    "name": "Cut Red Sandstone",
+    "category": "building",
+    "description": "切制红砂岩，带有平滑分割纹理的建筑方块。"
+  },
+  {
+    "id": "minecraft:cut_red_sandstone_slab",
+    "name": "Cut Red Sandstone Slab",
+    "category": "building",
+    "description": "切制红砂岩台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:cut_sandstone",
+    "name": "Cut Sandstone",
+    "category": "building",
+    "description": "切制砂岩，带有平滑分割纹理的建筑方块。"
+  },
+  {
+    "id": "minecraft:cut_sandstone_slab",
+    "name": "Cut Sandstone Slab",
+    "category": "building",
+    "description": "切制砂岩台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:cyan_banner",
+    "name": "Cyan Banner",
+    "category": "decoration",
+    "description": "青色旗帜，可放置于地面并添加图案的装饰物。"
+  },
+  {
+    "id": "minecraft:cyan_bed",
+    "name": "Cyan Bed",
+    "category": "functional",
+    "description": "青色床，可供玩家睡觉并设置重生点。"
+  },
+  {
+    "id": "minecraft:cyan_candle",
+    "name": "Cyan Candle",
+    "category": "decoration",
+    "description": "青色蜡烛，可点燃的小型光源，最多可叠放四根。"
+  },
+  {
+    "id": "minecraft:cyan_candle_cake",
+    "name": "Cyan Candle Cake",
+    "category": "decoration",
+    "description": "插有青色蜡烛的蛋糕，可点燃并食用。"
+  },
+  {
+    "id": "minecraft:cyan_carpet",
+    "name": "Cyan Carpet",
+    "category": "decoration",
+    "description": "青色地毯，铺设于地面的薄层装饰方块。"
+  },
+  {
+    "id": "minecraft:cyan_concrete",
+    "name": "Cyan Concrete",
+    "category": "building",
+    "description": "青色混凝土，色彩鲜明的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:cyan_concrete_powder",
+    "name": "Cyan Concrete Powder",
+    "category": "building",
+    "description": "青色混凝土粉末，遇水会凝固为混凝土，受重力影响。"
+  },
+  {
+    "id": "minecraft:cyan_glazed_terracotta",
+    "name": "Cyan Glazed Terracotta",
+    "category": "building",
+    "description": "青色釉陶，带有图案的装饰性建筑方块。"
+  },
+  {
+    "id": "minecraft:cyan_shulker_box",
+    "name": "Cyan Shulker Box",
+    "category": "functional",
+    "description": "青色潜影盒，可存储物品且破坏后保留内容物的容器。"
+  },
+  {
+    "id": "minecraft:cyan_stained_glass",
+    "name": "Cyan Stained Glass",
+    "category": "building",
+    "description": "青色染色玻璃，半透明的彩色装饰方块。"
+  },
+  {
+    "id": "minecraft:cyan_stained_glass_pane",
+    "name": "Cyan Stained Glass Pane",
+    "category": "building",
+    "description": "青色染色玻璃板，薄片状的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:cyan_terracotta",
+    "name": "Cyan Terracotta",
+    "category": "building",
+    "description": "青色陶瓦，染色的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:cyan_wall_banner",
+    "name": "Cyan Wall Banner",
+    "category": "decoration",
+    "description": "墙上的青色旗帜（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:cyan_wool",
+    "name": "Cyan Wool",
+    "category": "building",
+    "description": "青色羊毛，柔软的染色建筑与装饰方块。"
+  },
+  {
+    "id": "minecraft:damaged_anvil",
+    "name": "Damaged Anvil",
+    "category": "functional",
+    "description": "严重损坏的铁砧，再次使用可能彻底毁坏，仍可锻造物品。"
+  },
+  {
+    "id": "minecraft:dark_oak_button",
+    "name": "Dark Oak Button",
+    "category": "redstone",
+    "description": "深色橡木按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:dark_oak_door",
+    "name": "Dark Oak Door",
+    "category": "building",
+    "description": "深色橡木门，可被手动或红石信号开关。"
+  },
+  {
+    "id": "minecraft:dark_oak_fence",
+    "name": "Dark Oak Fence",
+    "category": "building",
+    "description": "深色橡木栅栏，用于围挡，可防止生物跨越。"
+  },
+  {
+    "id": "minecraft:dark_oak_fence_gate",
+    "name": "Dark Oak Fence Gate",
+    "category": "redstone",
+    "description": "深色橡木栅栏门，可开关供通行，可由红石控制。"
+  },
+  {
+    "id": "minecraft:dark_oak_hanging_sign",
+    "name": "Dark Oak Hanging Sign",
+    "category": "decoration",
+    "description": "深色橡木悬挂告示牌，可悬挂于方块下方或侧面展示文字。"
+  },
+  {
+    "id": "minecraft:dark_oak_pressure_plate",
+    "name": "Dark Oak Pressure Plate",
+    "category": "redstone",
+    "description": "深色橡木压力板，被实体踩踏时输出红石信号。"
+  },
+  {
+    "id": "minecraft:dark_oak_sapling",
+    "name": "Dark Oak Sapling",
+    "category": "natural",
+    "description": "深色橡木树苗，需2x2种植才能长成深色橡树。"
+  },
+  {
+    "id": "minecraft:dark_oak_sign",
+    "name": "Dark Oak Sign",
+    "category": "decoration",
+    "description": "深色橡木站立告示牌，可放置于地面展示文字。"
+  },
+  {
+    "id": "minecraft:dark_oak_slab",
+    "name": "Dark Oak Slab",
+    "category": "building",
+    "description": "深色橡木台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:dark_oak_stairs",
+    "name": "Dark Oak Stairs",
+    "category": "building",
+    "description": "深色橡木楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:dark_oak_trapdoor",
+    "name": "Dark Oak Trapdoor",
+    "category": "redstone",
+    "description": "深色橡木活板门，可手动或红石控制开关。"
+  },
+  {
+    "id": "minecraft:dark_oak_wall_hanging_sign",
+    "name": "Dark Oak Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上的深色橡木悬挂告示牌（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:dark_oak_wall_sign",
+    "name": "Dark Oak Wall Sign",
+    "category": "decoration",
+    "description": "墙上的深色橡木告示牌（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:dark_oak_wood",
+    "name": "Dark Oak Wood",
+    "category": "building",
+    "description": "深色橡木（带树皮的原木），六面均为树皮纹理。"
+  },
+  {
+    "id": "minecraft:dark_prismarine_slab",
+    "name": "Dark Prismarine Slab",
+    "category": "building",
+    "description": "暗海晶石台阶，高度为半个方块的建筑材料。"
+  },
+  {
+    "id": "minecraft:dark_prismarine_stairs",
+    "name": "Dark Prismarine Stairs",
+    "category": "building",
+    "description": "暗海晶石楼梯，用于上下层连接的建筑材料。"
+  },
+  {
+    "id": "minecraft:dead_brain_coral",
+    "name": "Dead Brain Coral",
+    "category": "natural",
+    "description": "失活的脑纹珊瑚，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_brain_coral_block",
+    "name": "Dead Brain Coral Block",
+    "category": "natural",
+    "description": "失活的脑纹珊瑚块，灰色的死亡珊瑚建筑方块。"
+  },
+  {
+    "id": "minecraft:dead_brain_coral_fan",
+    "name": "Dead Brain Coral Fan",
+    "category": "natural",
+    "description": "失活的脑纹珊瑚扇，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_brain_coral_wall_fan",
+    "name": "Dead Brain Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上的失活脑纹珊瑚扇（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:dead_bubble_coral",
+    "name": "Dead Bubble Coral",
+    "category": "natural",
+    "description": "失活的气泡珊瑚，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_bubble_coral_block",
+    "name": "Dead Bubble Coral Block",
+    "category": "natural",
+    "description": "失活的气泡珊瑚块，灰色的死亡珊瑚建筑方块。"
+  },
+  {
+    "id": "minecraft:dead_bubble_coral_fan",
+    "name": "Dead Bubble Coral Fan",
+    "category": "natural",
+    "description": "失活的气泡珊瑚扇，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_bubble_coral_wall_fan",
+    "name": "Dead Bubble Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上的失活气泡珊瑚扇（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:dead_fire_coral",
+    "name": "Dead Fire Coral",
+    "category": "natural",
+    "description": "失活的火珊瑚，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_fire_coral_block",
+    "name": "Dead Fire Coral Block",
+    "category": "natural",
+    "description": "失活的火珊瑚块，灰色的死亡珊瑚建筑方块。"
+  },
+  {
+    "id": "minecraft:dead_fire_coral_fan",
+    "name": "Dead Fire Coral Fan",
+    "category": "natural",
+    "description": "失活的火珊瑚扇，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_fire_coral_wall_fan",
+    "name": "Dead Fire Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上的失活火珊瑚扇（附着墙面的状态）。"
+  },
+  {
+    "id": "minecraft:dead_horn_coral",
+    "name": "Dead Horn Coral",
+    "category": "natural",
+    "description": "失活的鹿角珊瑚，灰色的死亡珊瑚装饰方块。"
+  },
+  {
+    "id": "minecraft:dead_horn_coral_block",
+    "name": "Dead Horn Coral Block",
+    "category": "natural",
+    "description": "失活的鹿角珊瑚块，灰色的死亡珊瑚建筑方块。"
+  },
+  {
+    "id": "minecraft:dead_horn_coral_fan",
+    "name": "Dead Horn Coral Fan",
+    "category": "decoration",
+    "description": "枯死的鹿角珊瑚扇，灰色装饰性珊瑚扇，无法生长。"
+  },
+  {
+    "id": "minecraft:dead_horn_coral_wall_fan",
+    "name": "Dead Horn Coral Wall Fan",
+    "category": "decoration",
+    "description": "墙上的枯死鹿角珊瑚扇，附着在墙面的灰色装饰珊瑚扇。"
+  },
+  {
+    "id": "minecraft:dead_tube_coral",
+    "name": "Dead Tube Coral",
+    "category": "decoration",
+    "description": "枯死的管珊瑚，灰色的装饰性珊瑚柱。"
+  },
+  {
+    "id": "minecraft:dead_tube_coral_block",
+    "name": "Dead Tube Coral Block",
+    "category": "building",
+    "description": "枯死的管珊瑚块，灰色装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:dead_tube_coral_fan",
+    "name": "Dead Tube Coral Fan",
+    "category": "decoration",
+    "description": "枯死的管珊瑚扇，灰色装饰性珊瑚扇。"
+  },
+  {
+    "id": "minecraft:dead_tube_coral_wall_fan",
+    "name": "Dead Tube Coral Wall Fan",
+    "category": "decoration",
+    "description": "墙上的枯死管珊瑚扇，附着在墙面的灰色装饰珊瑚扇。"
+  },
+  {
+    "id": "minecraft:decorated_pot",
+    "name": "Decorated Pot",
+    "category": "decoration",
+    "description": "饰纹陶罐，由陶片或砖块合成的装饰容器，可存放单格物品。"
+  },
+  {
+    "id": "minecraft:deepslate_brick_slab",
+    "name": "Deepslate Brick Slab",
+    "category": "building",
+    "description": "深板岩砖台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:deepslate_brick_stairs",
+    "name": "Deepslate Brick Stairs",
+    "category": "building",
+    "description": "深板岩砖楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:deepslate_brick_wall",
+    "name": "Deepslate Brick Wall",
+    "category": "building",
+    "description": "深板岩砖墙，用于围栏的矮墙方块。"
+  },
+  {
+    "id": "minecraft:deepslate_tile_slab",
+    "name": "Deepslate Tile Slab",
+    "category": "building",
+    "description": "深板岩瓦台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:deepslate_tile_stairs",
+    "name": "Deepslate Tile Stairs",
+    "category": "building",
+    "description": "深板岩瓦楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:deepslate_tile_wall",
+    "name": "Deepslate Tile Wall",
+    "category": "building",
+    "description": "深板岩瓦墙，用于围栏的矮墙方块。"
+  },
+  {
+    "id": "minecraft:diorite_slab",
+    "name": "Diorite Slab",
+    "category": "building",
+    "description": "闪长岩台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:diorite_stairs",
+    "name": "Diorite Stairs",
+    "category": "building",
+    "description": "闪长岩楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:diorite_wall",
+    "name": "Diorite Wall",
+    "category": "building",
+    "description": "闪长岩墙，用于围栏的矮墙方块。"
+  },
+  {
+    "id": "minecraft:dirt_path",
+    "name": "Dirt Path",
+    "category": "natural",
+    "description": "土径，用锹翻整草方块或泥土形成的小径方块。"
+  },
+  {
+    "id": "minecraft:dragon_egg",
+    "name": "Dragon Egg",
+    "category": "decoration",
+    "description": "龙蛋，击败末影龙后出现的珍贵装饰方块，受敲击会瞬移。"
+  },
+  {
+    "id": "minecraft:dragon_head",
+    "name": "Dragon Head",
+    "category": "decoration",
+    "description": "末影龙头颅，可放置或佩戴的装饰头颅，受红石信号会张嘴。"
+  },
+  {
+    "id": "minecraft:dragon_wall_head",
+    "name": "Dragon Wall Head",
+    "category": "decoration",
+    "description": "墙上的末影龙头颅，附着在墙面的装饰头颅。"
+  },
+  {
+    "id": "minecraft:dried_ghast",
+    "name": "Dried Ghast",
+    "category": "decoration",
+    "description": "干涸恶魂方块，可被水浸湿补水的下界装饰方块。",
+    "since": "1.21.6"
+  },
+  {
+    "id": "minecraft:dried_kelp_block",
+    "name": "Dried Kelp Block",
+    "category": "building",
+    "description": "干海带块，可作燃料的紧凑建筑方块。"
+  },
+  {
+    "id": "minecraft:end_portal_frame",
+    "name": "End Portal Frame",
+    "category": "functional",
+    "description": "末地传送门框架，嵌入末影之眼可激活通往末地的传送门。"
+  },
+  {
+    "id": "minecraft:end_rod",
+    "name": "End Rod",
+    "category": "decoration",
+    "description": "末地烛，发光的装饰柱状方块，可朝各方向放置。"
+  },
+  {
+    "id": "minecraft:end_stone_brick_slab",
+    "name": "End Stone Brick Slab",
+    "category": "building",
+    "description": "末地石砖台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:end_stone_brick_stairs",
+    "name": "End Stone Brick Stairs",
+    "category": "building",
+    "description": "末地石砖楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:end_stone_brick_wall",
+    "name": "End Stone Brick Wall",
+    "category": "building",
+    "description": "末地石砖墙，用于围栏的矮墙方块。"
+  },
+  {
+    "id": "minecraft:exposed_chiseled_copper",
+    "name": "Exposed Chiseled Copper",
+    "category": "building",
+    "description": "斑驳的雕纹铜块，轻度氧化的装饰铜块。"
+  },
+  {
+    "id": "minecraft:exposed_copper_bars",
+    "name": "Exposed Copper Bars",
+    "category": "building",
+    "description": "斑驳的铜栏杆，轻度氧化的栏杆方块。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:exposed_copper_bulb",
+    "name": "Exposed Copper Bulb",
+    "category": "redstone",
+    "description": "斑驳的铜灯，可被红石切换开关的光源方块。"
+  },
+  {
+    "id": "minecraft:exposed_copper_chain",
+    "name": "Exposed Copper Chain",
+    "category": "building",
+    "description": "斑驳的铜链，轻度氧化的装饰链条方块。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:exposed_copper_chest",
+    "name": "Exposed Copper Chest",
+    "category": "functional",
+    "description": "斑驳的铜箱子，轻度氧化的储物容器。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:exposed_copper_door",
+    "name": "Exposed Copper Door",
+    "category": "redstone",
+    "description": "斑驳的铜门，可被红石或手动开关的氧化铜门。"
+  },
+  {
+    "id": "minecraft:exposed_copper_golem_statue",
+    "name": "Exposed Copper Golem Statue",
+    "category": "decoration",
+    "description": "斑驳的铜傀儡雕像，铜傀儡氧化后形成的装饰雕像。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:exposed_copper_grate",
+    "name": "Exposed Copper Grate",
+    "category": "building",
+    "description": "斑驳的铜格栅，轻度氧化的镂空建筑方块。"
+  },
+  {
+    "id": "minecraft:exposed_copper_lantern",
+    "name": "Exposed Copper Lantern",
+    "category": "decoration",
+    "description": "斑驳的铜灯笼，轻度氧化的装饰光源。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:exposed_copper_trapdoor",
+    "name": "Exposed Copper Trapdoor",
+    "category": "redstone",
+    "description": "斑驳的铜活板门，可被红石或手动开关的氧化铜活板门。"
+  },
+  {
+    "id": "minecraft:exposed_cut_copper",
+    "name": "Exposed Cut Copper",
+    "category": "building",
+    "description": "斑驳的切制铜块，轻度氧化的建筑铜块。"
+  },
+  {
+    "id": "minecraft:exposed_cut_copper_slab",
+    "name": "Exposed Cut Copper Slab",
+    "category": "building",
+    "description": "斑驳的切制铜台阶，半砖高度的氧化铜建筑方块。"
+  },
+  {
+    "id": "minecraft:exposed_cut_copper_stairs",
+    "name": "Exposed Cut Copper Stairs",
+    "category": "building",
+    "description": "斑驳的切制铜楼梯，可攀爬的氧化铜建筑方块。"
+  },
+  {
+    "id": "minecraft:exposed_lightning_rod",
+    "name": "Exposed Lightning Rod",
+    "category": "functional",
+    "description": "斑驳的避雷针，轻度氧化的引雷装置，遭雷击发出红石信号。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:farmland",
+    "name": "Farmland",
+    "category": "natural",
+    "description": "耕地，用锄头翻整泥土形成，可种植农作物。"
+  },
+  {
+    "id": "minecraft:fire_coral",
+    "name": "Fire Coral",
+    "category": "natural",
+    "description": "火珊瑚，红色的活体珊瑚，离水会枯死。"
+  },
+  {
+    "id": "minecraft:fire_coral_block",
+    "name": "Fire Coral Block",
+    "category": "natural",
+    "description": "火珊瑚块，红色的活体珊瑚方块，离水会枯死。"
+  },
+  {
+    "id": "minecraft:fire_coral_fan",
+    "name": "Fire Coral Fan",
+    "category": "natural",
+    "description": "火珊瑚扇，红色的活体珊瑚扇，离水会枯死。"
+  },
+  {
+    "id": "minecraft:fire_coral_wall_fan",
+    "name": "Fire Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上的火珊瑚扇，附着在墙面的红色活体珊瑚扇。"
+  },
+  {
+    "id": "minecraft:firefly_bush",
+    "name": "Firefly Bush",
+    "category": "natural",
+    "description": "萤火虫丛，夜晚会有萤火虫聚集发光的植被方块。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:flower_pot",
+    "name": "Flower Pot",
+    "category": "decoration",
+    "description": "花盆，可放置花卉、树苗等小型植物的装饰容器。"
+  },
+  {
+    "id": "minecraft:flowering_azalea",
+    "name": "Flowering Azalea",
+    "category": "natural",
+    "description": "盛开的杜鹃花丛，开花的杜鹃灌木，可催熟为杜鹃树。"
+  },
+  {
+    "id": "minecraft:flowering_azalea_leaves",
+    "name": "Flowering Azalea Leaves",
+    "category": "natural",
+    "description": "盛开的杜鹃树叶，带花的杜鹃树叶方块。"
+  },
+  {
+    "id": "minecraft:frogspawn",
+    "name": "Frogspawn",
+    "category": "natural",
+    "description": "青蛙卵，漂浮在水面的青蛙繁殖产物，会孵化成蝌蚪。"
+  },
+  {
+    "id": "minecraft:gilded_blackstone",
+    "name": "Gilded Blackstone",
+    "category": "natural",
+    "description": "镶金黑石，含金粒的下界黑石，开采可能掉落金粒。"
+  },
+  {
+    "id": "minecraft:golden_dandelion",
+    "name": "Golden Dandelion",
+    "category": "natural",
+    "description": "金色蒲公英，开黄色花朵的小型植物。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:granite_slab",
+    "name": "Granite Slab",
+    "category": "building",
+    "description": "花岗岩台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:granite_stairs",
+    "name": "Granite Stairs",
+    "category": "building",
+    "description": "花岗岩楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:granite_wall",
+    "name": "Granite Wall",
+    "category": "building",
+    "description": "花岗岩墙，用于围栏的矮墙方块。"
+  },
+  {
+    "id": "minecraft:gray_banner",
+    "name": "Gray Banner",
+    "category": "decoration",
+    "description": "灰色旗帜，可自定义图案的立式装饰旗帜。"
+  },
+  {
+    "id": "minecraft:gray_bed",
+    "name": "Gray Bed",
+    "category": "functional",
+    "description": "灰色床，可睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:gray_candle",
+    "name": "Gray Candle",
+    "category": "decoration",
+    "description": "灰色蜡烛，可点燃的装饰光源，最多可叠放四根。"
+  },
+  {
+    "id": "minecraft:gray_candle_cake",
+    "name": "Gray Candle Cake",
+    "category": "decoration",
+    "description": "插着灰色蜡烛的蛋糕，可点燃后吹灭许愿的食物方块。"
+  },
+  {
+    "id": "minecraft:gray_carpet",
+    "name": "Gray Carpet",
+    "category": "decoration",
+    "description": "灰色地毯，薄层装饰铺地方块。"
+  },
+  {
+    "id": "minecraft:gray_concrete",
+    "name": "Gray Concrete",
+    "category": "building",
+    "description": "灰色混凝土，鲜艳坚固的建筑方块。"
+  },
+  {
+    "id": "minecraft:gray_concrete_powder",
+    "name": "Gray Concrete Powder",
+    "category": "building",
+    "description": "灰色混凝土粉末，遇水凝固成混凝土。"
+  },
+  {
+    "id": "minecraft:gray_glazed_terracotta",
+    "name": "Gray Glazed Terracotta",
+    "category": "decoration",
+    "description": "灰色带釉陶瓦，带花纹的装饰方块，可拼出图案。"
+  },
+  {
+    "id": "minecraft:gray_shulker_box",
+    "name": "Gray Shulker Box",
+    "category": "functional",
+    "description": "灰色潜影盒，破坏后保留物品的便携储物容器。"
+  },
+  {
+    "id": "minecraft:gray_stained_glass",
+    "name": "Gray Stained Glass",
+    "category": "building",
+    "description": "灰色染色玻璃，半透明的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:gray_stained_glass_pane",
+    "name": "Gray Stained Glass Pane",
+    "category": "building",
+    "description": "灰色染色玻璃板，薄片状的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:gray_terracotta",
+    "name": "Gray Terracotta",
+    "category": "building",
+    "description": "灰色陶瓦，朴素坚固的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:gray_wall_banner",
+    "name": "Gray Wall Banner",
+    "category": "decoration",
+    "description": "墙上的灰色旗帜，附着在墙面的装饰旗帜。"
+  },
+  {
+    "id": "minecraft:gray_wool",
+    "name": "Gray Wool",
+    "category": "building",
+    "description": "灰色羊毛，柔软的彩色建筑方块，可作信标染料源。"
+  },
+  {
+    "id": "minecraft:green_banner",
+    "name": "Green Banner",
+    "category": "decoration",
+    "description": "绿色旗帜，可自定义图案的立式装饰旗帜。"
+  },
+  {
+    "id": "minecraft:green_bed",
+    "name": "Green Bed",
+    "category": "functional",
+    "description": "绿色床，可睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:green_candle",
+    "name": "Green Candle",
+    "category": "decoration",
+    "description": "绿色蜡烛，可点燃的装饰光源，最多可叠放四根。"
+  },
+  {
+    "id": "minecraft:green_candle_cake",
+    "name": "Green Candle Cake",
+    "category": "decoration",
+    "description": "插着绿色蜡烛的蛋糕，可点燃后吹灭许愿的食物方块。"
+  },
+  {
+    "id": "minecraft:green_carpet",
+    "name": "Green Carpet",
+    "category": "decoration",
+    "description": "绿色地毯，薄层装饰铺地方块。"
+  },
+  {
+    "id": "minecraft:green_concrete",
+    "name": "Green Concrete",
+    "category": "building",
+    "description": "绿色混凝土，鲜艳坚固的建筑方块。"
+  },
+  {
+    "id": "minecraft:green_concrete_powder",
+    "name": "Green Concrete Powder",
+    "category": "building",
+    "description": "绿色混凝土粉末，遇水凝固成混凝土。"
+  },
+  {
+    "id": "minecraft:green_glazed_terracotta",
+    "name": "Green Glazed Terracotta",
+    "category": "decoration",
+    "description": "绿色带釉陶瓦，带花纹的装饰方块，可拼出图案。"
+  },
+  {
+    "id": "minecraft:green_shulker_box",
+    "name": "Green Shulker Box",
+    "category": "functional",
+    "description": "绿色潜影盒，破坏后保留物品的便携储物容器。"
+  },
+  {
+    "id": "minecraft:green_stained_glass",
+    "name": "Green Stained Glass",
+    "category": "building",
+    "description": "绿色染色玻璃，半透明的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:green_stained_glass_pane",
+    "name": "Green Stained Glass Pane",
+    "category": "building",
+    "description": "绿色染色玻璃板，薄片状的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:green_terracotta",
+    "name": "Green Terracotta",
+    "category": "building",
+    "description": "绿色陶瓦，朴素坚固的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:green_wall_banner",
+    "name": "Green Wall Banner",
+    "category": "decoration",
+    "description": "墙上的绿色旗帜，附着在墙面的装饰旗帜。"
+  },
+  {
+    "id": "minecraft:green_wool",
+    "name": "Green Wool",
+    "category": "building",
+    "description": "绿色羊毛，柔软的彩色建筑方块，可作信标染料源。"
+  },
+  {
+    "id": "minecraft:hanging_roots",
+    "name": "Hanging Roots",
+    "category": "natural",
+    "description": "垂根，从方块底部垂下的繁茂洞穴装饰植被。"
+  },
+  {
+    "id": "minecraft:heavy_core",
+    "name": "Heavy Core",
+    "category": "functional",
+    "description": "重核，合成重锤的核心材料方块，可镶嵌在风暴中心。",
+    "since": "1.20.5"
+  },
+  {
+    "id": "minecraft:horn_coral",
+    "name": "Horn Coral",
+    "category": "natural",
+    "description": "鹿角珊瑚，黄色的活体珊瑚，离水会枯死。"
+  },
+  {
+    "id": "minecraft:horn_coral_block",
+    "name": "Horn Coral Block",
+    "category": "natural",
+    "description": "鹿角珊瑚块，黄色的活体珊瑚方块，离水会枯死。"
+  },
+  {
+    "id": "minecraft:horn_coral_fan",
+    "name": "Horn Coral Fan",
+    "category": "natural",
+    "description": "鹿角珊瑚扇，黄色的活体珊瑚扇，离水会枯死。"
+  },
+  {
+    "id": "minecraft:horn_coral_wall_fan",
+    "name": "Horn Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上的鹿角珊瑚扇，附着在墙面的黄色活体珊瑚扇。"
+  },
+  {
+    "id": "minecraft:infested_chiseled_stone_bricks",
+    "name": "Infested Chiseled Stone Bricks",
+    "category": "natural",
+    "description": "被虫蚀的雕纹石砖，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_cobblestone",
+    "name": "Infested Cobblestone",
+    "category": "natural",
+    "description": "被虫蚀的圆石，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_cracked_stone_bricks",
+    "name": "Infested Cracked Stone Bricks",
+    "category": "natural",
+    "description": "被虫蚀的裂纹石砖，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_deepslate",
+    "name": "Infested Deepslate",
+    "category": "natural",
+    "description": "被虫蚀的深板岩，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_mossy_stone_bricks",
+    "name": "Infested Mossy Stone Bricks",
+    "category": "natural",
+    "description": "被虫蚀的苔石砖，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_stone",
+    "name": "Infested Stone",
+    "category": "natural",
+    "description": "被虫蚀的石头，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:infested_stone_bricks",
+    "name": "Infested Stone Bricks",
+    "category": "natural",
+    "description": "被虫蚀的石砖，破坏后会出现蠹虫。"
+  },
+  {
+    "id": "minecraft:iron_bars",
+    "name": "Iron Bars",
+    "category": "building",
+    "description": "铁栏杆，坚固的栅栏式建筑方块，可阻挡通行。"
+  },
+  {
+    "id": "minecraft:jack_o_lantern",
+    "name": "Jack o'Lantern",
+    "category": "decoration",
+    "description": "南瓜灯，发光的雕刻南瓜，可用于召唤雪傀儡和铁傀儡。"
+  },
+  {
+    "id": "minecraft:jungle_button",
+    "name": "Jungle Button",
+    "category": "redstone",
+    "description": "丛林木按钮，按下后短暂发出红石信号。"
+  },
+  {
+    "id": "minecraft:jungle_door",
+    "name": "Jungle Door",
+    "category": "redstone",
+    "description": "丛林木门，可手动或红石开关的木门。"
+  },
+  {
+    "id": "minecraft:jungle_fence",
+    "name": "Jungle Fence",
+    "category": "building",
+    "description": "丛林木栅栏，可阻挡生物的围栏方块。"
+  },
+  {
+    "id": "minecraft:jungle_fence_gate",
+    "name": "Jungle Fence Gate",
+    "category": "redstone",
+    "description": "丛林木栅栏门，可开合通行的围栏门。"
+  },
+  {
+    "id": "minecraft:jungle_hanging_sign",
+    "name": "Jungle Hanging Sign",
+    "category": "decoration",
+    "description": "丛林木悬挂告示牌，可悬挂书写文字的装饰牌。"
+  },
+  {
+    "id": "minecraft:jungle_pressure_plate",
+    "name": "Jungle Pressure Plate",
+    "category": "redstone",
+    "description": "丛林木压力板，被踩踏时发出红石信号。"
+  },
+  {
+    "id": "minecraft:jungle_sapling",
+    "name": "Jungle Sapling",
+    "category": "natural",
+    "description": "丛林树苗，可种植生长为丛林树。"
+  },
+  {
+    "id": "minecraft:jungle_sign",
+    "name": "Jungle Sign",
+    "category": "decoration",
+    "description": "丛林木告示牌，可书写文字的立式装饰牌。"
+  },
+  {
+    "id": "minecraft:jungle_slab",
+    "name": "Jungle Slab",
+    "category": "building",
+    "description": "丛林木台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:jungle_stairs",
+    "name": "Jungle Stairs",
+    "category": "building",
+    "description": "丛林木楼梯，可攀爬的建筑方块。"
+  },
+  {
+    "id": "minecraft:jungle_trapdoor",
+    "name": "Jungle Trapdoor",
+    "category": "redstone",
+    "description": "丛林木活板门，可手动或红石开关的活板门。"
+  },
+  {
+    "id": "minecraft:jungle_wall_hanging_sign",
+    "name": "Jungle Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上的丛林木悬挂告示牌，附着在墙面的悬挂牌。"
+  },
+  {
+    "id": "minecraft:jungle_wall_sign",
+    "name": "Jungle Wall Sign",
+    "category": "decoration",
+    "description": "墙上的丛林木告示牌，附着在墙面的告示牌。"
+  },
+  {
+    "id": "minecraft:jungle_wood",
+    "name": "Jungle Wood",
+    "category": "building",
+    "description": "丛林木，六面带树皮的原木建筑方块。"
+  },
+  {
+    "id": "minecraft:kelp",
+    "name": "Kelp",
+    "category": "natural",
+    "description": "海带，水中生长的海洋植物，顶端会向上蔓延。"
+  },
+  {
+    "id": "minecraft:kelp_plant",
+    "name": "Kelp Plant",
+    "category": "natural",
+    "description": "海带植株，海带茎部的生长段方块。"
+  },
+  {
+    "id": "minecraft:ladder",
+    "name": "Ladder",
+    "category": "functional",
+    "description": "梯子，可攀爬的功能方块，附着在墙面上下移动。"
+  },
+  {
+    "id": "minecraft:large_amethyst_bud",
+    "name": "Large Amethyst Bud",
+    "category": "natural",
+    "description": "大型紫水晶芽，紫水晶簇成长的较大阶段。"
+  },
+  {
+    "id": "minecraft:lava_cauldron",
+    "name": "Lava Cauldron",
+    "category": "functional",
+    "description": "装有熔岩的炼药锅，可作熔岩源使用。"
+  },
+  {
+    "id": "minecraft:leaf_litter",
+    "name": "Leaf Litter",
+    "category": "natural",
+    "description": "落叶，铺在地面的薄层落叶装饰方块。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:light_blue_banner",
+    "name": "Light Blue Banner",
+    "category": "decoration",
+    "description": "淡蓝色旗帜，可用图案组合装饰，放置于地面。"
+  },
+  {
+    "id": "minecraft:light_blue_bed",
+    "name": "Light Blue Bed",
+    "category": "functional",
+    "description": "淡蓝色床，可设置重生点并跳过夜晚。"
+  },
+  {
+    "id": "minecraft:light_blue_candle",
+    "name": "Light Blue Candle",
+    "category": "decoration",
+    "description": "淡蓝色蜡烛，可点燃提供微光，最多叠放四根。"
+  },
+  {
+    "id": "minecraft:light_blue_candle_cake",
+    "name": "Light Blue Candle Cake",
+    "category": "decoration",
+    "description": "插有淡蓝色蜡烛的蛋糕，吹灭后可食用。"
+  },
+  {
+    "id": "minecraft:light_blue_carpet",
+    "name": "Light Blue Carpet",
+    "category": "decoration",
+    "description": "淡蓝色地毯，薄层装饰方块，可铺设地面。"
+  },
+  {
+    "id": "minecraft:light_blue_concrete",
+    "name": "Light Blue Concrete",
+    "category": "building",
+    "description": "淡蓝色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:light_blue_concrete_powder",
+    "name": "Light Blue Concrete Powder",
+    "category": "building",
+    "description": "淡蓝色混凝土粉末，接触水后凝固为混凝土。"
+  },
+  {
+    "id": "minecraft:light_blue_glazed_terracotta",
+    "name": "Light Blue Glazed Terracotta",
+    "category": "decoration",
+    "description": "淡蓝色带釉陶瓦，带有图案，可拼接花纹。"
+  },
+  {
+    "id": "minecraft:light_blue_shulker_box",
+    "name": "Light Blue Shulker Box",
+    "category": "functional",
+    "description": "淡蓝色潜影盒，可存储物品且破坏后保留内容物。"
+  },
+  {
+    "id": "minecraft:light_blue_stained_glass",
+    "name": "Light Blue Stained Glass",
+    "category": "building",
+    "description": "淡蓝色染色玻璃，半透明装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:light_blue_stained_glass_pane",
+    "name": "Light Blue Stained Glass Pane",
+    "category": "building",
+    "description": "淡蓝色染色玻璃板，薄片状玻璃方块。"
+  },
+  {
+    "id": "minecraft:light_blue_terracotta",
+    "name": "Light Blue Terracotta",
+    "category": "building",
+    "description": "淡蓝色陶瓦，色调柔和的建筑方块。"
+  },
+  {
+    "id": "minecraft:light_blue_wall_banner",
+    "name": "Light Blue Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的淡蓝色旗帜。"
+  },
+  {
+    "id": "minecraft:light_blue_wool",
+    "name": "Light Blue Wool",
+    "category": "building",
+    "description": "淡蓝色羊毛，可染色的柔软方块。"
+  },
+  {
+    "id": "minecraft:light_gray_banner",
+    "name": "Light Gray Banner",
+    "category": "decoration",
+    "description": "淡灰色旗帜，可用图案组合装饰，放置于地面。"
+  },
+  {
+    "id": "minecraft:light_gray_bed",
+    "name": "Light Gray Bed",
+    "category": "functional",
+    "description": "淡灰色床，可设置重生点并跳过夜晚。"
+  },
+  {
+    "id": "minecraft:light_gray_candle",
+    "name": "Light Gray Candle",
+    "category": "decoration",
+    "description": "淡灰色蜡烛，可点燃提供微光，最多叠放四根。"
+  },
+  {
+    "id": "minecraft:light_gray_candle_cake",
+    "name": "Light Gray Candle Cake",
+    "category": "decoration",
+    "description": "插有淡灰色蜡烛的蛋糕，吹灭后可食用。"
+  },
+  {
+    "id": "minecraft:light_gray_carpet",
+    "name": "Light Gray Carpet",
+    "category": "decoration",
+    "description": "淡灰色地毯，薄层装饰方块，可铺设地面。"
+  },
+  {
+    "id": "minecraft:light_gray_concrete",
+    "name": "Light Gray Concrete",
+    "category": "building",
+    "description": "淡灰色混凝土，坚固的建筑方块。"
+  },
+  {
+    "id": "minecraft:light_gray_concrete_powder",
+    "name": "Light Gray Concrete Powder",
+    "category": "building",
+    "description": "淡灰色混凝土粉末，接触水后凝固为混凝土。"
+  },
+  {
+    "id": "minecraft:light_gray_glazed_terracotta",
+    "name": "Light Gray Glazed Terracotta",
+    "category": "decoration",
+    "description": "淡灰色带釉陶瓦，带有图案，可拼接花纹。"
+  },
+  {
+    "id": "minecraft:light_gray_shulker_box",
+    "name": "Light Gray Shulker Box",
+    "category": "functional",
+    "description": "淡灰色潜影盒，可存储物品且破坏后保留内容物。"
+  },
+  {
+    "id": "minecraft:light_gray_stained_glass",
+    "name": "Light Gray Stained Glass",
+    "category": "building",
+    "description": "淡灰色染色玻璃，半透明装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:light_gray_stained_glass_pane",
+    "name": "Light Gray Stained Glass Pane",
+    "category": "building",
+    "description": "淡灰色染色玻璃板，薄片状玻璃方块。"
+  },
+  {
+    "id": "minecraft:light_gray_terracotta",
+    "name": "Light Gray Terracotta",
+    "category": "building",
+    "description": "淡灰色陶瓦，色调柔和的建筑方块。"
+  },
+  {
+    "id": "minecraft:light_gray_wall_banner",
+    "name": "Light Gray Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的淡灰色旗帜。"
+  },
+  {
+    "id": "minecraft:light_gray_wool",
+    "name": "Light Gray Wool",
+    "category": "building",
+    "description": "淡灰色羊毛，可染色的柔软方块。"
+  },
+  {
+    "id": "minecraft:lightning_rod",
+    "name": "Lightning Rod",
+    "category": "redstone",
+    "description": "避雷针，吸引附近闪电并被击中时发出红石信号。"
+  },
+  {
+    "id": "minecraft:lime_banner",
+    "name": "Lime Banner",
+    "category": "decoration",
+    "description": "黄绿色旗帜，可用图案组合装饰，放置于地面。"
+  },
+  {
+    "id": "minecraft:lime_bed",
+    "name": "Lime Bed",
+    "category": "functional",
+    "description": "黄绿色床，可设置重生点并跳过夜晚。"
+  },
+  {
+    "id": "minecraft:lime_candle",
+    "name": "Lime Candle",
+    "category": "decoration",
+    "description": "黄绿色蜡烛，可点燃提供微光，最多叠放四根。"
+  },
+  {
+    "id": "minecraft:lime_candle_cake",
+    "name": "Lime Candle Cake",
+    "category": "decoration",
+    "description": "插有黄绿色蜡烛的蛋糕，吹灭后可食用。"
+  },
+  {
+    "id": "minecraft:lime_carpet",
+    "name": "Lime Carpet",
+    "category": "decoration",
+    "description": "黄绿色地毯，薄层装饰方块，可铺设地面。"
+  },
+  {
+    "id": "minecraft:lime_concrete",
+    "name": "Lime Concrete",
+    "category": "building",
+    "description": "黄绿色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:lime_concrete_powder",
+    "name": "Lime Concrete Powder",
+    "category": "building",
+    "description": "黄绿色混凝土粉末，接触水后凝固为混凝土。"
+  },
+  {
+    "id": "minecraft:lime_glazed_terracotta",
+    "name": "Lime Glazed Terracotta",
+    "category": "decoration",
+    "description": "黄绿色带釉陶瓦，带有图案，可拼接花纹。"
+  },
+  {
+    "id": "minecraft:lime_shulker_box",
+    "name": "Lime Shulker Box",
+    "category": "functional",
+    "description": "黄绿色潜影盒，可存储物品且破坏后保留内容物。"
+  },
+  {
+    "id": "minecraft:lime_stained_glass",
+    "name": "Lime Stained Glass",
+    "category": "building",
+    "description": "黄绿色染色玻璃，半透明装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:lime_stained_glass_pane",
+    "name": "Lime Stained Glass Pane",
+    "category": "building",
+    "description": "黄绿色染色玻璃板，薄片状玻璃方块。"
+  },
+  {
+    "id": "minecraft:lime_terracotta",
+    "name": "Lime Terracotta",
+    "category": "building",
+    "description": "黄绿色陶瓦，色调柔和的建筑方块。"
+  },
+  {
+    "id": "minecraft:lime_wall_banner",
+    "name": "Lime Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的黄绿色旗帜。"
+  },
+  {
+    "id": "minecraft:lime_wool",
+    "name": "Lime Wool",
+    "category": "building",
+    "description": "黄绿色羊毛，可染色的柔软方块。"
+  },
+  {
+    "id": "minecraft:magenta_banner",
+    "name": "Magenta Banner",
+    "category": "decoration",
+    "description": "品红色旗帜，可用图案组合装饰，放置于地面。"
+  },
+  {
+    "id": "minecraft:magenta_bed",
+    "name": "Magenta Bed",
+    "category": "functional",
+    "description": "品红色床，可设置重生点并跳过夜晚。"
+  },
+  {
+    "id": "minecraft:magenta_candle",
+    "name": "Magenta Candle",
+    "category": "decoration",
+    "description": "品红色蜡烛，可点燃提供微光，最多叠放四根。"
+  },
+  {
+    "id": "minecraft:magenta_candle_cake",
+    "name": "Magenta Candle Cake",
+    "category": "decoration",
+    "description": "插有品红色蜡烛的蛋糕，吹灭后可食用。"
+  },
+  {
+    "id": "minecraft:magenta_carpet",
+    "name": "Magenta Carpet",
+    "category": "decoration",
+    "description": "品红色地毯，薄层装饰方块，可铺设地面。"
+  },
+  {
+    "id": "minecraft:magenta_concrete",
+    "name": "Magenta Concrete",
+    "category": "building",
+    "description": "品红色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:magenta_concrete_powder",
+    "name": "Magenta Concrete Powder",
+    "category": "building",
+    "description": "品红色混凝土粉末，接触水后凝固为混凝土。"
+  },
+  {
+    "id": "minecraft:magenta_glazed_terracotta",
+    "name": "Magenta Glazed Terracotta",
+    "category": "decoration",
+    "description": "品红色带釉陶瓦，带有图案，可拼接花纹。"
+  },
+  {
+    "id": "minecraft:magenta_shulker_box",
+    "name": "Magenta Shulker Box",
+    "category": "functional",
+    "description": "品红色潜影盒，可存储物品且破坏后保留内容物。"
+  },
+  {
+    "id": "minecraft:magenta_stained_glass",
+    "name": "Magenta Stained Glass",
+    "category": "building",
+    "description": "品红色染色玻璃，半透明装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:magenta_stained_glass_pane",
+    "name": "Magenta Stained Glass Pane",
+    "category": "building",
+    "description": "品红色染色玻璃板，薄片状玻璃方块。"
+  },
+  {
+    "id": "minecraft:magenta_terracotta",
+    "name": "Magenta Terracotta",
+    "category": "building",
+    "description": "品红色陶瓦，色调柔和的建筑方块。"
+  },
+  {
+    "id": "minecraft:magenta_wall_banner",
+    "name": "Magenta Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的品红色旗帜。"
+  },
+  {
+    "id": "minecraft:magenta_wool",
+    "name": "Magenta Wool",
+    "category": "building",
+    "description": "品红色羊毛，可染色的柔软方块。"
+  },
+  {
+    "id": "minecraft:magma_block",
+    "name": "Magma Block",
+    "category": "natural",
+    "description": "岩浆块，发光并对站立的生物造成伤害，可在水下产生气泡柱。"
+  },
+  {
+    "id": "minecraft:mangrove_button",
+    "name": "Mangrove Button",
+    "category": "redstone",
+    "description": "红树木按钮，按下后发出短暂红石信号。"
+  },
+  {
+    "id": "minecraft:mangrove_door",
+    "name": "Mangrove Door",
+    "category": "building",
+    "description": "红树木门，可开关的高门，能被红石激活。"
+  },
+  {
+    "id": "minecraft:mangrove_fence",
+    "name": "Mangrove Fence",
+    "category": "building",
+    "description": "红树木栅栏，可连接成围栏阻挡生物。"
+  },
+  {
+    "id": "minecraft:mangrove_fence_gate",
+    "name": "Mangrove Fence Gate",
+    "category": "redstone",
+    "description": "红树木栅栏门，可开关并由红石控制。"
+  },
+  {
+    "id": "minecraft:mangrove_hanging_sign",
+    "name": "Mangrove Hanging Sign",
+    "category": "decoration",
+    "description": "红树木悬挂告示牌，可悬挂并书写文字。"
+  },
+  {
+    "id": "minecraft:mangrove_pressure_plate",
+    "name": "Mangrove Pressure Plate",
+    "category": "redstone",
+    "description": "红树木压力板，实体踩踏时发出红石信号。"
+  },
+  {
+    "id": "minecraft:mangrove_propagule",
+    "name": "Mangrove Propagule",
+    "category": "natural",
+    "description": "红树胎生苗，可悬挂生长并种植成红树。"
+  },
+  {
+    "id": "minecraft:mangrove_roots",
+    "name": "Mangrove Roots",
+    "category": "natural",
+    "description": "红树根，红树林生成的可透光根系方块。"
+  },
+  {
+    "id": "minecraft:mangrove_sign",
+    "name": "Mangrove Sign",
+    "category": "decoration",
+    "description": "红树木告示牌，可书写文字并放置于地面。"
+  },
+  {
+    "id": "minecraft:mangrove_slab",
+    "name": "Mangrove Slab",
+    "category": "building",
+    "description": "红树木台阶，半高建筑方块。"
+  },
+  {
+    "id": "minecraft:mangrove_stairs",
+    "name": "Mangrove Stairs",
+    "category": "building",
+    "description": "红树木楼梯，用于上下通行的阶梯方块。"
+  },
+  {
+    "id": "minecraft:mangrove_trapdoor",
+    "name": "Mangrove Trapdoor",
+    "category": "building",
+    "description": "红树木活板门，可开关并由红石激活。"
+  },
+  {
+    "id": "minecraft:mangrove_wall_hanging_sign",
+    "name": "Mangrove Wall Hanging Sign",
+    "category": "decoration",
+    "description": "贴墙安装的红树木悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:mangrove_wall_sign",
+    "name": "Mangrove Wall Sign",
+    "category": "decoration",
+    "description": "挂在墙上的红树木告示牌。"
+  },
+  {
+    "id": "minecraft:mangrove_wood",
+    "name": "Mangrove Wood",
+    "category": "building",
+    "description": "红树木原木，六面均带树皮的方块。"
+  },
+  {
+    "id": "minecraft:medium_amethyst_bud",
+    "name": "Medium Amethyst Bud",
+    "category": "natural",
+    "description": "中型紫水晶芽，紫晶洞中生长的中阶晶簇。"
+  },
+  {
+    "id": "minecraft:melon",
+    "name": "Melon",
+    "category": "natural",
+    "description": "西瓜，可破坏获得西瓜片，由瓜茎结出。"
+  },
+  {
+    "id": "minecraft:melon_stem",
+    "name": "Melon Stem",
+    "category": "natural",
+    "description": "西瓜茎，成熟后会在旁侧结出西瓜。"
+  },
+  {
+    "id": "minecraft:mossy_cobblestone_slab",
+    "name": "Mossy Cobblestone Slab",
+    "category": "building",
+    "description": "苔石台阶，带苔藓的圆石半高方块。"
+  },
+  {
+    "id": "minecraft:mossy_cobblestone_stairs",
+    "name": "Mossy Cobblestone Stairs",
+    "category": "building",
+    "description": "苔石楼梯，带苔藓的圆石阶梯方块。"
+  },
+  {
+    "id": "minecraft:mossy_cobblestone_wall",
+    "name": "Mossy Cobblestone Wall",
+    "category": "building",
+    "description": "苔石墙，带苔藓的圆石墙体方块。"
+  },
+  {
+    "id": "minecraft:mossy_stone_brick_slab",
+    "name": "Mossy Stone Brick Slab",
+    "category": "building",
+    "description": "苔石砖台阶，带苔藓的石砖半高方块。"
+  },
+  {
+    "id": "minecraft:mossy_stone_brick_stairs",
+    "name": "Mossy Stone Brick Stairs",
+    "category": "building",
+    "description": "苔石砖楼梯，带苔藓的石砖阶梯方块。"
+  },
+  {
+    "id": "minecraft:mossy_stone_brick_wall",
+    "name": "Mossy Stone Brick Wall",
+    "category": "building",
+    "description": "苔石砖墙，带苔藓的石砖墙体方块。"
+  },
+  {
+    "id": "minecraft:mud_brick_slab",
+    "name": "Mud Brick Slab",
+    "category": "building",
+    "description": "泥砖台阶，泥砖制成的半高方块。"
+  },
+  {
+    "id": "minecraft:mud_brick_stairs",
+    "name": "Mud Brick Stairs",
+    "category": "building",
+    "description": "泥砖楼梯，泥砖制成的阶梯方块。"
+  },
+  {
+    "id": "minecraft:mud_brick_wall",
+    "name": "Mud Brick Wall",
+    "category": "building",
+    "description": "泥砖墙，泥砖制成的墙体方块。"
+  },
+  {
+    "id": "minecraft:muddy_mangrove_roots",
+    "name": "Muddy Mangrove Roots",
+    "category": "natural",
+    "description": "沾泥的红树根，红树林沼泽中的实心根系方块。"
+  },
+  {
+    "id": "minecraft:mycelium",
+    "name": "Mycelium",
+    "category": "natural",
+    "description": "菌丝体，蘑菇岛特有的方块，会向相邻泥土蔓延。"
+  },
+  {
+    "id": "minecraft:nether_brick_fence",
+    "name": "Nether Brick Fence",
+    "category": "building",
+    "description": "地狱砖栅栏，防火的围栏方块。"
+  },
+  {
+    "id": "minecraft:nether_brick_slab",
+    "name": "Nether Brick Slab",
+    "category": "building",
+    "description": "地狱砖台阶，地狱砖制成的半高方块。"
+  },
+  {
+    "id": "minecraft:nether_brick_stairs",
+    "name": "Nether Brick Stairs",
+    "category": "building",
+    "description": "地狱砖楼梯，地狱砖制成的阶梯方块。"
+  },
+  {
+    "id": "minecraft:nether_brick_wall",
+    "name": "Nether Brick Wall",
+    "category": "building",
+    "description": "地狱砖墙，地狱砖制成的墙体方块。"
+  },
+  {
+    "id": "minecraft:nether_sprouts",
+    "name": "Nether Sprouts",
+    "category": "natural",
+    "description": "地狱苗，绯红森林中生长的青绿色小型植被。"
+  },
+  {
+    "id": "minecraft:nether_wart",
+    "name": "Nether Wart",
+    "category": "natural",
+    "description": "地狱疣，种植在灵魂沙上的酿造材料作物。"
+  },
+  {
+    "id": "minecraft:oak_hanging_sign",
+    "name": "Oak Hanging Sign",
+    "category": "decoration",
+    "description": "橡木悬挂告示牌，可悬挂并书写文字。"
+  },
+  {
+    "id": "minecraft:oak_sapling",
+    "name": "Oak Sapling",
+    "category": "natural",
+    "description": "橡树树苗，种植后可长成橡树。"
+  },
+  {
+    "id": "minecraft:oak_sign",
+    "name": "Oak Sign",
+    "category": "decoration",
+    "description": "橡木告示牌，可书写文字并放置于地面。"
+  },
+  {
+    "id": "minecraft:oak_wall_hanging_sign",
+    "name": "Oak Wall Hanging Sign",
+    "category": "decoration",
+    "description": "贴墙安装的橡木悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:oak_wall_sign",
+    "name": "Oak Wall Sign",
+    "category": "decoration",
+    "description": "挂在墙上的橡木告示牌。"
+  },
+  {
+    "id": "minecraft:oak_wood",
+    "name": "Oak Wood",
+    "category": "building",
+    "description": "橡木原木，六面均带树皮的方块。"
+  },
+  {
+    "id": "minecraft:ochre_froglight",
+    "name": "Ochre Froglight",
+    "category": "natural",
+    "description": "赭黄色蛙明灯，青蛙吞食小型岩浆怪后产出的发光方块。"
+  },
+  {
+    "id": "minecraft:open_eyeblossom",
+    "name": "Open Eyeblossom",
+    "category": "natural",
+    "description": "绽放的眼眶花，白天开放的苍白花朵，会吸引并伤害蜜蜂。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:orange_banner",
+    "name": "Orange Banner",
+    "category": "decoration",
+    "description": "橙色旗帜，可用图案组合装饰，放置于地面。"
+  },
+  {
+    "id": "minecraft:orange_bed",
+    "name": "Orange Bed",
+    "category": "functional",
+    "description": "橙色床，可设置重生点并跳过夜晚。"
+  },
+  {
+    "id": "minecraft:orange_candle",
+    "name": "Orange Candle",
+    "category": "decoration",
+    "description": "橙色蜡烛，可点燃提供微光，最多叠放四根。"
+  },
+  {
+    "id": "minecraft:orange_candle_cake",
+    "name": "Orange Candle Cake",
+    "category": "decoration",
+    "description": "插有橙色蜡烛的蛋糕，吹灭后可食用。"
+  },
+  {
+    "id": "minecraft:orange_carpet",
+    "name": "Orange Carpet",
+    "category": "decoration",
+    "description": "橙色地毯，薄层装饰方块，可铺设地面。"
+  },
+  {
+    "id": "minecraft:orange_concrete",
+    "name": "Orange Concrete",
+    "category": "building",
+    "description": "橙色混凝土，色彩鲜艳的坚固建筑方块。"
+  },
+  {
+    "id": "minecraft:orange_concrete_powder",
+    "name": "Orange Concrete Powder",
+    "category": "building",
+    "description": "橙色混凝土粉末，接触水后凝固为混凝土。"
+  },
+  {
+    "id": "minecraft:orange_glazed_terracotta",
+    "name": "Orange Glazed Terracotta",
+    "category": "decoration",
+    "description": "橙色带釉陶瓦，带有图案，可拼接花纹。"
+  },
+  {
+    "id": "minecraft:orange_shulker_box",
+    "name": "Orange Shulker Box",
+    "category": "functional",
+    "description": "橙色潜影盒，可存储物品且破坏后保留内容物。"
+  },
+  {
+    "id": "minecraft:orange_stained_glass",
+    "name": "Orange Stained Glass",
+    "category": "building",
+    "description": "橙色染色玻璃，半透明装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:orange_stained_glass_pane",
+    "name": "Orange Stained Glass Pane",
+    "category": "building",
+    "description": "橙色染色玻璃板，薄片状玻璃方块。"
+  },
+  {
+    "id": "minecraft:orange_terracotta",
+    "name": "Orange Terracotta",
+    "category": "building",
+    "description": "橙色陶瓦，色调柔和的建筑方块。"
+  },
+  {
+    "id": "minecraft:orange_tulip",
+    "name": "Orange Tulip",
+    "category": "natural",
+    "description": "橙色郁金香，可制作染料的小花。"
+  },
+  {
+    "id": "minecraft:orange_wall_banner",
+    "name": "Orange Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的橙色旗帜。"
+  },
+  {
+    "id": "minecraft:orange_wool",
+    "name": "Orange Wool",
+    "category": "building",
+    "description": "橙色羊毛，可染色的柔软方块。"
+  },
+  {
+    "id": "minecraft:oxidized_chiseled_copper",
+    "name": "Oxidized Chiseled Copper",
+    "category": "building",
+    "description": "氧化雕纹铜块，完全氧化呈青绿色的雕花铜方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oxidized_copper_bars",
+    "name": "Oxidized Copper Bars",
+    "category": "building",
+    "description": "氧化铜栏杆，完全氧化呈青绿色的铜栏杆。"
+  },
+  {
+    "id": "minecraft:oxidized_copper_bulb",
+    "name": "Oxidized Copper Bulb",
+    "category": "redstone",
+    "description": "氧化铜灯，可由红石切换开关的氧化铜光源方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oxidized_copper_chain",
+    "name": "Oxidized Copper Chain",
+    "category": "decoration",
+    "description": "氧化铜链，完全氧化呈青绿色的铜链装饰方块。"
+  },
+  {
+    "id": "minecraft:oxidized_copper_chest",
+    "name": "Oxidized Copper Chest",
+    "category": "functional",
+    "description": "氧化铜箱子，铜方块的高度氧化（青绿色）变体储物容器。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:oxidized_copper_door",
+    "name": "Oxidized Copper Door",
+    "category": "redstone",
+    "description": "氧化铜门，完全氧化（青绿色）的铜门，可被红石信号开关。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oxidized_copper_golem_statue",
+    "name": "Oxidized Copper Golem Statue",
+    "category": "decoration",
+    "description": "氧化铜傀儡雕像，铜傀儡完全氧化后形成的青绿色雕像方块。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:oxidized_copper_grate",
+    "name": "Oxidized Copper Grate",
+    "category": "building",
+    "description": "氧化铜格栅，完全氧化（青绿色）的透光铜格栅方块。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oxidized_copper_lantern",
+    "name": "Oxidized Copper Lantern",
+    "category": "decoration",
+    "description": "氧化铜灯笼，完全氧化（青绿色）的铜灯笼，可提供照明。",
+    "since": "1.21.9"
+  },
+  {
+    "id": "minecraft:oxidized_copper_trapdoor",
+    "name": "Oxidized Copper Trapdoor",
+    "category": "redstone",
+    "description": "氧化铜活板门，完全氧化（青绿色）的铜活板门，可被红石激活。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oxidized_cut_copper",
+    "name": "Oxidized Cut Copper",
+    "category": "building",
+    "description": "氧化切制铜块，完全氧化（青绿色）的切制铜建材。"
+  },
+  {
+    "id": "minecraft:oxidized_cut_copper_slab",
+    "name": "Oxidized Cut Copper Slab",
+    "category": "building",
+    "description": "氧化切制铜台阶，氧化切制铜块制成的半砖。"
+  },
+  {
+    "id": "minecraft:oxidized_cut_copper_stairs",
+    "name": "Oxidized Cut Copper Stairs",
+    "category": "building",
+    "description": "氧化切制铜楼梯，氧化切制铜块制成的楼梯。"
+  },
+  {
+    "id": "minecraft:oxidized_lightning_rod",
+    "name": "Oxidized Lightning Rod",
+    "category": "redstone",
+    "description": "氧化避雷针，完全氧化（青绿色）的避雷针，可引导闪电并发出红石信号。"
+  },
+  {
+    "id": "minecraft:pale_hanging_moss",
+    "name": "Pale Hanging Moss",
+    "category": "natural",
+    "description": "苍白悬挂苔藓，生长于苍白橡木林中悬垂的装饰性植被。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_moss_block",
+    "name": "Pale Moss Block",
+    "category": "natural",
+    "description": "苍白苔藓块，苍白橡木生物群系的苔藓方块，可用骨粉扩散。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_moss_carpet",
+    "name": "Pale Moss Carpet",
+    "category": "decoration",
+    "description": "苍白苔藓地毯，可铺设并攀附墙面的薄层苍白苔藓。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_button",
+    "name": "Pale Oak Button",
+    "category": "redstone",
+    "description": "苍白橡木按钮，按下后发出短暂红石信号。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_door",
+    "name": "Pale Oak Door",
+    "category": "redstone",
+    "description": "苍白橡木门，可手动或由红石信号开关的木门。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_fence",
+    "name": "Pale Oak Fence",
+    "category": "building",
+    "description": "苍白橡木栅栏，可连接并阻挡跨越的木栅栏。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_fence_gate",
+    "name": "Pale Oak Fence Gate",
+    "category": "redstone",
+    "description": "苍白橡木栅栏门，可开关的栅栏门，能被红石激活。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_hanging_sign",
+    "name": "Pale Oak Hanging Sign",
+    "category": "decoration",
+    "description": "苍白橡木悬挂告示牌，悬挂于方块下方可书写文字。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_pressure_plate",
+    "name": "Pale Oak Pressure Plate",
+    "category": "redstone",
+    "description": "苍白橡木压力板，实体踩踏时发出红石信号。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_sapling",
+    "name": "Pale Oak Sapling",
+    "category": "natural",
+    "description": "苍白橡木树苗，可种植长成苍白橡树。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_sign",
+    "name": "Pale Oak Sign",
+    "category": "decoration",
+    "description": "苍白橡木告示牌，可书写文字的立式告示牌。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_slab",
+    "name": "Pale Oak Slab",
+    "category": "building",
+    "description": "苍白橡木台阶，苍白橡木板材制成的半砖。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_stairs",
+    "name": "Pale Oak Stairs",
+    "category": "building",
+    "description": "苍白橡木楼梯，苍白橡木板材制成的楼梯。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_trapdoor",
+    "name": "Pale Oak Trapdoor",
+    "category": "redstone",
+    "description": "苍白橡木活板门，可手动或红石开关的木活板门。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_wall_hanging_sign",
+    "name": "Pale Oak Wall Hanging Sign",
+    "category": "decoration",
+    "description": "苍白橡木墙挂告示牌，附着于墙面的悬挂告示牌形态。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_wall_sign",
+    "name": "Pale Oak Wall Sign",
+    "category": "decoration",
+    "description": "苍白橡木墙上告示牌，贴附墙面的告示牌形态。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pale_oak_wood",
+    "name": "Pale Oak Wood",
+    "category": "building",
+    "description": "苍白橡木，六面均带树皮的苍白橡木原木方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:pearlescent_froglight",
+    "name": "Pearlescent Froglight",
+    "category": "decoration",
+    "description": "珠光蛙明灯，紫色发光方块，由蛙吞食洞穴蝙蝠时产生。"
+  },
+  {
+    "id": "minecraft:petrified_oak_slab",
+    "name": "Petrified Oak Slab",
+    "category": "building",
+    "description": "石化橡木台阶，仅能合法获取的旧版木台阶，外观为橡木。"
+  },
+  {
+    "id": "minecraft:piglin_head",
+    "name": "Piglin Head",
+    "category": "decoration",
+    "description": "猪灵头颅，可放置或佩戴的猪灵头部装饰方块。"
+  },
+  {
+    "id": "minecraft:piglin_wall_head",
+    "name": "Piglin Wall Head",
+    "category": "decoration",
+    "description": "墙上猪灵头颅，附着于墙面的猪灵头颅形态。"
+  },
+  {
+    "id": "minecraft:pink_banner",
+    "name": "Pink Banner",
+    "category": "decoration",
+    "description": "粉红色旗帜，可添加图案的立式旗帜。"
+  },
+  {
+    "id": "minecraft:pink_bed",
+    "name": "Pink Bed",
+    "category": "functional",
+    "description": "粉红色床，可睡眠跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:pink_candle",
+    "name": "Pink Candle",
+    "category": "decoration",
+    "description": "粉红色蜡烛，可点燃照明，最多可堆叠四根。"
+  },
+  {
+    "id": "minecraft:pink_candle_cake",
+    "name": "Pink Candle Cake",
+    "category": "functional",
+    "description": "插粉红色蜡烛的蛋糕，吹灭蜡烛后可食用。"
+  },
+  {
+    "id": "minecraft:pink_carpet",
+    "name": "Pink Carpet",
+    "category": "decoration",
+    "description": "粉红色地毯，铺于地面的薄层羊毛装饰。"
+  },
+  {
+    "id": "minecraft:pink_concrete",
+    "name": "Pink Concrete",
+    "category": "building",
+    "description": "粉红色混凝土，颜色鲜艳的坚固建材。"
+  },
+  {
+    "id": "minecraft:pink_concrete_powder",
+    "name": "Pink Concrete Powder",
+    "category": "building",
+    "description": "粉红色混凝土粉末，遇水后凝固成粉红色混凝土。"
+  },
+  {
+    "id": "minecraft:pink_glazed_terracotta",
+    "name": "Pink Glazed Terracotta",
+    "category": "building",
+    "description": "粉红色带釉陶瓦，带有装饰花纹的陶瓦建材。"
+  },
+  {
+    "id": "minecraft:pink_petals",
+    "name": "Pink Petals",
+    "category": "natural",
+    "description": "粉红色花瓣，生长于樱花林地面的可叠放花瓣装饰。"
+  },
+  {
+    "id": "minecraft:pink_shulker_box",
+    "name": "Pink Shulker Box",
+    "category": "functional",
+    "description": "粉红色潜影盒，可携带物品的便携储物容器。"
+  },
+  {
+    "id": "minecraft:pink_stained_glass",
+    "name": "Pink Stained Glass",
+    "category": "building",
+    "description": "粉红色染色玻璃，透光的彩色玻璃方块。"
+  },
+  {
+    "id": "minecraft:pink_stained_glass_pane",
+    "name": "Pink Stained Glass Pane",
+    "category": "building",
+    "description": "粉红色染色玻璃板，薄片状的彩色玻璃。"
+  },
+  {
+    "id": "minecraft:pink_terracotta",
+    "name": "Pink Terracotta",
+    "category": "building",
+    "description": "粉红色陶瓦，染色的陶土建材。"
+  },
+  {
+    "id": "minecraft:pink_tulip",
+    "name": "Pink Tulip",
+    "category": "natural",
+    "description": "粉红色郁金香，可用于制作粉红色染料的花朵。"
+  },
+  {
+    "id": "minecraft:pink_wall_banner",
+    "name": "Pink Wall Banner",
+    "category": "decoration",
+    "description": "粉红色墙上旗帜，附着于墙面的旗帜形态。"
+  },
+  {
+    "id": "minecraft:pink_wool",
+    "name": "Pink Wool",
+    "category": "building",
+    "description": "粉红色羊毛，可染色的柔软建材。"
+  },
+  {
+    "id": "minecraft:pitcher_crop",
+    "name": "Pitcher Crop",
+    "category": "natural",
+    "description": "瓶子草作物，瓶子草豆种植后的生长阶段方块。"
+  },
+  {
+    "id": "minecraft:player_head",
+    "name": "Player Head",
+    "category": "decoration",
+    "description": "玩家头颅，可显示指定玩家皮肤头像的装饰方块。"
+  },
+  {
+    "id": "minecraft:player_wall_head",
+    "name": "Player Wall Head",
+    "category": "decoration",
+    "description": "墙上玩家头颅，附着于墙面的玩家头颅形态。"
+  },
+  {
+    "id": "minecraft:polished_andesite_slab",
+    "name": "Polished Andesite Slab",
+    "category": "building",
+    "description": "磨制安山岩台阶，磨制安山岩制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_andesite_stairs",
+    "name": "Polished Andesite Stairs",
+    "category": "building",
+    "description": "磨制安山岩楼梯，磨制安山岩制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_brick_slab",
+    "name": "Polished Blackstone Brick Slab",
+    "category": "building",
+    "description": "磨制黑石砖台阶，磨制黑石砖制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_brick_stairs",
+    "name": "Polished Blackstone Brick Stairs",
+    "category": "building",
+    "description": "磨制黑石砖楼梯，磨制黑石砖制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_brick_wall",
+    "name": "Polished Blackstone Brick Wall",
+    "category": "building",
+    "description": "磨制黑石砖墙，磨制黑石砖制成的可连接矮墙。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_button",
+    "name": "Polished Blackstone Button",
+    "category": "redstone",
+    "description": "磨制黑石按钮，按下后发出短暂红石信号。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_pressure_plate",
+    "name": "Polished Blackstone Pressure Plate",
+    "category": "redstone",
+    "description": "磨制黑石压力板，实体踩踏时发出红石信号。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_slab",
+    "name": "Polished Blackstone Slab",
+    "category": "building",
+    "description": "磨制黑石台阶，磨制黑石制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_stairs",
+    "name": "Polished Blackstone Stairs",
+    "category": "building",
+    "description": "磨制黑石楼梯，磨制黑石制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_blackstone_wall",
+    "name": "Polished Blackstone Wall",
+    "category": "building",
+    "description": "磨制黑石墙，磨制黑石制成的可连接矮墙。"
+  },
+  {
+    "id": "minecraft:polished_cinnabar",
+    "name": "Polished Cinnabar",
+    "category": "building",
+    "description": "磨制朱砂块，表面平整的朱砂装饰建材。"
+  },
+  {
+    "id": "minecraft:polished_cinnabar_slab",
+    "name": "Polished Cinnabar Slab",
+    "category": "building",
+    "description": "磨制朱砂台阶，磨制朱砂块制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_cinnabar_stairs",
+    "name": "Polished Cinnabar Stairs",
+    "category": "building",
+    "description": "磨制朱砂楼梯，磨制朱砂块制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_cinnabar_wall",
+    "name": "Polished Cinnabar Wall",
+    "category": "building",
+    "description": "磨制朱砂墙，磨制朱砂块制成的可连接矮墙。"
+  },
+  {
+    "id": "minecraft:polished_deepslate_slab",
+    "name": "Polished Deepslate Slab",
+    "category": "building",
+    "description": "磨制深板岩台阶，磨制深板岩制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_deepslate_stairs",
+    "name": "Polished Deepslate Stairs",
+    "category": "building",
+    "description": "磨制深板岩楼梯，磨制深板岩制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_deepslate_wall",
+    "name": "Polished Deepslate Wall",
+    "category": "building",
+    "description": "磨制深板岩墙，磨制深板岩制成的可连接矮墙。"
+  },
+  {
+    "id": "minecraft:polished_diorite_slab",
+    "name": "Polished Diorite Slab",
+    "category": "building",
+    "description": "磨制闪长岩台阶，磨制闪长岩制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_diorite_stairs",
+    "name": "Polished Diorite Stairs",
+    "category": "building",
+    "description": "磨制闪长岩楼梯，磨制闪长岩制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_granite_slab",
+    "name": "Polished Granite Slab",
+    "category": "building",
+    "description": "磨制花岗岩台阶，磨制花岗岩制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_granite_stairs",
+    "name": "Polished Granite Stairs",
+    "category": "building",
+    "description": "磨制花岗岩楼梯，磨制花岗岩制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_sulfur",
+    "name": "Polished Sulfur",
+    "category": "building",
+    "description": "磨制硫磺块，表面平整的硫磺装饰建材。"
+  },
+  {
+    "id": "minecraft:polished_sulfur_slab",
+    "name": "Polished Sulfur Slab",
+    "category": "building",
+    "description": "磨制硫磺台阶，磨制硫磺块制成的半砖。"
+  },
+  {
+    "id": "minecraft:polished_sulfur_stairs",
+    "name": "Polished Sulfur Stairs",
+    "category": "building",
+    "description": "磨制硫磺楼梯，磨制硫磺块制成的楼梯。"
+  },
+  {
+    "id": "minecraft:polished_sulfur_wall",
+    "name": "Polished Sulfur Wall",
+    "category": "building",
+    "description": "磨制硫磺墙，磨制硫磺块制成的可连接矮墙。"
+  },
+  {
+    "id": "minecraft:polished_tuff_slab",
+    "name": "Polished Tuff Slab",
+    "category": "building",
+    "description": "磨制凝灰岩台阶，磨制凝灰岩制成的半砖。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:polished_tuff_stairs",
+    "name": "Polished Tuff Stairs",
+    "category": "building",
+    "description": "磨制凝灰岩楼梯，磨制凝灰岩制成的楼梯。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:polished_tuff_wall",
+    "name": "Polished Tuff Wall",
+    "category": "building",
+    "description": "磨制凝灰岩墙，磨制凝灰岩制成的可连接矮墙。",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:potatoes",
+    "name": "Potatoes",
+    "category": "natural",
+    "description": "马铃薯作物，种植后逐渐成熟可收获马铃薯。"
+  },
+  {
+    "id": "minecraft:potent_sulfur",
+    "name": "Potent Sulfur",
+    "category": "building",
+    "description": "强效硫磺块，纯度更高的硫磺装饰建材。"
+  },
+  {
+    "id": "minecraft:potted_acacia_sapling",
+    "name": "Potted Acacia Sapling",
+    "category": "decoration",
+    "description": "盆栽金合欢树苗，置于花盆中的金合欢树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_allium",
+    "name": "Potted Allium",
+    "category": "decoration",
+    "description": "盆栽绒球葱，置于花盆中的绒球葱装饰。"
+  },
+  {
+    "id": "minecraft:potted_azalea_bush",
+    "name": "Potted Azalea Bush",
+    "category": "decoration",
+    "description": "盆栽杜鹃花丛，置于花盆中的杜鹃花丛装饰。"
+  },
+  {
+    "id": "minecraft:potted_azure_bluet",
+    "name": "Potted Azure Bluet",
+    "category": "decoration",
+    "description": "盆栽蓝花美耳草，置于花盆中的蓝花美耳草装饰。"
+  },
+  {
+    "id": "minecraft:potted_bamboo",
+    "name": "Potted Bamboo",
+    "category": "decoration",
+    "description": "盆栽竹子，置于花盆中的竹子装饰。"
+  },
+  {
+    "id": "minecraft:potted_birch_sapling",
+    "name": "Potted Birch Sapling",
+    "category": "decoration",
+    "description": "盆栽白桦树苗，置于花盆中的白桦树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_blue_orchid",
+    "name": "Potted Blue Orchid",
+    "category": "decoration",
+    "description": "盆栽兰花，置于花盆中的蓝色兰花装饰。"
+  },
+  {
+    "id": "minecraft:potted_brown_mushroom",
+    "name": "Potted Brown Mushroom",
+    "category": "decoration",
+    "description": "盆栽棕色蘑菇，置于花盆中的棕色蘑菇装饰。"
+  },
+  {
+    "id": "minecraft:potted_cactus",
+    "name": "Potted Cactus",
+    "category": "decoration",
+    "description": "盆栽仙人掌，置于花盆中的仙人掌装饰。"
+  },
+  {
+    "id": "minecraft:potted_cherry_sapling",
+    "name": "Potted Cherry Sapling",
+    "category": "decoration",
+    "description": "盆栽樱花树苗，置于花盆中的樱花树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_closed_eyeblossom",
+    "name": "Potted Closed Eyeblossom",
+    "category": "decoration",
+    "description": "盆栽闭眼花，置于花盆中的闭合状态眼眸花装饰。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:potted_cornflower",
+    "name": "Potted Cornflower",
+    "category": "decoration",
+    "description": "盆栽矢车菊，置于花盆中的矢车菊装饰。"
+  },
+  {
+    "id": "minecraft:potted_crimson_fungus",
+    "name": "Potted Crimson Fungus",
+    "category": "decoration",
+    "description": "盆栽绯红菌，置于花盆中的绯红菌装饰。"
+  },
+  {
+    "id": "minecraft:potted_crimson_roots",
+    "name": "Potted Crimson Roots",
+    "category": "decoration",
+    "description": "盆栽绯红菌索，置于花盆中的绯红菌索装饰。"
+  },
+  {
+    "id": "minecraft:potted_dandelion",
+    "name": "Potted Dandelion",
+    "category": "decoration",
+    "description": "盆栽蒲公英，置于花盆中的蒲公英装饰。"
+  },
+  {
+    "id": "minecraft:potted_dark_oak_sapling",
+    "name": "Potted Dark Oak Sapling",
+    "category": "decoration",
+    "description": "盆栽深色橡木树苗，置于花盆中的深色橡木树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_dead_bush",
+    "name": "Potted Dead Bush",
+    "category": "decoration",
+    "description": "盆栽枯萎的灌木，置于花盆中的枯灌木装饰。"
+  },
+  {
+    "id": "minecraft:potted_fern",
+    "name": "Potted Fern",
+    "category": "decoration",
+    "description": "盆栽蕨，置于花盆中的蕨类装饰。"
+  },
+  {
+    "id": "minecraft:potted_flowering_azalea_bush",
+    "name": "Potted Flowering Azalea Bush",
+    "category": "decoration",
+    "description": "盆栽盛开杜鹃花丛，置于花盆中的盛开杜鹃花丛装饰。"
+  },
+  {
+    "id": "minecraft:potted_golden_dandelion",
+    "name": "Potted Golden Dandelion",
+    "category": "decoration",
+    "description": "盆栽金色蒲公英，置于花盆中的金色蒲公英装饰。"
+  },
+  {
+    "id": "minecraft:potted_jungle_sapling",
+    "name": "Potted Jungle Sapling",
+    "category": "decoration",
+    "description": "盆栽丛林树苗，置于花盆中的丛林树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_lily_of_the_valley",
+    "name": "Potted Lily of the Valley",
+    "category": "decoration",
+    "description": "盆栽铃兰，置于花盆中的铃兰装饰。"
+  },
+  {
+    "id": "minecraft:potted_mangrove_propagule",
+    "name": "Potted Mangrove Propagule",
+    "category": "decoration",
+    "description": "盆栽红树胎生苗，置于花盆中的红树胎生苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_oak_sapling",
+    "name": "Potted Oak Sapling",
+    "category": "decoration",
+    "description": "盆栽橡树苗，置于花盆中的橡树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_open_eyeblossom",
+    "name": "Potted Open Eyeblossom",
+    "category": "decoration",
+    "description": "盆栽睁眼花，置于花盆中的张开状态眼眸花装饰。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:potted_orange_tulip",
+    "name": "Potted Orange Tulip",
+    "category": "decoration",
+    "description": "盆栽橙色郁金香，置于花盆中的橙色郁金香装饰。"
+  },
+  {
+    "id": "minecraft:potted_oxeye_daisy",
+    "name": "Potted Oxeye Daisy",
+    "category": "decoration",
+    "description": "盆栽雏菊，置于花盆中的滨菊装饰。"
+  },
+  {
+    "id": "minecraft:potted_pale_oak_sapling",
+    "name": "Potted Pale Oak Sapling",
+    "category": "decoration",
+    "description": "盆栽苍白橡木树苗，置于花盆中的苍白橡木树苗装饰。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:potted_pink_tulip",
+    "name": "Potted Pink Tulip",
+    "category": "decoration",
+    "description": "盆栽粉红色郁金香，置于花盆中的粉红色郁金香装饰。"
+  },
+  {
+    "id": "minecraft:potted_poppy",
+    "name": "Potted Poppy",
+    "category": "decoration",
+    "description": "盆栽虞美人，置于花盆中的虞美人装饰。"
+  },
+  {
+    "id": "minecraft:potted_red_mushroom",
+    "name": "Potted Red Mushroom",
+    "category": "decoration",
+    "description": "盆栽红色蘑菇，置于花盆中的红色蘑菇装饰。"
+  },
+  {
+    "id": "minecraft:potted_red_tulip",
+    "name": "Potted Red Tulip",
+    "category": "decoration",
+    "description": "盆栽红色郁金香，置于花盆中的红色郁金香装饰。"
+  },
+  {
+    "id": "minecraft:potted_spruce_sapling",
+    "name": "Potted Spruce Sapling",
+    "category": "decoration",
+    "description": "盆栽云杉树苗，置于花盆中的云杉树苗装饰。"
+  },
+  {
+    "id": "minecraft:potted_torchflower",
+    "name": "Potted Torchflower",
+    "category": "decoration",
+    "description": "盆栽火把花，置于花盆中的火把花装饰。"
+  },
+  {
+    "id": "minecraft:potted_warped_fungus",
+    "name": "Potted Warped Fungus",
+    "category": "decoration",
+    "description": "盆栽诡异菌，置于花盆中的诡异菌装饰。"
+  },
+  {
+    "id": "minecraft:potted_warped_roots",
+    "name": "Potted Warped Roots",
+    "category": "decoration",
+    "description": "盆栽诡异菌索，置于花盆中的诡异菌索装饰。"
+  },
+  {
+    "id": "minecraft:potted_white_tulip",
+    "name": "Potted White Tulip",
+    "category": "decoration",
+    "description": "盆栽白色郁金香，置于花盆中的白色郁金香装饰。"
+  },
+  {
+    "id": "minecraft:potted_wither_rose",
+    "name": "Potted Wither Rose",
+    "category": "decoration",
+    "description": "盆栽凋灵玫瑰，置于花盆中的凋灵玫瑰装饰。"
+  },
+  {
+    "id": "minecraft:powder_snow_cauldron",
+    "name": "Powder Snow Cauldron",
+    "category": "functional",
+    "description": "细雪炼药锅，盛有细雪的炼药锅，可填充细雪桶。"
+  },
+  {
+    "id": "minecraft:prismarine_brick_slab",
+    "name": "Prismarine Brick Slab",
+    "category": "building",
+    "description": "海晶石砖台阶，海晶石砖制成的半砖。"
+  },
+  {
+    "id": "minecraft:prismarine_brick_stairs",
+    "name": "Prismarine Brick Stairs",
+    "category": "building",
+    "description": "海晶石砖楼梯，由海晶石砖制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:prismarine_slab",
+    "name": "Prismarine Slab",
+    "category": "building",
+    "description": "海晶石台阶，半砖高的海晶石方块。"
+  },
+  {
+    "id": "minecraft:prismarine_stairs",
+    "name": "Prismarine Stairs",
+    "category": "building",
+    "description": "海晶石楼梯，由海晶石制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:prismarine_wall",
+    "name": "Prismarine Wall",
+    "category": "building",
+    "description": "海晶石墙，用海晶石建造的矮墙。"
+  },
+  {
+    "id": "minecraft:pumpkin",
+    "name": "Pumpkin",
+    "category": "natural",
+    "description": "南瓜，可在草地上自然生长，雕刻后可制作南瓜灯或召唤雪傀儡。"
+  },
+  {
+    "id": "minecraft:pumpkin_stem",
+    "name": "Pumpkin Stem",
+    "category": "natural",
+    "description": "南瓜茎，南瓜种子种植后生长出的藤蔓，成熟后结出南瓜。"
+  },
+  {
+    "id": "minecraft:purple_banner",
+    "name": "Purple Banner",
+    "category": "decoration",
+    "description": "紫色旗帜，可添加图案的装饰性立式横幅。"
+  },
+  {
+    "id": "minecraft:purple_bed",
+    "name": "Purple Bed",
+    "category": "functional",
+    "description": "紫色床，可用于睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:purple_candle",
+    "name": "Purple Candle",
+    "category": "decoration",
+    "description": "紫色蜡烛，可点燃提供光照的装饰方块，最多可放置四根。"
+  },
+  {
+    "id": "minecraft:purple_candle_cake",
+    "name": "Purple Candle Cake",
+    "category": "decoration",
+    "description": "插有紫色蜡烛的蛋糕，吹灭蜡烛后可食用。"
+  },
+  {
+    "id": "minecraft:purple_carpet",
+    "name": "Purple Carpet",
+    "category": "decoration",
+    "description": "紫色地毯，薄层铺设的装饰方块。"
+  },
+  {
+    "id": "minecraft:purple_concrete",
+    "name": "Purple Concrete",
+    "category": "building",
+    "description": "紫色混凝土，由混凝土粉末遇水凝固而成的坚硬建筑方块。"
+  },
+  {
+    "id": "minecraft:purple_concrete_powder",
+    "name": "Purple Concrete Powder",
+    "category": "building",
+    "description": "紫色混凝土粉末，受重力影响，遇水后凝固成混凝土。"
+  },
+  {
+    "id": "minecraft:purple_glazed_terracotta",
+    "name": "Purple Glazed Terracotta",
+    "category": "building",
+    "description": "紫色带釉陶瓦，带有花纹图案的装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:purple_shulker_box",
+    "name": "Purple Shulker Box",
+    "category": "functional",
+    "description": "紫色潜影盒，可储存物品且破坏后保留内容物的容器。"
+  },
+  {
+    "id": "minecraft:purple_stained_glass",
+    "name": "Purple Stained Glass",
+    "category": "building",
+    "description": "紫色染色玻璃，透明的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:purple_stained_glass_pane",
+    "name": "Purple Stained Glass Pane",
+    "category": "building",
+    "description": "紫色染色玻璃板，薄片状的彩色玻璃。"
+  },
+  {
+    "id": "minecraft:purple_terracotta",
+    "name": "Purple Terracotta",
+    "category": "building",
+    "description": "紫色陶瓦，染色的坚硬陶土建筑方块。"
+  },
+  {
+    "id": "minecraft:purple_wall_banner",
+    "name": "Purple Wall Banner",
+    "category": "decoration",
+    "description": "紫色墙上旗帜，挂在墙面上的装饰横幅。"
+  },
+  {
+    "id": "minecraft:purple_wool",
+    "name": "Purple Wool",
+    "category": "building",
+    "description": "紫色羊毛，可染色的柔软建筑方块。"
+  },
+  {
+    "id": "minecraft:purpur_slab",
+    "name": "Purpur Slab",
+    "category": "building",
+    "description": "紫珀台阶，半砖高的紫珀方块。"
+  },
+  {
+    "id": "minecraft:purpur_stairs",
+    "name": "Purpur Stairs",
+    "category": "building",
+    "description": "紫珀楼梯，由紫珀块制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:quartz_block",
+    "name": "Block of Quartz",
+    "category": "building",
+    "description": "石英块，由下界石英合成的白色建筑方块。"
+  },
+  {
+    "id": "minecraft:quartz_bricks",
+    "name": "Quartz Bricks",
+    "category": "building",
+    "description": "石英砖，带有砖纹的石英建筑方块。"
+  },
+  {
+    "id": "minecraft:quartz_pillar",
+    "name": "Quartz Pillar",
+    "category": "building",
+    "description": "石英柱，带有纹路的柱状石英方块，可改变朝向。"
+  },
+  {
+    "id": "minecraft:quartz_slab",
+    "name": "Quartz Slab",
+    "category": "building",
+    "description": "石英台阶，半砖高的石英方块。"
+  },
+  {
+    "id": "minecraft:quartz_stairs",
+    "name": "Quartz Stairs",
+    "category": "building",
+    "description": "石英楼梯，由石英块制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:red_banner",
+    "name": "Red Banner",
+    "category": "decoration",
+    "description": "红色旗帜，可添加图案的装饰性立式横幅。"
+  },
+  {
+    "id": "minecraft:red_bed",
+    "name": "Red Bed",
+    "category": "functional",
+    "description": "红色床，可用于睡觉跳过夜晚并设置重生点。"
+  },
+  {
+    "id": "minecraft:red_candle",
+    "name": "Red Candle",
+    "category": "decoration",
+    "description": "红色蜡烛，可点燃提供光照的装饰方块，最多可放置四根。"
+  },
+  {
+    "id": "minecraft:red_candle_cake",
+    "name": "Red Candle Cake",
+    "category": "decoration",
+    "description": "插有红色蜡烛的蛋糕，吹灭蜡烛后可食用。"
+  },
+  {
+    "id": "minecraft:red_carpet",
+    "name": "Red Carpet",
+    "category": "decoration",
+    "description": "红色地毯，薄层铺设的装饰方块。"
+  },
+  {
+    "id": "minecraft:red_concrete",
+    "name": "Red Concrete",
+    "category": "building",
+    "description": "红色混凝土，由混凝土粉末遇水凝固而成的坚硬建筑方块。"
+  },
+  {
+    "id": "minecraft:red_concrete_powder",
+    "name": "Red Concrete Powder",
+    "category": "building",
+    "description": "红色混凝土粉末，受重力影响，遇水后凝固成混凝土。"
+  },
+  {
+    "id": "minecraft:red_glazed_terracotta",
+    "name": "Red Glazed Terracotta",
+    "category": "building",
+    "description": "红色带釉陶瓦，带有花纹图案的装饰建筑方块。"
+  },
+  {
+    "id": "minecraft:red_nether_brick_slab",
+    "name": "Red Nether Brick Slab",
+    "category": "building",
+    "description": "红色下界砖台阶，半砖高的红色下界砖方块。"
+  },
+  {
+    "id": "minecraft:red_nether_brick_stairs",
+    "name": "Red Nether Brick Stairs",
+    "category": "building",
+    "description": "红色下界砖楼梯，由红色下界砖制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:red_nether_brick_wall",
+    "name": "Red Nether Brick Wall",
+    "category": "building",
+    "description": "红色下界砖墙，用红色下界砖建造的矮墙。"
+  },
+  {
+    "id": "minecraft:red_sandstone_slab",
+    "name": "Red Sandstone Slab",
+    "category": "building",
+    "description": "红砂岩台阶，半砖高的红砂岩方块。"
+  },
+  {
+    "id": "minecraft:red_sandstone_stairs",
+    "name": "Red Sandstone Stairs",
+    "category": "building",
+    "description": "红砂岩楼梯，由红砂岩制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:red_sandstone_wall",
+    "name": "Red Sandstone Wall",
+    "category": "building",
+    "description": "红砂岩墙，用红砂岩建造的矮墙。"
+  },
+  {
+    "id": "minecraft:red_shulker_box",
+    "name": "Red Shulker Box",
+    "category": "functional",
+    "description": "红色潜影盒，可储存物品且破坏后保留内容物的容器。"
+  },
+  {
+    "id": "minecraft:red_stained_glass",
+    "name": "Red Stained Glass",
+    "category": "building",
+    "description": "红色染色玻璃，透明的彩色建筑方块。"
+  },
+  {
+    "id": "minecraft:red_stained_glass_pane",
+    "name": "Red Stained Glass Pane",
+    "category": "building",
+    "description": "红色染色玻璃板，薄片状的彩色玻璃。"
+  },
+  {
+    "id": "minecraft:red_terracotta",
+    "name": "Red Terracotta",
+    "category": "building",
+    "description": "红色陶瓦，染色的坚硬陶土建筑方块。"
+  },
+  {
+    "id": "minecraft:red_wall_banner",
+    "name": "Red Wall Banner",
+    "category": "decoration",
+    "description": "红色墙上旗帜，挂在墙面上的装饰横幅。"
+  },
+  {
+    "id": "minecraft:red_wool",
+    "name": "Red Wool",
+    "category": "building",
+    "description": "红色羊毛，可染色的柔软建筑方块。"
+  },
+  {
+    "id": "minecraft:redstone_wall_torch",
+    "name": "Redstone Wall Torch",
+    "category": "redstone",
+    "description": "墙上红石火把，附着在墙面上的红石信号源。"
+  },
+  {
+    "id": "minecraft:reinforced_deepslate",
+    "name": "Reinforced Deepslate",
+    "category": "building",
+    "description": "强化深板岩，极难破坏的方块，可生成幻翼或用于建造。"
+  },
+  {
+    "id": "minecraft:resin_brick_slab",
+    "name": "Resin Brick Slab",
+    "category": "building",
+    "description": "树脂砖台阶，半砖高的树脂砖方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:resin_brick_stairs",
+    "name": "Resin Brick Stairs",
+    "category": "building",
+    "description": "树脂砖楼梯，由树脂砖制成的台阶方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:resin_brick_wall",
+    "name": "Resin Brick Wall",
+    "category": "building",
+    "description": "树脂砖墙，用树脂砖建造的矮墙。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:sandstone_slab",
+    "name": "Sandstone Slab",
+    "category": "building",
+    "description": "砂岩台阶，半砖高的砂岩方块。"
+  },
+  {
+    "id": "minecraft:sandstone_stairs",
+    "name": "Sandstone Stairs",
+    "category": "building",
+    "description": "砂岩楼梯，由砂岩制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:sandstone_wall",
+    "name": "Sandstone Wall",
+    "category": "building",
+    "description": "砂岩墙，用砂岩建造的矮墙。"
+  },
+  {
+    "id": "minecraft:scaffolding",
+    "name": "Scaffolding",
+    "category": "building",
+    "description": "脚手架，可快速向上攀爬和向外延伸的临时建造方块。"
+  },
+  {
+    "id": "minecraft:sea_pickle",
+    "name": "Sea Pickle",
+    "category": "natural",
+    "description": "海泡菜，水下生长的发光生物方块，可成簇放置。"
+  },
+  {
+    "id": "minecraft:seagrass",
+    "name": "Seagrass",
+    "category": "natural",
+    "description": "海草，生长在水下的植物方块，可供海龟食用繁殖。"
+  },
+  {
+    "id": "minecraft:short_dry_grass",
+    "name": "Short Dry Grass",
+    "category": "natural",
+    "description": "矮枯草，生长在繁茂沙地的低矮干枯植被。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:skeleton_skull",
+    "name": "Skeleton Skull",
+    "category": "decoration",
+    "description": "骷髅头颅，可放置或佩戴的装饰头颅方块。"
+  },
+  {
+    "id": "minecraft:skeleton_wall_skull",
+    "name": "Skeleton Wall Skull",
+    "category": "decoration",
+    "description": "墙上骷髅头颅，挂在墙面上的骷髅头装饰。"
+  },
+  {
+    "id": "minecraft:small_amethyst_bud",
+    "name": "Small Amethyst Bud",
+    "category": "natural",
+    "description": "小型紫水晶芽，在紫晶块上生长的紫水晶第一阶段。"
+  },
+  {
+    "id": "minecraft:small_dripleaf",
+    "name": "Small Dripleaf",
+    "category": "natural",
+    "description": "小型垂滴叶，生长在水下或黏土上的植物，可用骨粉催熟为大型垂滴叶。"
+  },
+  {
+    "id": "minecraft:smooth_quartz",
+    "name": "Smooth Quartz Block",
+    "category": "building",
+    "description": "平滑石英块，纹理均匀的石英建筑方块。"
+  },
+  {
+    "id": "minecraft:smooth_quartz_slab",
+    "name": "Smooth Quartz Slab",
+    "category": "building",
+    "description": "平滑石英台阶，半砖高的平滑石英方块。"
+  },
+  {
+    "id": "minecraft:smooth_quartz_stairs",
+    "name": "Smooth Quartz Stairs",
+    "category": "building",
+    "description": "平滑石英楼梯，由平滑石英制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:smooth_red_sandstone",
+    "name": "Smooth Red Sandstone",
+    "category": "building",
+    "description": "平滑红砂岩，纹理均匀的红砂岩建筑方块。"
+  },
+  {
+    "id": "minecraft:smooth_red_sandstone_slab",
+    "name": "Smooth Red Sandstone Slab",
+    "category": "building",
+    "description": "平滑红砂岩台阶，半砖高的平滑红砂岩方块。"
+  },
+  {
+    "id": "minecraft:smooth_red_sandstone_stairs",
+    "name": "Smooth Red Sandstone Stairs",
+    "category": "building",
+    "description": "平滑红砂岩楼梯，由平滑红砂岩制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:smooth_sandstone_slab",
+    "name": "Smooth Sandstone Slab",
+    "category": "building",
+    "description": "平滑砂岩台阶，半砖高的平滑砂岩方块。"
+  },
+  {
+    "id": "minecraft:smooth_sandstone_stairs",
+    "name": "Smooth Sandstone Stairs",
+    "category": "building",
+    "description": "平滑砂岩楼梯，由平滑砂岩制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:sniffer_egg",
+    "name": "Sniffer Egg",
+    "category": "natural",
+    "description": "嗅探兽蛋，可孵化出嗅探兽的方块，由嗅探兽幼崽产下或潜影贝掉落。"
+  },
+  {
+    "id": "minecraft:snow",
+    "name": "Snow",
+    "category": "natural",
+    "description": "雪，可层叠放置的薄层雪片方块。"
+  },
+  {
+    "id": "minecraft:soul_campfire",
+    "name": "Soul Campfire",
+    "category": "decoration",
+    "description": "灵魂营火，散发蓝色火焰的营火，可烹饪食物并对生物造成更高伤害。"
+  },
+  {
+    "id": "minecraft:soul_wall_torch",
+    "name": "Soul Wall Torch",
+    "category": "decoration",
+    "description": "墙上灵魂火把，附着在墙面上的蓝色火焰火把。"
+  },
+  {
+    "id": "minecraft:spore_blossom",
+    "name": "Spore Blossom",
+    "category": "decoration",
+    "description": "孢子花，悬挂在天花板上散落粒子的装饰植物方块。"
+  },
+  {
+    "id": "minecraft:spruce_button",
+    "name": "Spruce Button",
+    "category": "redstone",
+    "description": "云杉木按钮，按下后产生短暂红石信号。"
+  },
+  {
+    "id": "minecraft:spruce_door",
+    "name": "Spruce Door",
+    "category": "building",
+    "description": "云杉木门，可开关的木质门，能被红石激活。"
+  },
+  {
+    "id": "minecraft:spruce_fence",
+    "name": "Spruce Fence",
+    "category": "building",
+    "description": "云杉木栅栏，可阻挡生物通过并相互连接。"
+  },
+  {
+    "id": "minecraft:spruce_fence_gate",
+    "name": "Spruce Fence Gate",
+    "category": "building",
+    "description": "云杉木栅栏门，可开关的栅栏通道，能被红石激活。"
+  },
+  {
+    "id": "minecraft:spruce_hanging_sign",
+    "name": "Spruce Hanging Sign",
+    "category": "decoration",
+    "description": "云杉木悬挂告示牌，可悬挂书写文字的装饰方块。"
+  },
+  {
+    "id": "minecraft:spruce_pressure_plate",
+    "name": "Spruce Pressure Plate",
+    "category": "redstone",
+    "description": "云杉木压力板，被实体踩踏时产生红石信号。"
+  },
+  {
+    "id": "minecraft:spruce_sapling",
+    "name": "Spruce Sapling",
+    "category": "natural",
+    "description": "云杉树苗，可种植生长成云杉树。"
+  },
+  {
+    "id": "minecraft:spruce_sign",
+    "name": "Spruce Sign",
+    "category": "decoration",
+    "description": "云杉木告示牌，可书写文字的立式装饰方块。"
+  },
+  {
+    "id": "minecraft:spruce_slab",
+    "name": "Spruce Slab",
+    "category": "building",
+    "description": "云杉木台阶，半砖高的云杉木方块。"
+  },
+  {
+    "id": "minecraft:spruce_stairs",
+    "name": "Spruce Stairs",
+    "category": "building",
+    "description": "云杉木楼梯，由云杉木板制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:spruce_trapdoor",
+    "name": "Spruce Trapdoor",
+    "category": "building",
+    "description": "云杉木活板门，可开关的水平木门，能被红石激活。"
+  },
+  {
+    "id": "minecraft:spruce_wall_hanging_sign",
+    "name": "Spruce Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上云杉木悬挂告示牌，附着在墙面上的悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:spruce_wall_sign",
+    "name": "Spruce Wall Sign",
+    "category": "decoration",
+    "description": "墙上云杉木告示牌，挂在墙面上的告示牌。"
+  },
+  {
+    "id": "minecraft:spruce_wood",
+    "name": "Spruce Wood",
+    "category": "building",
+    "description": "云杉木，六面均带树皮的原木方块。"
+  },
+  {
+    "id": "minecraft:stone_brick_slab",
+    "name": "Stone Brick Slab",
+    "category": "building",
+    "description": "石砖台阶，半砖高的石砖方块。"
+  },
+  {
+    "id": "minecraft:stone_stairs",
+    "name": "Cobblestone Stairs",
+    "category": "building",
+    "description": "圆石楼梯，由圆石制成的台阶方块。"
+  },
+  {
+    "id": "minecraft:stripped_acacia_log",
+    "name": "Stripped Acacia Log",
+    "category": "building",
+    "description": "去皮金合欢原木，剥去树皮的金合欢原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_acacia_wood",
+    "name": "Stripped Acacia Wood",
+    "category": "building",
+    "description": "去皮金合欢木，六面均去皮的金合欢木方块。"
+  },
+  {
+    "id": "minecraft:stripped_bamboo_block",
+    "name": "Stripped Block of Bamboo",
+    "category": "building",
+    "description": "去皮竹块，剥去外皮的竹子方块。"
+  },
+  {
+    "id": "minecraft:stripped_birch_log",
+    "name": "Stripped Birch Log",
+    "category": "building",
+    "description": "去皮白桦原木，剥去树皮的白桦原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_birch_wood",
+    "name": "Stripped Birch Wood",
+    "category": "building",
+    "description": "去皮白桦木，六面均去皮的白桦木方块。"
+  },
+  {
+    "id": "minecraft:stripped_cherry_log",
+    "name": "Stripped Cherry Log",
+    "category": "building",
+    "description": "去皮樱花原木，剥去树皮的樱花原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_cherry_wood",
+    "name": "Stripped Cherry Wood",
+    "category": "building",
+    "description": "去皮樱花木，六面均去皮的樱花木方块。"
+  },
+  {
+    "id": "minecraft:stripped_crimson_hyphae",
+    "name": "Stripped Crimson Hyphae",
+    "category": "building",
+    "description": "去皮绯红菌核，六面均去皮的绯红菌核方块。"
+  },
+  {
+    "id": "minecraft:stripped_crimson_stem",
+    "name": "Stripped Crimson Stem",
+    "category": "building",
+    "description": "去皮绯红菌柄，剥去菌皮的绯红菌柄方块。"
+  },
+  {
+    "id": "minecraft:stripped_dark_oak_log",
+    "name": "Stripped Dark Oak Log",
+    "category": "building",
+    "description": "去皮深色橡木原木，剥去树皮的深色橡木原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_dark_oak_wood",
+    "name": "Stripped Dark Oak Wood",
+    "category": "building",
+    "description": "去皮深色橡木，六面均去皮的深色橡木方块。"
+  },
+  {
+    "id": "minecraft:stripped_jungle_log",
+    "name": "Stripped Jungle Log",
+    "category": "building",
+    "description": "去皮丛林原木，剥去树皮的丛林原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_jungle_wood",
+    "name": "Stripped Jungle Wood",
+    "category": "building",
+    "description": "去皮丛林木，六面均去皮的丛林木方块。"
+  },
+  {
+    "id": "minecraft:stripped_mangrove_log",
+    "name": "Stripped Mangrove Log",
+    "category": "building",
+    "description": "去皮红树原木，剥去树皮的红树原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_mangrove_wood",
+    "name": "Stripped Mangrove Wood",
+    "category": "building",
+    "description": "去皮红树木，六面均去皮的红树木方块。"
+  },
+  {
+    "id": "minecraft:stripped_oak_log",
+    "name": "Stripped Oak Log",
+    "category": "building",
+    "description": "去皮橡木原木，剥去树皮的橡木原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_oak_wood",
+    "name": "Stripped Oak Wood",
+    "category": "building",
+    "description": "去皮橡木，六面均去皮的橡木方块。"
+  },
+  {
+    "id": "minecraft:stripped_pale_oak_log",
+    "name": "Stripped Pale Oak Log",
+    "category": "building",
+    "description": "去皮苍白橡木原木，剥去树皮的苍白橡木原木方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:stripped_pale_oak_wood",
+    "name": "Stripped Pale Oak Wood",
+    "category": "building",
+    "description": "去皮苍白橡木，六面均去皮的苍白橡木方块。",
+    "since": "1.21.4"
+  },
+  {
+    "id": "minecraft:stripped_spruce_log",
+    "name": "Stripped Spruce Log",
+    "category": "building",
+    "description": "去皮云杉原木，剥去树皮的云杉原木方块。"
+  },
+  {
+    "id": "minecraft:stripped_spruce_wood",
+    "name": "Stripped Spruce Wood",
+    "category": "building",
+    "description": "去皮云杉木，六面均去皮的云杉木方块。"
+  },
+  {
+    "id": "minecraft:stripped_warped_hyphae",
+    "name": "Stripped Warped Hyphae",
+    "category": "building",
+    "description": "去皮诡异菌核，六面均去皮的诡异菌核方块。"
+  },
+  {
+    "id": "minecraft:stripped_warped_stem",
+    "name": "Stripped Warped Stem",
+    "category": "building",
+    "description": "去皮诡异菌柄，剥去菌皮的诡异菌柄方块。"
+  },
+  {
+    "id": "minecraft:structure_void",
+    "name": "Structure Void",
+    "category": "command",
+    "description": "结构空位，仅用于结构方块的特殊标记方块，保存结构时表示忽略该位置。"
+  },
+  {
+    "id": "minecraft:sulfur",
+    "name": "Block of Sulfur",
+    "category": "building",
+    "description": "硫磺块，由硫磺合成的黄色方块。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:sulfur_brick_slab",
+    "name": "Sulfur Brick Slab",
+    "category": "building",
+    "description": "硫磺砖台阶，半砖高的硫磺砖方块。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:sulfur_brick_stairs",
+    "name": "Sulfur Brick Stairs",
+    "category": "building",
+    "description": "硫磺砖楼梯，由硫磺砖制成的台阶方块。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:sulfur_brick_wall",
+    "name": "Sulfur Brick Wall",
+    "category": "building",
+    "description": "硫磺砖墙，用硫磺砖建造的矮墙。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:sulfur_bricks",
+    "name": "Sulfur Bricks",
+    "category": "building",
+    "description": "硫磺砖块，由硫磺合成的建筑方块。",
+    "since": "1.21.10"
+  },
+  {
+    "id": "minecraft:sulfur_slab",
+    "name": "Sulfur Slab",
+    "category": "building",
+    "description": "硫磺砖台阶，半砖高度的建筑方块。",
+    "since": "1.21.10"
+  },
+  {
+    "id": "minecraft:sulfur_spike",
+    "name": "Sulfur Spike",
+    "category": "decoration",
+    "description": "硫磺尖刺，硫磺主题的装饰方块。",
+    "since": "1.21.10"
+  },
+  {
+    "id": "minecraft:sulfur_stairs",
+    "name": "Sulfur Stairs",
+    "category": "building",
+    "description": "硫磺砖楼梯，可调整朝向的建筑方块。",
+    "since": "1.21.10"
+  },
+  {
+    "id": "minecraft:sulfur_wall",
+    "name": "Sulfur Wall",
+    "category": "building",
+    "description": "硫磺砖墙，可与相邻方块连接的矮墙。",
+    "since": "1.21.10"
+  },
+  {
+    "id": "minecraft:suspicious_gravel",
+    "name": "Suspicious Gravel",
+    "category": "natural",
+    "description": "可疑沙砾，可用刷子刷出考古文物，常见于沼泽神殿等遗迹。"
+  },
+  {
+    "id": "minecraft:suspicious_sand",
+    "name": "Suspicious Sand",
+    "category": "natural",
+    "description": "可疑沙子，可用刷子刷出考古文物，常见于沙漠神庙等遗迹。"
+  },
+  {
+    "id": "minecraft:sweet_berry_bush",
+    "name": "Sweet Berry Bush",
+    "category": "natural",
+    "description": "甜浆果丛，生长甜浆果，碰触会造成伤害。"
+  },
+  {
+    "id": "minecraft:tall_dry_grass",
+    "name": "Tall Dry Grass",
+    "category": "natural",
+    "description": "高枯草，生长于稀树草原等干旱生物群系的高大枯草。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:tall_seagrass",
+    "name": "Tall Seagrass",
+    "category": "natural",
+    "description": "高海草，水下生长的双格高海草植物。"
+  },
+  {
+    "id": "minecraft:test_block",
+    "name": "Test Block",
+    "category": "command",
+    "description": "测试方块，用于游戏测试框架的特殊方块。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:test_instance_block",
+    "name": "Test Instance Block",
+    "category": "command",
+    "description": "测试实例方块，用于运行游戏测试实例的特殊方块。",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:torchflower_crop",
+    "name": "Torchflower Crop",
+    "category": "natural",
+    "description": "火把花作物，种植中的火把花生长阶段方块。"
+  },
+  {
+    "id": "minecraft:tube_coral",
+    "name": "Tube Coral",
+    "category": "natural",
+    "description": "管珊瑚，蓝色珊瑚，离水会枯死。"
+  },
+  {
+    "id": "minecraft:tube_coral_block",
+    "name": "Tube Coral Block",
+    "category": "natural",
+    "description": "管珊瑚块，蓝色珊瑚方块，离水会变为死珊瑚块。"
+  },
+  {
+    "id": "minecraft:tube_coral_fan",
+    "name": "Tube Coral Fan",
+    "category": "natural",
+    "description": "管珊瑚扇，蓝色扇形珊瑚，附着于地面。"
+  },
+  {
+    "id": "minecraft:tube_coral_wall_fan",
+    "name": "Tube Coral Wall Fan",
+    "category": "natural",
+    "description": "墙上管珊瑚扇，附着于墙面的蓝色珊瑚扇。"
+  },
+  {
+    "id": "minecraft:tuff_brick_slab",
+    "name": "Tuff Brick Slab",
+    "category": "building",
+    "description": "凝灰岩砖台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:tuff_brick_stairs",
+    "name": "Tuff Brick Stairs",
+    "category": "building",
+    "description": "凝灰岩砖楼梯，可调整朝向的建筑方块。"
+  },
+  {
+    "id": "minecraft:tuff_brick_wall",
+    "name": "Tuff Brick Wall",
+    "category": "building",
+    "description": "凝灰岩砖墙，可与相邻方块连接的矮墙。"
+  },
+  {
+    "id": "minecraft:tuff_slab",
+    "name": "Tuff Slab",
+    "category": "building",
+    "description": "凝灰岩台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:tuff_stairs",
+    "name": "Tuff Stairs",
+    "category": "building",
+    "description": "凝灰岩楼梯，可调整朝向的建筑方块。"
+  },
+  {
+    "id": "minecraft:tuff_wall",
+    "name": "Tuff Wall",
+    "category": "building",
+    "description": "凝灰岩墙，可与相邻方块连接的矮墙。"
+  },
+  {
+    "id": "minecraft:turtle_egg",
+    "name": "Turtle Egg",
+    "category": "natural",
+    "description": "海龟蛋，孵化后产生小海龟，可被踩碎。"
+  },
+  {
+    "id": "minecraft:twisting_vines",
+    "name": "Twisting Vines",
+    "category": "natural",
+    "description": "缠怨藤，向上生长的下界藤蔓，可攀爬。"
+  },
+  {
+    "id": "minecraft:twisting_vines_plant",
+    "name": "Twisting Vines Plant",
+    "category": "natural",
+    "description": "缠怨藤植株，缠怨藤的茎干部分。"
+  },
+  {
+    "id": "minecraft:verdant_froglight",
+    "name": "Verdant Froglight",
+    "category": "decoration",
+    "description": "翠绿蛙明灯，青蛙吞食洞穴蝾螈后产生的发光方块。"
+  },
+  {
+    "id": "minecraft:wall_torch",
+    "name": "Wall Torch",
+    "category": "decoration",
+    "description": "墙上火把，附着于墙面的火把，提供光照。"
+  },
+  {
+    "id": "minecraft:warped_button",
+    "name": "Warped Button",
+    "category": "redstone",
+    "description": "诡异木按钮，按下后短暂提供红石信号。"
+  },
+  {
+    "id": "minecraft:warped_door",
+    "name": "Warped Door",
+    "category": "building",
+    "description": "诡异木门，可开关的诡异木制门。"
+  },
+  {
+    "id": "minecraft:warped_fence",
+    "name": "Warped Fence",
+    "category": "building",
+    "description": "诡异木栅栏，可与相邻方块连接的围栏。"
+  },
+  {
+    "id": "minecraft:warped_fence_gate",
+    "name": "Warped Fence Gate",
+    "category": "redstone",
+    "description": "诡异木栅栏门，可开关并被红石激活。"
+  },
+  {
+    "id": "minecraft:warped_hanging_sign",
+    "name": "Warped Hanging Sign",
+    "category": "decoration",
+    "description": "诡异木悬挂告示牌，可悬挂并书写文字。"
+  },
+  {
+    "id": "minecraft:warped_hyphae",
+    "name": "Warped Hyphae",
+    "category": "building",
+    "description": "诡异菌核，六面带菌皮的诡异茎方块。"
+  },
+  {
+    "id": "minecraft:warped_nylium",
+    "name": "Warped Nylium",
+    "category": "natural",
+    "description": "诡异菌岩，下界中生长诡异植被的菌丝岩石。"
+  },
+  {
+    "id": "minecraft:warped_pressure_plate",
+    "name": "Warped Pressure Plate",
+    "category": "redstone",
+    "description": "诡异木压力板，实体踩踏时提供红石信号。"
+  },
+  {
+    "id": "minecraft:warped_roots",
+    "name": "Warped Roots",
+    "category": "natural",
+    "description": "诡异菌索，生长于诡异菌岩上的小型植物。"
+  },
+  {
+    "id": "minecraft:warped_sign",
+    "name": "Warped Sign",
+    "category": "decoration",
+    "description": "诡异木告示牌，可书写文字的立式告示牌。"
+  },
+  {
+    "id": "minecraft:warped_slab",
+    "name": "Warped Slab",
+    "category": "building",
+    "description": "诡异木台阶，半砖高度的建筑方块。"
+  },
+  {
+    "id": "minecraft:warped_stairs",
+    "name": "Warped Stairs",
+    "category": "building",
+    "description": "诡异木楼梯，可调整朝向的建筑方块。"
+  },
+  {
+    "id": "minecraft:warped_trapdoor",
+    "name": "Warped Trapdoor",
+    "category": "redstone",
+    "description": "诡异木活板门，可开关并被红石激活。"
+  },
+  {
+    "id": "minecraft:warped_wall_hanging_sign",
+    "name": "Warped Wall Hanging Sign",
+    "category": "decoration",
+    "description": "墙上诡异木悬挂告示牌，附着于墙面的悬挂告示牌。"
+  },
+  {
+    "id": "minecraft:warped_wall_sign",
+    "name": "Warped Wall Sign",
+    "category": "decoration",
+    "description": "墙上诡异木告示牌，附着于墙面的告示牌。"
+  },
+  {
+    "id": "minecraft:water_cauldron",
+    "name": "Water Cauldron",
+    "category": "functional",
+    "description": "装水的炼药锅，可储水并用于多种用途。"
+  },
+  {
+    "id": "minecraft:waxed_chiseled_copper",
+    "name": "Waxed Chiseled Copper",
+    "category": "building",
+    "description": "涂蜡雕纹铜块，已涂蜡不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_copper_bars",
+    "name": "Waxed Copper Bars",
+    "category": "building",
+    "description": "涂蜡铜栏杆，已涂蜡不会氧化的铜质栏杆。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_copper_block",
+    "name": "Waxed Copper Block",
+    "category": "building",
+    "description": "涂蜡铜块，已涂蜡不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_copper_bulb",
+    "name": "Waxed Copper Bulb",
+    "category": "redstone",
+    "description": "涂蜡铜灯，红石切换开关的发光方块，不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_copper_chain",
+    "name": "Waxed Copper Chain",
+    "category": "decoration",
+    "description": "涂蜡铜链，已涂蜡不会氧化的装饰链条。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_copper_chest",
+    "name": "Waxed Copper Chest",
+    "category": "functional",
+    "description": "涂蜡铜箱子，可储物且不会氧化。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_copper_door",
+    "name": "Waxed Copper Door",
+    "category": "redstone",
+    "description": "涂蜡铜门，可红石激活且不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_copper_golem_statue",
+    "name": "Waxed Copper Golem Statue",
+    "category": "decoration",
+    "description": "涂蜡铜傀儡雕像，铜傀儡定型后的装饰雕像，不会氧化。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_copper_grate",
+    "name": "Waxed Copper Grate",
+    "category": "building",
+    "description": "涂蜡铜格栅，带孔洞的铜方块，不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_copper_lantern",
+    "name": "Waxed Copper Lantern",
+    "category": "decoration",
+    "description": "涂蜡铜灯笼，已涂蜡不会氧化的发光灯笼。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_copper_trapdoor",
+    "name": "Waxed Copper Trapdoor",
+    "category": "redstone",
+    "description": "涂蜡铜活板门，可红石激活且不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_cut_copper",
+    "name": "Waxed Cut Copper",
+    "category": "building",
+    "description": "涂蜡切制铜块，已涂蜡不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_cut_copper_slab",
+    "name": "Waxed Cut Copper Slab",
+    "category": "building",
+    "description": "涂蜡切制铜台阶，已涂蜡不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_cut_copper_stairs",
+    "name": "Waxed Cut Copper Stairs",
+    "category": "building",
+    "description": "涂蜡切制铜楼梯，已涂蜡不会氧化。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_chiseled_copper",
+    "name": "Waxed Exposed Chiseled Copper",
+    "category": "building",
+    "description": "涂蜡斑驳雕纹铜块，氧化第一阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper",
+    "name": "Waxed Exposed Copper",
+    "category": "building",
+    "description": "涂蜡斑驳铜块，氧化第一阶段定型不再变化。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_bars",
+    "name": "Waxed Exposed Copper Bars",
+    "category": "building",
+    "description": "涂蜡斑驳铜栏杆，氧化第一阶段定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_bulb",
+    "name": "Waxed Exposed Copper Bulb",
+    "category": "redstone",
+    "description": "涂蜡斑驳铜灯，氧化第一阶段定型的红石发光方块。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_chain",
+    "name": "Waxed Exposed Copper Chain",
+    "category": "decoration",
+    "description": "涂蜡斑驳铜链，氧化第一阶段定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_chest",
+    "name": "Waxed Exposed Copper Chest",
+    "category": "functional",
+    "description": "涂蜡斑驳铜箱子，氧化第一阶段定型可储物。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_door",
+    "name": "Waxed Exposed Copper Door",
+    "category": "redstone",
+    "description": "涂蜡斑驳铜门，氧化第一阶段定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_golem_statue",
+    "name": "Waxed Exposed Copper Golem Statue",
+    "category": "decoration",
+    "description": "涂蜡斑驳铜傀儡雕像，氧化第一阶段定型的装饰雕像。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_grate",
+    "name": "Waxed Exposed Copper Grate",
+    "category": "building",
+    "description": "涂蜡斑驳铜格栅，氧化第一阶段定型的带孔铜方块。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_lantern",
+    "name": "Waxed Exposed Copper Lantern",
+    "category": "decoration",
+    "description": "涂蜡斑驳铜灯笼，氧化第一阶段定型的发光灯笼。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_exposed_copper_trapdoor",
+    "name": "Waxed Exposed Copper Trapdoor",
+    "category": "redstone",
+    "description": "涂蜡斑驳铜活板门，氧化第一阶段定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_cut_copper",
+    "name": "Waxed Exposed Cut Copper",
+    "category": "building",
+    "description": "涂蜡斑驳切制铜块，氧化第一阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_cut_copper_slab",
+    "name": "Waxed Exposed Cut Copper Slab",
+    "category": "building",
+    "description": "涂蜡斑驳切制铜台阶，氧化第一阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_cut_copper_stairs",
+    "name": "Waxed Exposed Cut Copper Stairs",
+    "category": "building",
+    "description": "涂蜡斑驳切制铜楼梯，氧化第一阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_exposed_lightning_rod",
+    "name": "Waxed Exposed Lightning Rod",
+    "category": "functional",
+    "description": "涂蜡斑驳避雷针，氧化第一阶段定型的引雷装置。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_lightning_rod",
+    "name": "Waxed Lightning Rod",
+    "category": "functional",
+    "description": "涂蜡避雷针，已涂蜡不会氧化的引雷装置。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_chiseled_copper",
+    "name": "Waxed Oxidized Chiseled Copper",
+    "category": "building",
+    "description": "涂蜡氧化雕纹铜块，完全氧化呈绿色并定型。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper",
+    "name": "Waxed Oxidized Copper",
+    "category": "building",
+    "description": "涂蜡氧化铜块，完全氧化呈绿色并定型。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_bars",
+    "name": "Waxed Oxidized Copper Bars",
+    "category": "building",
+    "description": "涂蜡氧化铜栏杆，完全氧化呈绿色并定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_bulb",
+    "name": "Waxed Oxidized Copper Bulb",
+    "category": "redstone",
+    "description": "涂蜡氧化铜灯，完全氧化定型的红石发光方块。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_chain",
+    "name": "Waxed Oxidized Copper Chain",
+    "category": "decoration",
+    "description": "涂蜡氧化铜链，完全氧化呈绿色并定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_chest",
+    "name": "Waxed Oxidized Copper Chest",
+    "category": "functional",
+    "description": "涂蜡氧化铜箱子，完全氧化定型可储物。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_door",
+    "name": "Waxed Oxidized Copper Door",
+    "category": "redstone",
+    "description": "涂蜡氧化铜门，完全氧化定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_golem_statue",
+    "name": "Waxed Oxidized Copper Golem Statue",
+    "category": "decoration",
+    "description": "涂蜡氧化铜傀儡雕像，完全氧化定型的装饰雕像。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_grate",
+    "name": "Waxed Oxidized Copper Grate",
+    "category": "building",
+    "description": "涂蜡氧化铜格栅，完全氧化定型的带孔铜方块。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_lantern",
+    "name": "Waxed Oxidized Copper Lantern",
+    "category": "decoration",
+    "description": "涂蜡氧化铜灯笼，完全氧化定型的发光灯笼。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_copper_trapdoor",
+    "name": "Waxed Oxidized Copper Trapdoor",
+    "category": "redstone",
+    "description": "涂蜡氧化铜活板门，完全氧化定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_cut_copper",
+    "name": "Waxed Oxidized Cut Copper",
+    "category": "building",
+    "description": "涂蜡氧化切制铜块，完全氧化呈绿色并定型。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_cut_copper_slab",
+    "name": "Waxed Oxidized Cut Copper Slab",
+    "category": "building",
+    "description": "涂蜡氧化切制铜台阶，完全氧化呈绿色并定型。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_cut_copper_stairs",
+    "name": "Waxed Oxidized Cut Copper Stairs",
+    "category": "building",
+    "description": "涂蜡氧化切制铜楼梯，完全氧化呈绿色并定型。"
+  },
+  {
+    "id": "minecraft:waxed_oxidized_lightning_rod",
+    "name": "Waxed Oxidized Lightning Rod",
+    "category": "functional",
+    "description": "涂蜡氧化避雷针，完全氧化定型的引雷装置。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_weathered_chiseled_copper",
+    "name": "Waxed Weathered Chiseled Copper",
+    "category": "building",
+    "description": "涂蜡锈蚀雕纹铜块，氧化第二阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper",
+    "name": "Waxed Weathered Copper",
+    "category": "building",
+    "description": "涂蜡锈蚀铜块，氧化第二阶段定型不再变化。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_bars",
+    "name": "Waxed Weathered Copper Bars",
+    "category": "building",
+    "description": "涂蜡锈蚀铜栏杆，氧化第二阶段定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_bulb",
+    "name": "Waxed Weathered Copper Bulb",
+    "category": "redstone",
+    "description": "涂蜡锈蚀铜灯，氧化第二阶段定型的红石发光方块。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_chain",
+    "name": "Waxed Weathered Copper Chain",
+    "category": "decoration",
+    "description": "涂蜡锈蚀铜链，氧化第二阶段定型。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_chest",
+    "name": "Waxed Weathered Copper Chest",
+    "category": "functional",
+    "description": "涂蜡锈蚀铜箱子，氧化第二阶段定型可储物。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_door",
+    "name": "Waxed Weathered Copper Door",
+    "category": "redstone",
+    "description": "涂蜡锈蚀铜门，氧化第二阶段定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_golem_statue",
+    "name": "Waxed Weathered Copper Golem Statue",
+    "category": "decoration",
+    "description": "涂蜡锈蚀铜傀儡雕像，氧化第二阶段定型的装饰雕像。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_grate",
+    "name": "Waxed Weathered Copper Grate",
+    "category": "building",
+    "description": "涂蜡锈蚀铜格栅，氧化第二阶段定型的带孔铜方块。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_lantern",
+    "name": "Waxed Weathered Copper Lantern",
+    "category": "decoration",
+    "description": "涂蜡锈蚀铜灯笼，氧化第二阶段定型的发光灯笼。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:waxed_weathered_copper_trapdoor",
+    "name": "Waxed Weathered Copper Trapdoor",
+    "category": "redstone",
+    "description": "涂蜡锈蚀铜活板门，氧化第二阶段定型可红石激活。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_cut_copper",
+    "name": "Waxed Weathered Cut Copper",
+    "category": "building",
+    "description": "涂蜡锈蚀切制铜块，氧化第二阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_cut_copper_slab",
+    "name": "Waxed Weathered Cut Copper Slab",
+    "category": "building",
+    "description": "涂蜡锈蚀切制铜台阶，氧化第二阶段定型。"
+  },
+  {
+    "id": "minecraft:waxed_weathered_cut_copper_stairs",
+    "name": "Waxed Weathered Cut Copper Stairs",
+    "category": "building",
+    "description": "涂蜡锈蚀切制铜楼梯，氧化第二阶段定型。"
+  },
+  {
+    "id": "minecraft:weathered_chiseled_copper",
+    "name": "Weathered Chiseled Copper",
+    "category": "building",
+    "description": "锈蚀雕纹铜块，氧化第二阶段，可继续氧化。"
+  },
+  {
+    "id": "minecraft:weathered_copper_bars",
+    "name": "Weathered Copper Bars",
+    "category": "building",
+    "description": "锈蚀铜栏杆，氧化第二阶段的铜质栏杆。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:weathered_copper_bulb",
+    "name": "Weathered Copper Bulb",
+    "category": "redstone",
+    "description": "锈蚀铜灯，氧化第二阶段的红石发光方块。"
+  },
+  {
+    "id": "minecraft:weathered_copper_chain",
+    "name": "Weathered Copper Chain",
+    "category": "decoration",
+    "description": "锈蚀铜链，氧化第二阶段的装饰链条。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:weathered_copper_chest",
+    "name": "Weathered Copper Chest",
+    "category": "functional",
+    "description": "锈蚀铜箱子，氧化第二阶段可储物。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:weathered_copper_door",
+    "name": "Weathered Copper Door",
+    "category": "redstone",
+    "description": "锈蚀铜门，氧化第二阶段可红石激活。"
+  },
+  {
+    "id": "minecraft:weathered_copper_golem_statue",
+    "name": "Weathered Copper Golem Statue",
+    "category": "decoration",
+    "description": "锈蚀铜傀儡雕像，氧化第二阶段的装饰雕像。",
+    "since": "1.21.110"
+  },
+  {
+    "id": "minecraft:weathered_copper_grate",
+    "name": "Weathered Copper Grate",
+    "category": "building",
+    "description": "锈蚀铜格栅，氧化第二阶段的带孔铜方块。"
+  },
+  {
+    "id": "minecraft:weathered_copper_lantern",
+    "name": "Weathered Copper Lantern",
+    "category": "decoration",
+    "description": "锈蚀铜灯笼，氧化第二阶段的发光灯笼。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:weathered_copper_trapdoor",
+    "name": "Weathered Copper Trapdoor",
+    "category": "redstone",
+    "description": "锈蚀铜活板门，氧化第二阶段可红石激活。"
+  },
+  {
+    "id": "minecraft:weathered_cut_copper",
+    "name": "Weathered Cut Copper",
+    "category": "building",
+    "description": "锈蚀切制铜块，氧化第二阶段的切制铜方块。"
+  },
+  {
+    "id": "minecraft:weathered_cut_copper_slab",
+    "name": "Weathered Cut Copper Slab",
+    "category": "building",
+    "description": "锈蚀切制铜台阶，氧化第二阶段的台阶。"
+  },
+  {
+    "id": "minecraft:weathered_cut_copper_stairs",
+    "name": "Weathered Cut Copper Stairs",
+    "category": "building",
+    "description": "锈蚀切制铜楼梯，氧化第二阶段的楼梯。"
+  },
+  {
+    "id": "minecraft:weathered_lightning_rod",
+    "name": "Weathered Lightning Rod",
+    "category": "functional",
+    "description": "锈蚀避雷针，氧化第二阶段的引雷装置。",
+    "since": "1.21.60"
+  },
+  {
+    "id": "minecraft:weeping_vines",
+    "name": "Weeping Vines",
+    "category": "natural",
+    "description": "垂泪藤，向下生长的下界藤蔓，可攀爬。"
+  },
+  {
+    "id": "minecraft:weeping_vines_plant",
+    "name": "Weeping Vines Plant",
+    "category": "natural",
+    "description": "垂泪藤植株，垂泪藤的茎干部分。"
+  },
+  {
+    "id": "minecraft:wheat",
+    "name": "Wheat Crops",
+    "category": "natural",
+    "description": "小麦作物，种植中的小麦生长阶段方块，成熟后可收获。"
+  },
+  {
+    "id": "minecraft:white_candle_cake",
+    "name": "Cake with White Candle",
+    "category": "decoration",
+    "description": "插着白色蜡烛的蛋糕，点燃后可作为光源，吃掉蛋糕会掉落蜡烛。"
+  },
+  {
+    "id": "minecraft:white_shulker_box",
+    "name": "White Shulker Box",
+    "category": "functional",
+    "description": "白色潜影盒，可存放27格物品的容器，破坏后保留内部物品，便于携带搬运。"
+  },
+  {
+    "id": "minecraft:white_tulip",
+    "name": "White Tulip",
+    "category": "natural",
+    "description": "白色郁金香，生长在平原与花林的小花，可用于制作白色染料。"
+  },
+  {
+    "id": "minecraft:white_wall_banner",
+    "name": "White Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的白色旗帜，可添加图案用于装饰与标记。"
+  },
+  {
+    "id": "minecraft:wildflowers",
+    "name": "Wildflowers",
+    "category": "natural",
+    "description": "野花丛，可在单个方块上放置多株，生长于桦木森林等生物群系，可制作黄色染料。",
+    "since": "1.21.5"
+  },
+  {
+    "id": "minecraft:wither_skeleton_skull",
+    "name": "Wither Skeleton Skull",
+    "category": "decoration",
+    "description": "凋灵骷髅头颅，放置在地面的头颅方块，是召唤凋灵Boss所需的材料之一。"
+  },
+  {
+    "id": "minecraft:wither_skeleton_wall_skull",
+    "name": "Wither Skeleton Wall Skull",
+    "category": "decoration",
+    "description": "挂在墙上的凋灵骷髅头颅，由放置在垂直面上的头颅形成。"
+  },
+  {
+    "id": "minecraft:yellow_banner",
+    "name": "Yellow Banner",
+    "category": "decoration",
+    "description": "黄色旗帜，可添加多层图案进行装饰，也可作为地图标记。"
+  },
+  {
+    "id": "minecraft:yellow_bed",
+    "name": "Yellow Bed",
+    "category": "functional",
+    "description": "黄色床，可设置重生点并跳过夜晚，占据两格空间。"
+  },
+  {
+    "id": "minecraft:yellow_candle",
+    "name": "Yellow Candle",
+    "category": "decoration",
+    "description": "黄色蜡烛，可单格放置最多4根，点燃后提供光照，可放在蛋糕上。"
+  },
+  {
+    "id": "minecraft:yellow_candle_cake",
+    "name": "Cake with Yellow Candle",
+    "category": "decoration",
+    "description": "插着黄色蜡烛的蛋糕，点燃后可作为光源，吃掉蛋糕会掉落蜡烛。"
+  },
+  {
+    "id": "minecraft:yellow_carpet",
+    "name": "Yellow Carpet",
+    "category": "decoration",
+    "description": "黄色地毯，厚度极薄的装饰方块，可铺在地面或羊驼身上。"
+  },
+  {
+    "id": "minecraft:yellow_concrete",
+    "name": "Yellow Concrete",
+    "category": "building",
+    "description": "黄色混凝土，由混凝土粉末遇水凝固而成，颜色鲜艳坚硬的建筑方块。"
+  },
+  {
+    "id": "minecraft:yellow_concrete_powder",
+    "name": "Yellow Concrete Powder",
+    "category": "building",
+    "description": "黄色混凝土粉末，受重力影响会下落，接触水后凝固成黄色混凝土。"
+  },
+  {
+    "id": "minecraft:yellow_glazed_terracotta",
+    "name": "Yellow Glazed Terracotta",
+    "category": "building",
+    "description": "黄色带釉陶瓦，带有图案的装饰方块，多块拼接可形成连续花纹。"
+  },
+  {
+    "id": "minecraft:yellow_shulker_box",
+    "name": "Yellow Shulker Box",
+    "category": "functional",
+    "description": "黄色潜影盒，可存放27格物品的容器，破坏后保留内部物品，便于携带搬运。"
+  },
+  {
+    "id": "minecraft:yellow_stained_glass",
+    "name": "Yellow Stained Glass",
+    "category": "building",
+    "description": "黄色染色玻璃，透明的彩色装饰方块，破坏后不会掉落。"
+  },
+  {
+    "id": "minecraft:yellow_stained_glass_pane",
+    "name": "Yellow Stained Glass Pane",
+    "category": "building",
+    "description": "黄色染色玻璃板，薄片状的彩色玻璃，可拼接成窗户。"
+  },
+  {
+    "id": "minecraft:yellow_terracotta",
+    "name": "Yellow Terracotta",
+    "category": "building",
+    "description": "黄色陶瓦，色调柔和的建筑方块，常用于沙漠风格建筑。"
+  },
+  {
+    "id": "minecraft:yellow_wall_banner",
+    "name": "Yellow Wall Banner",
+    "category": "decoration",
+    "description": "挂在墙上的黄色旗帜，可添加图案用于装饰与标记。"
+  },
+  {
+    "id": "minecraft:yellow_wool",
+    "name": "Yellow Wool",
+    "category": "building",
+    "description": "黄色羊毛，可用染料染色的柔软方块，可被红石信号传导。"
+  },
+  {
+    "id": "minecraft:zombie_head",
+    "name": "Zombie Head",
+    "category": "decoration",
+    "description": "僵尸头颅，放置在地面的装饰头颅方块，可戴在头上。"
+  },
+  {
+    "id": "minecraft:zombie_wall_head",
+    "name": "Zombie Wall Head",
+    "category": "decoration",
+    "description": "挂在墙上的僵尸头颅，由放置在垂直面上的头颅形成。"
+  }
+]

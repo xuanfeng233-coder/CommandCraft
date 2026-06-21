@@ -1,0 +1,50 @@
+{
+  "name": "time",
+  "syntax": "/time add|query|set <value>",
+  "description": "设置或查询世界的游戏时间",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "set <time>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置世界时间。可用数值（游戏刻）或预设值：day(1000)、noon(6000)、night(13000)、midnight(18000)"
+    },
+    {
+      "name": "add <time>",
+      "type": "子命令",
+      "required": false,
+      "description": "增加指定的游戏刻数。支持时间后缀：t(刻)、s(秒)、d(游戏日)"
+    },
+    {
+      "name": "query daytime|gametime|day",
+      "type": "子命令",
+      "required": false,
+      "description": "查询时间。daytime=当天时间(0-24000)、gametime=总游戏时间、day=已过天数"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/time set day",
+      "description": "将时间设为白天"
+    },
+    {
+      "input": "/time set night",
+      "description": "将时间设为晚上"
+    },
+    {
+      "input": "/time set 6000",
+      "description": "将时间设为正午"
+    },
+    {
+      "input": "/time add 1d",
+      "description": "增加1个游戏日的时间"
+    },
+    {
+      "input": "/time query daytime",
+      "description": "查询当前一天中的时间"
+    }
+  ],
+  "java_specific_notes": "Java版time add支持时间后缀（t、s、d）。time query可用于配合execute store获取精确时间值。可配合gamerule doDaylightCycle false锁定昼夜循环。",
+  "version_added": "1.0"
+}

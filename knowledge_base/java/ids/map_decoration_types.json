@@ -1,0 +1,177 @@
+[
+  {
+    "id": "minecraft:player",
+    "name": "玩家",
+    "description": "地图标记类型：玩家"
+  },
+  {
+    "id": "minecraft:frame",
+    "name": "物品展示框",
+    "description": "地图标记类型：物品展示框"
+  },
+  {
+    "id": "minecraft:red_marker",
+    "name": "红色标记",
+    "description": "地图标记类型：红色标记"
+  },
+  {
+    "id": "minecraft:blue_marker",
+    "name": "蓝色标记",
+    "description": "地图标记类型：蓝色标记"
+  },
+  {
+    "id": "minecraft:target_x",
+    "name": "目标X",
+    "description": "地图标记类型：目标X"
+  },
+  {
+    "id": "minecraft:target_point",
+    "name": "目标点",
+    "description": "地图标记类型：目标点"
+  },
+  {
+    "id": "minecraft:player_off_map",
+    "name": "地图外玩家",
+    "description": "地图标记类型：地图外玩家"
+  },
+  {
+    "id": "minecraft:player_off_limits",
+    "name": "越界玩家",
+    "description": "地图标记类型：越界玩家"
+  },
+  {
+    "id": "minecraft:mansion",
+    "name": "林地府邸",
+    "description": "地图标记类型：林地府邸"
+  },
+  {
+    "id": "minecraft:monument",
+    "name": "海底神殿",
+    "description": "地图标记类型：海底神殿"
+  },
+  {
+    "id": "minecraft:red_x",
+    "name": "红叉(藏宝图)",
+    "description": "地图标记类型：红叉(藏宝图)"
+  },
+  {
+    "id": "minecraft:trial_chambers",
+    "name": "试炼密室",
+    "description": "地图标记类型：试炼密室"
+  },
+  {
+    "id": "minecraft:village_desert",
+    "name": "沙漠村庄",
+    "description": "地图标记类型：沙漠村庄"
+  },
+  {
+    "id": "minecraft:village_plains",
+    "name": "平原村庄",
+    "description": "地图标记类型：平原村庄"
+  },
+  {
+    "id": "minecraft:village_savanna",
+    "name": "热带草原村庄",
+    "description": "地图标记类型：热带草原村庄"
+  },
+  {
+    "id": "minecraft:village_snowy",
+    "name": "积雪村庄",
+    "description": "地图标记类型：积雪村庄"
+  },
+  {
+    "id": "minecraft:village_taiga",
+    "name": "针叶林村庄",
+    "description": "地图标记类型：针叶林村庄"
+  },
+  {
+    "id": "minecraft:jungle_temple",
+    "name": "丛林神庙",
+    "description": "地图标记类型：丛林神庙"
+  },
+  {
+    "id": "minecraft:swamp_hut",
+    "name": "沼泽小屋",
+    "description": "地图标记类型：沼泽小屋"
+  },
+  {
+    "id": "minecraft:banner_white",
+    "name": "白色旗帜",
+    "description": "地图标记类型：白色旗帜"
+  },
+  {
+    "id": "minecraft:banner_orange",
+    "name": "橙色旗帜",
+    "description": "地图标记类型：橙色旗帜"
+  },
+  {
+    "id": "minecraft:banner_magenta",
+    "name": "品红旗帜",
+    "description": "地图标记类型：品红旗帜"
+  },
+  {
+    "id": "minecraft:banner_light_blue",
+    "name": "淡蓝旗帜",
+    "description": "地图标记类型：淡蓝旗帜"
+  },
+  {
+    "id": "minecraft:banner_yellow",
+    "name": "黄色旗帜",
+    "description": "地图标记类型：黄色旗帜"
+  },
+  {
+    "id": "minecraft:banner_lime",
+    "name": "黄绿旗帜",
+    "description": "地图标记类型：黄绿旗帜"
+  },
+  {
+    "id": "minecraft:banner_pink",
+    "name": "粉红旗帜",
+    "description": "地图标记类型：粉红旗帜"
+  },
+  {
+    "id": "minecraft:banner_gray",
+    "name": "灰色旗帜",
+    "description": "地图标记类型：灰色旗帜"
+  },
+  {
+    "id": "minecraft:banner_light_gray",
+    "name": "淡灰旗帜",
+    "description": "地图标记类型：淡灰旗帜"
+  },
+  {
+    "id": "minecraft:banner_cyan",
+    "name": "青色旗帜",
+    "description": "地图标记类型：青色旗帜"
+  },
+  {
+    "id": "minecraft:banner_purple",
+    "name": "紫色旗帜",
+    "description": "地图标记类型：紫色旗帜"
+  },
+  {
+    "id": "minecraft:banner_blue",
+    "name": "蓝色旗帜",
+    "description": "地图标记类型：蓝色旗帜"
+  },
+  {
+    "id": "minecraft:banner_brown",
+    "name": "棕色旗帜",
+    "description": "地图标记类型：棕色旗帜"
+  },
+  {
+    "id": "minecraft:banner_green",
+    "name": "绿色旗帜",
+    "description": "地图标记类型：绿色旗帜"
+  },
+  {
+    "id": "minecraft:banner_red",
+    "name": "红色旗帜",
+    "description": "地图标记类型：红色旗帜"
+  },
+  {
+    "id": "minecraft:banner_black",
+    "name": "黑色旗帜",
+    "description": "地图标记类型：黑色旗帜"
+  }
+]

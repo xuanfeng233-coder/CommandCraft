@@ -1,0 +1,962 @@
+[
+  {
+    "id": "minecraft:acacia_boat",
+    "name": "Acacia Boat",
+    "category": "vehicle",
+    "description": "金合欢船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:acacia_chest_boat",
+    "name": "Acacia Boat with Chest",
+    "category": "vehicle",
+    "description": "金合欢运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:allay",
+    "name": "Allay",
+    "category": "passive",
+    "description": "悦灵"
+  },
+  {
+    "id": "minecraft:area_effect_cloud",
+    "name": "Area Effect Cloud",
+    "category": "other",
+    "description": "区域效果云"
+  },
+  {
+    "id": "minecraft:armadillo",
+    "name": "Armadillo",
+    "category": "passive",
+    "description": "犰狳"
+  },
+  {
+    "id": "minecraft:armor_stand",
+    "name": "Armor Stand",
+    "category": "other",
+    "description": "盔甲架"
+  },
+  {
+    "id": "minecraft:arrow",
+    "name": "Arrow",
+    "category": "projectile",
+    "description": "箭"
+  },
+  {
+    "id": "minecraft:axolotl",
+    "name": "Axolotl",
+    "category": "passive",
+    "description": "美西螈"
+  },
+  {
+    "id": "minecraft:bamboo_chest_raft",
+    "name": "Bamboo Raft with Chest",
+    "category": "vehicle",
+    "description": "竹制运输筏",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:bamboo_raft",
+    "name": "Bamboo Raft",
+    "category": "vehicle",
+    "description": "竹筏",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:bat",
+    "name": "Bat",
+    "category": "passive",
+    "description": "蝙蝠"
+  },
+  {
+    "id": "minecraft:bee",
+    "name": "Bee",
+    "category": "neutral",
+    "description": "蜜蜂"
+  },
+  {
+    "id": "minecraft:birch_boat",
+    "name": "Birch Boat",
+    "category": "vehicle",
+    "description": "白桦船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:birch_chest_boat",
+    "name": "Birch Boat with Chest",
+    "category": "vehicle",
+    "description": "白桦运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:blaze",
+    "name": "Blaze",
+    "category": "hostile",
+    "description": "烈焰人"
+  },
+  {
+    "id": "minecraft:block_display",
+    "name": "Block Display",
+    "category": "display",
+    "description": "方块展示实体"
+  },
+  {
+    "id": "minecraft:boat",
+    "name": "Boat",
+    "category": "vehicle",
+    "description": "船",
+    "deprecated": true,
+    "since": "1.21.2 起按木种拆分为独立实体"
+  },
+  {
+    "id": "minecraft:bogged",
+    "name": "Bogged",
+    "category": "hostile",
+    "description": "沼骸"
+  },
+  {
+    "id": "minecraft:breeze",
+    "name": "Breeze",
+    "category": "hostile",
+    "description": "旋风人"
+  },
+  {
+    "id": "minecraft:breeze_wind_charge",
+    "name": "Breeze Wind Charge",
+    "category": "projectile",
+    "description": "旋风人风弹"
+  },
+  {
+    "id": "minecraft:camel",
+    "name": "Camel",
+    "category": "passive",
+    "description": "骆驼"
+  },
+  {
+    "id": "minecraft:cat",
+    "name": "Cat",
+    "category": "passive",
+    "description": "猫"
+  },
+  {
+    "id": "minecraft:cave_spider",
+    "name": "Cave Spider",
+    "category": "hostile",
+    "description": "洞穴蜘蛛"
+  },
+  {
+    "id": "minecraft:cherry_boat",
+    "name": "Cherry Boat",
+    "category": "vehicle",
+    "description": "樱花船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:cherry_chest_boat",
+    "name": "Cherry Boat with Chest",
+    "category": "vehicle",
+    "description": "樱花运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:chest_boat",
+    "name": "Boat with Chest",
+    "category": "vehicle",
+    "description": "箱船",
+    "deprecated": true,
+    "since": "1.21.2 起按木种拆分为独立实体"
+  },
+  {
+    "id": "minecraft:chest_minecart",
+    "name": "Minecart with Chest",
+    "category": "vehicle",
+    "description": "运输矿车"
+  },
+  {
+    "id": "minecraft:chicken",
+    "name": "Chicken",
+    "category": "passive",
+    "description": "鸡"
+  },
+  {
+    "id": "minecraft:cod",
+    "name": "Cod",
+    "category": "passive",
+    "description": "鳕鱼"
+  },
+  {
+    "id": "minecraft:command_block_minecart",
+    "name": "Minecart with Command Block",
+    "category": "vehicle",
+    "description": "命令方块矿车"
+  },
+  {
+    "id": "minecraft:copper_golem",
+    "name": "Copper Golem",
+    "category": "passive",
+    "description": "铜傀儡",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:cow",
+    "name": "Cow",
+    "category": "passive",
+    "description": "牛"
+  },
+  {
+    "id": "minecraft:creaking",
+    "name": "Creaking",
+    "category": "hostile",
+    "description": "嘎枝"
+  },
+  {
+    "id": "minecraft:creeper",
+    "name": "Creeper",
+    "category": "hostile",
+    "description": "苦力怕"
+  },
+  {
+    "id": "minecraft:dark_oak_boat",
+    "name": "Dark Oak Boat",
+    "category": "vehicle",
+    "description": "深色橡木船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:dark_oak_chest_boat",
+    "name": "Dark Oak Boat with Chest",
+    "category": "vehicle",
+    "description": "深色橡木运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:dolphin",
+    "name": "Dolphin",
+    "category": "neutral",
+    "description": "海豚"
+  },
+  {
+    "id": "minecraft:donkey",
+    "name": "Donkey",
+    "category": "passive",
+    "description": "驴"
+  },
+  {
+    "id": "minecraft:dragon_fireball",
+    "name": "Dragon Fireball",
+    "category": "projectile",
+    "description": "末影龙火球"
+  },
+  {
+    "id": "minecraft:drowned",
+    "name": "Drowned",
+    "category": "hostile",
+    "description": "溺尸"
+  },
+  {
+    "id": "minecraft:egg",
+    "name": "Thrown Egg",
+    "category": "projectile",
+    "description": "投掷鸡蛋"
+  },
+  {
+    "id": "minecraft:elder_guardian",
+    "name": "Elder Guardian",
+    "category": "hostile",
+    "description": "远古守卫者"
+  },
+  {
+    "id": "minecraft:end_crystal",
+    "name": "End Crystal",
+    "category": "other",
+    "description": "末地水晶"
+  },
+  {
+    "id": "minecraft:ender_dragon",
+    "name": "Ender Dragon",
+    "category": "boss",
+    "description": "末影龙"
+  },
+  {
+    "id": "minecraft:ender_pearl",
+    "name": "Thrown Ender Pearl",
+    "category": "projectile",
+    "description": "投掷末影珍珠"
+  },
+  {
+    "id": "minecraft:enderman",
+    "name": "Enderman",
+    "category": "neutral",
+    "description": "末影人"
+  },
+  {
+    "id": "minecraft:endermite",
+    "name": "Endermite",
+    "category": "hostile",
+    "description": "末影螨"
+  },
+  {
+    "id": "minecraft:evoker",
+    "name": "Evoker",
+    "category": "hostile",
+    "description": "唤魔者"
+  },
+  {
+    "id": "minecraft:evoker_fangs",
+    "name": "Evoker Fangs",
+    "category": "other",
+    "description": "唤魔者尖牙"
+  },
+  {
+    "id": "minecraft:experience_bottle",
+    "name": "Thrown Bottle o' Enchanting",
+    "category": "projectile",
+    "description": "投掷附魔之瓶"
+  },
+  {
+    "id": "minecraft:experience_orb",
+    "name": "Experience Orb",
+    "category": "other",
+    "description": "经验球"
+  },
+  {
+    "id": "minecraft:eye_of_ender",
+    "name": "Eye of Ender",
+    "category": "other",
+    "description": "末影之眼"
+  },
+  {
+    "id": "minecraft:falling_block",
+    "name": "Falling Block",
+    "category": "other",
+    "description": "下落的方块"
+  },
+  {
+    "id": "minecraft:fireball",
+    "name": "Fireball",
+    "category": "projectile",
+    "description": "火球"
+  },
+  {
+    "id": "minecraft:firework_rocket",
+    "name": "Firework Rocket",
+    "category": "projectile",
+    "description": "烟花火箭"
+  },
+  {
+    "id": "minecraft:fishing_bobber",
+    "name": "Fishing Bobber",
+    "category": "projectile",
+    "description": "钓鱼浮标"
+  },
+  {
+    "id": "minecraft:fox",
+    "name": "Fox",
+    "category": "passive",
+    "description": "狐狸"
+  },
+  {
+    "id": "minecraft:frog",
+    "name": "Frog",
+    "category": "passive",
+    "description": "青蛙"
+  },
+  {
+    "id": "minecraft:furnace_minecart",
+    "name": "Minecart with Furnace",
+    "category": "vehicle",
+    "description": "动力矿车"
+  },
+  {
+    "id": "minecraft:ghast",
+    "name": "Ghast",
+    "category": "hostile",
+    "description": "恶魂"
+  },
+  {
+    "id": "minecraft:giant",
+    "name": "Giant",
+    "category": "hostile",
+    "description": "巨人"
+  },
+  {
+    "id": "minecraft:glow_item_frame",
+    "name": "Glow Item Frame",
+    "category": "other",
+    "description": "荧光物品展示框"
+  },
+  {
+    "id": "minecraft:glow_squid",
+    "name": "Glow Squid",
+    "category": "passive",
+    "description": "发光鱿鱼"
+  },
+  {
+    "id": "minecraft:goat",
+    "name": "Goat",
+    "category": "neutral",
+    "description": "山羊"
+  },
+  {
+    "id": "minecraft:guardian",
+    "name": "Guardian",
+    "category": "hostile",
+    "description": "守卫者"
+  },
+  {
+    "id": "minecraft:happy_ghast",
+    "name": "Happy Ghast",
+    "category": "passive",
+    "description": "快乐恶魂",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:hoglin",
+    "name": "Hoglin",
+    "category": "hostile",
+    "description": "疣猪兽"
+  },
+  {
+    "id": "minecraft:hopper_minecart",
+    "name": "Minecart with Hopper",
+    "category": "vehicle",
+    "description": "漏斗矿车"
+  },
+  {
+    "id": "minecraft:horse",
+    "name": "Horse",
+    "category": "passive",
+    "description": "马"
+  },
+  {
+    "id": "minecraft:husk",
+    "name": "Husk",
+    "category": "hostile",
+    "description": "尸壳"
+  },
+  {
+    "id": "minecraft:illusioner",
+    "name": "Illusioner",
+    "category": "hostile",
+    "description": "幻术师"
+  },
+  {
+    "id": "minecraft:interaction",
+    "name": "Interaction",
+    "category": "display",
+    "description": "交互实体"
+  },
+  {
+    "id": "minecraft:iron_golem",
+    "name": "Iron Golem",
+    "category": "neutral",
+    "description": "铁傀儡"
+  },
+  {
+    "id": "minecraft:item",
+    "name": "Item",
+    "category": "other",
+    "description": "掉落物"
+  },
+  {
+    "id": "minecraft:item_display",
+    "name": "Item Display",
+    "category": "display",
+    "description": "物品展示实体"
+  },
+  {
+    "id": "minecraft:item_frame",
+    "name": "Item Frame",
+    "category": "other",
+    "description": "物品展示框"
+  },
+  {
+    "id": "minecraft:jungle_boat",
+    "name": "Jungle Boat",
+    "category": "vehicle",
+    "description": "丛林船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:jungle_chest_boat",
+    "name": "Jungle Boat with Chest",
+    "category": "vehicle",
+    "description": "丛林运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:leash_knot",
+    "name": "Leash Knot",
+    "category": "other",
+    "description": "拴绳结"
+  },
+  {
+    "id": "minecraft:lightning_bolt",
+    "name": "Lightning Bolt",
+    "category": "other",
+    "description": "闪电"
+  },
+  {
+    "id": "minecraft:lingering_potion",
+    "name": "Lingering Potion",
+    "category": "other",
+    "description": "滞留药水",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:llama",
+    "name": "Llama",
+    "category": "neutral",
+    "description": "羊驼"
+  },
+  {
+    "id": "minecraft:llama_spit",
+    "name": "Llama Spit",
+    "category": "projectile",
+    "description": "羊驼唾沫"
+  },
+  {
+    "id": "minecraft:magma_cube",
+    "name": "Magma Cube",
+    "category": "hostile",
+    "description": "岩浆怪"
+  },
+  {
+    "id": "minecraft:mangrove_boat",
+    "name": "Mangrove Boat",
+    "category": "vehicle",
+    "description": "红树船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:mangrove_chest_boat",
+    "name": "Mangrove Boat with Chest",
+    "category": "vehicle",
+    "description": "红树运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:mannequin",
+    "name": "Mannequin",
+    "category": "passive",
+    "description": "人偶",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:marker",
+    "name": "Marker",
+    "category": "other",
+    "description": "标记"
+  },
+  {
+    "id": "minecraft:minecart",
+    "name": "Minecart",
+    "category": "vehicle",
+    "description": "矿车"
+  },
+  {
+    "id": "minecraft:mooshroom",
+    "name": "Mooshroom",
+    "category": "passive",
+    "description": "哞菇"
+  },
+  {
+    "id": "minecraft:mule",
+    "name": "Mule",
+    "category": "passive",
+    "description": "骡"
+  },
+  {
+    "id": "minecraft:oak_boat",
+    "name": "Oak Boat",
+    "category": "vehicle",
+    "description": "橡木船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:oak_chest_boat",
+    "name": "Oak Boat with Chest",
+    "category": "vehicle",
+    "description": "橡木运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:ocelot",
+    "name": "Ocelot",
+    "category": "passive",
+    "description": "豹猫"
+  },
+  {
+    "id": "minecraft:ominous_item_spawner",
+    "name": "Ominous Item Spawner",
+    "category": "other",
+    "description": "不祥物品生成器"
+  },
+  {
+    "id": "minecraft:painting",
+    "name": "Painting",
+    "category": "other",
+    "description": "画"
+  },
+  {
+    "id": "minecraft:pale_oak_boat",
+    "name": "Pale Oak Boat",
+    "category": "vehicle",
+    "description": "苍白橡木船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:pale_oak_chest_boat",
+    "name": "Pale Oak Boat with Chest",
+    "category": "vehicle",
+    "description": "苍白橡木运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:panda",
+    "name": "Panda",
+    "category": "neutral",
+    "description": "熊猫"
+  },
+  {
+    "id": "minecraft:parrot",
+    "name": "Parrot",
+    "category": "passive",
+    "description": "鹦鹉"
+  },
+  {
+    "id": "minecraft:phantom",
+    "name": "Phantom",
+    "category": "hostile",
+    "description": "幻翼"
+  },
+  {
+    "id": "minecraft:pig",
+    "name": "Pig",
+    "category": "passive",
+    "description": "猪"
+  },
+  {
+    "id": "minecraft:piglin",
+    "name": "Piglin",
+    "category": "neutral",
+    "description": "猪灵"
+  },
+  {
+    "id": "minecraft:piglin_brute",
+    "name": "Piglin Brute",
+    "category": "hostile",
+    "description": "猪灵蛮兵"
+  },
+  {
+    "id": "minecraft:pillager",
+    "name": "Pillager",
+    "category": "hostile",
+    "description": "掠夺者"
+  },
+  {
+    "id": "minecraft:player",
+    "name": "Player",
+    "category": "other",
+    "description": "玩家"
+  },
+  {
+    "id": "minecraft:polar_bear",
+    "name": "Polar Bear",
+    "category": "neutral",
+    "description": "北极熊"
+  },
+  {
+    "id": "minecraft:potion",
+    "name": "Potion",
+    "category": "projectile",
+    "description": "投掷药水",
+    "deprecated": true,
+    "since": "1.21.2 起拆分为投掷药水/滞留药水独立实体"
+  },
+  {
+    "id": "minecraft:pufferfish",
+    "name": "Pufferfish",
+    "category": "passive",
+    "description": "河豚"
+  },
+  {
+    "id": "minecraft:rabbit",
+    "name": "Rabbit",
+    "category": "passive",
+    "description": "兔子"
+  },
+  {
+    "id": "minecraft:ravager",
+    "name": "Ravager",
+    "category": "hostile",
+    "description": "劫掠兽"
+  },
+  {
+    "id": "minecraft:salmon",
+    "name": "Salmon",
+    "category": "passive",
+    "description": "鲑鱼"
+  },
+  {
+    "id": "minecraft:sheep",
+    "name": "Sheep",
+    "category": "passive",
+    "description": "羊"
+  },
+  {
+    "id": "minecraft:shulker",
+    "name": "Shulker",
+    "category": "hostile",
+    "description": "潜影贝"
+  },
+  {
+    "id": "minecraft:shulker_bullet",
+    "name": "Shulker Bullet",
+    "category": "projectile",
+    "description": "潜影弹"
+  },
+  {
+    "id": "minecraft:silverfish",
+    "name": "Silverfish",
+    "category": "hostile",
+    "description": "蠹虫"
+  },
+  {
+    "id": "minecraft:skeleton",
+    "name": "Skeleton",
+    "category": "hostile",
+    "description": "骷髅"
+  },
+  {
+    "id": "minecraft:skeleton_horse",
+    "name": "Skeleton Horse",
+    "category": "passive",
+    "description": "骷髅马"
+  },
+  {
+    "id": "minecraft:slime",
+    "name": "Slime",
+    "category": "hostile",
+    "description": "史莱姆"
+  },
+  {
+    "id": "minecraft:small_fireball",
+    "name": "Small Fireball",
+    "category": "projectile",
+    "description": "小火球"
+  },
+  {
+    "id": "minecraft:sniffer",
+    "name": "Sniffer",
+    "category": "passive",
+    "description": "嗅探兽"
+  },
+  {
+    "id": "minecraft:snow_golem",
+    "name": "Snow Golem",
+    "category": "neutral",
+    "description": "雪傀儡"
+  },
+  {
+    "id": "minecraft:snowball",
+    "name": "Snowball",
+    "category": "projectile",
+    "description": "雪球"
+  },
+  {
+    "id": "minecraft:spawner_minecart",
+    "name": "Minecart with Spawner",
+    "category": "vehicle",
+    "description": "刷怪笼矿车"
+  },
+  {
+    "id": "minecraft:spectral_arrow",
+    "name": "Spectral Arrow",
+    "category": "projectile",
+    "description": "光灵箭"
+  },
+  {
+    "id": "minecraft:spider",
+    "name": "Spider",
+    "category": "hostile",
+    "description": "蜘蛛"
+  },
+  {
+    "id": "minecraft:spruce_boat",
+    "name": "Spruce Boat",
+    "category": "vehicle",
+    "description": "云杉船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:spruce_chest_boat",
+    "name": "Spruce Boat with Chest",
+    "category": "vehicle",
+    "description": "云杉运输船",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:squid",
+    "name": "Squid",
+    "category": "passive",
+    "description": "鱿鱼"
+  },
+  {
+    "id": "minecraft:stray",
+    "name": "Stray",
+    "category": "hostile",
+    "description": "流浪者"
+  },
+  {
+    "id": "minecraft:strider",
+    "name": "Strider",
+    "category": "passive",
+    "description": "炽足兽"
+  },
+  {
+    "id": "minecraft:tadpole",
+    "name": "Tadpole",
+    "category": "passive",
+    "description": "蝌蚪"
+  },
+  {
+    "id": "minecraft:text_display",
+    "name": "Text Display",
+    "category": "display",
+    "description": "文本展示实体"
+  },
+  {
+    "id": "minecraft:tnt",
+    "name": "Primed TNT",
+    "category": "other",
+    "description": "已激活的TNT"
+  },
+  {
+    "id": "minecraft:tnt_minecart",
+    "name": "Minecart with TNT",
+    "category": "vehicle",
+    "description": "TNT矿车"
+  },
+  {
+    "id": "minecraft:trader_llama",
+    "name": "Trader Llama",
+    "category": "passive",
+    "description": "行商羊驼"
+  },
+  {
+    "id": "minecraft:trident",
+    "name": "Trident",
+    "category": "projectile",
+    "description": "投掷三叉戟"
+  },
+  {
+    "id": "minecraft:tropical_fish",
+    "name": "Tropical Fish",
+    "category": "passive",
+    "description": "热带鱼"
+  },
+  {
+    "id": "minecraft:turtle",
+    "name": "Turtle",
+    "category": "passive",
+    "description": "海龟"
+  },
+  {
+    "id": "minecraft:vex",
+    "name": "Vex",
+    "category": "hostile",
+    "description": "恼鬼"
+  },
+  {
+    "id": "minecraft:villager",
+    "name": "Villager",
+    "category": "passive",
+    "description": "村民"
+  },
+  {
+    "id": "minecraft:vindicator",
+    "name": "Vindicator",
+    "category": "hostile",
+    "description": "卫道士"
+  },
+  {
+    "id": "minecraft:wandering_trader",
+    "name": "Wandering Trader",
+    "category": "passive",
+    "description": "流浪商人"
+  },
+  {
+    "id": "minecraft:warden",
+    "name": "Warden",
+    "category": "hostile",
+    "description": "监守者"
+  },
+  {
+    "id": "minecraft:wind_charge",
+    "name": "Wind Charge",
+    "category": "projectile",
+    "description": "风弹"
+  },
+  {
+    "id": "minecraft:witch",
+    "name": "Witch",
+    "category": "hostile",
+    "description": "女巫"
+  },
+  {
+    "id": "minecraft:wither",
+    "name": "Wither",
+    "category": "boss",
+    "description": "凋灵"
+  },
+  {
+    "id": "minecraft:wither_skeleton",
+    "name": "Wither Skeleton",
+    "category": "hostile",
+    "description": "凋灵骷髅"
+  },
+  {
+    "id": "minecraft:wither_skull",
+    "name": "Wither Skull",
+    "category": "projectile",
+    "description": "凋灵之首"
+  },
+  {
+    "id": "minecraft:wolf",
+    "name": "Wolf",
+    "category": "neutral",
+    "description": "狼"
+  },
+  {
+    "id": "minecraft:zoglin",
+    "name": "Zoglin",
+    "category": "hostile",
+    "description": "僵尸疣猪兽"
+  },
+  {
+    "id": "minecraft:zombie",
+    "name": "Zombie",
+    "category": "hostile",
+    "description": "僵尸"
+  },
+  {
+    "id": "minecraft:zombie_horse",
+    "name": "Zombie Horse",
+    "category": "passive",
+    "description": "僵尸马"
+  },
+  {
+    "id": "minecraft:zombie_villager",
+    "name": "Zombie Villager",
+    "category": "hostile",
+    "description": "僵尸村民"
+  },
+  {
+    "id": "minecraft:zombified_piglin",
+    "name": "Zombified Piglin",
+    "category": "neutral",
+    "description": "僵尸猪灵"
+  }
+]

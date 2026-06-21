@@ -1,0 +1,37 @@
+{
+  "name": "spectate",
+  "syntax": "/spectate [<target>] [<player>]",
+  "description": "让旁观模式玩家观察指定实体",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": false,
+      "description": "要观察的目标实体（单个实体）。省略则停止观察"
+    },
+    {
+      "name": "player",
+      "type": "target",
+      "required": false,
+      "description": "执行观察的旁观者玩家",
+      "default": "@s"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spectate @e[type=minecraft:creeper,limit=1,sort=nearest]",
+      "description": "观察最近的苦力怕的第一人称视角"
+    },
+    {
+      "input": "/spectate @p[gamemode=survival] @s",
+      "description": "观察最近的生存模式玩家"
+    },
+    {
+      "input": "/spectate",
+      "description": "停止观察，恢复自由移动"
+    }
+  ],
+  "java_specific_notes": "spectate命令是Java版独有的。执行者必须处于旁观模式。观察实体时会以该实体的第一人称视角查看世界，某些生物有特殊视觉效果（如苦力怕的绿色滤镜、末影人的颜色反转等）。",
+  "version_added": "1.8"
+}

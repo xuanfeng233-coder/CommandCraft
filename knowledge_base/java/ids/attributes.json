@@ -1,0 +1,364 @@
+[
+  {
+    "id": "minecraft:max_health",
+    "name": "最大生命值",
+    "default": 20.0,
+    "range": "1-1024",
+    "description": "实体最大生命值",
+    "aliases": [
+      "minecraft:generic.max_health"
+    ]
+  },
+  {
+    "id": "minecraft:follow_range",
+    "name": "跟踪范围",
+    "default": 32.0,
+    "range": "0-2048",
+    "description": "生物追踪玩家或目标的最大距离",
+    "aliases": [
+      "minecraft:generic.follow_range"
+    ]
+  },
+  {
+    "id": "minecraft:knockback_resistance",
+    "name": "击退抗性",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "减少受到的击退（1=完全免疫击退）",
+    "aliases": [
+      "minecraft:generic.knockback_resistance"
+    ]
+  },
+  {
+    "id": "minecraft:movement_speed",
+    "name": "移动速度",
+    "default": 0.7,
+    "range": "0-1024",
+    "description": "实体的移动速度",
+    "aliases": [
+      "minecraft:generic.movement_speed"
+    ]
+  },
+  {
+    "id": "minecraft:flying_speed",
+    "name": "飞行速度",
+    "default": 0.4,
+    "range": "0-1024",
+    "description": "飞行生物的飞行速度",
+    "aliases": [
+      "minecraft:generic.flying_speed"
+    ]
+  },
+  {
+    "id": "minecraft:attack_damage",
+    "name": "攻击伤害",
+    "default": 2.0,
+    "range": "0-2048",
+    "description": "实体的近战攻击伤害",
+    "aliases": [
+      "minecraft:generic.attack_damage"
+    ]
+  },
+  {
+    "id": "minecraft:attack_knockback",
+    "name": "攻击击退",
+    "default": 0.0,
+    "range": "0-5",
+    "description": "攻击时对目标施加的击退",
+    "aliases": [
+      "minecraft:generic.attack_knockback"
+    ]
+  },
+  {
+    "id": "minecraft:attack_speed",
+    "name": "攻击速度",
+    "default": 4.0,
+    "range": "0-1024",
+    "description": "玩家的攻击冷却恢复速度",
+    "aliases": [
+      "minecraft:generic.attack_speed"
+    ]
+  },
+  {
+    "id": "minecraft:armor",
+    "name": "护甲值",
+    "default": 0.0,
+    "range": "0-30",
+    "description": "实体的护甲防御点数",
+    "aliases": [
+      "minecraft:generic.armor"
+    ]
+  },
+  {
+    "id": "minecraft:armor_toughness",
+    "name": "护甲韧性",
+    "default": 0.0,
+    "range": "0-20",
+    "description": "护甲对高伤害攻击的额外防御",
+    "aliases": [
+      "minecraft:generic.armor_toughness"
+    ]
+  },
+  {
+    "id": "minecraft:luck",
+    "name": "幸运",
+    "default": 0.0,
+    "range": "-1024-1024",
+    "description": "影响战利品表的quality参数",
+    "aliases": [
+      "minecraft:generic.luck"
+    ]
+  },
+  {
+    "id": "minecraft:max_absorption",
+    "name": "最大伤害吸收",
+    "default": 0.0,
+    "range": "0-2048",
+    "description": "实体可获得的最大伤害吸收值",
+    "since": "1.20.2",
+    "aliases": [
+      "minecraft:generic.max_absorption"
+    ]
+  },
+  {
+    "id": "minecraft:scale",
+    "name": "缩放",
+    "default": 1.0,
+    "range": "0.0625-16",
+    "description": "实体的大小缩放倍数",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.scale"
+    ]
+  },
+  {
+    "id": "minecraft:step_height",
+    "name": "台阶高度",
+    "default": 0.6,
+    "range": "0-10",
+    "description": "实体可自动跨越的方块高度",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.step_height"
+    ]
+  },
+  {
+    "id": "minecraft:gravity",
+    "name": "重力",
+    "default": 0.08,
+    "range": "-1-1",
+    "description": "实体受到的重力加速度",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.gravity"
+    ]
+  },
+  {
+    "id": "minecraft:safe_fall_distance",
+    "name": "安全坠落距离",
+    "default": 3.0,
+    "range": "-1024-1024",
+    "description": "不受摔落伤害的最大距离",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.safe_fall_distance"
+    ]
+  },
+  {
+    "id": "minecraft:fall_damage_multiplier",
+    "name": "摔落伤害倍率",
+    "default": 1.0,
+    "range": "0-100",
+    "description": "摔落伤害的倍率",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.fall_damage_multiplier"
+    ]
+  },
+  {
+    "id": "minecraft:jump_strength",
+    "name": "跳跃力量",
+    "default": 0.42,
+    "range": "0-32",
+    "description": "实体的跳跃力量",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:generic.jump_strength",
+      "minecraft:horse.jump_strength"
+    ]
+  },
+  {
+    "id": "minecraft:oxygen_bonus",
+    "name": "氧气加成",
+    "default": 0.0,
+    "range": "0-1024",
+    "description": "水下呼吸额外加成",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:generic.oxygen_bonus"
+    ]
+  },
+  {
+    "id": "minecraft:burning_time",
+    "name": "燃烧时间",
+    "default": 1.0,
+    "range": "0-1024",
+    "description": "着火持续时间倍率",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:generic.burning_time"
+    ]
+  },
+  {
+    "id": "minecraft:explosion_knockback_resistance",
+    "name": "爆炸击退抗性",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "减少爆炸造成的击退",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:generic.explosion_knockback_resistance"
+    ]
+  },
+  {
+    "id": "minecraft:movement_efficiency",
+    "name": "移动效率",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "减少在减速方块上的速度惩罚",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:generic.movement_efficiency"
+    ]
+  },
+  {
+    "id": "minecraft:water_movement_efficiency",
+    "name": "水中移动效率",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "减少水中移动的速度惩罚",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:generic.water_movement_efficiency"
+    ]
+  },
+  {
+    "id": "minecraft:block_interaction_range",
+    "name": "方块交互范围",
+    "default": 4.5,
+    "range": "0-64",
+    "description": "玩家与方块交互的最大距离",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:player.block_interaction_range"
+    ]
+  },
+  {
+    "id": "minecraft:entity_interaction_range",
+    "name": "实体交互范围",
+    "default": 3.0,
+    "range": "0-64",
+    "description": "玩家与实体交互的最大距离",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:player.entity_interaction_range"
+    ]
+  },
+  {
+    "id": "minecraft:block_break_speed",
+    "name": "方块挖掘速度",
+    "default": 1.0,
+    "range": "0-1024",
+    "description": "玩家挖掘方块的速度倍率",
+    "since": "1.20.5",
+    "aliases": [
+      "minecraft:player.block_break_speed"
+    ]
+  },
+  {
+    "id": "minecraft:mining_efficiency",
+    "name": "挖掘效率",
+    "default": 0.0,
+    "range": "0-1024",
+    "description": "使用正确工具时的额外挖掘速度加成",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:player.mining_efficiency"
+    ]
+  },
+  {
+    "id": "minecraft:sneaking_speed",
+    "name": "潜行速度",
+    "default": 0.3,
+    "range": "0-1",
+    "description": "潜行时的移动速度倍率",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:player.sneaking_speed"
+    ]
+  },
+  {
+    "id": "minecraft:submerged_mining_speed",
+    "name": "水下挖掘速度",
+    "default": 0.2,
+    "range": "0-20",
+    "description": "水下挖掘方块的速度倍率",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:player.submerged_mining_speed"
+    ]
+  },
+  {
+    "id": "minecraft:sweeping_damage_ratio",
+    "name": "横扫伤害比",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "横扫攻击对额外目标造成的伤害比例",
+    "since": "1.21",
+    "aliases": [
+      "minecraft:player.sweeping_damage_ratio"
+    ]
+  },
+  {
+    "id": "minecraft:spawn_reinforcements",
+    "name": "僵尸增援",
+    "default": 0.0,
+    "range": "0-1",
+    "description": "僵尸受伤时召唤增援的概率",
+    "aliases": [
+      "minecraft:zombie.spawn_reinforcements"
+    ]
+  },
+  {
+    "id": "minecraft:tempt_range",
+    "name": "引诱范围",
+    "default": 10.0,
+    "range": "0-2048",
+    "description": "生物被引诱物品吸引的最大距离",
+    "since": "1.21.2"
+  },
+  {
+    "id": "minecraft:camera_distance",
+    "name": "镜头距离",
+    "default": 4.0,
+    "range": "0-32",
+    "description": "第三人称视角下镜头与玩家的距离",
+    "since": "1.21.6"
+  },
+  {
+    "id": "minecraft:waypoint_transmit_range",
+    "name": "路径点发送范围",
+    "default": 0.0,
+    "range": "0-60000000",
+    "description": "实体广播定位器路径点的最大距离",
+    "since": "1.21.6"
+  },
+  {
+    "id": "minecraft:waypoint_receive_range",
+    "name": "路径点接收范围",
+    "default": 0.0,
+    "range": "0-60000000",
+    "description": "实体接收定位器路径点的最大距离",
+    "since": "1.21.6"
+  }
+]

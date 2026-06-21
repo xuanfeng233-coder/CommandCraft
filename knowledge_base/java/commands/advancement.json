@@ -1,0 +1,64 @@
+{
+  "name": "advancement",
+  "syntax": "/advancement grant|revoke <targets> everything|from|only|through|until <advancement> [<criterion>]",
+  "description": "管理玩家的进度",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "grant <targets> everything",
+      "type": "子命令",
+      "required": false,
+      "description": "授予目标所有进度"
+    },
+    {
+      "name": "grant <targets> only <advancement> [<criterion>]",
+      "type": "子命令",
+      "required": false,
+      "description": "授予目标指定进度（可选指定具体准则）"
+    },
+    {
+      "name": "grant <targets> from <advancement>",
+      "type": "子命令",
+      "required": false,
+      "description": "授予从指定进度开始的所有后续进度"
+    },
+    {
+      "name": "grant <targets> through <advancement>",
+      "type": "子命令",
+      "required": false,
+      "description": "授予从指定进度到最终进度的所有进度（含当前）"
+    },
+    {
+      "name": "grant <targets> until <advancement>",
+      "type": "子命令",
+      "required": false,
+      "description": "授予从根进度到指定进度的所有进度"
+    },
+    {
+      "name": "revoke ...",
+      "type": "子命令",
+      "required": false,
+      "description": "撤销进度（语法与grant相同）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/advancement grant @s everything",
+      "description": "给自己授予所有进度"
+    },
+    {
+      "input": "/advancement revoke @s everything",
+      "description": "撤销自己的所有进度"
+    },
+    {
+      "input": "/advancement grant @s only minecraft:story/mine_stone",
+      "description": "给自己授予'石器时代'进度"
+    },
+    {
+      "input": "/advancement grant @s from minecraft:story/root",
+      "description": "给自己授予从Minecraft故事线根进度开始的所有后续进度"
+    }
+  ],
+  "java_specific_notes": "advancement命令是Java版独有的命令。进度ID使用命名空间:路径格式，如minecraft:story/mine_stone。数据包可以定义自定义进度。进度可以配合奖励（rewards）实现执行函数或给予物品。自定义进度常用于实现成就系统或触发器。",
+  "version_added": "1.12"
+}

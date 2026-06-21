@@ -1,0 +1,3267 @@
+[
+  {
+    "id": "mangrove_door",
+    "name": "Mangrove Door",
+    "category": "material",
+    "description": "红树木门"
+  },
+  {
+    "id": "stained_glass_pane",
+    "name": "Stained Glass Pane",
+    "category": "material",
+    "description": "染色玻璃板"
+  },
+  {
+    "id": "spruce_door",
+    "name": "Spruce Door",
+    "category": "material",
+    "description": "云杉木门"
+  },
+  {
+    "id": "birch_door",
+    "name": "Birch Door",
+    "category": "material",
+    "description": "白桦木门"
+  },
+  {
+    "id": "jungle_door",
+    "name": "Jungle Door",
+    "category": "material",
+    "description": "丛林木门"
+  },
+  {
+    "id": "acacia_door",
+    "name": "Acacia Door",
+    "category": "material",
+    "description": "金合欢木门"
+  },
+  {
+    "id": "dark_oak_door",
+    "name": "Dark Oak Door",
+    "category": "material",
+    "description": "深色橡木门"
+  },
+  {
+    "id": "black_bundle",
+    "name": "Black Bundle",
+    "category": "equipment",
+    "description": "黑色收纳袋"
+  },
+  {
+    "id": "blue_bundle",
+    "name": "Blue Bundle",
+    "category": "equipment",
+    "description": "蓝色收纳袋"
+  },
+  {
+    "id": "brown_bundle",
+    "name": "Brown Bundle",
+    "category": "equipment",
+    "description": "棕色收纳袋"
+  },
+  {
+    "id": "bundle",
+    "name": "Bundle",
+    "category": "equipment",
+    "description": "收纳袋"
+  },
+  {
+    "id": "cyan_bundle",
+    "name": "Cyan Bundle",
+    "category": "equipment",
+    "description": "青色收纳袋"
+  },
+  {
+    "id": "gray_bundle",
+    "name": "Gray Bundle",
+    "category": "equipment",
+    "description": "灰色收纳袋"
+  },
+  {
+    "id": "green_bundle",
+    "name": "Green Bundle",
+    "category": "equipment",
+    "description": "绿色收纳袋"
+  },
+  {
+    "id": "light_blue_bundle",
+    "name": "Light Blue Bundle",
+    "category": "equipment",
+    "description": "淡蓝色收纳袋"
+  },
+  {
+    "id": "light_gray_bundle",
+    "name": "Light Gray Bundle",
+    "category": "equipment",
+    "description": "淡灰色收纳袋"
+  },
+  {
+    "id": "lime_bundle",
+    "name": "Lime Bundle",
+    "category": "equipment",
+    "description": "黄绿色收纳袋"
+  },
+  {
+    "id": "magenta_bundle",
+    "name": "Magenta Bundle",
+    "category": "equipment",
+    "description": "品红色收纳袋"
+  },
+  {
+    "id": "orange_bundle",
+    "name": "Orange Bundle",
+    "category": "equipment",
+    "description": "橙色收纳袋"
+  },
+  {
+    "id": "pink_bundle",
+    "name": "Pink Bundle",
+    "category": "equipment",
+    "description": "粉红色收纳袋"
+  },
+  {
+    "id": "purple_bundle",
+    "name": "Purple Bundle",
+    "category": "equipment",
+    "description": "紫色收纳袋"
+  },
+  {
+    "id": "red_bundle",
+    "name": "Red Bundle",
+    "category": "equipment",
+    "description": "红色收纳袋"
+  },
+  {
+    "id": "white_bundle",
+    "name": "White Bundle",
+    "category": "equipment",
+    "description": "白色收纳袋"
+  },
+  {
+    "id": "yellow_bundle",
+    "name": "Yellow Bundle",
+    "category": "equipment",
+    "description": "黄色收纳袋"
+  },
+  {
+    "id": "breeze_rod",
+    "name": "Breeze Rod",
+    "category": "material",
+    "description": "旋风棒"
+  },
+  {
+    "id": "ominous_trial_key",
+    "name": "Ominous Trial Key",
+    "category": "material",
+    "description": "不祥试炼钥匙"
+  },
+  {
+    "id": "trial_key",
+    "name": "Trial Key",
+    "category": "material",
+    "description": "试炼钥匙"
+  },
+  {
+    "id": "wind_charge",
+    "name": "Wind Charge",
+    "category": "material",
+    "description": "风弹"
+  },
+  {
+    "id": "apple",
+    "name": "Apple",
+    "category": "food",
+    "description": "苹果"
+  },
+  {
+    "id": "golden_apple",
+    "name": "Golden Apple",
+    "category": "food",
+    "description": "金苹果"
+  },
+  {
+    "id": "enchanted_golden_apple",
+    "name": "Enchanted Golden Apple",
+    "category": "food"
+  },
+  {
+    "id": "mushroom_stew",
+    "name": "Mushroom Stew",
+    "category": "food",
+    "description": "蘑菇煲"
+  },
+  {
+    "id": "bread",
+    "name": "Bread",
+    "category": "food",
+    "description": "面包"
+  },
+  {
+    "id": "porkchop",
+    "name": "Porkchop",
+    "category": "food",
+    "description": "生猪排"
+  },
+  {
+    "id": "cooked_porkchop",
+    "name": "Cooked Porkchop",
+    "category": "food",
+    "description": "熟猪排"
+  },
+  {
+    "id": "cod",
+    "name": "Cod",
+    "category": "food"
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon",
+    "category": "food",
+    "description": "生鲑鱼"
+  },
+  {
+    "id": "tropical_fish",
+    "name": "Tropical Fish",
+    "category": "food"
+  },
+  {
+    "id": "pufferfish",
+    "name": "Pufferfish",
+    "category": "food",
+    "description": "河豚"
+  },
+  {
+    "id": "cooked_cod",
+    "name": "Cooked Cod",
+    "category": "food"
+  },
+  {
+    "id": "cooked_salmon",
+    "name": "Cooked Salmon",
+    "category": "food",
+    "description": "熟鲑鱼"
+  },
+  {
+    "id": "dried_kelp",
+    "name": "Dried Kelp",
+    "category": "food",
+    "description": "干海带"
+  },
+  {
+    "id": "cookie",
+    "name": "Cookie",
+    "category": "food",
+    "description": "曲奇"
+  },
+  {
+    "id": "melon_slice",
+    "name": "Melon Slice",
+    "category": "food"
+  },
+  {
+    "id": "beef",
+    "name": "Beef",
+    "category": "food",
+    "description": "生牛肉"
+  },
+  {
+    "id": "cooked_beef",
+    "name": "Cooked Beef",
+    "category": "food",
+    "description": "牛排"
+  },
+  {
+    "id": "chicken",
+    "name": "Chicken",
+    "category": "food",
+    "description": "生鸡肉"
+  },
+  {
+    "id": "cooked_chicken",
+    "name": "Cooked Chicken",
+    "category": "food",
+    "description": "熟鸡肉"
+  },
+  {
+    "id": "rotten_flesh",
+    "name": "Rotten Flesh",
+    "category": "material",
+    "description": "腐肉"
+  },
+  {
+    "id": "spider_eye",
+    "name": "Spider Eye",
+    "category": "material",
+    "description": "蜘蛛眼"
+  },
+  {
+    "id": "carrot",
+    "name": "Carrot",
+    "category": "food",
+    "description": "胡萝卜"
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "category": "food",
+    "description": "马铃薯"
+  },
+  {
+    "id": "baked_potato",
+    "name": "Baked Potato",
+    "category": "food",
+    "description": "烤马铃薯"
+  },
+  {
+    "id": "poisonous_potato",
+    "name": "Poisonous Potato",
+    "category": "food",
+    "description": "毒马铃薯"
+  },
+  {
+    "id": "golden_carrot",
+    "name": "Golden Carrot",
+    "category": "food",
+    "description": "金胡萝卜"
+  },
+  {
+    "id": "pumpkin_pie",
+    "name": "Pumpkin Pie",
+    "category": "material",
+    "description": "南瓜派"
+  },
+  {
+    "id": "beetroot",
+    "name": "Beetroot",
+    "category": "food",
+    "description": "甜菜根"
+  },
+  {
+    "id": "beetroot_soup",
+    "name": "Beetroot Soup",
+    "category": "food",
+    "description": "甜菜汤"
+  },
+  {
+    "id": "sweet_berries",
+    "name": "Sweet Berries",
+    "category": "food",
+    "description": "甜浆果"
+  },
+  {
+    "id": "rabbit",
+    "name": "Rabbit",
+    "category": "food",
+    "description": "生兔肉"
+  },
+  {
+    "id": "cooked_rabbit",
+    "name": "Cooked Rabbit",
+    "category": "food",
+    "description": "熟兔肉"
+  },
+  {
+    "id": "rabbit_stew",
+    "name": "Rabbit Stew",
+    "category": "food",
+    "description": "兔肉煲"
+  },
+  {
+    "id": "wheat_seeds",
+    "name": "Wheat Seeds",
+    "category": "material",
+    "description": "小麦种子"
+  },
+  {
+    "id": "pumpkin_seeds",
+    "name": "Pumpkin Seeds",
+    "category": "material",
+    "description": "南瓜种子"
+  },
+  {
+    "id": "melon_seeds",
+    "name": "Melon Seeds",
+    "category": "material",
+    "description": "西瓜种子"
+  },
+  {
+    "id": "nether_wart",
+    "name": "Nether Wart",
+    "category": "material",
+    "description": "下界疣"
+  },
+  {
+    "id": "beetroot_seeds",
+    "name": "Beetroot Seeds",
+    "category": "food",
+    "description": "甜菜种子"
+  },
+  {
+    "id": "torchflower_seeds",
+    "name": "Torchflower Seeds",
+    "category": "material",
+    "description": "火把花种子"
+  },
+  {
+    "id": "pitcher_pod",
+    "name": "Pitcher Pod",
+    "category": "material",
+    "description": "猪笼草荚果"
+  },
+  {
+    "id": "iron_shovel",
+    "name": "Iron Shovel",
+    "category": "weapon_tool",
+    "description": "铁锹"
+  },
+  {
+    "id": "iron_pickaxe",
+    "name": "Iron Pickaxe",
+    "category": "weapon_tool",
+    "description": "铁镐"
+  },
+  {
+    "id": "iron_axe",
+    "name": "Iron Axe",
+    "category": "weapon_tool",
+    "description": "铁斧"
+  },
+  {
+    "id": "flint_and_steel",
+    "name": "Flint And Steel",
+    "category": "material",
+    "description": "打火石"
+  },
+  {
+    "id": "bow",
+    "name": "Bow",
+    "category": "weapon_tool",
+    "description": "弓"
+  },
+  {
+    "id": "arrow",
+    "name": "Arrow",
+    "category": "material",
+    "description": "箭"
+  },
+  {
+    "id": "coal",
+    "name": "Coal",
+    "category": "material",
+    "description": "煤炭"
+  },
+  {
+    "id": "charcoal",
+    "name": "Charcoal",
+    "category": "material",
+    "description": "木炭"
+  },
+  {
+    "id": "diamond",
+    "name": "Diamond",
+    "category": "material",
+    "description": "钻石"
+  },
+  {
+    "id": "iron_ingot",
+    "name": "Iron Ingot",
+    "category": "material",
+    "description": "铁锭"
+  },
+  {
+    "id": "gold_ingot",
+    "name": "Gold Ingot",
+    "category": "material",
+    "description": "金锭"
+  },
+  {
+    "id": "iron_sword",
+    "name": "Iron Sword",
+    "category": "weapon_tool",
+    "description": "铁剑"
+  },
+  {
+    "id": "wooden_sword",
+    "name": "Wooden Sword",
+    "category": "weapon_tool",
+    "description": "木剑"
+  },
+  {
+    "id": "wooden_shovel",
+    "name": "Wooden Shovel",
+    "category": "weapon_tool",
+    "description": "木锹"
+  },
+  {
+    "id": "wooden_pickaxe",
+    "name": "Wooden Pickaxe",
+    "category": "weapon_tool",
+    "description": "木镐"
+  },
+  {
+    "id": "wooden_axe",
+    "name": "Wooden Axe",
+    "category": "weapon_tool",
+    "description": "木斧"
+  },
+  {
+    "id": "stone_sword",
+    "name": "Stone Sword",
+    "category": "weapon_tool",
+    "description": "石剑"
+  },
+  {
+    "id": "stone_shovel",
+    "name": "Stone Shovel",
+    "category": "weapon_tool",
+    "description": "石锹"
+  },
+  {
+    "id": "stone_pickaxe",
+    "name": "Stone Pickaxe",
+    "category": "weapon_tool",
+    "description": "石镐"
+  },
+  {
+    "id": "stone_axe",
+    "name": "Stone Axe",
+    "category": "weapon_tool",
+    "description": "石斧"
+  },
+  {
+    "id": "diamond_sword",
+    "name": "Diamond Sword",
+    "category": "weapon_tool",
+    "description": "钻石剑"
+  },
+  {
+    "id": "diamond_shovel",
+    "name": "Diamond Shovel",
+    "category": "weapon_tool",
+    "description": "钻石锹"
+  },
+  {
+    "id": "diamond_pickaxe",
+    "name": "Diamond Pickaxe",
+    "category": "weapon_tool",
+    "description": "钻石镐"
+  },
+  {
+    "id": "diamond_axe",
+    "name": "Diamond Axe",
+    "category": "weapon_tool",
+    "description": "钻石斧"
+  },
+  {
+    "id": "mace",
+    "name": "Mace",
+    "category": "weapon_tool",
+    "description": "重锤"
+  },
+  {
+    "id": "stick",
+    "name": "Stick",
+    "category": "material",
+    "description": "木棍"
+  },
+  {
+    "id": "bowl",
+    "name": "Bowl",
+    "category": "weapon_tool",
+    "description": "碗"
+  },
+  {
+    "id": "golden_sword",
+    "name": "Golden Sword",
+    "category": "weapon_tool",
+    "description": "金剑"
+  },
+  {
+    "id": "golden_shovel",
+    "name": "Golden Shovel",
+    "category": "weapon_tool",
+    "description": "金锹"
+  },
+  {
+    "id": "golden_pickaxe",
+    "name": "Golden Pickaxe",
+    "category": "weapon_tool",
+    "description": "金镐"
+  },
+  {
+    "id": "golden_axe",
+    "name": "Golden Axe",
+    "category": "weapon_tool",
+    "description": "金斧"
+  },
+  {
+    "id": "string",
+    "name": "String",
+    "category": "material",
+    "description": "线"
+  },
+  {
+    "id": "feather",
+    "name": "Feather",
+    "category": "material",
+    "description": "羽毛"
+  },
+  {
+    "id": "gunpowder",
+    "name": "Gunpowder",
+    "category": "material",
+    "description": "火药"
+  },
+  {
+    "id": "wooden_hoe",
+    "name": "Wooden Hoe",
+    "category": "weapon_tool",
+    "description": "木锄"
+  },
+  {
+    "id": "stone_hoe",
+    "name": "Stone Hoe",
+    "category": "weapon_tool",
+    "description": "石锄"
+  },
+  {
+    "id": "iron_hoe",
+    "name": "Iron Hoe",
+    "category": "weapon_tool",
+    "description": "铁锄"
+  },
+  {
+    "id": "diamond_hoe",
+    "name": "Diamond Hoe",
+    "category": "weapon_tool",
+    "description": "钻石锄"
+  },
+  {
+    "id": "golden_hoe",
+    "name": "Golden Hoe",
+    "category": "weapon_tool",
+    "description": "金锄"
+  },
+  {
+    "id": "wheat",
+    "name": "Wheat",
+    "category": "material",
+    "description": "小麦"
+  },
+  {
+    "id": "leather_helmet",
+    "name": "Leather Helmet",
+    "category": "armor",
+    "description": "皮革帽子"
+  },
+  {
+    "id": "leather_chestplate",
+    "name": "Leather Chestplate",
+    "category": "armor",
+    "description": "皮革胸甲"
+  },
+  {
+    "id": "leather_leggings",
+    "name": "Leather Leggings",
+    "category": "armor",
+    "description": "皮革裤子"
+  },
+  {
+    "id": "leather_boots",
+    "name": "Leather Boots",
+    "category": "armor",
+    "description": "皮革靴子"
+  },
+  {
+    "id": "chainmail_helmet",
+    "name": "Chainmail Helmet",
+    "category": "armor",
+    "description": "链甲头盔"
+  },
+  {
+    "id": "chainmail_chestplate",
+    "name": "Chainmail Chestplate",
+    "category": "armor",
+    "description": "链甲胸甲"
+  },
+  {
+    "id": "chainmail_leggings",
+    "name": "Chainmail Leggings",
+    "category": "armor",
+    "description": "链甲护腿"
+  },
+  {
+    "id": "chainmail_boots",
+    "name": "Chainmail Boots",
+    "category": "armor",
+    "description": "链甲靴"
+  },
+  {
+    "id": "iron_helmet",
+    "name": "Iron Helmet",
+    "category": "armor",
+    "description": "铁头盔"
+  },
+  {
+    "id": "iron_chestplate",
+    "name": "Iron Chestplate",
+    "category": "armor",
+    "description": "铁胸甲"
+  },
+  {
+    "id": "iron_leggings",
+    "name": "Iron Leggings",
+    "category": "armor",
+    "description": "铁护腿"
+  },
+  {
+    "id": "iron_boots",
+    "name": "Iron Boots",
+    "category": "armor",
+    "description": "铁靴子"
+  },
+  {
+    "id": "diamond_helmet",
+    "name": "Diamond Helmet",
+    "category": "armor",
+    "description": "钻石头盔"
+  },
+  {
+    "id": "diamond_chestplate",
+    "name": "Diamond Chestplate",
+    "category": "armor",
+    "description": "钻石胸甲"
+  },
+  {
+    "id": "diamond_leggings",
+    "name": "Diamond Leggings",
+    "category": "armor",
+    "description": "钻石护腿"
+  },
+  {
+    "id": "diamond_boots",
+    "name": "Diamond Boots",
+    "category": "armor",
+    "description": "钻石靴子"
+  },
+  {
+    "id": "golden_helmet",
+    "name": "Golden Helmet",
+    "category": "armor",
+    "description": "金头盔"
+  },
+  {
+    "id": "golden_chestplate",
+    "name": "Golden Chestplate",
+    "category": "armor",
+    "description": "金胸甲"
+  },
+  {
+    "id": "golden_leggings",
+    "name": "Golden Leggings",
+    "category": "armor",
+    "description": "金护腿"
+  },
+  {
+    "id": "golden_boots",
+    "name": "Golden Boots",
+    "category": "armor",
+    "description": "金靴子"
+  },
+  {
+    "id": "shield",
+    "name": "Shield",
+    "category": "weapon_tool",
+    "description": "盾牌"
+  },
+  {
+    "id": "flint",
+    "name": "Flint",
+    "category": "material",
+    "description": "燧石"
+  },
+  {
+    "id": "painting",
+    "name": "Painting",
+    "category": "material",
+    "description": "画"
+  },
+  {
+    "id": "oak_sign",
+    "name": "Oak Sign",
+    "category": "material",
+    "description": "橡木告示牌"
+  },
+  {
+    "id": "wooden_door",
+    "name": "Wooden Door",
+    "category": "material",
+    "description": "橡木门"
+  },
+  {
+    "id": "bucket",
+    "name": "Bucket",
+    "category": "material",
+    "description": "桶"
+  },
+  {
+    "id": "milk_bucket",
+    "name": "Milk Bucket",
+    "category": "material"
+  },
+  {
+    "id": "water_bucket",
+    "name": "Water Bucket",
+    "category": "material"
+  },
+  {
+    "id": "lava_bucket",
+    "name": "Lava Bucket",
+    "category": "material"
+  },
+  {
+    "id": "cod_bucket",
+    "name": "Cod Bucket",
+    "category": "food"
+  },
+  {
+    "id": "salmon_bucket",
+    "name": "Salmon Bucket",
+    "category": "food"
+  },
+  {
+    "id": "tropical_fish_bucket",
+    "name": "Tropical Fish Bucket",
+    "category": "food"
+  },
+  {
+    "id": "pufferfish_bucket",
+    "name": "Pufferfish Bucket",
+    "category": "food"
+  },
+  {
+    "id": "powder_snow_bucket",
+    "name": "Powder Snow Bucket",
+    "category": "material"
+  },
+  {
+    "id": "axolotl_bucket",
+    "name": "Axolotl Bucket",
+    "category": "material"
+  },
+  {
+    "id": "minecart",
+    "name": "Minecart",
+    "category": "transport",
+    "description": "矿车"
+  },
+  {
+    "id": "saddle",
+    "name": "Saddle",
+    "category": "transport",
+    "description": "鞍"
+  },
+  {
+    "id": "iron_door",
+    "name": "Iron Door",
+    "category": "material",
+    "description": "铁门"
+  },
+  {
+    "id": "redstone",
+    "name": "Redstone",
+    "category": "material",
+    "description": "红石粉"
+  },
+  {
+    "id": "snowball",
+    "name": "Snowball",
+    "category": "material",
+    "description": "雪球"
+  },
+  {
+    "id": "oak_boat",
+    "name": "Oak Boat",
+    "category": "transport"
+  },
+  {
+    "id": "birch_boat",
+    "name": "Birch Boat",
+    "category": "transport"
+  },
+  {
+    "id": "jungle_boat",
+    "name": "Jungle Boat",
+    "category": "transport"
+  },
+  {
+    "id": "spruce_boat",
+    "name": "Spruce Boat",
+    "category": "transport"
+  },
+  {
+    "id": "acacia_boat",
+    "name": "Acacia Boat",
+    "category": "transport"
+  },
+  {
+    "id": "dark_oak_boat",
+    "name": "Dark Oak Boat",
+    "category": "transport"
+  },
+  {
+    "id": "leather",
+    "name": "Leather",
+    "category": "material",
+    "description": "皮革"
+  },
+  {
+    "id": "kelp",
+    "name": "Kelp",
+    "category": "food",
+    "description": "海带"
+  },
+  {
+    "id": "brick",
+    "name": "Brick",
+    "category": "material",
+    "description": "红砖"
+  },
+  {
+    "id": "clay_ball",
+    "name": "Clay Ball",
+    "category": "material",
+    "description": "黏土球"
+  },
+  {
+    "id": "sugar_cane",
+    "name": "Sugar Cane",
+    "category": "material"
+  },
+  {
+    "id": "paper",
+    "name": "Paper",
+    "category": "material",
+    "description": "纸"
+  },
+  {
+    "id": "book",
+    "name": "Book",
+    "category": "material",
+    "description": "书"
+  },
+  {
+    "id": "slime_ball",
+    "name": "Slime Ball",
+    "category": "material",
+    "description": "黏液球"
+  },
+  {
+    "id": "chest_minecart",
+    "name": "Chest Minecart",
+    "category": "transport",
+    "description": "带箱子的矿车"
+  },
+  {
+    "id": "egg",
+    "name": "Egg",
+    "category": "material",
+    "description": "鸡蛋"
+  },
+  {
+    "id": "compass",
+    "name": "Compass",
+    "category": "material",
+    "description": "指南针"
+  },
+  {
+    "id": "fishing_rod",
+    "name": "Fishing Rod",
+    "category": "food",
+    "description": "钓鱼竿"
+  },
+  {
+    "id": "clock",
+    "name": "Clock",
+    "category": "material",
+    "description": "钟"
+  },
+  {
+    "id": "glowstone_dust",
+    "name": "Glowstone Dust",
+    "category": "material",
+    "description": "荧石粉"
+  },
+  {
+    "id": "black_dye",
+    "name": "Black Dye",
+    "category": "dye",
+    "description": "黑色dye"
+  },
+  {
+    "id": "red_dye",
+    "name": "Red Dye",
+    "category": "dye",
+    "description": "红色dye"
+  },
+  {
+    "id": "green_dye",
+    "name": "Green Dye",
+    "category": "dye",
+    "description": "绿色dye"
+  },
+  {
+    "id": "brown_dye",
+    "name": "Brown Dye",
+    "category": "dye",
+    "description": "棕色dye"
+  },
+  {
+    "id": "blue_dye",
+    "name": "Blue Dye",
+    "category": "dye",
+    "description": "蓝色dye"
+  },
+  {
+    "id": "purple_dye",
+    "name": "Purple Dye",
+    "category": "dye",
+    "description": "紫色dye"
+  },
+  {
+    "id": "cyan_dye",
+    "name": "Cyan Dye",
+    "category": "dye",
+    "description": "青色dye"
+  },
+  {
+    "id": "light_gray_dye",
+    "name": "Light Gray Dye",
+    "category": "dye",
+    "description": "淡灰色dye"
+  },
+  {
+    "id": "gray_dye",
+    "name": "Gray Dye",
+    "category": "dye",
+    "description": "灰色dye"
+  },
+  {
+    "id": "pink_dye",
+    "name": "Pink Dye",
+    "category": "dye",
+    "description": "粉红色dye"
+  },
+  {
+    "id": "lime_dye",
+    "name": "Lime Dye",
+    "category": "dye",
+    "description": "黄绿色dye"
+  },
+  {
+    "id": "yellow_dye",
+    "name": "Yellow Dye",
+    "category": "dye",
+    "description": "黄色dye"
+  },
+  {
+    "id": "light_blue_dye",
+    "name": "Light Blue Dye",
+    "category": "dye",
+    "description": "淡蓝色dye"
+  },
+  {
+    "id": "magenta_dye",
+    "name": "Magenta Dye",
+    "category": "dye",
+    "description": "品红色dye"
+  },
+  {
+    "id": "orange_dye",
+    "name": "Orange Dye",
+    "category": "dye",
+    "description": "橙色dye"
+  },
+  {
+    "id": "white_dye",
+    "name": "White Dye",
+    "category": "dye",
+    "description": "白色dye"
+  },
+  {
+    "id": "bone_meal",
+    "name": "Bone Meal",
+    "category": "dye"
+  },
+  {
+    "id": "cocoa_beans",
+    "name": "Cocoa Beans",
+    "category": "dye"
+  },
+  {
+    "id": "ink_sac",
+    "name": "Ink Sac",
+    "category": "dye",
+    "description": "荧光墨囊"
+  },
+  {
+    "id": "lapis_lazuli",
+    "name": "Lapis Lazuli",
+    "category": "dye"
+  },
+  {
+    "id": "bone",
+    "name": "Bone",
+    "category": "material",
+    "description": "骨头"
+  },
+  {
+    "id": "sugar",
+    "name": "Sugar",
+    "category": "material",
+    "description": "糖"
+  },
+  {
+    "id": "cake",
+    "name": "Cake",
+    "category": "food",
+    "description": "蛋糕"
+  },
+  {
+    "id": "bed",
+    "name": "Bed",
+    "category": "material"
+  },
+  {
+    "id": "repeater",
+    "name": "Repeater",
+    "category": "material",
+    "description": "红石中继器"
+  },
+  {
+    "id": "filled_map",
+    "name": "Filled Map",
+    "category": "material"
+  },
+  {
+    "id": "shears",
+    "name": "Shears",
+    "category": "material",
+    "description": "剪刀"
+  },
+  {
+    "id": "ender_pearl",
+    "name": "Ender Pearl",
+    "category": "material",
+    "description": "末影珍珠"
+  },
+  {
+    "id": "blaze_rod",
+    "name": "Blaze Rod",
+    "category": "material",
+    "description": "烈焰棒"
+  },
+  {
+    "id": "ghast_tear",
+    "name": "Ghast Tear",
+    "category": "material",
+    "description": "恶魂之泪"
+  },
+  {
+    "id": "gold_nugget",
+    "name": "Gold Nugget",
+    "category": "material",
+    "description": "金粒"
+  },
+  {
+    "id": "potion",
+    "name": "Potion",
+    "category": "potion"
+  },
+  {
+    "id": "glass_bottle",
+    "name": "Glass Bottle",
+    "category": "potion",
+    "description": "玻璃瓶"
+  },
+  {
+    "id": "fermented_spider_eye",
+    "name": "Fermented Spider Eye",
+    "category": "material",
+    "description": "发酵蜘蛛眼"
+  },
+  {
+    "id": "blaze_powder",
+    "name": "Blaze Powder",
+    "category": "material",
+    "description": "烈焰粉"
+  },
+  {
+    "id": "magma_cream",
+    "name": "Magma Cream",
+    "category": "material",
+    "description": "岩浆膏"
+  },
+  {
+    "id": "brewing_stand",
+    "name": "Brewing Stand",
+    "category": "material",
+    "description": "酿造台"
+  },
+  {
+    "id": "cauldron",
+    "name": "Cauldron",
+    "category": "material",
+    "description": "炼药锅"
+  },
+  {
+    "id": "ender_eye",
+    "name": "Ender Eye",
+    "category": "material",
+    "description": "末影之眼"
+  },
+  {
+    "id": "glistering_melon_slice",
+    "name": "Glistering Melon Slice",
+    "category": "food"
+  },
+  {
+    "id": "chicken_spawn_egg",
+    "name": "Chicken Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鸡生成蛋"
+  },
+  {
+    "id": "cow_spawn_egg",
+    "name": "Cow Spawn Egg",
+    "category": "spawn_egg",
+    "description": "牛生成蛋"
+  },
+  {
+    "id": "pig_spawn_egg",
+    "name": "Pig Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪生成蛋"
+  },
+  {
+    "id": "sheep_spawn_egg",
+    "name": "Sheep Spawn Egg",
+    "category": "spawn_egg",
+    "description": "羊生成蛋"
+  },
+  {
+    "id": "wolf_spawn_egg",
+    "name": "Wolf Spawn Egg",
+    "category": "spawn_egg",
+    "description": "狼生成蛋"
+  },
+  {
+    "id": "mooshroom_spawn_egg",
+    "name": "Mooshroom Spawn Egg",
+    "category": "spawn_egg",
+    "description": "哞菇生成蛋"
+  },
+  {
+    "id": "creeper_spawn_egg",
+    "name": "Creeper Spawn Egg",
+    "category": "spawn_egg",
+    "description": "苦力怕生成蛋"
+  },
+  {
+    "id": "enderman_spawn_egg",
+    "name": "Enderman Spawn Egg",
+    "category": "spawn_egg",
+    "description": "末影人生成蛋"
+  },
+  {
+    "id": "silverfish_spawn_egg",
+    "name": "Silverfish Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蠹虫生成蛋"
+  },
+  {
+    "id": "skeleton_spawn_egg",
+    "name": "Skeleton Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骷髅生成蛋"
+  },
+  {
+    "id": "slime_spawn_egg",
+    "name": "Slime Spawn Egg",
+    "category": "spawn_egg",
+    "description": "史莱姆生成蛋"
+  },
+  {
+    "id": "spider_spawn_egg",
+    "name": "Spider Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蜘蛛生成蛋"
+  },
+  {
+    "id": "zombie_spawn_egg",
+    "name": "Zombie Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸生成蛋"
+  },
+  {
+    "id": "zombie_pigman_spawn_egg",
+    "name": "Zombie Pigman Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸猪灵生成蛋"
+  },
+  {
+    "id": "villager_spawn_egg",
+    "name": "Villager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "村民生成蛋"
+  },
+  {
+    "id": "squid_spawn_egg",
+    "name": "Squid Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鱿鱼生成蛋"
+  },
+  {
+    "id": "ocelot_spawn_egg",
+    "name": "Ocelot Spawn Egg",
+    "category": "spawn_egg",
+    "description": "豹猫生成蛋"
+  },
+  {
+    "id": "witch_spawn_egg",
+    "name": "Witch Spawn Egg",
+    "category": "spawn_egg",
+    "description": "女巫生成蛋"
+  },
+  {
+    "id": "bat_spawn_egg",
+    "name": "Bat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蝙蝠生成蛋"
+  },
+  {
+    "id": "ghast_spawn_egg",
+    "name": "Ghast Spawn Egg",
+    "category": "spawn_egg",
+    "description": "恶魂生成蛋"
+  },
+  {
+    "id": "magma_cube_spawn_egg",
+    "name": "Magma Cube Spawn Egg",
+    "category": "spawn_egg",
+    "description": "岩浆怪生成蛋"
+  },
+  {
+    "id": "blaze_spawn_egg",
+    "name": "Blaze Spawn Egg",
+    "category": "spawn_egg",
+    "description": "烈焰人生成蛋"
+  },
+  {
+    "id": "cave_spider_spawn_egg",
+    "name": "Cave Spider Spawn Egg",
+    "category": "spawn_egg",
+    "description": "洞穴蜘蛛生成蛋"
+  },
+  {
+    "id": "horse_spawn_egg",
+    "name": "Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "马生成蛋"
+  },
+  {
+    "id": "rabbit_spawn_egg",
+    "name": "Rabbit Spawn Egg",
+    "category": "spawn_egg",
+    "description": "兔子生成蛋"
+  },
+  {
+    "id": "endermite_spawn_egg",
+    "name": "Endermite Spawn Egg",
+    "category": "spawn_egg",
+    "description": "末影螨生成蛋"
+  },
+  {
+    "id": "guardian_spawn_egg",
+    "name": "Guardian Spawn Egg",
+    "category": "spawn_egg",
+    "description": "守卫者生成蛋"
+  },
+  {
+    "id": "stray_spawn_egg",
+    "name": "Stray Spawn Egg",
+    "category": "spawn_egg",
+    "description": "流浪者生成蛋"
+  },
+  {
+    "id": "bogged_spawn_egg",
+    "name": "Bogged Spawn Egg",
+    "category": "spawn_egg",
+    "description": "沼骸生成蛋"
+  },
+  {
+    "id": "husk_spawn_egg",
+    "name": "Husk Spawn Egg",
+    "category": "spawn_egg",
+    "description": "尸傀生成蛋"
+  },
+  {
+    "id": "wither_skeleton_spawn_egg",
+    "name": "Wither Skeleton Spawn Egg",
+    "category": "spawn_egg",
+    "description": "凋灵骷髅生成蛋"
+  },
+  {
+    "id": "donkey_spawn_egg",
+    "name": "Donkey Spawn Egg",
+    "category": "spawn_egg",
+    "description": "驴生成蛋"
+  },
+  {
+    "id": "mule_spawn_egg",
+    "name": "Mule Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骡子生成蛋"
+  },
+  {
+    "id": "skeleton_horse_spawn_egg",
+    "name": "Skeleton Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骷髅马生成蛋"
+  },
+  {
+    "id": "zombie_horse_spawn_egg",
+    "name": "Zombie Horse Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸马生成蛋"
+  },
+  {
+    "id": "shulker_spawn_egg",
+    "name": "Shulker Spawn Egg",
+    "category": "spawn_egg",
+    "description": "潜影贝生成蛋"
+  },
+  {
+    "id": "npc_spawn_egg",
+    "name": "Npc Spawn Egg",
+    "category": "spawn_egg",
+    "description": "NPC 生成蛋"
+  },
+  {
+    "id": "elder_guardian_spawn_egg",
+    "name": "Elder Guardian Spawn Egg",
+    "category": "spawn_egg",
+    "description": "远古守卫者生成蛋"
+  },
+  {
+    "id": "polar_bear_spawn_egg",
+    "name": "Polar Bear Spawn Egg",
+    "category": "spawn_egg",
+    "description": "北极熊生成蛋"
+  },
+  {
+    "id": "llama_spawn_egg",
+    "name": "Llama Spawn Egg",
+    "category": "spawn_egg",
+    "description": "羊驼生成蛋"
+  },
+  {
+    "id": "vindicator_spawn_egg",
+    "name": "Vindicator Spawn Egg",
+    "category": "spawn_egg",
+    "description": "卫道士生成蛋"
+  },
+  {
+    "id": "evoker_spawn_egg",
+    "name": "Evoker Spawn Egg",
+    "category": "spawn_egg"
+  },
+  {
+    "id": "vex_spawn_egg",
+    "name": "Vex Spawn Egg",
+    "category": "spawn_egg",
+    "description": "恼鬼生成蛋"
+  },
+  {
+    "id": "zombie_villager_spawn_egg",
+    "name": "Zombie Villager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸村民生成蛋"
+  },
+  {
+    "id": "parrot_spawn_egg",
+    "name": "Parrot Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鹦鹉生成蛋"
+  },
+  {
+    "id": "tropical_fish_spawn_egg",
+    "name": "Tropical Fish Spawn Egg",
+    "category": "spawn_egg"
+  },
+  {
+    "id": "cod_spawn_egg",
+    "name": "Cod Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鳕鱼生成蛋"
+  },
+  {
+    "id": "pufferfish_spawn_egg",
+    "name": "Pufferfish Spawn Egg",
+    "category": "spawn_egg",
+    "description": "河豚生成蛋"
+  },
+  {
+    "id": "salmon_spawn_egg",
+    "name": "Salmon Spawn Egg",
+    "category": "spawn_egg",
+    "description": "鲑鱼生成蛋"
+  },
+  {
+    "id": "drowned_spawn_egg",
+    "name": "Drowned Spawn Egg",
+    "category": "spawn_egg",
+    "description": "溺尸生成蛋"
+  },
+  {
+    "id": "dolphin_spawn_egg",
+    "name": "Dolphin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "海豚生成蛋"
+  },
+  {
+    "id": "turtle_spawn_egg",
+    "name": "Turtle Spawn Egg",
+    "category": "spawn_egg",
+    "description": "海龟生成蛋"
+  },
+  {
+    "id": "phantom_spawn_egg",
+    "name": "Phantom Spawn Egg",
+    "category": "spawn_egg",
+    "description": "幻翼生成蛋"
+  },
+  {
+    "id": "agent_spawn_egg",
+    "name": "Agent Spawn Egg",
+    "category": "spawn_egg",
+    "description": "代理机器人生成蛋"
+  },
+  {
+    "id": "cat_spawn_egg",
+    "name": "Cat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猫生成蛋"
+  },
+  {
+    "id": "panda_spawn_egg",
+    "name": "Panda Spawn Egg",
+    "category": "spawn_egg",
+    "description": "熊猫生成蛋"
+  },
+  {
+    "id": "fox_spawn_egg",
+    "name": "Fox Spawn Egg",
+    "category": "spawn_egg",
+    "description": "狐狸生成蛋"
+  },
+  {
+    "id": "pillager_spawn_egg",
+    "name": "Pillager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "掠夺者生成蛋"
+  },
+  {
+    "id": "wandering_trader_spawn_egg",
+    "name": "Wandering Trader Spawn Egg",
+    "category": "spawn_egg",
+    "description": "流浪商人生成蛋"
+  },
+  {
+    "id": "ravager_spawn_egg",
+    "name": "Ravager Spawn Egg",
+    "category": "spawn_egg",
+    "description": "劫掠兽生成蛋"
+  },
+  {
+    "id": "bee_spawn_egg",
+    "name": "Bee Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蜜蜂生成蛋"
+  },
+  {
+    "id": "strider_spawn_egg",
+    "name": "Strider Spawn Egg",
+    "category": "spawn_egg",
+    "description": "炽足兽生成蛋"
+  },
+  {
+    "id": "hoglin_spawn_egg",
+    "name": "Hoglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "疣猪兽生成蛋"
+  },
+  {
+    "id": "piglin_spawn_egg",
+    "name": "Piglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪灵生成蛋"
+  },
+  {
+    "id": "zoglin_spawn_egg",
+    "name": "Zoglin Spawn Egg",
+    "category": "spawn_egg",
+    "description": "僵尸疣猪兽生成蛋"
+  },
+  {
+    "id": "piglin_brute_spawn_egg",
+    "name": "Piglin Brute Spawn Egg",
+    "category": "spawn_egg",
+    "description": "猪灵蛮兵生成蛋"
+  },
+  {
+    "id": "sniffer_spawn_egg",
+    "name": "Sniffer Spawn Egg",
+    "category": "spawn_egg",
+    "description": "嗅探兽生成蛋"
+  },
+  {
+    "id": "breeze_spawn_egg",
+    "name": "Breeze Spawn Egg",
+    "category": "spawn_egg",
+    "description": "旋风人生成蛋"
+  },
+  {
+    "id": "axolotl_spawn_egg",
+    "name": "Axolotl Spawn Egg",
+    "category": "spawn_egg",
+    "description": "美西螈生成蛋"
+  },
+  {
+    "id": "goat_spawn_egg",
+    "name": "Goat Spawn Egg",
+    "category": "spawn_egg",
+    "description": "山羊生成蛋"
+  },
+  {
+    "id": "glow_squid_spawn_egg",
+    "name": "Glow Squid Spawn Egg",
+    "category": "spawn_egg",
+    "description": "荧光鱿鱼生成蛋"
+  },
+  {
+    "id": "iron_golem_spawn_egg",
+    "name": "Iron Golem Spawn Egg",
+    "category": "spawn_egg",
+    "description": "铁傀儡生成蛋"
+  },
+  {
+    "id": "snow_golem_spawn_egg",
+    "name": "Snow Golem Spawn Egg",
+    "category": "spawn_egg",
+    "description": "雪傀儡生成蛋"
+  },
+  {
+    "id": "ender_dragon_spawn_egg",
+    "name": "Ender Dragon Spawn Egg",
+    "category": "spawn_egg",
+    "description": "末影龙生成蛋"
+  },
+  {
+    "id": "wither_spawn_egg",
+    "name": "Wither Spawn Egg",
+    "category": "spawn_egg",
+    "description": "凋灵生成蛋"
+  },
+  {
+    "id": "glow_ink_sac",
+    "name": "Glow Ink Sac",
+    "category": "dye",
+    "description": "荧光墨囊"
+  },
+  {
+    "id": "copper_ingot",
+    "name": "Copper Ingot",
+    "category": "material",
+    "description": "铜锭"
+  },
+  {
+    "id": "raw_iron",
+    "name": "Raw Iron",
+    "category": "material",
+    "description": "粗铁"
+  },
+  {
+    "id": "raw_gold",
+    "name": "Raw Gold",
+    "category": "material",
+    "description": "粗金"
+  },
+  {
+    "id": "raw_copper",
+    "name": "Raw Copper",
+    "category": "material",
+    "description": "粗铜"
+  },
+  {
+    "id": "experience_bottle",
+    "name": "Experience Bottle",
+    "category": "potion",
+    "description": "附魔之瓶"
+  },
+  {
+    "id": "fire_charge",
+    "name": "Fire Charge",
+    "category": "material"
+  },
+  {
+    "id": "writable_book",
+    "name": "Writable Book",
+    "category": "material",
+    "description": "书与笔"
+  },
+  {
+    "id": "written_book",
+    "name": "Written Book",
+    "category": "material",
+    "description": "成书"
+  },
+  {
+    "id": "emerald",
+    "name": "Emerald",
+    "category": "material",
+    "description": "绿宝石"
+  },
+  {
+    "id": "frame",
+    "name": "Frame",
+    "category": "material",
+    "description": "物品展示框"
+  },
+  {
+    "id": "flower_pot",
+    "name": "Flower Pot",
+    "category": "material",
+    "description": "花盆"
+  },
+  {
+    "id": "empty_map",
+    "name": "Empty Map",
+    "category": "material"
+  },
+  {
+    "id": "carrot_on_a_stick",
+    "name": "Carrot On A Stick",
+    "category": "food"
+  },
+  {
+    "id": "nether_star",
+    "name": "Nether Star",
+    "category": "material"
+  },
+  {
+    "id": "firework_rocket",
+    "name": "Firework Rocket",
+    "category": "material"
+  },
+  {
+    "id": "firework_star",
+    "name": "Firework Star",
+    "category": "material"
+  },
+  {
+    "id": "enchanted_book",
+    "name": "Enchanted Book",
+    "category": "material",
+    "description": "附魔书"
+  },
+  {
+    "id": "comparator",
+    "name": "Comparator",
+    "category": "material",
+    "description": "红石比较器"
+  },
+  {
+    "id": "netherbrick",
+    "name": "Netherbrick",
+    "category": "material",
+    "description": "下界砖"
+  },
+  {
+    "id": "quartz",
+    "name": "Quartz",
+    "category": "material",
+    "description": "下界石英"
+  },
+  {
+    "id": "tnt_minecart",
+    "name": "Tnt Minecart",
+    "category": "transport",
+    "description": "TNT 矿车"
+  },
+  {
+    "id": "hopper_minecart",
+    "name": "Hopper Minecart",
+    "category": "transport",
+    "description": "漏斗矿车"
+  },
+  {
+    "id": "hopper",
+    "name": "Hopper",
+    "category": "material"
+  },
+  {
+    "id": "rabbit_foot",
+    "name": "Rabbit Foot",
+    "category": "food",
+    "description": "兔子脚"
+  },
+  {
+    "id": "rabbit_hide",
+    "name": "Rabbit Hide",
+    "category": "food",
+    "description": "兔子皮"
+  },
+  {
+    "id": "leather_horse_armor",
+    "name": "Leather Horse Armor",
+    "category": "armor"
+  },
+  {
+    "id": "iron_horse_armor",
+    "name": "Iron Horse Armor",
+    "category": "armor"
+  },
+  {
+    "id": "golden_horse_armor",
+    "name": "Golden Horse Armor",
+    "category": "armor"
+  },
+  {
+    "id": "diamond_horse_armor",
+    "name": "Diamond Horse Armor",
+    "category": "armor"
+  },
+  {
+    "id": "music_disc_13",
+    "name": "Music Disc 13",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_cat",
+    "name": "Music Disc Cat",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_blocks",
+    "name": "Music Disc Blocks",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_chirp",
+    "name": "Music Disc Chirp",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_far",
+    "name": "Music Disc Far",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_mall",
+    "name": "Music Disc Mall",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_mellohi",
+    "name": "Music Disc Mellohi",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_stal",
+    "name": "Music Disc Stal",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_strad",
+    "name": "Music Disc Strad",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_ward",
+    "name": "Music Disc Ward",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_11",
+    "name": "Music Disc 11",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_wait",
+    "name": "Music Disc Wait",
+    "category": "music_disc"
+  },
+  {
+    "id": "trident",
+    "name": "Trident",
+    "category": "weapon_tool",
+    "description": "三叉戟"
+  },
+  {
+    "id": "lead",
+    "name": "Lead",
+    "category": "transport",
+    "description": "拴绳"
+  },
+  {
+    "id": "name_tag",
+    "name": "Name Tag",
+    "category": "material",
+    "description": "命名牌"
+  },
+  {
+    "id": "prismarine_crystals",
+    "name": "Prismarine Crystals",
+    "category": "material",
+    "description": "海晶砂粒"
+  },
+  {
+    "id": "mutton",
+    "name": "Mutton",
+    "category": "food"
+  },
+  {
+    "id": "cooked_mutton",
+    "name": "Cooked Mutton",
+    "category": "food"
+  },
+  {
+    "id": "armor_stand",
+    "name": "Armor Stand",
+    "category": "armor",
+    "description": "盔甲架"
+  },
+  {
+    "id": "chorus_fruit",
+    "name": "Chorus Fruit",
+    "category": "material",
+    "description": "紫颂果"
+  },
+  {
+    "id": "popped_chorus_fruit",
+    "name": "Popped Chorus Fruit",
+    "category": "material"
+  },
+  {
+    "id": "dragon_breath",
+    "name": "Dragon Breath",
+    "category": "material",
+    "description": "龙息"
+  },
+  {
+    "id": "splash_potion",
+    "name": "Splash Potion",
+    "category": "potion",
+    "description": "药水"
+  },
+  {
+    "id": "lingering_potion",
+    "name": "Lingering Potion",
+    "category": "potion",
+    "description": "滞留药水"
+  },
+  {
+    "id": "command_block_minecart",
+    "name": "Command Block Minecart",
+    "category": "transport",
+    "description": "命令方块矿车"
+  },
+  {
+    "id": "elytra",
+    "name": "Elytra",
+    "category": "armor",
+    "description": "鞘翅"
+  },
+  {
+    "id": "prismarine_shard",
+    "name": "Prismarine Shard",
+    "category": "material",
+    "description": "海晶碎片"
+  },
+  {
+    "id": "shulker_shell",
+    "name": "Shulker Shell",
+    "category": "material",
+    "description": "潜影壳"
+  },
+  {
+    "id": "banner",
+    "name": "Banner",
+    "category": "material"
+  },
+  {
+    "id": "totem_of_undying",
+    "name": "Totem Of Undying",
+    "category": "material"
+  },
+  {
+    "id": "iron_nugget",
+    "name": "Iron Nugget",
+    "category": "material",
+    "description": "铁粒"
+  },
+  {
+    "id": "nautilus_shell",
+    "name": "Nautilus Shell",
+    "category": "material",
+    "description": "鹦鹉螺壳"
+  },
+  {
+    "id": "heart_of_the_sea",
+    "name": "Heart Of The Sea",
+    "category": "material",
+    "description": "海洋之心"
+  },
+  {
+    "id": "turtle_scute",
+    "name": "Turtle Scute",
+    "category": "material"
+  },
+  {
+    "id": "turtle_helmet",
+    "name": "Turtle Helmet",
+    "category": "armor",
+    "description": "海龟壳"
+  },
+  {
+    "id": "phantom_membrane",
+    "name": "Phantom Membrane",
+    "category": "material",
+    "description": "幻翼膜"
+  },
+  {
+    "id": "crossbow",
+    "name": "Crossbow",
+    "category": "weapon_tool",
+    "description": "弩"
+  },
+  {
+    "id": "spruce_sign",
+    "name": "Spruce Sign",
+    "category": "material",
+    "description": "云杉木告示牌"
+  },
+  {
+    "id": "birch_sign",
+    "name": "Birch Sign",
+    "category": "material",
+    "description": "白桦木告示牌"
+  },
+  {
+    "id": "jungle_sign",
+    "name": "Jungle Sign",
+    "category": "material",
+    "description": "丛林木告示牌"
+  },
+  {
+    "id": "acacia_sign",
+    "name": "Acacia Sign",
+    "category": "material",
+    "description": "金合欢木告示牌"
+  },
+  {
+    "id": "dark_oak_sign",
+    "name": "Dark Oak Sign",
+    "category": "material",
+    "description": "深色橡木告示牌"
+  },
+  {
+    "id": "flower_banner_pattern",
+    "name": "Flower Banner Pattern",
+    "category": "banner_pattern",
+    "description": "花朵盾徽旗帜图案"
+  },
+  {
+    "id": "creeper_banner_pattern",
+    "name": "Creeper Banner Pattern",
+    "category": "banner_pattern",
+    "description": "苦力怕盾徽旗帜图案"
+  },
+  {
+    "id": "skull_banner_pattern",
+    "name": "Skull Banner Pattern",
+    "category": "banner_pattern",
+    "description": "头颅盾徽旗帜图案"
+  },
+  {
+    "id": "mojang_banner_pattern",
+    "name": "Mojang Banner Pattern",
+    "category": "banner_pattern",
+    "description": "Mojang 徽标旗帜图案"
+  },
+  {
+    "id": "field_masoned_banner_pattern",
+    "name": "Field Masoned Banner Pattern",
+    "category": "banner_pattern",
+    "description": "砖纹旗帜图案"
+  },
+  {
+    "id": "bordure_indented_banner_pattern",
+    "name": "Bordure Indented Banner Pattern",
+    "category": "banner_pattern",
+    "description": "波纹边旗帜图案"
+  },
+  {
+    "id": "piglin_banner_pattern",
+    "name": "Piglin Banner Pattern",
+    "category": "banner_pattern",
+    "description": "猪鼻旗帜图案"
+  },
+  {
+    "id": "globe_banner_pattern",
+    "name": "Globe Banner Pattern",
+    "category": "banner_pattern",
+    "description": "地球旗帜图案"
+  },
+  {
+    "id": "flow_banner_pattern",
+    "name": "Flow Banner Pattern",
+    "category": "banner_pattern",
+    "description": "涡流旗帜图案"
+  },
+  {
+    "id": "guster_banner_pattern",
+    "name": "Guster Banner Pattern",
+    "category": "banner_pattern",
+    "description": "旋风旗帜图案"
+  },
+  {
+    "id": "campfire",
+    "name": "Campfire",
+    "category": "material"
+  },
+  {
+    "id": "suspicious_stew",
+    "name": "Suspicious Stew",
+    "category": "food",
+    "description": "迷之炖菜"
+  },
+  {
+    "id": "honeycomb",
+    "name": "Honeycomb",
+    "category": "material",
+    "description": "蜜脾"
+  },
+  {
+    "id": "honey_bottle",
+    "name": "Honey Bottle",
+    "category": "potion",
+    "description": "蜂蜜瓶"
+  },
+  {
+    "id": "ominous_bottle",
+    "name": "Ominous Bottle",
+    "category": "potion",
+    "description": "不祥之瓶"
+  },
+  {
+    "id": "chalkboard",
+    "name": "Chalkboard",
+    "category": "material"
+  },
+  {
+    "id": "camera_block",
+    "name": "Camera Block",
+    "category": "material"
+  },
+  {
+    "id": "compound",
+    "name": "Compound",
+    "category": "material",
+    "description": "化合物"
+  },
+  {
+    "id": "ice_bomb",
+    "name": "Ice Bomb",
+    "category": "material"
+  },
+  {
+    "id": "bleach",
+    "name": "Bleach",
+    "category": "material"
+  },
+  {
+    "id": "rapid_fertilizer",
+    "name": "Rapid Fertilizer",
+    "category": "material"
+  },
+  {
+    "id": "balloon",
+    "name": "Balloon",
+    "category": "material"
+  },
+  {
+    "id": "medicine",
+    "name": "Medicine",
+    "category": "material"
+  },
+  {
+    "id": "sparkler",
+    "name": "Sparkler",
+    "category": "material"
+  },
+  {
+    "id": "glow_stick",
+    "name": "Glow Stick",
+    "category": "material"
+  },
+  {
+    "id": "lodestone_compass",
+    "name": "Lodestone Compass",
+    "category": "material"
+  },
+  {
+    "id": "netherite_sword",
+    "name": "Netherite Sword",
+    "category": "weapon_tool",
+    "description": "下界合金剑"
+  },
+  {
+    "id": "netherite_shovel",
+    "name": "Netherite Shovel",
+    "category": "weapon_tool",
+    "description": "下界合金锹"
+  },
+  {
+    "id": "netherite_pickaxe",
+    "name": "Netherite Pickaxe",
+    "category": "weapon_tool",
+    "description": "下界合金镐"
+  },
+  {
+    "id": "netherite_axe",
+    "name": "Netherite Axe",
+    "category": "weapon_tool",
+    "description": "下界合金斧头"
+  },
+  {
+    "id": "netherite_hoe",
+    "name": "Netherite Hoe",
+    "category": "weapon_tool",
+    "description": "下界合金锄"
+  },
+  {
+    "id": "netherite_ingot",
+    "name": "Netherite Ingot",
+    "category": "material",
+    "description": "下界合金锭"
+  },
+  {
+    "id": "netherite_helmet",
+    "name": "Netherite Helmet",
+    "category": "armor",
+    "description": "下界合金头盔"
+  },
+  {
+    "id": "netherite_chestplate",
+    "name": "Netherite Chestplate",
+    "category": "armor",
+    "description": "下界合金胸甲"
+  },
+  {
+    "id": "netherite_leggings",
+    "name": "Netherite Leggings",
+    "category": "armor",
+    "description": "下界合金护腿"
+  },
+  {
+    "id": "netherite_boots",
+    "name": "Netherite Boots",
+    "category": "armor",
+    "description": "下界合金靴子"
+  },
+  {
+    "id": "netherite_scrap",
+    "name": "Netherite Scrap",
+    "category": "material",
+    "description": "下界合金碎片"
+  },
+  {
+    "id": "crimson_sign",
+    "name": "Crimson Sign",
+    "category": "material",
+    "description": "绯红木告示牌"
+  },
+  {
+    "id": "warped_sign",
+    "name": "Warped Sign",
+    "category": "material",
+    "description": "诡异木告示牌"
+  },
+  {
+    "id": "crimson_door",
+    "name": "Crimson Door",
+    "category": "material",
+    "description": "绯红木门"
+  },
+  {
+    "id": "warped_door",
+    "name": "Warped Door",
+    "category": "material",
+    "description": "诡异木门"
+  },
+  {
+    "id": "warped_fungus_on_a_stick",
+    "name": "Warped Fungus On A Stick",
+    "category": "material",
+    "description": "诡异真菌钓竿"
+  },
+  {
+    "id": "chain",
+    "name": "Chain",
+    "category": "material"
+  },
+  {
+    "id": "music_disc_pigstep",
+    "name": "Music Disc Pigstep",
+    "category": "music_disc"
+  },
+  {
+    "id": "nether_sprouts",
+    "name": "Nether Sprouts",
+    "category": "material",
+    "description": "下界苗"
+  },
+  {
+    "id": "soul_campfire",
+    "name": "Soul Campfire",
+    "category": "material",
+    "description": "灵魂营火"
+  },
+  {
+    "id": "glow_frame",
+    "name": "Glow Frame",
+    "category": "material",
+    "description": "荧光物品展示框"
+  },
+  {
+    "id": "amethyst_shard",
+    "name": "Amethyst Shard",
+    "category": "material",
+    "description": "紫水晶碎片"
+  },
+  {
+    "id": "spyglass",
+    "name": "Spyglass",
+    "category": "material",
+    "description": "望远镜"
+  },
+  {
+    "id": "music_disc_otherside",
+    "name": "Music Disc Otherside",
+    "category": "music_disc"
+  },
+  {
+    "id": "goat_horn",
+    "name": "Goat Horn",
+    "category": "material",
+    "description": "山羊角"
+  },
+  {
+    "id": "frog_spawn_egg",
+    "name": "Frog Spawn Egg",
+    "category": "spawn_egg",
+    "description": "青蛙生成蛋"
+  },
+  {
+    "id": "tadpole_spawn_egg",
+    "name": "Tadpole Spawn Egg",
+    "category": "spawn_egg",
+    "description": "蝌蚪生成蛋"
+  },
+  {
+    "id": "tadpole_bucket",
+    "name": "Tadpole Bucket",
+    "category": "material"
+  },
+  {
+    "id": "allay_spawn_egg",
+    "name": "Allay Spawn Egg",
+    "category": "spawn_egg",
+    "description": "悦灵生成蛋"
+  },
+  {
+    "id": "warden_spawn_egg",
+    "name": "Warden Spawn Egg",
+    "category": "spawn_egg",
+    "description": "循声守卫生成蛋"
+  },
+  {
+    "id": "mangrove_sign",
+    "name": "Mangrove Sign",
+    "category": "material",
+    "description": "红树木告示牌"
+  },
+  {
+    "id": "mangrove_boat",
+    "name": "Mangrove Boat",
+    "category": "transport"
+  },
+  {
+    "id": "music_disc_5",
+    "name": "Music Disc 5",
+    "category": "music_disc"
+  },
+  {
+    "id": "disc_fragment_5",
+    "name": "Disc Fragment 5",
+    "category": "music_disc"
+  },
+  {
+    "id": "oak_chest_boat",
+    "name": "Oak Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "birch_chest_boat",
+    "name": "Birch Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "jungle_chest_boat",
+    "name": "Jungle Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "spruce_chest_boat",
+    "name": "Spruce Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "acacia_chest_boat",
+    "name": "Acacia Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "dark_oak_chest_boat",
+    "name": "Dark Oak Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "mangrove_chest_boat",
+    "name": "Mangrove Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "recovery_compass",
+    "name": "Recovery Compass",
+    "category": "material",
+    "description": "追溯指针"
+  },
+  {
+    "id": "echo_shard",
+    "name": "Echo Shard",
+    "category": "material",
+    "description": "回响碎片"
+  },
+  {
+    "id": "trader_llama_spawn_egg",
+    "name": "Trader Llama Spawn Egg",
+    "category": "spawn_egg",
+    "description": "行商羊驼生成蛋"
+  },
+  {
+    "id": "cherry_boat",
+    "name": "Cherry Boat",
+    "category": "transport"
+  },
+  {
+    "id": "cherry_chest_boat",
+    "name": "Cherry Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "cherry_sign",
+    "name": "Cherry Sign",
+    "category": "material",
+    "description": "樱花木告示牌"
+  },
+  {
+    "id": "bamboo_sign",
+    "name": "Bamboo Sign",
+    "category": "material",
+    "description": "竹制告示牌"
+  },
+  {
+    "id": "bamboo_raft",
+    "name": "Bamboo Raft",
+    "category": "transport"
+  },
+  {
+    "id": "bamboo_chest_raft",
+    "name": "Bamboo Chest Raft",
+    "category": "transport"
+  },
+  {
+    "id": "camel_spawn_egg",
+    "name": "Camel Spawn Egg",
+    "category": "spawn_egg",
+    "description": "骆驼生成蛋"
+  },
+  {
+    "id": "angler_pottery_sherd",
+    "name": "Angler Pottery Sherd",
+    "category": "pottery",
+    "description": "垂钓纹样陶片"
+  },
+  {
+    "id": "archer_pottery_sherd",
+    "name": "Archer Pottery Sherd",
+    "category": "pottery",
+    "description": "弓箭纹样陶片"
+  },
+  {
+    "id": "arms_up_pottery_sherd",
+    "name": "Arms Up Pottery Sherd",
+    "category": "pottery",
+    "description": "举臂纹样陶片"
+  },
+  {
+    "id": "blade_pottery_sherd",
+    "name": "Blade Pottery Sherd",
+    "category": "pottery",
+    "description": "利刃纹样陶片"
+  },
+  {
+    "id": "brewer_pottery_sherd",
+    "name": "Brewer Pottery Sherd",
+    "category": "pottery",
+    "description": "佳酿纹样陶片"
+  },
+  {
+    "id": "burn_pottery_sherd",
+    "name": "Burn Pottery Sherd",
+    "category": "pottery",
+    "description": "烈焰纹样陶片"
+  },
+  {
+    "id": "danger_pottery_sherd",
+    "name": "Danger Pottery Sherd",
+    "category": "pottery",
+    "description": "危机纹样陶片"
+  },
+  {
+    "id": "explorer_pottery_sherd",
+    "name": "Explorer Pottery Sherd",
+    "category": "pottery",
+    "description": "探险纹样陶片"
+  },
+  {
+    "id": "flow_pottery_sherd",
+    "name": "Flow Pottery Sherd",
+    "category": "pottery",
+    "description": "涡流纹样陶片"
+  },
+  {
+    "id": "friend_pottery_sherd",
+    "name": "Friend Pottery Sherd",
+    "category": "pottery",
+    "description": "挚友纹样陶片"
+  },
+  {
+    "id": "guster_pottery_sherd",
+    "name": "Guster Pottery Sherd",
+    "category": "pottery",
+    "description": "旋风纹样陶片"
+  },
+  {
+    "id": "heart_pottery_sherd",
+    "name": "Heart Pottery Sherd",
+    "category": "pottery",
+    "description": "爱心纹样陶片"
+  },
+  {
+    "id": "heartbreak_pottery_sherd",
+    "name": "Heartbreak Pottery Sherd",
+    "category": "pottery",
+    "description": "心碎纹样陶片"
+  },
+  {
+    "id": "howl_pottery_sherd",
+    "name": "Howl Pottery Sherd",
+    "category": "pottery",
+    "description": "狼嚎纹样陶片"
+  },
+  {
+    "id": "miner_pottery_sherd",
+    "name": "Miner Pottery Sherd",
+    "category": "pottery",
+    "description": "采矿纹样陶片"
+  },
+  {
+    "id": "mourner_pottery_sherd",
+    "name": "Mourner Pottery Sherd",
+    "category": "pottery",
+    "description": "哀悼纹样陶片"
+  },
+  {
+    "id": "plenty_pottery_sherd",
+    "name": "Plenty Pottery Sherd",
+    "category": "pottery",
+    "description": "富饶纹样陶片"
+  },
+  {
+    "id": "prize_pottery_sherd",
+    "name": "Prize Pottery Sherd",
+    "category": "pottery",
+    "description": "珍宝纹样陶片"
+  },
+  {
+    "id": "scrape_pottery_sherd",
+    "name": "Scrape Pottery Sherd",
+    "category": "pottery",
+    "description": "刮削纹样陶片"
+  },
+  {
+    "id": "sheaf_pottery_sherd",
+    "name": "Sheaf Pottery Sherd",
+    "category": "pottery",
+    "description": "麦捆纹样陶片"
+  },
+  {
+    "id": "shelter_pottery_sherd",
+    "name": "Shelter Pottery Sherd",
+    "category": "pottery",
+    "description": "树荫纹样陶片"
+  },
+  {
+    "id": "skull_pottery_sherd",
+    "name": "Skull Pottery Sherd",
+    "category": "pottery",
+    "description": "头颅纹样陶片"
+  },
+  {
+    "id": "snort_pottery_sherd",
+    "name": "Snort Pottery Sherd",
+    "category": "pottery",
+    "description": "嗅探纹样陶片"
+  },
+  {
+    "id": "brush",
+    "name": "Brush",
+    "category": "material",
+    "description": "刷子"
+  },
+  {
+    "id": "netherite_upgrade_smithing_template",
+    "name": "Netherite Upgrade Smithing Template",
+    "category": "smithing",
+    "description": "下界合金升级"
+  },
+  {
+    "id": "sentry_armor_trim_smithing_template",
+    "name": "Sentry Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "哨兵盔甲纹饰"
+  },
+  {
+    "id": "dune_armor_trim_smithing_template",
+    "name": "Dune Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "沙丘盔甲纹饰"
+  },
+  {
+    "id": "coast_armor_trim_smithing_template",
+    "name": "Coast Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "海岸盔甲纹饰"
+  },
+  {
+    "id": "wild_armor_trim_smithing_template",
+    "name": "Wild Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "荒野盔甲纹饰"
+  },
+  {
+    "id": "ward_armor_trim_smithing_template",
+    "name": "Ward Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "监守盔甲纹饰"
+  },
+  {
+    "id": "eye_armor_trim_smithing_template",
+    "name": "Eye Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "眼眸盔甲纹饰"
+  },
+  {
+    "id": "vex_armor_trim_smithing_template",
+    "name": "Vex Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "恼鬼盔甲纹饰"
+  },
+  {
+    "id": "tide_armor_trim_smithing_template",
+    "name": "Tide Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "潮汐盔甲纹饰"
+  },
+  {
+    "id": "snout_armor_trim_smithing_template",
+    "name": "Snout Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "猪鼻盔甲纹饰"
+  },
+  {
+    "id": "rib_armor_trim_smithing_template",
+    "name": "Rib Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "肋骨盔甲纹饰"
+  },
+  {
+    "id": "spire_armor_trim_smithing_template",
+    "name": "Spire Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "尖塔盔甲纹饰"
+  },
+  {
+    "id": "silence_armor_trim_smithing_template",
+    "name": "Silence Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "幽静盔甲纹饰"
+  },
+  {
+    "id": "wayfinder_armor_trim_smithing_template",
+    "name": "Wayfinder Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "向导盔甲纹饰"
+  },
+  {
+    "id": "raiser_armor_trim_smithing_template",
+    "name": "Raiser Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "牧民盔甲纹饰"
+  },
+  {
+    "id": "shaper_armor_trim_smithing_template",
+    "name": "Shaper Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "塑造盔甲纹饰"
+  },
+  {
+    "id": "host_armor_trim_smithing_template",
+    "name": "Host Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "雇主盔甲纹饰"
+  },
+  {
+    "id": "flow_armor_trim_smithing_template",
+    "name": "Flow Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "涡流盔甲纹饰"
+  },
+  {
+    "id": "bolt_armor_trim_smithing_template",
+    "name": "Bolt Armor Trim Smithing Template",
+    "category": "armor",
+    "description": "镶铆盔甲纹饰"
+  },
+  {
+    "id": "music_disc_relic",
+    "name": "Music Disc Relic",
+    "category": "music_disc"
+  },
+  {
+    "id": "skull",
+    "name": "Skull",
+    "category": "material"
+  },
+  {
+    "id": "white_terracotta",
+    "name": "White Terracotta",
+    "category": "material",
+    "description": "白色陶瓦"
+  },
+  {
+    "id": "armadillo_spawn_egg",
+    "name": "Armadillo Spawn Egg",
+    "category": "spawn_egg",
+    "description": "犰狳生成蛋"
+  },
+  {
+    "id": "armadillo_scute",
+    "name": "Armadillo Scute",
+    "category": "material",
+    "description": "犰狳鳞甲"
+  },
+  {
+    "id": "wolf_armor",
+    "name": "Wolf Armor",
+    "category": "armor",
+    "description": "狼铠"
+  },
+  {
+    "id": "pale_oak_boat",
+    "name": "Pale Oak Boat",
+    "category": "transport"
+  },
+  {
+    "id": "pale_oak_chest_boat",
+    "name": "Pale Oak Chest Boat",
+    "category": "transport"
+  },
+  {
+    "id": "pale_oak_sign",
+    "name": "Pale Oak Sign",
+    "category": "material",
+    "description": "苍白橡木告示牌"
+  },
+  {
+    "id": "creaking_spawn_egg",
+    "name": "Creaking Spawn Egg",
+    "category": "spawn_egg",
+    "description": "嘎枝生成蛋"
+  },
+  {
+    "id": "resin_brick",
+    "name": "Resin Brick",
+    "category": "material",
+    "description": "树脂砖"
+  },
+  {
+    "id": "blue_egg",
+    "name": "Blue Egg",
+    "category": "material",
+    "description": "蓝色蛋"
+  },
+  {
+    "id": "brown_egg",
+    "name": "Brown Egg",
+    "category": "material",
+    "description": "棕色蛋"
+  },
+  {
+    "id": "happy_ghast_spawn_egg",
+    "name": "Happy Ghast Spawn Egg",
+    "category": "spawn_egg",
+    "description": "善念恶魂生成蛋"
+  },
+  {
+    "id": "black_harness",
+    "name": "Black Harness",
+    "category": "equipment",
+    "description": "黑色挽具"
+  },
+  {
+    "id": "blue_harness",
+    "name": "Blue Harness",
+    "category": "equipment",
+    "description": "蓝色挽具"
+  },
+  {
+    "id": "brown_harness",
+    "name": "Brown Harness",
+    "category": "equipment",
+    "description": "棕色挽具"
+  },
+  {
+    "id": "cyan_harness",
+    "name": "Cyan Harness",
+    "category": "equipment",
+    "description": "青色挽具"
+  },
+  {
+    "id": "gray_harness",
+    "name": "Gray Harness",
+    "category": "equipment",
+    "description": "灰色挽具"
+  },
+  {
+    "id": "green_harness",
+    "name": "Green Harness",
+    "category": "equipment",
+    "description": "绿色挽具"
+  },
+  {
+    "id": "light_blue_harness",
+    "name": "Light Blue Harness",
+    "category": "equipment",
+    "description": "淡蓝色挽具"
+  },
+  {
+    "id": "light_gray_harness",
+    "name": "Light Gray Harness",
+    "category": "equipment",
+    "description": "淡灰色挽具"
+  },
+  {
+    "id": "lime_harness",
+    "name": "Lime Harness",
+    "category": "equipment",
+    "description": "黄绿色挽具"
+  },
+  {
+    "id": "magenta_harness",
+    "name": "Magenta Harness",
+    "category": "equipment",
+    "description": "品红色挽具"
+  },
+  {
+    "id": "orange_harness",
+    "name": "Orange Harness",
+    "category": "equipment",
+    "description": "橙色挽具"
+  },
+  {
+    "id": "pink_harness",
+    "name": "Pink Harness",
+    "category": "equipment",
+    "description": "粉红色挽具"
+  },
+  {
+    "id": "purple_harness",
+    "name": "Purple Harness",
+    "category": "equipment",
+    "description": "紫色挽具"
+  },
+  {
+    "id": "red_harness",
+    "name": "Red Harness",
+    "category": "equipment",
+    "description": "红色挽具"
+  },
+  {
+    "id": "white_harness",
+    "name": "White Harness",
+    "category": "equipment",
+    "description": "白色挽具"
+  },
+  {
+    "id": "yellow_harness",
+    "name": "Yellow Harness",
+    "category": "equipment",
+    "description": "黄色挽具"
+  },
+  {
+    "id": "copper_golem_spawn_egg",
+    "name": "Copper Golem Spawn Egg",
+    "category": "spawn_egg",
+    "description": "铜傀儡生成蛋"
+  },
+  {
+    "id": "copper_sword",
+    "name": "Copper Sword",
+    "category": "weapon_tool",
+    "description": "铜剑"
+  },
+  {
+    "id": "copper_shovel",
+    "name": "Copper Shovel",
+    "category": "weapon_tool",
+    "description": "铜锹"
+  },
+  {
+    "id": "copper_pickaxe",
+    "name": "Copper Pickaxe",
+    "category": "weapon_tool",
+    "description": "铜镐"
+  },
+  {
+    "id": "copper_axe",
+    "name": "Copper Axe",
+    "category": "weapon_tool",
+    "description": "铜斧"
+  },
+  {
+    "id": "copper_hoe",
+    "name": "Copper Hoe",
+    "category": "weapon_tool",
+    "description": "铜锄"
+  },
+  {
+    "id": "copper_helmet",
+    "name": "Copper Helmet",
+    "category": "armor",
+    "description": "铜头盔"
+  },
+  {
+    "id": "copper_chestplate",
+    "name": "Copper Chestplate",
+    "category": "armor",
+    "description": "铜胸甲"
+  },
+  {
+    "id": "copper_leggings",
+    "name": "Copper Leggings",
+    "category": "armor",
+    "description": "铜护腿"
+  },
+  {
+    "id": "copper_boots",
+    "name": "Copper Boots",
+    "category": "armor",
+    "description": "铜靴子"
+  },
+  {
+    "id": "copper_nugget",
+    "name": "Copper Nugget",
+    "category": "material",
+    "description": "铜粒"
+  },
+  {
+    "id": "wool",
+    "name": "Wool",
+    "category": "material",
+    "description": "羊毛"
+  },
+  {
+    "id": "carpet",
+    "name": "Carpet",
+    "category": "material",
+    "description": "地毯"
+  },
+  {
+    "id": "log",
+    "name": "Log",
+    "category": "material",
+    "description": "原木"
+  },
+  {
+    "id": "fence",
+    "name": "Fence",
+    "category": "material",
+    "description": "栅栏"
+  },
+  {
+    "id": "stonebrick",
+    "name": "Stonebrick",
+    "category": "material"
+  },
+  {
+    "id": "coral_block",
+    "name": "Coral Block",
+    "category": "material",
+    "description": "珊瑚块"
+  },
+  {
+    "id": "stone_block_slab",
+    "name": "Stone Block Slab",
+    "category": "material",
+    "description": "Stone Block台阶"
+  },
+  {
+    "id": "stone_block_slab2",
+    "name": "Stone Block Slab2",
+    "category": "material"
+  },
+  {
+    "id": "stone_block_slab3",
+    "name": "Stone Block Slab3",
+    "category": "material"
+  },
+  {
+    "id": "stone_block_slab4",
+    "name": "Stone Block Slab4",
+    "category": "material"
+  },
+  {
+    "id": "double_stone_block_slab",
+    "name": "Double Stone Block Slab",
+    "category": "material",
+    "description": "Double Stone Block台阶"
+  },
+  {
+    "id": "double_stone_block_slab2",
+    "name": "Double Stone Block Slab2",
+    "category": "material"
+  },
+  {
+    "id": "double_stone_block_slab3",
+    "name": "Double Stone Block Slab3",
+    "category": "material"
+  },
+  {
+    "id": "double_stone_block_slab4",
+    "name": "Double Stone Block Slab4",
+    "category": "material"
+  },
+  {
+    "id": "coral_fan",
+    "name": "Coral Fan",
+    "category": "material",
+    "description": "珊瑚扇"
+  },
+  {
+    "id": "coral_fan_dead",
+    "name": "Coral Fan Dead",
+    "category": "material"
+  },
+  {
+    "id": "sapling",
+    "name": "Sapling",
+    "category": "material",
+    "description": "树苗"
+  },
+  {
+    "id": "leaves",
+    "name": "Leaves",
+    "category": "material",
+    "description": "树叶"
+  },
+  {
+    "id": "leaves2",
+    "name": "Leaves2",
+    "category": "material"
+  },
+  {
+    "id": "wooden_slab",
+    "name": "Wooden Slab",
+    "category": "material",
+    "description": "Wooden台阶"
+  },
+  {
+    "id": "red_flower",
+    "name": "Red Flower",
+    "category": "material",
+    "description": "红色flower"
+  },
+  {
+    "id": "double_plant",
+    "name": "Double Plant",
+    "category": "material"
+  },
+  {
+    "id": "double_wooden_slab",
+    "name": "Double Wooden Slab",
+    "category": "material",
+    "description": "Double Wooden台阶"
+  },
+  {
+    "id": "coral",
+    "name": "Coral",
+    "category": "material",
+    "description": "珊瑚"
+  },
+  {
+    "id": "tallgrass",
+    "name": "Tallgrass",
+    "category": "material"
+  },
+  {
+    "id": "log2",
+    "name": "Log2",
+    "category": "material"
+  },
+  {
+    "id": "monster_egg",
+    "name": "Monster Egg",
+    "category": "material"
+  },
+  {
+    "id": "concrete",
+    "name": "Concrete",
+    "category": "material",
+    "description": "混凝土"
+  },
+  {
+    "id": "concrete_powder",
+    "name": "Concrete Powder",
+    "category": "material",
+    "description": "混凝土粉"
+  },
+  {
+    "id": "stained_glass",
+    "name": "Stained Glass",
+    "category": "material",
+    "description": "染色玻璃"
+  },
+  {
+    "id": "shulker_box",
+    "name": "Shulker Box",
+    "category": "material",
+    "description": "潜影盒"
+  },
+  {
+    "id": "wood",
+    "name": "Wood",
+    "category": "material",
+    "description": "木头"
+  },
+  {
+    "id": "music_disc_creator",
+    "name": "Music Disc Creator",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_creator_music_box",
+    "name": "Music Disc Creator Music Box",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_precipice",
+    "name": "Music Disc Precipice",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_tears",
+    "name": "Music Disc Tears",
+    "category": "music_disc"
+  },
+  {
+    "id": "music_disc_lava_chicken",
+    "name": "Music Disc Lava Chicken",
+    "category": "music_disc"
+  },
+  {
+    "id": "chemistry_table",
+    "name": "Chemistry Table",
+    "category": "material"
+  },
+  {
+    "id": "light_block",
+    "name": "Light Block",
+    "category": "material",
+    "description": "浅色"
+  },
+  {
+    "id": "boat",
+    "name": "Boat",
+    "category": "transport"
+  },
+  {
+    "id": "dye",
+    "name": "Dye",
+    "category": "material"
+  },
+  {
+    "id": "banner_pattern",
+    "name": "Banner Pattern",
+    "category": "banner_pattern",
+    "description": "旗帜图案"
+  },
+  {
+    "id": "spawn_egg",
+    "name": "Spawn Egg",
+    "category": "spawn_egg"
+  },
+  {
+    "id": "end_crystal",
+    "name": "End Crystal",
+    "category": "material",
+    "description": "末地水晶"
+  },
+  {
+    "id": "glow_berries",
+    "name": "Glow Berries",
+    "category": "food",
+    "description": "荧光浆果"
+  },
+  {
+    "id": "heavy_core",
+    "name": "Heavy Core",
+    "category": "material",
+    "description": "沉重核心（合成重锤的材料）",
+    "since": "1.21"
+  }
+]

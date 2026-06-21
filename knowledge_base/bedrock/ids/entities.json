@@ -1,0 +1,797 @@
+[
+  {
+    "id": "agent",
+    "name": "Agent",
+    "category": "other",
+    "description": "代理机器人"
+  },
+  {
+    "id": "allay",
+    "name": "Allay",
+    "category": "passive",
+    "description": "悦灵"
+  },
+  {
+    "id": "area_effect_cloud",
+    "name": "Area Effect Cloud",
+    "category": "other",
+    "description": "区域效果云雾"
+  },
+  {
+    "id": "armadillo",
+    "name": "Armadillo",
+    "category": "passive",
+    "description": "犰狳"
+  },
+  {
+    "id": "armor_stand",
+    "name": "Armor Stand",
+    "category": "other",
+    "description": "盔甲架"
+  },
+  {
+    "id": "arrow",
+    "name": "Arrow",
+    "category": "projectile",
+    "description": "箭"
+  },
+  {
+    "id": "axolotl",
+    "name": "Axolotl",
+    "category": "passive",
+    "description": "美西螈"
+  },
+  {
+    "id": "balloon",
+    "name": "Balloon",
+    "category": "other"
+  },
+  {
+    "id": "bat",
+    "name": "Bat",
+    "category": "passive",
+    "description": "蝙蝠"
+  },
+  {
+    "id": "bee",
+    "name": "Bee",
+    "category": "passive",
+    "description": "蜜蜂"
+  },
+  {
+    "id": "blaze",
+    "name": "Blaze",
+    "category": "hostile",
+    "description": "烈焰人"
+  },
+  {
+    "id": "boat",
+    "name": "Boat",
+    "category": "vehicle",
+    "description": "船"
+  },
+  {
+    "id": "bogged",
+    "name": "Bogged",
+    "category": "hostile",
+    "description": "沼骸"
+  },
+  {
+    "id": "breeze",
+    "name": "Breeze",
+    "category": "hostile",
+    "description": "旋风人"
+  },
+  {
+    "id": "breeze_wind_charge_projectile",
+    "name": "Breeze Wind Charge Projectile",
+    "category": "projectile",
+    "description": "风弹"
+  },
+  {
+    "id": "camel",
+    "name": "Camel",
+    "category": "passive",
+    "description": "骆驼"
+  },
+  {
+    "id": "camel_husk",
+    "name": "Camel Husk",
+    "category": "hostile",
+    "description": "骆驼尸傀"
+  },
+  {
+    "id": "cat",
+    "name": "Cat",
+    "category": "passive",
+    "description": "猫"
+  },
+  {
+    "id": "cave_spider",
+    "name": "Cave Spider",
+    "category": "hostile",
+    "description": "洞穴蜘蛛"
+  },
+  {
+    "id": "chalkboard",
+    "name": "Chalkboard",
+    "category": "other"
+  },
+  {
+    "id": "chest_boat",
+    "name": "Chest Boat",
+    "category": "vehicle",
+    "description": "运输船"
+  },
+  {
+    "id": "chest_minecart",
+    "name": "Chest Minecart",
+    "category": "vehicle",
+    "description": "带箱子的矿车"
+  },
+  {
+    "id": "chicken",
+    "name": "Chicken",
+    "category": "passive",
+    "description": "鸡"
+  },
+  {
+    "id": "cod",
+    "name": "Cod",
+    "category": "passive",
+    "description": "鳕鱼"
+  },
+  {
+    "id": "command_block_minecart",
+    "name": "Command Block Minecart",
+    "category": "vehicle",
+    "description": "命令方块矿车"
+  },
+  {
+    "id": "copper_golem",
+    "name": "Copper Golem",
+    "category": "npc",
+    "description": "铜傀儡"
+  },
+  {
+    "id": "cow",
+    "name": "Cow",
+    "category": "passive",
+    "description": "牛"
+  },
+  {
+    "id": "creaking",
+    "name": "Creaking",
+    "category": "hostile",
+    "description": "嘎枝"
+  },
+  {
+    "id": "creeper",
+    "name": "Creeper",
+    "category": "hostile",
+    "description": "苦力怕"
+  },
+  {
+    "id": "dolphin",
+    "name": "Dolphin",
+    "category": "passive",
+    "description": "海豚"
+  },
+  {
+    "id": "donkey",
+    "name": "Donkey",
+    "category": "passive",
+    "description": "驴"
+  },
+  {
+    "id": "dragon_fireball",
+    "name": "Dragon Fireball",
+    "category": "projectile",
+    "description": "末影龙火球"
+  },
+  {
+    "id": "drowned",
+    "name": "Drowned",
+    "category": "hostile",
+    "description": "溺尸"
+  },
+  {
+    "id": "egg",
+    "name": "Egg",
+    "category": "item",
+    "description": "鸡蛋"
+  },
+  {
+    "id": "elder_guardian",
+    "name": "Elder Guardian",
+    "category": "hostile",
+    "description": "远古守卫者"
+  },
+  {
+    "id": "elder_guardian_ghost",
+    "name": "Elder Guardian Ghost",
+    "category": "hostile"
+  },
+  {
+    "id": "ender_crystal",
+    "name": "Ender Crystal",
+    "category": "other",
+    "description": "末影水晶"
+  },
+  {
+    "id": "ender_dragon",
+    "name": "Ender Dragon",
+    "category": "boss",
+    "description": "末影龙"
+  },
+  {
+    "id": "ender_pearl",
+    "name": "Ender Pearl",
+    "category": "projectile",
+    "description": "末影珍珠"
+  },
+  {
+    "id": "enderman",
+    "name": "Enderman",
+    "category": "hostile",
+    "description": "末影人"
+  },
+  {
+    "id": "endermite",
+    "name": "Endermite",
+    "category": "hostile",
+    "description": "末影螨"
+  },
+  {
+    "id": "evocation_fang",
+    "name": "Evocation Fang",
+    "category": "hostile",
+    "description": "唤魔者尖牙"
+  },
+  {
+    "id": "evocation_illager",
+    "name": "Evocation Illager",
+    "category": "hostile",
+    "description": "唤魔者"
+  },
+  {
+    "id": "eye_of_ender_signal",
+    "name": "Eye Of Ender Signal",
+    "category": "other",
+    "description": "末影之眼"
+  },
+  {
+    "id": "fireball",
+    "name": "Fireball",
+    "category": "projectile",
+    "description": "火球"
+  },
+  {
+    "id": "fireworks_rocket",
+    "name": "Fireworks Rocket",
+    "category": "projectile",
+    "description": "焰火火箭"
+  },
+  {
+    "id": "fishing_hook",
+    "name": "Fishing Hook",
+    "category": "other",
+    "description": "鱼钩"
+  },
+  {
+    "id": "fox",
+    "name": "Fox",
+    "category": "passive",
+    "description": "狐狸"
+  },
+  {
+    "id": "frog",
+    "name": "Frog",
+    "category": "passive",
+    "description": "青蛙"
+  },
+  {
+    "id": "ghast",
+    "name": "Ghast",
+    "category": "hostile",
+    "description": "恶魂"
+  },
+  {
+    "id": "glow_squid",
+    "name": "Glow Squid",
+    "category": "passive",
+    "description": "荧光鱿鱼"
+  },
+  {
+    "id": "goat",
+    "name": "Goat",
+    "category": "passive",
+    "description": "山羊"
+  },
+  {
+    "id": "guardian",
+    "name": "Guardian",
+    "category": "hostile",
+    "description": "守卫者"
+  },
+  {
+    "id": "happy_ghast",
+    "name": "Happy Ghast",
+    "category": "hostile",
+    "description": "善念恶魂"
+  },
+  {
+    "id": "hoglin",
+    "name": "Hoglin",
+    "category": "hostile",
+    "description": "疣猪兽"
+  },
+  {
+    "id": "hopper_minecart",
+    "name": "Hopper Minecart",
+    "category": "vehicle",
+    "description": "漏斗矿车"
+  },
+  {
+    "id": "horse",
+    "name": "Horse",
+    "category": "passive",
+    "description": "马"
+  },
+  {
+    "id": "husk",
+    "name": "Husk",
+    "category": "hostile",
+    "description": "尸壳"
+  },
+  {
+    "id": "ice_bomb",
+    "name": "Ice Bomb",
+    "category": "other"
+  },
+  {
+    "id": "iron_golem",
+    "name": "Iron Golem",
+    "category": "npc",
+    "description": "铁傀儡"
+  },
+  {
+    "id": "lightning_bolt",
+    "name": "Lightning Bolt",
+    "category": "other",
+    "description": "闪电"
+  },
+  {
+    "id": "lingering_potion",
+    "name": "Lingering Potion",
+    "category": "projectile",
+    "description": "滞留药水"
+  },
+  {
+    "id": "llama",
+    "name": "Llama",
+    "category": "passive",
+    "description": "羊驼"
+  },
+  {
+    "id": "llama_spit",
+    "name": "Llama Spit",
+    "category": "projectile",
+    "description": "羊驼口水"
+  },
+  {
+    "id": "magma_cube",
+    "name": "Magma Cube",
+    "category": "hostile",
+    "description": "岩浆怪"
+  },
+  {
+    "id": "minecart",
+    "name": "Minecart",
+    "category": "vehicle",
+    "description": "矿车"
+  },
+  {
+    "id": "mooshroom",
+    "name": "Mooshroom",
+    "category": "passive",
+    "description": "哞菇"
+  },
+  {
+    "id": "mule",
+    "name": "Mule",
+    "category": "passive",
+    "description": "骡"
+  },
+  {
+    "id": "nautilus",
+    "name": "Nautilus",
+    "category": "other",
+    "description": "鹦鹉螺"
+  },
+  {
+    "id": "npc",
+    "name": "Npc",
+    "category": "other",
+    "description": "NPC"
+  },
+  {
+    "id": "ocelot",
+    "name": "Ocelot",
+    "category": "passive",
+    "description": "豹猫"
+  },
+  {
+    "id": "ominous_item_spawner",
+    "name": "Ominous Item Spawner",
+    "category": "other",
+    "description": "不祥物品生成器"
+  },
+  {
+    "id": "panda",
+    "name": "Panda",
+    "category": "passive",
+    "description": "熊猫"
+  },
+  {
+    "id": "parched",
+    "name": "Parched",
+    "category": "other",
+    "description": "焦骷髅"
+  },
+  {
+    "id": "parrot",
+    "name": "Parrot",
+    "category": "passive",
+    "description": "鹦鹉"
+  },
+  {
+    "id": "phantom",
+    "name": "Phantom",
+    "category": "hostile",
+    "description": "幻翼"
+  },
+  {
+    "id": "pig",
+    "name": "Pig",
+    "category": "passive",
+    "description": "猪"
+  },
+  {
+    "id": "piglin",
+    "name": "Piglin",
+    "category": "passive",
+    "description": "猪灵"
+  },
+  {
+    "id": "piglin_brute",
+    "name": "Piglin Brute",
+    "category": "hostile",
+    "description": "猪灵蛮兵"
+  },
+  {
+    "id": "pillager",
+    "name": "Pillager",
+    "category": "hostile",
+    "description": "掠夺者"
+  },
+  {
+    "id": "player",
+    "name": "Player",
+    "category": "other",
+    "description": "玩家"
+  },
+  {
+    "id": "polar_bear",
+    "name": "Polar Bear",
+    "category": "passive",
+    "description": "北极熊"
+  },
+  {
+    "id": "pufferfish",
+    "name": "Pufferfish",
+    "category": "passive",
+    "description": "河豚"
+  },
+  {
+    "id": "rabbit",
+    "name": "Rabbit",
+    "category": "passive",
+    "description": "兔子"
+  },
+  {
+    "id": "ravager",
+    "name": "Ravager",
+    "category": "hostile",
+    "description": "劫掠兽"
+  },
+  {
+    "id": "salmon",
+    "name": "Salmon",
+    "category": "passive",
+    "description": "鲑鱼"
+  },
+  {
+    "id": "sheep",
+    "name": "Sheep",
+    "category": "passive",
+    "description": "羊"
+  },
+  {
+    "id": "shulker",
+    "name": "Shulker",
+    "category": "hostile",
+    "description": "潜影贝"
+  },
+  {
+    "id": "shulker_bullet",
+    "name": "Shulker Bullet",
+    "category": "projectile",
+    "description": "潜影贝子弹"
+  },
+  {
+    "id": "silverfish",
+    "name": "Silverfish",
+    "category": "hostile",
+    "description": "蠹虫"
+  },
+  {
+    "id": "skeleton",
+    "name": "Skeleton",
+    "category": "hostile",
+    "description": "骷髅"
+  },
+  {
+    "id": "skeleton_horse",
+    "name": "Skeleton Horse",
+    "category": "hostile",
+    "description": "骷髅马"
+  },
+  {
+    "id": "slime",
+    "name": "Slime",
+    "category": "hostile",
+    "description": "史莱姆"
+  },
+  {
+    "id": "small_fireball",
+    "name": "Small Fireball",
+    "category": "projectile",
+    "description": "小火球"
+  },
+  {
+    "id": "sniffer",
+    "name": "Sniffer",
+    "category": "passive",
+    "description": "嗅探兽"
+  },
+  {
+    "id": "snow_golem",
+    "name": "Snow Golem",
+    "category": "npc",
+    "description": "雪傀儡"
+  },
+  {
+    "id": "snowball",
+    "name": "Snowball",
+    "category": "projectile",
+    "description": "雪球"
+  },
+  {
+    "id": "spider",
+    "name": "Spider",
+    "category": "hostile",
+    "description": "蜘蛛"
+  },
+  {
+    "id": "splash_potion",
+    "name": "Splash Potion",
+    "category": "projectile",
+    "description": "药水"
+  },
+  {
+    "id": "squid",
+    "name": "Squid",
+    "category": "passive",
+    "description": "鱿鱼"
+  },
+  {
+    "id": "stray",
+    "name": "Stray",
+    "category": "hostile",
+    "description": "流浪者"
+  },
+  {
+    "id": "strider",
+    "name": "Strider",
+    "category": "passive",
+    "description": "炽足兽"
+  },
+  {
+    "id": "tadpole",
+    "name": "Tadpole",
+    "category": "passive",
+    "description": "蝌蚪"
+  },
+  {
+    "id": "thrown_trident",
+    "name": "Thrown Trident",
+    "category": "projectile",
+    "description": "三叉戟"
+  },
+  {
+    "id": "tnt",
+    "name": "Tnt",
+    "category": "other",
+    "description": "TNT 方块"
+  },
+  {
+    "id": "tnt_minecart",
+    "name": "Tnt Minecart",
+    "category": "vehicle",
+    "description": "TNT 矿车"
+  },
+  {
+    "id": "trader_llama",
+    "name": "Trader Llama",
+    "category": "passive",
+    "description": "行商羊驼"
+  },
+  {
+    "id": "tripod_camera",
+    "name": "Tripod Camera",
+    "category": "other",
+    "description": "三脚架摄像机"
+  },
+  {
+    "id": "tropicalfish",
+    "name": "Tropicalfish",
+    "category": "passive",
+    "description": "热带鱼"
+  },
+  {
+    "id": "turtle",
+    "name": "Turtle",
+    "category": "passive",
+    "description": "海龟"
+  },
+  {
+    "id": "vex",
+    "name": "Vex",
+    "category": "hostile",
+    "description": "恼鬼"
+  },
+  {
+    "id": "villager",
+    "name": "Villager",
+    "category": "npc",
+    "description": "村民"
+  },
+  {
+    "id": "villager_v2",
+    "name": "Villager V2",
+    "category": "npc",
+    "description": "村民"
+  },
+  {
+    "id": "vindicator",
+    "name": "Vindicator",
+    "category": "hostile",
+    "description": "卫道士"
+  },
+  {
+    "id": "wandering_trader",
+    "name": "Wandering Trader",
+    "category": "npc",
+    "description": "流浪商人"
+  },
+  {
+    "id": "warden",
+    "name": "Warden",
+    "category": "hostile",
+    "description": "监守者"
+  },
+  {
+    "id": "wind_charge_projectile",
+    "name": "Wind Charge Projectile",
+    "category": "projectile",
+    "description": "风弹"
+  },
+  {
+    "id": "witch",
+    "name": "Witch",
+    "category": "hostile",
+    "description": "女巫"
+  },
+  {
+    "id": "wither",
+    "name": "Wither",
+    "category": "boss",
+    "description": "凋灵"
+  },
+  {
+    "id": "wither_skeleton",
+    "name": "Wither Skeleton",
+    "category": "hostile",
+    "description": "凋灵骷髅"
+  },
+  {
+    "id": "wither_skull",
+    "name": "Wither Skull",
+    "category": "projectile",
+    "description": "凋灵头颅"
+  },
+  {
+    "id": "wither_skull_dangerous",
+    "name": "Wither Skull Dangerous",
+    "category": "projectile",
+    "description": "凋灵头颅"
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "category": "passive",
+    "description": "狼"
+  },
+  {
+    "id": "xp_bottle",
+    "name": "Xp Bottle",
+    "category": "projectile",
+    "description": "附魔之瓶"
+  },
+  {
+    "id": "xp_orb",
+    "name": "Xp Orb",
+    "category": "other",
+    "description": "经验球"
+  },
+  {
+    "id": "zoglin",
+    "name": "Zoglin",
+    "category": "hostile",
+    "description": "僵尸疣猪兽"
+  },
+  {
+    "id": "zombie",
+    "name": "Zombie",
+    "category": "hostile",
+    "description": "僵尸"
+  },
+  {
+    "id": "zombie_horse",
+    "name": "Zombie Horse",
+    "category": "hostile",
+    "description": "僵尸马"
+  },
+  {
+    "id": "zombie_nautilus",
+    "name": "Zombie Nautilus",
+    "category": "hostile",
+    "description": "僵尸鹦鹉螺"
+  },
+  {
+    "id": "zombie_pigman",
+    "name": "Zombie Pigman",
+    "category": "hostile",
+    "description": "僵尸猪灵"
+  },
+  {
+    "id": "zombie_villager",
+    "name": "Zombie Villager",
+    "category": "hostile",
+    "description": "僵尸村民"
+  },
+  {
+    "id": "zombie_villager_v2",
+    "name": "Zombie Villager V2",
+    "category": "hostile",
+    "description": "怪人村民"
+  },
+  {
+    "id": "sulfur_cube",
+    "name": "Sulfur Cube",
+    "category": "hostile",
+    "description": "硫磺方块怪，1.21版本新增的敌对生物",
+    "since": "1.21"
+  }
+]

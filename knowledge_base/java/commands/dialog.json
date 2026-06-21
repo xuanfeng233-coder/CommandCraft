@@ -1,0 +1,33 @@
+{
+  "name": "dialog",
+  "syntax": "/dialog show <targets> <dialog> | /dialog clear <targets>",
+  "description": "向玩家显示或清除对话框界面",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "show <targets> <dialog>",
+      "type": "子命令",
+      "required": false,
+      "description": "向指定玩家显示对话框，dialog可以是内联SNBT或minecraft:dialog注册表中的命名空间ID（通常由数据包定义）"
+    },
+    {
+      "name": "clear <targets>",
+      "type": "子命令",
+      "required": false,
+      "description": "清除指定玩家当前显示的对话框"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/dialog show @a minecraft:server_links",
+      "description": "向所有玩家显示服务器链接对话框"
+    },
+    {
+      "input": "/dialog clear @s",
+      "description": "清除自己当前显示的对话框"
+    }
+  ],
+  "java_specific_notes": "dialog命令是Java版1.21.6（快照25w20a）新增的，属于Chase the Skies更新。需要OP权限等级2。对话框通常在数据包的dialog注册表中定义，可包含按钮、文本输入和提交动作。也支持内联SNBT直接定义对话框结构。",
+  "version_added": "1.21.6",
+  "since": "1.21.6"
+}

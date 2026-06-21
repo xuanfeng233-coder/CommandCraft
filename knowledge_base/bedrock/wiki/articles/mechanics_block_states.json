@@ -1,0 +1,16 @@
+{
+  "id": "mechanics_block_states",
+  "title": "方块状态",
+  "source": "zh.minecraft.wiki",
+  "url": "https://zh.minecraft.wiki/w/方块状态",
+  "category": "mechanics",
+  "tags": [
+    "方块状态",
+    "方块属性",
+    "数据值"
+  ],
+  "summary": "方块状态（Block States） （在 基岩版 中又称为 方块置换（Block Permutations） ）是进一步定义一个 方块 所需的附加数据，包括方块的外观和行为，是多种 方块属性（Block Property） （在 基岩版 中又称为 方块状态（Block State） ）的集合。",
+  "content": "## 概述\n方块状态（Block States） （在 基岩版 中又称为 方块置换（Block Permutations） ）是进一步定义一个 方块 所需的附加数据，包括方块的外观和行为，是多种 方块属性（Block Property） （在 基岩版 中又称为 方块状态（Block State） ）的集合。\n在 基岩版 中，方块也由 附加值（Aux Values） （又称为 元数据（Metadata） ）定义。附加值使用旗标格式，与方块状态基本一一对应。然而，附加值已被弃用，仅为兼容性而保留，新增加的方块或方块状态不再支持附加值。\n在 Java版 中，流体还拥有 流体状态（Fluid States） ，是进一步定义 流体 所需的附加数据。\n\n## 水\n水 ID名称： water\n流动的水 ID名称： flowing_water\n\n## 熔岩\n熔岩 ID名称： lava\n流动的熔岩 ID名称： flowing_lava",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

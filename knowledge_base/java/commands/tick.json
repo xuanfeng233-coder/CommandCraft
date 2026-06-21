@@ -1,0 +1,88 @@
+{
+  "name": "tick",
+  "syntax": "/tick query|rate|freeze|unfreeze|step|sprint ...",
+  "description": "控制游戏刻速率",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "query",
+      "type": "子命令",
+      "required": false,
+      "description": "查询当前游戏刻速率和性能信息"
+    },
+    {
+      "name": "rate <rate>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置游戏刻速率（默认20.0，即每秒20刻）。范围1.0-10000.0"
+    },
+    {
+      "name": "freeze",
+      "type": "子命令",
+      "required": false,
+      "description": "冻结游戏刻（暂停游戏逻辑但不暂停渲染）"
+    },
+    {
+      "name": "unfreeze",
+      "type": "子命令",
+      "required": false,
+      "description": "取消冻结游戏刻"
+    },
+    {
+      "name": "step <ticks>",
+      "type": "子命令",
+      "required": false,
+      "description": "在冻结状态下执行指定数量的游戏刻后继续冻结"
+    },
+    {
+      "name": "step stop",
+      "type": "子命令",
+      "required": false,
+      "description": "停止当前正在执行的step"
+    },
+    {
+      "name": "sprint <ticks>",
+      "type": "子命令",
+      "required": false,
+      "description": "以最大速度执行指定数量的游戏刻"
+    },
+    {
+      "name": "sprint stop",
+      "type": "子命令",
+      "required": false,
+      "description": "停止当前的sprint"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tick rate 40",
+      "description": "将游戏速度设为2倍（每秒40刻）"
+    },
+    {
+      "input": "/tick rate 1",
+      "description": "将游戏速度降到极慢（每秒1刻）"
+    },
+    {
+      "input": "/tick freeze",
+      "description": "冻结游戏刻"
+    },
+    {
+      "input": "/tick step 1",
+      "description": "在冻结状态下执行1个游戏刻（逐刻调试）"
+    },
+    {
+      "input": "/tick unfreeze",
+      "description": "恢复正常游戏刻运行"
+    },
+    {
+      "input": "/tick sprint 100",
+      "description": "以最大速度快进100个游戏刻"
+    },
+    {
+      "input": "/tick query",
+      "description": "查询当前游戏刻速率"
+    }
+  ],
+  "java_specific_notes": "tick命令是Java版1.20.3新增的。freeze/step功能非常适合调试红石电路和命令系统。sprint可以快速跳过等待时间。rate不影响网络同步（客户端和服务端的游戏速度同步变化）。freeze状态下玩家仍然可以移动和交互，但游戏世界暂停。",
+  "version_added": "1.20.3"
+}

@@ -1,0 +1,71 @@
+{
+  "name": "fill",
+  "syntax": "/fill <from> <to> <block> [destroy|hollow|keep|outline|replace [<filter>]]",
+  "description": "用指定方块填充指定区域",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "from",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的起始角坐标"
+    },
+    {
+      "name": "to",
+      "type": "x y z",
+      "required": true,
+      "description": "填充区域的对角坐标"
+    },
+    {
+      "name": "block",
+      "type": "block_id",
+      "required": true,
+      "description": "要填充的方块ID（如 minecraft:stone），可附带方块状态 [state=value]"
+    },
+    {
+      "name": "mode",
+      "type": "FillMode",
+      "required": false,
+      "description": "填充模式：destroy(破坏原有方块并掉落)、hollow(仅填充外壳，内部为空气)、keep(仅替换空气方块)、outline(仅填充外壳，不改变内部)、replace(替换指定方块)",
+      "default": "replace"
+    },
+    {
+      "name": "filter",
+      "type": "block_predicate",
+      "required": false,
+      "description": "仅在模式为replace时使用，指定要被替换的方块（可包含方块状态和NBT匹配）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/fill ~-5 ~ ~-5 ~5 ~3 ~5 minecraft:stone",
+      "description": "在自己周围填充一个11x4x11的石头立方体"
+    },
+    {
+      "input": "/fill ~-5 ~ ~-5 ~5 ~3 ~5 minecraft:air",
+      "description": "清空自己周围11x4x11区域的所有方块"
+    },
+    {
+      "input": "/fill ~-5 ~-1 ~-5 ~5 ~-1 ~5 minecraft:diamond_block hollow",
+      "description": "用钻石块铺一个中空的地板"
+    },
+    {
+      "input": "/fill 0 64 0 10 64 10 minecraft:grass_block replace minecraft:dirt",
+      "description": "将区域内的泥土替换为草方块"
+    },
+    {
+      "input": "/fill ~-3 ~ ~-3 ~3 ~5 ~3 minecraft:glass outline",
+      "description": "用玻璃建造一个仅有外壳的结构"
+    },
+    {
+      "input": "/fill ~-10 ~-1 ~-10 ~10 ~-1 ~10 minecraft:oak_slab[type=bottom]",
+      "description": "用橡木半砖铺地板（底部放置）"
+    },
+    {
+      "input": "/fill ~ ~ ~ ~5 ~5 ~5 minecraft:chest[facing=north]{Lock:\"密码\"} replace minecraft:air",
+      "description": "在空气位置放置朝北且带锁的箱子"
+    }
+  ],
+  "java_specific_notes": "Java版fill命令单次最多填充32768个方块。方块状态使用方括号语法 [state=value]（不带引号，如[facing=north]），不同于基岩版的[\"state\"=\"value\"]。Java版支持在方块后附加NBT数据如{Lock:\"key\"}。replace模式的filter参数支持方块标签（如#minecraft:logs）进行批量匹配。",
+  "version_added": "1.0"
+}

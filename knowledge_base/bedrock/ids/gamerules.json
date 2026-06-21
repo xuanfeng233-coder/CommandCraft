@@ -1,0 +1,275 @@
+[
+  {
+    "id": "commandblockoutput",
+    "name": "commandblockoutput",
+    "description": "命令方块执行命令时是否通知管理员",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "sendcommandfeedback",
+    "name": "sendcommandfeedback",
+    "description": "玩家执行命令时是否显示反馈",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "showdeathmessages",
+    "name": "showdeathmessages",
+    "description": "玩家死亡时是否显示消息",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "dotiledrops",
+    "name": "dotiledrops",
+    "description": "方块被破坏时是否掉落物品",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "domobloot",
+    "name": "domobloot",
+    "description": "生物是否掉落物品和经验",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "doentitydrops",
+    "name": "doentitydrops",
+    "description": "非生物实体是否掉落物品",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "projectilescanbreakblocks",
+    "name": "projectilescanbreakblocks",
+    "description": "弹射物是否能破坏可破坏方块",
+    "value_type": "boolean",
+    "default": "true",
+    "since": "1.20.50"
+  },
+  {
+    "id": "tntexplosiondropdecay",
+    "name": "tntexplosiondropdecay",
+    "description": "TNT爆炸是否随机销毁方块掉落物",
+    "value_type": "boolean",
+    "default": "false",
+    "since": "1.21.0"
+  },
+  {
+    "id": "commandblocksenabled",
+    "name": "commandblocksenabled",
+    "description": "命令方块是否启用",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "maxcommandchainlength",
+    "name": "maxcommandchainlength",
+    "description": "命令链最大执行长度",
+    "value_type": "integer",
+    "default": "65536"
+  },
+  {
+    "id": "mobgriefing",
+    "name": "mobgriefing",
+    "description": "生物是否能改变方块（苦力怕爆炸、末影人搬方块等）",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "drowningdamage",
+    "name": "drowningdamage",
+    "description": "玩家是否受溺水伤害",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "falldamage",
+    "name": "falldamage",
+    "description": "玩家是否受摔落伤害",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "firedamage",
+    "name": "firedamage",
+    "description": "是否受火焰/岩浆/营火/岩浆块伤害",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "freezedamage",
+    "name": "freezedamage",
+    "description": "是否受细雪冰冻伤害",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "doimmediaterespawn",
+    "name": "doimmediaterespawn",
+    "description": "是否跳过死亡画面立即重生",
+    "value_type": "boolean",
+    "default": "false"
+  },
+  {
+    "id": "keepinventory",
+    "name": "keepinventory",
+    "description": "死亡后是否保留背包物品",
+    "value_type": "boolean",
+    "default": "false"
+  },
+  {
+    "id": "dolimitedcrafting",
+    "name": "dolimitedcrafting",
+    "description": "是否需要解锁配方才能合成",
+    "value_type": "boolean",
+    "default": "false"
+  },
+  {
+    "id": "naturalregeneration",
+    "name": "naturalregeneration",
+    "description": "是否自然恢复生命值",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "playerssleepingpercentage",
+    "name": "playerssleepingpercentage",
+    "description": "跳过夜晚所需的睡眠玩家百分比",
+    "value_type": "integer",
+    "default": "100"
+  },
+  {
+    "id": "pvp",
+    "name": "pvp",
+    "description": "玩家之间是否可以互相伤害",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "spawnradius",
+    "name": "spawnradius",
+    "description": "出生点半径",
+    "value_type": "integer",
+    "default": "10"
+  },
+  {
+    "id": "dodaylightcycle",
+    "name": "dodaylightcycle",
+    "description": "是否有昼夜交替",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "doweathercycle",
+    "name": "doweathercycle",
+    "description": "天气是否自然变化",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "randomtickspeed",
+    "name": "randomtickspeed",
+    "description": "随机方块刻速度",
+    "value_type": "integer",
+    "default": "1"
+  },
+  {
+    "id": "tntexplodes",
+    "name": "tntexplodes",
+    "description": "TNT是否会爆炸",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "dofiretick",
+    "name": "dofiretick",
+    "description": "火焰是否蔓延和自然熄灭",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "functioncommandlimit",
+    "name": "functioncommandlimit",
+    "description": "函数文件最大命令执行数",
+    "value_type": "integer",
+    "default": "10000"
+  },
+  {
+    "id": "recipesunlock",
+    "name": "recipesunlock",
+    "description": "是否需要收集材料解锁配方",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "respawnblocksexplode",
+    "name": "respawnblocksexplode",
+    "description": "床/重生锚在其他维度是否爆炸",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "showbordereffect",
+    "name": "showbordereffect",
+    "description": "是否显示边界粒子效果",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "showcoordinates",
+    "name": "showcoordinates",
+    "description": "是否在HUD显示玩家坐标",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "showdaysplayed",
+    "name": "showdaysplayed",
+    "description": "是否在HUD显示游戏天数",
+    "value_type": "boolean",
+    "default": "false"
+  },
+  {
+    "id": "showrecipemessages",
+    "name": "showrecipemessages",
+    "description": "是否显示配方解锁提示",
+    "value_type": "boolean",
+    "default": "true",
+    "since": "1.20.50"
+  },
+  {
+    "id": "showtags",
+    "name": "showtags",
+    "description": "是否显示物品NBT描述和锁定标记",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "doinsomnia",
+    "name": "doinsomnia",
+    "description": "是否生成幻翼",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "domobspawning",
+    "name": "domobspawning",
+    "description": "是否自然生成生物",
+    "value_type": "boolean",
+    "default": "true"
+  },
+  {
+    "id": "locatorbar",
+    "name": "locatorbar",
+    "description": "是否显示定位条（玩家航点指示）；1.21.80 加入，后续版本更名为 playerwaypoints",
+    "value_type": "boolean",
+    "default": "true",
+    "since": "1.21.80",
+    "aliases": [
+      "playerwaypoints"
+    ]
+  }
+]

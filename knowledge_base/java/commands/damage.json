@@ -1,0 +1,64 @@
+{
+  "name": "damage",
+  "syntax": "/damage <target> <amount> [<damageType>] [at <location>] | /damage <target> <amount> [<damageType>] [by <entity>] [from <cause>]",
+  "description": "对实体造成指定类型和数量的伤害",
+  "category": "entity",
+  "parameters": [
+    {
+      "name": "target",
+      "type": "target",
+      "required": true,
+      "description": "受到伤害的目标实体（必须为单个实体）"
+    },
+    {
+      "name": "amount",
+      "type": "float",
+      "required": true,
+      "description": "伤害数值"
+    },
+    {
+      "name": "damageType",
+      "type": "damage_type",
+      "required": false,
+      "description": "伤害类型（如 minecraft:player_attack、minecraft:fall、minecraft:fire、minecraft:magic 等）"
+    },
+    {
+      "name": "at <location>",
+      "type": "x y z",
+      "required": false,
+      "description": "伤害来源位置（用于确定击退方向）"
+    },
+    {
+      "name": "by <entity>",
+      "type": "target",
+      "required": false,
+      "description": "直接伤害者实体（如射出箭矢的弓）"
+    },
+    {
+      "name": "from <cause>",
+      "type": "target",
+      "required": false,
+      "description": "根本伤害者实体（如射箭的玩家）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/damage @e[type=minecraft:zombie,limit=1,sort=nearest] 10",
+      "description": "对最近的僵尸造成10点伤害"
+    },
+    {
+      "input": "/damage @s 5 minecraft:fall",
+      "description": "对自己造成5点摔落伤害"
+    },
+    {
+      "input": "/damage @e[type=minecraft:villager,limit=1] 3 minecraft:player_attack by @s",
+      "description": "以自己为攻击者对最近村民造成3点攻击伤害"
+    },
+    {
+      "input": "/damage @s 2 minecraft:magic at 0 64 0",
+      "description": "从坐标(0,64,0)方向对自己造成2点魔法伤害"
+    }
+  ],
+  "java_specific_notes": "damage命令是Java版1.19.4新增的。伤害类型使用数据包中定义的伤害类型标签（位于data/minecraft/damage_type/）。常用类型包括：player_attack(玩家攻击)、mob_attack(生物攻击)、fall(摔落)、fire(火焰)、lava(岩浆)、drown(溺水)、magic(魔法)、wither(凋零)、lightning_bolt(闪电)、generic(通用)。by和from参数可以精确控制击杀统计和经验掉落。",
+  "version_added": "1.19.4"
+}

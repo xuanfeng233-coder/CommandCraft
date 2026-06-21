@@ -1,0 +1,57 @@
+{
+  "id": "minecraft:filled_map",
+  "inherits": "_common",
+  "description": "地图物品NBT标签",
+  "tags": [
+    {
+      "name": "map",
+      "type": "int",
+      "description": "地图数据编号（对应 map_<id>.dat 文件）"
+    },
+    {
+      "name": "display",
+      "type": "compound",
+      "description": "地图显示属性",
+      "children": [
+        {
+          "name": "MapColor",
+          "type": "int",
+          "description": "地图物品背景颜色（RGB十进制值）"
+        }
+      ]
+    },
+    {
+      "name": "Decorations",
+      "type": "list<compound>",
+      "description": "地图上的标记/装饰列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "装饰的唯一标识符"
+        },
+        {
+          "name": "type",
+          "type": "byte",
+          "description": "装饰类型：0=白色箭头(玩家), 1=绿色箭头, 6=白色圆点, 7=蓝色标记(海洋之心), 8=红色X(宝藏), 26=旗帜",
+          "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 26]
+        },
+        {
+          "name": "x",
+          "type": "double",
+          "description": "标记的世界X坐标"
+        },
+        {
+          "name": "z",
+          "type": "double",
+          "description": "标记的世界Z坐标"
+        },
+        {
+          "name": "rot",
+          "type": "double",
+          "description": "标记的旋转角度"
+        }
+      ]
+    }
+  ]
+}

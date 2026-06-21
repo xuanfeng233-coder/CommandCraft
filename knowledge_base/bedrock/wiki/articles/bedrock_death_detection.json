@@ -1,0 +1,19 @@
+{
+  "id": "bedrock_death_detection",
+  "title": "基岩版玩家死亡检测系统",
+  "source": "wiki.bedrock.dev",
+  "url": "https://wiki.bedrock.dev/commands/on-player-death",
+  "category": "examples",
+  "tags": [
+    "死亡检测",
+    "PVP",
+    "小游戏",
+    "计分板",
+    "事件",
+    "击杀"
+  ],
+  "summary": "两种方法检测玩家死亡：计分板状态跟踪法（推荐）和碰撞箱检测法，可用于PVP击杀统计、小游戏逻辑和自定义死亡事件。",
+  "content": "在基岩版中，检测玩家死亡是小游戏和PVP系统的核心功能。下面介绍两种实用方法。\n\n## 方法一：计分板状态跟踪法（推荐）\n\n利用计分板持续跟踪玩家的存活状态，当状态从「存活」变为「未追踪」时判定死亡。\n\n### 原理\n\n每刻为所有存活玩家设置标记分数，死亡玩家无法被 @a 选中（因为已死亡），所以他们的分数不会被更新。当玩家重生后，检查其分数即可判断是否刚刚死亡。\n\n### 初始化命令\n\n```\n/scoreboard objectives add wiki:alive dummy\n/scoreboard objectives add wiki:deaths deathCount\n```\n\n### 核心命令链（循环+连锁命令方块）\n\n```\n## 步骤1：重置所有玩家的存活标记为0\nscoreboard players set @a wiki:alive 0\n\n## 步骤2：将所有活着的玩家标记为1\n## 注意：死亡中的玩家不会被 @e[type=player] 选中\nscoreboard players set @e[type=player] wiki:alive 1\n\n## 步骤3：检测刚重生的玩家（存活标记为0 = 刚从死亡中恢复）\nexecute as @a[scores={wiki:alive=0,wiki:deaths=1..}] run function on_player_death\n\n## 步骤4：重置死亡计数\nscoreboard players set @a[scores={wiki:deaths=1..}] wiki:deaths 0\n```\n\n### on_player_death.mcfunction\n\n在此函数中编写死亡时要执行的逻辑：\n```\n## @s 就是刚死亡的玩家\nsay 玩家 @s 已阵亡！\nscoreboard players add @s wiki:death_count 1\n\n## 在死亡位置生成粒子效果\nexecute at @s run particle minecraft:totem_particle ~ ~1 ~\n\n## 给予死亡惩罚\neffect @s slowness 10 1\n```\n\n### 优点\n- 可靠性高，不受地形影响\n- 可以获取死亡玩家的身份（@s）\n- 可以在重生点执行命令\n\n## 方法二：碰撞箱检测法\n\n利用死亡玩家不再拥有碰撞箱的特性进行检测。\n\n### 原理\n\n活着的玩家有碰撞箱（0.6×1.8），死亡动画期间碰撞箱消失。通过在玩家位置检测碰撞箱的存在与否来判断存活状态。\n\n### 命令\n```\n## 给所有玩家添加存活标签\ntag @a add alive\n\n## 移除所有真正活着的玩家的标签（能被实体选择器定位到的）\ntag @e[type=player] remove alive\n\n## 仍然拥有 alive 标签的玩家 = 正在死亡中的玩家\nexecute as @a[tag=alive] run say @s 正在死亡！\ntag @a remove alive\n```\n\n### 局限性\n- 时机窗口短，可能遗漏\n- 无法在死亡瞬间精确执行\n\n## PVP击杀统计\n\n### 初始化\n```\n/scoreboard objectives add wiki:kills playerKillCount\n/scoreboard objectives add wiki:deaths deathCount\n/scoreboard objectives add wiki:kd dummy \"K/D比\"\n```\n\n### 击杀播报\n```\n## 循环命令方块\nexecute as @a[scores={wiki:kills=1..}] run tellraw @a {\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\" 击杀了一名玩家！\"}]}\nscoreboard players set @a[scores={wiki:kills=1..}] wiki:kills 0\n```\n\n### 最终击杀者检测\n结合 deathCount 和 playerKillCount 同时检测死者和击杀者：\n```\nexecute as @a[scores={wiki:kills=1..}] run title @s actionbar §a+1 击杀\nexecute as @a[scores={wiki:deaths=1..}] at @s run title @s actionbar §c你已阵亡\n```\n\n## 应用场景\n\n### 小游戏生命系统\n```\n/scoreboard objectives add wiki:lives dummy\n/scoreboard players set @a wiki:lives 3\n\n## 死亡时减少生命\nexecute as @a[scores={wiki:alive=0,wiki:deaths=1..}] run scoreboard players remove @s wiki:lives 1\n\n## 生命耗尽时设为旁观者\nexecute as @a[scores={wiki:lives=..0}] run gamemode spectator @s\n```\n\n### 死亡传送回大厅\n```\n## 在 on_player_death 函数中\ntp @s 0 65 0\ngamemode adventure @s\nclear @s\ntitle @s title §c你已阵亡！\ntitle @s subtitle §7返回大厅中...\n```\n\n### 自定义死亡消息\n```\n## 在 on_player_death 函数中\ntellraw @a {\"rawtext\":[{\"text\":\"§c☠ \"},{\"selector\":\"@s\"},{\"text\":\" §7被淘汰了！\"}]}\nplaysound mob.wither.death @a\n```",
+  "platform": "BE",
+  "last_crawled": "2026-03-21"
+}

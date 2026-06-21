@@ -1,0 +1,137 @@
+{
+  "id": "minecraft:armor_stand",
+  "inherits": "_common",
+  "description": "盔甲架实体NBT标签",
+  "tags": [
+    {
+      "name": "ShowArms",
+      "type": "byte",
+      "description": "是否显示手臂",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Small",
+      "type": "byte",
+      "description": "是否为小型盔甲架",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "NoBasePlate",
+      "type": "byte",
+      "description": "是否隐藏底座",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Invisible",
+      "type": "byte",
+      "description": "盔甲架本体是否隐身（装备仍可见）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Marker",
+      "type": "byte",
+      "description": "是否为标记模式（无碰撞箱，极小hitbox）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Pose",
+      "type": "compound",
+      "description": "盔甲架各部位的姿势角度",
+      "children": [
+        {
+          "name": "Head",
+          "type": "list<float>",
+          "description": "头部旋转角度 [x, y, z]（度）",
+          "default": [0.0, 0.0, 0.0]
+        },
+        {
+          "name": "Body",
+          "type": "list<float>",
+          "description": "身体旋转角度 [x, y, z]（度）",
+          "default": [0.0, 0.0, 0.0]
+        },
+        {
+          "name": "LeftArm",
+          "type": "list<float>",
+          "description": "左臂旋转角度 [x, y, z]（度）",
+          "default": [-10.0, 0.0, -10.0]
+        },
+        {
+          "name": "RightArm",
+          "type": "list<float>",
+          "description": "右臂旋转角度 [x, y, z]（度）",
+          "default": [-15.0, 0.0, 10.0]
+        },
+        {
+          "name": "LeftLeg",
+          "type": "list<float>",
+          "description": "左腿旋转角度 [x, y, z]（度）",
+          "default": [-1.0, 0.0, -1.0]
+        },
+        {
+          "name": "RightLeg",
+          "type": "list<float>",
+          "description": "右腿旋转角度 [x, y, z]（度）",
+          "default": [1.0, 0.0, 1.0]
+        }
+      ]
+    },
+    {
+      "name": "DisabledSlots",
+      "type": "int",
+      "description": "禁用的装备槽位（位标志），2039583=禁用所有交互",
+      "default": 0
+    },
+    {
+      "name": "HandItems",
+      "type": "list<compound>",
+      "description": "手持物品列表 [主手, 副手]",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "ArmorItems",
+      "type": "list<compound>",
+      "description": "装备的盔甲列表 [脚, 腿, 胸, 头]",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    }
+  ]
+}

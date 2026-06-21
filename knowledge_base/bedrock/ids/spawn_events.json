@@ -1,0 +1,1034 @@
+[
+  {
+    "id": "minecraft:entity_spawned",
+    "name": "通用生成",
+    "category": "common",
+    "description": "实体被生成时触发（几乎所有实体通用）"
+  },
+  {
+    "id": "minecraft:entity_born",
+    "name": "繁殖出生",
+    "category": "common",
+    "description": "实体通过繁殖出生时触发"
+  },
+  {
+    "id": "minecraft:entity_transformed",
+    "name": "实体转化",
+    "category": "common",
+    "description": "实体从另一种实体转化而来时触发"
+  },
+  {
+    "id": "minecraft:as_baby",
+    "name": "生成为幼体",
+    "category": "common",
+    "description": "以幼年形态生成"
+  },
+  {
+    "id": "minecraft:as_adult",
+    "name": "生成为成体",
+    "category": "common",
+    "description": "以成年形态生成"
+  },
+  {
+    "id": "minecraft:spawn_adult",
+    "name": "生成成年个体",
+    "category": "common",
+    "description": "直接生成成年个体"
+  },
+  {
+    "id": "minecraft:become_charged",
+    "name": "成为闪电苦力怕",
+    "category": "creeper",
+    "description": "苦力怕变为充能（闪电）状态"
+  },
+  {
+    "id": "minecraft:start_exploding",
+    "name": "开始爆炸",
+    "category": "creeper",
+    "description": "苦力怕开始爆炸倒计时"
+  },
+  {
+    "id": "minecraft:start_exploding_forced",
+    "name": "强制爆炸",
+    "category": "creeper",
+    "description": "强制苦力怕立即开始爆炸"
+  },
+  {
+    "id": "minecraft:as_baby_jockey",
+    "name": "生成为幼年骑手",
+    "category": "zombie",
+    "description": "以骑乘鸡的幼年僵尸形态生成"
+  },
+  {
+    "id": "minecraft:convert_to_drowned",
+    "name": "转化为溺尸",
+    "category": "zombie",
+    "description": "僵尸在水中转化为溺尸"
+  },
+  {
+    "id": "minecraft:spawn_as_rider",
+    "name": "生成为骑手",
+    "category": "zombie",
+    "description": "僵尸以骑乘状态生成"
+  },
+  {
+    "id": "minecraft:as_ranged_adult",
+    "name": "远程成年溺尸",
+    "category": "drowned",
+    "description": "生成持有三叉戟的成年溺尸"
+  },
+  {
+    "id": "minecraft:as_ranged_baby",
+    "name": "远程幼年溺尸",
+    "category": "drowned",
+    "description": "生成持有三叉戟的幼年溺尸"
+  },
+  {
+    "id": "minecraft:as_ranged_baby_jockey",
+    "name": "远程幼年骑手溺尸",
+    "category": "drowned",
+    "description": "生成骑乘的远程幼年溺尸"
+  },
+  {
+    "id": "minecraft:as_rider",
+    "name": "生成为骑手(溺尸)",
+    "category": "drowned",
+    "description": "溺尸以骑乘状态生成"
+  },
+  {
+    "id": "minecraft:convert_to_zombie",
+    "name": "转化为僵尸",
+    "category": "husk",
+    "description": "尸壳转化为普通僵尸"
+  },
+  {
+    "id": "become_stray_event",
+    "name": "转化为流浪者",
+    "category": "skeleton",
+    "description": "骷髅在细雪中转化为流浪者"
+  },
+  {
+    "id": "minecraft:melee_mode",
+    "name": "近战模式",
+    "category": "skeleton",
+    "description": "骷髅切换为近战模式"
+  },
+  {
+    "id": "minecraft:ranged_mode",
+    "name": "远程模式",
+    "category": "skeleton",
+    "description": "骷髅切换为远程模式"
+  },
+  {
+    "id": "minecraft:spring_trap",
+    "name": "触发陷阱",
+    "category": "skeleton",
+    "description": "骷髅马陷阱被触发"
+  },
+  {
+    "id": "minecraft:become_angry",
+    "name": "变为敌对",
+    "category": "neutral_mob",
+    "description": "中立生物变为敌对状态（末影人/蜘蛛/狼/蜜蜂等）"
+  },
+  {
+    "id": "minecraft:on_calm",
+    "name": "恢复平静",
+    "category": "neutral_mob",
+    "description": "敌对状态的中立生物恢复平静"
+  },
+  {
+    "id": "minecraft:become_hostile",
+    "name": "变为攻击性",
+    "category": "spider",
+    "description": "蜘蛛在低亮度下变为攻击性"
+  },
+  {
+    "id": "minecraft:become_neutral",
+    "name": "变为中立",
+    "category": "spider",
+    "description": "蜘蛛在高亮度下变为中立"
+  },
+  {
+    "id": "minecraft:entity_spawned_with_default_jockey",
+    "name": "生成带骑手",
+    "category": "spider",
+    "description": "蜘蛛生成时自带骷髅骑手"
+  },
+  {
+    "id": "minecraft:entity_spawned_with_biome_specific_jockey",
+    "name": "生成带群系骑手",
+    "category": "spider",
+    "description": "蜘蛛生成时自带对应群系的骷髅骑手"
+  },
+  {
+    "id": "minecraft:spawn_for_raid",
+    "name": "袭击生成",
+    "category": "raid",
+    "description": "为袭击事件生成（掠夺者/卫道士/女巫/劫掠兽）"
+  },
+  {
+    "id": "minecraft:spawn_as_illager_captain",
+    "name": "生成为灾厄队长",
+    "category": "raid",
+    "description": "生成时带有不祥之旗"
+  },
+  {
+    "id": "minecraft:spawn_as_patrol_follower",
+    "name": "生成为巡逻跟随者",
+    "category": "raid",
+    "description": "作为巡逻队成员生成"
+  },
+  {
+    "id": "minecraft:promote_to_illager_captain",
+    "name": "晋升灾厄队长",
+    "category": "raid",
+    "description": "晋升为灾厄队长"
+  },
+  {
+    "id": "minecraft:promote_to_patrol_captain",
+    "name": "晋升巡逻队长",
+    "category": "raid",
+    "description": "晋升为巡逻队长"
+  },
+  {
+    "id": "minecraft:start_celebrating",
+    "name": "开始庆祝",
+    "category": "raid",
+    "description": "袭击成功后开始庆祝"
+  },
+  {
+    "id": "minecraft:stop_celebrating",
+    "name": "停止庆祝",
+    "category": "raid",
+    "description": "停止庆祝状态"
+  },
+  {
+    "id": "minecraft:spawn_for_raid_with_evoker_rider",
+    "name": "劫掠兽(唤魔者骑手)",
+    "category": "raid",
+    "description": "劫掠兽生成并搭载唤魔者"
+  },
+  {
+    "id": "minecraft:spawn_for_raid_with_pillager_rider",
+    "name": "劫掠兽(掠夺者骑手)",
+    "category": "raid",
+    "description": "劫掠兽生成并搭载掠夺者"
+  },
+  {
+    "id": "minecraft:spawn_with_vindicator_rider",
+    "name": "劫掠兽(卫道士骑手)",
+    "category": "raid",
+    "description": "劫掠兽生成并搭载卫道士"
+  },
+  {
+    "id": "minecraft:spawn_farmer",
+    "name": "生成为农民",
+    "category": "villager",
+    "description": "村民以农民职业生成"
+  },
+  {
+    "id": "minecraft:spawn_librarian",
+    "name": "生成为图书管理员",
+    "category": "villager",
+    "description": "村民以图书管理员职业生成"
+  },
+  {
+    "id": "minecraft:spawn_cleric",
+    "name": "生成为牧师",
+    "category": "villager",
+    "description": "村民以牧师职业生成"
+  },
+  {
+    "id": "minecraft:spawn_armorer",
+    "name": "生成为盔甲匠",
+    "category": "villager",
+    "description": "村民以盔甲匠职业生成"
+  },
+  {
+    "id": "minecraft:spawn_butcher",
+    "name": "生成为屠夫",
+    "category": "villager",
+    "description": "村民以屠夫职业生成"
+  },
+  {
+    "id": "minecraft:become_farmer",
+    "name": "变为农民",
+    "category": "villager",
+    "description": "村民切换为农民职业"
+  },
+  {
+    "id": "minecraft:become_fisherman",
+    "name": "变为渔夫",
+    "category": "villager",
+    "description": "村民切换为渔夫职业"
+  },
+  {
+    "id": "minecraft:become_shepherd",
+    "name": "变为牧羊人",
+    "category": "villager",
+    "description": "村民切换为牧羊人职业（注意：原版拼写为sheperd）"
+  },
+  {
+    "id": "minecraft:become_fletcher",
+    "name": "变为制箭师",
+    "category": "villager",
+    "description": "村民切换为制箭师职业"
+  },
+  {
+    "id": "minecraft:become_librarian",
+    "name": "变为图书管理员",
+    "category": "villager",
+    "description": "村民切换为图书管理员职业"
+  },
+  {
+    "id": "minecraft:become_cartographer",
+    "name": "变为制图师",
+    "category": "villager",
+    "description": "村民切换为制图师职业"
+  },
+  {
+    "id": "minecraft:become_cleric",
+    "name": "变为牧师",
+    "category": "villager",
+    "description": "村民切换为牧师职业"
+  },
+  {
+    "id": "minecraft:become_armorer",
+    "name": "变为盔甲匠",
+    "category": "villager",
+    "description": "村民切换为盔甲匠职业"
+  },
+  {
+    "id": "minecraft:become_weaponsmith",
+    "name": "变为武器匠",
+    "category": "villager",
+    "description": "村民切换为武器匠职业"
+  },
+  {
+    "id": "minecraft:become_toolsmith",
+    "name": "变为工具匠",
+    "category": "villager",
+    "description": "村民切换为工具匠职业"
+  },
+  {
+    "id": "minecraft:become_leatherworker",
+    "name": "变为皮匠",
+    "category": "villager",
+    "description": "村民切换为皮匠职业"
+  },
+  {
+    "id": "minecraft:become_butcher",
+    "name": "变为屠夫",
+    "category": "villager",
+    "description": "村民切换为屠夫职业"
+  },
+  {
+    "id": "minecraft:become_mason",
+    "name": "变为石匠",
+    "category": "villager",
+    "description": "村民切换为石匠职业"
+  },
+  {
+    "id": "minecraft:become_unskilled",
+    "name": "变为无职业",
+    "category": "villager",
+    "description": "村民变为无职业状态"
+  },
+  {
+    "id": "minecraft:spawn_from_village",
+    "name": "从村庄生成",
+    "category": "villager",
+    "description": "作为村庄居民生成（村民/猫）"
+  },
+  {
+    "id": "minecraft:spawn_skilled_adult",
+    "name": "生成有职业成年体",
+    "category": "zombie_villager",
+    "description": "僵尸村民以有职业的成年形态生成"
+  },
+  {
+    "id": "villager_converted",
+    "name": "村民转化完成",
+    "category": "zombie_villager",
+    "description": "僵尸村民被治愈，转化回村民"
+  },
+  {
+    "id": "minecraft:make_white",
+    "name": "白色变种",
+    "category": "horse",
+    "description": "马生成为白色"
+  },
+  {
+    "id": "minecraft:make_creamy",
+    "name": "奶油色变种",
+    "category": "horse",
+    "description": "马生成为奶油色"
+  },
+  {
+    "id": "minecraft:make_chestnut",
+    "name": "栗色变种",
+    "category": "horse",
+    "description": "马生成为栗色"
+  },
+  {
+    "id": "minecraft:make_brown",
+    "name": "棕色变种",
+    "category": "horse",
+    "description": "马生成为棕色"
+  },
+  {
+    "id": "minecraft:make_black",
+    "name": "黑色变种",
+    "category": "horse",
+    "description": "马生成为黑色"
+  },
+  {
+    "id": "minecraft:make_gray",
+    "name": "灰色变种",
+    "category": "horse",
+    "description": "马生成为灰色"
+  },
+  {
+    "id": "minecraft:make_darkbrown",
+    "name": "深棕色变种",
+    "category": "horse",
+    "description": "马生成为深棕色"
+  },
+  {
+    "id": "minecraft:spawn_tame_adult",
+    "name": "生成已驯服成年",
+    "category": "horse",
+    "description": "生成已驯服的成年马/驴/骡/猫/狼等"
+  },
+  {
+    "id": "minecraft:spawn_midnight_cat",
+    "name": "生成午夜猫",
+    "category": "cat",
+    "description": "生成黑色午夜猫（女巫小屋附近）"
+  },
+  {
+    "id": "minecraft:spawn_wild_adult",
+    "name": "生成野生成年",
+    "category": "cat",
+    "description": "生成野生成年猫/狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_baby",
+    "name": "生成野生幼年",
+    "category": "cat",
+    "description": "生成野生幼年猫/狼"
+  },
+  {
+    "id": "minecraft:spawn_tame_baby",
+    "name": "生成已驯服幼年",
+    "category": "cat",
+    "description": "生成已驯服的幼年猫/狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_ashen",
+    "name": "灰烬狼",
+    "category": "wolf",
+    "description": "生成灰烬变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_black",
+    "name": "黑色狼",
+    "category": "wolf",
+    "description": "生成黑色变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_chestnut",
+    "name": "栗色狼",
+    "category": "wolf",
+    "description": "生成栗色变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_pale",
+    "name": "苍白狼",
+    "category": "wolf",
+    "description": "生成苍白变种狼（经典狼）"
+  },
+  {
+    "id": "minecraft:spawn_wild_rusty",
+    "name": "锈色狼",
+    "category": "wolf",
+    "description": "生成锈色变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_snowy",
+    "name": "雪狼",
+    "category": "wolf",
+    "description": "生成雪色变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_spotted",
+    "name": "斑点狼",
+    "category": "wolf",
+    "description": "生成斑点变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_striped",
+    "name": "条纹狼",
+    "category": "wolf",
+    "description": "生成条纹变种狼"
+  },
+  {
+    "id": "minecraft:spawn_wild_woods",
+    "name": "森林狼",
+    "category": "wolf",
+    "description": "生成森林变种狼"
+  },
+  {
+    "id": "minecraft:on_tame",
+    "name": "被驯服",
+    "category": "tameable",
+    "description": "实体被玩家驯服（狼/猫/鹦鹉/马/羊驼等）"
+  },
+  {
+    "id": "minecraft:on_sheared",
+    "name": "被剪毛",
+    "category": "shearable",
+    "description": "实体被剪刀剪毛（羊/雪傀儡/沼骸）"
+  },
+  {
+    "id": "minecraft:temperate_color",
+    "name": "温带毛色",
+    "category": "sheep",
+    "description": "羊生成温带群系毛色"
+  },
+  {
+    "id": "minecraft:warm_color",
+    "name": "暖带毛色",
+    "category": "sheep",
+    "description": "羊生成暖带群系毛色"
+  },
+  {
+    "id": "minecraft:cold_color",
+    "name": "寒带毛色",
+    "category": "sheep",
+    "description": "羊生成寒带群系毛色"
+  },
+  {
+    "id": "minecraft:on_eat_block",
+    "name": "吃草",
+    "category": "sheep",
+    "description": "羊吃掉草方块，羊毛重新生长"
+  },
+  {
+    "id": "spawn_large",
+    "name": "生成大型",
+    "category": "slime",
+    "description": "生成大号史莱姆/岩浆怪"
+  },
+  {
+    "id": "spawn_medium",
+    "name": "生成中型",
+    "category": "slime",
+    "description": "生成中号史莱姆/岩浆怪"
+  },
+  {
+    "id": "spawn_small",
+    "name": "生成小型",
+    "category": "slime",
+    "description": "生成小号史莱姆/岩浆怪"
+  },
+  {
+    "id": "minecraft:from_player",
+    "name": "玩家建造",
+    "category": "iron_golem",
+    "description": "铁傀儡由玩家建造生成"
+  },
+  {
+    "id": "minecraft:from_village",
+    "name": "村庄自然生成",
+    "category": "iron_golem",
+    "description": "铁傀儡由村庄自然生成"
+  },
+  {
+    "id": "minecraft:spawn_emerging",
+    "name": "从地下出现",
+    "category": "warden",
+    "description": "监守者从地下钻出生成"
+  },
+  {
+    "id": "minecraft:emerged",
+    "name": "已出现",
+    "category": "warden",
+    "description": "监守者完成出现动画"
+  },
+  {
+    "id": "spawn_warm",
+    "name": "暖色青蛙",
+    "category": "frog",
+    "description": "生成白色暖带青蛙"
+  },
+  {
+    "id": "spawn_temperate",
+    "name": "温带青蛙",
+    "category": "frog",
+    "description": "生成橙色温带青蛙"
+  },
+  {
+    "id": "spawn_cold",
+    "name": "寒带青蛙",
+    "category": "frog",
+    "description": "生成绿色寒带青蛙"
+  },
+  {
+    "id": "minecraft:fox_configure_day",
+    "name": "日间狐狸",
+    "category": "fox",
+    "description": "配置狐狸为日间行为模式"
+  },
+  {
+    "id": "minecraft:fox_configure_night",
+    "name": "夜间狐狸",
+    "category": "fox",
+    "description": "配置狐狸为夜间行为模式"
+  },
+  {
+    "id": "minecraft:panda_aggressive",
+    "name": "好斗熊猫",
+    "category": "panda",
+    "description": "生成好斗性格熊猫"
+  },
+  {
+    "id": "minecraft:panda_lazy",
+    "name": "懒惰熊猫",
+    "category": "panda",
+    "description": "生成懒惰性格熊猫"
+  },
+  {
+    "id": "minecraft:panda_playful",
+    "name": "顽皮熊猫",
+    "category": "panda",
+    "description": "生成顽皮性格熊猫"
+  },
+  {
+    "id": "minecraft:panda_worried",
+    "name": "担忧熊猫",
+    "category": "panda",
+    "description": "生成担忧性格熊猫"
+  },
+  {
+    "id": "minecraft:panda_weak",
+    "name": "体弱熊猫",
+    "category": "panda",
+    "description": "生成体弱性格熊猫"
+  },
+  {
+    "id": "minecraft:panda_brown",
+    "name": "棕色熊猫",
+    "category": "panda",
+    "description": "生成稀有棕色熊猫"
+  },
+  {
+    "id": "become_zombie_event",
+    "name": "僵尸化",
+    "category": "nether",
+    "description": "疣猪兽/猪灵在主世界开始僵尸化"
+  },
+  {
+    "id": "start_zombification_event",
+    "name": "开始僵尸化",
+    "category": "nether",
+    "description": "开始僵尸化倒计时"
+  },
+  {
+    "id": "stop_zombification_event",
+    "name": "停止僵尸化",
+    "category": "nether",
+    "description": "回到下界，停止僵尸化"
+  },
+  {
+    "id": "spawn_adult_melee",
+    "name": "近战成年猪灵",
+    "category": "piglin",
+    "description": "生成持金剑的近战猪灵"
+  },
+  {
+    "id": "spawn_adult_ranged",
+    "name": "远程成年猪灵",
+    "category": "piglin",
+    "description": "生成持弩的远程猪灵"
+  },
+  {
+    "id": "spawn_baby",
+    "name": "生成幼年猪灵",
+    "category": "piglin",
+    "description": "生成幼年猪灵"
+  },
+  {
+    "id": "spawn_adult",
+    "name": "生成成年个体(下界)",
+    "category": "nether",
+    "description": "生成成年疣猪兽/猪灵/炽足兽"
+  },
+  {
+    "id": "minecraft:become_brown",
+    "name": "变为棕色哞菇",
+    "category": "mooshroom",
+    "description": "红色哞菇被闪电击中变为棕色"
+  },
+  {
+    "id": "minecraft:become_red",
+    "name": "变为红色哞菇",
+    "category": "mooshroom",
+    "description": "棕色哞菇被闪电击中变回红色"
+  },
+  {
+    "id": "minecraft:start_death",
+    "name": "末影龙死亡",
+    "category": "ender_dragon",
+    "description": "末影龙开始死亡动画"
+  },
+  {
+    "id": "minecraft:start_fly",
+    "name": "末影龙飞行",
+    "category": "ender_dragon",
+    "description": "末影龙开始飞行阶段"
+  },
+  {
+    "id": "minecraft:start_land",
+    "name": "末影龙降落",
+    "category": "ender_dragon",
+    "description": "末影龙降落到祭坛"
+  },
+  {
+    "id": "minecraft:roll_up",
+    "name": "蜷缩",
+    "category": "armadillo",
+    "description": "犰狳蜷缩成球防御"
+  },
+  {
+    "id": "minecraft:unroll",
+    "name": "展开",
+    "category": "armadillo",
+    "description": "犰狳从蜷缩状态展开"
+  },
+  {
+    "id": "minecraft:turn_blue",
+    "name": "蓝色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为蓝色"
+  },
+  {
+    "id": "minecraft:turn_red",
+    "name": "红色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为红色"
+  },
+  {
+    "id": "minecraft:turn_green",
+    "name": "绿色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为绿色"
+  },
+  {
+    "id": "minecraft:turn_purple",
+    "name": "紫色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为紫色"
+  },
+  {
+    "id": "minecraft:turn_yellow",
+    "name": "黄色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为黄色"
+  },
+  {
+    "id": "minecraft:turn_white",
+    "name": "白色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为白色"
+  },
+  {
+    "id": "minecraft:turn_orange",
+    "name": "橙色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为橙色"
+  },
+  {
+    "id": "minecraft:turn_pink",
+    "name": "粉色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为粉色"
+  },
+  {
+    "id": "minecraft:turn_gray",
+    "name": "灰色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为灰色"
+  },
+  {
+    "id": "minecraft:turn_silver",
+    "name": "淡灰色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为淡灰色"
+  },
+  {
+    "id": "minecraft:turn_cyan",
+    "name": "青色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为青色"
+  },
+  {
+    "id": "minecraft:turn_lime",
+    "name": "黄绿色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为黄绿色"
+  },
+  {
+    "id": "minecraft:turn_light_blue",
+    "name": "淡蓝色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为淡蓝色"
+  },
+  {
+    "id": "minecraft:turn_magenta",
+    "name": "品红色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为品红色"
+  },
+  {
+    "id": "minecraft:turn_brown",
+    "name": "棕色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为棕色"
+  },
+  {
+    "id": "minecraft:turn_black",
+    "name": "黑色潜影贝",
+    "category": "shulker",
+    "description": "潜影贝变为黑色"
+  },
+  {
+    "id": "minecraft:spawn_baby_strider_jockey",
+    "name": "生成幼年骑手炽足兽",
+    "category": "strider",
+    "description": "生成骑在成年炽足兽上的幼年炽足兽"
+  },
+  {
+    "id": "spawn_adult_piglin_jockey",
+    "name": "猪灵骑手炽足兽",
+    "category": "strider",
+    "description": "生成被猪灵骑乘的炽足兽"
+  },
+  {
+    "id": "spawn_adult_parent_jockey",
+    "name": "亲子骑乘炽足兽",
+    "category": "strider",
+    "description": "生成幼年骑乘成年的炽足兽"
+  },
+  {
+    "id": "minecraft:born_screamer",
+    "name": "出生为尖叫山羊",
+    "category": "goat",
+    "description": "山羊出生为尖叫变种"
+  },
+  {
+    "id": "minecraft:born_default",
+    "name": "出生为普通山羊",
+    "category": "goat",
+    "description": "山羊出生为普通变种"
+  },
+  {
+    "id": "minecraft:become_pregnant",
+    "name": "怀孕",
+    "category": "turtle",
+    "description": "海龟进入怀孕状态"
+  },
+  {
+    "id": "minecraft:go_lay_egg",
+    "name": "产卵",
+    "category": "turtle",
+    "description": "海龟前往出生海滩产卵"
+  },
+  {
+    "id": "minecraft:start_johnny",
+    "name": "Johnny模式",
+    "category": "vindicator",
+    "description": "卫道士进入Johnny模式（攻击所有生物）"
+  },
+  {
+    "id": "minecraft:set_trap",
+    "name": "设置陷阱",
+    "category": "skeleton_horse",
+    "description": "骷髅马被设置为陷阱马"
+  },
+  {
+    "id": "minecraft:spawn_adult_with_rider",
+    "name": "生成带骑手成年",
+    "category": "skeleton_horse",
+    "description": "骷髅马生成并搭载骷髅骑手"
+  },
+  {
+    "id": "be_sheared",
+    "name": "被剪毛(沼骸)",
+    "category": "bogged",
+    "description": "沼骸被剪刀剪下蘑菇",
+    "since": "1.21.0"
+  },
+  {
+    "id": "minecraft:start_playing_idle_ground_sound",
+    "name": "开始地面待机音",
+    "category": "breeze",
+    "description": "旋风人开始播放地面待机音效",
+    "since": "1.21.0"
+  },
+  {
+    "id": "minecraft:stop_playing_idle_ground_sound",
+    "name": "停止地面待机音",
+    "category": "breeze",
+    "description": "旋风人停止播放地面待机音效",
+    "since": "1.21.0"
+  },
+  {
+    "id": "minecraft:crumble",
+    "name": "崩解",
+    "category": "creaking",
+    "description": "嘎枝崩解消失",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:entity_spawned_by_creaking_heart",
+    "name": "嘎枝之心生成",
+    "category": "creaking",
+    "description": "由嘎枝之心生成的嘎枝",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:start_twitching",
+    "name": "开始抽搐",
+    "category": "creaking",
+    "description": "嘎枝被注视时开始抽搐",
+    "since": "1.21.50"
+  },
+  {
+    "id": "minecraft:on_take_flower",
+    "name": "拾取/转化(铜傀儡)",
+    "category": "copper_golem",
+    "description": "铜傀儡相关交互事件",
+    "since": "1.21.100"
+  },
+  {
+    "id": "minecraft:spawn_baby",
+    "name": "生成幼年犰狳",
+    "category": "armadillo",
+    "description": "生成幼年犰狳",
+    "since": "1.20.80"
+  },
+  {
+    "id": "minecraft:threat_detected",
+    "name": "侦测到威胁",
+    "category": "armadillo",
+    "description": "犰狳侦测到威胁并准备蜷缩",
+    "since": "1.20.80"
+  },
+  {
+    "id": "minecraft:no_threat_detected",
+    "name": "威胁解除",
+    "category": "armadillo",
+    "description": "犰狳确认无威胁",
+    "since": "1.20.80"
+  },
+  {
+    "id": "minecraft:start_peeking",
+    "name": "开始探视",
+    "category": "armadillo",
+    "description": "蜷缩的犰狳探出头查看",
+    "since": "1.20.80"
+  },
+  {
+    "id": "minecraft:stop_peeking",
+    "name": "停止探视",
+    "category": "armadillo",
+    "description": "犰狳停止探视",
+    "since": "1.20.80"
+  },
+  {
+    "id": "on_egg_spawned",
+    "name": "产蛋(嗅探兽)",
+    "category": "sniffer",
+    "description": "嗅探兽产下嗅探兽蛋",
+    "since": "1.20.0"
+  },
+  {
+    "id": "on_item_found",
+    "name": "找到物品(嗅探兽)",
+    "category": "sniffer",
+    "description": "嗅探兽挖掘找到种子",
+    "since": "1.20.0"
+  },
+  {
+    "id": "on_pregnant",
+    "name": "怀孕(嗅探兽)",
+    "category": "sniffer",
+    "description": "嗅探兽进入怀孕状态",
+    "since": "1.20.0"
+  },
+  {
+    "id": "on_digging_start",
+    "name": "开始挖掘(嗅探兽)",
+    "category": "sniffer",
+    "description": "嗅探兽开始挖掘动作",
+    "since": "1.20.0"
+  },
+  {
+    "id": "minecraft:camel_saddled",
+    "name": "装备鞍(骆驼)",
+    "category": "camel",
+    "description": "骆驼被装上鞍",
+    "since": "1.20.0"
+  },
+  {
+    "id": "minecraft:camel_unsaddled",
+    "name": "卸下鞍(骆驼)",
+    "category": "camel",
+    "description": "骆驼被卸下鞍",
+    "since": "1.20.0"
+  },
+  {
+    "id": "minecraft:start_sitting",
+    "name": "坐下(骆驼)",
+    "category": "camel",
+    "description": "骆驼坐下",
+    "since": "1.20.0"
+  },
+  {
+    "id": "minecraft:stop_sitting",
+    "name": "起身(骆驼)",
+    "category": "camel",
+    "description": "骆驼起身站立",
+    "since": "1.20.0"
+  },
+  {
+    "id": "pickup_item_delay",
+    "name": "拾取延迟(悦灵)",
+    "category": "allay",
+    "description": "悦灵拾取物品的延迟开始",
+    "since": "1.19.0"
+  },
+  {
+    "id": "pickup_item_delay_complete",
+    "name": "拾取延迟完成(悦灵)",
+    "category": "allay",
+    "description": "悦灵拾取延迟结束",
+    "since": "1.19.0"
+  },
+  {
+    "id": "laid_egg",
+    "name": "产下蛙卵",
+    "category": "frog",
+    "description": "青蛙产下蛙卵",
+    "since": "1.19.0"
+  },
+  {
+    "id": "minecraft:become_armorable",
+    "name": "可装备狼铠",
+    "category": "wolf",
+    "description": "狼变为可穿戴狼铠状态",
+    "since": "1.20.80"
+  }
+]

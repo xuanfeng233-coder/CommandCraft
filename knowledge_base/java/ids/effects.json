@@ -1,0 +1,242 @@
+[
+  {
+    "id": "minecraft:speed",
+    "name": "速度",
+    "numeric_id": 1,
+    "description": "增加移动速度"
+  },
+  {
+    "id": "minecraft:slowness",
+    "name": "缓慢",
+    "numeric_id": 2,
+    "description": "降低移动速度"
+  },
+  {
+    "id": "minecraft:haste",
+    "name": "急迫",
+    "numeric_id": 3,
+    "description": "加快挖掘速度和攻击速度"
+  },
+  {
+    "id": "minecraft:mining_fatigue",
+    "name": "挖掘疲劳",
+    "numeric_id": 4,
+    "description": "减慢挖掘速度和攻击速度"
+  },
+  {
+    "id": "minecraft:strength",
+    "name": "力量",
+    "numeric_id": 5,
+    "description": "增加近战伤害"
+  },
+  {
+    "id": "minecraft:instant_health",
+    "name": "瞬间治疗",
+    "numeric_id": 6,
+    "description": "立即恢复生命值"
+  },
+  {
+    "id": "minecraft:instant_damage",
+    "name": "瞬间伤害",
+    "numeric_id": 7,
+    "description": "立即造成伤害"
+  },
+  {
+    "id": "minecraft:jump_boost",
+    "name": "跳跃提升",
+    "numeric_id": 8,
+    "description": "增加跳跃高度并减少摔落伤害"
+  },
+  {
+    "id": "minecraft:nausea",
+    "name": "反胃",
+    "numeric_id": 9,
+    "description": "扭曲视野"
+  },
+  {
+    "id": "minecraft:regeneration",
+    "name": "生命恢复",
+    "numeric_id": 10,
+    "description": "随时间恢复生命值"
+  },
+  {
+    "id": "minecraft:resistance",
+    "name": "抗性提升",
+    "numeric_id": 11,
+    "description": "减少受到的伤害"
+  },
+  {
+    "id": "minecraft:fire_resistance",
+    "name": "防火",
+    "numeric_id": 12,
+    "description": "免疫火焰伤害"
+  },
+  {
+    "id": "minecraft:water_breathing",
+    "name": "水下呼吸",
+    "numeric_id": 13,
+    "description": "延长水下呼吸时间"
+  },
+  {
+    "id": "minecraft:invisibility",
+    "name": "隐身",
+    "numeric_id": 14,
+    "description": "使实体隐形"
+  },
+  {
+    "id": "minecraft:blindness",
+    "name": "失明",
+    "numeric_id": 15,
+    "description": "减少视野范围"
+  },
+  {
+    "id": "minecraft:night_vision",
+    "name": "夜视",
+    "numeric_id": 16,
+    "description": "在黑暗中看清一切"
+  },
+  {
+    "id": "minecraft:hunger",
+    "name": "饥饿",
+    "numeric_id": 17,
+    "description": "加快饥饿消耗"
+  },
+  {
+    "id": "minecraft:weakness",
+    "name": "虚弱",
+    "numeric_id": 18,
+    "description": "降低近战伤害"
+  },
+  {
+    "id": "minecraft:poison",
+    "name": "中毒",
+    "numeric_id": 19,
+    "description": "随时间造成伤害（不致死）"
+  },
+  {
+    "id": "minecraft:wither",
+    "name": "凋零",
+    "numeric_id": 20,
+    "description": "随时间造成伤害（可致死）"
+  },
+  {
+    "id": "minecraft:health_boost",
+    "name": "生命提升",
+    "numeric_id": 21,
+    "description": "增加最大生命值"
+  },
+  {
+    "id": "minecraft:absorption",
+    "name": "伤害吸收",
+    "numeric_id": 22,
+    "description": "添加额外生命值（黄心）"
+  },
+  {
+    "id": "minecraft:saturation",
+    "name": "饱和",
+    "numeric_id": 23,
+    "description": "恢复饥饿和饱和度"
+  },
+  {
+    "id": "minecraft:glowing",
+    "name": "发光",
+    "numeric_id": 24,
+    "description": "使实体轮廓发光（可穿墙看见）"
+  },
+  {
+    "id": "minecraft:levitation",
+    "name": "飘浮",
+    "numeric_id": 25,
+    "description": "使实体向上飘浮"
+  },
+  {
+    "id": "minecraft:luck",
+    "name": "幸运",
+    "numeric_id": 26,
+    "description": "增加钓鱼和战利品的品质"
+  },
+  {
+    "id": "minecraft:unluck",
+    "name": "霉运",
+    "numeric_id": 27,
+    "description": "降低钓鱼和战利品的品质"
+  },
+  {
+    "id": "minecraft:slow_falling",
+    "name": "缓降",
+    "numeric_id": 28,
+    "description": "减缓下落速度，防止摔落伤害"
+  },
+  {
+    "id": "minecraft:conduit_power",
+    "name": "潮涌能量",
+    "numeric_id": 29,
+    "description": "水下呼吸、夜视和急迫的组合效果"
+  },
+  {
+    "id": "minecraft:dolphins_grace",
+    "name": "海豚的恩惠",
+    "numeric_id": 30,
+    "description": "增加水下游泳速度"
+  },
+  {
+    "id": "minecraft:bad_omen",
+    "name": "不祥之兆",
+    "numeric_id": 31,
+    "description": "进入村庄时触发袭击"
+  },
+  {
+    "id": "minecraft:hero_of_the_village",
+    "name": "村庄英雄",
+    "numeric_id": 32,
+    "description": "村民交易打折"
+  },
+  {
+    "id": "minecraft:darkness",
+    "name": "黑暗",
+    "numeric_id": 33,
+    "description": "使视野脉冲式变暗"
+  },
+  {
+    "id": "minecraft:trial_omen",
+    "name": "试炼之兆",
+    "numeric_id": 34,
+    "description": "试炼刷怪笼变为不祥状态",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:raid_omen",
+    "name": "袭击之兆",
+    "numeric_id": 35,
+    "description": "进入村庄时触发袭击（新版）",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:wind_charged",
+    "name": "风能充沛",
+    "numeric_id": 36,
+    "description": "死亡时释放风爆",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:weaving",
+    "name": "编织",
+    "numeric_id": 37,
+    "description": "死亡时在周围生成蛛网",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:oozing",
+    "name": "渗浆",
+    "numeric_id": 38,
+    "description": "死亡时生成史莱姆",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:infested",
+    "name": "虫蚀",
+    "numeric_id": 39,
+    "description": "受击时有概率生成蠹虫",
+    "since": "1.21"
+  }
+]

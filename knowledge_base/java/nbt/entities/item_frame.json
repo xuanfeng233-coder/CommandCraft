@@ -1,0 +1,64 @@
+{
+  "id": "minecraft:item_frame",
+  "inherits": "_common",
+  "description": "物品展示框实体NBT标签（包括荧光物品展示框 glow_item_frame）",
+  "tags": [
+    {
+      "name": "Item",
+      "type": "compound",
+      "description": "展示框中的物品",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "ItemRotation",
+      "type": "byte",
+      "description": "物品旋转角度（每次右键+1，0-7共8个方向，每次旋转45度）",
+      "range": "0..7",
+      "default": 0
+    },
+    {
+      "name": "ItemDropChance",
+      "type": "float",
+      "description": "展示框被破坏时物品掉落的几率",
+      "default": 1.0,
+      "range": "0.0..1.0"
+    },
+    {
+      "name": "Facing",
+      "type": "byte",
+      "description": "展示框朝向：0=下, 1=上, 2=北, 3=南, 4=西, 5=东",
+      "values": [0, 1, 2, 3, 4, 5]
+    },
+    {
+      "name": "Fixed",
+      "type": "byte",
+      "description": "是否固定（不可被破坏或交互）",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "Invisible",
+      "type": "byte",
+      "description": "展示框本体是否隐身（物品仍可见）",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

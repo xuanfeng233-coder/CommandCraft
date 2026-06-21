@@ -1,0 +1,50 @@
+{
+  "name": "random",
+  "syntax": "/random value|roll|reset <range> [<sequenceId>]",
+  "description": "生成随机数或管理随机序列",
+  "category": "world_management",
+  "parameters": [
+    {
+      "name": "value <range> [<sequenceId>]",
+      "type": "子命令",
+      "required": false,
+      "description": "生成指定范围内的随机整数。range格式为min..max。可选指定序列ID以获得可重现的随机数"
+    },
+    {
+      "name": "roll <range> [<sequenceId>]",
+      "type": "子命令",
+      "required": false,
+      "description": "与value相同，但会在聊天中广播结果"
+    },
+    {
+      "name": "reset * | <sequenceId> [<seed>] [<includeWorldSeed>] [<includeSequenceId>]",
+      "type": "子命令",
+      "required": false,
+      "description": "重置随机序列。*重置所有序列"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/random value 1..6",
+      "description": "生成1到6之间的随机数（模拟骰子）"
+    },
+    {
+      "input": "/random roll 1..100",
+      "description": "生成1到100的随机数并广播结果"
+    },
+    {
+      "input": "/random value 1..10 my_sequence",
+      "description": "使用my_sequence序列生成1到10的随机数（可重现）"
+    },
+    {
+      "input": "/random reset *",
+      "description": "重置所有随机序列"
+    },
+    {
+      "input": "/random reset my_sequence 12345 true true",
+      "description": "用指定种子重置my_sequence序列"
+    }
+  ],
+  "java_specific_notes": "random命令是Java版1.20.2新增的。返回值可通过execute store存储到记分板。命名序列（sequenceId）可以产生确定性的随机数序列，这在需要可重现结果的场景（如竞速赛）中非常有用。value子命令不广播结果（适合数据包使用），roll子命令会在聊天中显示。",
+  "version_added": "1.20.2"
+}

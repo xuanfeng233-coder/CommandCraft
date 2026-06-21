@@ -1,0 +1,177 @@
+{
+  "id": "_common",
+  "inherits": null,
+  "description": "所有物品共享的通用NBT标签",
+  "tags": [
+    {
+      "name": "id",
+      "type": "string",
+      "description": "物品ID（如 minecraft:diamond_sword）",
+      "id_category": "items"
+    },
+    {
+      "name": "Count",
+      "type": "byte",
+      "description": "物品数量",
+      "range": "1..64",
+      "default": 1
+    },
+    {
+      "name": "tag",
+      "type": "compound",
+      "description": "物品的附加NBT数据",
+      "children": [
+        {
+          "name": "display",
+          "type": "compound",
+          "description": "物品显示信息",
+          "children": [
+            {
+              "name": "Name",
+              "type": "string",
+              "description": "自定义名称（JSON文本组件格式，如 '{\"text\":\"神剑\",\"color\":\"gold\"}'）"
+            },
+            {
+              "name": "Lore",
+              "type": "list<string>",
+              "description": "物品描述文本列表（每行为JSON文本组件格式）"
+            },
+            {
+              "name": "color",
+              "type": "int",
+              "description": "皮革盔甲的染色颜色（RGB十进制值，如 16711680=红色）"
+            }
+          ]
+        },
+        {
+          "name": "Enchantments",
+          "type": "list<compound>",
+          "description": "附魔列表",
+          "children": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "附魔ID（如 minecraft:sharpness）",
+              "id_category": "enchantments"
+            },
+            {
+              "name": "lvl",
+              "type": "short",
+              "description": "附魔等级"
+            }
+          ]
+        },
+        {
+          "name": "StoredEnchantments",
+          "type": "list<compound>",
+          "description": "附魔书存储的附魔列表（仅用于附魔书物品）",
+          "children": [
+            {
+              "name": "id",
+              "type": "string",
+              "description": "附魔ID",
+              "id_category": "enchantments"
+            },
+            {
+              "name": "lvl",
+              "type": "short",
+              "description": "附魔等级"
+            }
+          ]
+        },
+        {
+          "name": "Unbreakable",
+          "type": "byte",
+          "description": "物品是否不可破坏",
+          "values": [0, 1],
+          "default": 0
+        },
+        {
+          "name": "Damage",
+          "type": "int",
+          "description": "物品已损耗的耐久值",
+          "default": 0
+        },
+        {
+          "name": "RepairCost",
+          "type": "int",
+          "description": "铁砧修复附加经验消耗",
+          "default": 0
+        },
+        {
+          "name": "AttributeModifiers",
+          "type": "list<compound>",
+          "description": "属性修饰符列表",
+          "children": [
+            {
+              "name": "AttributeName",
+              "type": "string",
+              "description": "属性名称（如 minecraft:generic.attack_damage）",
+              "values": [
+                "minecraft:generic.max_health",
+                "minecraft:generic.follow_range",
+                "minecraft:generic.knockback_resistance",
+                "minecraft:generic.movement_speed",
+                "minecraft:generic.attack_damage",
+                "minecraft:generic.attack_speed",
+                "minecraft:generic.armor",
+                "minecraft:generic.armor_toughness",
+                "minecraft:generic.luck"
+              ]
+            },
+            {
+              "name": "Name",
+              "type": "string",
+              "description": "修饰符名称（任意字符串）"
+            },
+            {
+              "name": "Amount",
+              "type": "double",
+              "description": "修饰符数值"
+            },
+            {
+              "name": "Operation",
+              "type": "int",
+              "description": "运算方式：0=加法, 1=乘法(基础值), 2=乘法(总值)",
+              "values": [0, 1, 2]
+            },
+            {
+              "name": "Slot",
+              "type": "string",
+              "description": "修饰符生效的装备槽",
+              "values": ["mainhand", "offhand", "head", "chest", "legs", "feet"]
+            },
+            {
+              "name": "UUID",
+              "type": "int_array",
+              "description": "修饰符唯一ID"
+            }
+          ]
+        },
+        {
+          "name": "HideFlags",
+          "type": "int",
+          "description": "隐藏物品提示信息（位标志）：1=附魔, 2=属性修饰符, 4=不可破坏, 8=可破坏/可放置, 16=其他, 32=染色, 64=盔甲纹饰。可组合，如63=隐藏全部",
+          "default": 0
+        },
+        {
+          "name": "CustomModelData",
+          "type": "int",
+          "description": "自定义模型数据值（用于资源包自定义物品外观）"
+        },
+        {
+          "name": "CanDestroy",
+          "type": "list<string>",
+          "description": "冒险模式下此物品可以破坏的方块ID列表",
+          "id_category": "blocks"
+        },
+        {
+          "name": "CanPlaceOn",
+          "type": "list<string>",
+          "description": "冒险模式下此方块可以放置在哪些方块上",
+          "id_category": "blocks"
+        }
+      ]
+    }
+  ]
+}

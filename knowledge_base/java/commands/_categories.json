@@ -1,0 +1,20 @@
+{
+  "item_management": ["give", "clear", "item"],
+  "teleportation": ["tp", "teleport", "spreadplayers", "spectate"],
+  "execution": ["execute", "return"],
+  "scoreboard": ["scoreboard", "trigger"],
+  "effects": ["effect", "enchant", "attribute"],
+  "entity": ["summon", "kill", "ride", "damage", "rotate"],
+  "world_editing": ["fill", "setblock", "clone", "fillbiome", "place"],
+  "display": ["title", "tellraw", "dialog", "waypoint"],
+  "entity_management": ["tag", "team"],
+  "game_settings": ["gamemode", "difficulty", "weather", "time", "gamerule", "worldborder"],
+  "multimedia": ["playsound", "stopsound", "particle"],
+  "player_management": ["xp", "spawnpoint", "setworldspawn"],
+  "server_admin": ["kick", "ban", "pardon", "op", "deop", "whitelist", "reload", "seed", "save-all", "save-on", "save-off", "stop", "publish", "debug", "jfr", "perf", "transfer", "test"],
+  "communication": ["say", "msg", "me"],
+  "world_management": ["gamerule", "locate", "locatebiome", "forceload", "tick", "random"],
+  "data_management": ["data", "bossbar", "datapack"],
+  "advanced": ["function", "schedule", "loot", "recipe", "advancement"],
+  "info": ["seed", "locate", "locatebiome"]
+}

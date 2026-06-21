@@ -1,0 +1,73 @@
+{
+  "name": "tp",
+  "syntax": "/tp [<targets>] <destination> | /tp [<targets>] <location> [<rotation>] | /tp [<targets>] <location> facing <facingLocation> | /tp [<targets>] <location> facing entity <facingEntity> [<facingAnchor>]",
+  "description": "传送实体到指定位置或另一个实体",
+  "category": "teleportation",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "要传送的目标实体，默认为命令执行者",
+      "default": "@s"
+    },
+    {
+      "name": "destination",
+      "type": "target",
+      "required": false,
+      "description": "传送目的地实体（必须为单个实体）"
+    },
+    {
+      "name": "location",
+      "type": "x y z",
+      "required": false,
+      "description": "传送目的地坐标"
+    },
+    {
+      "name": "rotation",
+      "type": "yaw pitch",
+      "required": false,
+      "description": "传送后的朝向角度"
+    },
+    {
+      "name": "facing <facingLocation>",
+      "type": "x y z",
+      "required": false,
+      "description": "传送后朝向指定坐标"
+    },
+    {
+      "name": "facing entity <facingEntity> [<facingAnchor>]",
+      "type": "target",
+      "required": false,
+      "description": "传送后朝向指定实体（可指定eyes或feet锚点）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tp @s 100 64 200",
+      "description": "将自己传送到坐标(100,64,200)"
+    },
+    {
+      "input": "/tp @a @s",
+      "description": "将所有玩家传送到自己的位置"
+    },
+    {
+      "input": "/tp @s ~ ~10 ~",
+      "description": "将自己向上传送10格"
+    },
+    {
+      "input": "/tp @s 100 64 200 0 0",
+      "description": "传送到指定坐标并面朝南方"
+    },
+    {
+      "input": "/tp @s 100 64 200 facing 0 64 0",
+      "description": "传送到指定坐标并面向(0,64,0)"
+    },
+    {
+      "input": "/tp @s ~ ~ ~ facing entity @e[type=minecraft:zombie,limit=1,sort=nearest]",
+      "description": "原地转向面对最近的僵尸"
+    }
+  ],
+  "java_specific_notes": "tp和teleport在Java版中完全等效。Java版支持facing子句直接在传送时设置朝向。跨维度传送需要配合execute in使用。",
+  "version_added": "1.0"
+}

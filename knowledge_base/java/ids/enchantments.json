@@ -1,0 +1,299 @@
+[
+  {
+    "id": "minecraft:protection",
+    "name": "保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少大部分伤害"
+  },
+  {
+    "id": "minecraft:fire_protection",
+    "name": "火焰保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少火焰伤害并缩短着火时间"
+  },
+  {
+    "id": "minecraft:feather_falling",
+    "name": "摔落保护",
+    "max_level": 4,
+    "applicable": "靴子",
+    "description": "减少摔落伤害"
+  },
+  {
+    "id": "minecraft:blast_protection",
+    "name": "爆炸保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少爆炸伤害和击退"
+  },
+  {
+    "id": "minecraft:projectile_protection",
+    "name": "弹射物保护",
+    "max_level": 4,
+    "applicable": "盔甲",
+    "description": "减少弹射物伤害"
+  },
+  {
+    "id": "minecraft:thorns",
+    "name": "荆棘",
+    "max_level": 3,
+    "applicable": "盔甲",
+    "description": "受攻击时反弹伤害"
+  },
+  {
+    "id": "minecraft:respiration",
+    "name": "水下呼吸",
+    "max_level": 3,
+    "applicable": "头盔",
+    "description": "延长水下呼吸时间"
+  },
+  {
+    "id": "minecraft:aqua_affinity",
+    "name": "水下速掘",
+    "max_level": 1,
+    "applicable": "头盔",
+    "description": "加快水下挖掘速度"
+  },
+  {
+    "id": "minecraft:depth_strider",
+    "name": "深海探索者",
+    "max_level": 3,
+    "applicable": "靴子",
+    "description": "加快水下移动速度"
+  },
+  {
+    "id": "minecraft:frost_walker",
+    "name": "冰霜行者",
+    "max_level": 2,
+    "applicable": "靴子",
+    "description": "在水面生成霜冰"
+  },
+  {
+    "id": "minecraft:soul_speed",
+    "name": "灵魂疾行",
+    "max_level": 3,
+    "applicable": "靴子",
+    "description": "在灵魂沙和灵魂土上加速"
+  },
+  {
+    "id": "minecraft:swift_sneak",
+    "name": "迅捷潜行",
+    "max_level": 3,
+    "applicable": "护腿",
+    "description": "增加潜行时的移动速度"
+  },
+  {
+    "id": "minecraft:binding_curse",
+    "name": "绑定诅咒",
+    "max_level": 1,
+    "applicable": "盔甲",
+    "description": "穿戴后无法取下"
+  },
+  {
+    "id": "minecraft:vanishing_curse",
+    "name": "消失诅咒",
+    "max_level": 1,
+    "applicable": "所有",
+    "description": "死亡时物品消失"
+  },
+  {
+    "id": "minecraft:sharpness",
+    "name": "锋利",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加近战伤害"
+  },
+  {
+    "id": "minecraft:smite",
+    "name": "亡灵杀手",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加对亡灵生物的伤害"
+  },
+  {
+    "id": "minecraft:bane_of_arthropods",
+    "name": "节肢杀手",
+    "max_level": 5,
+    "applicable": "剑/斧",
+    "description": "增加对节肢动物的伤害"
+  },
+  {
+    "id": "minecraft:knockback",
+    "name": "击退",
+    "max_level": 2,
+    "applicable": "剑",
+    "description": "增加击退距离"
+  },
+  {
+    "id": "minecraft:fire_aspect",
+    "name": "火焰附加",
+    "max_level": 2,
+    "applicable": "剑",
+    "description": "攻击时使目标着火"
+  },
+  {
+    "id": "minecraft:looting",
+    "name": "抢夺",
+    "max_level": 3,
+    "applicable": "剑",
+    "description": "增加生物掉落物"
+  },
+  {
+    "id": "minecraft:sweeping_edge",
+    "name": "横扫之刃",
+    "max_level": 3,
+    "applicable": "剑",
+    "description": "增加横扫攻击伤害"
+  },
+  {
+    "id": "minecraft:efficiency",
+    "name": "效率",
+    "max_level": 5,
+    "applicable": "工具",
+    "description": "加快挖掘速度"
+  },
+  {
+    "id": "minecraft:silk_touch",
+    "name": "精准采集",
+    "max_level": 1,
+    "applicable": "工具",
+    "description": "挖掘方块掉落自身"
+  },
+  {
+    "id": "minecraft:unbreaking",
+    "name": "耐久",
+    "max_level": 3,
+    "applicable": "所有",
+    "description": "增加物品耐久度"
+  },
+  {
+    "id": "minecraft:fortune",
+    "name": "时运",
+    "max_level": 3,
+    "applicable": "工具",
+    "description": "增加方块掉落数量"
+  },
+  {
+    "id": "minecraft:power",
+    "name": "力量",
+    "max_level": 5,
+    "applicable": "弓",
+    "description": "增加弓箭伤害"
+  },
+  {
+    "id": "minecraft:punch",
+    "name": "冲击",
+    "max_level": 2,
+    "applicable": "弓",
+    "description": "增加箭矢击退"
+  },
+  {
+    "id": "minecraft:flame",
+    "name": "火矢",
+    "max_level": 1,
+    "applicable": "弓",
+    "description": "射出燃烧的箭"
+  },
+  {
+    "id": "minecraft:infinity",
+    "name": "无限",
+    "max_level": 1,
+    "applicable": "弓",
+    "description": "不消耗箭矢"
+  },
+  {
+    "id": "minecraft:luck_of_the_sea",
+    "name": "海之眷顾",
+    "max_level": 3,
+    "applicable": "钓鱼竿",
+    "description": "增加钓鱼时获得宝藏的概率"
+  },
+  {
+    "id": "minecraft:lure",
+    "name": "饵钓",
+    "max_level": 3,
+    "applicable": "钓鱼竿",
+    "description": "加快鱼咬钩速度"
+  },
+  {
+    "id": "minecraft:loyalty",
+    "name": "忠诚",
+    "max_level": 3,
+    "applicable": "三叉戟",
+    "description": "三叉戟投出后自动返回"
+  },
+  {
+    "id": "minecraft:impaling",
+    "name": "穿刺",
+    "max_level": 5,
+    "applicable": "三叉戟",
+    "description": "增加对水生生物的伤害"
+  },
+  {
+    "id": "minecraft:riptide",
+    "name": "激流",
+    "max_level": 3,
+    "applicable": "三叉戟",
+    "description": "在雨中或水中投掷时推进玩家"
+  },
+  {
+    "id": "minecraft:channeling",
+    "name": "引雷",
+    "max_level": 1,
+    "applicable": "三叉戟",
+    "description": "雷暴天气中命中生物时召唤闪电"
+  },
+  {
+    "id": "minecraft:multishot",
+    "name": "多重射击",
+    "max_level": 1,
+    "applicable": "弩",
+    "description": "同时射出三支箭"
+  },
+  {
+    "id": "minecraft:quick_charge",
+    "name": "快速装填",
+    "max_level": 3,
+    "applicable": "弩",
+    "description": "减少弩的装填时间"
+  },
+  {
+    "id": "minecraft:piercing",
+    "name": "穿透",
+    "max_level": 4,
+    "applicable": "弩",
+    "description": "箭矢穿透多个实体"
+  },
+  {
+    "id": "minecraft:mending",
+    "name": "经验修补",
+    "max_level": 1,
+    "applicable": "所有",
+    "description": "经验值修复物品耐久"
+  },
+  {
+    "id": "minecraft:density",
+    "name": "密度",
+    "max_level": 5,
+    "applicable": "锤",
+    "description": "增加锤的坠落攻击伤害",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:breach",
+    "name": "破甲",
+    "max_level": 4,
+    "applicable": "锤",
+    "description": "减少目标的护甲效果",
+    "since": "1.21"
+  },
+  {
+    "id": "minecraft:wind_burst",
+    "name": "风爆",
+    "max_level": 3,
+    "applicable": "锤",
+    "description": "坠落攻击命中时产生风爆",
+    "since": "1.21"
+  }
+]

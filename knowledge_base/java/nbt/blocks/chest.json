@@ -1,0 +1,47 @@
+{
+  "id": "minecraft:chest",
+  "inherits": "_common",
+  "description": "箱子方块实体NBT标签（也适用于木桶、潜影盒、末影箱等容器）",
+  "tags": [
+    {
+      "name": "Items",
+      "type": "list<compound>",
+      "description": "箱子中的物品列表（最多27格，大箱子54格）",
+      "children": [
+        {
+          "name": "Slot",
+          "type": "byte",
+          "description": "物品所在的槽位编号（0-26）",
+          "range": "0..26"
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": "物品ID",
+          "id_category": "items"
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "物品数量"
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "物品附加NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "LootTable",
+      "type": "string",
+      "description": "战利品表ID（如 minecraft:chests/simple_dungeon），首次打开时生成物品"
+    },
+    {
+      "name": "LootTableSeed",
+      "type": "long",
+      "description": "战利品表随机种子，0表示使用随机种子",
+      "default": 0
+    }
+  ]
+}

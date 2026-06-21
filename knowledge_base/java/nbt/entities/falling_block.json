@@ -1,0 +1,69 @@
+{
+  "id": "minecraft:falling_block",
+  "inherits": "_common",
+  "description": "下落方块实体NBT标签",
+  "tags": [
+    {
+      "name": "BlockState",
+      "type": "compound",
+      "description": "下落方块的方块状态",
+      "children": [
+        {
+          "name": "Name",
+          "type": "string",
+          "description": "方块ID（如 minecraft:sand）",
+          "id_category": "blocks"
+        },
+        {
+          "name": "Properties",
+          "type": "compound",
+          "description": "方块状态属性（键值对）"
+        }
+      ]
+    },
+    {
+      "name": "Time",
+      "type": "int",
+      "description": "下落已持续的刻数，0时如果不在可放置位置则消失",
+      "default": 1
+    },
+    {
+      "name": "DropItem",
+      "type": "byte",
+      "description": "无法放置时是否掉落为物品",
+      "values": [0, 1],
+      "default": 1
+    },
+    {
+      "name": "HurtEntities",
+      "type": "byte",
+      "description": "砸到实体时是否造成伤害",
+      "values": [0, 1],
+      "default": 0
+    },
+    {
+      "name": "FallHurtMax",
+      "type": "int",
+      "description": "砸落伤害的最大值",
+      "default": 40
+    },
+    {
+      "name": "FallHurtAmount",
+      "type": "float",
+      "description": "每下落一格造成的伤害",
+      "default": 2.0
+    },
+    {
+      "name": "TileEntityData",
+      "type": "compound",
+      "description": "方块实体数据（如箱子内容）"
+    },
+    {
+      "name": "CancelDrop",
+      "type": "byte",
+      "description": "着地时是否消失且不放置方块也不掉落物品",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

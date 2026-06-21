@@ -1,0 +1,14 @@
+{
+  "id": "minecraft:pig",
+  "inherits": "_mob_common",
+  "description": "猪实体NBT标签",
+  "tags": [
+    {
+      "name": "Saddle",
+      "type": "byte",
+      "description": "是否装备了鞍",
+      "values": [0, 1],
+      "default": 0
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "publish",
+  "syntax": "/publish [<allowCommands>] [<gamemode>] [<port>]",
+  "description": "向局域网开放单人世界",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "allowCommands",
+      "type": "boolean",
+      "required": false,
+      "description": "是否允许作弊命令",
+      "default": "当前设置"
+    },
+    {
+      "name": "gamemode",
+      "type": "GameMode",
+      "required": false,
+      "description": "其他玩家加入时的默认游戏模式",
+      "default": "当前设置"
+    },
+    {
+      "name": "port",
+      "type": "int",
+      "required": false,
+      "description": "监听的端口号",
+      "default": "随机可用端口"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/publish",
+      "description": "以默认设置向局域网开放世界"
+    },
+    {
+      "input": "/publish true survival 25565",
+      "description": "开放局域网，允许作弊，生存模式，端口25565"
+    }
+  ],
+  "java_specific_notes": "publish命令仅在单人游戏中可用。开放后局域网内的其他玩家可以通过多人游戏菜单找到并加入。关闭世界后局域网访问也会关闭。",
+  "version_added": "1.3"
+}

@@ -1,0 +1,503 @@
+[
+  {
+    "id": "badlands",
+    "name": "Badlands",
+    "description": ""
+  },
+  {
+    "id": "bamboo_jungle",
+    "name": "Bamboo Jungle",
+    "description": ""
+  },
+  {
+    "id": "basalt_deltas",
+    "name": "Basalt Deltas",
+    "description": ""
+  },
+  {
+    "id": "beach",
+    "name": "Beach",
+    "description": ""
+  },
+  {
+    "id": "birch_forest",
+    "name": "Birch Forest",
+    "description": ""
+  },
+  {
+    "id": "cherry_grove",
+    "name": "Cherry Grove",
+    "description": ""
+  },
+  {
+    "id": "cold_ocean",
+    "name": "Cold Ocean",
+    "description": ""
+  },
+  {
+    "id": "crimson_forest",
+    "name": "Crimson Forest",
+    "description": ""
+  },
+  {
+    "id": "dark_forest",
+    "name": "Dark Forest",
+    "description": ""
+  },
+  {
+    "id": "deep_cold_ocean",
+    "name": "Deep Cold Ocean",
+    "description": ""
+  },
+  {
+    "id": "deep_dark",
+    "name": "Deep Dark",
+    "description": ""
+  },
+  {
+    "id": "deep_frozen_ocean",
+    "name": "Deep Frozen Ocean",
+    "description": ""
+  },
+  {
+    "id": "deep_lukewarm_ocean",
+    "name": "Deep Lukewarm Ocean",
+    "description": ""
+  },
+  {
+    "id": "deep_ocean",
+    "name": "Deep Ocean",
+    "description": ""
+  },
+  {
+    "id": "desert",
+    "name": "Desert",
+    "description": ""
+  },
+  {
+    "id": "dripstone_caves",
+    "name": "Dripstone Caves",
+    "description": ""
+  },
+  {
+    "id": "end_barrens",
+    "name": "End Barrens",
+    "description": ""
+  },
+  {
+    "id": "end_highlands",
+    "name": "End Highlands",
+    "description": ""
+  },
+  {
+    "id": "end_midlands",
+    "name": "End Midlands",
+    "description": ""
+  },
+  {
+    "id": "eroded_badlands",
+    "name": "Eroded Badlands",
+    "description": ""
+  },
+  {
+    "id": "flower_forest",
+    "name": "Flower Forest",
+    "description": ""
+  },
+  {
+    "id": "forest",
+    "name": "Forest",
+    "description": ""
+  },
+  {
+    "id": "frozen_ocean",
+    "name": "Frozen Ocean",
+    "description": ""
+  },
+  {
+    "id": "frozen_peaks",
+    "name": "Frozen Peaks",
+    "description": ""
+  },
+  {
+    "id": "frozen_river",
+    "name": "Frozen River",
+    "description": ""
+  },
+  {
+    "id": "grove",
+    "name": "Grove",
+    "description": ""
+  },
+  {
+    "id": "ice_spikes",
+    "name": "Ice Spikes",
+    "description": ""
+  },
+  {
+    "id": "jagged_peaks",
+    "name": "Jagged Peaks",
+    "description": ""
+  },
+  {
+    "id": "jungle",
+    "name": "Jungle",
+    "description": ""
+  },
+  {
+    "id": "lukewarm_ocean",
+    "name": "Lukewarm Ocean",
+    "description": ""
+  },
+  {
+    "id": "lush_caves",
+    "name": "Lush Caves",
+    "description": ""
+  },
+  {
+    "id": "mangrove_swamp",
+    "name": "Mangrove Swamp",
+    "description": ""
+  },
+  {
+    "id": "meadow",
+    "name": "Meadow",
+    "description": ""
+  },
+  {
+    "id": "mushroom_fields",
+    "name": "Mushroom Fields",
+    "description": ""
+  },
+  {
+    "id": "nether_wastes",
+    "name": "Nether Wastes",
+    "description": ""
+  },
+  {
+    "id": "ocean",
+    "name": "Ocean",
+    "description": ""
+  },
+  {
+    "id": "old_growth_birch_forest",
+    "name": "Old Growth Birch Forest",
+    "description": ""
+  },
+  {
+    "id": "old_growth_pine_taiga",
+    "name": "Old Growth Pine Taiga",
+    "description": ""
+  },
+  {
+    "id": "old_growth_spruce_taiga",
+    "name": "Old Growth Spruce Taiga",
+    "description": ""
+  },
+  {
+    "id": "pale_garden",
+    "name": "Pale Garden",
+    "description": "",
+    "since": "1.21.4"
+  },
+  {
+    "id": "plains",
+    "name": "Plains",
+    "description": ""
+  },
+  {
+    "id": "river",
+    "name": "River",
+    "description": ""
+  },
+  {
+    "id": "savanna",
+    "name": "Savanna",
+    "description": ""
+  },
+  {
+    "id": "savanna_plateau",
+    "name": "Savanna Plateau",
+    "description": ""
+  },
+  {
+    "id": "small_end_islands",
+    "name": "Small End Islands",
+    "description": ""
+  },
+  {
+    "id": "snowy_beach",
+    "name": "Snowy Beach",
+    "description": ""
+  },
+  {
+    "id": "snowy_plains",
+    "name": "Snowy Plains",
+    "description": ""
+  },
+  {
+    "id": "snowy_slopes",
+    "name": "Snowy Slopes",
+    "description": ""
+  },
+  {
+    "id": "snowy_taiga",
+    "name": "Snowy Taiga",
+    "description": ""
+  },
+  {
+    "id": "soul_sand_valley",
+    "name": "Soul Sand Valley",
+    "description": ""
+  },
+  {
+    "id": "sparse_jungle",
+    "name": "Sparse Jungle",
+    "description": ""
+  },
+  {
+    "id": "stony_peaks",
+    "name": "Stony Peaks",
+    "description": ""
+  },
+  {
+    "id": "stony_shore",
+    "name": "Stony Shore",
+    "description": ""
+  },
+  {
+    "id": "sunflower_plains",
+    "name": "Sunflower Plains",
+    "description": ""
+  },
+  {
+    "id": "swamp",
+    "name": "Swamp",
+    "description": ""
+  },
+  {
+    "id": "taiga",
+    "name": "Taiga",
+    "description": ""
+  },
+  {
+    "id": "the_end",
+    "name": "The End",
+    "description": ""
+  },
+  {
+    "id": "the_void",
+    "name": "The Void",
+    "description": ""
+  },
+  {
+    "id": "warm_ocean",
+    "name": "Warm Ocean",
+    "description": ""
+  },
+  {
+    "id": "warped_forest",
+    "name": "Warped Forest",
+    "description": ""
+  },
+  {
+    "id": "windswept_forest",
+    "name": "Windswept Forest",
+    "description": ""
+  },
+  {
+    "id": "windswept_gravelly_hills",
+    "name": "Windswept Gravelly Hills",
+    "description": ""
+  },
+  {
+    "id": "windswept_hills",
+    "name": "Windswept Hills",
+    "description": ""
+  },
+  {
+    "id": "windswept_savanna",
+    "name": "Windswept Savanna",
+    "description": ""
+  },
+  {
+    "id": "wooded_badlands",
+    "name": "Wooded Badlands",
+    "description": ""
+  },
+  {
+    "id": "swampland",
+    "name": "Swampland",
+    "description": ""
+  },
+  {
+    "id": "legacy_frozen_ocean",
+    "name": "Legacy Frozen Ocean",
+    "description": ""
+  },
+  {
+    "id": "ice_plains",
+    "name": "Ice Plains",
+    "description": ""
+  },
+  {
+    "id": "ice_mountains",
+    "name": "Ice Mountains",
+    "description": ""
+  },
+  {
+    "id": "mushroom_island",
+    "name": "Mushroom Island",
+    "description": ""
+  },
+  {
+    "id": "mushroom_island_shore",
+    "name": "Mushroom Island Shore",
+    "description": ""
+  },
+  {
+    "id": "desert_hills",
+    "name": "Desert Hills",
+    "description": ""
+  },
+  {
+    "id": "forest_hills",
+    "name": "Forest Hills",
+    "description": ""
+  },
+  {
+    "id": "taiga_hills",
+    "name": "Taiga Hills",
+    "description": ""
+  },
+  {
+    "id": "jungle_hills",
+    "name": "Jungle Hills",
+    "description": ""
+  },
+  {
+    "id": "jungle_edge",
+    "name": "Jungle Edge",
+    "description": ""
+  },
+  {
+    "id": "stone_beach",
+    "name": "Stone Beach",
+    "description": ""
+  },
+  {
+    "id": "cold_beach",
+    "name": "Cold Beach",
+    "description": ""
+  },
+  {
+    "id": "birch_forest_hills",
+    "name": "Birch Forest Hills",
+    "description": ""
+  },
+  {
+    "id": "roofed_forest",
+    "name": "Roofed Forest",
+    "description": ""
+  },
+  {
+    "id": "cold_taiga",
+    "name": "Cold Taiga",
+    "description": ""
+  },
+  {
+    "id": "cold_taiga_hills",
+    "name": "Cold Taiga Hills",
+    "description": ""
+  },
+  {
+    "id": "mega_taiga",
+    "name": "Mega Taiga",
+    "description": ""
+  },
+  {
+    "id": "mega_taiga_hills",
+    "name": "Mega Taiga Hills",
+    "description": ""
+  },
+  {
+    "id": "deep_warm_ocean",
+    "name": "Deep Warm Ocean",
+    "description": ""
+  },
+  {
+    "id": "bamboo_jungle_hills",
+    "name": "Bamboo Jungle Hills",
+    "description": ""
+  },
+  {
+    "id": "desert_mutated",
+    "name": "Desert Mutated",
+    "description": ""
+  },
+  {
+    "id": "taiga_mutated",
+    "name": "Taiga Mutated",
+    "description": ""
+  },
+  {
+    "id": "swampland_mutated",
+    "name": "Swampland Mutated",
+    "description": ""
+  },
+  {
+    "id": "ice_plains_spikes",
+    "name": "Ice Plains Spikes",
+    "description": ""
+  },
+  {
+    "id": "jungle_mutated",
+    "name": "Jungle Mutated",
+    "description": ""
+  },
+  {
+    "id": "jungle_edge_mutated",
+    "name": "Jungle Edge Mutated",
+    "description": ""
+  },
+  {
+    "id": "birch_forest_mutated",
+    "name": "Birch Forest Mutated",
+    "description": ""
+  },
+  {
+    "id": "birch_forest_hills_mutated",
+    "name": "Birch Forest Hills Mutated",
+    "description": ""
+  },
+  {
+    "id": "roofed_forest_mutated",
+    "name": "Roofed Forest Mutated",
+    "description": ""
+  },
+  {
+    "id": "cold_taiga_mutated",
+    "name": "Cold Taiga Mutated",
+    "description": ""
+  },
+  {
+    "id": "redwood_taiga_mutated",
+    "name": "Redwood Taiga Mutated",
+    "description": ""
+  },
+  {
+    "id": "redwood_taiga_hills_mutated",
+    "name": "Redwood Taiga Hills Mutated",
+    "description": ""
+  },
+  {
+    "id": "savanna_mutated",
+    "name": "Savanna Mutated",
+    "description": ""
+  },
+  {
+    "id": "savanna_plateau_mutated",
+    "name": "Savanna Plateau Mutated",
+    "description": ""
+  }
+]

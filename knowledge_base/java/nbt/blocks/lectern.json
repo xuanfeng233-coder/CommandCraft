@@ -1,0 +1,37 @@
+{
+  "id": "minecraft:lectern",
+  "inherits": "_common",
+  "description": "讲台方块实体NBT标签",
+  "tags": [
+    {
+      "name": "Book",
+      "type": "compound",
+      "description": "讲台上放置的书物品",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "书的物品ID（minecraft:written_book 或 minecraft:writable_book）",
+          "values": ["minecraft:written_book", "minecraft:writable_book"]
+        },
+        {
+          "name": "Count",
+          "type": "byte",
+          "description": "数量",
+          "default": 1
+        },
+        {
+          "name": "tag",
+          "type": "compound",
+          "description": "书的NBT数据"
+        }
+      ]
+    },
+    {
+      "name": "Page",
+      "type": "int",
+      "description": "当前翻到的页码（从0开始）",
+      "default": 0
+    }
+  ]
+}

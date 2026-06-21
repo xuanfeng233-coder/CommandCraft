@@ -1,0 +1,64 @@
+{
+  "name": "whitelist",
+  "syntax": "/whitelist add|list|off|on|reload|remove <player>",
+  "description": "管理服务器白名单",
+  "category": "server_admin",
+  "parameters": [
+    {
+      "name": "on",
+      "type": "子命令",
+      "required": false,
+      "description": "启用白名单功能"
+    },
+    {
+      "name": "off",
+      "type": "子命令",
+      "required": false,
+      "description": "关闭白名单功能"
+    },
+    {
+      "name": "add <player>",
+      "type": "子命令",
+      "required": false,
+      "description": "将玩家添加到白名单"
+    },
+    {
+      "name": "remove <player>",
+      "type": "子命令",
+      "required": false,
+      "description": "将玩家从白名单移除"
+    },
+    {
+      "name": "list",
+      "type": "子命令",
+      "required": false,
+      "description": "列出白名单中的所有玩家"
+    },
+    {
+      "name": "reload",
+      "type": "子命令",
+      "required": false,
+      "description": "从白名单文件重新加载"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/whitelist on",
+      "description": "启用白名单"
+    },
+    {
+      "input": "/whitelist add Steve",
+      "description": "将Steve添加到白名单"
+    },
+    {
+      "input": "/whitelist list",
+      "description": "列出所有白名单玩家"
+    },
+    {
+      "input": "/whitelist remove Steve",
+      "description": "将Steve从白名单移除"
+    }
+  ],
+  "java_specific_notes": "白名单仅在专用服务器中有效。启用白名单后只有列表中的玩家可以加入服务器。白名单保存在whitelist.json文件中。OP玩家不受白名单限制。",
+  "version_added": "1.0"
+}

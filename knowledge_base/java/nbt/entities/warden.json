@@ -1,0 +1,19 @@
+{
+  "id": "minecraft:warden",
+  "inherits": "_mob_common",
+  "description": "监守者实体NBT标签",
+  "tags": [
+    {
+      "name": "anger",
+      "type": "compound",
+      "description": "监守者对各实体的愤怒值数据。键为实体UUID，值为愤怒等级（0-150）"
+    },
+    {
+      "name": "anger_level",
+      "type": "int",
+      "description": "当前总愤怒值，达到80时进入攻击状态",
+      "default": 0,
+      "range": "0..150"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "minecraft:skeleton",
+  "inherits": "_mob_common",
+  "description": "骷髅实体NBT标签",
+  "tags": [
+    {
+      "name": "StrayConversionTime",
+      "type": "int",
+      "description": "转变为流浪者的剩余刻数，-1表示不在转变中",
+      "default": -1
+    }
+  ]
+}

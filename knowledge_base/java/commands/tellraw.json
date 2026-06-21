@@ -1,0 +1,48 @@
+{
+  "name": "tellraw",
+  "syntax": "/tellraw <targets> <message>",
+  "description": "向玩家发送JSON格式的富文本聊天消息",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "接收消息的目标玩家"
+    },
+    {
+      "name": "message",
+      "type": "json_text",
+      "required": true,
+      "description": "JSON文本组件，支持颜色、样式、点击事件、悬浮提示、分数显示、选择器、翻译键等"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/tellraw @a {\"text\":\"Hello World!\",\"color\":\"green\"}",
+      "description": "向所有玩家发送绿色的Hello World消息"
+    },
+    {
+      "input": "/tellraw @a [{\"text\":\"你的分数: \",\"color\":\"gold\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kills\"},\"color\":\"white\"}]",
+      "description": "显示玩家的kills分数"
+    },
+    {
+      "input": "/tellraw @a {\"text\":\"[点击传送]\",\"color\":\"aqua\",\"underlined\":true,\"clickEvent\":{\"action\":\"run_command\",\"value\":\"/tp @s 0 64 0\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":\"点击传送到出生点\"}}",
+      "description": "发送可点击的传送按钮，带悬浮提示"
+    },
+    {
+      "input": "/tellraw @a {\"translate\":\"chat.type.text\",\"with\":[{\"selector\":\"@s\"},{\"text\":\"自定义消息\"}]}",
+      "description": "使用翻译键发送格式化消息"
+    },
+    {
+      "input": "/tellraw @a [{\"text\":\"在线玩家: \",\"color\":\"yellow\"},{\"selector\":\"@a\",\"color\":\"white\"}]",
+      "description": "显示所有在线玩家列表"
+    },
+    {
+      "input": "/tellraw @a {\"text\":\"复制种子\",\"color\":\"green\",\"clickEvent\":{\"action\":\"copy_to_clipboard\",\"value\":\"12345\"},\"hoverEvent\":{\"action\":\"show_text\",\"contents\":\"点击复制\"}}",
+      "description": "发送点击后复制文本到剪贴板的消息"
+    }
+  ],
+  "java_specific_notes": "Java版JSON文本组件功能强大，支持：color(颜色名或#RRGGBB十六进制)、bold/italic/underlined/strikethrough/obfuscated(样式)、clickEvent(run_command/suggest_command/open_url/copy_to_clipboard/change_page)、hoverEvent(show_text/show_item/show_entity)、score(分数显示)、selector(选择器)、keybind(按键绑定)、translate(翻译键)、nbt(NBT数据显示)、font(自定义字体)。基岩版使用rawtext格式，Java版直接使用标准JSON文本组件。",
+  "version_added": "1.7"
+}

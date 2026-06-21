@@ -1,0 +1,113 @@
+{
+  "id": "minecraft:area_effect_cloud",
+  "inherits": "_common",
+  "description": "药水云实体NBT标签",
+  "tags": [
+    {
+      "name": "Age",
+      "type": "int",
+      "description": "药水云已存在的刻数",
+      "default": 0
+    },
+    {
+      "name": "Duration",
+      "type": "int",
+      "description": "药水云的总持续刻数",
+      "default": 600
+    },
+    {
+      "name": "WaitTime",
+      "type": "int",
+      "description": "药水云开始生效前的等待刻数",
+      "default": 20
+    },
+    {
+      "name": "ReapplicationDelay",
+      "type": "int",
+      "description": "对同一实体重复施加效果的间隔刻数",
+      "default": 20
+    },
+    {
+      "name": "DurationOnUse",
+      "type": "int",
+      "description": "每次施加效果后Duration减少的刻数",
+      "default": 0
+    },
+    {
+      "name": "Color",
+      "type": "int",
+      "description": "药水云的颜色（RGB十进制值）"
+    },
+    {
+      "name": "Radius",
+      "type": "float",
+      "description": "药水云的半径（格数）",
+      "default": 3.0
+    },
+    {
+      "name": "RadiusOnUse",
+      "type": "float",
+      "description": "每次施加效果后半径减少的量",
+      "default": -0.5
+    },
+    {
+      "name": "RadiusPerTick",
+      "type": "float",
+      "description": "每刻半径变化量",
+      "default": -0.005
+    },
+    {
+      "name": "Particle",
+      "type": "string",
+      "description": "药水云的粒子效果类型",
+      "default": "entity_effect",
+      "id_category": "particles"
+    },
+    {
+      "name": "Potion",
+      "type": "string",
+      "description": "药水类型ID（如 minecraft:strong_healing）"
+    },
+    {
+      "name": "Effects",
+      "type": "list<compound>",
+      "description": "自定义药水效果列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "效果ID",
+          "id_category": "effects"
+        },
+        {
+          "name": "amplifier",
+          "type": "byte",
+          "description": "效果等级"
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "description": "效果持续刻数"
+        },
+        {
+          "name": "ambient",
+          "type": "byte",
+          "description": "是否为环境效果",
+          "values": [0, 1]
+        },
+        {
+          "name": "show_particles",
+          "type": "byte",
+          "description": "是否显示粒子",
+          "values": [0, 1]
+        },
+        {
+          "name": "show_icon",
+          "type": "byte",
+          "description": "是否显示图标",
+          "values": [0, 1]
+        }
+      ]
+    }
+  ]
+}

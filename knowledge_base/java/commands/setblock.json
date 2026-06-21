@@ -1,0 +1,51 @@
+{
+  "name": "setblock",
+  "syntax": "/setblock <pos> <block> [destroy|keep|replace]",
+  "description": "在指定位置放置一个方块",
+  "category": "world_editing",
+  "parameters": [
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": true,
+      "description": "要放置方块的坐标位置"
+    },
+    {
+      "name": "block",
+      "type": "block_id",
+      "required": true,
+      "description": "方块ID，可附带方块状态和NBT数据，如 minecraft:oak_stairs[facing=east,half=top]"
+    },
+    {
+      "name": "mode",
+      "type": "SetBlockMode",
+      "required": false,
+      "description": "放置模式：destroy(破坏原方块并掉落)、keep(仅在空气位置放置)、replace(替换原方块，不掉落)",
+      "default": "replace"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/setblock ~ ~ ~ minecraft:diamond_block",
+      "description": "在自己脚下放置钻石块"
+    },
+    {
+      "input": "/setblock ~ ~1 ~ minecraft:torch",
+      "description": "在自己头顶放置火把"
+    },
+    {
+      "input": "/setblock 100 64 200 minecraft:chest[facing=north]{Items:[{Slot:0b,id:\"minecraft:diamond\",count:64}]}",
+      "description": "在指定坐标放置一个朝北的箱子，内含64个钻石"
+    },
+    {
+      "input": "/setblock ~ ~-1 ~ minecraft:oak_stairs[facing=east,half=top]",
+      "description": "在脚下放置朝东的倒置橡木楼梯"
+    },
+    {
+      "input": "/setblock ~ ~ ~ minecraft:command_block{Command:\"say Hello\"}",
+      "description": "放置一个预设命令的命令方块"
+    }
+  ],
+  "java_specific_notes": "Java版方块状态使用方括号无引号语法[state=value]。支持在方块后附加NBT数据标签。可以使用#minecraft:tag格式引用方块标签。",
+  "version_added": "1.0"
+}

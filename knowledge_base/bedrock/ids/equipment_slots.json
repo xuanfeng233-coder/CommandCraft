@@ -1,0 +1,86 @@
+[
+  {
+    "id": "slot.weapon.mainhand",
+    "name": "主手",
+    "description": "主手槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.weapon.offhand",
+    "name": "副手",
+    "description": "副手槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.armor.head",
+    "name": "头部盔甲",
+    "description": "头盔槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.armor.chest",
+    "name": "胸部盔甲",
+    "description": "胸甲槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.armor.legs",
+    "name": "腿部盔甲",
+    "description": "护腿槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.armor.feet",
+    "name": "脚部盔甲",
+    "description": "靴子槽位",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.armor",
+    "name": "盔甲",
+    "description": "盔甲整体（hasitem）",
+    "applies_to": "hasitem"
+  },
+  {
+    "id": "slot.hotbar",
+    "name": "快捷栏",
+    "description": "快捷栏槽位 0-8",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.inventory",
+    "name": "背包",
+    "description": "背包槽位 0-26",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.enderchest",
+    "name": "末影箱",
+    "description": "末影箱槽位 0-26",
+    "applies_to": "replaceitem"
+  },
+  {
+    "id": "slot.saddle",
+    "name": "鞍",
+    "description": "可装鞍生物的鞍槽",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.chest",
+    "name": "箱子",
+    "description": "驴/羊驼的箱子槽",
+    "applies_to": "replaceitem/hasitem"
+  },
+  {
+    "id": "slot.equippable",
+    "name": "可装备",
+    "description": "通用可装备槽",
+    "applies_to": "hasitem"
+  },
+  {
+    "id": "slot.container",
+    "name": "容器",
+    "description": "方块容器槽位（/replaceitem block）",
+    "applies_to": "replaceitem block"
+  }
+]

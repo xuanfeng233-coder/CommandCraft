@@ -1,0 +1,128 @@
+[
+  {
+    "id": "type",
+    "name": "实体类型",
+    "format": "type=minecraft:zombie / type=!minecraft:player",
+    "description": "目标选择器参数：实体类型"
+  },
+  {
+    "id": "distance",
+    "name": "距离",
+    "format": "distance=..10 / distance=3.. / distance=2..8",
+    "description": "目标选择器参数：距离"
+  },
+  {
+    "id": "x",
+    "name": "X坐标",
+    "format": "x=10",
+    "description": "目标选择器参数：X坐标"
+  },
+  {
+    "id": "y",
+    "name": "Y坐标",
+    "format": "y=64",
+    "description": "目标选择器参数：Y坐标"
+  },
+  {
+    "id": "z",
+    "name": "Z坐标",
+    "format": "z=-5",
+    "description": "目标选择器参数：Z坐标"
+  },
+  {
+    "id": "dx",
+    "name": "X范围",
+    "format": "dx=10",
+    "description": "目标选择器参数：X范围"
+  },
+  {
+    "id": "dy",
+    "name": "Y范围",
+    "format": "dy=5",
+    "description": "目标选择器参数：Y范围"
+  },
+  {
+    "id": "dz",
+    "name": "Z范围",
+    "format": "dz=10",
+    "description": "目标选择器参数：Z范围"
+  },
+  {
+    "id": "scores",
+    "name": "计分板",
+    "format": "scores={kills=1..,deaths=0}",
+    "description": "目标选择器参数：计分板"
+  },
+  {
+    "id": "tag",
+    "name": "标签",
+    "format": "tag=team1 / tag=!team1",
+    "description": "目标选择器参数：标签"
+  },
+  {
+    "id": "team",
+    "name": "队伍",
+    "format": "team=red / team=!red / team=",
+    "description": "目标选择器参数：队伍"
+  },
+  {
+    "id": "limit",
+    "name": "数量上限",
+    "format": "limit=1",
+    "description": "目标选择器参数：数量上限"
+  },
+  {
+    "id": "sort",
+    "name": "排序",
+    "format": "sort=nearest|furthest|random|arbitrary",
+    "description": "目标选择器参数：排序"
+  },
+  {
+    "id": "level",
+    "name": "经验等级",
+    "format": "level=10 / level=5..30",
+    "description": "目标选择器参数：经验等级"
+  },
+  {
+    "id": "gamemode",
+    "name": "游戏模式",
+    "format": "gamemode=survival / gamemode=!creative",
+    "description": "目标选择器参数：游戏模式"
+  },
+  {
+    "id": "name",
+    "name": "名称",
+    "format": "name=Steve / name=!Steve",
+    "description": "目标选择器参数：名称"
+  },
+  {
+    "id": "x_rotation",
+    "name": "俯仰角",
+    "format": "x_rotation=-90..0",
+    "description": "目标选择器参数：俯仰角"
+  },
+  {
+    "id": "y_rotation",
+    "name": "偏航角",
+    "format": "y_rotation=-45..45",
+    "description": "目标选择器参数：偏航角"
+  },
+  {
+    "id": "nbt",
+    "name": "NBT数据",
+    "format": "nbt={Health:20.0f}",
+    "description": "目标选择器参数：NBT数据"
+  },
+  {
+    "id": "predicate",
+    "name": "谓词",
+    "format": "predicate=minecraft:my_pack:my_predicate",
+    "description": "目标选择器参数：谓词"
+  },
+  {
+    "id": "advancements",
+    "name": "进度",
+    "format": "advancements={minecraft:story/mine_diamond=true}",
+    "description": "目标选择器参数：进度"
+  }
+]

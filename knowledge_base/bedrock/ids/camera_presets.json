@@ -1,0 +1,22 @@
+[
+  {
+    "id": "minecraft:first_person",
+    "name": "第一人称",
+    "description": "第一人称视角"
+  },
+  {
+    "id": "minecraft:free",
+    "name": "自由视角",
+    "description": "可自由移动的脱离视角"
+  },
+  {
+    "id": "minecraft:third_person",
+    "name": "第三人称",
+    "description": "角色背后第三人称"
+  },
+  {
+    "id": "minecraft:third_person_front",
+    "name": "第三人称正面",
+    "description": "角色正面第三人称"
+  }
+]

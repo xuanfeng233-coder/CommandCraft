@@ -1,0 +1,33 @@
+{
+  "name": "aimassist",
+  "syntax": "/aimassist <players: target> set [xAngle: float] [yAngle: float] [maxDistance: float] [targetMode: distance|angle] [presetId: string] | /aimassist <players: target> clear",
+  "description": "修改玩家的瞄准辅助（aim assist），用于主机/触屏等场景下自动微调准星指向目标",
+  "category": "advanced",
+  "parameters": [
+    {
+      "name": "set <players: target> [xAngle: float] [yAngle: float] [maxDistance: float] [targetMode: distance|angle] [presetId: string]",
+      "type": "子命令",
+      "required": false,
+      "description": "为目标玩家设置瞄准辅助。xAngle为水平角度（默认50），yAngle为垂直角度，maxDistance为生效的最大距离（方块），targetMode为目标选择模式（distance按距离优先 / angle按角度优先），presetId为可选的瞄准辅助预设ID（在行为包中定义，可细化目标优先级与排除规则）"
+    },
+    {
+      "name": "clear <players: target>",
+      "type": "子命令",
+      "required": false,
+      "description": "清除目标玩家的瞄准辅助设置，恢复默认行为"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/aimassist @a set 50 50 16 distance",
+      "description": "为所有玩家设置瞄准辅助：水平/垂直角度50度，16格内按距离优先选择目标"
+    },
+    {
+      "input": "/aimassist @s clear",
+      "description": "清除自己的瞄准辅助设置"
+    }
+  ],
+  "bedrock_specific_notes": "aimassist 是基岩版（与教育版）独有命令，Java版没有等价命令。需要开启作弊，权限等级为游戏总监（Game Directors）。常配合 camera 命令制作的过场或第三方视角玩法、以及主机/触屏输入设备下的射击/对战类玩法使用。presetId 引用的瞄准辅助预设需在行为包的相机系统（Camera System）中定义。targetMode 仅支持 distance 与 angle 两种取值。",
+  "version_added": "1.21.50",
+  "since": "1.21.50"
+}

@@ -1,0 +1,270 @@
+{
+  "name": "execute",
+  "syntax": "/execute <subcommand> ...",
+  "description": "以指定实体身份、位置或条件执行命令，支持链式组合多个子命令，支持store存储结果",
+  "category": "execution",
+  "parameters": [
+    {
+      "name": "as <targets>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行者身份为指定目标，不改变执行位置"
+    },
+    {
+      "name": "at <targets>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置、朝向和维度为指定目标的位置、朝向和维度"
+    },
+    {
+      "name": "positioned <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置为指定坐标"
+    },
+    {
+      "name": "positioned as <targets>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改命令执行位置为指定目标的位置"
+    },
+    {
+      "name": "positioned over <heightmap>",
+      "type": "子命令",
+      "required": false,
+      "description": "将执行位置的Y坐标设置为指定高度图上方。heightmap可选：world_surface、motion_blocking、motion_blocking_no_leaves、ocean_floor"
+    },
+    {
+      "name": "facing <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "使执行朝向面向指定坐标"
+    },
+    {
+      "name": "facing entity <targets> <anchor>",
+      "type": "子命令",
+      "required": false,
+      "description": "使执行朝向面向指定实体的眼睛(eyes)或脚部(feet)"
+    },
+    {
+      "name": "rotated <yaw> <pitch>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行朝向为指定角度"
+    },
+    {
+      "name": "rotated as <targets>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行朝向与指定目标一致"
+    },
+    {
+      "name": "align <axes>",
+      "type": "子命令",
+      "required": false,
+      "description": "将执行位置对齐到方块网格（向下取整），axes可为x、y、z的任意组合如xyz"
+    },
+    {
+      "name": "anchored <anchor>",
+      "type": "子命令",
+      "required": false,
+      "description": "将执行锚点设为眼睛(eyes)或脚部(feet)位置"
+    },
+    {
+      "name": "in <dimension>",
+      "type": "子命令",
+      "required": false,
+      "description": "更改执行维度（minecraft:overworld、minecraft:the_nether、minecraft:the_end）"
+    },
+    {
+      "name": "store result|success <target> ...",
+      "type": "子命令",
+      "required": false,
+      "description": "将后续命令的返回值(result)或成功次数(success)存储到指定位置"
+    },
+    {
+      "name": "store result|success score <targets> <objective>",
+      "type": "子命令",
+      "required": false,
+      "description": "将结果存储到计分板分数"
+    },
+    {
+      "name": "store result|success block <pos> <path> <type> <scale>",
+      "type": "子命令",
+      "required": false,
+      "description": "将结果存储到方块实体的NBT路径。type可选：byte、short、int、long、float、double"
+    },
+    {
+      "name": "store result|success entity <target> <path> <type> <scale>",
+      "type": "子命令",
+      "required": false,
+      "description": "将结果存储到实体的NBT路径"
+    },
+    {
+      "name": "store result|success storage <target> <path> <type> <scale>",
+      "type": "子命令",
+      "required": false,
+      "description": "将结果存储到命令存储（command storage）的NBT路径"
+    },
+    {
+      "name": "store result|success bossbar <id> value|max",
+      "type": "子命令",
+      "required": false,
+      "description": "将结果存储到Boss血条的当前值或最大值"
+    },
+    {
+      "name": "if|unless block <pos> <block>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：指定位置是否为指定方块（含方块状态匹配）"
+    },
+    {
+      "name": "if|unless blocks <start> <end> <destination> all|masked",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：两个区域的方块是否匹配"
+    },
+    {
+      "name": "if|unless entity <entities>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：是否存在匹配的实体"
+    },
+    {
+      "name": "if|unless score <target> <objective> matches <range>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：目标的计分板分数是否在指定范围内（如 1..5, ..10, 3..）"
+    },
+    {
+      "name": "if|unless score <target> <targetObjective> <operation> <source> <sourceObjective>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：比较两个目标的计分板分数。operation: <, <=, =, >=, >"
+    },
+    {
+      "name": "if|unless data block <pos> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：方块实体是否存在指定NBT路径的数据"
+    },
+    {
+      "name": "if|unless data entity <target> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：实体是否存在指定NBT路径的数据"
+    },
+    {
+      "name": "if|unless data storage <source> <path>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：命令存储是否存在指定NBT路径的数据"
+    },
+    {
+      "name": "if|unless predicate <predicate>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：是否满足指定的谓词（predicate）条件"
+    },
+    {
+      "name": "if|unless biome <pos> <biome>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：指定位置是否为指定生物群系"
+    },
+    {
+      "name": "if|unless dimension <dimension>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：当前执行维度是否为指定维度"
+    },
+    {
+      "name": "if|unless loaded <pos>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：指定位置的区块是否已加载"
+    },
+    {
+      "name": "if|unless items block <pos> <slots> <item_predicate>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：方块容器指定槽位是否包含匹配的物品"
+    },
+    {
+      "name": "if|unless items entity <targets> <slots> <item_predicate>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：实体指定槽位是否包含匹配的物品"
+    },
+    {
+      "name": "if|unless function <function>",
+      "type": "子命令",
+      "required": false,
+      "description": "条件判断：执行函数并检查其返回值是否非零（1.20.2+）"
+    },
+    {
+      "name": "on <relation>",
+      "type": "子命令",
+      "required": false,
+      "description": "选择与当前执行者有指定关系的实体。relation: attacker、controller、leasher、origin、owner、passengers、target、vehicle"
+    },
+    {
+      "name": "summon <entity>",
+      "type": "子命令",
+      "required": false,
+      "description": "在执行位置生成实体并以该实体继续执行"
+    },
+    {
+      "name": "run <command>",
+      "type": "子命令",
+      "required": true,
+      "description": "执行指定的命令。必须作为execute链的最后一个子命令"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/execute as @a at @s run tp @s ~ ~1 ~",
+      "description": "以所有玩家的身份在各自位置向上传送1格"
+    },
+    {
+      "input": "/execute at @e[type=minecraft:armor_stand,name=spawn] run summon minecraft:zombie ~ ~ ~",
+      "description": "在所有名为spawn的盔甲架位置生成僵尸"
+    },
+    {
+      "input": "/execute store result score @s timer run data get entity @s Pos[0]",
+      "description": "将自己的X坐标存储到timer计分板分数中"
+    },
+    {
+      "input": "/execute store result bossbar minecraft:hp value run scoreboard players get @s health",
+      "description": "将自己的health分数存储到Boss血条的当前值"
+    },
+    {
+      "input": "/execute as @a at @s if block ~ ~-1 ~ minecraft:diamond_block run effect give @s minecraft:speed 5 2",
+      "description": "给站在钻石块上的所有玩家5秒的速度III效果"
+    },
+    {
+      "input": "/execute if data entity @s {SelectedItem:{id:\"minecraft:diamond_sword\"}} run say 我手持钻石剑！",
+      "description": "检测自己主手是否持有钻石剑"
+    },
+    {
+      "input": "/execute store result score @s count run clear @s minecraft:diamond 0",
+      "description": "将自己拥有的钻石数量存储到count分数中（不实际清除）"
+    },
+    {
+      "input": "/execute as @a at @s anchored eyes run particle minecraft:flame ^ ^ ^1",
+      "description": "在所有玩家视线前方1格处生成火焰粒子"
+    },
+    {
+      "input": "/execute if score @s kills matches 10.. run title @s title {\"text\":\"击杀达人！\",\"color\":\"gold\"}",
+      "description": "当自己击杀数达到10以上时显示金色标题"
+    },
+    {
+      "name": "on relation示例",
+      "input": "/execute as @e[type=minecraft:zombie] on target run effect give @s minecraft:glowing 5",
+      "description": "让所有僵尸的攻击目标获得发光效果"
+    }
+  ],
+  "java_specific_notes": "Java版execute命令相比基岩版有重要的独有功能：(1) store子命令可将命令结果存储到计分板、NBT、Boss血条等位置；(2) if/unless data可检测NBT数据是否存在；(3) if/unless predicate可使用数据包谓词；(4) on子命令可选择有特定关系的实体；(5) summon子命令可在链中生成实体；(6) positioned over可按高度图定位；(7) if/unless biome/dimension/loaded/items/function等条件检测。store是Java版最强大的特性之一，可以实现不依赖额外命令的数据存储。",
+  "version_notes": "1.13之前：使用旧的 /execute <entity> <pos> <command> 和 /execute ... detect ... 语法。1.13及以后：完全重写为子命令链式语法 /execute (as|at|positioned|rotated|facing|in|if|unless|store|run ...)，旧的 detect 由 if block 取代。1.19.4新增 on 子命令（按关系选择实体），1.19.4新增 summon 子命令，positioned over 高度图定位等。",
+  "version_added": "1.13"
+}

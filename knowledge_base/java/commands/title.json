@@ -1,0 +1,74 @@
+{
+  "name": "title",
+  "syntax": "/title <targets> clear|reset|title|subtitle|actionbar|times ...",
+  "description": "在玩家屏幕上显示标题文本",
+  "category": "display",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": true,
+      "description": "要显示标题的目标玩家"
+    },
+    {
+      "name": "clear",
+      "type": "子命令",
+      "required": false,
+      "description": "清除当前显示的标题"
+    },
+    {
+      "name": "reset",
+      "type": "子命令",
+      "required": false,
+      "description": "重置标题的淡入、停留、淡出时间为默认值"
+    },
+    {
+      "name": "title <text>",
+      "type": "子命令",
+      "required": false,
+      "description": "显示主标题（大字）。text为JSON文本组件"
+    },
+    {
+      "name": "subtitle <text>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置副标题（需要先发送title才会显示）。text为JSON文本组件"
+    },
+    {
+      "name": "actionbar <text>",
+      "type": "子命令",
+      "required": false,
+      "description": "在快捷栏上方显示文本。text为JSON文本组件"
+    },
+    {
+      "name": "times <fadeIn> <stay> <fadeOut>",
+      "type": "子命令",
+      "required": false,
+      "description": "设置标题的淡入、停留、淡出时间（单位为游戏刻，20刻=1秒）"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/title @a title {\"text\":\"欢迎！\",\"color\":\"gold\",\"bold\":true}",
+      "description": "向所有玩家显示金色粗体的'欢迎！'标题"
+    },
+    {
+      "input": "/title @a subtitle {\"text\":\"享受游戏\",\"color\":\"yellow\"}",
+      "description": "设置副标题（需配合title子命令使用）"
+    },
+    {
+      "input": "/title @a actionbar {\"text\":\"生命值: \",\"color\":\"red\",\"extra\":[{\"score\":{\"name\":\"@s\",\"objective\":\"health\"},\"color\":\"white\"}]}",
+      "description": "在动作栏显示玩家的生命值分数"
+    },
+    {
+      "input": "/title @a times 10 60 10",
+      "description": "设置标题淡入0.5秒、停留3秒、淡出0.5秒"
+    },
+    {
+      "input": "/title @a clear",
+      "description": "清除所有玩家屏幕上的标题"
+    }
+  ],
+  "java_specific_notes": "Java版title命令直接使用JSON文本组件（支持color、bold、italic、underlined、strikethrough、obfuscated、clickEvent、hoverEvent、score、selector、keybind、translate等）。与基岩版不同，Java版没有titleraw命令，title本身就支持JSON格式。副标题必须在发送title之前或同时设置。",
+  "version_added": "1.8"
+}

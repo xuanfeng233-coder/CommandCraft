@@ -1,0 +1,44 @@
+{
+  "name": "spawnpoint",
+  "syntax": "/spawnpoint [<targets>] [<pos>] [<angle>]",
+  "description": "设置玩家的个人重生点",
+  "category": "player_management",
+  "parameters": [
+    {
+      "name": "targets",
+      "type": "target",
+      "required": false,
+      "description": "目标玩家",
+      "default": "@s"
+    },
+    {
+      "name": "pos",
+      "type": "x y z",
+      "required": false,
+      "description": "重生点坐标",
+      "default": "执行者位置"
+    },
+    {
+      "name": "angle",
+      "type": "float",
+      "required": false,
+      "description": "重生时面朝的角度"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/spawnpoint @s",
+      "description": "将自己的重生点设为当前位置"
+    },
+    {
+      "input": "/spawnpoint @a 0 64 0",
+      "description": "将所有玩家的重生点设为(0,64,0)"
+    },
+    {
+      "input": "/spawnpoint @s ~ ~ ~ 90",
+      "description": "设置重生点在当前位置，面朝西方"
+    }
+  ],
+  "java_specific_notes": "Java版spawnpoint支持angle参数设置重生朝向。重生点可以设置在任何维度。如果重生点的方块被阻挡，玩家会在附近安全位置重生。",
+  "version_added": "1.0"
+}

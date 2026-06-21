@@ -1,0 +1,31 @@
+{
+  "id": "minecraft:tnt",
+  "inherits": "_common",
+  "description": "TNT实体NBT标签（已点燃的TNT）",
+  "tags": [
+    {
+      "name": "fuse",
+      "type": "short",
+      "description": "爆炸倒计时刻数，默认80刻（4秒）",
+      "default": 80
+    },
+    {
+      "name": "block_state",
+      "type": "compound",
+      "description": "TNT的方块状态",
+      "children": [
+        {
+          "name": "Name",
+          "type": "string",
+          "description": "方块ID",
+          "default": "minecraft:tnt"
+        },
+        {
+          "name": "Properties",
+          "type": "compound",
+          "description": "方块属性"
+        }
+      ]
+    }
+  ]
+}

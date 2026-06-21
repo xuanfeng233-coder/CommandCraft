@@ -1,0 +1,50 @@
+{
+  "name": "datapack",
+  "syntax": "/datapack enable|disable|list <name> ...",
+  "description": "管理数据包",
+  "category": "data_management",
+  "parameters": [
+    {
+      "name": "enable <name> [first|last|before <existing>|after <existing>]",
+      "type": "子命令",
+      "required": false,
+      "description": "启用指定数据包。可指定加载顺序（first最先、last最后、before/after在指定包之前/之后）"
+    },
+    {
+      "name": "disable <name>",
+      "type": "子命令",
+      "required": false,
+      "description": "禁用指定数据包"
+    },
+    {
+      "name": "list [available|enabled]",
+      "type": "子命令",
+      "required": false,
+      "description": "列出数据包。available=可用但未启用的，enabled=已启用的"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/datapack list",
+      "description": "列出所有已启用的数据包"
+    },
+    {
+      "input": "/datapack list available",
+      "description": "列出所有可用但未启用的数据包"
+    },
+    {
+      "input": "/datapack enable \"file/my_datapack\"",
+      "description": "启用名为my_datapack的数据包"
+    },
+    {
+      "input": "/datapack disable \"file/my_datapack\"",
+      "description": "禁用名为my_datapack的数据包"
+    },
+    {
+      "input": "/datapack enable \"file/my_datapack\" first",
+      "description": "启用数据包并设为最先加载"
+    }
+  ],
+  "java_specific_notes": "datapack命令是Java版独有的。数据包名称格式为 file/<文件夹名> 或 file/<zip名>.zip。数据包加载顺序决定了资源覆盖优先级（后加载的优先）。vanilla数据包是内置的原版数据包，不能被禁用。数据包可以包含函数、进度、配方、战利品表、谓词、标签等。",
+  "version_added": "1.13"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "gamerule",
+  "syntax": "/gamerule <rule> [<value>]",
+  "description": "查询或设置游戏规则",
+  "category": "game_settings",
+  "parameters": [
+    {
+      "name": "rule",
+      "type": "GameRule",
+      "required": true,
+      "description": "游戏规则名称"
+    },
+    {
+      "name": "value",
+      "type": "bool 或 int",
+      "required": false,
+      "description": "规则的值。布尔规则用true/false，整数规则用数字。省略则查询当前值"
+    }
+  ],
+  "examples": [
+    {
+      "input": "/gamerule keepInventory true",
+      "description": "死亡时保留物品栏"
+    },
+    {
+      "input": "/gamerule mobGriefing false",
+      "description": "禁止生物破坏地形（包括苦力怕爆炸、末影人搬方块等）"
+    },
+    {
+      "input": "/gamerule doDaylightCycle false",
+      "description": "停止昼夜循环"
+    },
+    {
+      "input": "/gamerule doFireTick false",
+      "description": "禁止火焰蔓延"
+    },
+    {
+      "input": "/gamerule randomTickSpeed 100",
+      "description": "将随机刻速度设为100（加快作物生长等）"
+    },
+    {
+      "input": "/gamerule doWeatherCycle false",
+      "description": "停止天气变化"
+    },
+    {
+      "input": "/gamerule announceAdvancements false",
+      "description": "禁止广播进度完成消息"
+    },
+    {
+      "input": "/gamerule playersSleepingPercentage 50",
+      "description": "设置跳过夜晚需要的玩家睡觉百分比为50%"
+    }
+  ],
+  "java_specific_notes": "Java版支持的游戏规则比基岩版多。常用规则包括：keepInventory(保留物品)、mobGriefing(生物破坏)、doDaylightCycle(昼夜循环)、doWeatherCycle(天气循环)、doFireTick(火焰蔓延)、doMobSpawning(生物生成)、doTileDrops(方块掉落)、doEntityDrops(实体掉落)、doImmediateRespawn(立即重生)、naturalRegeneration(自然回血)、pvp(PVP)、randomTickSpeed(随机刻速度)、sendCommandFeedback(命令反馈)、showDeathMessages(死亡消息)、spawnRadius(出生半径)、spectatorsGenerateChunks(旁观者生成区块)、announceAdvancements(广播进度)、playersSleepingPercentage(睡觉百分比)、commandBlockOutput(命令方块输出)、commandModificationBlockLimit(命令修改方块上限)、maxCommandChainLength(最大命令链长度)、maxCommandForkCount(最大命令分叉数)。",
+  "version_added": "1.0"
+}

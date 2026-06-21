@@ -1,0 +1,107 @@
+{
+  "id": "minecraft:potion",
+  "inherits": "_common",
+  "description": "药水物品NBT标签（包括 potion, splash_potion, lingering_potion）",
+  "tags": [
+    {
+      "name": "Potion",
+      "type": "string",
+      "description": "药水类型ID",
+      "values": [
+        "minecraft:water",
+        "minecraft:mundane",
+        "minecraft:thick",
+        "minecraft:awkward",
+        "minecraft:night_vision",
+        "minecraft:long_night_vision",
+        "minecraft:invisibility",
+        "minecraft:long_invisibility",
+        "minecraft:leaping",
+        "minecraft:long_leaping",
+        "minecraft:strong_leaping",
+        "minecraft:fire_resistance",
+        "minecraft:long_fire_resistance",
+        "minecraft:swiftness",
+        "minecraft:long_swiftness",
+        "minecraft:strong_swiftness",
+        "minecraft:slowness",
+        "minecraft:long_slowness",
+        "minecraft:strong_slowness",
+        "minecraft:water_breathing",
+        "minecraft:long_water_breathing",
+        "minecraft:healing",
+        "minecraft:strong_healing",
+        "minecraft:harming",
+        "minecraft:strong_harming",
+        "minecraft:poison",
+        "minecraft:long_poison",
+        "minecraft:strong_poison",
+        "minecraft:regeneration",
+        "minecraft:long_regeneration",
+        "minecraft:strong_regeneration",
+        "minecraft:strength",
+        "minecraft:long_strength",
+        "minecraft:strong_strength",
+        "minecraft:weakness",
+        "minecraft:long_weakness",
+        "minecraft:luck",
+        "minecraft:turtle_master",
+        "minecraft:long_turtle_master",
+        "minecraft:strong_turtle_master",
+        "minecraft:slow_falling",
+        "minecraft:long_slow_falling"
+      ]
+    },
+    {
+      "name": "CustomPotionEffects",
+      "type": "list<compound>",
+      "description": "自定义药水效果列表",
+      "children": [
+        {
+          "name": "id",
+          "type": "string",
+          "description": "效果ID",
+          "id_category": "effects"
+        },
+        {
+          "name": "amplifier",
+          "type": "byte",
+          "description": "效果等级（0=一级）",
+          "default": 0
+        },
+        {
+          "name": "duration",
+          "type": "int",
+          "description": "持续刻数",
+          "default": 600
+        },
+        {
+          "name": "ambient",
+          "type": "byte",
+          "description": "是否为环境效果",
+          "values": [0, 1],
+          "default": 0
+        },
+        {
+          "name": "show_particles",
+          "type": "byte",
+          "description": "是否显示粒子",
+          "values": [0, 1],
+          "default": 1
+        },
+        {
+          "name": "show_icon",
+          "type": "byte",
+          "description": "是否显示图标",
+          "values": [0, 1],
+          "default": 1
+        }
+      ]
+    },
+    {
+      "name": "CustomPotionColor",
+      "type": "int",
+      "description": "自定义药水颜色（RGB十进制值）"
+    }
+  ]
+}
