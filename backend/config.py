@@ -76,6 +76,7 @@ WXPAY_ORDER_TTL_SECONDS = int(os.environ.get("WXPAY_ORDER_TTL_SECONDS", "1800"))
 WXPAY_ENABLED = bool(WXPAY_API_KEY)
 
 # Build Mode
+BUILD_USE_AGENT_LOOP = os.environ.get("BUILD_USE_AGENT_LOOP", "false").lower() in ("1", "true", "yes")
 BUILD_PROJECTS_DIR = BASE_DIR / "backend" / "data" / "build_projects"
 BUILD_MODEL = os.environ.get("BUILD_MODEL", "deepseek-reasoner")
 BUILD_CHAT_MODEL = os.environ.get("BUILD_CHAT_MODEL", "deepseek-chat")
