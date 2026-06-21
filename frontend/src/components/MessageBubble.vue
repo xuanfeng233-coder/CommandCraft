@@ -77,7 +77,7 @@ function handleParameterAnswer(answers: Record<string, string>) {
           :is-streaming="isStreaming"
         />
 
-        <!-- Task decomposition progress (shown instead of ProjectCard when present) -->
+        <!-- Task decomposition progress (task panel); the ProjectCard below shows the final result -->
         <TaskProgress
           v-if="message.subTasks && message.subTasks.length > 0"
           :sub-tasks="message.subTasks"
@@ -101,7 +101,7 @@ function handleParameterAnswer(answers: Record<string, string>) {
         </div>
 
         <ProjectCard
-          v-if="message.project && !(message.subTasks && message.subTasks.length > 0)"
+          v-if="message.project"
           :project="message.project"
         />
 
